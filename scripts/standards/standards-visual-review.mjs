@@ -533,7 +533,7 @@ function cardBody(documentKey, entries, runId) {
   }
   lines.push(
     '',
-    '**やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。',
+    '**やること**: 原因（生成器 scripts/build/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。',
     '',
     `**完了条件**: \`npm run standards-visual-review -- prepare --keys ${entries.map(([k]) => k).join(',')}\` で撮り直して判定し、record で全章が pass と台帳に記録される。`,
   );

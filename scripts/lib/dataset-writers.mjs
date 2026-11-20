@@ -67,7 +67,7 @@ export const WRITERS = {
     writer: ['script:measure-experiments', 'script:growth-triage', 'script:search-improvement', 'skill:nsm-experiment', 'automation:fetch-metrics'],
     note: '計測値（measurements）は measure-experiments（CI の fetch-metrics）。起票・開始・判定・中止は nsm-experiment。種類が search-strategy の実験だけ search-improvement。growth-triage は改善候補からの起票',
   },
-  'business.weekly': ['file:scripts/snapshot-weekly-metrics.mjs', 'automation:fetch-metrics'],
+  'business.weekly': ['file:scripts/reports/snapshot-weekly-metrics.mjs', 'automation:fetch-metrics'],
   'analysis.qualification-market': ['script:scan-qualification-market'],
   'analysis.civil-service-applicants': ['human'],
 

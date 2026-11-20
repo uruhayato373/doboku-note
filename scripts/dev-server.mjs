@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';
 
 const nextBin = resolve(repoRoot, 'node_modules', 'next', 'dist', 'bin', 'next');
-const mediaServer = resolve(repoRoot, 'scripts', 'local-media-server.mjs');
+const mediaServer = resolve(repoRoot, 'scripts', 'storage', 'local-media-server.mjs');
 const children = new Set();
 let stopping = false;
 

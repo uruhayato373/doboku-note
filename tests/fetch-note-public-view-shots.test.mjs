@@ -5,11 +5,11 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { MAX_SHOT_AGE_DAYS, shotAgeDays } from '../scripts/fetch-note-public-view-shots.mjs';
+import { MAX_SHOT_AGE_DAYS, shotAgeDays } from '../scripts/fetch/fetch-note-public-view-shots.mjs';
 import { jstDayOf } from '../scripts/lib/jst-date.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(REPO_ROOT, 'scripts', 'fetch-note-public-view-shots.mjs');
+const SCRIPT = join(REPO_ROOT, 'scripts', 'fetch', 'fetch-note-public-view-shots.mjs');
 
 function fixture(generatedAt, { shot = true } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'npv-'));

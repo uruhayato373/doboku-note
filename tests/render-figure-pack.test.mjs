@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
-import { renderFigurePack, validateFigurePack, FIGURE_SLIDES } from '../scripts/render-figure-pack.mjs';
+import { renderFigurePack, validateFigurePack, FIGURE_SLIDES } from '../scripts/build/render-figure-pack.mjs';
 import { figurePackLabels } from '../scripts/sns/lib/figure-pack-labels.mjs';
 function fixture(exam) {
   const root=mkdtempSync(join(tmpdir(),'dn-figure-pack-')),pack=`${exam}/keyword-packs/example`;

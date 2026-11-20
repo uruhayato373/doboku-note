@@ -178,7 +178,7 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 
 白書は公開元が正本（`origin.kind: external`）で、図を切り出した版を `vaultCopies` に置く。`check-reference-sources` は
 `vaultCopies` が Drive 台帳に載っていることを確かめる。vault の実体を台帳へ載せるのは
-`node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit`（vault へは書かない）。
+`node scripts/storage/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit`（vault へは書かない）。
 
 共通仕様書の旧文字起こしは `原資料PDF/共通仕様書/{整備局}/{PDF名}/ocr/` へ統合した。
 公開 `standards-library` / `standards-articles` は repo 側を入力とするため、Drive の物理移動には依存しない。

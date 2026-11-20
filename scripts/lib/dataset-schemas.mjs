@@ -827,7 +827,7 @@ export const RankWatch = z
   .superRefine(uniqueBy('recordId', 'recordId'))
   .meta({ title: '順位の見張り' });
 
-/** 暦月 × 商品の販売台帳（data/business/product-sales/<月>.json・DN-0947）。書き手は scripts/product-sales.mjs、読み方は scripts/lib/product-sales.mjs */
+/** 暦月 × 商品の販売台帳（data/business/product-sales/<月>.json・DN-0947）。書き手は scripts/reports/product-sales.mjs、読み方は scripts/lib/product-sales.mjs */
 const productSalesCoverage = z
   .object({
     status: z.enum(['measured', 'partial', 'account-only', 'unmeasured']).describe('measured=行の無い商品は計測済み・0 件／partial・account-only・unmeasured=行の無い商品は未計測（0 にしない）'),
@@ -894,7 +894,7 @@ export const BusinessProductSales = z
 const clickStatus = z.enum(['exact', 'window-mismatch', 'missing']).describe('GA4 の窓が月と一致（exact）・ずれ（window-mismatch）・月と重ならない（missing）');
 const salesReconciliationStatus = z.enum(['match', 'match-partial-month', 'mismatch', 'unverified']);
 
-/** サイトの note 送客クリック × note の売上の暦月の突合（data/business/records/site-to-sales-<月>.json）。書き手は scripts/report-site-to-sales.mjs */
+/** サイトの note 送客クリック × note の売上の暦月の突合（data/business/records/site-to-sales-<月>.json）。書き手は scripts/reports/report-site-to-sales.mjs */
 export const BusinessSiteToSales = z
   .object({
     schemaVersion: z.literal(1),

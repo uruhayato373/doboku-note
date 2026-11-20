@@ -60,7 +60,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 > **4xx は再送しない** — 400/403 は設定ミス、429 はクォータで、再送すると原因を隠したまま
 > 時間だけ延びる。契約は `tests/psi-retry.test.mjs`。
 > それでも欠測は 0 にならないので、**中央値の母数は「その URL が測れているバッチ」だけ**にする
-> （詳細は `scripts/report-psi-regression.mjs` 冒頭の「回帰」）。バッチの計測件数が 22 に満たない日は
+> （詳細は `scripts/reports/report-psi-regression.mjs` 冒頭の「回帰」）。バッチの計測件数が 22 に満たない日は
 > 「違反が消えた」ではなく「測れていない」を疑う。
 
 必要な GitHub Secret:
@@ -75,7 +75,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 3. 違反メトリクスごとに既知パターン（LCP 肥大・CLS 発生・INP 悪化等）へ親がマッピングする（下の「既知パターン」）。**`lcp_element`（selector/snippet）から LCP 要素を特定して打ち手を分岐**する（`<img loading="lazy">` なら `check-lcp-image-hints`／テキストなら render-blocking 側）
 4. `.claude/state/improvements/psi-{YYYY-MM-DD}.md` に優先度付きで出力
 
-> **判定原則（誤報防止）**: Critical は **field が AVERAGE/SLOW のときだけ**。lab は日次の振れが大きく、単発値・単発差分で Critical を立てない（field が FAST なら最大 Medium・回帰は直近5バッチ中央値）。真実源: [measurement-incidents.md](../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」。重大度と回帰の判定は `scripts/report-psi-regression.mjs`。
+> **判定原則（誤報防止）**: Critical は **field が AVERAGE/SLOW のときだけ**。lab は日次の振れが大きく、単発値・単発差分で Critical を立てない（field が FAST なら最大 Medium・回帰は直近5バッチ中央値）。真実源: [measurement-incidents.md](../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」。重大度と回帰の判定は `scripts/reports/report-psi-regression.mjs`。
 
 ## 既知パターン（違反 → 改善候補・旧 performance-auditor から移した）
 
@@ -142,9 +142,9 @@ High
 
 ## 関連
 
-- `scripts/fetch-psi-data.mjs` — PSI 計測本体
+- `scripts/fetch/fetch-psi-data.mjs` — PSI 計測本体
 - `scripts/search/psi-threshold-check.mjs` — しきい値比較
-- `scripts/report-psi-regression.mjs` — 重大度・回帰の判定（旧 performance-auditor）
+- `scripts/reports/report-psi-regression.mjs` — 重大度・回帰の判定（旧 performance-auditor）
 - `.github/workflows/psi-audit.yml` — 日次自動計測
 - `config/psi-config.json` — 設定の真実源
 - `config/psi-urls.txt` — 計測対象 URL リスト

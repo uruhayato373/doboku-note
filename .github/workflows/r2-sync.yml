@@ -1,7 +1,7 @@
 name: R2 Sync Images
 
 # content/site/**/img/** が変更されたとき、R2 に自動同期する。
-# 既存 scripts/upload-images-to-r2.mjs（S3 API）を流用。
+# 既存 scripts/storage/upload-images-to-r2.mjs（S3 API）を流用。
 # バケットを 1 回一覧して中身（MD5）が変わった画像だけ送る（2026-10-20。旧実装は毎回全件を PutObject していた）。
 # MDX は R2 へ置かない（公開 URL で下書きまで読めるため）。
 # R2 専用 API Token（access key + secret）で認証。
@@ -80,7 +80,7 @@ jobs:
           CLOUDFLARE_CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
-        run: node scripts/purge-r2-changed.mjs --list "$RUNNER_TEMP/r2-changed.json"
+        run: node scripts/storage/purge-r2-changed.mjs --list "$RUNNER_TEMP/r2-changed.json"
 
       # 同期の後に main の画像と R2 の差分を確かめる（未同期・サイズ不一致は赤）。2026-10-24 まで週次の r2-audit.yml が
       # 別に見ていた（Issue も出さず Step Summary だけ）のを、上げた直後のこの段へ移した（DN-0817）。R2 にしか無い画像は許容。

@@ -160,7 +160,7 @@ async function render() {
   const engine = await ensureVoicevox();
   try {
     const run = (cmd, argv) => execFileSync(cmd, argv, { cwd: ROOT, stdio: 'inherit' });
-    run(process.execPath, ['scripts/render-longform.mjs', '--pack-dir', join(ROOT, packDirOf(pack)), '--speaker', '13', '--loudnorm', '--resume']);
+    run(process.execPath, ['scripts/build/render-longform.mjs', '--pack-dir', join(ROOT, packDirOf(pack)), '--speaker', '13', '--loudnorm', '--resume']);
     run('npm', ['run', '-s', 'media', '--', 'verify-render', '--work', pack]);
     if (pub.revisionOf) {
       run('npm', ['run', '-s', 'media', '--', 'promote', '--candidate', '--pub', pub.revisionOf, '--commit']);
@@ -412,7 +412,7 @@ function gateFacts(pack) {
   // 改訂版は描画の作業場を持たない。素材の sha と制作入力は投稿計画の検査が照合する
   const verify = pub.revisionOf
     ? spawnSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'], { cwd: ROOT, encoding: 'utf8' })
-    : spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
+    : spawnSync(process.execPath, [join(ROOT, 'scripts/storage/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
   const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/checks/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
   const video = mediaById.get(pub.media?.video);
   return {

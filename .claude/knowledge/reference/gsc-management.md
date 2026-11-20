@@ -63,7 +63,7 @@ coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bi
 
 2026-08-22 の URL 移行後も旧 `/docs` が表示の 32%（28 日で 4,487 / 14,183）を取り、新 URL 18 件が「Google が旧 URL を正規に選択」の重複だった（2026-09-23）。
 Google の「Move a site with URL changes」（2026-08-20 更新）の手順どおり、旧 URL だけを載せた `sitemap-legacy.xml` を
-`scripts/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。移転日より後に作った記事（frontmatter の created が 2026-08-22 より後）の `/docs/<slug>` は実在したことが無いので出さない（2026-10-11・載せていた 254 件が GSC の「検出 - インデックス未登録」を 173 件水増ししていた）。
+`scripts/build/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。移転日より後に作った記事（frontmatter の created が 2026-08-22 より後）の `/docs/<slug>` は実在したことが無いので出さない（2026-10-11・載せていた 254 件が GSC の「検出 - インデックス未登録」を 173 件水増ししていた）。
 `sitemap.xml`（index-coverage・IndexNow・check-seo-build の母集合）には混ぜない。GSC の旧 sitemap に出る「リダイレクト」警告は Google の手順上ふつうなので無視する。
 期限 `LEGACY_SITEMAP_UNTIL`（`scripts/lib/legacy-sitemap.mjs`）を過ぎたビルドでは自動で出さなくなる。延長・前倒しは旧 URL の表示比率（`gsc-page` の `/docs/` 行）で判断する。
 
@@ -571,7 +571,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 ### 2026-09-24（part-N の sitemap 復帰）
 
 - 判断: 2026-09-17 に外した `/standards/` の逐語分冊 part-N（当時 133 件）を sitemap へ戻す。復帰条件「`/exam/` の索引率 70%」は 9/23 の batch で `/exam/` 1,015 / 1,207＝84.1% になり満たした（サイト全体 79.9%・#485 は同日自動クローズ）
-- 変更: `scripts/generate-sitemap.mjs` の除外と `scripts/checks/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
+- 変更: `scripts/build/generate-sitemap.mjs` の除外と `scripts/checks/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
 - 読み方の注意: 戻した翌週の batch では part-N（9/7 時点で登録済み 25 / 133）の分だけ検出-未登録が増え、indexed_ratio が数 pt 下がる見込み。**part-N を除いた `/exam/` の索引率で比較する**。自動レビューはこの増加を異常と扱わない
 
 ### 2026-09-24（旧 URL 一時 sitemap の採用）

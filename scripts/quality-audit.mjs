@@ -411,8 +411,8 @@ export const CHECKS = [
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。デッドコードが baseline から増えていないか' },
   { id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: true, note: 'ビルド済み out/ の記事カード内 note 密度・商品重複と転職広告の配置を検査する。対象 HTML が 0 件なら失敗するため、CI は build 後に --only cta-density を実行する', skip: () => existsSync(join(ROOT, 'out', 'index.html')) ? null : 'ビルド成果物 out/index.html が無い（CI は build ジョブが build 後に --only cta-density で回す）' },
-  { id: 'technical-seo', cmd: ['node', 'scripts/report-technical-seo.mjs'], timeout: 60_000, ci: false, note: '技術 SEO の記録（build 検査の履歴・seo-meta・index-coverage・sitemap）の悪化と欠測を数える（旧 technical-seo-auditor・DN-1242）。入力はコミット済みの記録だけで CI でも走る。読み手＝/google-search-growth（--json を親が読み、何を先に直すかを決める）。FAIL は weekly-review-guard の report digest が Issue へ集約' },
-  { id: 'psi-regression', cmd: ['node', 'scripts/report-psi-regression.mjs'], timeout: 60_000, ci: false, note: 'PSI の履歴から重大度（Critical は field が AVERAGE/SLOW のときだけ）と回帰（直近 5 バッチの中央値）を決める（旧 performance-auditor・DN-1242）。入力はコミット済みの PSI 履歴（台帳 psi.batch）。読み手＝/psi-audit・/google-search-growth・/gsc-review（--json を親が読み、改善案を決める）と週次レビュー（inputs の report-psi-regression）。Critical は weekly-review-guard の report digest が Issue へ集約' },
+  { id: 'technical-seo', cmd: ['node', 'scripts/reports/report-technical-seo.mjs'], timeout: 60_000, ci: false, note: '技術 SEO の記録（build 検査の履歴・seo-meta・index-coverage・sitemap）の悪化と欠測を数える（旧 technical-seo-auditor・DN-1242）。入力はコミット済みの記録だけで CI でも走る。読み手＝/google-search-growth（--json を親が読み、何を先に直すかを決める）。FAIL は weekly-review-guard の report digest が Issue へ集約' },
+  { id: 'psi-regression', cmd: ['node', 'scripts/reports/report-psi-regression.mjs'], timeout: 60_000, ci: false, note: 'PSI の履歴から重大度（Critical は field が AVERAGE/SLOW のときだけ）と回帰（直近 5 バッチの中央値）を決める（旧 performance-auditor・DN-1242）。入力はコミット済みの PSI 履歴（台帳 psi.batch）。読み手＝/psi-audit・/google-search-growth・/gsc-review（--json を親が読み、改善案を決める）と週次レビュー（inputs の report-psi-regression）。Critical は weekly-review-guard の report digest が Issue へ集約' },
   {
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
     note: '読み手＝/google-search-growth（親が読む）。build 済み out/ を直接検査し、weekly-review-guard の report digest でも拾う',
@@ -429,7 +429,7 @@ export const CHECKS = [
     { label: 'search-opportunities', npm: 'report-search-opportunities', timeout: 30_000, note: '検索キーワード戦略の設定と GSC 検索語×ページ集計から改善候補を組み立てられるか（committed state だけを読む・壁時計に依存しない）。候補の中身は週次レビューが読んで起票する' },
     {
       label: 'monetization-coverage',
-      cmd: ['npx', 'tsx', 'scripts/report-monetization-coverage.mts', '--check'],
+      cmd: ['npx', 'tsx', 'scripts/reports/report-monetization-coverage.mts', '--check'],
       timeout: 120_000,
       note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
     },
@@ -437,31 +437,31 @@ export const CHECKS = [
     // 入力はコミット済み GA4/GSC/A8 スナップショットと doc-meta-index なので creds 不要で常に走る。
     {
       label: 'buildjob-affiliate-report',
-      cmd: ['node', 'scripts/report-buildjob-affiliate.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-buildjob-affiliate.mjs', '--check'],
       timeout: 60_000,
       note: 'BuildJob クリック×A8 成果の EPC 集計が実行可能か（成果物は書かない・月次レビューが読む）',
     },
     {
       label: 'career-funnel-report',
-      cmd: ['node', 'scripts/report-career-funnel.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-career-funnel.mjs', '--check'],
       timeout: 60_000,
       note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
     },
     {
       label: 'demand-map-report',
-      cmd: ['node', 'scripts/report-demand-map.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-demand-map.mjs', '--check'],
       timeout: 30_000,
       note: '悩みと商品候補の地図（判定日・判断待ち・軸ごとの実売・悩みの検索語・四半期の調査の期限）が完走するか（成果物は書かない。読み手＝月次レビュー）',
     },
     {
       label: 'taxonomy-wiring-report',
-      cmd: ['node', 'scripts/report-taxonomy-wiring.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-taxonomy-wiring.mjs', '--check'],
       timeout: 60_000,
       note: '分類と回遊の配線の点検（テーマ所属・昇格・取りこぼし・回遊の質）が doc-meta-index とコミット済みの計測で完走するか（成果物は書かない。読み手＝週次の点検 --actions と月次レビュー）',
     },
     {
       label: 'exam-ssot-status',
-      cmd: ['node', 'scripts/report-exam-ssot.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-exam-ssot.mjs', '--check'],
       timeout: 30_000,
       note: '資格の正本（qualification-registry・exam-calendar・exam-stats）の照合状態レポートが実行可能か（成果物は書かない。要対応の中身は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順）',
     },
@@ -473,13 +473,13 @@ export const CHECKS = [
     },
     {
       label: 'qualification-market-report',
-      cmd: ['node', 'scripts/report-qualification-market.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-qualification-market.mjs', '--check'],
       timeout: 30_000,
       note: '資格ごとの展開の判断材料（出題形式・受験者数・売上・市場の混み具合）の一覧が実行可能か（成果物は書かない。市場スキャンの古さなど要対応は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順と管理画面 展開の判断）',
     },
     {
       label: 'site-to-sales-report',
-      cmd: ['node', 'scripts/report-site-to-sales.mjs', '--check'],
+      cmd: ['node', 'scripts/reports/report-site-to-sales.mjs', '--check'],
       timeout: 60_000,
       note: 'サイト送客クリック×note流入元×商品別売上の月次突合が実行可能か（成果物は書かない・月次レビューが読む。入力はコミット済み GA4/note/sales.json）',
     },

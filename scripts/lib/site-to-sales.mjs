@@ -1,6 +1,6 @@
 /**
  * site-to-sales.mjs — サイトの note 送客クリック × note 側のサイト経由閲覧 × 商品別売上を
- * 暦月 × note 商品で突き合わせる純関数（入出力は scripts/report-site-to-sales.mjs）。
+ * 暦月 × note 商品で突き合わせる純関数（入出力は scripts/reports/report-site-to-sales.mjs）。
  *
  * 結合キー = note 商品 ID:
  *   - カタログ商品（マガジン・/n/ 単品・メンバーシップ）: src/lib/note-magazines.ts の id

@@ -111,7 +111,7 @@ export interface CoconalaService {
  *       価格は note 基準 × 1.1 を価格刻みで切り上げた額以上（check-coconala-wiring 検査10・coconala-operations.md §2.6）
  *   2. 商品画像: scripts/coconala/coconala-thumb.mjs の THUMB_COPY に追加 → npm run coconala-thumb で
  *      thumb-<id から coconala- を除いた key>.png を生成
- *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
+ *   3. コンテンツPDF商品(C系)なら: scripts/build/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
  *      → npm run coconala-content-pdf（funnel 除去＋note URL 0件検証）
  *   4. 売上記録: config/sales-product-map.json の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
  *   5. ドキュメント: .claude/knowledge/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2

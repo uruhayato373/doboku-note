@@ -176,7 +176,7 @@ const RULES = [
     reason: 'satori の中間生成物。背景写真を data:image base64 で丸ごと内包するため巨大。cover.png はこの SVG から sharp で焼くだけで、SVG 自体を読むコードは存在しない（repo 全体 grep で参照ゼロを確認）',
     regenFrom: `article*.md frontmatter の cover ブロック + ${datasetPath('config.ogp-backgrounds', { name: '<exam>' })}`,
     usedBy: [],
-    generator: 'scripts/generate-note-covers.mjs',
+    generator: 'scripts/build/generate-note-covers.mjs',
     visibility: () => 'n/a',
   },
   {
@@ -186,7 +186,7 @@ const RULES = [
     reason: 'note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、note へ登録した版の控えとして R2 に置く。書くのは Mac の週次 note-sync-routine で CI は読み書きしないので private 一本（2026-09-05 DN-0171 で byVisibility を廃止）',
     regenFrom: 'article*.md frontmatter の cover ブロック（generate-note-covers）',
     usedBy: ['scripts/note/note-sync-routine.mjs', 'scripts/note/note-update-body.mjs'],
-    generator: 'scripts/generate-note-covers.mjs',
+    generator: 'scripts/build/generate-note-covers.mjs',
     visibility: (p) => noteDirVisibility(p),
   },
   {
@@ -272,7 +272,7 @@ const RULES = [
     test: (p) => /^config\/ogp\//.test(p), // path-literal-ok: git の全 blob を置き場の接頭辞で分類する規則表の 1 行（config/ogp/ 配下全体が対象で台帳の 1 id ではない）
     bucket: 'KEEP_GIT',
     reason: '資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）',
-    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala/coconala-thumb.mjs', 'scripts/ogp-create'], generator: null, visibility: () => 'n/a',
+    regenFrom: null, usedBy: ['scripts/build/generate-note-covers.mjs', 'scripts/build/generate-magazine-covers.mjs', 'scripts/coconala/coconala-thumb.mjs', 'scripts/ogp-create'], generator: null, visibility: () => 'n/a',
   },
   {
     id: 'public-static',

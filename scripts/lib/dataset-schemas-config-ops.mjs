@@ -352,7 +352,7 @@ export const ConfigAffiliatePlacements = z
   })
   .meta({ title: '転職アフィリエイトの配置ルール' });
 
-/** 画面の点検（scripts/site-visual-review.mjs）が撮るページと画面幅（config/site-visual-review.json） */
+/** 画面の点検（scripts/reports/site-visual-review.mjs）が撮るページと画面幅（config/site-visual-review.json） */
 const SiteVisualExpect = z.object({ note: z.boolean().optional(), affiliate: z.boolean().optional(), coconala: z.boolean().optional() }).strict();
 export const ConfigSiteVisualReview = z
   .object({

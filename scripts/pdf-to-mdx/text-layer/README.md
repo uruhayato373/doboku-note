@@ -49,7 +49,7 @@ python3 scripts/pdf-to-mdx/text-layer/classify_text_layer.py
 ## 4. 登録
 
 ```bash
-node scripts/record-reference-book-artifacts.mjs --source-id <id> \
+node scripts/fetch/record-reference-book-artifacts.mjs --source-id <id> \
   --ocr-path content/sources/books/<dir>/ocr/<章>.md \
   --ocr-pages p0006,p0007,... --ocr-method pdf-text-layer --commit
 ```

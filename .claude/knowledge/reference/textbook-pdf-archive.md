@@ -56,11 +56,11 @@ rclone config create doboku-gdrive drive
 
 ```bash
 # R2 にしか無いものを vault へ寄せる（既に vault にある同一 sha256 は複製せず adopt）
-node scripts/drive-vault-sync.mjs --group textbook-source-pdf --from-r2 --dedupe-by-sha --commit
-node scripts/drive-vault-sync.mjs --group textbook-page-image --from-r2 --dedupe-by-sha --commit
+node scripts/storage/drive-vault-sync.mjs --group textbook-source-pdf --from-r2 --dedupe-by-sha --commit
+node scripts/storage/drive-vault-sync.mjs --group textbook-page-image --from-r2 --dedupe-by-sha --commit
 
 # 検証（ローカル実体 ↔ 台帳 ↔ Drive の3者照合。--cloud で Drive API の md5 まで見る）
-node scripts/drive-vault-sync.mjs --group textbook-source-pdf --verify --deep --cloud
+node scripts/storage/drive-vault-sync.mjs --group textbook-source-pdf --verify --deep --cloud
 
 # 参考文献 ID 単位の新しい書籍 bundle（dry-run → commit → 原本と全ページのクラウド照合）
 npm run build-reference-book-pages -- --source-id <referenceId>
@@ -73,12 +73,12 @@ npm run drive-vault-sync -- --group reference-book-source-pdf --verify --deep --
 npm run drive-vault-sync -- --group reference-book-page-image --verify --deep --cloud
 
 # 文字起こしを同期・検証（frontmatter と原本の対応は reference-sources の deep 検査）
-node scripts/drive-vault-sync.mjs --group source-transcript --commit
-node scripts/drive-vault-sync.mjs --group source-transcript --verify --deep --cloud
+node scripts/storage/drive-vault-sync.mjs --group source-transcript --commit
+node scripts/storage/drive-vault-sync.mjs --group source-transcript --verify --deep --cloud
 npm run check-reference-sources -- --deep
 
 # 必要なときに取り戻す（vault → repo。書名単位でパス指定）
-node scripts/drive-vault-sync.mjs --pull --path 'content/sources/textbook/技術士（総監）/' --commit
+node scripts/storage/drive-vault-sync.mjs --pull --path 'content/sources/textbook/技術士（総監）/' --commit
 
 # 台帳を経由せず Drive 上を一覧（容量を食わずに確認）
 rclone ls doboku-gdrive:doboku-note/原資料PDF/教材 | head

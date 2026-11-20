@@ -46,7 +46,7 @@ const IMPORT_DEPTH = 2;
 
 // コードではないが定期ジョブの挙動を変える設定ファイル。エントリと同じ workflow に紐づける。
 const CONFIG_OF_ENTRY = {
-  'scripts/fetch-psi-data.mjs': [datasetPath('config.psi-urls')],
+  'scripts/fetch/fetch-psi-data.mjs': [datasetPath('config.psi-urls')],
   'scripts/checks/lint-mdx-mobile.mjs': [datasetPath('config.content-rules')],
 };
 

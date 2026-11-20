@@ -11,8 +11,8 @@ title: note キャラクターカバー（V5・既定）
 
 | 入口 | 出力先 | 使いどころ |
 |---|---|---|
-| `node scripts/generate-note-covers.mjs [dir]` | `content/note/**/img/cover*.png` | 記事の手元生成（note への登録は下記の週次が自分で生成する） |
-| `node scripts/generate-magazine-covers.mjs [id]` | `<magazineDir>/_cover.png` | マガジンの通常生成 |
+| `node scripts/build/generate-note-covers.mjs [dir]` | `content/note/**/img/cover*.png` | 記事の手元生成（note への登録は下記の週次が自分で生成する） |
+| `node scripts/build/generate-magazine-covers.mjs [id]` | `<magazineDir>/_cover.png` | マガジンの通常生成 |
 | `npm run note-character-covers -- --source-root … --output-root …` | 独立出力先 ＋ `manifest.json` | 新デザインの全件確認。原稿ツリーに書かず照合用の hash・ポーズ・実描画枠を残す（Drive `制作物/noteカバー/POP版/`） |
 
 ```bash

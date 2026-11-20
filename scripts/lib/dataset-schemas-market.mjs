@@ -624,7 +624,7 @@ const scanHit = (item, { total = false } = {}) =>
       if (h.error !== undefined && h.items.length > 0) flag(ctx, ['items'], '取得に失敗した語（error あり）が items を持っている');
     });
 
-/** 資格ごとの市場スキャン（data/analysis/qualification-market/<日付>.json）。取得は scripts/scan-qualification-market.mjs。1 ファイル＝その日の市場で、前のファイルを土台に取った語だけ上書きする */
+/** 資格ごとの市場スキャン（data/analysis/qualification-market/<日付>.json）。取得は scripts/reports/scan-qualification-market.mjs。1 ファイル＝その日の市場で、前のファイルを土台に取った語だけ上書きする */
 export const QualificationMarketScan = z
   .object({
     schemaVersion: z.literal(1),
@@ -736,7 +736,7 @@ export const A8Catalog = z
   })
   .meta({ title: 'A8 の提携案件' });
 
-/** A8 の画面取得を最後に回した記録（data/a8/ui-last-run.json）。書くのは scripts/fetch-a8-ui-csv.mjs（ドライランでは書かない）。鮮度の宣言は台帳 */
+/** A8 の画面取得を最後に回した記録（data/a8/ui-last-run.json）。書くのは scripts/fetch/fetch-a8-ui-csv.mjs（ドライランでは書かない）。鮮度の宣言は台帳 */
 export const A8UiLastRun = z
   .object({
     schemaVersion: z.literal(1),

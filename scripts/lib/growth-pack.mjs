@@ -1,5 +1,5 @@
 // growth-pack（純粋ロジック）— 週次の成長パック（GA4 × GSC を同じ月〜日の週と直前 28 日の基線で揃えたもの）の
-// 期間決定と、API 応答の畳み込み。I/O を持たない（取得は scripts/fetch-growth-pack.mjs）。
+// 期間決定と、API 応答の畳み込み。I/O を持たない（取得は scripts/fetch/fetch-growth-pack.mjs）。
 //
 // 週の定義は business-direction の reviewPeriod('weekly')＝前の完了した月〜日（JST）。事業記録・週次レビューと
 // 同じ窓にすることで、GA4 の 7 日（木〜水）・GSC の別窓・レビュー本文（土〜金）がずれていた問題を解消する。

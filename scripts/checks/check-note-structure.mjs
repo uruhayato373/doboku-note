@@ -31,6 +31,7 @@ import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from '../lib/inconclusive-gate
 import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
 import { isCliEntry } from '../lib/cli-run.mjs';
+import { stripHtmlComments, stripTags } from '../lib/strip-markup.mjs';
 
 const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 const ROOT_REL = repoRel(ROOT);
@@ -52,20 +53,8 @@ const fm = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':[ \\t]*(.*)$
 const stripFm = (raw) => raw.replace(/^---[\s\S]*?---\r?\n/, '');
 
 // 検索用に正規化: HTMLタグ/markdown装飾/画像/リンク/コメント/記号/空白を除去して素テキスト化。
-// コメント（<!-- … -->）とタグ（< … >）を 1 回の走査で飛ばす。正規表現の置換を重ねると、消した跡に新しい `<!--` ができうる
-// （CodeQL の不完全な除去）。閉じていない `<` はその 1 文字だけ落とす（素テキストの比較用なので記号と同じ扱い）。
-function stripTags(s) {
-  let out = '';
-  for (let i = 0; i < s.length;) {
-    if (s[i] !== '<') { out += s[i++]; continue; }
-    const close = s.startsWith('<!--', i) ? s.indexOf('-->', i + 4) : s.indexOf('>', i + 1);
-    i = close < 0 ? i + 1 : close + (s.startsWith('<!--', i) ? 3 : 1);
-  }
-  return out;
-}
-
 function norm(s) {
-  return stripTags(String(s))
+  return stripTags(stripHtmlComments(String(s)))
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/[#>*`_~|\-]/g, '')

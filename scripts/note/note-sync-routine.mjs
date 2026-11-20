@@ -123,7 +123,7 @@ function restartDrive() {
   spawnSync('sleep', ['60']);
 }
 
-const pullPdf = (item) => node(['scripts/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`, '--commit'], null, PULL_TIMEOUT_MS);
+const pullPdf = (item) => node(['scripts/storage/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`, '--commit'], null, PULL_TIMEOUT_MS);
 const pullWhy = (out) => out.split('\n').filter((l) => /FAIL|vault に無い|コピー失敗|台帳と違う|マウント|打ち切り|ETIMEDOUT/.test(l)).slice(0, 2).join(' / ').trim().slice(0, 300);
 
 /** 1 つの記事一覧を note-update-body に渡し、かかった時間と出力を返す */
@@ -323,10 +323,10 @@ const save = (args, label) => {
   problems.push(`${label}（${r.reason}）`);
 };
 if (art.updated.some((x) => x.parts.includes('cover'))) {
-  save(['scripts/asset-offload.mjs', '--group', 'note-cover-png', '--include-untracked', '--skip-existing', '--commit'], '記事カバーを R2 へ保存できなかった（asset-offload）');
+  save(['scripts/storage/asset-offload.mjs', '--group', 'note-cover-png', '--include-untracked', '--skip-existing', '--commit'], '記事カバーを R2 へ保存できなかった（asset-offload）');
 }
 if (mag.updated.length) {
-  save(['scripts/drive-vault-sync.mjs', '--group', 'note-magazine-cover-png', '--commit'], 'マガジンカバーを Drive へ保存できなかった（drive-vault-sync）');
+  save(['scripts/storage/drive-vault-sync.mjs', '--group', 'note-magazine-cover-png', '--commit'], 'マガジンカバーを Drive へ保存できなかった（drive-vault-sync）');
 }
 appendSyncLog({
   startedAt, finishedAt: new Date().toISOString(),

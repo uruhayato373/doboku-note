@@ -67,7 +67,7 @@ jobs:
       # npm ci が pre-commit フックを入れる。フックの検査が src/config/doc-meta-index.json（git 管理外の生成物）を読む
       - name: Build doc meta index
         if: steps.download.outcome == 'success'
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       - name: Publish SEO build summary
         if: steps.download.outcome == 'success'
@@ -75,7 +75,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          node scripts/record-seo-build-summary.mjs "$RUNNER_TEMP/seo-build/seo-build-run.json"
+          node scripts/fetch/record-seo-build-summary.mjs "$RUNNER_TEMP/seo-build/seo-build-run.json"
           node scripts/ci-data.mjs add --datasets analysis.seo-build-summary
           if git diff --cached --quiet; then
             echo "No SEO build summary changes to publish"

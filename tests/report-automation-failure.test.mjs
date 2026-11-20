@@ -13,10 +13,10 @@ import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(ROOT, 'scripts/report-automation-failure.mjs');
+const SCRIPT = join(ROOT, 'scripts/reports/report-automation-failure.mjs');
 
 test('findExisting: 同 channel の open Issue をタイトル前方一致で探す（他 channel は拾わない）', async () => {
-  const { findExisting, issuePrefix } = await import('../scripts/report-automation-failure.mjs');
+  const { findExisting, issuePrefix } = await import('../scripts/reports/report-automation-failure.mjs');
   const list = [
     { number: 1, title: '[auto] pre-merge: Pre-merge check が赤（develop）' },
     { number: 2, title: '[auto] ops: 投稿・配信・転記に遅れがあります' },
@@ -29,7 +29,7 @@ test('findExisting: 同 channel の open Issue をタイトル前方一致で探
 });
 
 test('resolveAssignee: 明示 > 環境変数 > Actions 既定（repo owner）、--no-assignee で null', async () => {
-  const { resolveAssignee } = await import('../scripts/report-automation-failure.mjs');
+  const { resolveAssignee } = await import('../scripts/reports/report-automation-failure.mjs');
   const env = { AUTOMATION_ISSUE_ASSIGNEE: 'person', GITHUB_REPOSITORY_OWNER: 'owner' };
   assert.equal(resolveAssignee({ flag: 'x', noAssignee: false, env }), 'x');
   assert.equal(resolveAssignee({ flag: null, noAssignee: false, env }), 'person');
@@ -39,7 +39,7 @@ test('resolveAssignee: 明示 > 環境変数 > Actions 既定（repo owner）、
 });
 
 test('postSlack: URL 未設定は送らない・HTTP 失敗と例外は理由付きで sent:false（Issue 記録を止めない）', async () => {
-  const { postSlack, slackText } = await import('../scripts/report-automation-failure.mjs');
+  const { postSlack, slackText } = await import('../scripts/reports/report-automation-failure.mjs');
   assert.deepEqual(await postSlack('', 'x'), { sent: false, reason: 'SLACK_WEBHOOK_URL 未設定' });
   const calls = [];
   const okFetch = async (url, init) => { calls.push({ url, init }); return { ok: true, status: 200 }; };
@@ -99,7 +99,7 @@ test('起票している channel には --resolve の配線がある（起票だ
 });
 
 test('channelOfTitle: 題名の [auto] <channel>: から channel を取る（issuePrefix の逆・規約外は null）', async () => {
-  const { channelOfTitle, issuePrefix } = await import('../scripts/report-automation-failure.mjs');
+  const { channelOfTitle, issuePrefix } = await import('../scripts/reports/report-automation-failure.mjs');
   assert.equal(channelOfTitle(`${issuePrefix('weekly-collect')} 土曜の収集が完了しませんでした`), 'weekly-collect');
   assert.equal(channelOfTitle('[auto] auth-state-kdp: login collector kdp: expired'), 'auth-state-kdp');
   assert.equal(channelOfTitle('依存の脆弱性 next'), null);
@@ -107,7 +107,7 @@ test('channelOfTitle: 題名の [auto] <channel>: から channel を取る（iss
 });
 
 test('根本原因の鍵: 同じ鍵の Issue へ channel をまたいで追記し、鍵の Issue は鍵でだけ閉じる（DN-0935）', async () => {
-  const { findExisting, findByKey, keyMarker } = await import('../scripts/report-automation-failure.mjs');
+  const { findExisting, findByKey, keyMarker } = await import('../scripts/reports/report-automation-failure.mjs');
   const marker = keyMarker('saturday-mac-run');
   const list = [
     { number: 1, title: '[auto] gsc-auto-review: 記録層の沈黙', body: 'x' },

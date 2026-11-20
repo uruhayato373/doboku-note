@@ -174,7 +174,7 @@ function main() {
         if (hit.g.id === 'site-ogp-thumbnails' && hit.g.regenerable === true) {
           const sourcePath = rel.replace(/ogp-thumb-(248|336|640)\.webp$/, 'ogp.png');
           const source = manifest.entries?.[sourcePath];
-          if (sourcePath !== rel && source?.group === 'site-ogp-png' && source.bucket === 'public' && /^[a-f0-9]{64}$/.test(source.sha256) && existsSync(join(REPO_ROOT, 'scripts/build-ogp-thumbnails.mjs'))) {
+          if (sourcePath !== rel && source?.group === 'site-ogp-png' && source.bucket === 'public' && /^[a-f0-9]{64}$/.test(source.sha256) && existsSync(join(REPO_ROOT, 'scripts/build/build-ogp-thumbnails.mjs'))) {
             scan.derived++;
             continue;
           }
@@ -199,7 +199,7 @@ function main() {
             if (local !== manifest.entries[rel].sha256) {
               scan.stale++;
               warn('local-newer', 'ローカルの実体が manifest（＝R2）と違う。作り直したものが R2 へ反映されていない: '
-                + 'node scripts/asset-inbox-push.mjs --path "' + rel + '" --commit', rel);
+                + 'node scripts/storage/asset-inbox-push.mjs --path "' + rel + '" --commit', rel);
             }
           } else {
             scan.hashSkipped++;
@@ -213,11 +213,11 @@ function main() {
         if (pendingDrive) {
           fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・Drive 台帳未登録）。'
             + '人 tier（audience=human）なので Drive vault へ: '
-            + 'node scripts/drive-vault-sync.mjs --group ' + pendingDrive.id + ' --commit', rel);
+            + 'node scripts/storage/drive-vault-sync.mjs --group ' + pendingDrive.id + ' --commit', rel);
         } else {
           fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・manifest 未登録）。'
             + 'offload しないとこのマシンを失った時点で復元不能: '
-            + 'node scripts/asset-offload.mjs --group ' + hit.g.id + ' --commit --include-untracked', rel);
+            + 'node scripts/storage/asset-offload.mjs --group ' + hit.g.id + ' --commit --include-untracked', rel);
         }
       }
     }

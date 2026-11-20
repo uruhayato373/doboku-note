@@ -8,7 +8,7 @@ metadata:
 ## 完成物は3点セット（DoD）
 note 記事（docs/note/**/{記事dir}/）1本の完成物:
 1. `article.md`（frontmatter の `cover:` ブロック必須＝カバー生成の入力）
-2. カバー（2026-09-29 から `note-publish` が公開時に frontmatter `cover:` から最新デザインで生成して登録。手元確認は `node scripts/generate-note-covers.mjs "<記事dir一意部分文字列>"`。以後の差し替えは Mac の週次 note-cover-routine）
+2. カバー（2026-09-29 から `note-publish` が公開時に frontmatter `cover:` から最新デザインで生成して登録。手元確認は `node scripts/build/generate-note-covers.mjs "<記事dir一意部分文字列>"`。以後の差し替えは Mac の週次 note-cover-routine）
 3. `hashtags.txt`（記事固有タグ先頭5-6＋ベース群、計70-90個。級整合: 2級=`#主任技術者`／`#監理技術者`は1級用で除外）
 
 - **Why:** 2026-06-03 の2級土木集客クラスター第1バッチで完了条件を article.md 本文だけに置き、カバー・タグの生成を漏らした（frontmatter に `cover:` を書いて「カバー済」と錯覚）。仕組み化すべき類（[[feedback_prevention_over_patching]]）。

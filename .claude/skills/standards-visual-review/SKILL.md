@@ -19,7 +19,7 @@ domain: site
 ## いつ回すか
 
 - **週次の点検**（`review-checks --cadence weekly`）が `standards-visual-review:status` で fail を出したとき（判定待ちがあるのに 14 日回していない・未起票の不合格がある）
-- 生成器 `scripts/build-standard-articles.mjs`・表の台帳・`src/app/standards/**` を直したあと（中身のハッシュが変わった章が自動で先に選ばれる）
+- 生成器 `scripts/build/build-standard-articles.mjs`・表の台帳・`src/app/standards/**` を直したあと（中身のハッシュが変わった章が自動で先に選ばれる）
 - 不合格のカードを直したあとの確認（`--keys` で指定）
 
 ## 手順

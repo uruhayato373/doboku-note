@@ -1,7 +1,7 @@
 // ビルド成果物の整理の意図: 読まれないファイルだけを除き、noindex は検索の入口にせず、上限の手前で止める。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isIndexableHtml } from '../scripts/build-search-index.mjs';
+import { isIndexableHtml } from '../scripts/build/build-search-index.mjs';
 import { isRemovedFromOutput, MAX_OUTPUT_FILES } from '../scripts/slim-build-output.mjs';
 import { mergedChapterRedirectRules } from '../scripts/lib/standards-part-targets.mjs';
 import { isMergedChapterDocument } from '../src/lib/standards-chapter-merge.mjs';

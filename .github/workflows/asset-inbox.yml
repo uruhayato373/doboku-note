@@ -4,11 +4,11 @@ name: Asset Inbox (local -> R2)
 #
 # なぜ要るか:
 #   退避対象（note カバー / 納品 PDF / 教材画像 …）は .gitignore 済みなので、
-#   CI は checkout でその実体を得られない。そこで scripts/asset-inbox-push.mjs が
+#   CI は checkout でその実体を得られない。そこで scripts/storage/asset-inbox-push.mjs が
 #   GitHub Release（tag: asset-inbox-*）を橋にしてファイルを CI まで運ぶ。
 #   この workflow がそれを受け取り、既存の asset-offload.mjs で R2 へ上げる。
 #
-#   [ローカル] node scripts/asset-inbox-push.mjs --path … --commit
+#   [ローカル] node scripts/storage/asset-inbox-push.mjs --path … --commit
 #     → release asset-inbox-<ts>（prerelease・inbox.tar.gz + inbox.json）
 #     → [CI] この workflow が展開 → asset-offload --commit → manifest を develop へ push
 #     → 成功したら release を削除（失敗時は残す＝再取り込みできる）
@@ -70,7 +70,7 @@ jobs:
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
 
       - name: Resolve tag
@@ -108,7 +108,7 @@ jobs:
           set -eu
           mkdir -p /tmp/inbox/unpacked
           tar -xzf /tmp/inbox/inbox.tar.gz -C /tmp/inbox/unpacked
-          node scripts/asset-inbox-ingest.mjs --unpacked /tmp/inbox/unpacked --meta /tmp/inbox/inbox.json
+          node scripts/storage/asset-inbox-ingest.mjs --unpacked /tmp/inbox/unpacked --meta /tmp/inbox/inbox.json
 
       # moshi-src は gitignore 済みなので通常 CI から見えない。inbox に模試原稿が来た時点で
       # A〜E を検査しないと、誤った生成元だけが R2 に残って次回 hydrate で復活する。
@@ -131,7 +131,7 @@ jobs:
           set -eu
           for g in $GROUPS; do
             echo "::group::offload $g"
-            node scripts/asset-offload.mjs --group "$g" --include-untracked --commit
+            node scripts/storage/asset-offload.mjs --group "$g" --include-untracked --commit
             echo "::endgroup::"
           done
 

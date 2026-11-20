@@ -1,6 +1,6 @@
 /**
  * 過去問演習の「全◯問・◯〜◯年度」の表示を、配信データから数えた要約（src/config/quiz-summary.json）から作る。
- * 要約は scripts/build-quiz-data.mjs（npm run refresh-indexes）が書く。件数・年度を画面に手で書かない
+ * 要約は scripts/build/build-quiz-data.mjs（npm run refresh-indexes）が書く。件数・年度を画面に手で書かない
  * （2026-10-27 に 1級土木の「全1,098問・平成26〜令和7年度」が、年度を足した後の 1,642 問・17 年度分に追いついていなかった）。
  */
 import summary from '@/config/quiz-summary.json';

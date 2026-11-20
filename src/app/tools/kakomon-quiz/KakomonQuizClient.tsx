@@ -22,7 +22,7 @@ import { TOOL_LABEL, ToolLayout, ToolPanel } from '@/components/tools/ToolParts'
 
 /**
  * 1級土木 第一次検定 過去問 フル演習エンジン（v1・オンライン先行）。
- * 問題データは public/quiz/civil-1.json（scripts/build-quiz-data.mjs が
+ * 問題データは public/quiz/civil-1.json（scripts/build/build-quiz-data.mjs が
  * src/config/civil-1-exam-questions.json を正規化・トリムして生成、全1,098問/12年）を
  * 実行時 fetch で読み込む（クライアント JS バンドルを軽く保つため）。
  *
@@ -658,7 +658,7 @@ function QuizRichText({
   // 中身（段落・表・画像・空欄の枠・数式）の見た目は src/styles/quiz-content.css（iOS アプリと共有）。ここは文字の大きさと色だけ
   const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-(--ink-body) ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-(--ink)" : ""} ${className}`;
   if (!html) return <span className={styles}>{text}</span>;
-  // HTML は scripts/build-quiz-data.mjs が追跡下のMDXだけからビルドした信頼済みデータ。
+  // HTML は scripts/build/build-quiz-data.mjs が追跡下のMDXだけからビルドした信頼済みデータ。
   return <div className={styles} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 

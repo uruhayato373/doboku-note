@@ -172,7 +172,7 @@ export function buildStandardChapterStructuredData(
   const sectionNodes: JsonLdNode[] = [];
   const articleNodes: JsonLdNode[] = [];
   // 同じ章に同じ条番号が 2 度出るとき（北海道開発局独自 10-6-11-1 A 計測・B 計測）は、2 度目以降の
-  // 本文を `番号#n` で引き（scripts/build-standards-data.ts の extractArticleText と同じ規則）、@id も分ける
+  // 本文を `番号#n` で引き（scripts/build/build-standards-data.ts の extractArticleText と同じ規則）、@id も分ける
   const articleKeys = new Map<object, { textKey: string; idSuffix: string }>();
   const seenNumbers = new Map<string, number>();
   const looseArticles = chapter.articles ?? [];

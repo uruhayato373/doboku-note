@@ -478,7 +478,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 | Lock-On 等が「総監×スキマ時間」に参入 | 低 | 有料講座販促モデルとバッティング、参入可能性は低い |
 | VOICEVOX の商用利用規約違反 | 低 | SNS-prereq の事前作業で採用キャラのライセンスを確認済み。問題があれば差し替え |
 | API レート制限超過 | 中 | 日次上限を検出したら同日に再試行せず翌日再開。`videos.insert` 100本/日の既定枠に10本の余裕を残し、private uploadは最大45 pack/90本ずつ進める |
-| OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `scripts/report-automation-failure.mjs`（`automation-failure` ラベル）で記録 |
+| OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `scripts/reports/report-automation-failure.mjs`（`automation-failure` ラベル）で記録 |
 | Reels CTA とカルーセル CTA の混入バグ | 中 | Reels モード分岐をテンプレレンダラ（`scripts/sns/templates/quiz-ig.mjs`）で持ち で検証（旧 `ig-reels-qa` は退役） |
 
 ## 9. 次のアクション

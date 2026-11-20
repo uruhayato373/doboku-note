@@ -3,7 +3,7 @@
  *
  * 柱で切った共通仕様書は「第N編 編名」「第N章 章名」、目次（outline）で切った工事必携の要綱は manifest の
  * bookLabel・chapterLabel（`土木工事編`・`第1章`・`Ⅰ．`）を使う。server-only を持たないので、公開データの
- * 生成（scripts/build-standards-data.ts が読む standards-structured-data）からも使える。
+ * 生成（scripts/build/build-standards-data.ts が読む standards-structured-data）からも使える。
  */
 
 type ChapterLabelSource = {

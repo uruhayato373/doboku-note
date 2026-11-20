@@ -31,9 +31,9 @@ const GIT_LOG_PATHS = [
   'content/note',
   'content/kindle',
   'src/config/civil-1-exam-questions.json',
-  'scripts/build-essay-kindle.mjs',
-  'scripts/build-pe1-kindle.mjs',
-  'scripts/build-takuitsu-reconstruct.mjs',
+  'scripts/build/build-essay-kindle.mjs',
+  'scripts/build/build-pe1-kindle.mjs',
+  'scripts/build/build-takuitsu-reconstruct.mjs',
   'scripts/lib/kindle-md.mjs',
 ];
 

@@ -1,5 +1,5 @@
 /**
- * EXP-053 の GA4 の行（cta-clicks-by-label）を案ごと・置き場所ごとに合計する純関数（scripts/report-note-body-experiment.mjs）。
+ * EXP-053 の GA4 の行（cta-clicks-by-label）を案ごと・置き場所ごとに合計する純関数（scripts/reports/report-note-body-experiment.mjs）。
  */
 import { NOTE_BODY_VARIANTS, parseNoteBodyExperimentLabel } from '../../src/lib/note-body-experiment.mjs';
 

@@ -14,9 +14,9 @@
 
 1. `git pull origin develop`
 2. カバーは git 管理外（`.gitignore` の `content/note/**/img/cover*.png`）なので、その PC で作り直す:
-   - `node scripts/generate-note-covers.mjs 口頭試験-自治体職員の業務の語り方-無料`
-   - `node scripts/generate-note-covers.mjs 口頭試験-水道下水道職の業務の語り方-無料`
-   - `node scripts/generate-note-covers.mjs 業務経歴票の書き方`（建設部門の既存記事のカバーも同じ画像で作り直されるだけ）
+   - `node scripts/build/generate-note-covers.mjs 口頭試験-自治体職員の業務の語り方-無料`
+   - `node scripts/build/generate-note-covers.mjs 口頭試験-水道下水道職の業務の語り方-無料`
+   - `node scripts/build/generate-note-covers.mjs 業務経歴票の書き方`（建設部門の既存記事のカバーも同じ画像で作り直されるだけ）
 3. note にログイン済みのプロファイルがその PC にあることを確かめる（ログインは運営者。エージェントは資格情報を入力しない）。
 
 ## 公開と反映（運営者が起動する）

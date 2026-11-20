@@ -1,6 +1,6 @@
 /**
  * product-sales.mjs — 暦月 × 商品の販売台帳（data/business/product-sales/{month}.json）を作る純関数と、その読み手（DN-0947）。
- * 入出力は scripts/product-sales.mjs。
+ * 入出力は scripts/reports/product-sales.mjs。
  *
  * 目的: GA4 の product_impression / product_click（販売先での商品 ID）と販売を、同じ商品 ID でつなぐ。
  *   行の productId は販売記録の ID（note は data/note/sales.json の productId を canonicalize したもの・

@@ -551,7 +551,7 @@
             "scripts/note/note-publish.mjs",
             "scripts/note-update-cover.mjs"
           ],
-          "generator": "scripts/generate-note-covers.mjs",
+          "generator": "scripts/build/generate-note-covers.mjs",
           "samples": [
             {
               "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/06_安全管理-労働災害の防止/img/cover.png",
@@ -765,7 +765,7 @@
             "scripts/note/note-publish.mjs",
             "scripts/note-update-cover.mjs"
           ],
-          "generator": "scripts/generate-note-covers.mjs",
+          "generator": "scripts/build/generate-note-covers.mjs",
           "samples": [
             {
               "path": "content/note/1級・2級土木/2級土木/2級と1級どちらから受けるか/img/cover.png",

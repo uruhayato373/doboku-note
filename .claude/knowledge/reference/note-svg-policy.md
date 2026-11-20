@@ -8,14 +8,14 @@ note.com に PNG 化して掲載する図解を作るときの真実源。正本
 
 ## 適用範囲
 
-- `content/note/**/img/figure-*.svg` および `figure-*.png`（cover.png は除外、`scripts/generate-note-covers.mjs` 専用）
+- `content/note/**/img/figure-*.svg` および `figure-*.png`（cover.png は除外、`scripts/build/generate-note-covers.mjs` 専用）
 - `.tmp/gen-figures-*.mjs` 等で生成する note 用図解スクリプト
 
 doboku-note 本体（`content/site/**/img/*.svg`）は本ポリシー対象外。SVG inline 配信なので別ルール。
 
 ## cover.png のセーフティゾーン（参考）
 
-`content/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `scripts/lib/note-character-cover.mjs`（V5 キャラクターカバー・2026-09-17〜）で生成する。サイズは note 推奨の 1280×670。文言は frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle` → title（仕様は `.claude/knowledge/design-system/note-cover-character-v5.md`）。
+`content/note/**/img/cover.png` は `scripts/build/generate-note-covers.mjs` が `scripts/lib/note-character-cover.mjs`（V5 キャラクターカバー・2026-09-17〜）で生成する。サイズは note 推奨の 1280×670。文言は frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle` → title（仕様は `.claude/knowledge/design-system/note-cover-character-v5.md`）。
 
 **セーフティゾーン**: 主見出しは x=345〜739・y=239〜435 の枠に 96〜48px・最大 3 行で実測して収め、Satori の実描画枠が中央 630×216 の外に出れば生成失敗。リード 584px・補足 388px・訴求帯 554px。人物（右側 280×330）・ロゴ・背景写真は全幅側（クロップで欠けても問題なし）。
 
@@ -135,7 +135,7 @@ done
 # → 16 未満が出たら修正
 
 # 2. note へ上げるのと同じ PNG を作って Read で目視確認（.tmp/note-figures/ に出る）
-node scripts/render-note-figures.mjs content/note/{slug}/img
+node scripts/build/render-note-figures.mjs content/note/{slug}/img
 # → レイアウト重なり・密度過多をチェック
 
 # 3. 縮小プレビュー（任意・厳密チェック）

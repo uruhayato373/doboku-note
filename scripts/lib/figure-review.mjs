@@ -54,7 +54,7 @@ export function fileSha(absPath) {
 export function emptyLedger() {
   return {
     schemaVersion: 1,
-    note: '図クロップを目で判定した記録（/figure-quality-loop が書く）。sha が今の画像と一致する記録だけが効く。手で編集しない（scripts/figure-review-queue.mjs record を使う）',
+    note: '図クロップを目で判定した記録（/figure-quality-loop が書く）。sha が今の画像と一致する記録だけが効く。手で編集しない（scripts/storage/figure-review-queue.mjs record を使う）',
     figures: {},
   };
 }

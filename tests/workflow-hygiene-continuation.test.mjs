@@ -6,14 +6,14 @@ import assert from 'node:assert/strict';
 import { findCollapsedContinuations } from '../scripts/checks/check-workflow-hygiene.mjs';
 
 test('潰れた行継続（リテラル \\n + 空白 + --flag）を 1 件検出する', () => {
-  const run = 'node scripts/report-automation-failure.mjs \\n            --channel uptime \\n            --title "x"';
+  const run = 'node scripts/reports/report-automation-failure.mjs \\n            --channel uptime \\n            --title "x"';
   const hits = findCollapsedContinuations(run);
   assert.equal(hits.length, 1);
   assert.match(hits[0].text, /report-automation-failure/);
 });
 
 test('正しい行継続（バックスラッシュ + 実改行）は検出しない', () => {
-  const run = 'node scripts/report-automation-failure.mjs \\\n  --channel uptime \\\n  --title "x"';
+  const run = 'node scripts/reports/report-automation-failure.mjs \\\n  --channel uptime \\\n  --title "x"';
   assert.deepEqual(findCollapsedContinuations(run), []);
 });
 

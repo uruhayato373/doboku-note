@@ -5,7 +5,7 @@ import { mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { classifyPath, buildReport, stats, censusExitCode, loadSitemap, readRows, BLOCK } from '../scripts/site-layout-census.mjs';
+import { classifyPath, buildReport, stats, censusExitCode, loadSitemap, readRows, BLOCK } from '../scripts/reports/site-layout-census.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const fixture = [100, 300, 500, 900].map((empty, i) => ({
@@ -91,7 +91,7 @@ test('partial final JSONL line can be repaired without losing completed rows', (
 test('report CLI runs offline, writes all artifacts and returns inconclusive for dominant failures', () => {
   const dir = mkdtempSync(join(tmpdir(), 'census-report-'));
   try {
-    const run = () => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/site-layout-census.mjs'), '--report', dir], { encoding: 'utf8', cwd: dir });
+    const run = () => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/reports/site-layout-census.mjs'), '--report', dir], { encoding: 'utf8', cwd: dir });
     writeFileSync(join(dir, 'rows.jsonl'), fixture.map(r => JSON.stringify(r)).join('\n'));
     const good = run();
     assert.equal(good.status, 0, good.stderr);
@@ -116,7 +116,7 @@ test('resume restores original URL/width plan and skips completed rows without a
   try {
     writeFileSync(join(dir, 'rows.jsonl'), `${JSON.stringify(fixture[0])}\n`);
     writeFileSync(join(dir, 'plan.json'), JSON.stringify({ base: 'https://invalid.test', tasks: [fixture[0]] }));
-    const result = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/site-layout-census.mjs'), '--resume', dir], { encoding: 'utf8', cwd: dir });
+    const result = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/reports/site-layout-census.mjs'), '--resume', dir], { encoding: 'utf8', cwd: dir });
     assert.equal(result.status, 0, result.stderr);
     assert.match(result.stdout, /対象 1・実測 1・失敗 0/);
     const summary = JSON.parse(readFileSync(join(dir, 'summary.json'), 'utf8'));

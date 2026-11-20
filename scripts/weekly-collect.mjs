@@ -224,7 +224,7 @@ function verifyLast() {
 function resolveIssueIfRecovered() {
   const { problems } = judgeLast();
   if (problems.length) { console.log(`${TAG} 段ごとの最新にまだ ${problems.length} 件の問題がある（Issue は開いたまま）`); return; }
-  const r = spawnSync(process.execPath, ['scripts/report-automation-failure.mjs', '--resolve', '--channel', 'weekly-collect', '--body', `復旧: 運営者の取り直し（--only ${args.only}）で、土曜の収集の段ごとの最新がすべて合格`], { cwd: REPO_ROOT, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, ['scripts/reports/report-automation-failure.mjs', '--resolve', '--channel', 'weekly-collect', '--body', `復旧: 運営者の取り直し（--only ${args.only}）で、土曜の収集の段ごとの最新がすべて合格`], { cwd: REPO_ROOT, encoding: 'utf8' });
   console.log(`${TAG} 段ごとの最新がすべて合格。Issue（channel weekly-collect）の自動クローズ: exit ${r.status}`);
 }
 

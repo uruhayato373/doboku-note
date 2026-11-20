@@ -73,7 +73,7 @@ test('Phase 0表示は共有エンジン全体でなくpremiumPilot設定へ限�
 test('定期計測workflowが取得と判定を連続実行する', () => {
   const workflow = readFileSync(join(ROOT, '.github/workflows/fetch-metrics.yml'), 'utf8');
   const fetchIndex = workflow.indexOf('node scripts/search/fetch-ga4-quiz-funnel.mjs');
-  const reportIndex = workflow.indexOf('node scripts/report-quiz-premium-funnel.mjs');
+  const reportIndex = workflow.indexOf('node scripts/reports/report-quiz-premium-funnel.mjs');
   assert.ok(fetchIndex >= 0, 'GA4取得がworkflowにない');
   assert.ok(reportIndex > fetchIndex, '判定は取得後に実行する');
 });

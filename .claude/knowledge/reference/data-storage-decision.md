@@ -41,7 +41,7 @@ sections:
 | 項目 | ファイル |
 |---|---|
 | zod スキーマ | `scripts/lib/frontmatter-schema.mjs`（TS 側の再エクスポートは使い手が無く 2026-10-11 に削除） |
-| タグ辞書ビルダー | `scripts/build-tag-index.mjs` → `src/config/tag-dictionary.json`（git 管理外の生成物・refresh-indexes が作る） |
+| タグ辞書ビルダー | `scripts/build/build-tag-index.mjs` → `src/config/tag-dictionary.json`（git 管理外の生成物・refresh-indexes が作る） |
 | frontmatter lint | `scripts/checks/lint-frontmatter.mjs` |
 | pre-commit 検証 | `scripts/pre-commit-mdx.mjs` |
 | ルール真実源 | `.claude/skills/check-mdx/SKILL.md` |

@@ -2,7 +2,7 @@
  * standards-section-split — 章記事を節ページへ分けるときの切り出しと URL の単一真実源。
  *
  * 第3編第2章 一般施工は原本 167 ページ・HTML 約 2MB の 1 ページだった。生成器
- * （scripts/build-standard-articles.mjs）が manifest の章に `splitBySection: true` を立てた章だけ、
+ * （scripts/build/build-standard-articles.mjs）が manifest の章に `splitBySection: true` を立てた章だけ、
  * サイトは章ページを節の一覧にし、本文を節ページ（/chapters/{章}/sections/{節}）で出す。
  *
  * 章の Markdown は 1 本のまま持つ（比較・公開データ・検査はそれを読む）。節への切り出しは

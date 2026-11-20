@@ -108,7 +108,7 @@ test('countFieldAvailability partitions url-level / origin-level / neither / unr
 })
 
 test('extractFieldAvailability does not count an origin_fallback loadingExperience as URL-level CrUX', async () => {
-  const { extractFieldAvailability } = await import('../scripts/fetch-psi-data.mjs')
+  const { extractFieldAvailability } = await import('../scripts/fetch/fetch-psi-data.mjs')
   const fallback = extractFieldAvailability({
     loadingExperience: { origin_fallback: true, overall_category: 'FAST', metrics: { LARGEST_CONTENTFUL_PAINT_MS: {} } },
     originLoadingExperience: { overall_category: 'FAST', metrics: { LARGEST_CONTENTFUL_PAINT_MS: {} } },

@@ -2,7 +2,7 @@
 
 **作成日**: 2026-06-09（v1）/ **更新日**: 2026-07-30（Claude 管理領域へ移管）
 **位置付け**: [04_収益化戦略.md](../../docs/strategy/04_収益化戦略.md) の補足。note・AdSense と並ぶ第3の収益柱（立ち上げ中）。
-**生成ツール**: A系=`scripts/build-takuitsu-reconstruct.mjs` / B・D・E系=`scripts/build-pe1-kindle.mjs` / C・F系=`scripts/build-essay-kindle.mjs`（spec 駆動）。オーケストレーションは `/kindle-build` スキル（後述「制作パイプライン」）
+**生成ツール**: A系=`scripts/build/build-takuitsu-reconstruct.mjs` / B・D・E系=`scripts/build/build-pe1-kindle.mjs` / C・F系=`scripts/build/build-essay-kindle.mjs`（spec 駆動）。オーケストレーションは `/kindle-build` スキル（後述「制作パイプライン」）
 
 > [!success] 実施状況（2026-07-30）
 > `catalog.json` 基準で A 7冊・B 2冊・C 12冊・D 4冊・E 1冊・F 7冊が LIVE（本棚実査で ASIN 33/33 一致）。
@@ -156,7 +156,7 @@
 | D-00 | 合本（3科目） | 560問 | ¥990（日本 35%・要再判断） | D-03 完了後 | — |
 
 > [!note] Dシリーズの技術要件
-> A系と違い**数式（KaTeX→MathML）と画像（webp→JPEG 同梱）**が必須。ビルダーは `scripts/build-pe1-kindle.mjs`（spec = `content/kindle/books/d-xx/spec.json`）。出典クレジットは**日本技術士会**（A系の全国建設研修センターと別文面）。
+> A系と違い**数式（KaTeX→MathML）と画像（webp→JPEG 同梱）**が必須。ビルダーは `scripts/build/build-pe1-kindle.mjs`（spec = `content/kindle/books/d-xx/spec.json`）。出典クレジットは**日本技術士会**（A系の全国建設研修センターと別文面）。
 
 ### 将来候補（図版対応が必要）
 
@@ -420,7 +420,7 @@
 
 ```
 [ ] EPUB生成
-    node scripts/build-takuitsu-reconstruct.mjs --theme {key} --format epub
+    node scripts/build/build-takuitsu-reconstruct.mjs --theme {key} --format epub
 
 [ ] Kindle Previewer で確認
     - 目次が機能しているか（各章へジャンプできるか）
@@ -473,7 +473,7 @@
     書き下ろし前付け content/kindle/books/d-xx/front-matter.md を作成
 
 [ ] EPUB生成
-    node scripts/build-pe1-kindle.mjs --spec content/kindle/books/d-xx/spec.json
+    node scripts/build/build-pe1-kindle.mjs --spec content/kindle/books/d-xx/spec.json
 
 [ ] epubcheck + kindle-book-qa 5軸監査（/kindle-build 経由なら自動）
 

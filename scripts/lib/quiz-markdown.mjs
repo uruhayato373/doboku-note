@@ -1,5 +1,5 @@
 // 過去問演習データの本文（Markdown・KaTeX・記事画像）を表示用 HTML とプレーンテキストにする。
-// Web 演習（scripts/build-quiz-data.mjs）と iOS アプリの書き出し（scripts/build-ios-quiz-bundle.mjs）が同じ変換を使う。
+// Web 演習（scripts/build/build-quiz-data.mjs）と iOS アプリの書き出し（scripts/build/build-ios-quiz-bundle.mjs）が同じ変換を使う。
 import katex from 'katex';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';

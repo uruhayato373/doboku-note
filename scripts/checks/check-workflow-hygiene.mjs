@@ -233,7 +233,7 @@ async function main() {
         file, kind: 'doc-meta-index', line: 0,
         message: 'npm ci で pre-commit フックが入り git commit もするのに、'
           + 'doc-meta-index の生成ステップが無い（commit 時に ENOENT で落ちる）。'
-          + '`- run: node scripts/build-doc-meta-index.mjs --ci` を npm ci の直後へ',
+          + '`- run: node scripts/build/build-doc-meta-index.mjs --ci` を npm ci の直後へ',
       });
     } else if (installsHooks && commits) {
       hookCommitScanned++;

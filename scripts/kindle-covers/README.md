@@ -14,7 +14,7 @@ npm run kindle-pop-cover -- --adopt c-05 --candidate .tmp/kindle-pop/c-05/cand-1
 1. 表紙 spec（`content/kindle/books/<id>/cover.json`）の `pop` に文言と場面を書く。`exam`（資格の色）・`kicker`・`title`・`titleSub`・`badge`（丸い印の [上段, 下段]）・`redBand`・`navyBand`・`scene`・`reference`（承認済みの参照表紙・既定は `scripts/kindle-dist/c-05.jpg`）。`footer` を省くと「技術士（総合技術監理部門）が制作」。数字・年度は catalog と本文で裏付ける
 2. 候補を生成し、確認用画像を原寸と 136px で見る。描く文字の一覧と 1 文字ずつ照合する（誤字・欠け・余計な文字・手指・顔と印の重なり）。合否は人か `ai-image-fidelity-auditor` が決める（スクリプトは合格と言わない）
 3. `--adopt` で採用する。catalog の表紙の置き場へ 1600×2560 JPEG を書き、制作記録 `content/kindle/books/<id>/pop-image.json`（参照画像・プロンプト・生成と採用の SHA-256・確かめたこと）を残し、spec に `adoptedImage` を足す
-4. `node scripts/asset-offload.mjs --group kindle-dist --include-untracked --commit` で private R2 へ上げ、`node scripts/kindle/kdp-publish.mjs --id <id> --update-cover --cover <jpg> --commit` で KDP へ
+4. `node scripts/storage/asset-offload.mjs --group kindle-dist --include-untracked --commit` で private R2 へ上げ、`node scripts/kindle/kdp-publish.mjs --id <id> --update-cover --cover <jpg> --commit` で KDP へ
 
 `npm run sync-kindle-dist` は `adoptedImage` のある本の表紙を作り直さない。縦横比が 5:8 から 1% を超えて外れた候補は採用できない（引き伸ばさずに作り直す）。
 

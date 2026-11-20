@@ -17,7 +17,7 @@ domain: strategy
 ## 読む量の規律
 
 - 最初に読むのは**下書き `.claude/state/weekly-review/draft.json` の `markdown`**（`week` が今週・`generatedAt` が今日）と、`npm run backlog-gate -- --weekly` の出力。**`backlog.md` を全部読まない**（約 330KB。カードは ID で引くか `backlog-gate` の対象だけ読む）。
-- 下書きが無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。数字は写し、転記し直さない。
+- 下書きが無い・古いときは `node scripts/build/build-weekly-review-draft.mjs --print` で作り直す。数字は写し、転記し直さない。
 - 下書きに無い節と、下書きで欠け・失敗になった材料だけ、references のコマンドを回す。機械で決まる点検（CI の quality-audit・週次の点検）は先に回っているので、その結果を読み、二重に叩かない。
 
 ## 事業の週次判断（最初と最後）

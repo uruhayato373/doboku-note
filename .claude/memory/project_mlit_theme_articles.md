@@ -18,7 +18,7 @@ NotebookLM で得た「白書数字 → 5管理間トレードオフ → 解決�
 - **上位ハブ**: 既存 `management-tradeoffs` の末尾に「テーマ別深掘り」H2 追加で 7 テーマへ動線
 
 全 8 記事は `category: pe-comprehensive-management` / `group: guide`。
-`scripts/build-pillar-exam-questions.mjs` の `EXCLUDE_SLUGS` に登録済み
+`scripts/build/build-pillar-exam-questions.mjs` の `EXCLUDE_SLUGS` に登録済み
 （既存ピラー過去問計算を保護）。
 
 ## 状態 (2026-05-17 最新)

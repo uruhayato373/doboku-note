@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { collectCandidates, judgePack, postState } from '../scripts/report-sns-archive-candidates.mjs';
+import { collectCandidates, judgePack, postState } from '../scripts/reports/report-sns-archive-candidates.mjs';
 
 const NOW = Date.parse('2026-11-18T00:00:00Z');
 const CONFIG = { groups: [{ id: 'sns-archived-media', match: { pathRegex: '^content/sns/(instagram|youtube)/.+\\.(wav|mp4|m4a)$' } }] };

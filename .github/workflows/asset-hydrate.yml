@@ -80,9 +80,9 @@ jobs:
         run: |
           set -eu
           if [ "$DRY_RUN" = "true" ]; then
-            node scripts/asset-hydrate.mjs "--$SELECTOR_KIND" "$SELECTOR" --dry-run
+            node scripts/storage/asset-hydrate.mjs "--$SELECTOR_KIND" "$SELECTOR" --dry-run
           else
-            node scripts/asset-hydrate.mjs "--$SELECTOR_KIND" "$SELECTOR"
+            node scripts/storage/asset-hydrate.mjs "--$SELECTOR_KIND" "$SELECTOR"
           fi
 
       # 収集対象は **manifest から導く**。`git ls-files -o -i` だと node_modules まで拾う。

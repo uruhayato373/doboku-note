@@ -6,7 +6,7 @@ name: OGP Supply (generate -> R2)
 # なぜ要るか:
 #   ogp.png（1,166 件）は 2026-08-29 に git 追跡から外し R2（asset-storage.json の group:
 #   site-ogp-png・public バケット doboku-note・posts/ prefix）へ退避した。生成は
-#   `npm run ogp -- <slug>`、供給は `node scripts/asset-offload.mjs --group site-ogp-png --commit`
+#   `npm run ogp -- <slug>`、供給は `node scripts/storage/asset-offload.mjs --group site-ogp-png --commit`
 #   の 2 段階だが、これはローカルで手動実行する運用であり、記事を書いた・タイトルを直した
 #   だけでは誰も実行しない。忘れると og:image が R2 で 404 のままになる
 #   （2026-06-12 OGP 404 incident と同じ形の再発。.claude/knowledge/reference/measurement-incidents.md）。
@@ -46,8 +46,8 @@ on:
       # 公的基準の章記事は MDX ではなく manifest 駆動。ここを入れないと章が増減しても
       # 供給が発火せず、og:image が R2 に無い URL を指したまま本番へ出る。
       - 'content/site/standards-articles/**/manifest.json'
-      - 'scripts/build-standards-ogp.mjs'
-      - 'scripts/build-ogp-thumbnails.mjs'
+      - 'scripts/build/build-standards-ogp.mjs'
+      - 'scripts/build/build-ogp-thumbnails.mjs'
       - '.github/workflows/ogp-supply.yml'
       # ページ写真の版が変わると写真 OGP が古くなる（srcHash に写真の版が入る・2026-11-13）
       - 'config/site-thumbnails.json'
@@ -101,7 +101,7 @@ jobs:
       # ENOENT で失敗する（2026-08-29 実測: run 33244616204 で Publish manifest が落ちた）。
       # ci.yml / r2-audit.yml と同じ配線。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       # missing（未生成）と stale（frontmatter 変更で陳腐化）を検知し、生成対象 slug の
       # 和集合を作る。検査対象数・内訳を必ずログへ出す（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
@@ -204,7 +204,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: node scripts/asset-hydrate.mjs --group ogp-background
+        run: node scripts/storage/asset-hydrate.mjs --group ogp-background
 
       # 写真 OGP（photo-scrim）の背景は、ページ別の写真 site-photo.webp（public R2・素材の group site-photos）。
       # 写真の版が台帳にあるのに手元に無いと ogp-create の requireLocalAsset が止めるので、生成の前に取り戻す。
@@ -218,7 +218,7 @@ jobs:
         #（asset-hydrate は対象 0 件を失敗にする・2026-11-13 に写真の公開前の push で落ちた）
         run: |
           if node -e "const m=require('./.claude/state/assets/manifest.json');process.exit(Object.values(m.entries).some(e=>e.group==='site-photos')?0:1)"; then
-            node scripts/asset-hydrate.mjs --group site-photos
+            node scripts/storage/asset-hydrate.mjs --group site-photos
           else
             echo "site-photos の台帳の行が 0 件。取り戻すものが無いので飛ばす"
           fi
@@ -234,7 +234,7 @@ jobs:
         run: |
           set -u
           : > /tmp/ogp-generated-slugs.txt
-          out=$(node scripts/build-standards-ogp.mjs)
+          out=$(node scripts/build/build-standards-ogp.mjs)
           echo "${out}"
           made=$(echo "${out}" | sed -n 's/.*\/ 生成 \([0-9]*\) \/.*/\1/p')
           echo "chapters_generated=${made:-0}" >> "$GITHUB_OUTPUT"
@@ -279,13 +279,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: node scripts/asset-offload.mjs --group site-ogp-png --include-untracked --commit
+        run: node scripts/storage/asset-offload.mjs --group site-ogp-png --include-untracked --commit
 
       # 章 OGP の srcHash を台帳へ書く（記事 OGP の update-ogp-srchash と同じ役割）。これが無いと
       # 次の run も「台帳に srcHash が無い」で全章を再生成する。
       - name: Record chapter srcHash
         if: steps.chapters.outputs.chapters_generated != '0'
-        run: node scripts/build-standards-ogp.mjs --write-srchash
+        run: node scripts/build/build-standards-ogp.mjs --write-srchash
 
       - name: Update srcHash for generated slugs
         if: steps.detect.outputs.count != '0'
@@ -302,9 +302,9 @@ jobs:
         # push は今回作った OGP（台帳の sha256 が HEAD から変わったもの）だけを確かめる。週次と手動は全件で自己修復する
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            node scripts/build-ogp-thumbnails.mjs --supply --changed-since HEAD
+            node scripts/build/build-ogp-thumbnails.mjs --supply --changed-since HEAD
           else
-            node scripts/build-ogp-thumbnails.mjs --supply
+            node scripts/build/build-ogp-thumbnails.mjs --supply
           fi
 
       - name: Publish manifest to develop

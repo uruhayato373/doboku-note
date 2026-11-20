@@ -207,7 +207,7 @@
       "interactiveLoginRequired": true,
       "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。period-daily は headless で期間入力欄が見つからないため取得対象外（--reports で 3 本に限定）。",
       "collectors": [
-        "scripts/fetch-a8-ui-csv.mjs",
+        "scripts/fetch/fetch-a8-ui-csv.mjs",
         "scripts/affiliate/normalize-a8-csv.mjs",
         "scripts/affiliate/affiliate-status.mjs",
         "scripts/auth-session-refresh.mjs"

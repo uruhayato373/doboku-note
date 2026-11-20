@@ -204,7 +204,7 @@ grep -nc "^> " article.md
 
 各記事（`{persona}/{RXX}/`）に以下が**揃っているか**確認する。マガジン単位の `_cover.png`/`hashtags.txt` とは別に、**記事ごと**に必要：
 
-- `img/cover.png`: `node scripts/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
+- `img/cover.png`: `node scripts/build/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
   - **frontmatter `cover.headline` は短い単一テーマに留める**（V5 では主見出しを 96〜48px・最大 3 行・幅 394px へ実測で折り返し、入らなければ生成失敗。`cover.banner` は読まれない）。長い銘（例「資源循環 × サプライチェーン強靭化｜…」）は `npm run check-note-cover-fit` で先に止める。完全テーマは `cover.hiSuffix` とタイトルに既出なので重複させない。生成後は cover.png を必ず目視確認
 - `hashtags.txt`: `/note-hashtags` スキルで生成（記事の論点に沿った 90〜99 個・1行1タグ。本文には入れない＝[[feedback_note_prepublish_verify_not_proxy]] の SoT 規約）
 

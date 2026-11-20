@@ -318,7 +318,7 @@ https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}
 
 ### スクリプト雛形
 
-SVG を `content/note/{slug}/img/figure-*.svg` に直接書く（生成スクリプトは作らない。note へ上げる PNG は投稿時に SVG から作られ、見た目の確認は `node scripts/render-note-figures.mjs <svg>`）。記事ごとの生成スクリプト（render-figure-*.mjs）は 2026-11-19 に退役した。参考にする完成 SVG は `content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/`。
+SVG を `content/note/{slug}/img/figure-*.svg` に直接書く（生成スクリプトは作らない。note へ上げる PNG は投稿時に SVG から作られ、見た目の確認は `node scripts/build/render-note-figures.mjs <svg>`）。記事ごとの生成スクリプト（render-figure-*.mjs）は 2026-11-19 に退役した。参考にする完成 SVG は `content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/`。
 
 ### 必須仕様（note-svg-policy 準拠）
 
@@ -364,7 +364,7 @@ done
 ### コマンド
 
 ```bash
-node scripts/generate-note-covers.mjs {管理名スラッグ}
+node scripts/build/generate-note-covers.mjs {管理名スラッグ}
 # → content/note/{slug}/img/cover.png が生成される（PNG のみ）
 ```
 
@@ -479,7 +479,7 @@ B9: 最終検証＋commit/push
 
 - **安全管理（完成版）**：`content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/article.md`（806行・19出題例・12図版・カバー画像・全条文 e-gov リンク済み）
 - **図版**：`content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/figure-*.svg`（SVG が正本）
-- **カバー生成**：`scripts/generate-note-covers.mjs`
+- **カバー生成**：`scripts/build/generate-note-covers.mjs`
 - **既存スキル**：`.claude/skills/note-prepublish-review/SKILL.md`（公開前チェック）
 - **図版品質**：`.claude/knowledge/reference/note-svg-policy.md`
 - **記事品質**：`.claude/knowledge/reference/content-principles.md`

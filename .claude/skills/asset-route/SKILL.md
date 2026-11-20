@@ -26,11 +26,11 @@ domain: ops
 
 ## 置き場ごとのコマンド
 
-端末間の引き継ぎは、先に [asset-storage-policy.md §1-3](../../knowledge/reference/asset-storage-policy.md#1-3-端末間引き継ぎの完了条件) の接続・容量・復元確認を行う。マウントが無いだけで転送不能と判断しない。Driveコネクターを利用できる場合は既存フォルダーを特定して個別ファイルを転送し、全バイト読み戻しの記録を `node scripts/drive-connector-register.mjs --receipt <json> [--commit]` で既存台帳へ登録する。ZIPを置いただけの状態と、個別復元可能な状態を区別する。
+端末間の引き継ぎは、先に [asset-storage-policy.md §1-3](../../knowledge/reference/asset-storage-policy.md#1-3-端末間引き継ぎの完了条件) の接続・容量・復元確認を行う。マウントが無いだけで転送不能と判断しない。Driveコネクターを利用できる場合は既存フォルダーを特定して個別ファイルを転送し、全バイト読み戻しの記録を `node scripts/storage/drive-connector-register.mjs --receipt <json> [--commit]` で既存台帳へ登録する。ZIPを置いただけの状態と、個別復元可能な状態を区別する。
 
 | audience | 台帳 | 追加・同期 | 取り戻し | 検査 |
 |---|---|---|---|---|
-| site / ci | `.claude/state/assets/manifest.json` | `node scripts/asset-offload.mjs --group <id> [--include-untracked] --commit` | `npm run asset-hydrate -- --group <id>` | `npm run check-asset-storage` |
+| site / ci | `.claude/state/assets/manifest.json` | `node scripts/storage/asset-offload.mjs --group <id> [--include-untracked] --commit` | `npm run asset-hydrate -- --group <id>` | `npm run check-asset-storage` |
 | human | `.claude/state/assets/drive-manifest.json` | `npm run drive-vault-sync -- --group <id> --commit` | `npm run drive-vault-sync -- --pull --group <id>` | `npm run check-drive-vault` |
 
 教材文字起こしの既存 group は `source-transcript`（Drive の各原資料内 `ocr/`）。新しい原本は先に
@@ -52,11 +52,11 @@ domain: ops
 ## 既存 group を R2 から Drive へ移すとき（順序は必須）
 
 ```bash
-node scripts/drive-vault-sync.mjs --group <id> [--from-r2] [--dedupe-by-sha]            # 1 dry-run
-node scripts/drive-vault-sync.mjs --group <id> [--from-r2] [--dedupe-by-sha] --commit   # 2 vault へ（読み直し sha256）
-node scripts/drive-vault-sync.mjs --group <id> --verify --deep --cloud --out .tmp/<id>-ok.txt  # 3 台帳・vault・クラウド md5 の 3 者一致
-node scripts/delete-r2-objects.mjs --bucket private --from-manifest-group <id> [--commit]      # 4 R2 側を消す（byVisibility は --bucket public も）
-node scripts/asset-offload.mjs --forget-group <id> --commit                                    # 5 R2 台帳から外す（Drive 側で保全確認できたキーだけ）
+node scripts/storage/drive-vault-sync.mjs --group <id> [--from-r2] [--dedupe-by-sha]            # 1 dry-run
+node scripts/storage/drive-vault-sync.mjs --group <id> [--from-r2] [--dedupe-by-sha] --commit   # 2 vault へ（読み直し sha256）
+node scripts/storage/drive-vault-sync.mjs --group <id> --verify --deep --cloud --out .tmp/<id>-ok.txt  # 3 台帳・vault・クラウド md5 の 3 者一致
+node scripts/storage/delete-r2-objects.mjs --bucket private --from-manifest-group <id> [--commit]      # 4 R2 側を消す（byVisibility は --bucket public も）
+node scripts/storage/asset-offload.mjs --forget-group <id> --commit                                    # 5 R2 台帳から外す（Drive 側で保全確認できたキーだけ）
 # 6 asset-storage.json から group を削除・drive-vault.json 側を status: active・tests のサンプルを差し替え・docs
 ```
 

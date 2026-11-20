@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildTechnicalSeoReport } from '../scripts/report-technical-seo.mjs';
+import { buildTechnicalSeoReport } from '../scripts/reports/report-technical-seo.mjs';
 import { exitCodeOf } from '../scripts/lib/run-audit.mjs';
 
 const NOW = Date.parse('2026-11-18T00:00:00Z');

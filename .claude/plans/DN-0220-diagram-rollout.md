@@ -28,8 +28,8 @@ config/business-direction.json / data/business/records/ / data/business/experime
 - サイト：DN-0214〜0218・DN-0221で扱う記事と、骨材含水・水準測量・ネットワーク工程の修正図。公開前に `git diff origin/main...develop -- content/site` で今回以外の未公開変更も確認する。
 - X訂正：`content/sns/x/draft/096-civil1-pressure-correction/tweets.md`。訂正元は `https://x.com/doboku373/status/2095356106256105570`。送信後のIDと実表示を記録する。
 - X図解3投稿：`content/sns/x/draft/097-civil1-diagram-reuse/`。画像は同ディレクトリの `render.mjs` で再生成。既存の9月投稿予約に追加せず、既存枠との重複・頻度を確認する。
-- IG：`content/sns/instagram/civil-1/keyword-packs/{aggregate-moisture,leveling-principle,network-floats}` の3パック。各パックは `node scripts/render-figure-pack.mjs --pack civil-1/keyword-packs/{slug}` でPNGを再生成し、既存 `/ig-reconcile` → `/publish-ig-bs` へ渡す。
-- Reels：上記土木3パックと技術士一次 `content/sns/instagram/pe-first-stage/keyword-packs/{vector-projection,newton-method,balanced-bridge}` の3パックを対象とする。原稿・キャプションから `node scripts/figure-reel-create.mjs --pack <資格/keyword-packs/slug>` で再生成できる。音声クレジットは実際のVOICEVOX話者名を用いる。配信前に音声の読み・画面と説明・尺を確認する。
+- IG：`content/sns/instagram/civil-1/keyword-packs/{aggregate-moisture,leveling-principle,network-floats}` の3パック。各パックは `node scripts/build/render-figure-pack.mjs --pack civil-1/keyword-packs/{slug}` でPNGを再生成し、既存 `/ig-reconcile` → `/publish-ig-bs` へ渡す。
+- Reels：上記土木3パックと技術士一次 `content/sns/instagram/pe-first-stage/keyword-packs/{vector-projection,newton-method,balanced-bridge}` の3パックを対象とする。原稿・キャプションから `node scripts/storage/figure-reel-create.mjs --pack <資格/keyword-packs/slug>` で再生成できる。音声クレジットは実際のVOICEVOX話者名を用いる。配信前に音声の読み・画面と説明・尺を確認する。
 - 既存動画：`koji-gaiyo-7items` は公開済み（hJYV_U0qKvA）、測量・ネットワーク通常動画もアップロード/予約済み（qIL2YIrhb2w / gNqsZBc_-sM）。元の制作物・IDを保持し、無断で新規動画へ置き換えない。新しい図は上の独立した未公開Reels入力で再利用する。
 
 DN-0223由来のX図解は `content/sns/x/draft/098-cem-textbook-diagrams` から `103-cem-existing-figure-diagrams` の制作入力を参照する。各下書きの元記事・元図ハッシュと公開反映を照合し、既存X台帳で配信を管理する。教材との対応表は制作範囲だけを持つ。

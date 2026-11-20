@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SOURCES, buildDataset, statementFields } from '../scripts/build-quiz-data.mjs';
-import { toBundleQuestion, bundledImageRels } from '../scripts/build-ios-quiz-bundle.mjs';
+import { SOURCES, buildDataset, statementFields } from '../scripts/build/build-quiz-data.mjs';
+import { toBundleQuestion, bundledImageRels } from '../scripts/build/build-ios-quiz-bundle.mjs';
 import { extractStatementExplanations, hasStatementStem, renderStatementsHtml, withStatementHtml } from '../scripts/lib/statement-explanations.mjs';
 
 const details = (body) => `\n\n**正答：3**\n\n${body}\n\n<ExamPoint summary="要点" items={["a"]} />\n`;

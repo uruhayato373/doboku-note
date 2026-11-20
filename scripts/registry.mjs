@@ -255,7 +255,7 @@ async function markRendered() {
     const record = readJsonIf(ROOT, `${work.definition}/pop-image.json`);
     const problems = qualityProblems(record?.revisions?.[record?.activeShorts?.[pub.variant]], mediaById.get(pub.media?.video)?.sha256, readPolicy(ROOT));
     if (problems.length) throw new Error(`${pub.id}: ${problems.join('・')}`);
-  } else execFileSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', `${pub.exam}/${pub.work}`], { cwd: ROOT, stdio: 'inherit' });
+  } else execFileSync(process.execPath, [join(ROOT, 'scripts/storage/media.mjs'), 'verify-render', '--work', `${pub.exam}/${pub.work}`], { cwd: ROOT, stdio: 'inherit' });
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
   writePublication(pub, { status: 'rendered', times: { ...pub.times, rendered: new Date().toISOString() } });
   console.log(`完成レンダーを検査して状態を進めた: ${pub.id}（approved → rendered）`);

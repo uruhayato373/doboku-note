@@ -68,7 +68,7 @@
     ],
     "ask": [
       "Bash(npm run ogp-backgrounds:*)",
-      "Bash(node scripts/generate-ogp-backgrounds.mjs:*)"
+      "Bash(node scripts/build/generate-ogp-backgrounds.mjs:*)"
     ],
     "defaultMode": "bypassPermissions"
   },

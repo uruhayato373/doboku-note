@@ -15,7 +15,7 @@
  *   node scripts/youtube/brand-video-pack.mjs --pack-dir content/sns/video-packs/{exam}/{packId}            # dry-run
  *   node scripts/youtube/brand-video-pack.mjs --pack-dir content/sns/video-packs/{exam}/{packId} --commit   # 書き込み
  * 書いたあとは npm run media -- sync --work {exam}/{packId} --commit で Drive へ置き、
- * node scripts/drive-vault-sync.mjs --group content-media --verify --deep --cloud --commit で Drive のファイル ID を記録する（check-youtube-cover-handoff）。
+ * node scripts/storage/drive-vault-sync.mjs --group content-media --verify --deep --cloud --commit で Drive のファイル ID を記録する（check-youtube-cover-handoff）。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';

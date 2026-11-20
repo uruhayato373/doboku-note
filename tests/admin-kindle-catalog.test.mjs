@@ -39,7 +39,7 @@ test('artifactRelPaths: A系(buildSpec無し)も kindle-dist に置き、buildSp
 
 test('hasBuildRecipe: spec駆動とA系theme駆動を再ビルド可能と判定する', () => {
   assert.equal(hasBuildRecipe({ builder: 'scripts/build.mjs', buildSpec: 'scripts/spec.json' }), true)
-  assert.equal(hasBuildRecipe({ builder: 'scripts/build-takuitsu-reconstruct.mjs', buildTheme: 'anzen' }), true)
+  assert.equal(hasBuildRecipe({ builder: 'scripts/build/build-takuitsu-reconstruct.mjs', buildTheme: 'anzen' }), true)
   assert.equal(hasBuildRecipe({ builder: 'scripts/build.mjs' }), false)
 })
 
@@ -83,12 +83,12 @@ test('buildPathDateMap: 空文字列/未定義は空 Map を返す', () => {
 })
 
 test('estimateFreshness: 入力がEPUBより新しければ stale と判定する', () => {
-  const books = [{ id: 'e-01', epub: 'kindle-dist/e-01.epub', buildSpec: 'content/kindle/books/e-01/spec.json', builder: 'scripts/build-pe1-kindle.mjs' }]
+  const books = [{ id: 'e-01', epub: 'kindle-dist/e-01.epub', buildSpec: 'content/kindle/books/e-01/spec.json', builder: 'scripts/build/build-pe1-kindle.mjs' }]
   const pathDateMap = new Map([
     ['scripts/kindle-dist/e-01.epub', '2026-08-17T00:00:00+09:00'],
     ['content/site/a/article.mdx', '2026-08-26T00:00:00+09:00'], // 08-17 より新しい = stale の原因
     ['content/kindle/books/e-01/spec.json', '2026-08-01T00:00:00+09:00'],
-    ['scripts/build-pe1-kindle.mjs', '2026-08-01T00:00:00+09:00'],
+    ['scripts/build/build-pe1-kindle.mjs', '2026-08-01T00:00:00+09:00'],
   ])
   const readSpec = () => ({ sources: ['content/site/a/article.mdx'] })
   const { staleIds, unknownIds, perBook } = estimateFreshness(books, pathDateMap, readSpec)
@@ -108,11 +108,11 @@ test('estimateFreshness: EPUB が git log に無い(map 不在)冊は unknown（
 })
 
 test('estimateFreshness: A系(buildSpec無し)は exam-questions.json と builder を入力とみなす', () => {
-  const books = [{ id: 'a-00', epub: 'kindle-dist/a-00.epub', buildSpec: undefined, builder: 'scripts/build-takuitsu-reconstruct.mjs' }]
+  const books = [{ id: 'a-00', epub: 'kindle-dist/a-00.epub', buildSpec: undefined, builder: 'scripts/build/build-takuitsu-reconstruct.mjs' }]
   const pathDateMap = new Map([
     ['scripts/kindle-dist/a-00.epub', '2026-08-01T00:00:00+09:00'],
     ['src/config/civil-1-exam-questions.json', '2026-08-15T00:00:00+09:00'],
-    ['scripts/build-takuitsu-reconstruct.mjs', '2026-08-01T00:00:00+09:00'],
+    ['scripts/build/build-takuitsu-reconstruct.mjs', '2026-08-01T00:00:00+09:00'],
   ])
   const { staleIds, perBook } = estimateFreshness(books, pathDateMap, () => null)
   assert.deepEqual(staleIds, ['a-00'])
@@ -120,12 +120,12 @@ test('estimateFreshness: A系(buildSpec無し)は exam-questions.json と builde
 })
 
 test('estimateFreshness: essay builder は共有レンダラ kindle-md.mjs も入力に含める', () => {
-  const books = [{ id: 'c-01', epub: 'kindle-dist/c-01.epub', buildSpec: 'content/kindle/books/c-01/spec.json', builder: 'scripts/build-essay-kindle.mjs' }]
+  const books = [{ id: 'c-01', epub: 'kindle-dist/c-01.epub', buildSpec: 'content/kindle/books/c-01/spec.json', builder: 'scripts/build/build-essay-kindle.mjs' }]
   const pathDateMap = new Map([
     ['scripts/kindle-dist/c-01.epub', '2026-08-20T00:00:00+09:00'],
     ['scripts/lib/kindle-md.mjs', '2026-08-25T00:00:00+09:00'], // renderer 更新のみが stale の原因
     ['content/kindle/books/c-01/spec.json', '2026-08-01T00:00:00+09:00'],
-    ['scripts/build-essay-kindle.mjs', '2026-08-01T00:00:00+09:00'],
+    ['scripts/build/build-essay-kindle.mjs', '2026-08-01T00:00:00+09:00'],
   ])
   const { staleIds } = estimateFreshness(books, pathDateMap, () => ({ sources: [] }))
   assert.deepEqual(staleIds, ['c-01'])

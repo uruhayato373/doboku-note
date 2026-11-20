@@ -36,5 +36,5 @@ metadata:
 ## 統合: 著者オーソリティ汎用バナー（旧 author_authority_banner・2026-07-21）
 - 競合差別化として上位資格保有者による分析提供を訴求。実保有資格（author.ts）に基づき誇張しない。
 - **フレーミング（厳守）**: 総監（技術士）＝上位資格の分析力／元発注者（自治体土木）＝採点者の視点／1級2級施工管理技士＝合格した当事者。資格を混同しない（「総監だから施工管理を教えられる」は NG）。R8総監択一の「公式正答40問一致」は別軸の解答速報の精度で、施工管理バナーには混ぜない。
-- アセット `docs/note/共通/著者オーソリティ/img/`（再生成 `scripts/render-note-author-authority.mjs`、配布 `scripts/note/distribute-author-authority-banner.mjs`＝冪等・H1直後top/末尾・キャリア系除外・`--all`）。真実源 `docs/reference/author-authority-banner.md`。
+- アセット `docs/note/共通/著者オーソリティ/img/`（再生成 `scripts/build/render-note-author-authority.mjs`、配布 `scripts/note/distribute-author-authority-banner.mjs`＝冪等・H1直後top/末尾・キャリア系除外・`--all`）。真実源 `docs/reference/author-authority-banner.md`。
 - 適用: 土木 note 195記事（入口free25＋内部170）に top/bottom 配置済み。残＝①カバー幅超過36本（check-note-cover-fit に SKIP なし。カバー短縮後に `--all` 再実行）②note-magazines.ts civil description の textual 差別化 ③195記事のライブ再パブリッシュ。

@@ -99,7 +99,7 @@ PNG総数 : 90 枚 (9 × 10)
 - **slide-data.json の編集** → `ig-carousel-writer`
 - **tokens.json の編集** → design-system 担当（人手）
 - **品質採点** → `ig-carousel-qa`
-- **新規パック作成** → `scripts/generate-exam-pack-dirs.mjs`
+- **新規パック作成** → `scripts/build/generate-exam-pack-dirs.mjs`
 - **A シリーズ（運営者作問）の再生成** → `scripts/sns/render-quiz-pack.mjs`（本スキル対象外）
 
 ## 注意

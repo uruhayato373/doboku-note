@@ -1,6 +1,6 @@
 // channel-economics.mjs — 販売チャネル（note・KDP・ココナラ）ごとの売上・1 件あたりの手取り・資格別・KPI の実績を組み立てる唯一の実装。
 //
-// 読み手: npm run channel-economics（scripts/channel-economics.mjs）と管理画面 戦略＞資格と市場＞チャネル設計（tools/admin-app/src/lib/channels.ts）。
+// 読み手: npm run channel-economics（scripts/reports/channel-economics.mjs）と管理画面 戦略＞資格と市場＞チャネル設計（tools/admin-app/src/lib/channels.ts）。
 // 正本: config/channel-strategy.json（役割・手数料・SWOT・4C・KGI/KPI）。売上は note.sales（販売額）・kdp.royalties（ロイヤリティ＝手取り）・
 // coconala.revenue（手数料控除後）・coconala.orders（販売額）・coconala.analytics（過去 30 日の閲覧と受注）。
 // 月別の受取は net-receipts.mjs の monthReceipts（唯一の実装・note は確定月の手数料控除後の実績、確定前は推計）をそのまま使う。

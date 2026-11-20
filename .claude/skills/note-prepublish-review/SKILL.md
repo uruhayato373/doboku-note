@@ -331,7 +331,7 @@ npm run build-note-catalog
 | `/note-hashtags` | 公開前のハッシュタグ生成 |
 | **`/note-prepublish-review`（本スキル）** | 公開前の **統合品質ゲート** |
 | `scripts/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
-| `scripts/build-note-published-index.mjs` | 記事カタログ生成（`npm run build-note-catalog`） |
+| `scripts/build/build-note-published-index.mjs` | 記事カタログ生成（`npm run build-note-catalog`） |
 | `note-link-injector` agent | リンク注入の Generator |
 | `svg-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |

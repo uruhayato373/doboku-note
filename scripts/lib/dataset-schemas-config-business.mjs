@@ -1529,7 +1529,7 @@ export const ConfigDemandMap = z
   })
   .meta({ title: '悩みと商品候補の地図' });
 
-/** 運営の固定費の表。月ごとに繰り返す費用だけを持ち、土曜の収集が月の費用（costYen）の計測記録を作る（scripts/record-operating-costs.mjs） */
+/** 運営の固定費の表。月ごとに繰り返す費用だけを持ち、土曜の収集が月の費用（costYen）の計測記録を作る（scripts/fetch/record-operating-costs.mjs） */
 export const ConfigOperatingCosts = z
   .object({
     schemaVersion: z.literal(1),

@@ -11,7 +11,7 @@
 //   実際の是正/予約は operator が確認のうえ行う（`/ig-reconcile` スキルは 2026-10-25 に外した）。
 //
 // 照合は運営者の Mac で回す（CI はログインしない・DN-0817）。
-//   Graph API 版（scripts/fetch-ig-insights.mjs --reconcile）は Meta 利用制限で待機（dispatch 専用）。
+//   Graph API 版（scripts/fetch/fetch-ig-insights.mjs --reconcile）は Meta 利用制限で待機（dispatch 専用）。
 //   いずれも同じ core（scripts/lib/ig-reconcile-core.mjs）で snapshot を書く。プランナー実体確認が要るときは
 //   ローカルで --no-planner 無しに回す。
 //

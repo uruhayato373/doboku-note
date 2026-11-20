@@ -19,7 +19,7 @@ Kindle 書籍（[strategy.md](../../content/kindle/strategy.md) のラインナ�
 ### 1. A系: THEMES 論点分類の設計（A-02 法規〜A-06 工程管理）
 
 - 入力: `src/config/civil-1-exam-questions.json`（H26-R07・1,162 問。`{id, no, part, body, options[], correct, correctText, optionExplanations[]}`）
-- `scripts/build-takuitsu-reconstruct.mjs` 先頭の `THEMES` に新テーマを追加する:
+- `scripts/build/build-takuitsu-reconstruct.mjs` 先頭の `THEMES` に新テーマを追加する:
   - `include`: 対象科目の問題を抽出する regex（本文・設問キーワードベース）
   - `subtopics[]`: 論点（章）ごとの `{key, label, re}`。**先勝ちマッチ**なので特異なパターンを先に、最終要素は受け皿 `re: /.*/`
 - 実装後は `--format md` でドライ実行し、**ビルド統計を `strategy.md` の確定値（例: A-02=抽出153→収録126問）と突合**。乖離があれば regex の拾い過ぎ/漏らしを特定して理由つきで報告
@@ -41,7 +41,7 @@ kdp-memo 未登録本（C系12/F系16/e-02）の `books[id]` を、spec と原�
 
 1. **原稿確認**: `spec.sources` の記事を Read してタイトル/収録内容を把握する
 2. **生成**: `books[id]` に titleKana（カタカナ）・titleRomaji（記号回避・ローマ字）・subKana/subRomaji・series/seriesKana/seriesRomaji・volume・keywords（7個・各≤50字・検索意図）・description（≤4000字・販売文＝特長/対象読者/出典注記）・previewNote を書く。合格保証表現・捏造実績は書かない
-3. **確認の材料を出す**: `node scripts/gen-kdp-memo.mjs <id>` でメモ txt を出し、親/ユーザーがフリガナ・ローマ字・販売文を確認する（確認前に提出しない）
+3. **確認の材料を出す**: `node scripts/build/gen-kdp-memo.mjs <id>` でメモ txt を出し、親/ユーザーがフリガナ・ローマ字・販売文を確認する（確認前に提出しない）
 4. `scripts/lib/kdp-common.mjs` の validateBook が字数/個数を検査する（提出時にも再チェック）。提出・出版・ASIN 記録は `kdp-operator`
 
 ### 4. 既刊・審査中の改訂ロック

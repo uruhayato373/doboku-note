@@ -32,7 +32,7 @@ import { CONTENT_SOURCES_ROOT, REPO_ROOT } from '../lib/repository-paths.mjs';
 import { resolveVaultRoot } from '../lib/drive-vault.mjs';
 import { applyTableOverride, tableKey } from '../lib/standards-table.mjs';
 import { TABLE_OVERRIDES_ROOT, getCatalog, loadOverrides, loadTableOverrides, variantsOf } from '../lib/standards-structure.mjs';
-import { buildDocument } from '../build-standard-articles.mjs';
+import { buildDocument } from '../build/build-standard-articles.mjs';
 
 const WORK = join(REPO_ROOT, '.tmp', 'standards-tables');
 const INVENTORY = join(WORK, 'inventory.json');

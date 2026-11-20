@@ -546,7 +546,7 @@ note 記事1本の完成条件は **3点セット**: `article.md` + カバー（
 - `scripts/note/note-lint.mjs`（pre-commit）: 既定モード＝**公開状態の記事のみ** BLOCK（下書き commit は止めない）。公開状態にしたのにアセットが無いコミットを自動で止める。
 - `/note-prepublish-review` Phase 1（4e）: `--require` モード＝公開意図なので**無条件必須**（公開直前は `noteUrl` 未設定のことが多く state を見ない）。
 
-cover.png はマガジン記事の共用図 `../img/cover.png` も探索する。生成: `node scripts/generate-note-covers.mjs <slug>`（カバー）/ `/note-hashtags <slug>`（タグ）。関連: §14-c（マガジン CTA）。
+cover.png はマガジン記事の共用図 `../img/cover.png` も探索する。生成: `node scripts/build/generate-note-covers.mjs <slug>`（カバー）/ `/note-hashtags <slug>`（タグ）。関連: §14-c（マガジン CTA）。
 
 ### 14-e. note 記事の段落は短く（1〜2 文・~120 字以下）
 

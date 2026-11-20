@@ -249,7 +249,7 @@ Phase 2 の未実装スキルは `skills-guide.md` の「Phase 2 待機スキル
 
 ## 9. 参考リンク
 
-- **原典 PDF**: `.claude/pdfs/guide.pdf`（The Complete Guide to Building Skills for Claude）。人だけが読むので Google Drive vault の `アーカイブ/repo/.claude/pdfs/guide.pdf`（group `repo-archive`）に置き、git では追跡しない（2026-11-19）。手元に無ければ `node scripts/drive-vault-sync.mjs --pull --path .claude/pdfs/ --commit` で取り戻す
+- **原典 PDF**: `.claude/pdfs/guide.pdf`（The Complete Guide to Building Skills for Claude）。人だけが読むので Google Drive vault の `アーカイブ/repo/.claude/pdfs/guide.pdf`（group `repo-archive`）に置き、git では追跡しない（2026-11-19）。手元に無ければ `node scripts/storage/drive-vault-sync.mjs --pull --path .claude/pdfs/ --commit` で取り戻す
 - **スキル早引き**: `.claude/knowledge/reference/skills-guide.md`
 - **Agents Registry**: `.claude/knowledge/reference/agents-registry.md`
 - **プロジェクト設計原則**: `CLAUDE.md` の「ハーネス設計原則」セクション

@@ -216,7 +216,7 @@ def main():
             if not x["pages"]:
                 continue
             rel = os.path.relpath(x["file"], os.getcwd())
-            reg.append(f"node scripts/record-reference-book-artifacts.mjs --source-id {a.book} "
+            reg.append(f"node scripts/fetch/record-reference-book-artifacts.mjs --source-id {a.book} "
                        f"--ocr-path '{rel}' --ocr-pages {','.join(x['pages'])} --ocr-method '{a.method}' \"$@\"")
         # 登録が済んだら原寸画像の複製（1 冊 1〜2GB）は用済み。set -e で node 行の成功後にだけ届く。
         # dry-run では消さない（目視の抜き取りは登録前に行うため）。

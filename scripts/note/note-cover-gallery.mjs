@@ -1,7 +1,7 @@
 /**
  * note カバー ギャラリー — content/note 配下の全 cover*.png を1枚の HTML で一覧確認する QA ツール。
  *
- * 一括再生成（node scripts/generate-note-covers.mjs）後の目視チェック用。
+ * 一括再生成（node scripts/build/generate-note-covers.mjs）後の目視チェック用。
  * バナー帯のはみ出し・HiBox 文字詰まり・試験色の不整合・中央 630 セーフゾーン崩れ等を
  * まとめて確認できる。OGP の ogp-gallery.mjs に対応する note カバー版。
  *
@@ -264,7 +264,8 @@ console.log(
 
 if (process.argv.includes("--open")) {
   try {
-    execFileSync("cmd", ["/c", "start", "", OUT.replace(/\//g, "\\")], { stdio: "ignore" });
+    // シェル（cmd /c start）を通さず開く。Mac は open、Windows は explorer
+    execFileSync(process.platform === "win32" ? "explorer" : "open", [process.platform === "win32" ? OUT.replace(/\//g, "\\") : OUT], { stdio: "ignore" });
     console.log("[note-cover-gallery] 既定ブラウザで開きました");
   } catch {
     console.log("[note-cover-gallery] 自動オープン不可。手動で開いてください:", OUT);

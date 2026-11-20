@@ -31,7 +31,7 @@ paths:
 
 ## OGP 画像
 
-- develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して `ogp.png` を自動生成し R2 へ供給する（通常は手動作業不要）。`npm run ogp`（未生成のみ生成）はローカルプレビュー用。即時反映したい場合のみ生成後に `node scripts/asset-offload.mjs --group site-ogp-png --commit` を実行する。放置すると `og:image` が R2 で 404 のまま note/X 等の外部リンクカードが出ない。published 記事の欠落は `npm run check-ogp-coverage`（`quality:audit:ci`）が止める
+- develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して `ogp.png` を自動生成し R2 へ供給する（通常は手動作業不要）。`npm run ogp`（未生成のみ生成）はローカルプレビュー用。即時反映したい場合のみ生成後に `node scripts/storage/asset-offload.mjs --group site-ogp-png --commit` を実行する。放置すると `og:image` が R2 で 404 のまま note/X 等の外部リンクカードが出ない。published 記事の欠落は `npm run check-ogp-coverage`（`quality:audit:ci`）が止める
 - **OGP デザインの真実源は [ogp-prompts.md](../knowledge/reference/ogp-prompts.md)**（mono-tag 全幅＋資格別テーマ色外枠）。一括再生成 `npm run ogp -- --all --force` 後の目視 QA は `npm run ogp-gallery`（全 OGP を 1 枚の HTML で確認）。タイトルの折返し行数は `npm run check-ogp-line-count`
 - `generate-note-covers` / `ogp --all` は全ディレクトリを再生成する。自分の分だけ `git add` し、残りは `git restore` する
 

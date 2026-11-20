@@ -145,7 +145,7 @@ jobs:
             echo "- rc=1 は IndexNow が非 2xx。403/422 は key・host の不一致、429 は送信間隔"
             echo "- 設定: \`config/indexnow.json\` / 判定: \`scripts/lib/indexnow.mjs\`"
           } > /tmp/indexnow-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel indexnow \
             --title "IndexNow 送信失敗（rc=${{ steps.submit.outputs.rc }}）" \
             --body-file /tmp/indexnow-body.md
@@ -157,5 +157,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel indexnow \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel indexnow \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

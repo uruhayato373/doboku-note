@@ -167,7 +167,7 @@ export function estimateFreshness(books, pathDateMap, readSpec) {
       inputPaths = [...A_SERIES_INPUTS]
     }
     if (book.builder) inputPaths.push(book.builder)
-    if (book.builder === 'scripts/build-essay-kindle.mjs') inputPaths.push(SHARED_RENDERER)
+    if (book.builder === 'scripts/build/build-essay-kindle.mjs') inputPaths.push(SHARED_RENDERER)
 
     const inputDates = inputPaths.map((p) => pathDateMap.get(p)).filter(Boolean)
     const latestInputDate = inputDates.length ? inputDates.reduce((a, b) => (a > b ? a : b)) : undefined

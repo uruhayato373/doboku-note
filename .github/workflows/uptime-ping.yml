@@ -181,7 +181,7 @@ jobs:
             echo "SSR 壊れ / body 空 / HTTP エラーのいずれか。2026-W16 BAILOUT の再発監視。"
             echo "run のログで、どの URL がどう落ちたかを確認する。"
           } > /tmp/uptime-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel uptime \
             --title "サイト健全性チェック失敗（uptime-ping）" \
             --body-file /tmp/uptime-body.md
@@ -193,7 +193,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel uptime \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel uptime \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail on uptime failure (アラート)
@@ -256,7 +256,7 @@ jobs:
             echo "- 再実行: \`gh workflow run uptime-ping.yml -f sweep=true\`（手元: \`npm run check-production-sweep -- --sample 50\`）"
             echo "- 判定: \`scripts/lib/production-sweep.mjs\` / 実行: \`scripts/checks/check-production-sweep.mjs\`"
           } > /tmp/sweep-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel production-sweep \
             --title "本番スイープ失敗（rc=${{ steps.sweep.outputs.rc }}）" \
             --body-file /tmp/sweep-body.md
@@ -268,5 +268,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel production-sweep \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel production-sweep \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

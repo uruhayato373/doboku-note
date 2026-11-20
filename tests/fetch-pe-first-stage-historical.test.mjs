@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { historicalSources } from '../scripts/fetch-pe-first-stage-historical.mjs';
+import { historicalSources } from '../scripts/fetch/fetch-pe-first-stage-historical.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // 技術士第一次試験の固定した原典（URL・SHA-256・ページ数）は過去問の在庫台帳が持つ。

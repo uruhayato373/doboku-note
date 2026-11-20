@@ -70,7 +70,7 @@ doboku-note の既存コンテンツを活用して note.com / X 向けの投稿
     - **blockquote**（`>` で始まる行）→ 期待どおりの引用ブロックにならない。特に `>` の中に箇条書きをネストすると確実に崩れる。「この記事でわかること」型のサマリーは **太字見出し + プレーン箇条書き** で書く。引用装飾は note エディタの引用機能（Cmd+Shift+9）をユーザーが後付け
     - **KaTeX 数式**（`$...$` / `$$...$$`）→ 数式は使わない。必要なら画像化
     - **Mermaid 図**（` ```mermaid ` ）→ コードブロックの生テキストとして表示される。図解は SVG→PNG で
-- **マークダウン表は図に置換**: 上記ルール適用時は、SVG を `content/note/{slug}/img/figure-{slug}.svg` に直接書き、原稿からは同名の `figure-{slug}.png` を指す（PNG は投稿時に SVG から作られる・`scripts/lib/note-figure-png.mjs`）。見た目の確認は `node scripts/render-note-figures.mjs <svg>`。書き方は `note-svg-policy.md`
+- **マークダウン表は図に置換**: 上記ルール適用時は、SVG を `content/note/{slug}/img/figure-{slug}.svg` に直接書き、原稿からは同名の `figure-{slug}.png` を指す（PNG は投稿時に SVG から作られる・`scripts/lib/note-figure-png.mjs`）。見た目の確認は `node scripts/build/render-note-figures.mjs <svg>`。書き方は `note-svg-policy.md`
 - **画像指示**: 本文中に図版を入れる位置には `![alt](./img/figure-{slug}.png)` で参照を書く。生成前のドラフト段階では `[画像: ○○の図を挿入]` プレースホルダで OK。**画像は note エディタに別途ドラッグ&ドロップで配置する**（markdown の `![](path)` 記法ではローカルパスが解決されない）
 - **キーワード内部リンク（全占有方針）**: doboku-note にキーワードページがある用語は本文中に `[キーワード](https://doboku-note.com/exam/pe-comprehensive-management/keywords/{slug})` 形式で **インラインリンク** を仕込む。実機検証で動作確認済（平文中・括弧内連続・bullet 内の太字いずれも note でハイパーリンク化される 2026-04-29）。**note 記事は doboku-note への導線が主目的**なので、リンクは出し惜しみしない。ルール:
   - **同一キーワードの全 occurrence をリンク化**（「初出のみ」は採らない。読者がどこからクリックしても遷移できる方が導線として強い）。同一目標 URL に複数回リンクが付くのは OK

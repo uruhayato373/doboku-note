@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { summarizeDefectLearning } from '../scripts/report-defect-learning.mjs';
+import { summarizeDefectLearning } from '../scripts/reports/report-defect-learning.mjs';
 
 test('期間内に起票・完了した不具合と再発防止の内訳を数える', () => {
   const cards = [

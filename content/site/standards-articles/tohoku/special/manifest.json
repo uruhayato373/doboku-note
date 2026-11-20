@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generator": "scripts/build-standard-articles.mjs",
+  "generator": "scripts/build/build-standard-articles.mjs",
   "agencyId": "tohoku",
   "agencyName": "東北地方整備局",
   "documentId": "special",
@@ -118,8 +118,8 @@
         13
       ],
       "sourceSha256": "c35068f7e070d2f37e4cd04b788629736a75750cc4ae2b1522efd3956ef13ddb",
-      "outputSha256": "b271bbccb9c91d2af7094c966cf8eeb663d0fc1b231cf7d2ba7382fc9400ee72",
-      "outputBytes": 34762,
+      "outputSha256": "577e229e473109603d88a8af66e27acfb7b4f5e5bf655ce6d898f6faa6ed503d",
+      "outputBytes": 34768,
       "splitBySection": false,
       "sections": [
         {
@@ -320,8 +320,8 @@
         14
       ],
       "sourceSha256": "4b06799d99a0a719f99e7093118503f740427327e6b45299d21ba075758cfa55",
-      "outputSha256": "fdb32186c811746fcf7d0045b136901905bf85c7f3e48fe72b653496abea1a1d",
-      "outputBytes": 767,
+      "outputSha256": "7b1278fe9d8c03a538af8fae1c13c342b085d6d63ba389677c2f327e6eec8586",
+      "outputBytes": 773,
       "splitBySection": false,
       "sections": [
         {
@@ -374,8 +374,8 @@
         19
       ],
       "sourceSha256": "b2bafcab8f91cec9238b7b027ef776e4ca8d6f3ffeea1d71f556fe03c7444a04",
-      "outputSha256": "f2892526527b8e71dbdc1ea9082330755004480023e7caf6eb4dc3e5f5b02187",
-      "outputBytes": 14137,
+      "outputSha256": "0e9fef00d8aaa2bf9673be9665c038a03e8cb07c08d5c898802aa7a34e42f189",
+      "outputBytes": 14143,
       "splitBySection": false,
       "sections": [
         {
@@ -535,8 +535,8 @@
         25
       ],
       "sourceSha256": "fdb285afa77d3cc6cae4d11e139e09a05bf63351a8cd65afaa5d7cb6ced3df76",
-      "outputSha256": "1047a98fc579ef4f10829175b95b519e859d518b3e867c8602636dbbd7a9cf95",
-      "outputBytes": 23352,
+      "outputSha256": "a0da76437b15d8d7e7fffc1c94f735986c129a9418cff2a7e07064c8991ca889",
+      "outputBytes": 23358,
       "splitBySection": false,
       "sections": [
         {
@@ -678,8 +678,8 @@
         26
       ],
       "sourceSha256": "6669b99eb801e07f2c244d0675e95b85c95f6ccc48b913f000915687abbf95db",
-      "outputSha256": "d5c85b6ffe56a12bbd74564d6ad1f0a8b1a296db2d5b28833399526eff9e4f1c",
-      "outputBytes": 1096,
+      "outputSha256": "49fe5c127edbdfb47da4911fd0562ad1452b5d4476724856d0bedc40d00dc366",
+      "outputBytes": 1102,
       "splitBySection": false,
       "sections": [
         {
@@ -762,8 +762,8 @@
         27
       ],
       "sourceSha256": "b4c48f0954e8728a1e0db0c804c5e527fc4243c4393ee2dbea20120af2872dd9",
-      "outputSha256": "e38b852e3b7d61ac9e09e1a83f92c425a1e1b98211680099535616b9b95b9bda",
-      "outputBytes": 3608,
+      "outputSha256": "26e60c834fa6c1e4b0c2bfd814f017823d74d28b2687467ee8b8f4deafd2aa61",
+      "outputBytes": 3614,
       "splitBySection": false,
       "sections": [
         {
@@ -862,8 +862,8 @@
         27
       ],
       "sourceSha256": "8b2270e7dd1cdd09e977a92a94e7cc0db16efb7bc371b562f7b8b4557b6aed52",
-      "outputSha256": "adb26ec74396d1f5e0ef2d35e2a6f347fb5afe583835e61b40a40d3a10c3a6a5",
-      "outputBytes": 1124,
+      "outputSha256": "a972a5f2f79fc9d57fcfec9dda295d09873801ec9985c23c64e83f041933c39f",
+      "outputBytes": 1130,
       "splitBySection": false,
       "sections": [
         {
@@ -921,8 +921,8 @@
         29
       ],
       "sourceSha256": "b97354434a530322803dc893b03e139f6da1a5fd7c3c06592e0ed5fdc5d66490",
-      "outputSha256": "d2b0199f5413ee83ba7e7d295e3750ec68d2d89ced3e9b85e653dd6c4fd0ac09",
-      "outputBytes": 3993,
+      "outputSha256": "f8ba79329a5ba67c85511e4dc88345aaea1915047e7df2d0633758795f7a52b5",
+      "outputBytes": 3999,
       "splitBySection": false,
       "sections": [
         {
@@ -1023,8 +1023,8 @@
         31
       ],
       "sourceSha256": "cd2ce5f36bfc97bebb733d5f4564d5ec0698cad44b309304bd44be7a70db8592",
-      "outputSha256": "101728bd2b7e8432ade144f2e69048980747e89abb5d49d3f9e7f831828a0fb4",
-      "outputBytes": 11385,
+      "outputSha256": "52aa44916875a176b964c3dbd869ef75472ddaa3359336cccb702e263bdbe568",
+      "outputBytes": 11391,
       "splitBySection": false,
       "sections": [
         {
@@ -1163,8 +1163,8 @@
         32
       ],
       "sourceSha256": "b10b6b4acd130c0a2e6b27d75a6319b5a28ec69726e4d0f46c7d57cc37a10978",
-      "outputSha256": "3cd88ec5825cc90ed4bdaea5e9a3093b6b73f318a9dfd1433c1e14e88584e593",
-      "outputBytes": 2720,
+      "outputSha256": "18b3187d5f9c38e28004142a35a70125e7e586a58432ffddfc9daa558679b329",
+      "outputBytes": 2726,
       "splitBySection": false,
       "sections": [
         {
@@ -1267,8 +1267,8 @@
         32
       ],
       "sourceSha256": "2258c9d16a350ef60563c2e9871439bbb9ae68b4ca42e2fec001987bdff9d041",
-      "outputSha256": "9d9ebb60091de6118e520218009f92df71998e95f653fa8136c474454a78c983",
-      "outputBytes": 673,
+      "outputSha256": "2e8280f019a03e4eece03956f23cda4afc6e2a04eb06465ea74bb8a801a89aaf",
+      "outputBytes": 679,
       "splitBySection": false,
       "sections": [
         {
@@ -1330,8 +1330,8 @@
         33
       ],
       "sourceSha256": "b39558425efd24940e86963a247a59c57e31decc9a776932e4156a4e1efbdc76",
-      "outputSha256": "dd9a01f87408c5425888dbedc71b027cb365fbd6f1f3d326b7a53a0857cdc2fc",
-      "outputBytes": 1933,
+      "outputSha256": "876bf2811b6c2f5c330735aa898e1afa9c7745690a8ab5809f434bc569d29de8",
+      "outputBytes": 1939,
       "splitBySection": false,
       "sections": [
         {
@@ -1423,8 +1423,8 @@
         34
       ],
       "sourceSha256": "d0161a12f360144f5c2d1222530d3248de94bc291c11562f940ea8b04828b9fb",
-      "outputSha256": "26d682622fb8881a4de982d62ae0ad889b4ba35d38566b69a40d0246cefea121",
-      "outputBytes": 2721,
+      "outputSha256": "6b8c62b5549a5756e6927ec67cc9c5857d45b13cd4a0f1e6c9431e1b2e00753f",
+      "outputBytes": 2727,
       "splitBySection": false,
       "sections": [
         {

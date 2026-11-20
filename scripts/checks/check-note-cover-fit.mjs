@@ -20,7 +20,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { coverFitIssues } from '../lib/note-character-cover.mjs';
 import { loadCoverSources, collectArticleFiles, buildArticleTarget, buildMagazineTargets } from '../lib/note-cover-inventory.mjs';
-import { MAGAZINES } from '../generate-magazine-covers.mjs';
+import { MAGAZINES } from '../build/generate-magazine-covers.mjs';
 import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT as NOTE_DIR } from '../lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
 
@@ -84,7 +84,7 @@ if (ng.length === 0) {
   __exit(0);
 }
 console.error(`[check-note-cover-fit] ✗ ${ng.length} 件の note カバーが描画枠に収まらない（生成が失敗する）`);
-console.error('  真実源: .claude/knowledge/design-system/note-cover-character-v5.md → 文言を短縮し再生成 (node scripts/generate-note-covers.mjs <slug>)');
+console.error('  真実源: .claude/knowledge/design-system/note-cover-character-v5.md → 文言を短縮し再生成 (node scripts/build/generate-note-covers.mjs <slug>)');
 ng.forEach((r) => r.issues.forEach((i) => console.error(`  ${r.slug}  ${i}`)));
 __exit(1);
   });

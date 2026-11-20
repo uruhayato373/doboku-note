@@ -35,7 +35,7 @@ const LAUNCH_FAILED = 127;
 const STEPS = {
   "gsc-ui:fetch": "scripts/search/fetch-gsc-ui-csv.mjs",
   "google-console:normalize": "scripts/search/normalize-google-console-csv.mjs",
-  "search-growth:report": "scripts/report-search-growth.mjs",
+  "search-growth:report": "scripts/reports/report-search-growth.mjs",
   "check-google-ui-ssot": "scripts/checks/check-google-ui-ssot.mjs",
 };
 

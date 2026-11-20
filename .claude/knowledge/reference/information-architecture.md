@@ -130,7 +130,7 @@ content/
 
 > [!warning] 廃止済み経路を復活させない
 > `.claude/state/task-queue.json` は 2026-06-11 に廃止済み。現行の進捗 SSOT は `.claude/todo/backlog.md`、
-> 自動化の失敗記録は `scripts/report-automation-failure.mjs`（`automation-failure` Issue）。
+> 自動化の失敗記録は `scripts/reports/report-automation-failure.mjs`（`automation-failure` Issue）。
 > 参照を成立させるためにファイルを作り直してはならない。
 
 ## 判断フロー
@@ -173,7 +173,7 @@ content/
 > commit したのに誰も分析せず、indexed_ratio が 10pt 落ちる間ずっと無記録だった。
 > Issue は通知が飛び open のまま残るので、**能動的な通知チャネル**として機能する。
 >
-> 起票は `scripts/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
+> 起票は `scripts/reports/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
 > あれば新規作成せずコメント追記）。**クローズは起票元の自動化が次に成功したとき `--resolve` で自動**
 > （2026-09-18 に「クローズは人間」から転換。復旧しても誰も閉じず open 8 件・最古 43 日が溜まり、通知
 > チャネルとして死んでいた＝W37 レビュー「消化停止」。自動クローズ後は **7 日超 open だけが慢性問題**として
@@ -270,7 +270,7 @@ content/
 4. **揺れやすいパスより安定したインデックスを指す**。章番号付き（`04_コンテンツロードマップ.md` 等）は再編で動きやすいので、可能なら README や本ドキュメント、内容 SSOT（`noteコンテンツ計画.md` 等）を参照する。
 5. **例示パスはプレースホルダで書く**（`{slug}` / `{magazine}` / `YYYY-Www` / `r0X` / `d-xx` 等）。実在ファイル参照と区別され、ガードが誤検知しない。
 6. **廃止台帳・移行履歴など「死んだパスを記録として残す」行**は行末に `<!-- doc-ref:ignore -->` を付ける（このセクション直後の「廃止済み」がその例）。
-7. **新しいツール/スクリプト/処理経路を追加したら、最も近い既存 skill SKILL.md か reference policy から参照を張る（discoverability）＋新旧の棲み分けを明記する**。似た既存ツールがあれば「どちらを使うか」を迷わせない。これも `/doc-sync` の対象＝**routing drift**（新ツール追加で既存の「どれを使うか」案内が旧/別ツールを指したまま陳腐化）と **discoverability gap**（新ツールがどの doc からも参照されず次セッションが再調査）。機械ガード（参照・台帳）は壊れた参照と台帳もれしか見ずこの意味ドリフトは拾えないため、追加コミット前に `/doc-sync` を回す（2026-06-25、`scripts/figure-reel-create.mjs` 新設時に `ig-figure-pack` SKILL.md が過去問専用の旧リール生成スキルを誤案内したまま残った再発防止。[[feedback_new_tool_doc_wiring]]）。
+7. **新しいツール/スクリプト/処理経路を追加したら、最も近い既存 skill SKILL.md か reference policy から参照を張る（discoverability）＋新旧の棲み分けを明記する**。似た既存ツールがあれば「どちらを使うか」を迷わせない。これも `/doc-sync` の対象＝**routing drift**（新ツール追加で既存の「どれを使うか」案内が旧/別ツールを指したまま陳腐化）と **discoverability gap**（新ツールがどの doc からも参照されず次セッションが再調査）。機械ガード（参照・台帳）は壊れた参照と台帳もれしか見ずこの意味ドリフトは拾えないため、追加コミット前に `/doc-sync` を回す（2026-06-25、`scripts/storage/figure-reel-create.mjs` 新設時に `ig-figure-pack` SKILL.md が過去問専用の旧リール生成スキルを誤案内したまま残った再発防止。[[feedback_new_tool_doc_wiring]]）。
 
 ### ガード（再発防止）— ドキュメント整合の4層
 

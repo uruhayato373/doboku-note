@@ -19,7 +19,7 @@ metadata:
 
 ## 「ファイルの処理中に問題」の真因=.svg拡張子のJPEG／KDP出版自動化
 
-**2026-07-20 b-heisei が KDP で2日間「ファイルの処理中に問題が見つかりました」で出版不能→真因特定・恒久修正**。真因＝`scripts/build-pe1-kindle.mjs` の画像取込で、拡張子正規化regexが `.svg` を含まず（`/\.(webp|png|jpg|jpeg)$/i`）、**ソースがサイトの figure-*.svg のとき sharp で JPEG 化しつつファイル名を .svg のまま同梱**していた（中身JPEG・名前.svg が15個）。KDP変換は拡張子.svgを見てSVG(XML)解析を試み中身がJPEGで失敗。**epubcheck は OPF media-type=image/jpeg と実体JPEGが一致するため素通り**（epubcheck 0/0 でも KDP は落ちる典型）。修正＝regexに `svg` 追加（`/\.(svg|webp|png|jpg|jpeg)$/i`）→再ビルドで.svg 0件→KDP処理完了・原稿チェック通過を実機確認。
+**2026-07-20 b-heisei が KDP で2日間「ファイルの処理中に問題が見つかりました」で出版不能→真因特定・恒久修正**。真因＝`scripts/build/build-pe1-kindle.mjs` の画像取込で、拡張子正規化regexが `.svg` を含まず（`/\.(webp|png|jpg|jpeg)$/i`）、**ソースがサイトの figure-*.svg のとき sharp で JPEG 化しつつファイル名を .svg のまま同梱**していた（中身JPEG・名前.svg が15個）。KDP変換は拡張子.svgを見てSVG(XML)解析を試み中身がJPEGで失敗。**epubcheck は OPF media-type=image/jpeg と実体JPEGが一致するため素通り**（epubcheck 0/0 でも KDP は落ちる典型）。修正＝regexに `svg` 追加（`/\.(svg|webp|png|jpg|jpeg)$/i`）→再ビルドで.svg 0件→KDP処理完了・原稿チェック通過を実機確認。
 
 **切り分け手法（有効）**: 通る本(d-01 LIVE)のEPUBと通らない本(b-heisei)を新規テストドラフトにアップロードして比較→d-01完了/b-heisei失敗で「本固有のEPUB問題」と確定→内部 `unzip` で `find -iname '*.svg'` の件数差(15 vs 0)から容疑者特定→`file` コマンドで実体がJPEGと判明。**KDPアップロード検証は「正常にアップロード」表示で早合点せず、"ファイルの処理が完了しました。原稿チェックが完了しました" まで待つ**（処理は数十秒かかり、途中でエラーに変わる）。
 

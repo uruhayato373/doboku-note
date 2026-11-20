@@ -70,4 +70,4 @@ node scripts/checks/check-note-attachments.mjs --live   # 期待本数 vs ライ
 
 - `scripts/note/note-attach-file.mjs`（1記事）／`scripts/note/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
 - 記事公開: `note-publish` ／ マガジンカバー: `note-magazine-cover` ／ 収録: `note-magazine-add`
-- 印刷用 PDF 生成: note マガジンは `scripts/note/magazine-to-pdf.mjs`（`magazine-pdf-builder`）、択一演習は `scripts/build-takuitsu-pdf.mjs --spec <json>`。択一specは `bookId` / `title` / `subtitle` / `sources` が必須で、自作問題は任意の `creditText` に出典説明を書く。生成器はMDXコメントを除去し、Calloutを要点ボックスへ変換し、システムChromeで描画する。真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]
+- 印刷用 PDF 生成: note マガジンは `scripts/note/magazine-to-pdf.mjs`（`magazine-pdf-builder`）、択一演習は `scripts/build/build-takuitsu-pdf.mjs --spec <json>`。択一specは `bookId` / `title` / `subtitle` / `sources` が必須で、自作問題は任意の `creditText` に出典説明を書く。生成器はMDXコメントを除去し、Calloutを要点ボックスへ変換し、システムChromeで描画する。真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]

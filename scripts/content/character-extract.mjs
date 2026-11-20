@@ -18,7 +18,7 @@
  *
  * 依存: ImageMagick(magick)。AI品質の切り抜きが要るときは aidesigner remove_image_background(無料)を併用。
  */
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 import { readdirSync, statSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import { datasetPath } from '../lib/datasets.mjs';
@@ -75,10 +75,9 @@ inputs.forEach((it, i) => {
 // 確認用モンタージュ
 const cols = Math.min(5, staged.length);
 const rows = Math.ceil(staged.length / cols);
-execSync(
-  `magick montage ${staged.map((s) => JSON.stringify(s.dst)).join(' ')} ` +
-  `-font ${JSON.stringify(FONT)} -tile ${cols}x${rows} -geometry 320x400+8+8 -background "#999999" ` +
-  `${JSON.stringify(join(stg, 'montage.png'))}`,
+execFileSync(
+  'magick',
+  ['montage', ...staged.map((s) => s.dst), '-font', FONT, '-tile', `${cols}x${rows}`, '-geometry', '320x400+8+8', '-background', '#999999', join(stg, 'montage.png')],
   { stdio: 'pipe' }
 );
 console.log(`透過処理: ${staged.length}枚 → ${stg}/`);

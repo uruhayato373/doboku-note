@@ -29,11 +29,11 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 
 | 書籍ID | シリーズ | ビルド | 構成定義 | 状態 |
 |---|---|---|---|---|
-| A-01〜A-06 / A-00 | A: 1級土木択一・論点別 | `node scripts/build-takuitsu-reconstruct.mjs --theme {anzen\|hoki\|sekokeikaku\|kankyo\|hinshitsu\|koutei\|goubon}` | THEMES（lead判定＋exclude＋parts フィルタ） | 全7冊 LIVE |
-| D-01/02/03 / D-00 | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 書き下ろし前付け | 全4冊 LIVE |
+| A-01〜A-06 / A-00 | A: 1級土木択一・論点別 | `node scripts/build/build-takuitsu-reconstruct.mjs --theme {anzen\|hoki\|sekokeikaku\|kankyo\|hinshitsu\|koutei\|goubon}` | THEMES（lead判定＋exclude＋parts フィルタ） | 全7冊 LIVE |
+| D-01/02/03 / D-00 | D: 技術士一次 合本 | `node scripts/build/build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 書き下ろし前付け | 全4冊 LIVE |
 | E-01 | E: 2級土木択一 全期合本 | `build-pe1-kindle.mjs --spec content/kindle/books/e-01/spec.json` | spec + 前付け（出典=全国建設研修センター） | LIVE |
 | b-reiwa/b-heisei | B: 総監択一 合本 | `build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 前付け（出典=第二次試験・spec.examName） | 全2冊 LIVE |
-| c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec（sources=模範解答 md）+ 前付け | 全12冊 LIVE |
+| c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build/build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec（sources=模範解答 md）+ 前付け | 全12冊 LIVE |
 | f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 前付け | 全16冊 LIVE |
 | h-01 | H: RCCM 問題III 模範論文集 | `build-essay-kindle.mjs --spec content/kindle/books/h-01/spec.json`（`creditBody`＝過去問非公開の出典文上書き・`chapterLabel: headline`） | spec + 前付け | in_review（2026-09-23 出版申請） |
 | i-01〜i-04 / i-11〜i-24 | I: 1級土木 第2次検定 記述（施工経験記述・学科記述・想定工事14分冊） | `build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json`（`chapterLabel: h1-tail`・`dropLines`・`replaceText`） | spec + 前付け | 2026-09-23 新設 |
@@ -126,9 +126,9 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 
 - 戦略・価格・チェックリストの真実源: [strategy.md](../../../content/kindle/strategy.md)
 - マスター登録簿（全書籍の状態/ASIN）: `config/products.json`（channel kindle） ／ 配布物: `scripts/kindle-dist/`（README あり）
-- 択一ビルダー: `scripts/build-takuitsu-reconstruct.mjs`（A・THEMES）/ `scripts/build-pe1-kindle.mjs`（D/E/B・spec）
-- essay ビルダー: `scripts/build-essay-kindle.mjs`（C/F・spec）＋共有レンダラ `scripts/lib/kindle-md.mjs`
+- 択一ビルダー: `scripts/build/build-takuitsu-reconstruct.mjs`（A・THEMES）/ `scripts/build/build-pe1-kindle.mjs`（D/E/B・spec）
+- essay ビルダー: `scripts/build/build-essay-kindle.mjs`（C/F・spec）＋共有レンダラ `scripts/lib/kindle-md.mjs`
 - 書式検査: `scripts/checks/check-kindle-format.mjs`（`npm run check-kindle-format`）
-- メモ生成/配布同期: `scripts/gen-kdp-memo.mjs` / `scripts/sync-kindle-dist.mjs`
+- メモ生成/配布同期: `scripts/build/gen-kdp-memo.mjs` / `scripts/sync-kindle-dist.mjs`
 - 試作の経緯・既知の限界: `content/note/1級・2級土木/1級土木/takuitsu-pdf-prototype.md`
 - サブエージェント: `kindle-book-composer`（構成設計）/ `kindle-book-qa`（5軸監査）→ [agents-registry.md](../../knowledge/reference/agents-registry.md)

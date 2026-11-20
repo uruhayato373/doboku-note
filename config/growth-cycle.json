@@ -1,6 +1,6 @@
 {
   "_doc": ".claude/knowledge/reference/growth-cycle.md",
-  "_why": "GA4 起点の計測→記録→改善サイクルの機械設定。週次の取得（scripts/fetch-growth-pack.mjs）が読む。週の定義は business-direction の reviewPeriod('weekly')（前の完了した月〜日・JST）を唯一の真実源とし、ここには複製しない。",
+  "_why": "GA4 起点の計測→記録→改善サイクルの機械設定。週次の取得（scripts/fetch/fetch-growth-pack.mjs）が読む。週の定義は business-direction の reviewPeriod('weekly')（前の完了した月〜日・JST）を唯一の真実源とし、ここには複製しない。",
   "schemaVersion": 1,
   "baselineDays": 28,
   "gscCountry": "jpn",

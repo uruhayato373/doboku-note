@@ -102,7 +102,7 @@ function writePacket() {
   const [seriesId, itemId] = args.packet.split('/');
   const m = /^content\/site\/[a-z0-9-]+\/([a-z0-9-]+)\/article\.mdx$/.exec(args.article ?? '');
   if (!seriesId || !itemId || !m) {
-    console.error(`usage: node scripts/${NAME}.mjs --packet <シリーズ id>/<項目 id> --article content/site/<区分>/<slug>/article.mdx`);
+    console.error(`usage: node scripts/checks/${NAME}.mjs --packet <シリーズ id>/<項目 id> --article content/site/<区分>/<slug>/article.mdx`);
     process.exitCode = 2;
     return;
   }

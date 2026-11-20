@@ -435,7 +435,7 @@
 2. 試験当日〜正答公開後に、公式問題 PDF と正答 PDF から既存の過去問ページと同じ手順（起稿→原典照合）で 4 ページを作り、無料演習（建設 3 科目）に追加する。あわせて水産部門の専門科目（`r08-fisheries`）を、既存の水産 16 回分と同じ形（問題と公式の正答だけ・演習には入れない）で作る。スキャンなら書き起こしと別の担当に全問照合させる（2026-11-10 追加）。
 3. 速報ページから過去問一覧・note 直前パックへの導線を置く。
 
-**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/checks/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
+**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/checks/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build/build-quiz-data.mjs` が通る。
 
 **進捗（2026-10-02）**: 手順1を完了。解答速報ページの枠 `/exam/pe-first-stage/guide/r08-answers`（公式の問題・正答の確認先、正答訂正の注意、科目ごとの自己採点、合格発表、直前対策の導線、FAQ）を本番へ反映（PR #844）。正答の公開日は実施案内に書かれていないため断定していない。残りは試験後: 公式正答の公開を確認したらページに掲載日を追記し、令和8年度の4ページ（基礎・適性・建設・上下水道）を起稿して演習へ追加する。
 
@@ -511,14 +511,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1260] scripts/ 直下の整理で残した転送 33 本を、main へ deploy したあとで消す
+### [DN-1260] scripts/ 直下の整理で残した転送 50 本を、main へ deploy したあとで消す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
 
 **起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
 
-同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に同じ転送を残した。
+同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に、用途のフォルダ（storage・build・reports・fetch）へ分けたときも 17 本に同じ転送を残した。
 
-**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 33 本（検査 17・YouTube 7・検索 9）を消す。
+**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 50 本（検査 17・YouTube 7・検索 9・用途 17）を消す。
 
 **完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
@@ -787,7 +787,7 @@
 **起点**: 週次レビュー（2026-11-09〜2026-11-15）。Issue #1445（gsc-indexing-local・11/6〜）が 7 日を超えて開いている。11/14 朝の回は登録リクエスト自体は送れた（受理 10 件）が、記録の commit が pre-commit の `check-category-curriculum` の ERROR（`pe-fisheries.examGuide` の slug 不在: guide-overview が doc-meta-index に無い）で落ちた（`~/Library/Logs/doboku-note/gsc-indexing.log`）。同じ検査は、doc-meta-index を作り直した worktree では通る（slug 参照 348 件・全て実在）。朝の処理が使うチェックアウトの doc-meta-index が古いまま commit している疑い（未確認）。あわせて「button-not-found」で送れない URL が 5 件ある。
 
 **やること**:
-1. gsc-indexing-local が commit する前に `node scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
+1. gsc-indexing-local が commit する前に `node scripts/build/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
 2. button-not-found の 5 件（主任技士 materials・総監 h21-secondary・水産部門のガイドほか）が、URL 検査の画面で登録できない状態（既に登録済み・上限）なのか、画面の変更なのかを切り分ける。
 
 **進み（2026-11-15）**: 11/15 07:40 の回は rc=0 で記録を develop へ push した（commit の失敗は 11/14 の 1 回だけ）。button-not-found は 5 件 → 21 件に増えた（h21-secondary・水産部門の選択科目・道路構造の基準ほか）。残りはやること 1 の再発防止と 2 の切り分け。Issue #1445 は 11/15 の成功の後も開いたまま（自動で閉じる配線を確かめる）。
@@ -1188,7 +1188,7 @@ psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 4291064
 **起点**: 2026-11-10、事業レポートの欠測の実査（PR #1501・#1502）。X・動画からの教材クリック（`xCampaignClicks`・`youtubeCampaignClicks`）は 28 日窓の GA4 レポート（`ga4.campaign-note-cta`）からしか読めず、週次・月次のセルには「別期間」としか出ない。`youtubeCampaignClicks` は取得はできているが該当の行が 0 件で、計測漏れか本当に 0 かを確かめていない。
 
 **やること**:
-1. `scripts/fetch-business-metrics.mjs` に `sessionCampaignName` 別の `note_cta_click` の問い合わせを足し、完了した週・月の値を measurement の `values.xCampaignClicks`・`values.youtubeCampaignClicks` に入れる。キャンペーンの集合は `scripts/lib/metric-status.mjs` の `campaignNames` を共有する（絞り込みを 2 か所に書かない）。
+1. `scripts/fetch/fetch-business-metrics.mjs` に `sessionCampaignName` 別の `note_cta_click` の問い合わせを足し、完了した週・月の値を measurement の `values.xCampaignClicks`・`values.youtubeCampaignClicks` に入れる。キャンペーンの集合は `scripts/lib/metric-status.mjs` の `campaignNames` を共有する（絞り込みを 2 か所に書かない）。
 2. `youtubeCampaignClicks` が 0 行の理由を確かめる。動画の説明欄・固定コメントの UTM の `utm_campaign` が動画パックの id と一致しているかを、公開済みの動画 1 本で見る。
 
 **完了条件**: 金曜の CI（`fetch-metrics.yml`）のあと、直近の完了した週のセルに X からの教材クリックが値で入る。`youtubeCampaignClicks` は 0 行の理由が記録されている（UTM の不一致なら直す）。GA4 の API は会社 PC から叩けないので、確かめるのは CI の実行結果。
@@ -1316,7 +1316,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
   - markup: 表－2（試験項目と持ち込み数量）が記法の文字の段落になり、区切り行『||---|---|』と『<br>』の文字もそのまま画面に出て、行・列が読み取れない（markup-02、page-01 でも確認）。（markup-02.png）
   - markup: 表－3（持ち込み骨材の内訳）と表－4（目標動的安定度）も同様に記法の文字の段落で出ている（markup-03、page-01）。撮影（shots）は 0 件のため、表としての描画が無い。原本（p721-725）との個別照合はしていない。（markup-03.png）
 
-**やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
+**やること**: 原因（生成器 scripts/build/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
 
 **完了条件**: `npm run standards-visual-review -- prepare --keys kinki/hikkei/19-2,kinki/hikkei/36-1` で撮り直して判定し、record で全章が pass と台帳に記録される。
 
@@ -2199,7 +2199,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: 既存画像を変更したケースで、記事が参照する通常URLの実体が変更後SHA-256と一致することを機械検査する。対象数・実検査数・不一致数を出し、0件や取得失敗はPASSにしない。既存の配信テスト・本番SSR検査も通る。
 
-**進捗（2026-10-20）**: PR #1134 を develop へマージ。r2-sync が送った画像を `upload-images-r2 --changed-out` で書き出し、`scripts/purge-r2-changed.mjs` が上書き分を URL で purge してから全件の通常 URL を SHA-256 で照合する（対象・実検査・一致・旧版・取得失敗を出し、旧版は exit 1・取れない URL は exit 2）。手元で一致・不一致・0 件の 3 通りを確認。**残り**: (1) 今のトークンにはキャッシュ パージ権限が無い（ダッシュボードで確認）ので、運営者が doboku-note.com の「キャッシュ パージ」＋「ゾーン 読み取り」のトークンを作り `CLOUDFLARE_CACHE_PURGE_TOKEN` に登録する (2) main への反映後、既存画像を上書きした r2-sync の run で照合が一致 N/N になることを確かめてこのカードを閉じる。
+**進捗（2026-10-20）**: PR #1134 を develop へマージ。r2-sync が送った画像を `upload-images-r2 --changed-out` で書き出し、`scripts/storage/purge-r2-changed.mjs` が上書き分を URL で purge してから全件の通常 URL を SHA-256 で照合する（対象・実検査・一致・旧版・取得失敗を出し、旧版は exit 1・取れない URL は exit 2）。手元で一致・不一致・0 件の 3 通りを確認。**残り**: (1) 今のトークンにはキャッシュ パージ権限が無い（ダッシュボードで確認）ので、運営者が doboku-note.com の「キャッシュ パージ」＋「ゾーン 読み取り」のトークンを作り `CLOUDFLARE_CACHE_PURGE_TOKEN` に登録する (2) main への反映後、既存画像を上書きした r2-sync の run で照合が一致 N/N になることを確かめてこのカードを閉じる。
 
 **進捗（2026-11-15）**: DN-1199 の本番反映で再発した。r2-sync（run 43660863887）が 34 図を上書きし、purge が HTTP 401（`CLOUDFLARE_CACHE_PURGE_TOKEN` が空）で 0/34、照合は一致 20・旧版 14 で exit 1。同じ図を r2-sync で送り直しても「変更なし」で purge の対象に入らないので、旧版の URL はダッシュボードの Custom Purge か 1 日の期限切れを待つしかない。残りは変わらず、運営者がトークン（doboku-note.com の Cache Purge＋Zone Read）を作って Secrets に入れること。
 
@@ -2345,7 +2345,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 1. 競合: `competitor-scan.yml`（四半期・note/coconala/ig を自動取得）に youtube を足す。先に GitHub Actions のランナーで yt-dlp の一覧（`--flat-playlist`）が取れるかを probe で2回確かめる。動画の再生用 API（player）と映像は使わない
 2. 自社: 月次の workflow（毎月1日・JST）で `youtube-own-metrics` を回し、`ci-data add` で `data/youtube/own-videos/` へ書き戻す
 3. `scripts/checks/check-competitor-scan-due.mjs` の youtube を `automation: 'ci'` にする。自社の月次の鮮度（台帳の `freshness.warnDays` 35）を読む検査を `quality-audit.mjs` の ops に足し、`note:` に読み手を書く
-4. 失敗は `scripts/report-automation-failure.mjs` へ（取得 0 件は exit 1・検査不成立を緑にしない）
+4. 失敗は `scripts/reports/report-automation-failure.mjs` へ（取得 0 件は exit 1・検査不成立を緑にしない）
 **罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
@@ -2500,9 +2500,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-10-07 にマガジンのカバー 56 誌（39＋17。1 誌は登録後の確認で落ちた回に入った）を会社 PC の `note-sync-routine --magazines-only` で note へ登録した。会社 PC には Google ドライブのマウントが無いので、登録した版の控え（Drive vault の `note-magazine-cover-png`）の保存が `drive-vault-sync` で失敗した（実行記録の problems に「マガジンカバーを Drive へ保存できなかった」）。台帳（`magazineCovers`）の記録と note 上の画像は済んでいる。
 
-**やること**: Drive をマウントした PC（Mac）で、最新の develop から `node scripts/generate-magazine-covers.mjs` でマガジンの `_cover.png` を作り直し、`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` で控えを保存する。作り直した画像の sha256 が台帳の `magazineCovers[*].sha256` と一致することを確かめてから保存する（一致しなければ保存せず理由を書く）。
+**やること**: Drive をマウントした PC（Mac）で、最新の develop から `node scripts/build/generate-magazine-covers.mjs` でマガジンの `_cover.png` を作り直し、`node scripts/storage/drive-vault-sync.mjs --group note-magazine-cover-png --commit` で控えを保存する。作り直した画像の sha256 が台帳の `magazineCovers[*].sha256` と一致することを確かめてから保存する（一致しなければ保存せず理由を書く）。
 
-**完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
+**完了条件**: `node scripts/storage/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
 止まっている所（2026-10-26）: マガジンカバー側とカバー未退避 14 件は済み。残りは記事カバーの local-newer 139 件（本体 Mac の作業ツリー）。うち 135 件は note に登録済みの版（text-first 設計・2026-09-28）が R2 にあり、手元が 8/31〜9/24 の旧版なので R2 へ上げてはいけない（手元を `asset-hydrate` で R2 から戻す側）。
 残る 3 件は採用版の判断待ち: 総監 設問3国家施策バンク/00-序章 は手元・R2・note 登録のどれも別の値、技術士建設部門・総監の「筆記合格発表後にやること-無料」は note 登録の記録なし。
@@ -3147,7 +3147,7 @@ Windows の PowerShell で repo 直下から順に:
   - 土木の経験記述・入門クラスタの 13 件と総監の 2 件は、生成スクリプト（render-figure-2c-entry-cluster・2c-essay-cluster・2c-essay-fail・civil1-essay-cluster・soukan-analysis）が SVG を組みながら保存せず、PNG だけを書いている
   - `技術士総監/記述式の書き方/img/figure-four-layer-structure.png` は生成元が見つからない
   - SVG のある図の生成スクリプト 28 本は 2026-11-19 に退役した（図は SVG を直接直す）。残るのは上の 5 本と SNS 用の render-figure-pack
-- やること: 上の 5 本で SVG を一度だけ書き出して 15 件を SVG 化し、PNG を git rm して 5 本も消す。figure-four-layer-structure は SVG で作り直すか、PNG を正本のまま残すかを決める（確認は node scripts/render-note-figures.mjs）
+- やること: 上の 5 本で SVG を一度だけ書き出して 15 件を SVG 化し、PNG を git rm して 5 本も消す。figure-four-layer-structure は SVG で作り直すか、PNG を正本のまま残すかを決める（確認は node scripts/build/render-note-figures.mjs）
 - 完了条件: content/note の追跡中の PNG が、SVG の無い原本（sample.png・著者バナーの原本と元絵・anki-sample・ogp など）だけになる。npm test（tests/note-figure-sources.test.mjs）が通る
 
 
@@ -3204,7 +3204,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-1185] Pagefind の索引作成（ビルドのうち 53〜61 秒）を速くできるか調べる
 タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
 
-**起点**: 2026-11-13 の実測。build のうち Pagefind の索引作成が 53〜61 秒で、next build の静的生成（83〜126 秒）の半分ほど。scripts/build-search-index.mjs は out/ の HTML 2,435 件を 1 件ずつ読み、noindex でないものを順に addHTMLFile している。Pre-merge check・E2E・夜間・デプロイのどのビルドでも走る。
+**起点**: 2026-11-13 の実測。build のうち Pagefind の索引作成が 53〜61 秒で、next build の静的生成（83〜126 秒）の半分ほど。scripts/build/build-search-index.mjs は out/ の HTML 2,435 件を 1 件ずつ読み、noindex でないものを順に addHTMLFile している。Pre-merge check・E2E・夜間・デプロイのどのビルドでも走る。
 
 **やること**: noindex のページを索引に入れない現在の結果を変えずに速くできるかを調べる（Pagefind の Node API の一次情報を読む。ディレクトリ単位の追加と除外の指定・並行の追加など）。索引の件数（現在は「HTML n 件を検査 / 索引 m 件 / noindex で除外 k 件」を出力）が前後で同じことを確かめる。
 
@@ -3453,7 +3453,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0861] 転送の見直し: 2026-08-22 の旧 /docs・/category → 正規 URL の転送を外せるか判断する
 タグ: [領域:サイト] [時期:2027-09] [種類:意思決定] [起票:2026-10-26] [期日:2027-09-30]
 
-対象: scripts/build-public-route-redirects.ts が生成する旧 /docs/<slug>（静的 134 本＋接頭辞の動的 25 本で 1,456 件）と /category/<slug>、/docs → /exam、/category → /exam。旧 /docs/river/* などの旧カテゴリ階層の動的ルール 7 本も含む。
+対象: scripts/build/build-public-route-redirects.ts が生成する旧 /docs/<slug>（静的 134 本＋接頭辞の動的 25 本で 1,456 件）と /category/<slug>、/docs → /exam、/category → /exam。旧 /docs/river/* などの旧カテゴリ階層の動的ルール 7 本も含む。
 
 外す条件と手順は docs/strategy/05_情報アーキテクチャ.md「転送の見直し（いつ外すか）」。全部を満たした群だけ public/_redirects から外し、1 つでも欠ければ見直しを 6 か月後に延ばす（表の見直し時期も更新）。
 
@@ -3594,7 +3594,7 @@ Windows の PowerShell で repo 直下から順に:
 **保留**: 公開（手順 3）は、依存先 DN-0597（YouTube Analytics の取得・時期 2026-11）が済み、SNS の新規投稿の保留（2026-10-17〜）が解けてから。手順 1・2 は先にできる。
 **やること**（2026-10-08 の判断: DN-0597 で視聴維持を取れるようになってから公開する）:
 1. 表紙と締めを採用画像にする（cover-design.json・cta-design.json を足す。sns-image-policy §0.1）
-2. Mac で `node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
+2. Mac で `node scripts/build/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
 3. video-content-qa（6軸）→ youtube.json（題名・概要欄・UTM `utm_campaign=koji-gaiyo-sheet-zukai`）→ ユーザー承認 → 公開
 4. 28日後に旧版 `koji-gaiyo-7items` と、再生・平均視聴率（DN-0597 の YouTube Analytics）を比べる
 **完了条件**: 比べた結果を 07 §11 に1段落で残し、`single-topic-zukai` を active か rejected にする。active なら公開済みパックの作り直しの順番を決める。

@@ -7,7 +7,7 @@ import {
   oppId, combineGscRows, detectSeo, detectRevenue, detectMeasurement, detectExperiments,
   isSuppressed, selectSurfaced, summarizeKpis, reconcileBing,
 } from '../scripts/lib/growth-opportunities.mjs';
-import { buildDigest, renderMarkdown } from '../scripts/build-growth-digest.mjs';
+import { buildDigest, renderMarkdown } from '../scripts/build/build-growth-digest.mjs';
 
 const cfg = JSON.parse(readFileSync('config/growth-cycle.json', 'utf8')).digest;
 const gsc = (rows) => ({ ok: true, rows, truncated: false });

@@ -78,7 +78,7 @@ export function buildMagazineTargets(sourceRoot, magazines, { tokens, v4Map, con
     const examKey = mag.examKey || resolveCoverExam(mag.magazineDir, tokens);
     const imagePath = `${mag.magazineDir}/_cover.png`;
     targets.push({
-      key: `magazine:${mag.id}`, kind: 'magazine', source: 'scripts/generate-magazine-covers.mjs',
+      key: `magazine:${mag.id}`, kind: 'magazine', source: 'scripts/build/generate-magazine-covers.mjs',
       sourceSha256: hashBytes(JSON.stringify(mag)), imagePath,
       previousImageSha256: existsSync(join(sourceRoot, imagePath)) ? hashBytes(readFileSync(join(sourceRoot, imagePath))) : null,
       noteKey: mag.noteKey || null,
@@ -94,7 +94,7 @@ export function buildMagazineTargets(sourceRoot, magazines, { tokens, v4Map, con
  */
 export async function loadNoteCoverInventory(sourceRoot, { configRoot = sourceRoot, magazines = null } = {}) {
   const sources = loadCoverSources(sourceRoot, configRoot);
-  if (!magazines) ({ MAGAZINES: magazines } = await import(pathToFileURL(join(sourceRoot, 'scripts/generate-magazine-covers.mjs')).href));
+  if (!magazines) ({ MAGAZINES: magazines } = await import(pathToFileURL(join(sourceRoot, 'scripts/build/generate-magazine-covers.mjs')).href));
   const articles = collectArticleFiles(sourceRoot).map((path) => buildArticleTarget(sourceRoot, path, sources));
   const { targets: magazineTargets, retired, errors } = buildMagazineTargets(sourceRoot, magazines, sources);
   const targets = assignCoverPoses([...articles, ...magazineTargets]);

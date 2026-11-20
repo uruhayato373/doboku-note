@@ -10,7 +10,7 @@
  *   - 誰を追跡するか … config/competitors.json の取得元ごとの枠（exams は資格 id）
  *   - 市場の混み具合 … market-scan.json の検索語で取った data/analysis/qualification-market/*.json の最新（YouTube・note）
  *     と data/coconala/market-research.json（ココナラ）
- * 呼び出し元: scripts/report-qualification-market.mjs（npm run qualification-market）・
+ * 呼び出し元: scripts/reports/report-qualification-market.mjs（npm run qualification-market）・
  * scripts/checks/check-qualification-market.mjs（CI ゲート）・管理画面 資格一覧（展開の判断）。
  * ---------------------------------------------------------------------------
  */
