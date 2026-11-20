@@ -25,7 +25,7 @@ import { readDataset, readDatasetIf } from '../lib/dataset-io.mjs';
 import { readJson } from '../lib/json-io.mjs';
 import { parseCliArgs } from '../lib/cli-args.mjs';
 import { classifyPage, countMetrics, stripFrontmatter, median, evaluatorCoverage } from '../lib/page-quality-profiles.mjs';
-import { CHECKS } from '../quality-audit.mjs';
+import { CHECKS } from '../ops/quality-audit.mjs';
 import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
 
 /** 主の評価役（これが無い資格を「評価役なし」と数える） */

@@ -44,7 +44,7 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 - 前回の取得: `data/a8/ui-last-run.json`（最終取得日・成否）と `data/a8/report-log.json` の更新日。**最終取得日を報告の冒頭に書く**
 - 古い（`npm run check-a8-report-due` が DUE）、または最新の取得が ok でないときは、数値を埋めず **「未取得」** と書き、
   次の土曜の収集を待つか、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で
-  `node scripts/weekly-collect.mjs --only a8` を実行する。UI 変更で取得が失敗していたら、運営者が
+  `node scripts/ops/weekly-collect.mjs --only a8` を実行する。UI 変更で取得が失敗していたら、運営者が
   `npm run a8-ui:fetch -- --dry-run --probe-isolation` / `--probe-period --headed` で実機を確かめ、
   `config/a8-report-automation.json` の `a8.periodForm` 等を確定する（セッションからは実行しない）
 

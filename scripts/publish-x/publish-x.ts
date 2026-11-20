@@ -273,7 +273,7 @@ async function recordToRegistry(
       const id = postedUrl?.match(/\/status\/(\d+)/)?.[1];
       if (!id || !postedUrl) {
         console.error(
-          `❌ 投稿は済んだが URL が取れない。x.com で確かめて node scripts/registry.mjs show の行を人が直す（または後で照合する）: draft/${folder}#${key}（台帳は変更していない）`
+          `❌ 投稿は済んだが URL が取れない。x.com で確かめて node scripts/ops/registry.mjs show の行を人が直す（または後で照合する）: draft/${folder}#${key}（台帳は変更していない）`
         );
         process.exitCode = 1;
         return;

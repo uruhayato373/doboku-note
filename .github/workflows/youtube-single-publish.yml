@@ -258,7 +258,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
-      - run: node scripts/registry-reconcile.mjs
+      - run: node scripts/ops/registry-reconcile.mjs
       - name: Preserve observed publication states
         run: |
           git add content/registry/publications/youtube .claude/state/registry-reconcile/youtube.json

@@ -18,7 +18,7 @@ domain: site
 |---|---|
 | `.claude/agents/exam-keyword-mapping-auditor.md` | 過去問 1 問の紐づけを評価する Evaluator |
 | `scripts/build/build-keyword-summaries.mjs` | auditor Stage 2 用の事前資産（`keyword-summaries.json`）生成 |
-| `scripts/apply-audit-result.mjs` | 監査差分 JSON を機械的に exam-keyword-map.json に反映 |
+| `scripts/maint/apply-audit-result.mjs` | 監査差分 JSON を機械的に exam-keyword-map.json に反映 |
 | `.claude/state/exam-keyword-map.json` | 単一正源（読み書き対象） |
 | `.claude/state/keyword-summaries.json` | 658 件のキーワード要約（事前生成） |
 | `.claude/state/improvements/pe-priority-2026-05-11.json` | リライト優先度（A/B/C/C'/D）注釈源 |

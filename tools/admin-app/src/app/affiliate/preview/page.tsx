@@ -5,7 +5,7 @@ import { affiliatePreviewSurfaces, type PreviewSurface, type PreviewWidth } from
 
 export const dynamic = 'force-dynamic';
 
-/** サイトの開発サーバー（scripts/dev-server.mjs が -p 3020 で起動）。見本は本番ではなく手元の実ページを開く。 */
+/** サイトの開発サーバー（scripts/local/dev-server.mjs が -p 3020 で起動）。見本は本番ではなく手元の実ページを開く。 */
 const SITE_DEV_ORIGIN = 'http://localhost:3020';
 
 /** 実ページの幅と高さ。PC は 1280×1000 を 0.6 倍に縮めて横に並べる（枠＝縮めた後の大きさ） */

@@ -196,7 +196,7 @@ if (isMain) {
     console.error('  npm run note-sales-fetch -- --month YYYY-MM --commit で当月を取り直す（検算OKまで書き込まない）');
     console.error('  取得が使えない場合は note ダッシュボードから手作業で取り直し、/record-sales で転記する');
     console.error('  手順と検算の規約 → .claude/knowledge/reference/sales-tracking.md「取得と検算」');
-    console.error('  ココナラは土曜の Mac 収集（weekly-collect の coconala 段）の記録を見る。取り直すなら運営者が node scripts/weekly-collect.mjs --only coconala');
+    console.error('  ココナラは土曜の Mac 収集（weekly-collect の coconala 段）の記録を見る。取り直すなら運営者が node scripts/ops/weekly-collect.mjs --only coconala');
     process.exit(1);
   }
   if (r.status === 'WARN') {

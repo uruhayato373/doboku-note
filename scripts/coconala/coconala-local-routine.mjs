@@ -6,7 +6,7 @@
  *   GitHub hosted runner からのココナラは 403 Forbidden（run 38106927733: 保存したログイン状態を渡しても
  *   /mypage が 403）。9/30 から CI の coconala が止まっていた原因。ログイン済みの Mac 自身で取る。
  *
- * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
+ * 1 回の実行でやること（scripts/ops/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. coconala-orders（取引一覧）・coconala-analytics --append-kpi（出品分析）・coconala-revenue（売上履歴＝月の受取額）
  *   2. 台帳（coconala.orders-snapshot・analytics・kpi・revenue・seller-profile）を commit して develop へ push
  *   未ログインなら macOS の通知で知らせる。止まった週は土曜の収集の検算（check-sales-freshness・check-coconala-analytics・DN-0847）が拾う。
@@ -34,7 +34,7 @@ function notify(message) {
 }
 
 if (!DRY && onBranch()) {
-  console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。収集用 worktree で \`node scripts/weekly-collect.mjs --only coconala\` を回すか --dry-run で試す。`);
+  console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。収集用 worktree で \`node scripts/ops/weekly-collect.mjs --only coconala\` を回すか --dry-run で試す。`);
   process.exit(2);
 }
 

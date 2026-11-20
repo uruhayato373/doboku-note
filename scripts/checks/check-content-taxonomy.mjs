@@ -228,7 +228,7 @@ if (STAGED) {
   // 2026-09-11 に全記事の別名・構造タグ不整合を 0 にした（codemod）。以後は新規・変更記事で赤にする
   if (aliasUsage.size) {
     bad = true;
-    console.error(`\n[${NAME} --staged] ✗ 別名綴り ${aliasUsage.size} 種（正規表記で書く。直すには node scripts/migrate-tag-aliases.mjs <file> --write）:`);
+    console.error(`\n[${NAME} --staged] ✗ 別名綴り ${aliasUsage.size} 種（正規表記で書く。直すには node scripts/maint/migrate-tag-aliases.mjs <file> --write）:`);
     for (const [a, n] of aliasUsage) console.error(`  「${a}」→「${aliasMap.toCanonical.get(a)}」（${n} 本）`);
   }
   if (structuralMismatch.length) {

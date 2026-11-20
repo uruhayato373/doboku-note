@@ -66,7 +66,7 @@ export function lastLaunchdRun(logText) {
  */
 export function weeklyLaunchd(root) {
   if (process.platform !== 'darwin') return null;
-  const r = spawnSync(process.execPath, [join(root, 'scripts', 'install-weekly-review-launchd.mjs'), '--status'], { cwd: root, encoding: 'utf8', timeout: 15_000 });
+  const r = spawnSync(process.execPath, [join(root, 'scripts', 'local', 'install-weekly-review-launchd.mjs'), '--status'], { cwd: root, encoding: 'utf8', timeout: 15_000 });
   const installed = r.status === 0;
   let last = null;
   try { if (existsSync(WEEKLY_REVIEW_LOG)) last = lastLaunchdRun(readFileSync(WEEKLY_REVIEW_LOG, 'utf8').slice(-20_000)); } catch { /* 読めなければ不明 */ }

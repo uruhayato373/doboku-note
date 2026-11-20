@@ -1,5 +1,5 @@
 /**
- * weekly-collect-plan.mjs — 土曜の Mac の収集（scripts/weekly-collect.mjs）が回す段の表と、対象の月・期間の決め方（DN-0817・DN-0819）。
+ * weekly-collect-plan.mjs — 土曜の Mac の収集（scripts/ops/weekly-collect.mjs）が回す段の表と、対象の月・期間の決め方（DN-0817・DN-0819）。
  * ---------------------------------------------------------------------------
  * ログインが要る取得と書き込みは、土曜の週次レビュー（scripts/scheduled/weekly-review.sh）の前後でこの表の順に 1 本ずつ回す。
  * Claude Code の中（CLAUDECODE=1）では資格情報が読めないので、収集は必ず `claude -p` の外の bash から呼ぶ。
@@ -8,7 +8,7 @@
  *
  * 段の項目:
  *   id・title・phase（pre|post）・timeoutMin・browser（起動前にブラウザの空きを待つ）・selfCommits（自分で commit・push する）
- *   verify: 取った記録の検算（scripts/quality-audit.mjs の cadence:'collect' の点検 id。コマンドはそちらの定義を使う）。
+ *   verify: 取った記録の検算（scripts/ops/quality-audit.mjs の cadence:'collect' の点検 id。コマンドはそちらの定義を使う）。
  *     取る月が無くて skip した週も回し、落ちたら段を failed にする。同じ点検を毎日 ops で繰り返さない（DN-0847）
  *   addPaths: data/ の外に書く段が commit する置き場（note-audit の題名・価格のずれの印）
  *   commands: [{ argv, ok, warn, onlyIfPrev }]
@@ -121,7 +121,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       verify: ['auth-freshness'],
       id: 'auth', phase: 'pre', title: 'ログインの確認と入り直し', timeoutMin: 20, browser: true,
       // export と CI の起動はしない（CI はログインを使わない・DN-0822）。afb の成果取得は未実装
-      commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
+      commands: [{ argv: ['scripts/ops/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
     },
     {
       id: 'a8', phase: 'pre', title: 'A8 の成果（前月と当月）', timeoutMin: 30, browser: true,
@@ -204,7 +204,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       id: 'note-audit', phase: 'pre', title: 'note の全記事の照合（構造・タグ・本文・カード・導線。月 1 回）', timeoutMin: 60, browser: false,
       // 旧 note-live-audit.yml（CI・月曜・平均 40 分・19 回中 13 回赤）の残り 5 本。どれも全記事の公開 API を 1 本ずつ呼ぶ（前段 2 時間のうち 58 分を占めた）。
       // 土曜の収集へ移してからの検出は注意 1〜2 件だったので、NOTE_AUDIT_INTERVAL_DAYS ごとに下げた（2026-11-14・DN-1196）。
-      // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/weekly-collect.mjs --only note-audit で回す。
+      // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/ops/weekly-collect.mjs --only note-audit で回す。
       skip: noteAuditDue({ today, lastAt: noteAuditLastAt }) ? null : `前回（${String(noteAuditLastAt).slice(0, 10)}）から ${NOTE_AUDIT_INTERVAL_DAYS} 日たっていない`,
       commands: [
         { argv: ['scripts/checks/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },

@@ -297,7 +297,7 @@ node scripts/checks/check-note-price-consistency.mjs --json      # 機械可読
 | ソース | `npm run check-note-hashtags` | `content/note/**/hashtags*.txt` が90個以上か。pre-commit（staged）＋ CI 全量 |
 | ライブ | `npm run check-note-live-tags` | note API の `hashtag_notes` が90個以上か。curl 経路・土曜の収集の note-audit 段（月 1 回） |
 
-土曜の収集は 2026-11-14 に note の照合を 2 段に分けた（DN-1196）。毎週の note-status 段は公開状態・マガジン・題名と価格の 4 本、月 1 回（前回から 27 日）の note-audit 段は全記事を 1 本ずつ見る構造・タグ・本文・カード・導線の 5 本。すぐ見たいときは運営者が `node scripts/weekly-collect.mjs --only note-audit` で回す。note-audit 段（`scripts/lib/weekly-collect-plan.mjs`）はこのタグ検査だけでなく、`check-note-structure --ci` / `check-note-live-headings` / `audit-note-cards` / `verify-note-status --ci --snapshot` / `verify-note-magazines --vs-txt --contents --json` / `check-magazine-membership --ci` / `audit-note-funnel --live --ci` / `note-reconcile-title-price --commit` を同じ段で順に回す。ログインは要らないが、直すにはログインが要るので土曜に寄せ、その日のレビューが結果を読む（2026-10-25 まで CI の note-live-audit.yml・DN-0847）。指摘は段の warn、取得失敗が支配的な検査不成立は failed（Issue channel weekly-collect）。
+土曜の収集は 2026-11-14 に note の照合を 2 段に分けた（DN-1196）。毎週の note-status 段は公開状態・マガジン・題名と価格の 4 本、月 1 回（前回から 27 日）の note-audit 段は全記事を 1 本ずつ見る構造・タグ・本文・カード・導線の 5 本。すぐ見たいときは運営者が `node scripts/ops/weekly-collect.mjs --only note-audit` で回す。note-audit 段（`scripts/lib/weekly-collect-plan.mjs`）はこのタグ検査だけでなく、`check-note-structure --ci` / `check-note-live-headings` / `audit-note-cards` / `verify-note-status --ci --snapshot` / `verify-note-magazines --vs-txt --contents --json` / `check-magazine-membership --ci` / `audit-note-funnel --live --ci` / `note-reconcile-title-price --commit` を同じ段で順に回す。ログインは要らないが、直すにはログインが要るので土曜に寄せ、その日のレビューが結果を読む（2026-10-25 まで CI の note-live-audit.yml・DN-0847）。指摘は段の warn、取得失敗が支配的な検査不成立は failed（Issue channel weekly-collect）。
 
 **2026-07-28 の実測**: ソースは 748 件すべて 90+ で完備（欠落0）なのに、**ライブは 675 本中 250 本（37%）が 90 未満**だった（0タグ19本・30〜59が214本）。ソースだけ見ていると永遠に緑になる。
 
@@ -443,8 +443,8 @@ node scripts/checks/check-note-live-headings.mjs --paths         # BAD パスの
 公開マガジンの収録記事 URL を、`content/note/**/magazines/` 配下の各 `article.md` frontmatter（`noteUrl` / `noteId` / `notePublishedAt` / `price`）へ書き戻すツール。note 公開後に「ソース側へ URL を記録する」工程を自動化する（マガジン単位の `verify-note-magazines` に対し、こちらは**記事単位**）。
 
 ```bash
-node scripts/backfill-note-article-meta.mjs            # dry-run（突合結果と埋める予定を一覧表示）
-node scripts/backfill-note-article-meta.mjs -- --apply # 空フィールドのみ書き込み（既存値は不変）
+node scripts/note/backfill-note-article-meta.mjs            # dry-run（突合結果と埋める予定を一覧表示）
+node scripts/note/backfill-note-article-meta.mjs -- --apply # 空フィールドのみ書き込み（既存値は不変）
 ```
 
 - **突合**: note 公開 API（`magazines/{key}/notes`）の記事名を NFKC 正規化し、ソース `article.md` の H1 見出しと照合（exact → 失敗時は末尾括弧を除いた語幹一致 loose、語幹が一意なときのみ採用）。dry-run で note 実名を併記し誤マッチを目視検査できる。

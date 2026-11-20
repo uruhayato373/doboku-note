@@ -11,7 +11,7 @@ import { mkdtempSync, mkdirSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { auditGlobalHooks, auditLink, auditMemoryFiles, INDEX_MAX_LINES, run } from '../scripts/checks/check-memory.mjs';
-import { claudeProjectKey } from '../scripts/setup-memory-link.mjs';
+import { claudeProjectKey } from '../scripts/ops/setup-memory-link.mjs';
 
 const mem = (name, type = 'feedback', desc = '説明') => `---\nname: ${name}\ndescription: ${desc}\nmetadata:\n  type: ${type}\n---\n本文\n`;
 

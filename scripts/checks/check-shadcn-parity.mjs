@@ -18,7 +18,7 @@
  *   - ページ側（tools/admin-app/src の ui 以外）で Badge・Button・TabsTrigger の大きさ（文字サイズ・行の高さ・
  *     高さ・余白）を className で上書きしているもの。大きさは variant / size で選ぶ（今回の不具合はここから入った）
  * 検査不成立（exit 2）: 部品が 1 本も無い・参照ディレクトリが無い。
- * 公式の更新を取り込むときは node scripts/sync-shadcn-reference.mjs で参照を取り直し、差分を部品へ反映する。
+ * 公式の更新を取り込むときは node scripts/ops/sync-shadcn-reference.mjs で参照を取り直し、差分を部品へ反映する。
  *
  * 使い方: node scripts/checks/check-shadcn-parity.mjs [--json]
  * ---------------------------------------------------------------------------
@@ -109,7 +109,7 @@ function main() {
   } else {
     console.log(`${TAG} 部品 ${names.length} 本・公式の単位 ${entities} 件、ページ ${pages.length} 本を実検査`);
     for (const r of bad) {
-      if (r.noReference) console.log(`  ✗ ${r.name}: 公式の参照が無い（node scripts/sync-shadcn-reference.mjs ${r.name} で取る）`);
+      if (r.noReference) console.log(`  ✗ ${r.name}: 公式の参照が無い（node scripts/ops/sync-shadcn-reference.mjs ${r.name} で取る）`);
       for (const v of r.violations) {
         const where = v.kind === 'entity-missing' ? '（公式の部品単位が無い）' : v.kind === 'entity-extra' ? '（公式に無い部品単位）' : '';
         const parts = [v.missing.length && `公式にあって無い: ${v.missing.join(' ')}`, v.extra.length && `公式に無い: ${v.extra.join(' ')}`].filter(Boolean).join(' / ');

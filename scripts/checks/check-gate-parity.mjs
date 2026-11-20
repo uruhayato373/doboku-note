@@ -3,7 +3,7 @@
  * check-gate-parity.mjs
  * ---------------------------------------------------------------------------
  * pre-commit（scripts/lib/pre-commit-steps.mjs の STEPS。フックは scripts/install-pre-commit.mjs が書く）と
- * quality-audit（scripts/quality-audit.mjs の CHECKS）は**独立した配列**で、
+ * quality-audit（scripts/ops/quality-audit.mjs の CHECKS）は**独立した配列**で、
  * 片方にしか無い check が生まれても誰も気づかない。
  *
  * 実際 `audit-note-cards` / `check-public-bloat` / `check-kindle-format` は
@@ -64,7 +64,7 @@ function walkFiles(dir, re) {
 // フックの検査の一覧は pre-commit-steps.mjs（DN-0688。install-pre-commit.mjs はディスパッチャを呼ぶだけ）
 const preCommitChecks = () => new Set(STEPS.map((x) => x.script.split('/').pop().replace(/\.(mjs|ts)$/, '')));
 const auditChecks = () => {
-  const src = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
+  const src = readFileSync(join(ROOT, 'scripts/ops/quality-audit.mjs'), 'utf8');
   const found = new Set();
   for (const m of src.matchAll(/npm:\s*'([a-zA-Z0-9:_-]+)'/g)) found.add(m[1]);
   return found;
@@ -78,10 +78,10 @@ const otherCallers = () =>
   callersIn([
     ...walkFiles(join(ROOT, '.github/workflows'), /\.ya?ml$/),
     ...walkFiles(join(ROOT, '.claude/skills'), /\.md$/),
-    // SessionStart フック（scripts/session-start.mjs の CHECKS）も配線点。ここから呼ばれる surfacer
+    // SessionStart フック（scripts/ops/session-start.mjs の CHECKS）も配線点。ここから呼ばれる surfacer
     // （backlog-due / weekly-review-due 等）をオーファン扱いすると baseline へ逃がす誘因になる（2026-09-19）。
-    join(ROOT, 'scripts/session-start.mjs'),
-    // 土曜の Mac の収集の段の表（scripts/weekly-collect.mjs が回す）。note の公開状態の照合（旧 note-live-audit.yml）と
+    join(ROOT, 'scripts/ops/session-start.mjs'),
+    // 土曜の Mac の収集の段の表（scripts/ops/weekly-collect.mjs が回す）。note の公開状態の照合（旧 note-live-audit.yml）と
     // 反映の照合はここから scripts/ のパスで呼ばれる（DN-0847。それまで check-note-sync を baseline に逃がしていた）
     join(ROOT, 'scripts/lib/weekly-collect-plan.mjs'),
   ]);

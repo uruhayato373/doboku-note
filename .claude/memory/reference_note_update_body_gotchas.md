@@ -61,7 +61,7 @@ note 公開済み記事のライブ反映ツール（`scripts/note/note-update-b
 - **切れた URL**: 経験記述の無料記事（n1a0cef1de78b）で、原稿の `https://coconala.com/services/4418735` が公開本文では `https://coconala.com/servi`（素のリンク）になっていた。[5e] は自サイト宛てのリンクしか見ず通っていた。`assertLiveBody` に原稿 URL を渡し、原稿のどれとも一致せず途中で切れた href を FAIL にした（`findTruncatedLinks`・`tests/note-live-truncated-links.test.mjs`。無料 145 本の実走査で誤検出 0）。直し方は全文置換（無料なら `note-update-body --commit`）。見つけたのはコンテンツ台帳の導線照合（`npm run content-ledger -- --refresh-cta` の `missing`）。
 - **`note-append-cta --before-first-h2` は差し込むたびにパックのカード直後へ入る**: 2 段（添削→骨子）にしたいときは **骨子 → 添削 の順に**入れる。古い文面・逆順は `note-update-partial` の `removeBlock` で消してから入れる（2026-09-28 のココナラ導線一括）。
 - **「更新完了」でも公開されていない**: 前回の実行で下書きにだけ入り、次の実行が「既にある」で skip して終わる（上の 4 と同型）。公開 API に無ければ `--save-only --keep-boundary --text x --url <URL> --commit` で下書きを公開する。
-- ページ読み込みが遅いと `account != dobokunote` で止まるが、ログイン切れではない（`node scripts/playwright-auth.mjs status --service note` で確認）。リンクカードの後ろの空段落は note が保存時に自動で足すので、消しても戻る。
+- ページ読み込みが遅いと `account != dobokunote` で止まるが、ログイン切れではない（`node scripts/ops/playwright-auth.mjs status --service note` で確認）。リンクカードの後ろの空段落は note が保存時に自動で足すので、消しても戻る。
 
 ## 2026-09-23 追記: 「CDN確定待ちタイムアウト」の一部は画像消失
 - 確定=2/3 等で毎回 1 枚足りない記事は、待ち時間(480〜720s)を伸ばしても通らなかった。タイムアウト時のエディタ内 img を出すと 3 枚挿入のはずが 1 枚しか無かった＝blob 待ちではなく挿入画像が消えている。**待ちを戻して単発で再実行したら 3/3 で通った**（3 本とも）。延長を重ねず単発再実行を先に試す。分類の改修は DN-0273。

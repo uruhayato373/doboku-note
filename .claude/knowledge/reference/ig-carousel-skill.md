@@ -139,9 +139,9 @@ node scripts/build/generate-exam-pack-dirs.mjs            # H21-R7 全パック
 node scripts/build/generate-exam-pack-dirs.mjs --year r07 # 単年度
 
 # 3. PNG + caption 一括生成
-node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel
+node scripts/maint/bulk-generate-exam-packs.mjs --year r07 --size carousel
 # または
-node scripts/bulk-generate-exam-packs.mjs --all  # 全 130 パック
+node scripts/maint/bulk-generate-exam-packs.mjs --all  # 全 130 パック
 ```
 
 ### 単一パック生成・修正

@@ -194,7 +194,7 @@ if (todo.length) {
   const inputPath = join(work, 'codex-input.json');
   const outPath = join(work, 'codex-out.json');
   saveJson(inputPath, input);
-  spawnSync(process.execPath, [join(ROOT, 'scripts/review-site-thumbnails.mjs'), '--input', inputPath, '--out', outPath], { stdio: 'inherit' });
+  spawnSync(process.execPath, [join(ROOT, 'scripts/ops/review-site-thumbnails.mjs'), '--input', inputPath, '--out', outPath], { stdio: 'inherit' });
   for (const row of existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : []) reviewed.set(row.key, { ...row, version: versionOf.get(row.key) });
   saveJson(reviewPath, [...reviewed.values()]);
 }

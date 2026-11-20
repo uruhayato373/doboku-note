@@ -6,7 +6,7 @@ description: >
 domain: ops
 ---
 
-develop の検査済み commit を main へ昇格し、本番の確認までを `npm run deploy:main` 1 本で行う。手順はスクリプトが持つ（`scripts/deploy-main.mjs`）。手でコマンドをつながない。`main` への直接 push はフックが止める。
+develop の検査済み commit を main へ昇格し、本番の確認までを `npm run deploy:main` 1 本で行う。手順はスクリプトが持つ（`scripts/ops/deploy-main.mjs`）。手でコマンドをつながない。`main` への直接 push はフックが止める。
 
 ## 前提
 

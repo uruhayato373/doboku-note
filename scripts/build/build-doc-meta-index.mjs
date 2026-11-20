@@ -135,7 +135,7 @@ function main() {
   } else {
     console.warn(`[doc-meta] frontmatter に日付が無く git へフォールバックした: ${gitFallbackCount} 件`);
     for (const f of gitFallbackFiles.slice(0, 10)) console.warn(`    ${f.relPath}`);
-    console.warn('    → node scripts/backfill-mdx-dates.mjs で frontmatter へ書き込むこと');
+    console.warn('    → node scripts/maint/backfill-mdx-dates.mjs で frontmatter へ書き込むこと');
 
     // --ci: git フォールバックは「ビルドが git 履歴に依存している」証拠そのもの
     // （shallow clone・履歴書換え・リネームで公開 SEO 信号が黙って動く。§113-124 のコメント参照）。
@@ -145,7 +145,7 @@ function main() {
       console.error(`[doc-meta] --ci: git フォールバックが ${gitFallbackCount} 件発生したため中断します`);
       console.error('  対象 slug:');
       for (const f of gitFallbackFiles) console.error(`    ${f.slug}`);
-      console.error('  → node scripts/backfill-mdx-dates.mjs を実行してから再試行してください');
+      console.error('  → node scripts/maint/backfill-mdx-dates.mjs を実行してから再試行してください');
       process.exit(1);
     }
   }

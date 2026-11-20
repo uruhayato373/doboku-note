@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
-import { CHECKS } from '../scripts/quality-audit.mjs';
+import { CHECKS } from '../scripts/ops/quality-audit.mjs';
 import { checkE2EExecution } from '../scripts/checks/check-e2e-execution.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 

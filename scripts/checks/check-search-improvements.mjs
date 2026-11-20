@@ -17,7 +17,7 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { readDataset, readDatasetIf } from '../lib/dataset-io.mjs';
 import { parseBacklog } from '../lib/backlog-lib.mjs';
-import { BACKLOG } from '../todo-add.mjs';
+import { BACKLOG } from '../ops/todo-add.mjs';
 import { dispatchIndex, isSearchExperiment, linkErrors } from '../lib/search-improvement.mjs';
 
 const TAG = '[check-search-improvements]';

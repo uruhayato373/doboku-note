@@ -128,7 +128,7 @@ target: kdp
 - `scripts/kindle/kdp-publish.mjs` — 入稿・出版パブリッシャ（本体）
 - `scripts/lib/kdp-common.mjs` — SSOT 読取り・defaults/override マージ・検証
 - `scripts/build/gen-kdp-memo.mjs` — コピペ用メモ生成（メタデータ人手確認。メタデータの作成は `kindle-book-composer`）
-- `scripts/sync-kindle-dist.mjs` — EPUB/表紙の再ビルド→Downloads 配置
+- `scripts/kindle/sync-kindle-dist.mjs` — EPUB/表紙の再ビルド→Downloads 配置
 - `config/kdp-memo.json` — KDP 入稿 SSOT
 - `config/products.json`（channel kindle）— 全書籍レジストリの正本（提出後更新）
 - `.claude/skills/kdp-publish/SKILL.md` — 手順書（本エージェントの呼出元）

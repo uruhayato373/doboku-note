@@ -66,11 +66,11 @@ done
 npm run check-youtube-cover-handoff -- --local
 ```
 
-YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
+YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/youtube/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
 
 説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。
 
-旧A案の適用手順：2026-09-09採用の橋＋ノートのロゴは、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+旧A案の適用手順：2026-09-09採用の橋＋ノートのロゴは、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/youtube/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
 
 従来の `pop-v2` 組版によるPOP表紙の一括制作は `npm run youtube-covers -- --all`、ローカル採用は `--commit`。旧A案の一括処理はPOP表紙へ重ねて実行しない。画像一覧は `.tmp/youtube-covers/pop-all/index.html`。`brand-video-pack` も `pop-v2` / `pop-poster-v3` の表紙は追加合成せず、採用PNGの画素を保持する。
 

@@ -286,8 +286,8 @@ note 公開直後に以下の手順で「公開済み記事」として記録す
 ### 1. UTM パラメータ付与（公開直前 or 直後に実行）
 
 ```bash
-node scripts/add-note-utm.mjs 総監       # slug 前方一致でドラフトに UTM 付与
-node scripts/add-note-utm.mjs 総監 --dry-run  # 変更内容のプレビュー
+node scripts/note/add-note-utm.mjs 総監       # slug 前方一致でドラフトに UTM 付与
+node scripts/note/add-note-utm.mjs 総監 --dry-run  # 変更内容のプレビュー
 ```
 
 `content/note/{slug}/article.md` 内の `https://doboku-note.com/...` 全リンクに以下を付与:
@@ -330,7 +330,7 @@ npm run build-note-catalog
 | `/social-post note desumasu` | 既存ドラフトの **トーン変換** |
 | `/note-hashtags` | 公開前のハッシュタグ生成 |
 | **`/note-prepublish-review`（本スキル）** | 公開前の **統合品質ゲート** |
-| `scripts/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
+| `scripts/note/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
 | `scripts/build/build-note-published-index.mjs` | 記事カタログ生成（`npm run build-note-catalog`） |
 | `note-link-injector` agent | リンク注入の Generator |
 | `svg-figure-auditor` agent | 図版品質の Evaluator |

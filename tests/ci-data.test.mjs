@@ -6,7 +6,7 @@ import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, 
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { add, changedFiles, restore, save, validateSaved, validateStaged } from '../scripts/ci-data.mjs';
+import { add, changedFiles, restore, save, validateSaved, validateStaged } from '../scripts/ops/ci-data.mjs';
 import { datasetDir, datasetPath, latestFile, resolveDataset } from '../scripts/lib/datasets.mjs';
 import { REPORT_KINDS } from '../scripts/lib/metric-reports.mjs';
 

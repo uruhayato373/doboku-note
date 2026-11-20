@@ -129,6 +129,6 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 - 択一ビルダー: `scripts/build/build-takuitsu-reconstruct.mjs`（A・THEMES）/ `scripts/build/build-pe1-kindle.mjs`（D/E/B・spec）
 - essay ビルダー: `scripts/build/build-essay-kindle.mjs`（C/F・spec）＋共有レンダラ `scripts/lib/kindle-md.mjs`
 - 書式検査: `scripts/checks/check-kindle-format.mjs`（`npm run check-kindle-format`）
-- メモ生成/配布同期: `scripts/build/gen-kdp-memo.mjs` / `scripts/sync-kindle-dist.mjs`
+- メモ生成/配布同期: `scripts/build/gen-kdp-memo.mjs` / `scripts/kindle/sync-kindle-dist.mjs`
 - 試作の経緯・既知の限界: `content/note/1級・2級土木/1級土木/takuitsu-pdf-prototype.md`
 - サブエージェント: `kindle-book-composer`（構成設計）/ `kindle-book-qa`（5軸監査）→ [agents-registry.md](../../knowledge/reference/agents-registry.md)

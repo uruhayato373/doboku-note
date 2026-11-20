@@ -1021,13 +1021,13 @@ const reviewChecksShape = {
   alertsError: z.string().optional().describe('アラートを読めなかったときの理由'),
 };
 
-/** 月次レビューの点検の振り分け（data/business/records/checks-monthly-<月>[-<時刻>].json）。書き手は scripts/review-checks.mjs */
+/** 月次レビューの点検の振り分け（data/business/records/checks-monthly-<月>[-<時刻>].json）。書き手は scripts/ops/review-checks.mjs */
 export const BusinessChecksMonthly = z
   .object({ cadence: z.literal('monthly'), runKey: month.describe('対象の月'), ...reviewChecksShape })
   .strict()
   .meta({ title: '月次レビューの点検' });
 
-/** 週次レビューの点検の振り分け（data/business/records/checks-weekly-<週>[-<時刻>].json）。書き手は同じ scripts/review-checks.mjs */
+/** 週次レビューの点検の振り分け（data/business/records/checks-weekly-<週>[-<時刻>].json）。書き手は同じ scripts/ops/review-checks.mjs */
 export const BusinessChecksWeekly = z
   .object({ cadence: z.literal('weekly'), runKey: z.string().regex(/^\d{4}-W(0[1-9]|[1-4]\d|5[0-3])$/, 'YYYY-Www').describe('対象の週'), ...reviewChecksShape })
   .strict()

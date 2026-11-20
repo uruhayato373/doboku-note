@@ -19,7 +19,7 @@
  *   1. CI（GITHUB_ACTIONS / CI 環境変数）では auth root も profile も state も返さない（AUTH_CI_NO_LOGIN）
  *   2. エージェントのセッション（CLAUDECODE=1）では、registry の collectors（読み取り専用の収集 script）を
  *      起動 script（process.argv[1]）とするとき拒否する（AUTH_AGENT_COLLECT_REFUSED）。収集は土曜の Mac 収集
- *      （scripts/weekly-collect.mjs が DOBOKU_WEEKLY_COLLECT=1 を付けて起動）か運営者の端末だけが行い、
+ *      （scripts/ops/weekly-collect.mjs が DOBOKU_WEEKLY_COLLECT=1 を付けて起動）か運営者の端末だけが行い、
  *      エージェントは記録済みのデータを読む。writers（運営者の依頼で行う投稿・編集）と未登録の script は許可
  * ---------------------------------------------------------------------------
  */
@@ -31,7 +31,7 @@ const REGISTRY_PATH = '.claude/config/playwright-auth-profiles.json';
 const APP_DIR_NAME = 'doboku-note';
 const AUTH_SUBDIR = 'playwright-auth';
 
-/** 土曜の Mac 収集（scripts/weekly-collect.mjs）が子プロセスに付ける印。エージェントのセッションでも収集 script を通す。 */
+/** 土曜の Mac 収集（scripts/ops/weekly-collect.mjs）が子プロセスに付ける印。エージェントのセッションでも収集 script を通す。 */
 export const WEEKLY_COLLECT_ENV = 'DOBOKU_WEEKLY_COLLECT';
 
 /** GitHub Actions / 汎用 CI の自動検出（pure）。 */
@@ -162,7 +162,7 @@ export function assertLoginProfileAllowed(serviceId, entry, options = {}) {
     throw new Error(
       `AUTH_AGENT_COLLECT_REFUSED: service "${serviceId}": ${invokedScript} はログインを要る収集です。エージェントのセッションでは実行しません。`
       + '記録済みのデータ（と最後に取得した日付）を読んでください。取り直すときは運営者がターミナルで '
-      + '`node scripts/weekly-collect.mjs --only <段>` を実行します。',
+      + '`node scripts/ops/weekly-collect.mjs --only <段>` を実行します。',
     );
   }
   return { ok: true, kind: invokedScript && (entry?.writers ?? []).includes(invokedScript) ? 'agent-writer' : 'agent-unlisted' };
@@ -172,7 +172,7 @@ export function assertLoginProfileAllowed(serviceId, entry, options = {}) {
 function assertNotCI(options = {}) {
   const env = options.env ?? process.env;
   if (options.isCI ?? detectCI(env)) {
-    throw new Error('AUTH_CI_NO_LOGIN: CI（GitHub Actions）はログインしません。ログインを要る取得・投稿は土曜の Mac 収集（scripts/weekly-collect.mjs）と運営者の端末だけで行います。');
+    throw new Error('AUTH_CI_NO_LOGIN: CI（GitHub Actions）はログインしません。ログインを要る取得・投稿は土曜の Mac 収集（scripts/ops/weekly-collect.mjs）と運営者の端末だけで行います。');
   }
 }
 

@@ -69,7 +69,7 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 2. **親が実体を検証する**: 対象カードの `[検証:cmd]` を実走し、`git log --oneline -30` と関連 SSOT の現物値を集める（エージェントには推測でコマンドを叩かせない）
 3. tier セクションをシャードにして `backlog-curator` を**同時 3 体まで**起動（🔴 / 🟡 / 🟢+🟣）。1 体あたり 25〜35 枚
 4. 返ってきた verdict（KEEP / RETAG / TRIM / MERGE / DELETE / RESEED / SPLIT）を**親が裁定して適用**する。エージェントは backlog.md を編集しない
-   - **RESEED**（残作業の性質が変わった＝緊急枠組みの消滅・実行者の変化・スコープ縮小）: `node scripts/backlog-edit.mjs --delete <旧ID> --commit` で旧カードを削除 → `node scripts/backlog-edit.mjs --next-id` で採番 → 新タイトル・新 tier・新本文でカードを挿入 → `check-backlog-schema` を再走。旧 ID は欠番のまま（再利用しない＝S10 と整合）。他カードから旧 ID への相互参照があれば新 ID へ張り替える
+   - **RESEED**（残作業の性質が変わった＝緊急枠組みの消滅・実行者の変化・スコープ縮小）: `node scripts/ops/backlog-edit.mjs --delete <旧ID> --commit` で旧カードを削除 → `node scripts/ops/backlog-edit.mjs --next-id` で採番 → 新タイトル・新 tier・新本文でカードを挿入 → `check-backlog-schema` を再走。旧 ID は欠番のまま（再利用しない＝S10 と整合）。他カードから旧 ID への相互参照があれば新 ID へ張り替える
    - **SPLIT**（1 カード内に独立した残作業が複数）: 各残作業を `--next-id` で新規カードへ分割し、元カードは削除
    - **RESEED は残作業を明文化できる場合のみ適用する**（できなければ KEEP に留める。「たぶん要らない」で消さない）
 5. 適用後に `check-backlog-schema` と `check-backlog-health` を回して S2/S3/S4/S6/S9/S11/S12 が 0 に戻ったか確認
@@ -85,7 +85,7 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 ### 1. 選定
 
 ```bash
-node scripts/backlog-sweep-pick.mjs --json
+node scripts/ops/backlog-sweep-pick.mjs --json
 ```
 
 `run[]`（実行候補）と `classify[]`（`[種類:]` が欠けている＝分類待ち）が返る。🟣 と `[進行中]` 以外の全カードが候補に載る——**単独で回せるか（ユーザーの手・対話が要るか）は本文を読んで自分で判断し、回せないカードは選ばず次の候補へ進む**（旧 `[実行:]` 軸は 2026-08-26 廃止。タグに凍結した判断は陳腐化するため、選定時に再導出する）。
@@ -106,7 +106,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 
 **note の実査は都度プローブを書かず `node scripts/note/note-probe.mjs <noteId|記事パス>` を使う**
 （read-only）。note の記事単位の反映計画（未反映の部品・止まっている理由）は `node scripts/note/note-sync-plan.mjs`（管理画面 `/content/note-sync`）。
-実査の結果カードを削除するときは `node scripts/backlog-edit.mjs --delete <ID> --commit`
+実査の結果カードを削除するときは `node scripts/ops/backlog-edit.mjs --delete <ID> --commit`
 （CRLF 保持・check-backlog-schema 自動実行）。
 
 #### バルク編集の前に 3 件サンプル確認（2026-08-18 新設）

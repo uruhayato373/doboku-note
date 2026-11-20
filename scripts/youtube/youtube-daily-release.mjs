@@ -85,7 +85,7 @@ function releaseShort(item, policy) {
   const reg = loadRegistry(ROOT);
   let row = reg.publications.find((p) => p.id === item.pub);
   if (!row) {
-    node('scripts/registry.mjs', 'import-video-pack', '--pack-dir', `content/sns/video-packs/${item.pack}`, '--only-new', '--commit');
+    node('scripts/ops/registry.mjs', 'import-video-pack', '--pack-dir', `content/sns/video-packs/${item.pack}`, '--only-new', '--commit');
     row = loadRegistry(ROOT).publications.find((p) => p.id === item.pub);
     if (!row) throw new Error(`${item.pub}: 公開行を作れなかった`);
   }
@@ -94,15 +94,15 @@ function releaseShort(item, policy) {
     const publishAt = nextSlot(future.filter((p) => p.format === 'short').map((p) => p.publishAt), policy.shorts, Date.now(), {
       notBefore: item.notBefore, leadHours: policy.minLeadHours, allTaken: future.map((p) => p.publishAt), dayTotal: policy.maxPublishPerDay,
     });
-    node('scripts/registry.mjs', 'prepare-short', '--pub', row.id, '--publish-at', publishAt, '--commit');
+    node('scripts/ops/registry.mjs', 'prepare-short', '--pub', row.id, '--publish-at', publishAt, '--commit');
   }
   row = loadRegistry(ROOT).publications.find((p) => p.id === item.pub);
-  if (row.status === 'qa_passed') node('scripts/registry.mjs', 'auto-approve-short', '--pub', row.id);
+  if (row.status === 'qa_passed') node('scripts/ops/registry.mjs', 'auto-approve-short', '--pub', row.id);
   row = loadRegistry(ROOT).publications.find((p) => p.id === item.pub);
-  if (row.status === 'approved') node('scripts/registry.mjs', 'mark-rendered', '--pub', row.id, '--commit');
+  if (row.status === 'approved') node('scripts/ops/registry.mjs', 'mark-rendered', '--pub', row.id, '--commit');
   node('scripts/youtube/shorts-factory.mjs', 'restore', '--pack', item.pack, '--key', item.key);
-  node('scripts/registry.mjs', 'stage-youtube', '--pub', item.pub, '--commit');
-  const { digest, blockers } = lastJson(node('scripts/registry.mjs', 'publish-youtube', '--pub', item.pub, '--phase', 'upload'));
+  node('scripts/ops/registry.mjs', 'stage-youtube', '--pub', item.pub, '--commit');
+  const { digest, blockers } = lastJson(node('scripts/ops/registry.mjs', 'publish-youtube', '--pub', item.pub, '--phase', 'upload'));
   if (blockers.length) throw new Error(`${item.pub}: ${blockers.join(', ')}`);
   pushRegistry(`content(video): ショート ${item.pub} を方針で承認し、非公開で投稿する`);
   runPublishWorkflow(item.pub, digest);
@@ -115,7 +115,7 @@ function releaseShort(item, policy) {
 function scheduleShort(pub) {
   const { pack, key } = shortRestoreArgs(pub);
   node('scripts/youtube/shorts-factory.mjs', 'restore', '--pack', pack, '--key', key);
-  const { digest, blockers } = lastJson(node('scripts/registry.mjs', 'publish-youtube', '--pub', pub, '--phase', 'upload'));
+  const { digest, blockers } = lastJson(node('scripts/ops/registry.mjs', 'publish-youtube', '--pub', pub, '--phase', 'upload'));
   if (blockers.length) throw new Error(`${pub}: ${blockers.join(', ')}`);
   pushRegistry(`content(video): ショート ${pub} の関連動画を記録する`);
   runPublishWorkflow(pub, digest);

@@ -11,7 +11,7 @@
  */
 import test from "node:test";
 import assert from "node:assert/strict";
-import { fixLine, renderStats } from "../scripts/fix-bold-rendering.mjs";
+import { fixLine, renderStats } from "../scripts/maint/fix-bold-rendering.mjs";
 
 /** 修正後の行が「アスタリスクが残っていない」ことを実パースで確認する */
 function assertRenders(line, msg) {

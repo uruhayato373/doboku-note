@@ -121,7 +121,7 @@ jobs:
         run: |
           FRESH=""
           if [ "${{ steps.plan.outputs.inspect_count }}" != "0" ]; then
-            BEFORE=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
+            BEFORE=$(node scripts/ops/ci-data.mjs latest gsc.url-inspection || true)
             set +e
             timeout -s INT -k 60 180m \
               node scripts/search/inspect-url.mjs --file .tmp/inspect-urls.txt --batch --concurrency 5 --checkpoint-every 100 \
@@ -132,7 +132,7 @@ jobs:
             tail -8 /tmp/inspect.log
             echo "inspect-url exit code: $rc"
 
-            FRESH=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
+            FRESH=$(node scripts/ops/ci-data.mjs latest gsc.url-inspection || true)
             if [ -z "$FRESH" ] || [ "$FRESH" = "$BEFORE" ]; then echo "::error::inspection batch not produced（checkpoint も残っていない）"; exit 1; fi
             FRESH_PARTIAL=$(jq -r '.partial // false' "$FRESH")
 
@@ -152,7 +152,7 @@ jobs:
       - name: Summarize coverage_state (→ job summary)
         if: steps.plan.outputs.action != 'skip'
         run: |
-          LATEST=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
+          LATEST=$(node scripts/ops/ci-data.mjs latest gsc.url-inspection || true)
           if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced"; exit 1; fi
           {
             echo "## Index coverage audit"
@@ -170,7 +170,7 @@ jobs:
       # 書いた記録を一時退避する。パスは台帳（scripts/lib/datasets.mjs）から引き、YAML に書かない（DN-0498）
       - name: Stage outputs
         if: steps.plan.outputs.action != 'skip'
-        run: node scripts/ci-data.mjs save "$RUNNER_TEMP/idx-out" --paths data
+        run: node scripts/ops/ci-data.mjs save "$RUNNER_TEMP/idx-out" --paths data
 
       - name: Publish to develop (+ append history)
         if: steps.plan.outputs.action != 'skip'
@@ -186,12 +186,12 @@ jobs:
           # ソースへ切り替えた時点で bot commit 用フックも同期する。
           npm run pre-commit:install
 
-          node scripts/ci-data.mjs restore "$RUNNER_TEMP/idx-out"
+          node scripts/ops/ci-data.mjs restore "$RUNNER_TEMP/idx-out"
 
           # develop の現行 history.json に対し、今回 batch を1エントリ追記（冪等: 同 date は skip）。
           # 未完了の周回（partial=true）は history に積まない: 分母が偽って小さくなり indexed_ratio が
           # 動いてしまう。batch ファイルだけ残し、次の実行が続きを検査する（金曜でも未完了なら完全性ゲートで赤）。
-          LATEST=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
+          LATEST=$(node scripts/ops/ci-data.mjs latest gsc.url-inspection || true)
           if [ "${{ steps.inspect.outputs.partial }}" = "true" ]; then
             echo "partial batch（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）: history には追記しない"
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) PARTIAL ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}（周回 ${{ steps.plan.outputs.runs }} 回目） [skip ci]"
@@ -207,9 +207,9 @@ jobs:
           fi
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い batch を消す（history.json へ追記した後・gsc/rank-watch は除外 dir）。
-          node scripts/prune-state-snapshots.mjs --commit --family url-inspection,gsc
+          node scripts/maint/prune-state-snapshots.mjs --commit --family url-inspection,gsc
 
-          node scripts/ci-data.mjs add --paths data
+          node scripts/ops/ci-data.mjs add --paths data
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

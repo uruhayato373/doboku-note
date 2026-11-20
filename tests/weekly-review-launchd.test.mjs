@@ -59,10 +59,10 @@ for (const { name, gscNeeded, plan, order: expected, attempts = 0, force = false
     put('scripts/reports/report-automation-failure.mjs', 'process.exitCode=0;\n');
     put('scripts/build/build-doc-meta-index.mjs', "import {writeFileSync} from 'node:fs'; writeFileSync('doc-index-ready','ready');\n");
     // 土曜の収集（前・後）（DN-0817）
-    put('scripts/weekly-collect.mjs', "import {appendFileSync,existsSync} from 'node:fs'; if(!existsSync('doc-index-ready')) throw new Error('metadata not prepared'); if (process.argv[2] === '--resume-plan') console.log(process.env.TEST_RESUME_PLAN ?? 'all'); else appendFileSync(process.env.HOME + '/order', process.argv[3] + '\\n');\n");
+    put('scripts/ops/weekly-collect.mjs', "import {appendFileSync,existsSync} from 'node:fs'; if(!existsSync('doc-index-ready')) throw new Error('metadata not prepared'); if (process.argv[2] === '--resume-plan') console.log(process.env.TEST_RESUME_PLAN ?? 'all'); else appendFileSync(process.env.HOME + '/order', process.argv[3] + '\\n');\n");
     // GSC の記録層（DN-0849）: 要るときだけ Claude を回し、断片の追記は apply-gsc-records が行う
     put('scripts/checks/check-gsc-auto-review.mjs', "console.log(JSON.stringify({ logPath: 'gsc.md', gates: {} }));\n");
-    put('scripts/apply-gsc-records.mjs', "import {appendFileSync} from 'node:fs'; if (process.argv.includes('--needed')) process.exitCode = process.env.TEST_GSC_NEEDED === '1' ? 0 : 3; else appendFileSync(process.env.HOME + '/order', 'gsc-apply\\n');\n");
+    put('scripts/search/apply-gsc-records.mjs', "import {appendFileSync} from 'node:fs'; if (process.argv.includes('--needed')) process.exitCode = process.env.TEST_GSC_NEEDED === '1' ? 0 : 3; else appendFileSync(process.env.HOME + '/order', 'gsc-apply\\n');\n");
     put('scripts/scheduled/gsc-record-prompt.md', 'GSC 計測「記録層」 テスト用の指示\n');
     git('-C', repo, 'add', '.gitignore', 'scripts'); git('-C', repo, 'commit', '-m', 'fixture'); git('-C', repo, 'push', 'origin', 'develop');
     mkdirSync(join(home, '.local/bin'), { recursive: true });

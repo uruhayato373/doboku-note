@@ -31,8 +31,8 @@ import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 // チャネル → 時系列の台帳の id
 const PLATFORMS = {
-  note: { dataset: 'note.competitors', automation: 'weekly-collect', review: '土曜の収集の competitors 段を確認（取り直しは node scripts/weekly-collect.mjs --only competitors）。取得済みなら /competitor-review --platform note で意味分析' },
-  coconala: { dataset: 'coconala.competitors', automation: 'weekly-collect', review: '土曜の収集の competitors 段を確認（取り直しは node scripts/weekly-collect.mjs --only competitors）。取得済みなら /competitor-review --platform coconala で意味分析' },
+  note: { dataset: 'note.competitors', automation: 'weekly-collect', review: '土曜の収集の competitors 段を確認（取り直しは node scripts/ops/weekly-collect.mjs --only competitors）。取得済みなら /competitor-review --platform note で意味分析' },
+  coconala: { dataset: 'coconala.competitors', automation: 'weekly-collect', review: '土曜の収集の competitors 段を確認（取り直しは node scripts/ops/weekly-collect.mjs --only competitors）。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dataset: 'x.competitors', review: '/competitor-review --platform x' },
   // SNS 保留中（2026-10-17〜）は Instagram の取得を回していないので期限で鳴らさない。再開時に取得の置き場を決めて paused を外す（DN-0817）
   ig: { dataset: 'instagram.competitors', paused: 'SNS 保留中（2026-10-17〜）', review: 'npm run scout-ig-competitors → /competitor-review --platform ig で意味分析' },

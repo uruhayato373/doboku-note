@@ -331,7 +331,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `civil-exampoint-restorer` | 2026-11-18 | 一度きりの修復用（壊れた ExamPoint の一括再生成は 2026-05 に完了）。4 週間 0 回・呼び出し元なし | 再発したら `past-exam-rewriter` |
 | `svg-canvas-fitter` | 2026-11-18 | どのスキルからも呼ばれていない。4 週間 0 回 | 親が `/create-svg` の手順で再配置し、`check-figure-canvas` で確かめる |
 | `svg-figure-rewriter` | 2026-11-18 | どのスキルからも呼ばれていない。4 週間 0 回 | 親が `/create-svg` の手順で直し、`svg-figure-auditor` で採点する |
-| `note-cover-writer` | 2026-11-18 | V5 カバーの展開が済み、参照はスクリプトの注記だけ。4 週間 0 回 | 親が cover spec を書き、`scripts/add-note-cover.mjs` で反映する |
+| `note-cover-writer` | 2026-11-18 | V5 カバーの展開が済み、参照はスクリプトの注記だけ。4 週間 0 回 | 親が cover spec を書き、`scripts/note/add-note-cover.mjs` で反映する |
 | `coconala-blog-writer` | 2026-11-18 | ココナラブログの新規執筆を止めた（30 日で公開 15 本の閲覧計 181 回・注文の帰属は測れない）。4 週間 0 回 | 再開するとき（DN-1247）に git の履歴から戻す |
 | `coconala-blog-qa` | 2026-11-18 | 同上 | 同上 |
 | `note-membership-operator` | 2026-11-18 | 月額の会員制は今後やらない（2026-11-17 の運営者決定・PR #1648） | なし（会員限定記事を扱う汎用の仕組みは残る） |

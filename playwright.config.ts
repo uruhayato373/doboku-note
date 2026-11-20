@@ -55,7 +55,7 @@ export default defineConfig({
    * 基準類の章記事 344 本を足した時点で落ちるテストが実行ごとに入れ替わる状態になった
    * （実装は正しいのに赤・2 回目は通る）。さらに旧 `/category/` `/docs/` は Cloudflare の
    * `_redirects` でしか存在せず dev では必ず 404 で、リダイレクト前提の検査が成立しなかった。
-   * 静的配信ならコンパイルが無く、`_redirects` も scripts/static-server.mjs が適用する。
+   * 静的配信ならコンパイルが無く、`_redirects` も scripts/local/static-server.mjs が適用する。
    *
    * 事前に `npm run build` が要る。out/ が無ければ serve が理由を出して落ちる（黙って空を配らない）。
    */

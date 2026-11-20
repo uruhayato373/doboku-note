@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { buildSteps, weeklyTargets, parseCompletionLine, collectRunning, stepProblems, summarizeOutput } from '../scripts/review-prepare.mjs';
+import { buildSteps, weeklyTargets, parseCompletionLine, collectRunning, stepProblems, summarizeOutput } from '../scripts/ops/review-prepare.mjs';
 import { readJson } from '../scripts/lib/json-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -25,7 +25,7 @@ test('表に無いコマンド・配線に無いコマンドを違反にする',
 
 test('--check が 1 本も回さずに両方の cadence で通る', () => {
   for (const cadence of ['weekly', 'monthly']) {
-    const r = spawnSync(process.execPath, ['scripts/review-prepare.mjs', '--cadence', cadence, '--check'], { cwd: REPO_ROOT, encoding: 'utf8' });
+    const r = spawnSync(process.execPath, ['scripts/ops/review-prepare.mjs', '--cadence', cadence, '--check'], { cwd: REPO_ROOT, encoding: 'utf8' });
     assert.equal(r.status, 0, r.stdout + r.stderr);
     assert.match(r.stdout, /違反 0 件/);
   }

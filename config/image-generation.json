@@ -92,7 +92,7 @@
       "id": "site-thumbs-review",
       "label": "サイト内サムネイルの Codex 監査",
       "kind": "script",
-      "entry": "scripts/review-site-thumbnails.mjs",
+      "entry": "scripts/ops/review-site-thumbnails.mjs",
       "audit": "ai-image-fidelity-auditor"
     },
     {

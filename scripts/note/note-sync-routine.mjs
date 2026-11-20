@@ -7,7 +7,7 @@
  * なぜ Mac か: note への書き込みはログインしたブラウザでしかできず、CI は読み取りだけに限っている
  * （playwright-auth-profile は CI の投稿系スクリプトにプロファイルを渡さない）。判定は CI の check-note-sync と共通。
  *
- * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
+ * 1 回の実行でやること（scripts/ops/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. 反映計画（scripts/lib/note-sync-plan.mjs）＋ note 上の今のカバー → 記事ごとの未反映の部品（本文・カバー・タグ）
  *   2. 本文を上げ直す記事のうち、配布 PDF が手元に無いものは Drive vault から取り寄せる（添付を貼り直すため）
  *   3. note-update-body --sync で記事ごとに 1 回だけ更新（カバー → 本文 → タグ → 更新する → API で確認 → 台帳へ記録）
@@ -30,7 +30,7 @@
  * exit: 0 = 正常終了（対象なし・日次上限待ちは件数を別記）/ 1 = どこかで失敗・要ログイン
  * ---------------------------------------------------------------------------
  *
- * npm run note-sync-routine — note の記事単位の同期。土曜の収集の後段（`weekly-collect` の note-sync 段）が収集用 worktree（`.claude/worktrees/weekly-collect`）で回す。`scripts/note/note-sync-routine.mjs` が、反映計画の順に最大 200 記事（土曜の段は `--max 80 --deadline-min 270`）を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`data/note/sync-log.json`）・R2・Drive を更新して develop へ push する。日次添付上限 90・締め切り（`--deadline-min`。実測の 1 記事あたりの時間から終わる分だけ更新する）・Drive が読めない（取り寄せが 3 件続けて失敗し、再起動しても続く。PDF の要る記事だけ）分は deferred として次回へ保留する。画像の挿入・エディタの読み込みの一時的な失敗は単発で 1 回だけやり直す。SIGTERM を受けたら次の記事を始めずに記録して終わる（2026-10-24 は 180 分で打ち切られて記録も残らなかった）。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。本番はブランチに乗った HEAD では拒否するので、運営者が端末で取り直すときは収集用 worktree で `node scripts/weekly-collect.mjs --only note-sync`。試験直前に 1 資格だけ先に流すなら収集用 worktree で `node scripts/note/note-sync-routine.mjs --only 'content/note/1級・2級土木/1級土木/'`（同じ手順・マガジンのカバーは触らない）。マガジンのカバーだけなら `--magazines-only`（記事は読まない）。マガジンは記事の連続失敗では止めず、止めるのはログイン切れだけ（account ゲートの exit 2 は同じ誌を 1 回だけやり直し、2 回続けて 2 のときだけ止める。DN-0568）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
+ * npm run note-sync-routine — note の記事単位の同期。土曜の収集の後段（`weekly-collect` の note-sync 段）が収集用 worktree（`.claude/worktrees/weekly-collect`）で回す。`scripts/note/note-sync-routine.mjs` が、反映計画の順に最大 200 記事（土曜の段は `--max 80 --deadline-min 270`）を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`data/note/sync-log.json`）・R2・Drive を更新して develop へ push する。日次添付上限 90・締め切り（`--deadline-min`。実測の 1 記事あたりの時間から終わる分だけ更新する）・Drive が読めない（取り寄せが 3 件続けて失敗し、再起動しても続く。PDF の要る記事だけ）分は deferred として次回へ保留する。画像の挿入・エディタの読み込みの一時的な失敗は単発で 1 回だけやり直す。SIGTERM を受けたら次の記事を始めずに記録して終わる（2026-10-24 は 180 分で打ち切られて記録も残らなかった）。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。本番はブランチに乗った HEAD では拒否するので、運営者が端末で取り直すときは収集用 worktree で `node scripts/ops/weekly-collect.mjs --only note-sync`。試験直前に 1 資格だけ先に流すなら収集用 worktree で `node scripts/note/note-sync-routine.mjs --only 'content/note/1級・2級土木/1級土木/'`（同じ手順・マガジンのカバーは触らない）。マガジンのカバーだけなら `--magazines-only`（記事は読まない）。マガジンは記事の連続失敗では止めず、止めるのはログイン切れだけ（account ゲートの exit 2 は同じ誌を 1 回だけやり直し、2 回続けて 2 のときだけ止める。DN-0568）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
  */
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -96,7 +96,7 @@ function notify(message) {
 
 // 人の checkout で本番を走らせると、今いるブランチへ台帳を commit してしまう
 if (!DRY && git(['symbolic-ref', '-q', 'HEAD']).status === 0) {
-  console.error(`${TAG} ブランチに乗った HEAD では本番を実行しない（収集用 worktree で動かす: node scripts/weekly-collect.mjs --only note-sync）。--dry-run は可`);
+  console.error(`${TAG} ブランチに乗った HEAD では本番を実行しない（収集用 worktree で動かす: node scripts/ops/weekly-collect.mjs --only note-sync）。--dry-run は可`);
   process.exit(1);
 }
 

@@ -27,7 +27,7 @@
         ".claude/knowledge/reference/content-principles.md",
         "scripts/checks/check-guide-length.mjs",
         "scripts/lib/pre-commit-steps.mjs",
-        "scripts/quality-audit.mjs",
+        "scripts/ops/quality-audit.mjs",
         ".claude/todo/backlog.md"
       ]
     },

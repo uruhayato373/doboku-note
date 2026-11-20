@@ -345,7 +345,7 @@ test('reportOnly.warnBytes: 超えたら warn、無ければ ok（消す action 
   const { mkdtempSync } = await import('node:fs');
   const { tmpdir } = await import('node:os');
   const { join } = await import('node:path');
-  const { collect, loadConfig } = await import('../scripts/disk-hygiene.mjs');
+  const { collect, loadConfig } = await import('../scripts/local/disk-hygiene.mjs');
   const cfg = JSON.parse(readFileSync('config/disk-hygiene.json', 'utf-8'));
   const vm = cfg.reportOnly.find((e) => e.path.endsWith('Claude/vm_bundles'));
   assert.ok(vm && Number.isInteger(vm.warnBytes) && vm.warnBytes >= 1024 ** 3, 'vm_bundles は 1GB 以上の warnBytes を持つ');

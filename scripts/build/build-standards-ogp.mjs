@@ -122,7 +122,7 @@ function composeText(entry) {
 
 /**
  * 章 OGP の見た目を左右する入力だけから作る短いハッシュ（記事 OGP の srcHash と同じ役割・同じ 16 桁。
- * 桁を切る理由は scripts/update-ogp-srchash.mjs の冒頭）。テンプレ・外枠色・3 要素の文言のどれかが変われば変わる。
+ * 桁を切る理由は scripts/maint/update-ogp-srchash.mjs の冒頭）。テンプレ・外枠色・3 要素の文言のどれかが変われば変わる。
  */
 export function chapterSrcHash(entry) {
   const { kicker, main, sub } = composeText(entry);

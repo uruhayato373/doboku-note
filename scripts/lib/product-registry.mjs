@@ -6,7 +6,7 @@
  * Product・ConfigProducts（台帳 config.products）。
  * ここに置くもの: 読み込み・正規化した書き出し（並び channel → id・キー順・字下げ 2・LF）・収録の意図の解決・
  * note-magazines.ts の生成ブロック（読み手は変えないため、正本から TS の該当エントリを書き出す）。
- * 判定はこの lib に集約し、CLI（scripts/product.mjs）・検査（scripts/checks/check-products.mjs）・DB 生成から呼ぶ。
+ * 判定はこの lib に集約し、CLI（scripts/ops/product.mjs）・検査（scripts/checks/check-products.mjs）・DB 生成から呼ぶ。
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';

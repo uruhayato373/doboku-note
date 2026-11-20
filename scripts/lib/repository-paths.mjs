@@ -28,7 +28,7 @@ const at = (...segments) => join(REPO_ROOT, ...segments);
  * scripts/ の直下を用途で分けたフォルダ（CLI の置き場。lib・ads など部品や機能単位のフォルダは含めない）。
  * フォルダを足したらここにだけ足す。名前から CLI を引く cliRelPath と、到達しない CLI の検査（check-unreachable-cli）が読む。
  */
-export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle', 'affiliate', 'search', 'standards', 'content', 'storage', 'build', 'reports', 'fetch'];
+export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle', 'affiliate', 'search', 'standards', 'content', 'storage', 'build', 'reports', 'fetch', 'ops', 'local', 'maint'];
 
 /** CLI の名前（拡張子なし）から、リポジトリ相対のパスを引く。scripts/ の直下か CLI_GROUPS のどれか。見つからなければ投げる */
 export function cliRelPath(name, root = REPO_ROOT) {
@@ -249,6 +249,15 @@ export const RESTRUCTURED_PATHS = [
   [/^scripts\/((?:build-|generate-|gen-|render-|make-)[^/]*\.(?:mjs|ts))$/, "scripts/build/$1"],
   [/^scripts\/((?:report-|analyze-|sales-|business-review|channel-economics|measure-|snapshot-|quality-snapshot|product-sales|scan-qualification|page-quality|site-layout-census|site-thumbnails|site-visual-review)[^/]*\.(?:mjs|mts))$/, "scripts/reports/$1"],
   [/^scripts\/((?:fetch-|record-)[^/]*\.mjs)$/, "scripts/fetch/$1"],
+  // 2026-11-20 に残りの CLI（台帳・運用・手元の環境・一括修正、チャネルの保守）を分けた。直下にはフックと merge driver の入口だけが残る
+  [/^scripts\/((?:stage-youtube-covers|stage-youtube-renders-r2|stage-youtube-shorts-r2|prune-video-renders|apply-video-brand|update-youtube-authority-metadata)\.mjs)$/, "scripts/youtube/$1"],
+  [/^scripts\/((?:stage-ig-media-r2|prune-instagram-video-pack-reels)\.mjs)$/, "scripts/instagram/$1"],
+  [/^scripts\/((?:add-note-cover|add-note-utm|backfill-note-article-meta|backfill-note-hashtags)\.mjs)$/, "scripts/note/$1"],
+  [/^scripts\/((?:apply-gsc-records)\.mjs)$/, "scripts/search/$1"],
+  [/^scripts\/((?:sync-kindle-dist)\.mjs)$/, "scripts/kindle/$1"],
+  [/^scripts\/((?:backlog-edit|backlog-gate|backlog-sweep-pick|roll-backlog-when|todo-add|todo-claim|todo-complete|todo-release|review-checks|review-prepare|review-site-thumbnails|weekly-collect|schedule-view|session-start|setup-memory-link|cmd-help|data|product|product-db|registry|registry-reconcile|quality-audit|ci-data|ci-stats|tighten-ratchets|replay-onto-develop|deploy-main|sync-codex-compat|sync-qualification-names|sync-past-exam-ledger|sync-shadcn-reference|playwright-auth|auth-session-refresh)\.mjs)$/, "scripts/ops/$1"],
+  [/^scripts\/((?:dev-server|static-server|kill-port|disk-hygiene|install-disk-hygiene-launchd|install-disk-hygiene-schtasks|install-gsc-indexing-launchd|install-weekly-review-launchd|local-resource-audit|local-resource-clean|local-resource-run|local-storage-verify|clean-build-output|slim-build-output|prune-tmp)\.mjs)$/, "scripts/local/$1"],
+  [/^scripts\/((?:add-img-dimensions|apply-audit-result|apply-seo-meta|backfill-mdx-dates|backfill-reference-sources|bulk-generate-exam-packs|bulk-score|fix-bold-rendering|fix-legacy-site-links|migrate-civil-frontmatter|migrate-tag-aliases|prune-state-snapshots|update-mdx-image-refs|update-ogp-srchash)\.mjs)$/, "scripts/maint/$1"],
   [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
   [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
   [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],

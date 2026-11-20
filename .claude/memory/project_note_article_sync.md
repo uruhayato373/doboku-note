@@ -9,7 +9,7 @@ metadata:
 
 - 反映計画: `scripts/lib/note-sync-plan.mjs`（`npm run note-sync-plan`）。部品 body/cover/tags と、止まっている理由（aborted・trial-guard・image-missing・boundary・meta）と直し方
 - 1 記事 1 回の更新: `note-update-body --sync`（計画から部品を決める）/ `--parts cover,tags`（明示）。本文を触らない記事は有料境界・試し読みラインを動かさない。`note-update-cover` は廃止
-- 週次: 土曜の Mac の収集（`scripts/weekly-collect.mjs` の後段・2026-10-24〜・DN-0817）の note-sync 段が収集用 worktree `.claude/worktrees/weekly-collect` で `note-sync-routine --max 80` を回す（配布 PDF は Drive から取り寄せ・マガジンのカバーも登録・`data/note/sync-log.json` に記録して develop へ push）。続く note-sync-check 段が `check-note-sync`（公開 API）で反映を照合する。旧 launchd `com.doboku-note.note-sync` と CI `note-sync-live.yml` は 2026-10-24 に廃止。題名・価格のずれの印は前段の note-audit 段（公開 API・2026-10-25〜・DN-0847）が付ける。急ぐときは運営者が端末で `node scripts/weekly-collect.mjs --only note-sync`
+- 週次: 土曜の Mac の収集（`scripts/ops/weekly-collect.mjs` の後段・2026-10-24〜・DN-0817）の note-sync 段が収集用 worktree `.claude/worktrees/weekly-collect` で `note-sync-routine --max 80` を回す（配布 PDF は Drive から取り寄せ・マガジンのカバーも登録・`data/note/sync-log.json` に記録して develop へ push）。続く note-sync-check 段が `check-note-sync`（公開 API）で反映を照合する。旧 launchd `com.doboku-note.note-sync` と CI `note-sync-live.yml` は 2026-10-24 に廃止。題名・価格のずれの印は前段の note-audit 段（公開 API・2026-10-25〜・DN-0847）が付ける。急ぐときは運営者が端末で `node scripts/ops/weekly-collect.mjs --only note-sync`
 - 台帳: カバーの記録は `note-republish-hashes.json` の `coverHashes` / `magazineCovers`。meta・asset からカバーは外した。見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げる
 - 会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める
 

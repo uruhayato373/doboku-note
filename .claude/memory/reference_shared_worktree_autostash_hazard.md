@@ -125,7 +125,7 @@ Next 16 (Turbopack) は **同一プロジェクトディレクトリに対する
 
 **正しい対処**: `preview_start({url: "http://127.0.0.1:3021/..."})` で**既存サーバーにタブを向ける**（サーバーを起動せずブラウザタブだけ開く）。検証はこれで足りる。
 
-**もう1つの罠**: `npm run admin` は先頭で `node scripts/kill-port.mjs 3021` を実行する。そのまま叩くと**別セッションの admin server を問答無用で殺す**。並行時は絶対に実行しない。
+**もう1つの罠**: `npm run admin` は先頭で `node scripts/local/kill-port.mjs 3021` を実行する。そのまま叩くと**別セッションの admin server を問答無用で殺す**。並行時は絶対に実行しない。
 
 admin が 3021 に縛られる理由は OAuth/webhook/CORS ではなく、手順書が 3021 前提であること。
 

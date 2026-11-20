@@ -131,7 +131,7 @@ export function basenameIndex(trackedFiles) {
  * listReports・latestReport は GA4・GSC のレポートの種類なので含めない
  */
 const ID_CALL = /\b(datasetPath|datasetDir|datasetFiles|latestFile|datasetById|resolveDataset|readDataset|readDatasetIf|readLatest|writeDataset|appendDataset|freshnessOf|freshnessDays)\(\s*(?:[A-Za-z_$][\w$.]*\s*,\s*)?(['"])([a-z0-9]+(?:\.[a-z0-9-]+)+)\2/g;
-/** ワークフローの `node scripts/ci-data.mjs put|latest|path <id>`・`npm run ci-data -- …` */
+/** ワークフローの `node scripts/ops/ci-data.mjs put|latest|path <id>`・`npm run ci-data -- …` */
 const CI_DATA_ID = /ci-data(?:\.mjs)?(?:\s+--)?\s+(?:put|latest|path)\s+([a-z0-9]+\.[a-z0-9-]+)/g;
 const CI_DATA_DATASETS = /--datasets\s+([a-z0-9.,-]+)/g;
 

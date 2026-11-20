@@ -71,7 +71,7 @@ test('段の失敗の理由は、コマンドが 2 本以上ならどのコマ�
 
 // ---- 収集の検算・note-audit・段ごとの最新（DN-0847）
 test('検算（verify）は quality-audit の cadence:collect の点検と 1 対 1（書き写さず id で引く）', async () => {
-  const { CHECKS } = await import('../scripts/quality-audit.mjs');
+  const { CHECKS } = await import('../scripts/ops/quality-audit.mjs');
   const collect = CHECKS.filter((c) => c.cadence === 'collect').map((c) => c.id).sort();
   const verify = buildStages({ today: '2026-10-24' }).flatMap((s) => s.verify ?? []);
   assert.ok(collect.length >= 7, `collect の点検が ${collect.length} 件しか無い（検査不成立）`);

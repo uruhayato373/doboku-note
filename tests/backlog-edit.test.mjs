@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { deleteCard, findCard, detectEol, nextId, backlogGitLog, logCoversMax, dropEntry } from '../scripts/backlog-edit.mjs';
+import { deleteCard, findCard, detectEol, nextId, backlogGitLog, logCoversMax, dropEntry } from '../scripts/ops/backlog-edit.mjs';
 
 // 実カードの最小形（タグ行込み・parseBacklog が要求する構造）を CRLF で組む。
 const CRLF = '\r\n';

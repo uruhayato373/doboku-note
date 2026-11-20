@@ -17,7 +17,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { parseBacklog } from './backlog-lib.mjs';
-import { findCard, detectEol } from '../backlog-edit.mjs';
+import { findCard, detectEol } from '../ops/backlog-edit.mjs';
 
 export const CLAIMS_PATH = '.claude/state/todo-claims.json';
 

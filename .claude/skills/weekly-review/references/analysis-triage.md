@@ -15,7 +15,7 @@
 `/backlog-sweep` の実績を読む。**この節が dispatch-log の唯一の読み手**なので、省略すると記録が誰にも読まれないログになる（§9「読む人がいない検査は無いのと同じ」）。
 
 ```bash
-node scripts/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
+node scripts/ops/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
 node scripts/checks/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
 node scripts/checks/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
 node scripts/reports/report-defect-learning.mjs --since <今週月曜>  # 起票・完了した不具合と再発防止（検査 / memory / 正典 / 残すもの無し）の内訳
