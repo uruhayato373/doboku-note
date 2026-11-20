@@ -80,7 +80,7 @@ test('エージェントのセッション: collectors の script は拒否・wr
     assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/note/note-publish.mjs' }), profile);
     assert.equal(resolveProfileDir('x', { ...options, invokedScript: 'scripts/publish-x/publish-x.ts' }), join(dir, 'profiles', 'playwright-x-profile'));
     // 未登録（認証 CLI 自身・その他）
-    assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/playwright-auth.mjs' }), profile);
+    assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/ops/playwright-auth.mjs' }), profile);
     assert.equal(resolveProfileDir('note', { ...options, invokedScript: undefined, repoRoot: '/nonexistent-repo' }), profile);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
@@ -173,14 +173,14 @@ test('scanWorkflowForLogin: DOBOKU_AUTH_・restore-auth-state・ci-* 復元・lo
   const ctx = { loginScripts: ['scripts/note/note-sales-fetch.mjs', 'scripts/publish-x/publish-x.ts'], npmNames: ['note-sales-fetch'] };
   const scan = (text) => scanWorkflowForLogin(text, 'w.yml', ctx);
 
-  assert.deepEqual(scan('steps:\n  - run: node scripts/ci-data.mjs add\n'), []);
+  assert.deepEqual(scan('steps:\n  - run: node scripts/ops/ci-data.mjs add\n'), []);
 
   const env = scan('env:\n  DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}\n');
   assert.equal(env.length, 1);
   assert.match(env[0], /^w\.yml:2 DOBOKU_AUTH_/);
 
   assert.match(scan('  - uses: ./.github/actions/restore-auth-state\n')[0], /restore-auth-state/);
-  assert.match(scan('  - run: node scripts/playwright-auth.mjs ci-plan --event schedule\n')[0], /playwright-auth\.mjs ci-/);
+  assert.match(scan('  - run: node scripts/ops/playwright-auth.mjs ci-plan --event schedule\n')[0], /playwright-auth\.mjs ci-/);
   assert.match(scan('  - run: node scripts/note/note-sales-fetch.mjs --month 2026-10\n')[0], /note-sales-fetch\.mjs/);
   assert.match(scan('  - run: npx tsx scripts/publish-x/publish-x.ts post\n')[0], /publish-x\.ts/);
   assert.match(scan('  - run: npm run note-sales-fetch -- --month 2026-10\n')[0], /npm run note-sales-fetch/);

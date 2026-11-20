@@ -2,7 +2,7 @@
 // check-memory — エージェントの記憶（Claude Code auto-memory）が 1 本のまま健全かを検査する。
 //
 // 記憶の正本はリポジトリの .claude/memory だけ。各 PC の ~/.claude/projects/<key>/memory は
-// scripts/setup-memory-link.mjs が張るリンク（macOS symlink / Windows junction）で、ここを指す。
+// scripts/ops/setup-memory-link.mjs が張るリンク（macOS symlink / Windows junction）で、ここを指す。
 // 2026-10-02、Mac だけ実ディレクトリのまま別リポジトリ（doboku-note-memory）へ SessionStart/End フックで
 // 自動同期され続け、.claude/memory と 188 件 vs 143 件に分裂していた（同名 2 件は中身が別物）。
 // 文書（information-architecture.md）は 09-14 から 1 本化済みと書いていたので、誰も気づかなかった。
@@ -22,7 +22,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { createOutput, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
-import { claudeProjectKey, defaultMemoryTarget, setupMemoryLink } from '../setup-memory-link.mjs';
+import { claudeProjectKey, defaultMemoryTarget, setupMemoryLink } from '../ops/setup-memory-link.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 /** Claude Code が毎セッション読み込む MEMORY.md の上限（先頭 200 行・25KB。超えた分は読まれない） */
@@ -67,12 +67,12 @@ export function auditLink({ cwd, home, target }) {
   const memDir = join(home, '.claude', 'projects', claudeProjectKey(cwd), 'memory');
   let st = null;
   try { st = lstatSync(memDir); } catch { /* 無い */ }
-  if (!st) problems.push(`${memDir} が無い → node scripts/setup-memory-link.mjs`);
-  else if (!st.isSymbolicLink()) problems.push(`${memDir} がリンクでなく実ディレクトリ（記憶が分裂する）→ 中身を .claude/memory へ統合してから node scripts/setup-memory-link.mjs`);
+  if (!st) problems.push(`${memDir} が無い → node scripts/ops/setup-memory-link.mjs`);
+  else if (!st.isSymbolicLink()) problems.push(`${memDir} がリンクでなく実ディレクトリ（記憶が分裂する）→ 中身を .claude/memory へ統合してから node scripts/ops/setup-memory-link.mjs`);
   else {
     let real = null;
     try { real = realpathSync(memDir); } catch { /* 壊れたリンク */ }
-    if (!real) problems.push(`${memDir} のリンク先が存在しない → node scripts/setup-memory-link.mjs`);
+    if (!real) problems.push(`${memDir} のリンク先が存在しない → node scripts/ops/setup-memory-link.mjs`);
     else if (real !== realpathSync(target)) problems.push(`${memDir} が別の場所を指している: ${real}（正: ${target}）`);
   }
   return { problems, memDir };

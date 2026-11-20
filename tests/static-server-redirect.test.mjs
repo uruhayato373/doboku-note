@@ -2,7 +2,7 @@
 // 2026-10-08: 置き換えずに `…/posts/:splat` へ転送し、out/ に無い画像の要求が失敗を繰り返して E2E が時間切れになった（PR #921）。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { pickEncoding, resolveRedirect } from '../scripts/static-server.mjs';
+import { pickEncoding, resolveRedirect } from '../scripts/local/static-server.mjs';
 
 test('ワイルドカード転送は * に当たった残りを :splat に入れる', () => {
   const redirects = {

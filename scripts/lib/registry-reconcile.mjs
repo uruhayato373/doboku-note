@@ -1,6 +1,6 @@
 /**
  * registry-reconcile.mjs — コンテンツ台帳の公開の行と、外から観測した公開状態を突き合わせる判定（content-registry.md「照合」）。
- * 観測の取得（YouTube Data API の videos.list など）と台帳への書き込みは scripts/registry-reconcile.mjs が持ち、ここは判定だけ（依存ゼロ）。
+ * 観測の取得（YouTube Data API の videos.list など）と台帳への書き込みは scripts/ops/registry-reconcile.mjs が持ち、ここは判定だけ（依存ゼロ）。
  *
  * - 前進は証拠があるときだけ: 予約（scheduled）の動画が公開（public）になっていれば published へ進める。
  *   証拠が無くて止めた旧い投稿（stopped・unverified-legacy）も、public を観測したら published へ進める。

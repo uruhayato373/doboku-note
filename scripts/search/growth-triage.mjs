@@ -24,7 +24,7 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { jst } from '../lib/business-direction.mjs';
-import { nextId, backlogGitLog } from '../backlog-edit.mjs';
+import { nextId, backlogGitLog } from '../ops/backlog-edit.mjs';
 import { parseBacklog } from '../lib/backlog-lib.mjs';
 import { loadDomains } from '../lib/domains.mjs';
 import { datasetDir, datasetPath } from '../lib/datasets.mjs';

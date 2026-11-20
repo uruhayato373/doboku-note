@@ -14,7 +14,7 @@ test('減った項目だけ下げ、増えた項目は上げない（赤のま�
 test('pre-commit に組み込まれ、コードが staged のときだけ回る', () => {
   const steps = readFileSync('scripts/lib/pre-commit-steps.mjs', 'utf8');
   assert.match(steps, /tighten-ratchets/);
-  const src = readFileSync('scripts/tighten-ratchets.mjs', 'utf8');
+  const src = readFileSync('scripts/ops/tighten-ratchets.mjs', 'utf8');
   assert.match(src, /--staged/);
   assert.match(src, /git\(\['add', '--'/);
 });

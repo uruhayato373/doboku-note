@@ -2,7 +2,7 @@
  * gsc-record.mjs — GSC の記録層（週次観測・coverage・改善候補）の断片の検査と、記録が書けたかの判定。純関数だけ（I/O なし）。
  * ---------------------------------------------------------------------------
  * 書き手: 土曜の Mac の weekly-review.sh がヘッドレスの Claude に .tmp/claude-out/gsc/ へ断片を書かせ、
- * scripts/apply-gsc-records.mjs がここで検査してから gsc-management.md へ追記する（DN-0849・旧 gsc-auto-review.yml の
+ * scripts/search/apply-gsc-records.mjs がここで検査してから gsc-management.md へ追記する（DN-0849・旧 gsc-auto-review.yml の
  * 「Apply records and commit」「Verify」を移した）。Claude は .claude/ に書けないので、追記・commit はモデルに委ねない。
  * ---------------------------------------------------------------------------
  */

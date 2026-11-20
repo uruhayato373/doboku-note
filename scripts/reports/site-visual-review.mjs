@@ -433,7 +433,7 @@ function createTicket(key, entry, runId) {
   const title = `${key}（${entry.path}）が画面の点検で不合格（${kinds.slice(0, 5).join('・')}）`;
   const r = spawnSync(
     process.execPath,
-    [join(REPO_ROOT, 'scripts/todo-add.mjs'), '--title', title, '--tier', '中', '--kind', '不具合', '--domain', 'サイト', '--body-file', bodyFile, '--verify', 'site-visual-review', '--commit'],
+    [join(REPO_ROOT, 'scripts/ops/todo-add.mjs'), '--title', title, '--tier', '中', '--kind', '不具合', '--domain', 'サイト', '--body-file', bodyFile, '--verify', 'site-visual-review', '--commit'],
     { cwd: REPO_ROOT, encoding: 'utf8' },
   );
   if (r.status !== 0) throw new Error(`todo:add に失敗（${key}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ')}`);

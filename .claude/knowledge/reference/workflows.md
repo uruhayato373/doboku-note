@@ -272,7 +272,7 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 ### feature ブランチを最新 develop へ載せ直す
 
-`node scripts/replay-onto-develop.mjs <sha...> [--push]`（`npm run replay-onto-develop -- <sha...> --push`）。commit の実在・fetch・`reset --keep origin/develop`・cherry-pick・`git patch-id` での元とのパッチ照合を 1 段ずつ確かめ、失敗したら残った状態と戻し方を出して非 0 で終える。`--push` は同じパッチのときだけ（develop 以外は `--force-with-lease`）。手で `;` 繋ぎにしない（失敗の後も push まで進んだ事故が 3 回。memory `reference_partial_clone_repack_hazard`）。
+`node scripts/ops/replay-onto-develop.mjs <sha...> [--push]`（`npm run replay-onto-develop -- <sha...> --push`）。commit の実在・fetch・`reset --keep origin/develop`・cherry-pick・`git patch-id` での元とのパッチ照合を 1 段ずつ確かめ、失敗したら残った状態と戻し方を出して非 0 で終える。`--push` は同じパッチのときだけ（develop 以外は `--force-with-lease`）。手で `;` 繋ぎにしない（失敗の後も push まで進んだ事故が 3 回。memory `reference_partial_clone_repack_hazard`）。
 
 ### 同一ワークツリーで並行せざるを得ないとき
 

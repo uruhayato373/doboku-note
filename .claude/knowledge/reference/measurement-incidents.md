@@ -137,7 +137,7 @@ title: 計測・検証事故の記録
   4. **ヘッドレスの `claude -p` は `.claude/` に書けない**: Claude Code 本体が「sensitive file」として拒否する（承認者がいない）。さらに print モードはバックグラウンドの待機を 600 秒で打ち切る（DN-0829）
 - 検出経緯: 10/24 の点検で Mac の 4 本の失敗と週次レビューの未完を確認し、原因を辿ると全体が「ログイン経路の分散」に行き着いた。個別の失敗を直す前に、経路そのものを数えて一本化することにした（運営者の決定・DN-0817）
 - 対策:
-  - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
+  - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/ops/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
   - 定期実行の CI を止めるときは、ファイルの削除より先に `gh workflow disable` で止める（main の YAML が残る間は cron が走る）
   - ヘッドレスの Claude は `.tmp/claude-out/` に書かせ、終了後に `scripts/apply-claude-out.mjs` が許可リスト（`.claude/todo/weekly.md` など）だけを `.claude/` へ写す。バックグラウンド待機は無期限にせず上限を明示し、プロンプトで背景エージェントを禁じる
   - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面の `/ops/mac`（土曜の流れ）と `/ops/ci`（GitHub Actions）で出す

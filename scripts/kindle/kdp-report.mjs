@@ -31,7 +31,7 @@
  * 「1 件も取れていない」を成功と呼ばないため、書籍行 0 件・合計行なしは必ず失敗にする。
  * ---------------------------------------------------------------------------
  *
- * npm run kdp-report — Kindle 月次ロイヤリティを KDP レポートから取得→data/kdp/royalties.json（読み取り専用・当月/前月のみ。翌月 16 日より前に取った値は推計 estimated:true。定期取得は土曜の収集の kdp 段（当月と確定前の前月・`--list-due` が決める）。運営者が取り直すときは収集用 worktree で `node scripts/weekly-collect.mjs --only kdp`）
+ * npm run kdp-report — Kindle 月次ロイヤリティを KDP レポートから取得→data/kdp/royalties.json（読み取り専用・当月/前月のみ。翌月 16 日より前に取った値は推計 estimated:true。定期取得は土曜の収集の kdp 段（当月と確定前の前月・`--list-due` が決める）。運営者が取り直すときは収集用 worktree で `node scripts/ops/weekly-collect.mjs --only kdp`）
  */
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';

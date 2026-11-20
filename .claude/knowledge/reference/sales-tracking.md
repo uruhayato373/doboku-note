@@ -279,7 +279,7 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 
 **運用**: 土曜の Mac 収集（`weekly-collect` の kdp 段）が毎週、当月（推計）と確定値が入るまでの前月を取り直す（取る月は `kdp-report --list-due`。KENP は翌月15日頃に確定）。
 翌月16日より前に取った値は `estimated: true`、16日以降の取得は `estimated: false` で記録する（2026-10-11 から日付で判定）。取得できなかった項目は 0 埋めせず `null` で残す。
-手動で今すぐ取るときは、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only kdp`。セッションからは取りに行かず、`data/kdp/royalties.json` とその最終取得日を読む。
+手動で今すぐ取るときは、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/ops/weekly-collect.mjs --only kdp`。セッションからは取りに行かず、`data/kdp/royalties.json` とその最終取得日を読む。
 ココナラの売上履歴（`data/coconala/revenue.json`）は土曜の Mac 収集の coconala 段が取る（CI からは 403）。note の過去月は、運営者が収集用 worktree の端末で `node scripts/note/note-sales-fetch.mjs --month YYYY-MM --commit`。
 取り込みは同じ bookId の行（KDP が同一タイトルを 2 行に分けて返すことがある）を `mergeKdpBookRows` で 1 行に合算する。bookId の重複は台帳の型（`kdp.royalties`）が止める。
 

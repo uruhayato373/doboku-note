@@ -176,11 +176,11 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
 | 担い手 | 受け持つこと |
 |---|---|
 | 人（運営者） | 初回ログイン・パスワードと 2 段階認証・CAPTCHA（`npm run auth:login -- --service <id>`）、OS の資格情報ストアへの ID/PW の登録、期限切れの再ログイン、古いロックを外す判断、GitHub Secrets `DOBOKU_AUTH_*` の削除 |
-| Mac（launchd `com.doboku-note.weekly-review`・土 09:30） | `scripts/weekly-collect.mjs`。前段（`--phase pre`）でログイン確認・A8・KDP・note のアクセスと売上・ココナラ・GSC を集め（各段は取った記録の検算つき）、note の公開状態を公開 API で照合し（note-audit）、Claude の週次レビューを挟み、後段（`--phase post`）で note のライブ照合・note 同期・同期の照合を回す。結果は `.claude/state/weekly-collect/runs.json`、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`、赤は Issue（channel `weekly-collect`） |
+| Mac（launchd `com.doboku-note.weekly-review`・土 09:30） | `scripts/ops/weekly-collect.mjs`。前段（`--phase pre`）でログイン確認・A8・KDP・note のアクセスと売上・ココナラ・GSC を集め（各段は取った記録の検算つき）、note の公開状態を公開 API で照合し（note-audit）、Claude の週次レビューを挟み、後段（`--phase post`）で note のライブ照合・note 同期・同期の照合を回す。結果は `.claude/state/weekly-collect/runs.json`、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`、赤は Issue（channel `weekly-collect`） |
 | CI | ログインしない。resolver は CI では profile も state も返さない（`AUTH_CI_NO_LOGIN`）。公開 API・サイト・R2 だけを見る |
 | 他のセッション | ログインして取りに行かない。収集の記録と最終取得日を読み、古ければ「未取得」と書く（下記） |
 
-運営者が 1 段だけ取り直すときは、収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only <段>`
+運営者が 1 段だけ取り直すときは、収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/ops/weekly-collect.mjs --only <段>`
 （段 ID: `auth` `a8` `kdp` `note-traffic` `note-sales` `coconala` `gsc` `note-live` `note-sync` `note-sync-check`）。
 全体の自動化は台帳 `config/automations.json`（管理画面 `/ops/mac`・`/ops/ci`・`npm run check-automations`）が正本で、概観は [04_自動化マップ.md](../../../docs/operations/04_自動化マップ.md)。
 
@@ -200,7 +200,7 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
 
 ## ログイン維持（`auth-session-refresh`・土曜の auth 段）
 
-`scripts/auth-session-refresh.mjs` が、A8・もしも・KDP・note・ココナラのログインを取り直す。毎日の launchd・Windows のタスクは 2026-10-24 に廃止し、土曜の `weekly-collect` の auth 段（`--service a8,moshimo,kdp,note,coconala`）だけが呼ぶ。
+`scripts/ops/auth-session-refresh.mjs` が、A8・もしも・KDP・note・ココナラのログインを取り直す。毎日の launchd・Windows のタスクは 2026-10-24 に廃止し、土曜の `weekly-collect` の auth 段（`--service a8,moshimo,kdp,note,coconala`）だけが呼ぶ。
 ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチェーン／Windows 資格情報マネージャー）。
 
 | 段 | 内容 |
@@ -230,7 +230,7 @@ A8・KDP・note のアクセスと売上・ココナラ・GSC の「いま」の
 
 1. 各領域の記録（`data/` 配下の dataset・宣言は `scripts/lib/datasets.mjs`）と、その最終取得日を読む
 2. 最終取得日が古い、または空なら、数値を埋めずに「未取得」と書く
-3. 取り直しが要るときは「次の土曜の収集を待つ」か、運営者が端末で `node scripts/weekly-collect.mjs --only <段>` を実行する、と案内する
+3. 取り直しが要るときは「次の土曜の収集を待つ」か、運営者が端末で `node scripts/ops/weekly-collect.mjs --only <段>` を実行する、と案内する
 
 収集の成否は `npm run check-weekly-collect`（段ごとの最新の結果が合格か・運営者の `--only` の取り直しを含む・期限内か）で見る。
 

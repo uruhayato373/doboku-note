@@ -57,7 +57,7 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - `gsc-ui/last-run.json` と `data/gsc/ui-urls.json` の**最終取得日**（`lastComplete`）を確認し、報告の冒頭に書く
    - 最終取得日が古い（`npm run check-gsc-ui-due` が DUE）、または `lastAttempt.complete !== true` なら、数値を埋めず
      **「未取得」**と書く。取り直しは次の土曜の Mac 収集を待つか、運営者が収集用 worktree
-     （`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only gsc` を実行する
+     （`.claude/worktrees/weekly-collect`）の端末で `node scripts/ops/weekly-collect.mjs --only gsc` を実行する
    - 未ログインで取得が失敗していた場合は、運営者に `npm run auth:login -- --service google` を依頼する（セッションからは入らない）
    - GA4 は API 優先（`data/ga4/reports/`）。UI CSV が要るときも同じく記録を読む
 

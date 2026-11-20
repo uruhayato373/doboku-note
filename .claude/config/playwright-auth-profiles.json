@@ -16,7 +16,7 @@
         "scripts/note/note-traffic-fetch.mjs",
         "scripts/checks/check-note-attachments.mjs",
         "scripts/note/note-account-name.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
         "scripts/note/note-publish.mjs",
@@ -64,7 +64,7 @@
         "scripts/checks/check-coconala-analytics.mjs",
         "scripts/checks/check-coconala-blog.mjs",
         "scripts/coconala/coconala-discover.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
         "scripts/coconala/coconala-publish.mjs",
@@ -99,7 +99,7 @@
       "notes": "専用 account config JSON は無し。Amazon は端末変更で再認証を求め、2 段階認証・CAPTCHA でも止まる（2026-09-21・2026-10-16 に自動ログインが止まった・DN-0480）。取得は土曜の Mac 収集（weekly-collect）で行い、切れたら人が入り直す。",
       "collectors": [
         "scripts/kindle/kdp-report.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
         "scripts/kindle/kdp-publish.mjs"
@@ -210,7 +210,7 @@
         "scripts/fetch/fetch-a8-ui-csv.mjs",
         "scripts/affiliate/normalize-a8-csv.mjs",
         "scripts/affiliate/affiliate-status.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
         "scripts/affiliate/affiliate-apply.mjs"
@@ -238,7 +238,7 @@
       "notes": "2026-11-14 から土曜の収集（auth・moshimo）に参加。loginUrl は 2026-11-15 に資格情報なしの取得で login-form の account・password 欄を確認（/af/login は 404）。",
       "collectors": [
         "scripts/affiliate/affiliate-status.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [],
       "credential": {
@@ -287,7 +287,7 @@
       "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass"
     },
     "refreshTask": {
-      "mac": "土曜の Mac 収集（node scripts/weekly-collect.mjs の auth 段が scripts/auth-session-refresh.mjs を呼ぶ）。毎日の launchd・Windows タスクは無い"
+      "mac": "土曜の Mac 収集（node scripts/ops/weekly-collect.mjs の auth 段が scripts/ops/auth-session-refresh.mjs を呼ぶ）。毎日の launchd・Windows タスクは無い"
     }
   }
 }

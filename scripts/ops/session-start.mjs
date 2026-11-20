@@ -1,0 +1,93 @@
+#!/usr/bin/env node
+// session-start — Claude Code の SessionStart で走る検査（CHECKS の 11 本）を 1 プロセス内で順次呼ぶ。
+//
+// それまで .claude/settings.json は 6 本の `node …` を同時起動していた（async）。同一マシンで複数セッションが
+// 並行する常態では起動のたびに node が 6 本 × セッション数立ち上がり、空きメモリ 3 GiB 未満の端末で重い処理ゲート
+// （local-resource-run）に引っかかる一因になっていた（2026-09-14・15.6 GB 中空き 2.6 GB を実測）。
+// 09-14 に順次 spawn へ直したあと、DN-0236 で各 script が export する run() を **import して呼ぶ**形にした。
+// 子の node は 1 本も立てない（git / df / Playwright の browser は従来どおり各検査が起動する）。
+// **出力が非空の検査だけ** `[name]` を付けて表示する（静かな緑は出さない）。
+//
+// run({ argv, quiet: true }) の契約: process.exit を呼ばず、出力は返り値 { code, stdout, stderr } に入れる
+// （共通部品は scripts/lib/cli-run.mjs）。各 script を node で直接叩く CLI 経路はそのまま残っている。
+// timeout は async な待ち（x-sync の Playwright）だけに効く。同期処理は途中で打ち切れないので、
+// 外部コマンド側に上限を置く（git fetch 25s・git blame 30s 等）。
+// 使い方: node scripts/ops/session-start.mjs [--only a,b] [--json]
+//
+// npm run session-start — SessionStart の 11 検査（git-sync〔origin との遅れ・develop の CI・古い未コミットの変更〕 / memory / shared-policy / plan-staleness / backlog-due / weekly-review-due / monthly-review-due / gsc-login / resources / disk-hygiene / x-sync）を 1 プロセス内で順次実行し、出力が非空の検査だけ表示（.claude/settings.json の SessionStart はこれ 1 本。各 script が export する run() を import して呼ぶので子の node は立たない・DN-0236。検査を足すときは run({ argv, quiet }) を export し scripts/lib/cli-run.mjs の sink へ書く） x-sync は前回の完走（state.x-sync-last-run）が 4 時間以内なら Playwright を起動しない（2026-10-11・DN-0688）
+
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { isCliEntry } from '../lib/cli-run.mjs';
+
+/** 順番は「早く終わる・並行セッションの安全に効く」順。timeout は旧 settings.json の値を踏襲 */
+export const CHECKS = [
+  { name: 'git-sync', script: 'scripts/checks/check-git-sync.mjs', args: [], timeout: 30_000 },
+  { name: 'memory', script: 'scripts/checks/check-memory.mjs', args: ['--session'], timeout: 10_000 },
+  { name: 'shared-policy', script: 'scripts/checks/check-shared-policy.mjs', args: [], timeout: 20_000 },
+  { name: 'plan-staleness', script: 'scripts/checks/check-plan-staleness.mjs', args: [], timeout: 10_000 },
+  { name: 'backlog-due', script: 'scripts/checks/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },
+  { name: 'auth-freshness', script: 'scripts/checks/check-auth-freshness.mjs', args: ['--session'], timeout: 5_000 },
+  { name: 'weekly-review-due', script: 'scripts/checks/check-weekly-review-due.mjs', args: [], timeout: 10_000 },
+  { name: 'monthly-review-due', script: 'scripts/checks/check-monthly-review-due.mjs', args: [], timeout: 10_000 },
+  { name: 'gsc-login', script: 'scripts/checks/check-gsc-login.mjs', args: [], timeout: 5_000 },
+  { name: 'resources', script: 'scripts/local/local-resource-audit.mjs', args: ['--quick'], timeout: 30_000 },
+  { name: 'disk-hygiene', script: 'scripts/checks/check-disk-hygiene.mjs', args: ['--quick'], timeout: 15_000 },
+  // x-sync は Playwright で x.com を開く（1 回 9.6 秒・SessionStart 13.9 秒の 7 割）。前回の完走が 4 時間以内で
+  // queued の不在が無ければ起動しない（state.x-sync-last-run・DN-0688）。ログイン済みプロファイルで開く回数を減らすのは
+  // X 凍結ガードレールの観点でも良い。不在を見つけた回は TTL を使わず次のセッションでも警告を出し直す
+  { name: 'x-sync', script: 'scripts/x/x-sync-status.mjs', args: ['--dry', '--max-age-minutes', '240'], timeout: 60_000 },
+];
+
+const TIMEOUT = Symbol('timeout');
+
+/** 1 検査を in-process で実行する。戻り値の形は旧 spawn 版と同じ { name, status, ms, out } */
+export async function runCheck(check, { env = process.env } = {}) {
+  if (check.name === 'x-sync' && env.DOBOKU_SNS_PAUSED === '1') return { name: check.name, status: 'skipped', ms: 0, out: 'SNS 保留方針によりブラウザ照合は対象外' };
+  const t0 = Date.now();
+  let timer;
+  try {
+    const mod = await import(pathToFileURL(resolve(ROOT, check.script)).href);
+    if (typeof mod.run !== 'function') throw new Error(`${check.script} が run() を export していない`);
+    const r = await Promise.race([
+      mod.run({ argv: check.args, quiet: true, root: ROOT }),
+      new Promise((res) => { timer = setTimeout(() => res(TIMEOUT), check.timeout); timer.unref?.(); }),
+    ]);
+    if (r === TIMEOUT) return { name: check.name, status: 'timeout', ms: Date.now() - t0, out: '' };
+    const out = `${r.stdout || ''}${r.stderr || ''}`.trim();
+    return { name: check.name, status: r.code ?? 0, ms: Date.now() - t0, out };
+  } catch (e) {
+    // 旧 spawn 版で子が落ちたときと同じく、原因を出力に載せる（SessionStart 全体は止めない）
+    return { name: check.name, status: 'error', ms: Date.now() - t0, out: String(e?.stack || e).trim() };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function main() {
+  const argv = process.argv.slice(2);
+  const only = argv.includes('--only') ? argv[argv.indexOf('--only') + 1].split(',') : null;
+  const json = argv.includes('--json');
+  // 旧 spawn 版は各検査を cwd: ROOT で起動していた（git と x-sync は cwd 基準で動く）
+  process.chdir(ROOT);
+  const results = [];
+  for (const c of CHECKS) {
+    if (only && !only.includes(c.name)) continue;
+    results.push(await runCheck(c));
+  }
+  if (json) {
+    console.log(JSON.stringify(results, null, 2));
+    return 0;
+  }
+  for (const r of results) {
+    if (r.status === 'timeout') console.log(`[${r.name}] timeout（${Math.round(r.ms / 1000)}s）`);
+    else if (r.out) console.log(r.out.split(/\r?\n/).map((l) => (l.startsWith('[') ? l : `[${r.name}] ${l}`)).join('\n'));
+  }
+  return 0; // SessionStart は常に非ブロック
+}
+
+// in-process では timeout した検査（Playwright 等）の handle が残り得るので、書き切ってから明示的に終える
+if (isCliEntry(import.meta.url)) {
+  main().then((code) => process.stdout.write('', () => process.exit(code)));
+}

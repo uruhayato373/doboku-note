@@ -127,7 +127,7 @@ jobs:
 
           echo "::group::update-ogp-srchash --check --json"
           set +e
-          node scripts/update-ogp-srchash.mjs --check --json > /tmp/ogp-srchash.json
+          node scripts/maint/update-ogp-srchash.mjs --check --json > /tmp/ogp-srchash.json
           srchash_exit=$?
           set -e
           echo "exit code: ${srchash_exit}"
@@ -289,7 +289,7 @@ jobs:
 
       - name: Update srcHash for generated slugs
         if: steps.detect.outputs.count != '0'
-        run: node scripts/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
+        run: node scripts/maint/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
 
       # 何も生成していない push でも全 OGP の派生 3 枚を HEAD で確かめるので 1 run で数千リクエストになる。
       # 生成があったときと、週次 schedule・手動のときだけ回す（自己修復はそちらで担う）。
@@ -341,7 +341,7 @@ jobs:
           set +e
           node scripts/checks/check-ogp-coverage.mjs
           coverage_exit=$?
-          node scripts/update-ogp-srchash.mjs --check
+          node scripts/maint/update-ogp-srchash.mjs --check
           srchash_exit=$?
           set -e
           carried="${{ steps.cap.outputs.carried || '0' }}"

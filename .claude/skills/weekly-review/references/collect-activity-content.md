@@ -83,8 +83,8 @@
 - 「検索の改善を記録 N 件（EXP-###…）/ 計測開始 M 件 / 判定 K 件 / 週次の処置 要処置 0」（`search-improvement` の record・sync・close・triage を行ったとき）
 - 「GSC・GA4 自動化の異常」（gsc 段の検算 `gsc-ui-due`・`gsc-indexing-due`、週次の点検の `ga4-dimensions`、ops Issue の `gsc-sitemaps-due` のどれかが赤のときのみ・理由と直し方つき）
 - 「**note 未着（購入者が受け取れない）**」（ops Issue `note-delivery-due` が開いているときのみ・**レポート最上段に置く**）
-- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは運営者が端末で `scripts/weekly-collect.mjs --only coconala`）
-- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 運営者が端末で `scripts/weekly-collect.mjs --only coconala`。Claude の中からは取りに行かない）
+- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは運営者が端末で `scripts/ops/weekly-collect.mjs --only coconala`）
+- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 運営者が端末で `scripts/ops/weekly-collect.mjs --only coconala`。Claude の中からは取りに行かない）
 - 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ 各要素の `review` コマンドを転記）
 - 「A8 成果取込 DUE（月次）」（a8 段の検算 `a8-report-due` が落ちているときのみ・→ 次セッションで `/a8-report`）
 - 「実験の再測定 DUE」（`check-experiment-due` の `dueCount > 0` のときのみ・→ 次セッションで各要素の `review` コマンドを実行）

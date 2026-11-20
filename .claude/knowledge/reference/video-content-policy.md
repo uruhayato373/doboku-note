@@ -154,7 +154,7 @@ ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <di
 
 通常動画と動画パック派生Shortsの合成では、静止画を各場面の音声実尺で切って連結し、字幕込みで1回のエンコードを行う。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
 
-完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時は `youtube-longform:stage` で対象mp4とサムネイルを、採用サムネ更新時は `node scripts/stage-youtube-covers.mjs --commit` で確認済みPNGをprivate R2へ一時配置できる。前者は予約状態・videoId・publishAtの実査後、後者は更新結果の照合と記録取得後に、それぞれのコマンドの `--delete --commit` で転送用キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
+完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時は `youtube-longform:stage` で対象mp4とサムネイルを、採用サムネ更新時は `node scripts/youtube/stage-youtube-covers.mjs --commit` で確認済みPNGをprivate R2へ一時配置できる。前者は予約状態・videoId・publishAtの実査後、後者は更新結果の照合と記録取得後に、それぞれのコマンドの `--delete --commit` で転送用キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
 
 ```bash
 npm run drive-vault-sync -- --group video-render-artifact

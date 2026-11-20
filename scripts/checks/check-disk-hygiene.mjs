@@ -23,7 +23,7 @@
  * Codex 内蔵ブラウザは win）は n/a として数えず、macOS / Windows のどちらでも検査が成立する。
  * ---------------------------------------------------------------------------
  */
-import { collect, loadConfig } from '../disk-hygiene.mjs';
+import { collect, loadConfig } from '../local/disk-hygiene.mjs';
 import { bytesHuman, formatTable, summarize } from '../lib/disk-hygiene.mjs';
 import { createOutput, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
 import { datasetPath } from '../lib/datasets.mjs';

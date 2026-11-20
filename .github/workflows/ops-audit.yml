@@ -10,7 +10,7 @@ name: Audit ops alerts (投稿・配信・販売計測の遅れ)
 #   membership-drip（会員記事の配信予定日超過）は ci:true に置かれていて、記事が 2 日遅れるたびに
 #   **全 PR が赤**になっていた。30 日で Pre-merge 58 敗のうち 13 敗がこれで、その陰で unit-tests の
 #   赤 6 回が読まれなかった。壁時計に依存する検査は PR の diff では直せないので、マージゲートではなく
-#   日次アラートとして別チャネルで出す。区分の定義は scripts/quality-audit.mjs ヘッダ「設計」。
+#   日次アラートとして別チャネルで出す。区分の定義は scripts/ops/quality-audit.mjs ヘッダ「設計」。
 #
 # 通知の到達: Issue は repo owner に assign される（GITHUB_REPOSITORY_OWNER 既定）ので GitHub の
 # 通知メールが届く。Slack にも出したければ secret `SLACK_WEBHOOK_URL` を足すだけでよい
@@ -50,7 +50,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          node scripts/quality-audit.mjs --ops > "$RUNNER_TEMP/ops.txt" 2>&1
+          node scripts/ops/quality-audit.mjs --ops > "$RUNNER_TEMP/ops.txt" 2>&1
           rc=$?
           set -e
           cat "$RUNNER_TEMP/ops.txt"
@@ -77,9 +77,9 @@ jobs:
             grep -E '^\[FAIL\]|^--- |^\[quality-audit\] ops' "$RUNNER_TEMP/ops.txt" | head -40
             echo '```'
             echo ""
-            echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ops:true）"
-            echo "- 再現: \`node scripts/quality-audit.mjs --ops\`"
-            echo "- weekly-collect の赤は土曜の Mac の収集が期限内に回っていない（Mac が寝ていた・launchd が外れた）。Mac で ~/Library/Logs/doboku-note/weekly-review.log を見て npm run weekly-review:install -- --status。段ごとの失敗と取った記録の検算は Issue（channel weekly-collect）と週次レビューが読む（取り直しは node scripts/weekly-collect.mjs --only <段>）"
+            echo "- 定義: \`scripts/ops/quality-audit.mjs\` の CHECKS（ops:true）"
+            echo "- 再現: \`node scripts/ops/quality-audit.mjs --ops\`"
+            echo "- weekly-collect の赤は土曜の Mac の収集が期限内に回っていない（Mac が寝ていた・launchd が外れた）。Mac で ~/Library/Logs/doboku-note/weekly-review.log を見て npm run weekly-review:install -- --status。段ごとの失敗と取った記録の検算は Issue（channel weekly-collect）と週次レビューが読む（取り直しは node scripts/ops/weekly-collect.mjs --only <段>）"
           } > "$RUNNER_TEMP/ops-body.md"
           node scripts/reports/report-automation-failure.mjs \
             --channel ops \
@@ -135,5 +135,5 @@ jobs:
         env:
           RC: ${{ steps.ops.outputs.rc }}
         run: |
-          echo "::error::ops 区分の検査が不成立（rc=$RC）。scripts/quality-audit.mjs の ops フラグ構成を確認。"
+          echo "::error::ops 区分の検査が不成立（rc=$RC）。scripts/ops/quality-audit.mjs の ops フラグ構成を確認。"
           exit 1

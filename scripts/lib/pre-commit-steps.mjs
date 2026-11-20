@@ -52,7 +52,7 @@ export const STEPS = [
   // 回避は SKIP_MDX_DATES=1。作業ツリーと index を書き換えるので、必ず最初に回す。
   {
     id: 'backfill-mdx-dates',
-    script: 'scripts/backfill-mdx-dates.mjs',
+    script: 'scripts/maint/backfill-mdx-dates.mjs',
     inProcess: true,
     args: ['--staged'],
     skipEnv: { name: 'SKIP_MDX_DATES', mode: 'eq1' },

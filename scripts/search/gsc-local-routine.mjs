@@ -9,7 +9,7 @@
  *   → 普段の Chrome のログイン（OS 標準 auth root の google プロファイル）を持つ Mac 自身で動かす。
  *   API で済む処理（sitemap 送信・URL 検査・検索成績）はクラウド CI（fetch-metrics / index-coverage）の担当。
  *
- * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
+ * 1 回の実行でやること（scripts/ops/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. 登録リクエスト: 順位表 priority-latest.txt の先頭から 10 件（--stop-at-limit・14 日以内の送信済みは
  *      gsc-request-indexing.mjs が除外）。前回の送信から 20 時間以内なら送らない
  *   2. 理由別 UI CSV（月次）: check-gsc-ui-due が DUE のときだけ fetch → normalize → check-google-ui-ssot
@@ -64,7 +64,7 @@ function notify(message) {
 
 // 専用 worktree（detached HEAD）以外で送信・commit しない。人の作業ブランチに台帳 commit を混ぜない。
 if (!DRY && onBranch()) {
-  console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。収集用 worktree で \`node scripts/weekly-collect.mjs --only gsc\` を回すか --dry-run で試す。`);
+  console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。収集用 worktree で \`node scripts/ops/weekly-collect.mjs --only gsc\` を回すか --dry-run で試す。`);
   process.exit(2);
 }
 

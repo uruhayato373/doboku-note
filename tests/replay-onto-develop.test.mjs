@@ -1,5 +1,5 @@
 /**
- * scripts/replay-onto-develop.mjs（DN-0559）: 同じパッチ・衝突・commit 失敗の後に呼ばれた、の 3 通りを
+ * scripts/ops/replay-onto-develop.mjs（DN-0559）: 同じパッチ・衝突・commit 失敗の後に呼ばれた、の 3 通りを
  * 一時の git リポジトリ（origin も一時の bare）で固定する。
  */
 import './lib/isolate-git-env.mjs';
@@ -11,7 +11,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(REPO_ROOT, 'scripts', 'replay-onto-develop.mjs');
+const SCRIPT = join(REPO_ROOT, 'scripts', 'ops', 'replay-onto-develop.mjs');
 const g = (cwd, ...args) => execFileSync('git', args, { cwd, encoding: 'utf8', maxBuffer: 1 << 24 }).trim();
 
 /** origin（bare）と作業用クローン。develop に a.txt、別セッションの先行 commit 用に 2 つ目のクローンも返す */

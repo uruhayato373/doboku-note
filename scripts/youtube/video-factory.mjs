@@ -386,7 +386,7 @@ function wireRevision(reg, pub, publishAt) {
   if (!['draft', 'qa_passed'].includes(pub.status) || pub.approval) throw new Error(`${pub.id}: 未承認の改訂版だけ結線できる`);
   if (pub.publishAt === publishAt) { console.log(JSON.stringify({ pub: pub.id, publishAt })); return; }
   execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', `${pub.exam}/${pub.work}`, '--commit'], { cwd: ROOT, stdio: 'inherit' });
-  const prepare = (...extra) => execFileSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'prepare-youtube-revision', '--pub', pub.revisionOf, '--variant', pub.variant, '--refresh-draft', '--publish-at', publishAt, ...extra], { cwd: ROOT, encoding: 'utf8' });
+  const prepare = (...extra) => execFileSync(process.execPath, [join(ROOT, 'scripts/ops/registry.mjs'), 'prepare-youtube-revision', '--pub', pub.revisionOf, '--variant', pub.variant, '--refresh-draft', '--publish-at', publishAt, ...extra], { cwd: ROOT, encoding: 'utf8' });
   const { digest } = JSON.parse(prepare());
   prepare('--commit', '--expect', digest);
   const { qa } = reg.works.find((w) => w.id === pub.work && w.exam === pub.exam);
@@ -411,7 +411,7 @@ function gateFacts(pack) {
     .filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); }).map((m) => m.id);
   // 改訂版は描画の作業場を持たない。素材の sha と制作入力は投稿計画の検査が照合する
   const verify = pub.revisionOf
-    ? spawnSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'], { cwd: ROOT, encoding: 'utf8' })
+    ? spawnSync(process.execPath, [join(ROOT, 'scripts/ops/registry.mjs'), 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'], { cwd: ROOT, encoding: 'utf8' })
     : spawnSync(process.execPath, [join(ROOT, 'scripts/storage/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
   const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/checks/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
   const video = mediaById.get(pub.media?.video);
@@ -513,16 +513,16 @@ function publish() {
     const pub = targetPub(reg, exam, work);
     if (!pub?.approval || !['approved', 'rendered'].includes(pub.status)) throw new Error(`${pack}: 承認済みではない`);
     if (pub.revisionOf) {
-      const { digest, blockers } = lastJson(runNode('scripts/registry.mjs', 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'));
+      const { digest, blockers } = lastJson(runNode('scripts/ops/registry.mjs', 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'));
       if (blockers.length) throw new Error(`${pub.id}: ${blockers.join(', ')}`);
-      runNode('scripts/registry.mjs', 'stage-youtube-revision', '--pub', pub.id, '--commit', '--expect', digest);
+      runNode('scripts/ops/registry.mjs', 'stage-youtube-revision', '--pub', pub.id, '--commit', '--expect', digest);
       jobs.push({ pub: pub.id, digest });
       continue;
     }
-    if (pub.status === 'approved') runNode('scripts/registry.mjs', 'mark-rendered', '--pub', pub.id, '--commit');
-    const { digest, blockers } = lastJson(runNode('scripts/registry.mjs', 'publish-youtube', '--pub', pub.id, '--phase', 'upload'));
+    if (pub.status === 'approved') runNode('scripts/ops/registry.mjs', 'mark-rendered', '--pub', pub.id, '--commit');
+    const { digest, blockers } = lastJson(runNode('scripts/ops/registry.mjs', 'publish-youtube', '--pub', pub.id, '--phase', 'upload'));
     if (blockers.length) throw new Error(`${pub.id}: ${blockers.join(', ')}`);
-    runNode('scripts/stage-youtube-renders-r2.mjs', '--exam', exam, '--pack-id', work, '--commit');
+    runNode('scripts/youtube/stage-youtube-renders-r2.mjs', '--exam', exam, '--pack-id', work, '--commit');
     jobs.push({ pub: pub.id, digest });
   }
   const paths = [...new Set(jobs.map((j) => datasetPath('registry.youtube', { name: `${j.pub.split('/')[0]}.json` })))];
@@ -554,8 +554,8 @@ function cleanup() {
   for (const pack of requirePacks()) {
     const [exam, work] = pack.split('/');
     const pub = targetPub(loadRegistry(ROOT), exam, work);
-    if (pub?.revisionOf) runNode('scripts/registry.mjs', 'stage-youtube-revision', '--pub', pub.id, '--delete');
-    else runNode('scripts/stage-youtube-renders-r2.mjs', '--exam', exam, '--pack-id', work, '--delete', '--commit');
+    if (pub?.revisionOf) runNode('scripts/ops/registry.mjs', 'stage-youtube-revision', '--pub', pub.id, '--delete');
+    else runNode('scripts/youtube/stage-youtube-renders-r2.mjs', '--exam', exam, '--pack-id', work, '--delete', '--commit');
     console.log(`消した: ${pub.id}`);
   }
 }

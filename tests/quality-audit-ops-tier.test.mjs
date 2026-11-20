@@ -19,9 +19,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
-import { CHECKS } from '../scripts/quality-audit.mjs';
+import { CHECKS } from '../scripts/ops/quality-audit.mjs';
 
-const SRC = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
+const SRC = readFileSync(join(ROOT, 'scripts/ops/quality-audit.mjs'), 'utf8');
 
 function parseChecks(source) {
   const start = source.indexOf('const CHECKS = [');
@@ -72,7 +72,7 @@ test('壁時計・鮮度に依存する検査が ci:true に居ない（再混�
 });
 
 test('selectsCheck: --ci / --ops / --weekly / --report-only の対象が排他（collect はどれでも回さない）', async () => {
-  const { selectsCheck } = await import('../scripts/quality-audit.mjs');
+  const { selectsCheck } = await import('../scripts/ops/quality-audit.mjs');
   const gate = { id: 'g', ci: true };
   const ops = { id: 'o', ci: false, ops: true };
   const weekly = { id: 'w', ci: false, ops: true, cadence: 'weekly' };
@@ -88,7 +88,7 @@ test('selectsCheck: --ci / --ops / --weekly / --report-only の対象が排他�
 });
 
 test('selectsCheck: --only / --except はモードが選んだ検査を id で絞り、CHECKS に無い id は拾う', async () => {
-  const { selectsCheck, unknownCheckIds } = await import('../scripts/quality-audit.mjs');
+  const { selectsCheck, unknownCheckIds } = await import('../scripts/ops/quality-audit.mjs');
   const a = { id: 'a', ci: true };
   const b = { id: 'b', ci: true };
   const report = { id: 'r', ci: false };
@@ -164,7 +164,7 @@ test('SNS の再開状況に合わせたゲートだけを CI で実行する', 
 });
 
 test('束（steps）は手順を全部回し、1 つでも落ちたら fail・落ちた手順の名前を出す（DN-0805）', async () => {
-  const { runSteps } = await import('../scripts/quality-audit.mjs');
+  const { runSteps } = await import('../scripts/ops/quality-audit.mjs');
   // Windows はシェル経由で起動するので、node -e の文字列は空白で割られて process.exit が落ちる。スクリプトをファイルにして渡す
   const { mkdtempSync, writeFileSync } = await import('node:fs');
   const { tmpdir } = await import('node:os');

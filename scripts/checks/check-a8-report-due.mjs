@@ -4,7 +4,7 @@
  * ---------------------------------------------------------------------------
  * A8 成果レポートの取り込みが止まっていないかを機械判定する surfacer。
  *
- * 取得は土曜の Mac 収集（`node scripts/weekly-collect.mjs` の `a8` 段・JST の前月と当月）が回し、手動の
+ * 取得は土曜の Mac 収集（`node scripts/ops/weekly-collect.mjs` の `a8` 段・JST の前月と当月）が回し、手動の
  * `/a8-report` が補う。A8 は公開 API が無く Playwright のログイン状態で取るので、
  * 取得・正規化・書き戻しのどこかが黙って止まりうる。土曜の収集の a8 段の検算（quality-audit の cadence collect・DN-0847）がこれを読む。
  *
@@ -39,7 +39,7 @@ import { REPO_ROOT as ROOT } from "../lib/repository-paths.mjs";
 
 const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
 const LOG = join(ROOT, datasetPath("a8.report-log"));
-const REVIEW = "node scripts/weekly-collect.mjs --only a8（運営者の端末・要 A8 ログイン）か /a8-report";
+const REVIEW = "node scripts/ops/weekly-collect.mjs --only a8（運営者の端末・要 A8 ログイン）か /a8-report";
 
 const args = process.argv.slice(2);
 const WANT_JSON = args.includes("--json");

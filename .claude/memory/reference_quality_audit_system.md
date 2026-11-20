@@ -6,7 +6,7 @@ metadata:
 ---
 機械品質チェックの統合基盤（2026-07-14 新設）。[[reference_quality_audit_system]] [[feedback_knip_dead_code_audit]] と同系統。
 
-**統合ランナー**: `npm run quality:audit`（report→`.claude/state/quality/audit-latest.md`）/ `quality:audit:ci`（CI gate・15チェック・fail/timeoutでexit 1）。定義は `scripts/quality-audit.mjs` の宣言的 CHECKS 配列（`{id, npm|cmd, timeout, ci:bool, skip()}`）。ci.yml は `quality:audit:ci → build` に集約済み。report-only に降格した既存債務: internal-links（concrete-chief の RelatedKeywords BROKEN_SLUG）、note-meta-lint（`node:fs/promises` の glob が Node20 未提供でクラッシュ＝要修正）。
+**統合ランナー**: `npm run quality:audit`（report→`.claude/state/quality/audit-latest.md`）/ `quality:audit:ci`（CI gate・15チェック・fail/timeoutでexit 1）。定義は `scripts/ops/quality-audit.mjs` の宣言的 CHECKS 配列（`{id, npm|cmd, timeout, ci:bool, skip()}`）。ci.yml は `quality:audit:ci → build` に集約済み。report-only に降格した既存債務: internal-links（concrete-chief の RelatedKeywords BROKEN_SLUG）、note-meta-lint（`node:fs/promises` の glob が Node20 未提供でクラッシュ＝要修正）。
 
 **新規チェックの三点セット**: 閾値=`.claude/config/*`（content-rules.json/image-limits.json）、純ロジック=`#lib/*`（mdx-hygiene-rules/image-audit・ユニットテスト付）、`quality-audit.mjs` の CHECKS 登録。画像=`check-image-assets`（baseline=image-baseline.json）、SVG=detect.mjs の P13/P14/P15。
 

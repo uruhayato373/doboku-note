@@ -22,7 +22,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 ## 担当範囲
 
-- GA4・GSC のレポートの読み込み（取得した日ごとの `data/ga4/reports/<日付>.json`・`data/gsc/reports/<日付>.json` の `reports.<種類>`）。下の表の種類 id（`gsc.page-query` など）の最新は `node scripts/ci-data.mjs latest <id>` が「ファイル#種類」で返す
+- GA4・GSC のレポートの読み込み（取得した日ごとの `data/ga4/reports/<日付>.json`・`data/gsc/reports/<日付>.json` の `reports.<種類>`）。下の表の種類 id（`gsc.page-query` など）の最新は `node scripts/ops/ci-data.mjs latest <id>` が「ファイル#種類」で返す
 - 検索（GSC・GA4）の改善機会の7パターン抽出
 - 結果（Markdown）を親へ返す。**ファイルは書かない**（`.claude/state/improvements/{YYYY-MM-DD}.md` への保存は親が行う）
 

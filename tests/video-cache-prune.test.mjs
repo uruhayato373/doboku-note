@@ -9,8 +9,8 @@ import { tmpdir } from 'node:os';
 import test from 'node:test';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const IG_PRUNE = join(REPO_ROOT, 'scripts/prune-instagram-video-pack-reels.mjs');
-const VIDEO_PRUNE = join(REPO_ROOT, 'scripts/prune-video-renders.mjs');
+const IG_PRUNE = join(REPO_ROOT, 'scripts/instagram/prune-instagram-video-pack-reels.mjs');
+const VIDEO_PRUNE = join(REPO_ROOT, 'scripts/youtube/prune-video-renders.mjs');
 
 function put(root, rel, body = '') {
   const path = join(root, rel);

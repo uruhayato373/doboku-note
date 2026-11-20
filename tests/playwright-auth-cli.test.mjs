@@ -18,7 +18,7 @@ import {
   loginAuthService,
   migrateAuthProfile,
   parseAuthArgs,
-} from '../scripts/playwright-auth.mjs';
+} from '../scripts/ops/playwright-auth.mjs';
 import { classifyAuthSnapshot, pollAuthStatus } from '../scripts/lib/playwright-auth-adapters.mjs';
 
 function makeFixture() {
@@ -349,7 +349,7 @@ test('moshimo: 本文のお知らせ・メディア一覧ではなく選択中�
 });
 
 test('profile は state を足さず、profile-plus-state は足す。認証成功だけ失敗印を消す', async () => {
-  const { statusAuthService } = await import('../scripts/playwright-auth.mjs');
+  const { statusAuthService } = await import('../scripts/ops/playwright-auth.mjs');
   for (const sessionMode of ['profile', 'profile-plus-state']) {
     const f = makeFixture();
     try {
@@ -388,7 +388,7 @@ test('profile は state を足さず、profile-plus-state は足す。認証成�
 });
 
 test('status も新しい共用 state を読み込み、古い共用 state で上書きしない', async () => {
-  const { statusAuthService } = await import('../scripts/playwright-auth.mjs');
+  const { statusAuthService } = await import('../scripts/ops/playwright-auth.mjs');
   const { utimesSync } = await import('node:fs');
   const f = makeFixture();
   try {

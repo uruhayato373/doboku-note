@@ -546,7 +546,7 @@ function createTicket(documentKey, entries, runId) {
   const title = `基準書 ${documentKey} の ${entries.length} 章が画面の目視判定で不合格（${entries.map(([k]) => k.split('/')[2]).slice(0, 6).join('・')}${entries.length > 6 ? ' ほか' : ''}）`;
   const r = spawnSync(
     process.execPath,
-    [join(REPO_ROOT, 'scripts/todo-add.mjs'), '--title', title, '--tier', '中', '--kind', '不具合', '--domain', 'サイト', '--body-file', bodyFile, '--verify', 'standards-visual-review', '--commit'],
+    [join(REPO_ROOT, 'scripts/ops/todo-add.mjs'), '--title', title, '--tier', '中', '--kind', '不具合', '--domain', 'サイト', '--body-file', bodyFile, '--verify', 'standards-visual-review', '--commit'],
     { cwd: REPO_ROOT, encoding: 'utf8' },
   );
   if (r.status !== 0) throw new Error(`todo:add に失敗（${documentKey}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ')}`);

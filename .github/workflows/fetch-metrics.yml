@@ -432,11 +432,11 @@ jobs:
       # 書いた記録（data/ の追加・変更・削除）を一時退避する。パスは YAML に書かず台帳（scripts/lib/datasets.mjs）から引く。
       # main の YAML が develop の置き場の変更に追従できなくなるのを防ぐため（DN-0497・DN-0498）
       - name: Stage outputs
-        run: node scripts/ci-data.mjs save "$RUNNER_TEMP/metrics-out" --paths data
+        run: node scripts/ops/ci-data.mjs save "$RUNNER_TEMP/metrics-out" --paths data
 
       - name: Validate measurement outputs
         if: ${{ inputs.validation_only }}
-        run: node scripts/ci-data.mjs validate "$RUNNER_TEMP/metrics-out"
+        run: node scripts/ops/ci-data.mjs validate "$RUNNER_TEMP/metrics-out"
 
       - name: Publish to develop branch (data/)
         id: publish
@@ -465,7 +465,7 @@ jobs:
           # 退避した記録を戻す。実験台帳（下の自動計測が develop 最新を読んで書く）と、成長サイクルの処分記録
           # （土曜の週次レビューが develop へ push する）・ダイジェスト（下で reset 後の最新から作る）は job 開始時点の
           # 古い版で上書きしないよう戻さない
-          node scripts/ci-data.mjs restore "$RUNNER_TEMP/metrics-out" --exclude-datasets business.experiments,analysis.growth-triage,analysis.growth-digest
+          node scripts/ops/ci-data.mjs restore "$RUNNER_TEMP/metrics-out" --exclude-datasets business.experiments,analysis.growth-triage,analysis.growth-digest
 
           # 実験の自動計測と機会ダイジェストは develop 最新（reset 後）の experiments.json と triage-log
           # （土曜の週次レビューが push する処分記録）を読む必要があるので、ここで実行して同じ commit に載せる。
@@ -484,13 +484,13 @@ jobs:
           # affiliate family は keep-all（`-YYYY-MM-DD.json` は消さない台帳）なので prune 対象に含めても実害は無いが、
           # 台帳性格が他 family と違うため対象には入れない（誤って keep-all の前提が壊れたときに気づけるようにする）。
           # 書き手と同じ commit で消すのが唯一安全（別 commit は上の reset --hard + copy-back に戻される）。
-          node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,weekly-metrics,growth,bing
+          node scripts/maint/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,weekly-metrics,growth,bing
 
           # 人気記事（src/config/popular-pages.json）は GA4 ページ別スナップショットから作る生成物。
           # スナップショットと同じ commit で作り直さないと、次にビルドした手元にだけ差分が出る（2026-09-26）。
           node scripts/build/build-popular-pages.mjs
           git add src/config/popular-pages.json
-          node scripts/ci-data.mjs add --paths data
+          node scripts/ops/ci-data.mjs add --paths data
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

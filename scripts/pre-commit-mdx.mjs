@@ -86,7 +86,7 @@ function checkImageDimensions(file, content) {
     if (!hasWidth || !hasHeight) {
       errors.push({
         file,
-        error: `<img src="${src}"> needs width/height (CLS prevention). Run: node scripts/add-img-dimensions.mjs`,
+        error: `<img src="${src}"> needs width/height (CLS prevention). Run: node scripts/maint/add-img-dimensions.mjs`,
       });
     }
   }

@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { classifyRun } from '../scripts/quality-audit.mjs';
+import { classifyRun } from '../scripts/ops/quality-audit.mjs';
 
 test('寝ていない timeout は timeout、寝ていない fail は fail、pass は pass', () => {
   assert.equal(classifyRun({ timedOut: true, exitStatus: null, wallMs: 180_000, monoMs: 179_900 }).status, 'timeout');
@@ -29,7 +29,7 @@ test('寝ていても pass は pass（緑を疑わない）、許容 5 秒以内
 });
 
 test('inconclusive は failed に数えず、1 件でもあれば exit 2 にする（ソースの契約）', () => {
-  const src = readFileSync(join(REPO_ROOT, 'scripts/quality-audit.mjs'), 'utf8');
+  const src = readFileSync(join(REPO_ROOT, 'scripts/ops/quality-audit.mjs'), 'utf8');
   assert.match(src, /r\.status === 'fail' \|\| r\.status === 'timeout'/, 'failed の定義が fail/timeout のまま（inconclusive を混ぜない）');
   assert.match(src, /status === 'inconclusive'\)[\s\S]{0,400}process\.exitCode = 2/, 'inconclusive があるとき exit 2 にする分岐が無い');
   assert.match(src, /await runCheckedCommand\(/, '両時計を記録する共通ランナーを使っていない');

@@ -25,7 +25,7 @@ import yaml from 'js-yaml';
 import { datasetPath } from '../lib/datasets.mjs';
 import { readDataset } from '../lib/dataset-io.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
-import { CHECKS } from '../quality-audit.mjs';
+import { CHECKS } from '../ops/quality-audit.mjs';
 
 const TAG = '[check-automations]';
 const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];

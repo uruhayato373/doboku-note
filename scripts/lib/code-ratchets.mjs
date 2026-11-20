@@ -2,7 +2,7 @@
  * code-ratchets — スクリプトの共通部品の写し（ルートの計算・walk・parseArgs・MDX の列挙・slug・見出し ID ほか）と
  * readJson の写しを数える（DN-0802 で tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs から移した）。
  * 基準値は .claude/config/code-ratchet-baseline.json。増えたら各テストが赤、減ったら pre-commit の
- * scripts/tighten-ratchets.mjs が基準値を下げて同じ commit に入れる（直した人に基準値の書き換えを背負わせない）。
+ * scripts/ops/tighten-ratchets.mjs が基準値を下げて同じ commit に入れる（直した人に基準値の書き換えを背負わせない）。
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -56,7 +56,7 @@ export function findDefinitions(text) {
   return hits;
 }
 
-/** 共通部品の自前の定義を数える（tests/script-helpers-ratchet.test.mjs と scripts/tighten-ratchets.mjs が使う） */
+/** 共通部品の自前の定義を数える（tests/script-helpers-ratchet.test.mjs と scripts/ops/tighten-ratchets.mjs が使う） */
 export function scanScriptHelpers(root = ROOT) {
   const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', '--', 'scripts', '.claude', 'tools', 'lib', 'tests'], { cwd: root, encoding: 'utf8', maxBuffer: 1 << 28 })
     .split('\0')

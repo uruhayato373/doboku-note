@@ -65,7 +65,7 @@ const SLOTS = {
  * drive（実体は Google Drive vault。config/drive-vault.json の group id。path は repo 側の写しの置き場で git 管理外。drive-vault-sync で同期し、
  *   ほかの PC は --pull で取り戻す）・local（git 管理外で、作り直せる一時出力だけ。記録・判定は置かない。regen に作り直し方が要る）・
  * regen（作り直すコマンド・手順）・
- * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/prune-state-snapshots.mjs が消す）・
+ * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/maint/prune-state-snapshots.mjs が消す）・
  * freshness（最新の記録の古さの閾値。検査と管理画面が freshnessOf・freshnessDays で引く）
  * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article'|'experiment'|'affiliate-program'|'metric', keys?, prefix?, ignore?, severity?, copies? }]。
  *   check-datasets が全ファイルで参照先の実在と写しの一致を見る＝外部キー相当。参照切れは既定で error、生成した索引の過去分など書き換えない記録は
@@ -446,7 +446,7 @@ export const areaOf = (dataset) => Object.keys(AREAS).find((k) => dataset.path.s
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
 
 /**
- * 台帳から消した id → 後継の id。ワークフローは id で記録を指すので（scripts/ci-data.mjs）、main の YAML が
+ * 台帳から消した id → 後継の id。ワークフローは id で記録を指すので（scripts/ops/ci-data.mjs）、main の YAML が
  * 古い id を渡しても止まらないよう、消した id はここへ移して後継に読み替える（tests/ci-data.test.mjs が YAML の id を検査）。
  */
 export const RETIRED_IDS = {

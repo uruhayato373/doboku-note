@@ -47,7 +47,7 @@
 
 境界の実例: 「薄層377本の散文増補」は既存成果物の質を上げるので `改善`／「BK-09/10 R08予想問題集の生成」は新しい成果物が増えるので `制作`。
 
-選定順序は `node scripts/backlog-sweep-pick.mjs` が出す（**不具合を第1キー・tier を第2キー**・🟣 と `[進行中]` は自動選定しない）。tier がもはや不具合の緊急度を表していない（🟢 に沈む）ため、壊れているものを先に出す。**単独で回せるか（ユーザーの手・対話が要るか）は選定側が本文を読んで判断する**——旧 `[実行:]` 軸は 2026-08-26 に廃止した（起票時の判断をタグに凍結すると陳腐化し、モデルが本文から再導出できるため。doboku / stats47 両方）。
+選定順序は `node scripts/ops/backlog-sweep-pick.mjs` が出す（**不具合を第1キー・tier を第2キー**・🟣 と `[進行中]` は自動選定しない）。tier がもはや不具合の緊急度を表していない（🟢 に沈む）ため、壊れているものを先に出す。**単独で回せるか（ユーザーの手・対話が要るか）は選定側が本文を読んで判断する**——旧 `[実行:]` 軸は 2026-08-26 に廃止した（起票時の判断をタグに凍結すると陳腐化し、モデルが本文から再導出できるため。doboku / stats47 両方）。
 
 **`[検証:]` を付けない判断**（2026-08-25 に実測して確定・DN-0129 の結論）:
 
@@ -395,7 +395,7 @@
 
 **読み方**: `npm run report-product-funnel`（`--product <販売先 ID か商品 ID>`）。DN-0912（ハブ経由の購入の測り方）と DN-0410（チャネル別の送客）はこのイベントを読む。
 
-**残り**: ① 土曜の収集の product-sales 段が当月（2026-11）の販売台帳を作ること（2026-11-12 時点で data/business/product-sales/ は 2026-10 まで） ② EXP-052 の 6 週の記録（〜2026-12-15） ③ 運用の約束: Kindle の戻りの UTM は A 系の本を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（再出版は運営者）。note の記事の utm_term は公開済みの記事を直すとき `node scripts/add-note-utm.mjs '<記事のフォルダ>'`（pre-commit の check-note-site-utm が求める）
+**残り**: ① 土曜の収集の product-sales 段が当月（2026-11）の販売台帳を作ること（2026-11-12 時点で data/business/product-sales/ は 2026-10 まで） ② EXP-052 の 6 週の記録（〜2026-12-15） ③ 運用の約束: Kindle の戻りの UTM は A 系の本を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（再出版は運営者）。note の記事の utm_term は公開済みの記事を直すとき `node scripts/note/add-note-utm.mjs '<記事のフォルダ>'`（pre-commit の check-note-site-utm が求める）
 
 **完了条件**: 2026-11 の販売台帳が土曜の収集で作られ、EXP-052 の 6 週の記録が終わっている。
 
@@ -511,14 +511,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1260] scripts/ 直下の整理で残した転送 50 本を、main へ deploy したあとで消す
+### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
 
 **起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
 
-同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に、用途のフォルダ（storage・build・reports・fetch）へ分けたときも 17 本に同じ転送を残した。
+同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に、用途のフォルダ（storage・build・reports・fetch）へ分けたときも 17 本に、残りの CLI（ops・local・maint）を分けたときも 6 本に同じ転送を残した。Mac の launchd（gsc-indexing-daily.sh）は元の checkout の古い版のまま origin/develop の worktree で `scripts/gsc-local-routine.mjs` を呼ぶので、これにも転送を置いた（元の checkout を新しい版にしたあとで消す）。
 
-**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 50 本（検査 17・YouTube 7・検索 9・用途 17）を消す。
+**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 57 本（main のワークフロー用 56・launchd 用 1）を消す。
 
 **完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
@@ -759,7 +759,7 @@
 
 **起点**: 2026-11-14 の再発防止の検討（DN-1190 の調査）。11/7 の土曜の収集で、売上 1 件（article:unknown-20261105-0）の資格の未分類で commit 前の検査（qualification-market）が落ち、A8・ココナラ・note のアクセス・商品別販売など無関係な記録 19 ファイルがまとめて develop に入らなかった。note の 10 月のアクセス（referrers/2026-10.json）はこのとき取れていたのに失われた。
 
-**原因**: `scripts/weekly-collect.mjs` の `commitPending` は、段の記録を前段・後段の終わり（と selfCommits の段の直前）にまとめて 1 回 commit する。pre-commit の検査は staged 全体で回るので、1 ファイルの違反で全部が止まる。段ごとに commit するだけでは、落ちたファイルが staged に残って次の commit も止める。
+**原因**: `scripts/ops/weekly-collect.mjs` の `commitPending` は、段の記録を前段・後段の終わり（と selfCommits の段の直前）にまとめて 1 回 commit する。pre-commit の検査は staged 全体で回るので、1 ファイルの違反で全部が止まる。段ごとに commit するだけでは、落ちたファイルが staged に残って次の commit も止める。
 
 **やること**: 段ごとに、その段が書いたファイルだけを commit する。commit が検査で落ちたら、その段のファイルを staged から外して退避（既存の leftover の退避と同じ置き場）し、段を failed にして次の段へ進む。検査の失敗の理由は段の reason に残す。
 
@@ -1279,7 +1279,7 @@ psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 4291064
 ### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
 
-scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
+scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/note/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
 
 
 
@@ -1995,7 +1995,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **起点**: 旧 DN-0445（2026-10-26 に DN-0544 へ統合）の残り。2級の施工経験記述で、無料記事から予想模試・完成答案・全3テーマの添削と骨子指導へ進む導線の効果を確かめる。売上とアクセスは発生した結果であり、購入理由は推測しない。DN-0544 の冒頭の切り替え・自己採点記事の公開・土木もくじの試験後の案内は 2026-10-27 に済んだ。
 
 **やること**:
-1. 10/31（土）の収集の `note-traffic` 段で 10/19〜10/25 の期間が `data/note/traffic-period/` に入ったら、9/28〜10/25 の 4 週について、残り2週間の仕上げ手順 `n1edc95f39203`・R8二次の出題予想 `naa0821a3d631`・土木もくじ `n4fde0f62dc20`・予想模試の PV を、欠測と実測を分けて `data/business/records/` へ記録する（`saveRecord`）。`note-traffic-fetch` はログインが要る収集で、エージェントのセッションでは実行できない（`AUTH_AGENT_COLLECT_REFUSED`）。10/31 に入らなければ、運営者が `node scripts/weekly-collect.mjs --only note-traffic` を実行する。10/12〜18 の期間では、出題予想（79・31）と残り2週間（14・6）が同じ題名で 2 行ずつ出ているので、行の取り違えが無いか確かめてから記録する。ココナラ2級の受注・値下げ実験の評価と、試験後の価格・出品の判断は DN-0538 の手順 1・3 で行う。
+1. 10/31（土）の収集の `note-traffic` 段で 10/19〜10/25 の期間が `data/note/traffic-period/` に入ったら、9/28〜10/25 の 4 週について、残り2週間の仕上げ手順 `n1edc95f39203`・R8二次の出題予想 `naa0821a3d631`・土木もくじ `n4fde0f62dc20`・予想模試の PV を、欠測と実測を分けて `data/business/records/` へ記録する（`saveRecord`）。`note-traffic-fetch` はログインが要る収集で、エージェントのセッションでは実行できない（`AUTH_AGENT_COLLECT_REFUSED`）。10/31 に入らなければ、運営者が `node scripts/ops/weekly-collect.mjs --only note-traffic` を実行する。10/12〜18 の期間では、出題予想（79・31）と残り2週間（14・6）が同じ題名で 2 行ずつ出ているので、行の取り違えが無いか確かめてから記録する。ココナラ2級の受注・値下げ実験の評価と、試験後の価格・出品の判断は DN-0538 の手順 1・3 で行う。
 2. 顧客の実際の原稿と公開許諾を得て、無料記事「添削で直った答案の実例」を制作・公開する。素材待ちのため工事・数値・添削前後は創作しない。
 3. X の固定ポスト・自己紹介の試験後の更新は、SNS の保留が解けてから行う。
 
@@ -2753,7 +2753,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-09-14 の設計（`~/.claude/plans/greedy-jingling-boole.md`）で個人設定は private dotfiles + symlink、memory は repo `.claude/memory/` を junction/symlink、user-scope MCP `github`/`filesystem` は削除、と決めた。Windows は同日に実施済み。Mac は未着手。
 
-Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設定一本化の PR を取り込む、(2) `npm run disk-hygiene:install` と `npm run pre-commit:install`、(3) dotfiles の `bin/link.mjs --host mac` で `~/.claude/settings.json`（`cleanupPeriodDays: 7` 入り）と `~/.codex/config.toml` を張る、(4) `node scripts/setup-memory-link.mjs` で `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory` を repo へ向ける（既存の実ディレクトリは `memory.bak-*` に退避される）、(5) `claude mcp remove -s user github filesystem`、(6) DN-0231 の partial clone。
+Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設定一本化の PR を取り込む、(2) `npm run disk-hygiene:install` と `npm run pre-commit:install`、(3) dotfiles の `bin/link.mjs --host mac` で `~/.claude/settings.json`（`cleanupPeriodDays: 7` 入り）と `~/.codex/config.toml` を張る、(4) `node scripts/ops/setup-memory-link.mjs` で `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory` を repo へ向ける（既存の実ディレクトリは `memory.bak-*` に退避される）、(5) `claude mcp remove -s user github filesystem`、(6) DN-0231 の partial clone。
 
 **(4) は 2026-10-02 に実施済み**: Mac は (4) 未実施のまま別リポジトリ `doboku-note-memory` へ SessionStart/End フック（`~/.claude/hooks/sync-memory.sh`）で同期され、repo と 188 件 vs 143 件に分裂していた。統合して `.claude/memory` へリンクし、フックを `~/.claude/settings.json` から外した（スクリプトは `sync-memory.sh.retired-2026-10-02`、元ディレクトリは `memory.bak-*` に退避）。再発は `npm run check-memory`（SessionStart の `--session`）が検出する。残りは (1)(2)(3)(5)(6)。
 
@@ -2778,7 +2778,7 @@ Windows の PowerShell で repo 直下から順に:
 1. `git switch develop; git pull` で記憶の統合と `scripts/checks/check-memory.mjs` を取り込む。
 2. `node scripts/checks/check-memory.mjs --local` で現状を見る。exit 0 なら 6 へ。
 3. 「実ディレクトリ」と出たら、中身を先に救う: `$m="$env:USERPROFILE\.claude\projects\<key>\memory"`（`<key>` は repo の絶対パスの英数字以外を `-` にしたもの。例 `C--Users-<名前>-doboku-note`）。`Compare-Object (ls $m -Name) (ls .claude\memory -Name)` で `<=` 側（Windows にだけある記憶）を `.claude\memory` へコピーする。同名で中身が違うものは上書きせず別名で残し、`MEMORY.md` に 1 行ずつ足して `npm run check-memory` が通ってから develop へコミット・push する。
-4. `node scripts/setup-memory-link.mjs` を実行する（実ディレクトリは `memory.bak-*` に退避され、junction が張られる。管理者権限は不要）。
+4. `node scripts/ops/setup-memory-link.mjs` を実行する（実ディレクトリは `memory.bak-*` に退避され、junction が張られる。管理者権限は不要）。
 5. 「別同期フック」と出たら、`$env:USERPROFILE\.claude\settings.json` の `hooks` から `sync-memory` を呼ぶ SessionStart/SessionEnd を消し、`$env:USERPROFILE\.claude\hooks\sync-memory.*` を `.retired-2026-10-02` 付きに改名する。dotfiles の `claude/` に同じフックがあればそちらも消す（dotfiles から張り直すと復活する）。
 6. `npm run pre-commit:install`（pre-commit に記憶のゲートが加わったため。**Mac も同じくマージ後に 1 回**）。
 7. `node scripts/checks/check-memory.mjs --local` が exit 0、`(Get-Item $m).LinkType` が `Junction` で `Target` が repo の `.claude\memory`。
@@ -2812,7 +2812,7 @@ Windows の PowerShell で repo 直下から順に:
 **やること**:
 
 1. 生成テンプレート（`scripts/youtube/prepare-youtube-longforms.mts` の description）を「1行目＝要約、2〜3行目＝▼主CTA＋URL」に変える。パック固有の主CTAは従来どおりとし、季節の主商品（一次期＝模試・論点、二次期＝経験記述の診断・添削）を置くかは 07 §6 の切替に従う。
-2. 制作表記を「技術士（建設部門・総合技術監理部門）・1級土木施工管理技士」に直す。`scripts/update-youtube-authority-metadata.mjs` は最初の「▼」の前に表記を差し込むので、リンクを冒頭へ移すと表記まで上がる。差し込み位置も合わせて直す。
+2. 制作表記を「技術士（建設部門・総合技術監理部門）・1級土木施工管理技士」に直す。`scripts/youtube/update-youtube-authority-metadata.mjs` は最初の「▼」の前に表記を差し込むので、リンクを冒頭へ移すと表記まで上がる。差し込み位置も合わせて直す。
 3. 全 `youtube.json` を再生成し、予約済み・公開済み（`.claude/state/video-content-status.json` の longform と Shorts）へ `publish-video-pack.cjs --phase metadata` で同期する。ローカルに YouTube の資格情報が無いため、CI から実行する経路を用意する。
 
 **A8 リンク**: 概要欄にココナラ登録の A8 リンクを置く場合、YouTube チャンネルは A8 の掲載サイトに未登録（2026-09-24 時点で stats47・doboku-note・kazu-note のみ）。先に掲載サイトとして登録する（DN-0283 と同じプログラム）。
@@ -2840,7 +2840,7 @@ Windows の PowerShell で repo 直下から順に:
 
 **起点**: 2026-09-10の実査では、ローカル自動監査のR2資格情報が未設定、rcloneの `doboku-gdrive` 接続も未設定で `npm run resources:cloud` が検査不成立。Driveコネクタ経由では既存vaultの1ファイルを全バイト・SHA-256照合できており、Drive自体の不存在ではない。
 
-1. DN-0135の行15（監査キーの最小権限化）と連携し、このWindows端末の監査に読み取り専用資格情報を設定する。必要なら `scripts/local-storage-verify.mjs` のキー選択を監査専用設定に対応させ、検査目的で書き込み権限を追加しない。
+1. DN-0135の行15（監査キーの最小権限化）と連携し、このWindows端末の監査に読み取り専用資格情報を設定する。必要なら `scripts/local/local-storage-verify.mjs` のキー選択を監査専用設定に対応させ、検査目的で書き込み権限を追加しない。
 2. 人のOAuthログインでrcloneの `doboku-gdrive` を既存の `doboku-note` vaultへ接続する。接続先は `config/drive-vault.json` に従う。vaultの重複作成や全量ローカル同期をせず、秘密情報をGit・監査ログへ保存しない。
 3. 定期実行と同じ端末・実行環境で `npm run resources:cloud` を実行し、R2・Driveとも選定サンプルの全バイトをストリームで読み、容量とSHA-256を照合する。認証・通信失敗を0件成功やメタデータ照合で代用しない。
 

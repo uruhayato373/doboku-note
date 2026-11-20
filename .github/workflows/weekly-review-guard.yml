@@ -194,7 +194,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm ci --legacy-peer-deps
-          if node scripts/quality-audit.mjs --report-only > /tmp/report-digest.txt 2>&1; then
+          if node scripts/ops/quality-audit.mjs --report-only > /tmp/report-digest.txt 2>&1; then
             echo 'report 区分: FAIL なし'
             tail -20 /tmp/report-digest.txt
             node scripts/reports/report-automation-failure.mjs --resolve --channel report-checks --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
@@ -208,8 +208,8 @@ jobs:
             tail -60 /tmp/report-digest.txt
             echo '```'
             echo ""
-            echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ci:false）"
-            echo "- 再現: \`node scripts/quality-audit.mjs --report-only\`"
+            echo "- 定義: \`scripts/ops/quality-audit.mjs\` の CHECKS（ci:false）"
+            echo "- 再現: \`node scripts/ops/quality-audit.mjs --report-only\`"
             echo "- 直すか、読む人がいないなら検査ごと消す（CLAUDE.md §9）"
           } > /tmp/report-digest-body.md
           node scripts/reports/report-automation-failure.mjs \

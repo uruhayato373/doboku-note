@@ -1,5 +1,5 @@
 // prune-state-snapshots（純粋ロジック）— data/ に CI が積む日付付きファイルの寿命と、削除計画の算出。
-// I/O を持たない（読み手は scripts/prune-state-snapshots.mjs）。寿命は台帳（scripts/lib/datasets.mjs）の
+// I/O を持たない（読み手は scripts/maint/prune-state-snapshots.mjs）。寿命は台帳（scripts/lib/datasets.mjs）の
 // 各データセットの retain が正本で、ここは台帳を読んで計画を立てるだけ。
 //
 // 守りたい事故: 2026-09-14 時点で日付付き snapshot が 704 件（psi 299 / ga4 222 / gsc 110 …）git に無期限蓄積し、

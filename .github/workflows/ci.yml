@@ -76,7 +76,7 @@ jobs:
 
       # 機械品質チェックを横断実行（type-check / test / validate-mdx / eslint /
       # ラチェット / frontmatter / svg / image / links / 台帳整合 等を1ステップに集約）。
-      # 個別ステップの真実源は scripts/quality-audit.mjs の CHECKS(ci:true)。
+      # 個別ステップの真実源は scripts/ops/quality-audit.mjs の CHECKS(ci:true)。
       # コンテンツ台帳の検査（check-content-registry の R03・R07）が、予約以上の行の削除と状態の遷移を
       # 比較元と比べるための 1 コミット分。PR は base ブランチ、develop への push は直前のコミット。取れなければ比べない（INFO）
       - name: Fetch registry comparison base

@@ -8,7 +8,7 @@
  *   node scripts/reports/report-seo-rewrite-targets.mjs --area pe-construction [--min-impressions 40] [--limit 40] [--date 2026-11-08] [--out .tmp/seo-targets]
  *   area: 資格のカテゴリ（/exam/<area>/…）・practice・standards
  *
- * 書き換えは scripts/apply-seo-meta.mjs。standards は生成ページで MDX が無い（config/standards-structure.json の seo で上書きする）。
+ * 書き換えは scripts/maint/apply-seo-meta.mjs。standards は生成ページで MDX が無い（config/standards-structure.json の seo で上書きする）。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';

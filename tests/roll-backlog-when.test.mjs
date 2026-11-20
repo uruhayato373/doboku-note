@@ -5,7 +5,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { rollPastWhen } from '../scripts/roll-backlog-when.mjs';
+import { rollPastWhen } from '../scripts/ops/roll-backlog-when.mjs';
 
 const md = [
   '## 🔴 高 — 重要度が高い',

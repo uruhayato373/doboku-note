@@ -23,7 +23,7 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 //                              { docsOrBacklog: true } | { contentQuality: true }
 //  止め方: 'nonzero'（`[ $? -ne 0 ]`）| 'eq1'（`[ $? -eq 1 ]`）
 const LEGACY = [
-  ['scripts/backfill-mdx-dates.mjs', ['--staged'], { skipEnv: ['SKIP_MDX_DATES', 'eq1'] }],
+  ['scripts/maint/backfill-mdx-dates.mjs', ['--staged'], { skipEnv: ['SKIP_MDX_DATES', 'eq1'] }],
   ['scripts/pre-commit-mdx.mjs', [], 'always'],
   ['scripts/checks/lint-ui.mjs', [], 'always'],
   ['scripts/note/note-lint.mjs', [], 'always'],
@@ -57,7 +57,7 @@ const LEGACY = [
   ['scripts/checks/check-claude-md-size.mjs', [], { staged: /^(CLAUDE\.md|\.claude\/rules\/)/ }],
   ['scripts/checks/check-memory.mjs', [], { staged: /^\.claude\/memory\// }],
   ['scripts/checks/check-post-commit-hook.mjs', [], 'always'],
-  ['scripts/sync-codex-compat.mjs', ['--staged'], 'always'],
+  ['scripts/ops/sync-codex-compat.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-agent-descriptions.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-doc-coupling.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-handoff-extraction.mjs', ['--staged'], 'always'],
@@ -97,7 +97,7 @@ const LEGACY = [
   ['scripts/checks/check-x-utm.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-ig-cover.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-ig-cta.mjs', ['--staged'], 'always'],
-  ['scripts/tighten-ratchets.mjs', ['--staged'], 'always'],
+  ['scripts/ops/tighten-ratchets.mjs', ['--staged'], 'always'],
 ];
 
 /** 全量を走査する検査のうち、旧フックより狭くしたもの（staged の変更が入力に当たらないと飛ばす） */

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { existsSync } from 'node:fs';
 import { GATES, GATE_CONCURRENCY, UNIT_TEST_RULES, failureLines, gateEnv, planGates, runPlan, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
 import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
-import { CHECKS } from '../scripts/quality-audit.mjs';
+import { CHECKS } from '../scripts/ops/quality-audit.mjs';
 
 test('planGates: staged のパスに応じて回す検査と対象を決める', () => {
   // 設定・記録の JSON は型の実データのテスト（unit-tests）も回すので、ここではそれを除いて比べる
@@ -70,7 +70,7 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
     ['.claude/config/review-wiring.json', 'review-wiring'],
     ['.claude/skills/weekly-review/SKILL.md', 'review-wiring'],
     ['package.json', 'gate-parity'],
-    ['scripts/quality-audit.mjs', 'gate-parity'],
+    ['scripts/ops/quality-audit.mjs', 'gate-parity'],
     ['config/domains.json', 'domains'],
     ['.claude/agents/guide-qa.md', 'domains'],
     ['.claude/knowledge/reference/workflows.md', 'domains'],
@@ -126,8 +126,8 @@ test('planGates: スクリプトとワークフローを変えたら、書き方
 test('unit-tests は hook の GIT_INDEX_FILE などを外して起動する（テストの git が commit 用の index を書き換えない）', () => {
   // 2026-10-27: todo-add.test.mjs の一時リポジトリの git add が commit 用の index を 17,802 件から 2 件に置き換えた
   const env = { PATH: '/bin', GIT_INDEX_FILE: '/repo/.git/next-index.lock', GIT_DIR: '/repo/.git', HOME: '/h' };
-  const unit = planGates(['scripts/todo-add.mjs']).find((g) => g.id === 'unit-tests');
-  assert.ok(unit, 'scripts/todo-add.mjs で unit-tests が回らない');
+  const unit = planGates(['scripts/ops/todo-add.mjs']).find((g) => g.id === 'unit-tests');
+  assert.ok(unit, 'scripts/ops/todo-add.mjs で unit-tests が回らない');
   const isolated = gateEnv(unit, env);
   assert.equal(isolated.GIT_INDEX_FILE, undefined);
   assert.equal(isolated.GIT_DIR, undefined);

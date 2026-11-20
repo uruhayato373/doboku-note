@@ -190,7 +190,7 @@ if (!FILTER) {
     }
     if (COMMIT && updated.length) {
       saveProducts(updated);
-      execFileSync(process.execPath, ['scripts/product.mjs', 'gen'], { stdio: 'ignore' });
+      execFileSync(process.execPath, ['scripts/ops/product.mjs', 'gen'], { stdio: 'ignore' });
     }
   } else magFetchOk = false;
 }

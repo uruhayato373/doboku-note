@@ -181,7 +181,7 @@ for (const [f, hits] of Object.entries(stateLiterals)) {
 }
 for (const [f, allowed] of Object.entries(stateBaseline)) {
   const now = stateLiterals[f]?.length ?? 0;
-  // 減ったら止めない（DN-0802）。pre-commit の scripts/tighten-ratchets.mjs が基準線を下げて同じ commit に入れる
+  // 減ったら止めない（DN-0802）。pre-commit の scripts/ops/tighten-ratchets.mjs が基準線を下げて同じ commit に入れる
   if (now < allowed) warnings.push(`${STATE_LITERAL_BASELINE}: ${f} の直書きが ${allowed} → ${now} 件に減った（npm run tighten-ratchets で基準線を下げる）`);
 }
 const stateLiteralTotal = Object.values(stateLiterals).reduce((n, h) => n + h.length, 0);

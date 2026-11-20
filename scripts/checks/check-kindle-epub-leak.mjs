@@ -101,7 +101,7 @@ if (errors.length) {
     console.error('  手元に配布 EPUB が無い: npm run asset-hydrate -- --group kindle-dist で private R2 から取り戻してから再実行する');
     console.error('  （asset-hydrate が空き容量不足で止まるときは npm run check-disk-hygiene で空きを作る）');
   } else {
-    console.error('  修正: BOM を除去 → 該当 spec を再ビルド → node scripts/sync-kindle-dist.mjs <id>');
+    console.error('  修正: BOM を除去 → 該当 spec を再ビルド → node scripts/kindle/sync-kindle-dist.mjs <id>');
   }
   __exit(1);
 }

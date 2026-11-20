@@ -53,7 +53,7 @@ function main() {
   const generatedAt = report?.generatedAt ?? (existsSync(reportPath) ? statSync(reportPath).mtime.toISOString() : null);
   const age = shotAgeDays(generatedAt);
   if (age === null) fail(`${reportPath} が無い（撮影が途中で止まった可能性）`);
-  if (age > MAX_SHOT_AGE_DAYS) fail(`撮影が ${Math.floor(age)} 日前（${generatedAt}）で古い。土曜の収集の note-public-view 段を確認する（取り直しは node scripts/weekly-collect.mjs --only note-public-view）`);
+  if (age > MAX_SHOT_AGE_DAYS) fail(`撮影が ${Math.floor(age)} 日前（${generatedAt}）で古い。土曜の収集の note-public-view 段を確認する（取り直しは node scripts/ops/weekly-collect.mjs --only note-public-view）`);
   if (!findIndexes(src).length) fail(`${src} に review/index.json が無い（撮影 0 枚）`);
 
   const dir = join(ROOT, '.tmp/note-public-view-review', jstDayOf(generatedAt));

@@ -27,7 +27,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createIgPublisher, GraphApiError, DEFAULT_API_VERSION } from '../lib/ig-graph-publish.mjs';
-import { resolvePackDir, resolveMediaFiles, stagePackMedia, cleanupPackMedia } from '../stage-ig-media-r2.mjs';
+import { resolvePackDir, resolveMediaFiles, stagePackMedia, cleanupPackMedia } from './stage-ig-media-r2.mjs';
 import { normalizePosted, FORMATS } from './ig-status.mjs';
 import { todayJst } from '../lib/jst-date.mjs';
 import { loadEnvLocal } from '../lib/asset-storage.mjs';

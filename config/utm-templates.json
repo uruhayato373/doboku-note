@@ -24,5 +24,5 @@
   "ebook": {
     "kindle": { "source": "kindle", "medium": "ebook", "contents": ["next", "author"] }
   },
-  "_inbound_note": "商品からサイトへ戻る導線の UTM（DN-0947・サイト→商品の GA4 product_click の逆向き）。note の記事の本文リンクは channels の note.site（source=note・medium=referral）に、utm_campaign＝記事の frontmatter utmCampaign（テーマ。従来どおり）、utm_term＝その記事の note キー（frontmatter noteId・n…）を付ける（utm_content は note ではリンクの種類 guide・examples 等に使っているので触らない）。GA4 の product_id（note キー）と同じ値なので、送客と戻りを同じ商品 ID で読める。書き手は scripts/add-note-utm.mjs。Kindle は ebook.kindle。stats47 の config/inbound-utm.mjs と同じ考え方"
+  "_inbound_note": "商品からサイトへ戻る導線の UTM（DN-0947・サイト→商品の GA4 product_click の逆向き）。note の記事の本文リンクは channels の note.site（source=note・medium=referral）に、utm_campaign＝記事の frontmatter utmCampaign（テーマ。従来どおり）、utm_term＝その記事の note キー（frontmatter noteId・n…）を付ける（utm_content は note ではリンクの種類 guide・examples 等に使っているので触らない）。GA4 の product_id（note キー）と同じ値なので、送客と戻りを同じ商品 ID で読める。書き手は scripts/note/add-note-utm.mjs。Kindle は ebook.kindle。stats47 の config/inbound-utm.mjs と同じ考え方"
 }

@@ -205,7 +205,7 @@ console.error(
   "  成立せず、太字にならずアスタリスクがそのまま表示される。約物を ** の外へ出す。",
 );
 console.error("  例: **標準貫入試験（SPT）**である → **標準貫入試験**（SPT）である");
-console.error("  一括修正: node scripts/fix-bold-rendering.mjs --commit");
+console.error("  一括修正: node scripts/maint/fix-bold-rendering.mjs --commit");
 __exit(1);
   });
 }
