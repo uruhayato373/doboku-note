@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { RETENTION_MIN_VIEWS, judgeVideo, sceneDropOff, summarizeRetention, watchRatioAt } from '../scripts/lib/youtube-retention-scenes.mjs';
-import { storyboardLoader } from '../scripts/youtube-retention-summary.mjs';
+import { storyboardLoader } from '../scripts/youtube/youtube-retention-summary.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // 100 点の直線: 動画の頭 1.0 から終わり 0.0 へ（ratio 0.01〜1.0）

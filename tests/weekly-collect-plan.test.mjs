@@ -190,7 +190,7 @@ test('四半期の初日と、競合の取得は四半期の最初の土曜だ�
   assert.equal(due.skip, null);
   assert.equal(due.phase, 'pre');
   assert.equal(due.browser, true); // ココナラの 2 本は手元の永続 profile
-  assert.deepEqual(argvOf([due], 'competitors').map((a) => a.split(' ').find((x) => /scout|research/.test(x))), ['scout-note-competitors', 'scripts/coconala-research.mjs', 'scout-coconala-competitors']);
+  assert.deepEqual(argvOf([due], 'competitors').map((a) => a.split(' ').find((x) => /scout|research/.test(x))), ['scout-note-competitors', 'scripts/coconala/coconala-research.mjs', 'scout-coconala-competitors']);
 });
 
 test('売上の段のあとに、前々月と前月の受取額と固定費を記録する段がある（確定した月だけ書く）', () => {

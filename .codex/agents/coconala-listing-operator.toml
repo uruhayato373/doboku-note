@@ -10,7 +10,7 @@ developer_instructions = """
 
 ## 前提（実行環境・最重要）
 
-- **出品・内容修正・価格反映は自動化する**（2026-07-18〜）。`/coconala-publish`（`scripts/coconala-publish.mjs` / `coconala-edit.mjs`）が、ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（`sellerName`=dobokunote）で操作する。**既定は下書き保存・実公開は `--commit`**。規約は 2026-07-18 時点で自分の出品の自動化を禁じる明示条項は未確認（購入者側の自動応答＝第13条2項22号は対象外）。実行はローカルのマシン限定。
+- **出品・内容修正・価格反映は自動化する**（2026-07-18〜）。`/coconala-publish`（`scripts/coconala/coconala-publish.mjs` / `coconala-edit.mjs`）が、ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（`sellerName`=dobokunote）で操作する。**既定は下書き保存・実公開は `--commit`**。規約は 2026-07-18 時点で自分の出品の自動化を禁じる明示条項は未確認（購入者側の自動応答＝第13条2項22号は対象外）。実行はローカルのマシン限定。
 - **ログインが切れていたら運営者が `npm run auth:login -- --service coconala` で入り直す**（セッションから資格情報でログインしない。CI からの出品・修正〔ops-write〕は 2026-10-24 に廃止）。
 - **長期不在（旅行・出張）は全件受付休止が既定**。購入から48時間以内に連絡しないと取引が自動キャンセルされ、PDF 商品も手作業送付なので無人で売れる商品は無い。復帰は `coconala-pause --resume --absence --commit` の1コマンド（`pauseReason:'absence'` だけを戻す＝恒久廃止は復活しない）。戻し忘れは `check-coconala-wiring` が `resumeOn` 超過で警告する。
 - **公開済みサービスは削除できない**。棚から消すのはアーカイブ（`--archive --all-retired`・`retired` 限定・実質片道）。
@@ -53,7 +53,7 @@ developer_instructions = """
 
 1. カタログ（価格/status/title）＋ listings（本文/カテゴリ/納期/genreFacets）を Read。
 2. **価格・状態の変更は `npm run product -- set <id> catalog.<欄> <json値>` で正本を先に直す**（`price` と `priceYen` を同時に）。`config/products.json` を直接 Edit しない。
-3. **下書きで検証**: `node scripts/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。公開中サービスの `coconala-edit` は下書きが無いので送信しない dry-run になり、`RESULT` の `mode:"dry-run"`・exit 0 を確認する。`ok:false`（記入エラー）なら公開しない。
+3. **下書きで検証**: `node scripts/coconala/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。公開中サービスの `coconala-edit` は下書きが無いので送信しない dry-run になり、`RESULT` の `mode:"dry-run"`・exit 0 を確認する。`ok:false`（記入エラー）なら公開しない。
 4. **公開**: 問題なければ `--commit` を付けて実行。publish は成功時カタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し。`--image` はサムネのファイル名（bare 名で可）。
 5. 出品後 `coconala-account.json` の `profileUrl` を埋め、`npm run check-coconala-wiring` グリーンを確認。
 6. **orphan draft の掃除**: 出品失敗で「サービスタイトル未設定・¥0・下書き中」が残ったら `npm run coconala-delete-draft -- --id <n>`（dry-run）→ `--commit`（現行フォームでは SKIP になる・DN-0946）。カタログ在籍 id はガードで拒否。
@@ -89,9 +89,9 @@ developer_instructions = """
 ## 参照
 
 - スキル: `.claude/skills/coconala-publish/SKILL.md`（出品・修正）／`coconala-status/SKILL.md`（状態の照合）／`coconala-order/SKILL.md`（受注）
-- 出品スクリプト: `scripts/coconala-publish.mjs`（bare 名の画像は `content/coconala/assets/` に解決）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs` / `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
-- 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
-- プロフィール: `scripts/coconala-profile.mjs`・`coconala-cover.mjs`／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
+- 出品スクリプト: `scripts/coconala/coconala-publish.mjs`（bare 名の画像は `content/coconala/assets/` に解決）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs` / `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
+- 商品画像/コンテンツ: `scripts/coconala/coconala-thumb.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
+- プロフィール: `scripts/coconala/coconala-profile.mjs`・`coconala-cover.mjs`／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
 - 機械ガード: `scripts/checks/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_no_price_in_mdx_body]]

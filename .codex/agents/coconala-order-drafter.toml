@@ -123,7 +123,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 ## 参照
 
 - スキル: `.claude/skills/coconala-order/SKILL.md`（受注）／`coconala-status/SKILL.md`（照合）
-- 購入者評価: `scripts/coconala-rate-buyer.mjs`（既定は入力までで停止・送信は `--submit`・運営者）。未送信と期限切迫は `check-coconala-orders` が surface する
+- 購入者評価: `scripts/coconala/coconala-rate-buyer.mjs`（既定は入力までで停止・送信は `--submit`・運営者）。未送信と期限切迫は `check-coconala-orders` が surface する
 - 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）／返信文 Evaluator: `civil-keiken-tensaku-qa.md`（機械ゲート `scripts/checks/check-tensaku-reply.mjs`）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_metrics_cicd_supplied]]

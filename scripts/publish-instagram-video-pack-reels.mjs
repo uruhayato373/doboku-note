@@ -9,7 +9,7 @@ import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
 import { readIgPublication, recordIg } from './lib/registry-ig-store.mjs';
-import { isSchedulableLedgerRow } from './ig-status.mjs';
+import { isSchedulableLedgerRow } from './instagram/ig-status.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 

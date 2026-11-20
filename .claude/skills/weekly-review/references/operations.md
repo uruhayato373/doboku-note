@@ -20,7 +20,7 @@
 - `.claude/skills/plan-weekly/SKILL.md` — 週次計画
 - `.claude/skills/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
 - `scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
-- `scripts/x-queue-surfacer.mjs` — X 予約キューの未投入下書き surfacer（本スキル Agent I の中核。`npm run x-queue-surfacer`）
+- `scripts/x/x-queue-surfacer.mjs` — X 予約キューの未投入下書き surfacer（本スキル Agent I の中核。`npm run x-queue-surfacer`）
 - `scripts/fetch-gsc-data/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `scripts/checks/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）

@@ -31,7 +31,7 @@ console.log(`[check-kindle-prices] ${targets.length} 冊を実検査（spec 照�
 
 if (issues.length) {
   for (const i of issues) console.error(`  ${i.id} [${i.kind}] ${i.msg}`)
-  console.error('  mismatch: spec を改定したなら node scripts/kdp-publish.mjs --id <id> --set-price --commit（成功時に catalog を書き戻す）')
+  console.error('  mismatch: spec を改定したなら node scripts/kindle/kdp-publish.mjs --id <id> --set-price --commit（成功時に catalog を書き戻す）')
   process.exit(1)
 }
 console.log('[check-kindle-prices] ✓ spec と catalog の価格は一致し、70% 帯に収まっている')

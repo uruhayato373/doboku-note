@@ -15,7 +15,7 @@ import {
   parseBlogDate,
   cardsToMetrics,
   weekStart,
-} from '../scripts/coconala-analytics.mjs';
+} from '../scripts/coconala/coconala-analytics.mjs';
 
 test('parseMetricValue: 通常値は数値化する', () => {
   assert.deepEqual(parseMetricValue('270 回', false), { value: 270, masked: false });

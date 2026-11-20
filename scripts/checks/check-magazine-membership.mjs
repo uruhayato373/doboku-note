@@ -469,7 +469,7 @@ function main(argv = process.argv.slice(2)) {
       for (const n of r.missing.slice(0, 10)) console.error(`    - ${n.key}  ${n.name ?? ''}`);
       if (r.missing.length > 10) console.error(`    … ほか ${r.missing.length - 10} 本`);
     }
-    console.error(`\n  追加: node scripts/note-magazine-add-articles.mjs --target <パックの m…> --from <構成元の m…> --commit（差分だけ足す・冪等）`
+    console.error(`\n  追加: node scripts/note/note-magazine-add-articles.mjs --target <パックの m…> --from <構成元の m…> --commit（差分だけ足す・冪等）`
       + '\n  そのあと npm run verify-note-magazines -- --contents --json で snapshot を再生成して commit する。'
       + '\n  意図して一部だけ同梱するなら、config の fromMagazines を本数にして partialReason を書く。');
   }
@@ -498,7 +498,7 @@ function main(argv = process.argv.slice(2)) {
   for (const r of bad) console.error(`  ${r.id}  期待 ${r.expected}  ${r.detail}`);
   console.error(
     '\n記事を足したら 3 つを同じ commit で揃える:'
-    + '\n  1. ライブへ収録   node scripts/note-magazine-add-articles.mjs --target <m…> --notes <n…> --commit'
+    + '\n  1. ライブへ収録   node scripts/note/note-magazine-add-articles.mjs --target <m…> --notes <n…> --commit'
     + '\n  2. SoT の件数表記 src/lib/note-magazines.ts の title / description / shortDescription / price'
     + '\n  3. snapshot 再生成 npm run verify-note-magazines -- --contents --json'
     + `\nペルソナ dir の外から収録している例外は ${datasetPath('config.note-magazine-membership')} の extras に理由付きで。`,

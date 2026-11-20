@@ -9,7 +9,7 @@
  *
  * 出品フロー (2026-07-18〜 自動化):
  * 1. 正本にエントリ（title/priceYen/status:'draft'）＋ config/coconala-listings.json（本文/カテゴリ）を用意
- * 2. `/coconala-publish`（node scripts/coconala-publish.mjs --service <id> --commit）で出品
+ * 2. `/coconala-publish`（node scripts/coconala/coconala-publish.mjs --service <id> --commit）で出品
  *    → 公開成功時に status:'listed' + serviceUrl + listedAt を正本へ自動書き戻し（本ファイルも作り直す）
  * 3. commit → デプロイ後、/links に「単発サービス」カードが自動表示される
  * （手動出品する場合は 1 の後に UI で出品し、serviceUrl/status を手で埋めてもよい）
@@ -109,7 +109,7 @@ export interface CoconalaService {
  *      catchphrase(15-30字)/body(≤1000)/purchaseNote(≤500) を追加
  *   1b. PDF 商品（id が -pdf）なら notePriceBasis（note で同じ中身を買う方法）か notePriceExempt（対象外の理由）を書く。
  *       価格は note 基準 × 1.1 を価格刻みで切り上げた額以上（check-coconala-wiring 検査10・coconala-operations.md §2.6）
- *   2. 商品画像: scripts/coconala-thumb.mjs の THUMB_COPY に追加 → npm run coconala-thumb で
+ *   2. 商品画像: scripts/coconala/coconala-thumb.mjs の THUMB_COPY に追加 → npm run coconala-thumb で
  *      thumb-<id から coconala- を除いた key>.png を生成
  *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
  *      → npm run coconala-content-pdf（funnel 除去＋note URL 0件検証）

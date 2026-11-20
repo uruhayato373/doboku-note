@@ -80,7 +80,7 @@ domain: product
 
 ### Step 2: 機械検証（親が python / note-lint で実測）
 - 各記事のフル模範解答が枚数上限内（II-1≤600 / II-2≤1200 / III≤1800）。`### （N）…（約…字）` 単位で **python -X utf8** 実測（自己申告は信用しない）。超過は writer に再トリム指示（余裕 -5〜-70）。
-- `node scripts/note-lint.mjs <path>`（pipe 表・太字内全角括弧・U+FFFD = 0）。**太字内全角括弧の頻出地雷**: 見出し `**…（…）**` → `**…**（…）` に直す（シリーズ案内見出し等）。
+- `node scripts/note/note-lint.mjs <path>`（pipe 表・太字内全角括弧・U+FFFD = 0）。**太字内全角括弧の頻出地雷**: 見出し `**…（…）**` → `**…**（…）` に直す（シリーズ案内見出し等）。
 - 構造: `## 予想問題` / `## なぜこのテーマが出るか（予想の根拠）` 有り、`## 試験問題`・出典行・（道路以外で）「合格者」が**無い**こと。
 
 ### Step 3: 事実照合（pe-secondary-exam-factcheck・記事単位）★ 完璧の担保
@@ -93,7 +93,7 @@ domain: product
 ### Step 5: 梱包（親が機械処理・1記事1ディレクトリ）
 1. **カバー**: `node scripts/generate-note-covers.mjs "{magazine_id}_{科目名}"`。再帰探索＋`article.md` 対応済みなので、各記事 dir の `article.md` → 同 dir `img/cover.png` を frontmatter `cover:` ブロックから生成する。
 2. **ハッシュタグ**: 各記事 dir に `hashtags.txt`（~90〜99 個・**1 行 1 個**）。同マガジンの過去問 hashtags か近縁科目を土台に、年度タグを `#令和8年度`/`#R08予想`/`#予想問題`/`#出題予想`/`#試験直前対策` に差し替え＋テーマ固有タグを足し、重複排除。
-3. **PDF**: 永続 spec `<マガジンのフォルダ>/magazine-pdf.json` に R08-yosou の各記事 dir を追記（`src: "R08-yosou/{dir}/article.md"`、include=`^## 予想問題`→`^## なぜこのテーマ` ＋ `^## フル模範解答`→`^## 採点ポイント`）。`node scripts/magazine-to-pdf.mjs --spec <spec> --in-place`（Chrome 必要）。Chrome 不可環境なら PDF はスキップして親が「PDF 未生成」を明示報告。
+3. **PDF**: 永続 spec `<マガジンのフォルダ>/magazine-pdf.json` に R08-yosou の各記事 dir を追記（`src: "R08-yosou/{dir}/article.md"`、include=`^## 予想問題`→`^## なぜこのテーマ` ＋ `^## フル模範解答`→`^## 採点ポイント`）。`node scripts/note/magazine-to-pdf.mjs --spec <spec> --in-place`（Chrome 必要）。Chrome 不可環境なら PDF はスキップして親が「PDF 未生成」を明示報告。
 
 ### Step 6: SoT 登録（親が編集）
 - `src/lib/note-magazines.ts` に `pe-construction-{subject}-magazine`（`published:false`）。**予想テーマ別記事化で記事数が増える**（道路は II-1/II-2/III×4=計6 ＋過去問）。`title`/`description`/`price` は予想（テーマ別単品）＋過去問の構成で書く。**価格はユーザー判断**（テーマ別単品 ¥? ＋セット）＝確定値はユーザーに確認、暫定で published:false 登録に留める。

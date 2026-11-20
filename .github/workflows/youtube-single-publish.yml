@@ -157,7 +157,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
-      - run: node scripts/youtube-unschedule.mjs --apply --pub "$PUB_IDS"
+      - run: node scripts/youtube/youtube-unschedule.mjs --apply --pub "$PUB_IDS"
       - name: Match the ledger to the verified state
         run: |
           while read -r id; do
@@ -197,9 +197,9 @@ jobs:
         run: |
           if [[ "$MODE" == 'purge-shorts' ]]; then
             [[ "$EXPECT" =~ ^[a-f0-9]{64}$ ]]
-            node scripts/youtube-purge-shorts.mjs --apply --expect "$EXPECT"
+            node scripts/youtube/youtube-purge-shorts.mjs --apply --expect "$EXPECT"
           else
-            node scripts/youtube-purge-shorts.mjs
+            node scripts/youtube/youtube-purge-shorts.mjs
           fi
   sync-funnel:
     if: inputs.mode == 'sync-funnel'
@@ -221,7 +221,7 @@ jobs:
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - run: npm run check-content-registry
       - run: '[[ "$METADATA_PLAN" =~ ^content/sns/youtube/metadata-plans/[a-z0-9-]+\.json$ ]]'
-      - run: node scripts/youtube-sync-funnel.mjs --plan "$METADATA_PLAN" --commit
+      - run: node scripts/youtube/youtube-sync-funnel.mjs --plan "$METADATA_PLAN" --commit
   audit-funnel:
     if: inputs.mode == 'audit-funnel'
     runs-on: ubuntu-latest
@@ -240,7 +240,7 @@ jobs:
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - run: npm run check-youtube-funnels
-      - run: node scripts/youtube-audit-live-funnels.mjs
+      - run: node scripts/youtube/youtube-audit-live-funnels.mjs
   reconcile:
     if: inputs.mode == 'reconcile' || github.event_name == 'schedule'
     runs-on: ubuntu-latest

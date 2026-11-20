@@ -40,7 +40,7 @@ export function monthlyReadiness({ period, today, salesMonths = {}, trafficFetch
     key: 'note-sales', group: 'データの確定', label: 'note の売上を確定値で取る',
     ...(sales?.finalized ? { state: 'done', detail: `${month} は確定日以降に取得・検算済み` }
       : !noteFinal ? { state: 'waiting', detail: `note が ${finalizeDate} に確定するまで待つ` }
-        : { state: 'todo', detail: '確定済み。取得して検算する', command: `node scripts/note-sales-fetch.mjs --month ${month} --commit` }),
+        : { state: 'todo', detail: '確定済み。取得して検算する', command: `node scripts/note/note-sales-fetch.mjs --month ${month} --commit` }),
   });
 
   // 2. note のアクセス（同じく翌月 2 日に確定）

@@ -66,8 +66,8 @@ domain: product
 ## 参照
 
 - エージェント: `.claude/agents/coconala-traffic-analyst.md`（閾値越えの週だけ・解釈）／`.claude/agents/coconala-listing-operator.md`（是正の実行）
-- 分析の収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-analytics.mjs`（`npm run coconala-analytics`）／検査: `scripts/checks/check-coconala-analytics.mjs`
+- 分析の収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala/coconala-analytics.mjs`（`npm run coconala-analytics`）／検査: `scripts/checks/check-coconala-analytics.mjs`
 - 機械ガード: `scripts/checks/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）／`scripts/checks/check-coconala-orders.mjs`（`npm run check-coconala-orders`）
-- 受注の実体収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
+- 受注の実体収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / KPI・撤退ライン: `content/note/1級・2級土木/ココナラ展開キット.md` §6
 - 受注処理は `/coconala-order`（`coconala-order-drafter`）

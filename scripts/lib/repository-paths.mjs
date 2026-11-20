@@ -28,7 +28,7 @@ const at = (...segments) => join(REPO_ROOT, ...segments);
  * scripts/ の直下を用途で分けたフォルダ（CLI の置き場。lib・ads など部品や機能単位のフォルダは含めない）。
  * フォルダを足したらここにだけ足す。名前から CLI を引く cliRelPath と、到達しない CLI の検査（check-unreachable-cli）が読む。
  */
-export const CLI_GROUPS = ['checks'];
+export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle'];
 
 /** CLI の名前（拡張子なし）から、リポジトリ相対のパスを引く。scripts/ の直下か CLI_GROUPS のどれか。見つからなければ投げる */
 export function cliRelPath(name, root = REPO_ROOT) {
@@ -227,6 +227,13 @@ export const RESTRUCTURED_PATHS = [
   // 2026-11-20 に Kindle の spec・表紙の仕様・表紙の制作記録を scripts/ から本のフォルダへ移した（A 系の表紙はフォルダ名を大文字に）
   // 2026-11-20 に scripts/ 直下の検査（check-・lint-・verify-・audit-・validate-）を scripts/checks/ へ分けた
   [/^scripts\/((?:check|lint|verify|audit|validate)-[^/]+\.(?:mjs|ts))$/, "scripts/checks/$1"],
+  // 2026-11-20 にチャネルの CLI を scripts/<チャネル>/ へ分けた
+  [/^scripts\/((?:note|magazine)-[^/]+\.mjs)$/, "scripts/note/$1"],
+  [/^scripts\/(coconala-[^/]+\.mjs)$/, "scripts/coconala/$1"],
+  [/^scripts\/(x-[^/]+\.mjs)$/, "scripts/x/$1"],
+  [/^scripts\/((?:youtube|video)-[^/]+\.mjs)$/, "scripts/youtube/$1"],
+  [/^scripts\/((?:ig|instagram)-[^/]+\.mjs)$/, "scripts/instagram/$1"],
+  [/^scripts\/(kdp-[^/]+\.mjs)$/, "scripts/kindle/$1"],
   [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
   [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
   [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],

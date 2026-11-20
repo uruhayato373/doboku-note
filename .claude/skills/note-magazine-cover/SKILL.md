@@ -12,7 +12,7 @@ domain: product
 画像そのものを新規制作する場合は `/create-pop-image` と [共通方針](../../knowledge/reference/pop-image-policy.md) を使う。本スキルは完成画像のアップロードを担当する。
 
 
-`scripts/note-magazine-cover.mjs` を駆動し、note 有料マガジンの見出し画像を設定する。`note-magazine-create`（新規作成）・`note-edit-magazine`（タイトル/説明/価格編集）・`note-magazine-add`（収録）が扱わない「カバー画像」を担う。`note-edit-session` でログイン済みの永続プロファイルを再利用。
+`scripts/note/note-magazine-cover.mjs` を駆動し、note 有料マガジンの見出し画像を設定する。`note-magazine-create`（新規作成）・`note-edit-magazine`（タイトル/説明/価格編集）・`note-magazine-add`（収録）が扱わない「カバー画像」を担う。`note-edit-session` でログイン済みの永続プロファイルを再利用。
 
 ## ⚠️ なぜ必要か（systematic 欠落）
 
@@ -21,9 +21,9 @@ domain: product
 ## 使い方
 
 ```bash
-node scripts/note-magazine-cover.mjs --key <magKey> --dir <magazineDir>            # probe（編集ページ構造ダンプ・保存しない・既定）
-node scripts/note-magazine-cover.mjs --key <magKey> --dir <magazineDir> --commit   # 実保存（<dir>/_cover.png）
-node scripts/note-magazine-cover.mjs --key <magKey> --image <path.png> --commit    # 明示画像
+node scripts/note/note-magazine-cover.mjs --key <magKey> --dir <magazineDir>            # probe（編集ページ構造ダンプ・保存しない・既定）
+node scripts/note/note-magazine-cover.mjs --key <magKey> --dir <magazineDir> --commit   # 実保存（<dir>/_cover.png）
+node scripts/note/note-magazine-cover.mjs --key <magKey> --image <path.png> --commit    # 明示画像
 ```
 
 - 画像は **1280×670px**（note マガジンヘッダ規格）。`--dir` 指定時は `<dir>/_cover.png` を既定解決。
@@ -43,6 +43,6 @@ node scripts/note-magazine-cover.mjs --key <magKey> --image <path.png> --commit 
 
 ## 関連
 
-- `scripts/note-magazine-cover.mjs` — 本体 / `node` 直呼び or `npm run note-magazine-cover`
+- `scripts/note/note-magazine-cover.mjs` — 本体 / `node` 直呼び or `npm run note-magazine-cover`
 - 新規作成: `note-magazine-create` ／ 設定・価格編集: `note-edit-magazine` ／ 収録: `note-magazine-add`
 - 真実源 `.claude/knowledge/reference/note-api-verification.md` ・[[project_note_write_automation]]

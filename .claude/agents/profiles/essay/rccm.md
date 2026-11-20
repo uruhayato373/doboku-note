@@ -88,7 +88,7 @@ cover:
 
 ```bash
 node scripts/checks/check-rccm-essay.mjs "<article.md の絶対パス>" --strict   # 字数 1,200〜1,600・指定用語「」4語以上・見出し・試験問題節の不在
-node scripts/note-lint.mjs "<article.md の絶対パス>"                    # pipe表/太字内全角括弧/U+FFFD 0
+node scripts/note/note-lint.mjs "<article.md の絶対パス>"                    # pipe表/太字内全角括弧/U+FFFD 0
 grep -c $'\xef\xbf\xbd' "<path>"                                              # 0
 ```
 
@@ -126,7 +126,7 @@ RCCM note 教材（article.md）を採点する。
 
 ```bash
 node scripts/checks/check-rccm-essay.mjs "<path>" --strict    # 字数 1,200〜1,600 / 指定用語「」4語以上 / 見出し / 試験問題節の不在
-node scripts/note-lint.mjs "<path>"                     # pipe表・太字内全角括弧・U+FFFD 0
+node scripts/note/note-lint.mjs "<path>"                     # pipe表・太字内全角括弧・U+FFFD 0
 grep -nc "^> " "<path>"                                 # blockquote は設問原文・白書原文の引用のみ
 grep -nE "¥|note\.com/dobokunote/(m|n)/" "<path>"       # 価格・URL 直書き 0（{{MAGAZINE_URL}} 単独行は可）
 ```
@@ -172,4 +172,4 @@ grep -nE "¥|note\.com/dobokunote/(m|n)/" "<path>"       # 価格・URL 直書�
 ### 参照
 
 - `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`
-- ゲート: `scripts/checks/check-rccm-essay.mjs` / `scripts/note-lint.mjs`
+- ゲート: `scripts/checks/check-rccm-essay.mjs` / `scripts/note/note-lint.mjs`

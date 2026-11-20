@@ -119,7 +119,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: 1dd9e3b8332688184eaf9ae99774e9af2a7e116a
-      - run: node scripts/youtube-delivery.mjs
+      - run: node scripts/youtube/youtube-delivery.mjs
   publish-pack:
     steps:
       - uses: actions/checkout@v5

@@ -5,7 +5,7 @@ description: >
   note 記事の本文末尾（有料記事は有料エリア内）に印刷用 PDF を添付するブラウザ CLI（既定 dry/probe・更新は --commit）。Use when user says "note記事にPDFを添付", "マガジンのPDFが未添付", "/note-attach-pdf".
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
+argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
 domain: product
 ---
 
@@ -22,16 +22,16 @@ domain: product
 
 ```bash
 # 1マガジン分を直列バッチ（frontmatter noteId ↔ 同dir PDF を突合・done-logで再開・1記事最大2回試行）
-node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir>            # dry（対象一覧のみ）
-node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit   # 実添付
+node scripts/note/note-attach-magazine-pdfs.mjs --dir <magazineDir>            # dry（対象一覧のみ）
+node scripts/note/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit   # 実添付
 
 # 1記事だけ（単体ツール）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe（挿入メニュー構造ダンプ）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --draft-only # 下書きへ実添付して保存
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付（既定＝本文末尾へ）
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe（挿入メニュー構造ダンプ）
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path> --draft-only # 下書きへ実添付して保存
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付（既定＝本文末尾へ）
 
 # 各セクション内に配置（無料記事など）: 指定テキストを含む最小段落の直後へ挿入（未検出は exit 7 ABORT＝誤挿入防止）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<段落の一部>" --commit --force
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<段落の一部>" --commit --force
 ```
 
 - マッピング: `<magazineDir>/<year>/article-<type>.md` の frontmatter `noteId` と同 dir の PDF（II1→`/-II-1-/` ・II2→`/-II-2-/` ・III→`/-III-/`）を突合。noteId 無し（未公開）はスキップ。
@@ -68,6 +68,6 @@ node scripts/checks/check-note-attachments.mjs --live   # 期待本数 vs ライ
 
 ## 関連
 
-- `scripts/note-attach-file.mjs`（1記事）／`scripts/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
+- `scripts/note/note-attach-file.mjs`（1記事）／`scripts/note/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
 - 記事公開: `note-publish` ／ マガジンカバー: `note-magazine-cover` ／ 収録: `note-magazine-add`
-- 印刷用 PDF 生成: note マガジンは `scripts/magazine-to-pdf.mjs`（`magazine-pdf-builder`）、択一演習は `scripts/build-takuitsu-pdf.mjs --spec <json>`。択一specは `bookId` / `title` / `subtitle` / `sources` が必須で、自作問題は任意の `creditText` に出典説明を書く。生成器はMDXコメントを除去し、Calloutを要点ボックスへ変換し、システムChromeで描画する。真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]
+- 印刷用 PDF 生成: note マガジンは `scripts/note/magazine-to-pdf.mjs`（`magazine-pdf-builder`）、択一演習は `scripts/build-takuitsu-pdf.mjs --spec <json>`。択一specは `bookId` / `title` / `subtitle` / `sources` が必須で、自作問題は任意の `creditText` に出典説明を書く。生成器はMDXコメントを除去し、Calloutを要点ボックスへ変換し、システムChromeで描画する。真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]

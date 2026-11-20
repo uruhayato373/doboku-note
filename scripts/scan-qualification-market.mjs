@@ -5,7 +5,7 @@
  * 検索語は config/market-scan.json（資格 id → keywords / coconala）。取得先:
  *   - YouTube … yt-dlp の検索（ytsearchN:<語>）で動画・チャンネル・再生数。ログイン・API キー不要
  *   - note    … 公開検索 API（api/v3/searches?context=note）で記事・作者・価格・スキ数
- *   - ココナラ … 既存の scripts/coconala-research.mjs に未取得の語だけを渡す（--coconala 指定時のみ。
+ *   - ココナラ … 既存の scripts/coconala/coconala-research.mjs に未取得の語だけを渡す（--coconala 指定時のみ。
  *               ブラウザで公開検索ページを読む・低頻度厳守＝四半期）
  * 追跡中の YouTube チャンネル（config/competitors.json の youtube）の登録者数も取る。
  *
@@ -183,7 +183,7 @@ if (CHANNELS.has('coconala')) {
   if (todo.length === 0) console.log('  ココナラ: 対象の語は取得済み（取り直すなら coconala-research.mjs --force を別途）');
   else {
     console.log(`  ココナラ: 未取得 ${todo.length} 語を coconala-research.mjs で取得（2 ページ・詳細なし）`);
-    const r = spawnSync('node', ['scripts/coconala-research.mjs', ...todo.flatMap((k) => ['--query', k]), '--max-pages', '2', '--details', '0'], { stdio: 'inherit', cwd: ROOT });
+    const r = spawnSync('node', ['scripts/coconala/coconala-research.mjs', ...todo.flatMap((k) => ['--query', k]), '--max-pages', '2', '--details', '0'], { stdio: 'inherit', cwd: ROOT });
     if (r.status === 0) ok += todo.length;
     else failed += todo.length;
   }

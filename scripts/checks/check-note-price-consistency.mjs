@@ -182,9 +182,9 @@ if (violations.length) {
     console.error(v.level === 'L0' ? `     ${v.detail}` : `     分布: ${v.detail}（多数派 ¥${v.majority}）`);
     for (const s of v.samples) console.error(`     - ${s}`);
   }
-  console.error('\n対処: L0 は公開中の note から正本を書き戻す → node scripts/note-reconcile-title-price.mjs --commit');
+  console.error('\n対処: L0 は公開中の note から正本を書き戻す → node scripts/note/note-reconcile-title-price.mjs --commit');
   console.error('L1/L2 はいずれかを行う。');
-  console.error('  (a) 値上げ/値下げの当て漏れ → node scripts/note-price-sweep.mjs --dir <マガジンdir> --from <旧> --to <新> --commit');
+  console.error('  (a) 値上げ/値下げの当て漏れ → node scripts/note/note-price-sweep.mjs --dir <マガジンdir> --from <旧> --to <新> --commit');
   console.error('      ライブ側も別途 note-article-price-sweep.mjs で揃え、frontmatter と一致させる。');
   console.error(`  (b) 意図的な価格差 → ${CONFIG} の allowMagazines / allowSeries に理由つきで追記する。`);
   console.error('\n背景: 2026-07-24 完全攻略パック18本の値崩れ / 2026-07-28 建設部門116本の frontmatter 不一致。');

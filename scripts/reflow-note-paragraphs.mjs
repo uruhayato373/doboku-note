@@ -14,7 +14,7 @@
  *   修正前は alt text 内の「。」で誤分割し img/... 参照が壊れる事故が発生していた。
  *
  * 真実源（段落長の目安）: .claude/knowledge/reference/content-principles.md §14-e
- * 関連: scripts/note-lint.mjs（note 非互換の BLOCK ゲート）/ /note-prepublish-review（--dry を WARN として呼ぶ）
+ * 関連: scripts/note/note-lint.mjs（note 非互換の BLOCK ゲート）/ /note-prepublish-review（--dry を WARN として呼ぶ）
  *
  * usage:
  *   node scripts/reflow-note-paragraphs.mjs [--target N] [--dry] <file|dir ...>

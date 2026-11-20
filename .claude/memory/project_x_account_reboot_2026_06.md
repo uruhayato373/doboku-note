@@ -8,7 +8,7 @@ metadata:
 2026-06-21、前アカ凍結（[[feedback_x_suspension_guardrail]]）後にユーザーが**新 X アカウントで再開**を決定。技術士建設部門（筆記7/20）・総監（必須7/19）の**1ヶ月前カウントダウン**、1日2投稿（建設1＋総監1）、主軸「再受験コスト（受験料¥14,000＋もう1年）＞合格を今買う」。
 
 **再発防止設計（ブランチ feat/x-schedule-guard・develop ベース、未 push）**:
-- **予約前ゲート** `npm run x-schedule-guard`（`scripts/x-schedule-guard.mjs`）: 全 status.json(SSOT) を読み、同時刻衝突／near-dup(正規化トライグラムJaccard≥0.62)／1日上限超 を BLOCK(exit1)、時刻ジッタ無／同一URL反復 を WARN。`--queue` で X実キュー(Playwright)突合し既存予約と重複なら BLOCK。新規期は `--max-per-day 2`。
+- **予約前ゲート** `npm run x-schedule-guard`（`scripts/x/x-schedule-guard.mjs`）: 全 status.json(SSOT) を読み、同時刻衝突／near-dup(正規化トライグラムJaccard≥0.62)／1日上限超 を BLOCK(exit1)、時刻ジッタ無／同一URL反復 を WARN。`--queue` で X実キュー(Playwright)突合し既存予約と重複なら BLOCK。新規期は `--max-per-day 2`。
 - **アカウント境界**: 旧アカ32ドラフトを `docs/sns/x/draft|published/_archive-old-account/` へ隔離。`_`接頭辞は guard / x-schedule-view / x-sync-status がスキャン除外＝新アカはクリーン台帳から。旧 status を新アカで publish しない物理防壁。
 - 分業フロー＝writer→`x-post-qa`(§11ゲート採点)→status.json記入→**guard緑**→`publish-x --tweets N-M`(範囲限定で誤爆防止)→`x-sync-status`(偽成功実査)。週次小分け。真実源 `x-post-policy.md` §11.5、publish-x SKILL にもゲート配線済。
 - **状態ライフサイクル** `scheduled`(計画・未投入)→`queued`(キュー投入済・x-sync-statusが実在確認して昇格＝§9検証兼ねる)→`posted`。guardの`--queue`二重チェックは`queued`を除外するので**後日バッチを積んでも緑を維持**（2026-06-21、Day1-2投稿後に既queued誤検出する穴を修正）。

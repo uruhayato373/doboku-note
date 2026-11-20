@@ -137,7 +137,7 @@ frontmatter は下書きのまま（`cceEssayPersona` に SSOT `answerModel.pers
 
 ```bash
 node scripts/checks/check-cce-essay.mjs "<article.md の絶対パス>"   # 型・字数帯・8立場（立場別記事は1立場と(1)(4)の重複なし）・出題年一致・問題文節なし・価格なし
-node scripts/note-lint.mjs "<article.md の絶対パス>"         # pipe表/太字内全角括弧/U+FFFD 0
+node scripts/note/note-lint.mjs "<article.md の絶対パス>"         # pipe表/太字内全角括弧/U+FFFD 0
 ```
 
 ### 担当外（cce 固有）
@@ -173,7 +173,7 @@ node scripts/note-lint.mjs "<article.md の絶対パス>"         # pipe表/太�
 
 ```bash
 node scripts/checks/check-cce-essay.mjs "<path>"     # 型・字数帯・8立場（立場別記事は1立場と(1)(4)の重複なし）・総字数・出題年一致・問題文節なし・価格なし・paidBoundary
-node scripts/note-lint.mjs "<path>"           # pipe表・太字内全角括弧・U+FFFD 0
+node scripts/note/note-lint.mjs "<path>"           # pipe表・太字内全角括弧・U+FFFD 0
 grep -nE "note\.com/dobokunote/(m|n)/" "<path>"   # URL 直書き 0（{{MAGAZINE_URL}} 単独行は可）
 ```
 

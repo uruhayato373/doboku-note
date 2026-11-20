@@ -116,7 +116,7 @@ npm run note-edit-session -- <note の URL>     # 指定ページを開く
 npm run note-edit-session -- m6854c7437d4d     # マガジン key だけでも可
 ```
 
-- スクリプト: `scripts/note-edit-session.mjs`。**ユーザー自身のターミナルで実行**（ヘッド付きブラウザを表示・操作するため）。
+- スクリプト: `scripts/note/note-edit-session.mjs`。**ユーザー自身のターミナルで実行**（ヘッド付きブラウザを表示・操作するため）。
 - **`channel: 'chrome'`（システム Chrome）必須**。publish-x と同じ方式。組み込み Chromium だと Google/note に bot 判定されてログインが「安全でないブラウザ」で弾かれる。システム Chrome ＋ `--disable-blink-features=AutomationControlled` で `navigator.webdriver=false` になり検知回避（2026-06-10 実証）。**App-Bound 暗号化の cookie 抽出は不要**（実 Chrome が自分の cookie を使うだけ）。
 - **初回のみ画面で手動ログイン**（パスワードはスクリプトが扱わない）。セッションは `.local/playwright-note-profile/`（**gitignore 済**・cookie を含むため git に入れない）に永続化され、次回からは自動でログイン済み。
 - **編集・保存は人手**で行う（自動保存はしない）。理由: note 規約・bot 検知・収益アカウントのリスク回避。「自動で編集画面まで開く＋最終入力/保存は人」の半自動が安全境界（本節＝`note-edit-session` の対話編集フローに限る）。CI からの note 書き込み（`ops-write.yml`・plan hash）は 2026-10-24 に廃止した。note への書き込みは運営者の依頼を受けたセッションが、運営者の Mac の profile で行う。
@@ -161,9 +161,9 @@ note 記事本文は **ProseMirror**。書き込み自動化の可否が操作�
 上記「結論」の例外として、**ソースファイル（article.md）全体を貼り直す**方式で、既公開記事の本文を差し替えてライブ反映するスクリプト。部分選択の段落破損を回避できる。
 
 ```bash
-node scripts/note-update-body.mjs --article <article.md>            # dry-run（既定・安全）
-node scripts/note-update-body.mjs --article <article.md> --commit   # 実ライブ反映
-node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記事を一括反映
+node scripts/note/note-update-body.mjs --article <article.md>            # dry-run（既定・安全）
+node scripts/note/note-update-body.mjs --article <article.md> --commit   # 実ライブ反映
+node scripts/note/note-update-body.mjs --list   <list.txt>   --commit    # 複数記事を一括反映
 # npm 経由: npm run note-update-body -- --article <path> [--commit]
 ```
 
@@ -223,7 +223,7 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 > | アセット | 本文が参照する画像と、記事 dir・`pdf/` の `*.pdf` の**内容**ハッシュ | `assetHashes` | `note-update-body --commit`（画像を上げ直し PDF を貼り直す）/ `note-attach-file --commit` |
 > | カバー | 描画入力（`cover:`・`coverTitle`・資格色）とデザイン版・登録した画像の URL | `coverHashes`（マガジンは `magazineCovers`） | `note-update-body --parts cover`（週次は `--sync` がまとめる） |
 >
-> 記事単位の反映計画（どの部品が未反映か・止まっている理由）は `node scripts/note-sync-plan.mjs`、1 記事 1 回の更新は `note-update-body --sync`、週次は Mac の `note-sync-routine`。
+> 記事単位の反映計画（どの部品が未反映か・止まっている理由）は `node scripts/note/note-sync-plan.mjs`、1 記事 1 回の更新は `note-update-body --sync`、週次は Mac の `note-sync-routine`。
 >
 > メタに `noteUrl`/`noteId`/`notePublishedAt`/`noteStatus` を**含めない**（公開した結果であり、
 > 含めると公開直後に必ず drift になる）。反映系スクリプトは成功直後に該当トラックだけを
@@ -249,8 +249,8 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 > **価格欠落の是正では doc の数値を信じず、同一マガジンの現行価格を note API で実測してから揃える。** 単品価格の真実源は各記事 frontmatter `price:`（完全攻略パック＝現行 **¥1,980**）、商品設計は [noteコンテンツ計画.md](../../../content/note/1級・2級土木/noteコンテンツ計画.md) §8。
 
 ```bash
-node scripts/note-convert-to-paid.mjs --list <file> --commit    # 無料公開済みを有料化（1行1 article）
-node scripts/note-convert-to-paid.mjs --article <path> --commit
+node scripts/note/note-convert-to-paid.mjs --list <file> --commit    # 無料公開済みを有料化（1行1 article）
+node scripts/note/note-convert-to-paid.mjs --article <path> --commit
 npm run note-convert-to-paid -- --article <path> --commit
 ```
 
@@ -305,7 +305,7 @@ node scripts/checks/check-note-price-consistency.mjs --json      # 機械可読
 
 `check-note-structure` の `TAG_SHORT` が唯一 live を実測していたが、`sev:'INFO'` 固定で `--ci` ゲート（CRITICAL のみ判定）に載らず誰も落としていなかった。**TAG_SHORT は INFO のまま残す**（レポート用）——CRITICAL に格上げすると「有料記事の全ロック・課金漏洩」と同列になり優先度が壊れるため、タグは独立ゲートで別管理にする。
 
-不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。ライブが上限99で埋まっていると足す余地が無く、原稿を直しても一致しない（2026-09-23 土木もくじ: 余分11・不足7）。dry-run の `余分=N` がその印で、`--prune --commit` で原稿に無いタグを外してから足し、ライブを原稿と同じ集合にする。比較は大文字小文字を区別しない（note は原稿の `GX` を足しても既存の `gx` のまま残す）。タグ欄は `-` `.` `/` を含むタグを受け付けない（Enter で chip にならない・`_` は可）ので、原稿では `_` に置き換え、`check-note-hashtags` が止める。`--commit` はライブが既に原稿と完全一致の記事もタグハッシュを記録する（記録しないと `check-note-republish` に記録だけのずれが残る）。会員限定記事は未ログインの公開 API がタグを空で返すので、dry-run では `[defer]` として計画せず、`--commit` 時にログイン済みブラウザの API で読んでから計画・検証する。構造的にライブへ入らない記事は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
+不足の解消は `node scripts/note/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。ライブが上限99で埋まっていると足す余地が無く、原稿を直しても一致しない（2026-09-23 土木もくじ: 余分11・不足7）。dry-run の `余分=N` がその印で、`--prune --commit` で原稿に無いタグを外してから足し、ライブを原稿と同じ集合にする。比較は大文字小文字を区別しない（note は原稿の `GX` を足しても既存の `gx` のまま残す）。タグ欄は `-` `.` `/` を含むタグを受け付けない（Enter で chip にならない・`_` は可）ので、原稿では `_` に置き換え、`check-note-hashtags` が止める。`--commit` はライブが既に原稿と完全一致の記事もタグハッシュを記録する（記録しないと `check-note-republish` に記録だけのずれが残る）。会員限定記事は未ログインの公開 API がタグを空で返すので、dry-run では `[defer]` として計画せず、`--commit` 時にログイン済みブラウザの API で読んでから計画・検証する。構造的にライブへ入らない記事は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
 
 **2026-07-30 完了**: 全量ゲートで **対象675・取得失敗0・計測不能3・実検査672本すべて90以上**（`npm run check-note-live-tags` exit 0）。上表の 250 本は 07-28 夜の 362 件＋07-30 の 74 件で解消した。
 
@@ -397,7 +397,7 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 ### 記事の削除: note-delete-note（2026-07-04 実機確定）
 - **公開済み記事はエディタからは削除できない**。`editor.note.com/notes/{key}/edit` の右上「・・・」メニューは**「変更履歴」のみ**で削除項目がない（下書きでも編集画面のブロック用「削除」ボタンが紛れて誤操作しやすい）。
 - **削除は記事管理ダッシュボード `note.com/notes` から**: 対象記事カードの操作メニュー（・・・）→「削除」→ 確認ダイアログ「削除する」。マガジン収録も自動で外れる。
-- ツール: `node scripts/note-delete-note.mjs --note <key>`（既定 PROBE）／`--commit`（実削除・account gate＋API消滅検証つき）。複数は `--notes <k1,k2,...>` で 1 回の起動で順に削除する。一覧は無限スクロールで古い記事は先頭ページに無いので、カードが見つかるまで下へ読み進める（2026-10-01・それまでは古い記事が「見つからない」で止まっていた）。
+- ツール: `node scripts/note/note-delete-note.mjs --note <key>`（既定 PROBE）／`--commit`（実削除・account gate＋API消滅検証つき）。複数は `--notes <k1,k2,...>` で 1 回の起動で順に削除する。一覧は無限スクロールで古い記事は先頭ページに無いので、カードが見つかるまで下へ読み進める（2026-10-01・それまでは古い記事が「見つからない」で止まっていた）。
 - **note リッチエディタは既存ブロックの移動・削除に強く抵抗**する（プログラム的 marker を剥がす・画像ブロックの scripted 削除が無反応）。**構成変更は「旧note破棄→新規公開で理想順に組む」が確実**（見出し直前への挿入＝native h2 に range→Enter→ArrowUp→座標で+menu は堅牢）。
 
 ### マガジンの削除: note-magazine-delete（2026-10-01）
@@ -433,7 +433,7 @@ node scripts/checks/check-note-live-headings.mjs --paths         # BAD パスの
 
 ### 本文画像・PDF 添付の修復手順
 
-- **無料記事の画像欠落**: `node scripts/note-update-body.mjs --article <path> --commit`。全文再貼付＋画像アップロードで一括反映。
+- **無料記事の画像欠落**: `node scripts/note/note-update-body.mjs --article <path> --commit`。全文再貼付＋画像アップロードで一括反映。
 - **有料 PDF 記事**（`paidBoundary` あり・paid 領域に PDF 添付カード）: 全文置換は PDF 添付カードを破壊するため **`--images-only`**（本文アンカー直後に画像だけ追加・境界/カード不変）を使う。空引用も直す必要がある場合のみ全文 `--commit`（`paidBoundary` で境界保持）→ 破壊された PDF は `note-attach-file.mjs --note <key> --file <pdf> --commit` で再添付。
 - 画像挿入が一部失敗しても続行したいときは `--img-lenient`（既定は保存せず ABORT）。
 - **メンバーシップ連携記事**（`price=0` だが `is_limited=true` の会員限定＝撤退した会員制の索引/はじめに/入口LP。2026-09-30 撤退後も公開済み 22 本は note 上で `is_limited=true` のまま残るので `memberTrial` を外さない）: 公開設定が3段フロー（`公開に進む → 試し読みエリアを設定 → 更新する`）。`note-update-body.mjs` は `試し読みエリアを設定` を自動検出する。**このボタンが出ず、試し読みラインの画面（「ラインをこの場所に変更」が並ぶ）が直接開く回もある**（実行ごとに変わる）。この場合も同じ判定でラインを置くか中断する（2026-10-05〜・DN-0542。以前は境界の無い無料記事と扱ってラインなしで「更新する」を押し、note 側で確定しないまま「反映完了」と出ていた）。反映後は `[5g]` で「新しい原稿の公開範囲にある文が公開本文に出たか」を確かめ、出なければ FAIL にしてハッシュを記録しない。`notePricing: membership` の記事は**試し読みラインを動かさず更新**（完全会員限定を維持）。**`notePricing: free` の記事は `--trial-line-bottom` か `--keep-member-lock`（意図して全文ロックしている記事＝会員限定の「はじめに」・索引など）を指定しないと保存せず中断する**（2026-09-23〜。指定なしで進むと、誰でも読めていた無料のペルソナ選択ガイドが全文会員限定になった。公開後も無料記事が `is_limited=true` なら [5e] で FAIL）。`note-update-partial` / `note-swap-author-banner` も `--keep-member-lock` を受け付ける。**入口LPの無料プレビューを復旧するときは `--trial-line-bottom`**（ラインを「末尾の1つ手前」に設置＝ほぼ全文を無料プレビュー化）。**罠: ラインを本文の絶対最後に置くと会員限定にする中身が0で無効化され note が全文ロック（bodyLen→0）に戻す**ため、末尾の1つ手前に置く。前後で公開API `body`（無料プレビュー量）を実査すること。

@@ -16,10 +16,10 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 ## 実行環境の前提（重要）
 
 - **browser-use 経路（本スキルの新規公開フロー）は Mac 推奨**。会社 PC（Windows）はプロキシが browser-use の LLM バックエンドを遮断する可能性が高く、browser-use 自体も未導入（[[project_ig_api_posting_setup]] と同根）
-- **ただし Windows でも動く Playwright 経路がある**（browser-use 不要・LLM バックエンド不要）: 新規公開＝`scripts/note-publish.mjs`、**公開済み記事への CTA 追記/ライブ反映＝`scripts/note-append-cta.mjs`（`npm run note-append-cta`）**、マガジン設定＝`note-edit-magazine.mjs`。いずれも `<auth root>/profiles/playwright-note-profile`（永続・初回のみ手動ログイン）を使う。update 系の詳細は [references/update-mode.md](references/update-mode.md)
+- **ただし Windows でも動く Playwright 経路がある**（browser-use 不要・LLM バックエンド不要）: 新規公開＝`scripts/note/note-publish.mjs`、**公開済み記事への CTA 追記/ライブ反映＝`scripts/note/note-append-cta.mjs`（`npm run note-append-cta`）**、マガジン設定＝`note-edit-magazine.mjs`。いずれも `<auth root>/profiles/playwright-note-profile`（永続・初回のみ手動ログイン）を使う。update 系の詳細は [references/update-mode.md](references/update-mode.md)
 - **browser-use CLI がインストール済み**であること（Mac 経路のみ・`$HOME/.browser-use-env/` 等）
 - **Chrome プロファイルが note.com/dobokunote にログイン済み**であること。プロファイル名は環境変数 `NOTE_PROFILE` に設定（例: `export NOTE_PROFILE="Profile 1"`）。references の例にある `Profile 5` は stats47 用なので**使わない**
-- **予約投稿**は現在は無料（誰でも可・note プレミアム不要）。Windows Playwright 版は `scripts/note-publish.mjs --schedule "YYYY-MM-DDTHH:MM"`（JST）、時間ずらしバッチは `note-publish-magazine.mjs --list <manifest> --schedule-start ... --interval-hours N`
+- **予約投稿**は現在は無料（誰でも可・note プレミアム不要）。Windows Playwright 版は `scripts/note/note-publish.mjs --schedule "YYYY-MM-DDTHH:MM"`（JST）、時間ずらしバッチは `note-publish-magazine.mjs --list <manifest> --schedule-start ... --interval-hours N`
 
 ## 投稿先アカウント（最重要・誤爆防止）
 
@@ -203,7 +203,7 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 - **Playwright 版も目次挿入に対応済（2026-07-02）**＝`note-publish.mjs`（新規公開・Phase 6.5）と `note-update-body.mjs`（全文置換後の再挿入・4.5）が H2>=3 で本文先頭に note ネイティブ目次（`#toc-setting`）を挿入する（`--no-toc` で抑止）。目次は Phase 4.5（browser-use）だけの手作業ではなくなった。検証は screenshot 目視（`.tmp/np-toc.png` / `.tmp/nu-toc-*.png`）
 - **macOS 実行の注意（note-update-body）**: 本文全置換の「全選択」は Meta+A（Ctrl+A は行頭移動で空化に失敗→本文二重化）。`note-publish.mjs` は /new 空エディタ paste なので影響なし。無料記事の `--commit` は「更新する」まで自動完走（2026-07-14 実証で旧「未対応」は解消）
 - **メンバーシップ連携記事（price=0 だが会員限定）**: `note-update-body` は3段の試し読みフロー（`公開に進む → 試し読みエリアを設定 → 更新する`）に対応。入口LP（まるごとパック等）の無料プレビュー復旧は `--trial-line-bottom`（試し読みラインを末尾-1に設置。絶対末尾は全ロックに戻る罠あり）。無料設定のまま意図して全文ロックしている記事は `--keep-member-lock`。無料記事でどちらも無いと試し読み画面で中断する（ラインなしの更新で全文会員限定になる事故の防止・2026-09-23〜）。試し読みの画面が直接開く回も同じく判定・中断し、反映後は `[5g]` で本文の更新を確かめる（2026-10-05〜）。詳細 SSOT: `.claude/knowledge/reference/note-api-verification.md`「メンバーシップ試し読みフロー」
-- **公開済み記事へのタグ差分追加**: `scripts/note-sync-tags.mjs`（本文非破壊・note上限99・不足分をlive照合で追加。上限99で足せないときは `--prune` で原稿に無いタグを外してから足す）。note-update-body は単発では本文専用だが、`--sync`（未反映の部品だけ）や `--parts body,cover,tags` でカバー・タグも 1 回の更新に含められる（Mac の週次 note-sync はこちらで記事単位にまとめて反映する）。タグdrift は `check-note-republish` が surface
+- **公開済み記事へのタグ差分追加**: `scripts/note/note-sync-tags.mjs`（本文非破壊・note上限99・不足分をlive照合で追加。上限99で足せないときは `--prune` で原稿に無いタグを外してから足す）。note-update-body は単発では本文専用だが、`--sync`（未反映の部品だけ）や `--parts body,cover,tags` でカバー・タグも 1 回の更新に含められる（Mac の週次 note-sync はこちらで記事単位にまとめて反映する）。タグdrift は `check-note-republish` が surface
 - **frontmatter の note* 行**: `note-publish.mjs` の公開後 writeback は `noteUrl`/`noteId`/`notePublishedAt`/`noteStatus` を **行が無ければ挿入**する（`setFmField`・2026-07-02 是正）。旧実装は replace-only で、テンプレに note* 行が無い記事は URL 記録が無音失敗し、`note-publish-magazine` の冪等ガード（noteUrl 有無）も効かず一括重複公開の危険があった
 - **Phase 7-Tags**: `<RXX>/hashtags.txt` の内容を入力
 - 予約日時があれば予約投稿、なければ「今すぐ公開」または下書き保存のみ

@@ -11,7 +11,7 @@ metadata:
 3. **段落は短く切る**（モバイル閲覧主体）。
 
 **How to apply:** CTA は「適切な導入文（マガジンの現行仕様・訴求価値、価格なし）→空行→URL単独行→空行→短い締め」。内容は公開済みマガジンの現行仕様に合わせる（旧版の年度範囲・字数を残さない）。
-**機械ゲート化済み（2026-06-12）**: `scripts/checks/check-note-magazine-cta.mjs` が ①markdown リンク形式のマガジン URL ②マガジン URL 同一行の¥ を検出し `scripts/note-lint.mjs`（pre-commit）と `/note-prepublish-review` Phase 1 から BLOCK（Generator=執筆と Evaluator=機械ゲートの分離）。真実源 content-principles.md §14-c。価格が別段落の旧来パターンは近接判定外。関連: [[feedback_prevention_over_patching]]
+**機械ゲート化済み（2026-06-12）**: `scripts/checks/check-note-magazine-cta.mjs` が ①markdown リンク形式のマガジン URL ②マガジン URL 同一行の¥ を検出し `scripts/note/note-lint.mjs`（pre-commit）と `/note-prepublish-review` Phase 1 から BLOCK（Generator=執筆と Evaluator=機械ゲートの分離）。真実源 content-principles.md §14-c。価格が別段落の旧来パターンは近接判定外。関連: [[feedback_prevention_over_patching]]
 
 ## 本文段落は1〜2文・~120字以下（content-principles §14-e）
 note はモバイル主体で1段落150〜300字の塊は読まれない。2026-06-12、建設部門入口16本で402段落中185段落（46%）が120字超・最長254〜321字だった。

@@ -1,6 +1,6 @@
 /**
  * 維持率曲線（YouTube Analytics の audienceWatchRatio）を storyboard の場面の秒数に重ね、場面ごとの離脱を出す（DN-1063）。
- * 純関数だけ（外部通信・保存なし）。曲線の取得は scripts/youtube-analytics.mjs（CI）、読み手は scripts/youtube-retention-summary.mjs。
+ * 純関数だけ（外部通信・保存なし）。曲線の取得は scripts/youtube/youtube-analytics.mjs（CI）、読み手は scripts/youtube/youtube-retention-summary.mjs。
  *
  * 動画の長さは storyboard の最後の場面の end（秒）。曲線の ratio はその長さへの割合なので、場面の start/end を割って重ねる。
  * 視聴回数が基準に届かない動画は「判断できない」と出し、型ごとの平均には混ぜない。

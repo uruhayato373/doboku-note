@@ -161,7 +161,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
     },
     {
       id: 'coconala', phase: 'pre', title: 'ココナラの取引・出品分析・売上履歴', timeoutMin: 30, browser: true, selfCommits: true,
-      commands: [{ argv: ['scripts/coconala-local-routine.mjs'] }],
+      commands: [{ argv: ['scripts/coconala/coconala-local-routine.mjs'] }],
       verify: ['coconala-analytics'],
     },
     {
@@ -197,7 +197,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
         // snapshot を作り直した直後に三軸（repo・SoT・ライブ）を突き合わせる。exit 2 = 検査不成立
         { argv: ['scripts/checks/check-magazine-membership.mjs', '--ci'], warn: [1] },
         // 題名・価格は原稿（frontmatter。単品価格は config/products.json の articlePrices の写し）が正で、note のライブはそれに合わせる。note と食い違う記事を「note へ未反映」にする
-        { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
+        { argv: ['scripts/note/note-reconcile-title-price.mjs', '--commit'] },
       ],
     },
     {
@@ -233,7 +233,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       commands: [
         { argv: ['npm', 'run', '-s', 'scout-note-competitors'] },
         // 検索結果を 1 件も読めない取り直しは exit 1（前回の記録を空で上書きしない・#1227）
-        { argv: ['scripts/coconala-research.mjs', '--refresh', '--details', '0'] },
+        { argv: ['scripts/coconala/coconala-research.mjs', '--refresh', '--details', '0'] },
         { argv: ['npm', 'run', '-s', 'scout-coconala-competitors'] },
       ],
     },
@@ -250,7 +250,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 2026-10-24 の初回は 180 分で打ち切られ、実行記録も台帳も残らなかった（1 記事の更新は実測で約 3.6 分・Drive の取り寄せが停滞して 33 件失敗）。
       // 上限 80 記事に加えて、開始から 270 分（段の上限 300 分の 30 分前）で区切る。締め切りまでに終わる分だけ更新して記録・push し、
       // 残りは翌週へ回す（急ぐときは運営者が --only note-sync を別の日に回す）。途中で止めても公開中の記事は変わらない
-      commands: [{ argv: ['scripts/note-sync-routine.mjs', '--max', '80', '--deadline-min', '270'] }],
+      commands: [{ argv: ['scripts/note/note-sync-routine.mjs', '--max', '80', '--deadline-min', '270'] }],
       verify: ['note-sync-freshness'],
     },
     {

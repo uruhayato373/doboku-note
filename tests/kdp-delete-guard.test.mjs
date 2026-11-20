@@ -43,7 +43,7 @@ test('今の catalog の出版停止の本はすべて保護される', () => {
 })
 
 test('kdp-publish の --delete-drafts は削除の前に catalog の保護で絞り、--list-drafts も分けて出す', () => {
-  const src = readFileSync(join(ROOT, 'scripts/kdp-publish.mjs'), 'utf8')
+  const src = readFileSync(join(ROOT, 'scripts/kindle/kdp-publish.mjs'), 'utf8')
   const del = src.slice(src.indexOf('if (MODE_DELETE) {'))
   assert.ok(del.indexOf('partitionDraftDeletion(requested') > 0)
   assert.ok(del.indexOf('partitionDraftDeletion(requested') < del.indexOf('for (const asin of list)'), '削除ループより前に絞る')

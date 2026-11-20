@@ -47,14 +47,14 @@ CI からの提出（`ops-write.yml`）は廃止した。提出は運営者の�
 
 ### 新規提出（下書きまで・出版しない）
 ```
-node scripts/kdp-publish.mjs --id <id>
+node scripts/kindle/kdp-publish.mjs --id <id>
 ```
 → 詳細→カテゴリー→原稿/表紙アップロード→**原稿処理完了まで待機**→AI申告→アクセシビリティ→価格→下書き保存。
 `.tmp/kdp-<id>-checklist.txt` を出力。発番したドラフト ASIN は商品の正本（config/products.json）の `draftAsin` に自動記録（再実行で重複作成しない）。
 
 ### 出版（不可逆・承認後）
 ```
-node scripts/kdp-publish.mjs --id <id> --publish-only --commit-publish
+node scripts/kindle/kdp-publish.mjs --id <id> --publish-only --commit-publish
 ```
 → draftAsin の価格ページへ直行して「Kindle本を出版」。価格/ロイヤリティが期待値と不一致なら出版せず停止。
 
@@ -68,12 +68,12 @@ node scripts/kdp-publish.mjs --id <id> --publish-only --commit-publish
 > 前段の Chrome とプロファイルが競合し、**エラーも出さず無言でハングする**（2026-07-27 に3回発生。
 > 症状＝node は生きているが CPU がほぼ増えず、ブラウザプロセスが 0、スクショも更新されない）。
 > さらにハングを `kill -9` すると `Default/Preferences` の `exit_type` が `Crashed` になり、
-> 次回起動時に復元ダイアログでまたハングする。手順は `scripts/kdp-batch.mjs` の `cleanProfile()`
+> 次回起動時に復元ダイアログでまたハングする。手順は `scripts/kindle/kdp-batch.mjs` の `cleanProfile()`
 > （プロセス kill → `Default/Preferences` の `exit_type` を `Normal` へ戻す → `Singleton*` 削除）。
 
 ### 途中で落ちた本の再開（2026-08-03 に修復）
 
-同じ `node scripts/kdp-publish.mjs --id <id>` を再実行すれば、catalog の `draftAsin` から既存ドラフトへ
+同じ `node scripts/kindle/kdp-publish.mjs --id <id>` を再実行すれば、catalog の `draftAsin` から既存ドラフトへ
 入り直す。**重複作成はしない**。以前は再開すると必ず途中で落ちていた 2 点を修正済み:
 
 | 症状 | 実体 | 対処（実装済み） |
@@ -94,7 +94,7 @@ npm run kdp-batch -- f-10 f-11 f-12          # 下書き→出版（不可逆）
 npm run kdp-batch -- --draft-only f-10       # 下書きまで
 ```
 
-`scripts/kdp-batch.mjs` が「配置 → 下書き → プロファイル掃除 → 出版 → catalog 更新」を
+`scripts/kindle/kdp-batch.mjs` が「配置 → 下書き → プロファイル掃除 → 出版 → catalog 更新」を
 1冊あたり約3.5分で回し、異常時は即中断する（2026-07-27 に10冊を無人処理した実績）。
 提出済み（`in_review`/`live`）の id は SKIP、作成数制限に当たったら残りに触れず exit 2。
 
@@ -115,7 +115,7 @@ npm run kdp-batch -- --draft-only f-10       # 下書きまで
 
 ### 状態同期（LIVE 化の記録・重複突合）
 ```
-node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
+node scripts/kindle/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 ```
 → kdp-operator が catalog と突合し、in_review→live 遷移・新規 ASIN を catalog/08戦略doc/README の3箇所へ。
 
@@ -140,8 +140,8 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 
 ### 既刊の価格改定
 ```
-node scripts/kdp-publish.mjs --id <id> --set-price            # dry-run（AI申告の要否・現在価格・目標価格で入れた場合の日本の実効レートを表示。保存しない）
-node scripts/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開価格が変わる）
+node scripts/kindle/kdp-publish.mjs --id <id> --set-price            # dry-run（AI申告の要否・現在価格・目標価格で入れた場合の日本の実効レートを表示。保存しない）
+node scripts/kindle/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開価格が変わる）
 ```
 価格の真実源は `content/kindle/books/<id>/spec.json` の `price`（spec の無い A 系は catalog の `priceJpy`）。**spec だけ直して実行**すれば、成功時に catalog の `priceJpy` と `priceHistory` をスクリプトが書き戻す。片側だけ直った状態は `npm run check-kindle-prices`（CI ゲート）が止める。宛先は catalog の `draftAsin`（title-setup の内部ID）で、欠けていれば `--sync-status` が本棚から補完する。
 
@@ -154,20 +154,20 @@ node scripts/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開�
 
 ### ドラフト削除（テスト残骸）
 ```
-node scripts/kdp-publish.mjs --list-drafts               # 本棚確認（下書き表示を削除候補と保護に分けて出す）
-node scripts/kdp-publish.mjs --delete-drafts <ASIN>      # 下書きのみ・下書き assert・catalog の出版停止(unpublished)・ASIN ありの本は除外
+node scripts/kindle/kdp-publish.mjs --list-drafts               # 本棚確認（下書き表示を削除候補と保護に分けて出す）
+node scripts/kindle/kdp-publish.mjs --delete-drafts <ASIN>      # 下書きのみ・下書き assert・catalog の出版停止(unpublished)・ASIN ありの本は除外
 ```
 
 ### カテゴリー末端の較正（新しい系統で verified:false のとき）
 ```
-node scripts/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
+node scripts/kindle/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 ```
 → カスケード最深 select の候補（=「場所」チェックボックスの選択肢）を実測。`books[id].kdp.categoryLeaf` に設定。
 
 ### 既刊の原稿・表紙の差し替え
 ```
-node scripts/kdp-publish.mjs --id <id> --update-manuscript [--commit]                 # 原稿(EPUB)だけ・下書き保存まで
-node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publish]]    # 表紙だけ・既定 scripts/kindle-dist/<id>.jpg
+node scripts/kindle/kdp-publish.mjs --id <id> --update-manuscript [--commit]                 # 原稿(EPUB)だけ・下書き保存まで
+node scripts/kindle/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publish]]    # 表紙だけ・既定 scripts/kindle-dist/<id>.jpg
 ```
 
 **上げた版の記録（2026-09-29）**: 新規の下書き保存・出版・原稿の差し替え・表紙の差し替えが成功すると、上げた EPUB・表紙の sha256 と日時を `catalog.json` の各冊の `uploaded` に書く（`scripts/lib/kindle-uploaded.mjs`）。管理画面のコンテンツ台帳（`/content/ledger?c=kindle`）は、手元でビルドしてある版とこの記録を比べて「本文（EPUB）・画像（表紙）」の済・ずれを出す。KDP の公開ページは機械で照合しないので、ずれ＝「手元を直したがまだ入稿していない」の意味。公開中・審査中の48冊は 2026-09-29 の手元の版を上げた版とみなして記録した（`via: baseline`）。
@@ -196,7 +196,7 @@ node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publis
 
 ## 参照
 
-- `scripts/kdp-publish.mjs` — 入稿・出版パブリッシャ
+- `scripts/kindle/kdp-publish.mjs` — 入稿・出版パブリッシャ
 - `scripts/lib/kdp-common.mjs` — SSOT 読取り・defaults/override・検証
 - `.claude/agents/kdp-operator.md` — 運用オーケストレーター（本スキルの委譲先）
 - `config/kdp-memo.json` — KDP 入稿 SSOT

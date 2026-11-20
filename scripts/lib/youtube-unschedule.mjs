@@ -1,5 +1,5 @@
 // youtube-unschedule.mjs — YouTube の公開予約を外す判定（純関数）。2026-10-13 に運営者が YouTube の投稿を一旦止めた。
-// 実際の API 呼び出しは scripts/youtube-unschedule.mjs。台帳は npm run registry -- unschedule で合わせる。
+// 実際の API 呼び出しは scripts/youtube/youtube-unschedule.mjs。台帳は npm run registry -- unschedule で合わせる。
 
 /** 台帳の公開の行から、外す対象（YouTube・scheduled・未来の publishAt・外部 ID あり）を選ぶ。 */
 export function selectScheduled(publications, now = Date.now(), only = null) {

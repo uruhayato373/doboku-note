@@ -195,9 +195,9 @@
       "vaultDir": "制作物/note配布PDF",
       "keyFrom": "stripPrefix:content/note/",
       "regenerable": true,
-      "generator": "scripts/magazine-to-pdf.mjs",
+      "generator": "scripts/note/magazine-to-pdf.mjs",
       "requiredBy": [
-        "scripts/note-attach-file.mjs",
+        "scripts/note/note-attach-file.mjs",
         "scripts/checks/check-note-attachments.mjs"
       ],
       "reason": "note 購入者へ配布する PDF。note へ添付するのは人が手元で実行するスクリプトで、サイトも CI も読まない。"
@@ -296,7 +296,7 @@
       "regenerable": true,
       "generator": "npm run kindle-build",
       "requiredBy": [
-        "scripts/kdp-publish.mjs"
+        "scripts/kindle/kdp-publish.mjs"
       ],
       "reason": "KDP へ入稿する EPUB と表紙の人用の控え（制作物/Kindle）。正本は private R2（asset-storage.json の kindle-dist group・2026-10-12・DN-0562）で、同じパスを両 tier の active にすると check-drive-vault が衝突として止めるため pending にしてある。Drive 側の 137 件は 2026-10-26 に R2 と sha256 が全件一致することを確かめて台帳を更新済み（pending のまま置くのは上記の衝突のため）"
     },
@@ -312,7 +312,7 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [
-        "scripts/coconala-publish.mjs"
+        "scripts/coconala/coconala-publish.mjs"
       ],
       "reason": "ココナラ出品の画像・配布 PDF。出品は人が手元の Playwright で行う。"
     },
@@ -328,7 +328,7 @@
       "regenerable": true,
       "generator": "scripts/generate-magazine-covers.mjs",
       "requiredBy": [
-        "scripts/note-magazine-create.mjs"
+        "scripts/note/note-magazine-create.mjs"
       ],
       "reason": "note マガジンのカバー。マガジン作成は人が手元で行う。CI が書く記事カバー（note-cover-png）とは別物。"
     },

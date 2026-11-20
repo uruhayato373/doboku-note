@@ -12,7 +12,7 @@ target: kdp
 # KDP Operator Agent
 
 ビルド済み Kindle 本を KDP へ入稿・出版する運用オーケストレーター。既存の実証済みスクリプト
-`scripts/kdp-publish.mjs`（Playwright・永続プロファイル）を束ねる。**盲目的な新規セレクタは作らない**。
+`scripts/kindle/kdp-publish.mjs`（Playwright・永続プロファイル）を束ねる。**盲目的な新規セレクタは作らない**。
 
 > **モデル方針**: `model: sonnet`。判断（重複突合・メタデータ生成・提出計画）は要るが、入稿操作は
 > 決定的スクリプト。詳細は CLAUDE.md §5。
@@ -53,7 +53,7 @@ target: kdp
 - **販売文（メタデータ）の作成**: kdp-memo 未登録本（C系12/F系16/e-02）の `books[id]`（フリガナ・ローマ字・keywords・description・previewNote）は `kindle-book-composer` が作る。本エージェントは人の確認後の `books[id]` を読んで提出するだけ
 - **出版可否の戦略判断・価格決定**: 親（Opus）／`content/kindle/strategy.md` の責務。
 
-## 利用可能なスクリプト（`scripts/kdp-publish.mjs`）
+## 利用可能なスクリプト（`scripts/kindle/kdp-publish.mjs`）
 
 | フラグ | 用途 |
 |---|---|
@@ -125,7 +125,7 @@ target: kdp
 
 ## 参照
 
-- `scripts/kdp-publish.mjs` — 入稿・出版パブリッシャ（本体）
+- `scripts/kindle/kdp-publish.mjs` — 入稿・出版パブリッシャ（本体）
 - `scripts/lib/kdp-common.mjs` — SSOT 読取り・defaults/override マージ・検証
 - `scripts/gen-kdp-memo.mjs` — コピペ用メモ生成（メタデータ人手確認。メタデータの作成は `kindle-book-composer`）
 - `scripts/sync-kindle-dist.mjs` — EPUB/表紙の再ビルド→Downloads 配置
