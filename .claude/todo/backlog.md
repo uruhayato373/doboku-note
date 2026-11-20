@@ -520,6 +520,8 @@
 
 **やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 57 本（main のワークフロー用 56・launchd 用 1）を消す。
 
+**進み（2026-11-20）**: main へ deploy（11db54460）したあと、main のワークフロー用の 56 本を消した（`check-main-workflow-paths` は転送なしで通過）。launchd の 3 本を見直し、旧パスに頼るのは gsc-indexing-daily.sh が呼ぶ `scripts/gsc-local-routine.mjs` だけと確かめた（土曜の収集は origin/develop の weekly-review.sh を取り出して動き、disk-hygiene は元の checkout の中で完結する）。残りはこの 1 本で、元の checkout を新しい版にしてから消す。
+
 **完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
 
