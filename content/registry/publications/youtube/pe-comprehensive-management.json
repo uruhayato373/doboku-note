@@ -675,7 +675,7 @@
       "work": "hakusho-kadai-erabu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/scene-001",
@@ -708,6 +708,9 @@
         "by": "policy",
         "at": "2026-11-20T12:51:14.943Z",
         "contentSha256": "d214e4d4652a8dcfe248fdbda09e76522d8fd4255738936c5e32bd62e8aa8496"
+      },
+      "times": {
+        "rendered": "2026-11-20T12:56:35.958Z"
       }
     },
     {
@@ -833,7 +836,7 @@
       "work": "hakusho-yomu-fukasa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/scene-001",
@@ -866,6 +869,9 @@
         "by": "policy",
         "at": "2026-11-20T12:51:17.277Z",
         "contentSha256": "1053ab5afbd7c1455655df54f11af509f7b5ae480f8e5852b1fe38d3f02bd9c5"
+      },
+      "times": {
+        "rendered": "2026-11-20T12:56:56.744Z"
       }
     },
     {
