@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(REPO_ROOT, 'scripts/check-x-campaign-plan.mjs');
+const SCRIPT = join(REPO_ROOT, 'scripts/checks/check-x-campaign-plan.mjs');
 const base = JSON.parse(readFileSync(join(REPO_ROOT, 'content/sns/x/campaigns/2026-10-civil2-lastweek.json'), 'utf8'));
 
 function run(mutate) {

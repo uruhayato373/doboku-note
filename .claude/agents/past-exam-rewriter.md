@@ -128,5 +128,5 @@ past-exam-qa（評価・指摘）
 
 - `.claude/knowledge/reference/content-principles.md` §5 — ExamPoint・過去問特例・§5 分業
 - `.claude/knowledge/reference/content-authoring.md`「過去問 MDX の構造ルール」
-- `scripts/lint-mdx-mobile.mjs` — lint 9-11（ExamPoint items 句読点）
+- `scripts/checks/lint-mdx-mobile.mjs` — lint 9-11（ExamPoint items 句読点）
 - `.claude/agents/past-exam-qa.md` — 対の Evaluator（指摘の出し手）

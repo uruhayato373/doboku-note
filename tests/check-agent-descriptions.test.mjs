@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import process from 'node:process';
 
-import { MAX_CHARS, extractDescription, inspectAgent, ratchet } from '../scripts/check-agent-descriptions.mjs';
+import { MAX_CHARS, extractDescription, inspectAgent, ratchet } from '../scripts/checks/check-agent-descriptions.mjs';
 import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
 test('extractDescription: 同一行と > 折り返しの両方を 1 行に畳む', () => {
@@ -30,7 +30,7 @@ test('inspectAgent / ratchet: 新規超過と悪化だけが赤、baseline 内�
 });
 
 test('CLI: 実 repo で baseline から増加なし（exit 0）と検査数を出力', () => {
-  const out = execFileSync(process.execPath, [join(REPO, 'scripts', 'check-agent-descriptions.mjs')], { cwd: REPO, encoding: 'utf8' });
+  const out = execFileSync(process.execPath, [join(REPO, 'scripts', 'checks', 'check-agent-descriptions.mjs')], { cwd: REPO, encoding: 'utf8' });
   assert.match(out, /全件 \d+ agent を実検査/);
   assert.match(out, /新規超過 0 \/ 悪化 0/);
 });

@@ -13,7 +13,7 @@ import { contentSegmentLabel } from './channel-registry';
  * 2026-08-18 の情報アーキテクチャ移行に合わせ、`docs/` と `content/` を独立ルートにした。
  * 移行期間に置いていた旧ルート fallback は**移行完了と同時に削除済み**
  * （残すと「新旧どちらが SSOT か」が画面から判らなくなる）。旧配置の復活は
- * `scripts/check-information-architecture.mjs` が機械で止める。
+ * `scripts/checks/check-information-architecture.mjs` が機械で止める。
  *
  * root のパスは `scripts/lib/repository-paths.mjs` が唯一の宣言で、ここは引くだけ。
  */

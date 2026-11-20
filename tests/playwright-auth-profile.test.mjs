@@ -309,7 +309,7 @@ test('Phase 03の6サービスはprofile/state制約を同じauth rootで区別�
 test('Phase 03 runtimeは共通resolverを使い、account configはlogical service IDだけを持つ', () => {
   const files = [
     'scripts/lib/google-console-browser.mjs',
-    'scripts/verify-ig-status.mjs',
+    'scripts/checks/verify-ig-status.mjs',
     'scripts/x-article-publish.mjs',
     'scripts/lib/x-scheduled-queue.mjs',
     'scripts/x-thread-replies.mjs',

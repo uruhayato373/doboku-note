@@ -63,15 +63,15 @@ async function run(id, cmd, cmdArgs, { json = false, timeoutMs = 180_000 } = {})
 const node = (id, script, a = [], o) => run(id, 'node', [script, ...a], o);
 
 const R = {
-  auth: await node('auth', 'scripts/check-auth-freshness.mjs'),
+  auth: await node('auth', 'scripts/checks/check-auth-freshness.mjs'),
   digest: await node('digest', 'scripts/build-growth-digest.mjs', ['--print']),
   business: await node('business', 'scripts/business-review.mjs', ['report', '--start', windowPeriod.startDate, '--end', windowPeriod.endDate, '--json'], { json: true }),
   businessPrev: await node('businessPrev', 'scripts/business-review.mjs', ['report', '--start', prevWindow.startDate, '--end', prevWindow.endDate, '--json'], { json: true }),
   triage: await node('triage', 'scripts/growth-triage.mjs', ['list', '--json'], { json: true }),
-  experiments: await node('experiments', 'scripts/check-experiment-due.mjs', ['--json'], { json: true }),
+  experiments: await node('experiments', 'scripts/checks/check-experiment-due.mjs', ['--json'], { json: true }),
   checks: await node('checks', 'scripts/review-checks.mjs', ['--cadence', 'weekly', '--run', week], { timeoutMs: commandTimeoutMs('review-checks') }),
   gate: await node('gate', 'scripts/backlog-gate.mjs', ['--weekly']),
-  backlogHealth: await node('backlogHealth', 'scripts/check-backlog-health.mjs'),
+  backlogHealth: await node('backlogHealth', 'scripts/checks/check-backlog-health.mjs'),
   search: await node('search', 'scripts/report-search-opportunities.mjs', ['--json'], { json: true }),
   psi: await run('psi', 'npm', ['run', '-s', 'psi-audit:check']),
   webVitals: await run('webVitals', 'npm', ['run', '-s', 'report-web-vitals']),

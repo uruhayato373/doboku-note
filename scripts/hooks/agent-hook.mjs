@@ -94,7 +94,7 @@ const HANDLERS = {
     const lines = docSyncMessages(classifyStaged(staged), activeHandoffs);
     if (lines.length) process.stdout.write('\n' + lines.join('\n') + '\n\n');
     // ポリシークラスタ（決定が複数文書に散在）の横展開もれを決定的に提示する
-    spawnSync(process.execPath, [join(ROOT, 'scripts', 'check-policy-anchors.mjs'), '--staged'], { cwd: ROOT, stdio: ['ignore', 'inherit', 'ignore'] });
+    spawnSync(process.execPath, [join(ROOT, 'scripts', 'checks', 'check-policy-anchors.mjs'), '--staged'], { cwd: ROOT, stdio: ['ignore', 'inherit', 'ignore'] });
     return 0;
   },
 
@@ -159,7 +159,7 @@ const HANDLERS = {
 
   'check-disk-hygiene'() {
     // 毎ターン鳴るので --stop で「いま効く 2 件」（空き逼迫・マージ済み worktree）に絞る。掃除の実体は日次（launchd / schtasks）
-    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'check-disk-hygiene.mjs'), '--quick', '--stop'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'checks', 'check-disk-hygiene.mjs'), '--quick', '--stop'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     if (r.stdout) process.stderr.write(r.stdout);
     return 0;
   },

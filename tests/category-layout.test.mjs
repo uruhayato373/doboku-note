@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { toDataUrl } from './lib/load-ts.mjs';
 import { categoryExamKeys } from '../scripts/ogp-create/lib/category-exam-key.mjs';
-import { ogpCoverageErrors } from '../scripts/check-home-exam-coverage.mjs';
+import { ogpCoverageErrors } from '../scripts/checks/check-home-exam-coverage.mjs';
 
 const REAL = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
 const TOKENS = JSON.parse(readFileSync('scripts/assets/design-tokens/note-cover-tokens.json', 'utf8'));

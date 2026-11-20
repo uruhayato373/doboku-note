@@ -6,7 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 
-const script=fileURLToPath(new URL('../scripts/check-essay-heading-structure.mjs',import.meta.url));
+const script=fileURLToPath(new URL('../scripts/checks/check-essay-heading-structure.mjs',import.meta.url));
 const valid=['## 試験問題','## A 案','## B 案','## 採点者視点',...['A','B'].flatMap(a=>['１','２','３'].map(q=>`## ${a} 案 設問（${q}）`))].join('\n');
 function fixture(t,{pastOnly=true,omit=[],forecast=[]}={}){
   const cwd=fs.mkdtempSync(path.join(os.tmpdir(),'essay-headings-'));

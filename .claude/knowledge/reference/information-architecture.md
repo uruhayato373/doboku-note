@@ -78,7 +78,7 @@ content/
 
 ## 逆戻りを止める機械ゲート
 
-置き場の規約は文章だけでは戻る。`scripts/check-information-architecture.mjs` が次を検出する。
+置き場の規約は文章だけでは戻る。`scripts/checks/check-information-architecture.mjs` が次を検出する。
 
 | 検出 | 例 |
 |---|---|
@@ -220,7 +220,7 @@ content/
 
 **残作業の有無は `handoffs/` に残す理由にならない**（タスクは backlog が持ち、月初→`monthly`・週初→`weekly` へ落ちる）。`handoffs/` は原則ほぼ空。週次 PDCA（`/weekly-review` の Agent H）が抽出漏れを surface し、`/doc-declutter`（`doc-curator`）が外部実体を検証して抽出→削除を適用する。**鉄則＝外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから削除・未確認なら削除しない**。
 
-**機械ゲート**（`scripts/check-handoff-extraction.mjs`・pre-commit）: この規律の「無意識の素通り」だけを塞ぐ。handoff 直下 `*.md` の削除コミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）を検出し backlog が同一コミットに無ければ止める／`_archive/` への追加を無条件で止める。backlog 同梱は「抽出の証明」でなく「思い出させる強制注意」で、判定の質は `/doc-declutter`（`doc-curator`）が担う。回避は `SKIP_HANDOFF_EXTRACT=1`（2026-07-14 の退避事故＝未抽出のまま `_archive` 復活の再発防止・[[feedback_handoff_extract_before_delete]]）。
+**機械ゲート**（`scripts/checks/check-handoff-extraction.mjs`・pre-commit）: この規律の「無意識の素通り」だけを塞ぐ。handoff 直下 `*.md` の削除コミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）を検出し backlog が同一コミットに無ければ止める／`_archive/` への追加を無条件で止める。backlog 同梱は「抽出の証明」でなく「思い出させる強制注意」で、判定の質は `/doc-declutter`（`doc-curator`）が担う。回避は `SKIP_HANDOFF_EXTRACT=1`（2026-07-14 の退避事故＝未抽出のまま `_archive` 復活の再発防止・[[feedback_handoff_extract_before_delete]]）。
 
 ## review のライフサイクル（2026-07-25〜）
 
@@ -231,7 +231,7 @@ content/
 3. 実装完了、別SSOTへの置換、後続レビューによる上書きが確認できたレビューは削除する。履歴はgitが持つ。
 4. `docs/reviews/weekly/` は最新レビューと次週計画の作業中セットだけを保持し、次回生成時に旧週分を抽出確認して削除する。
 
-**週次レビューの機械ゲート**（`scripts/check-handoff-extraction.mjs`・pre-commit・DN-0230）: 旧週ファイル（`docs/reviews/weekly/*.md`）を削除するコミットで、削除される版の「来週／次週への申し送り」の各項目に台帳上の居場所があるかを見る。居場所は、backlog にある DN-ID か dispatch-log の完了記録、experiments.json にある EXP-ID、Issue 参照、`→ 振り分け: 定常`、または残る週次ファイルへの同文転記。1 項目でも無ければ止める。2026-W39 以降のレビューを確定するときは、申し送りの各項目に `→ 振り分け: DN-#### / 定常 / #Issue / EXP-###` を書き、DN-ID が backlog にあることも見る（規約は `/weekly-review` Phase 4）。回避は `SKIP_HANDOFF_EXTRACT=1`。
+**週次レビューの機械ゲート**（`scripts/checks/check-handoff-extraction.mjs`・pre-commit・DN-0230）: 旧週ファイル（`docs/reviews/weekly/*.md`）を削除するコミットで、削除される版の「来週／次週への申し送り」の各項目に台帳上の居場所があるかを見る。居場所は、backlog にある DN-ID か dispatch-log の完了記録、experiments.json にある EXP-ID、Issue 参照、`→ 振り分け: 定常`、または残る週次ファイルへの同文転記。1 項目でも無ければ止める。2026-W39 以降のレビューを確定するときは、申し送りの各項目に `→ 振り分け: DN-#### / 定常 / #Issue / EXP-###` を書き、DN-ID が backlog にあることも見る（規約は `/weekly-review` Phase 4）。回避は `SKIP_HANDOFF_EXTRACT=1`。
 
 再実行可能な監査はスクリプト＋JSONをSSOTとし、Markdownレポートは現役の実装判断に必要な期間だけ保持する。
 
@@ -276,11 +276,11 @@ content/
 
 | 層 | 手段 | 検知対象 | 実行 |
 |---|---|---|---|
-| 参照 | `scripts/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
-| 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
-| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230）／backlog のカードを消すコミットでそのカードを指す live 文書（引き継ぎ含む）が index に残る・引き継ぎが backlog にも完了記録にも無い ID を指す（DN-0587。CI の dangling-id は `docs/handoffs/`・`docs/reviews/` では warning） | pre-commit（機械） |
-| 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
-| クラスタ | `scripts/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
+| 参照 | `scripts/checks/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
+| 台帳 | `scripts/checks/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
+| handoff | `scripts/checks/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230）／backlog のカードを消すコミットでそのカードを指す live 文書（引き継ぎ含む）が index に残る・引き継ぎが backlog にも完了記録にも無い ID を指す（DN-0587。CI の dangling-id は `docs/handoffs/`・`docs/reviews/` では warning） | pre-commit（機械） |
+| 配線 | `scripts/checks/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
+| クラスタ | `scripts/checks/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |
 
 **参照ガード**（`check-doc-refs.mjs`）: スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。

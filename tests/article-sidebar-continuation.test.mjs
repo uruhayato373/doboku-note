@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { buildSync } from 'esbuild';
 import { parse } from 'node-html-parser';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { inspectHtml } from '../scripts/check-cta-density.mjs';
+import { inspectHtml } from '../scripts/checks/check-cta-density.mjs';
 
 function evaluate(source, render = false) {
   if (!render) return JSON.parse(execFileSync(process.execPath, ['--conditions','react-server','--import','tsx','--input-type=module','-e',source], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 10*1024*1024 }));

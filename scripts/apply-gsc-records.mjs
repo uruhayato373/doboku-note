@@ -36,7 +36,7 @@ if (!args.before) { console.error(`${TAG} --before <実行前の check-gsc-auto-
 
 const git = (a) => spawnSync('git', a, { cwd: REPO_ROOT, encoding: 'utf8' });
 function gates() {
-  const r = spawnSync(process.execPath, ['scripts/check-gsc-auto-review.mjs', '--json'], { cwd: REPO_ROOT, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, ['scripts/checks/check-gsc-auto-review.mjs', '--json'], { cwd: REPO_ROOT, encoding: 'utf8' });
   try { return JSON.parse(r.stdout); } catch { console.error(`${TAG} ✗ 検査不成立: check-gsc-auto-review --json を読めない（exit ${r.status}）`); process.exit(1); }
 }
 const read = (p) => (existsSync(join(REPO_ROOT, p)) ? readFileSync(join(REPO_ROOT, p), 'utf8') : null);

@@ -25,103 +25,103 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 const LEGACY = [
   ['scripts/backfill-mdx-dates.mjs', ['--staged'], { skipEnv: ['SKIP_MDX_DATES', 'eq1'] }],
   ['scripts/pre-commit-mdx.mjs', [], 'always'],
-  ['scripts/lint-ui.mjs', [], 'always'],
+  ['scripts/checks/lint-ui.mjs', [], 'always'],
   ['scripts/note-lint.mjs', [], 'always'],
-  ['scripts/lint-ja.mjs', ['--staged'], 'always'],
-  ['scripts/lint-mdx-mobile.mjs', ['--baseline', '--ci', '<published staged mdx>'], { contentQuality: true }],
-  ['scripts/check-note-charlimits.mjs', ['--staged'], 'always'],
+  ['scripts/checks/lint-ja.mjs', ['--staged'], 'always'],
+  ['scripts/checks/lint-mdx-mobile.mjs', ['--baseline', '--ci', '<published staged mdx>'], { contentQuality: true }],
+  ['scripts/checks/check-note-charlimits.mjs', ['--staged'], 'always'],
   ['scripts/keiken-charcount.mjs', ['--staged', '--strict'], 'always'],
-  ['scripts/check-magazine-wiring.mjs', ['--staged'], 'always'],
-  ['scripts/check-magazine-cta-reachability.ts', ['--ci'], { staged: /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/, orAddedArticle: true }],
-  ['scripts/check-note-price-consistency.mjs', ['--staged'], 'always'],
-  ['scripts/check-magazine-membership.mjs', ['--staged'], 'always'],
-  ['scripts/check-relative-links.mjs', ['--staged'], 'always'],
-  ['scripts/check-project-task-refs.mjs', [], { docsOrBacklog: true }],
-  ['scripts/check-published-vs-redirects.mjs', ['--staged'], 'always'],
-  ['scripts/check-git-binary-policy.mjs', ['--staged'], { skipEnv: ['SKIP_GIT_BINARY_POLICY', 'nonempty'] }],
-  ['scripts/check-asset-reentry.mjs', ['--staged'], { skipEnv: ['SKIP_ASSET_REENTRY', 'nonempty'] }],
-  ['scripts/check-drive-vault.mjs', ['--staged-only'], { skipEnv: ['SKIP_DRIVE_VAULT', 'nonempty'] }],
-  ['scripts/check-reference-sources.mjs', ['--staged'], { skipEnv: ['SKIP_REFERENCE_SOURCES', 'nonempty'] }],
-  ['scripts/check-information-architecture.mjs', ['--staged'], 'always'],
-  ['scripts/check-business-direction.mjs', ['--staged'], 'always'],
-  ['scripts/check-sns-urls.mjs', ['--staged'], 'always'],
-  ['scripts/check-dead-handles.mjs', ['--staged'], 'always'],
-  ['scripts/check-jst-date.mjs', ['--staged'], 'always'],
-  ['scripts/check-exam-calendar.mjs', [], 'always'],
-  ['scripts/check-qualification-ssot.mjs', [], 'always'],
-  ['scripts/check-datasets.mjs', [], 'always'],
-  ['scripts/check-x-campaign-plan.mjs', [], 'always'],
-  ['scripts/check-doc-refs.mjs', ['--staged'], 'always'],
-  ['scripts/check-task-plan-links.mjs', [], 'always'],
-  ['scripts/check-backlog-schema.mjs', ['--staged'], 'always'],
-  ['scripts/check-claude-md-size.mjs', [], { staged: /^(CLAUDE\.md|\.claude\/rules\/)/ }],
-  ['scripts/check-memory.mjs', [], { staged: /^\.claude\/memory\// }],
-  ['scripts/check-post-commit-hook.mjs', [], 'always'],
+  ['scripts/checks/check-magazine-wiring.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-magazine-cta-reachability.ts', ['--ci'], { staged: /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/, orAddedArticle: true }],
+  ['scripts/checks/check-note-price-consistency.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-magazine-membership.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-relative-links.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-project-task-refs.mjs', [], { docsOrBacklog: true }],
+  ['scripts/checks/check-published-vs-redirects.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-git-binary-policy.mjs', ['--staged'], { skipEnv: ['SKIP_GIT_BINARY_POLICY', 'nonempty'] }],
+  ['scripts/checks/check-asset-reentry.mjs', ['--staged'], { skipEnv: ['SKIP_ASSET_REENTRY', 'nonempty'] }],
+  ['scripts/checks/check-drive-vault.mjs', ['--staged-only'], { skipEnv: ['SKIP_DRIVE_VAULT', 'nonempty'] }],
+  ['scripts/checks/check-reference-sources.mjs', ['--staged'], { skipEnv: ['SKIP_REFERENCE_SOURCES', 'nonempty'] }],
+  ['scripts/checks/check-information-architecture.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-business-direction.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-sns-urls.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-dead-handles.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-jst-date.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-exam-calendar.mjs', [], 'always'],
+  ['scripts/checks/check-qualification-ssot.mjs', [], 'always'],
+  ['scripts/checks/check-datasets.mjs', [], 'always'],
+  ['scripts/checks/check-x-campaign-plan.mjs', [], 'always'],
+  ['scripts/checks/check-doc-refs.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-task-plan-links.mjs', [], 'always'],
+  ['scripts/checks/check-backlog-schema.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-claude-md-size.mjs', [], { staged: /^(CLAUDE\.md|\.claude\/rules\/)/ }],
+  ['scripts/checks/check-memory.mjs', [], { staged: /^\.claude\/memory\// }],
+  ['scripts/checks/check-post-commit-hook.mjs', [], 'always'],
   ['scripts/sync-codex-compat.mjs', ['--staged'], 'always'],
-  ['scripts/check-agent-descriptions.mjs', ['--staged'], 'always'],
-  ['scripts/check-doc-coupling.mjs', ['--staged'], 'always'],
-  ['scripts/check-handoff-extraction.mjs', ['--staged'], 'always'],
-  ['scripts/check-sales-mapping.mjs', ['--staged'], 'always'],
-  ['scripts/check-coconala-wiring.mjs', ['--staged'], 'always'],
-  ['scripts/check-coconala-orders.mjs', ['--staged', '--no-freshness'], { file: true }, 'eq1'],
-  ['scripts/check-coconala-blog.mjs', ['--staged'], { file: true }, 'eq1'],
-  ['scripts/check-home-exam-coverage.mjs', [], 'always'],
-  ['scripts/check-category-curriculum.mjs', [], 'always'],
-  ['scripts/check-content-taxonomy.mjs', ['--staged'], 'always'],
-  ['scripts/check-career-separation.mjs', [], 'always'],
-  ['scripts/check-affiliate-mats.mjs', ['--staged'], 'always'],
-  ['scripts/check-affiliate-prose.mjs', ['--staged'], 'always'],
-  ['scripts/check-affiliate-wiring.mjs', ['--staged'], { file: true }],
-  ['scripts/check-policy-anchors.mjs', ['--staged'], 'always'],
-  ['scripts/check-guide-length.mjs', ['--staged'], 'always'],
-  ['scripts/check-lcp-image-hints.mjs', ['--staged'], 'always'],
-  ['scripts/check-scheduled-exec-branch.mjs', ['--staged'], { file: true }],
-  ['scripts/check-note-hashtags.mjs', ['--staged'], 'always'],
-  ['scripts/check-note-intro-benefit.mjs', ['--staged'], 'always'],
-  ['scripts/check-note-attachments.mjs', ['--staged'], 'always'],
-  ['scripts/check-note-boundary.mjs', ['--staged'], 'always'],
-  ['scripts/check-rccm-essay.mjs', ['--staged'], 'always'],
-  ['scripts/check-cce-essay.mjs', ['--staged'], 'always'],
-  ['scripts/check-note-frontmatter-dup.mjs', ['--staged'], 'always'],
-  ['scripts/check-ogp-title-fit.mjs', ['--staged'], 'always'],
-  ['scripts/check-note-cover-fit.mjs', ['--staged'], 'always'],
-  ['scripts/check-figure-canvas.mjs', ['--staged'], 'always'],
-  ['scripts/check-orphan-figures.mjs', ['--staged'], 'always'],
-  ['scripts/check-table-references.mjs', ['--staged'], 'always'],
-  ['scripts/check-figure-embed-dims.mjs', ['--staged'], 'always'],
-  ['scripts/check-bold-rendering.mjs', ['--staged'], 'always'],
-  ['scripts/check-table-rendering.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-agent-descriptions.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-doc-coupling.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-handoff-extraction.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-sales-mapping.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-coconala-wiring.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-coconala-orders.mjs', ['--staged', '--no-freshness'], { file: true }, 'eq1'],
+  ['scripts/checks/check-coconala-blog.mjs', ['--staged'], { file: true }, 'eq1'],
+  ['scripts/checks/check-home-exam-coverage.mjs', [], 'always'],
+  ['scripts/checks/check-category-curriculum.mjs', [], 'always'],
+  ['scripts/checks/check-content-taxonomy.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-career-separation.mjs', [], 'always'],
+  ['scripts/checks/check-affiliate-mats.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-affiliate-prose.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-affiliate-wiring.mjs', ['--staged'], { file: true }],
+  ['scripts/checks/check-policy-anchors.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-guide-length.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-lcp-image-hints.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-scheduled-exec-branch.mjs', ['--staged'], { file: true }],
+  ['scripts/checks/check-note-hashtags.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-note-intro-benefit.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-note-attachments.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-note-boundary.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-rccm-essay.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-cce-essay.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-note-frontmatter-dup.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-ogp-title-fit.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-note-cover-fit.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-figure-canvas.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-orphan-figures.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-table-references.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-figure-embed-dims.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-bold-rendering.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-table-rendering.mjs', ['--staged'], 'always'],
   // 旧フックは --bom-only だけで全 MDX を読んでいた。commit 時は staged の .mdx だけを読む（DN-1141）
-  ['scripts/check-kindle-epub-leak.mjs', ['--bom-only', '--staged'], 'always'],
-  ['scripts/check-note-site-utm.mjs', ['--staged'], 'always'],
-  ['scripts/check-x-utm.mjs', ['--staged'], 'always'],
-  ['scripts/check-ig-cover.mjs', ['--staged'], 'always'],
-  ['scripts/check-ig-cta.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-kindle-epub-leak.mjs', ['--bom-only', '--staged'], 'always'],
+  ['scripts/checks/check-note-site-utm.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-x-utm.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-ig-cover.mjs', ['--staged'], 'always'],
+  ['scripts/checks/check-ig-cta.mjs', ['--staged'], 'always'],
   ['scripts/tighten-ratchets.mjs', ['--staged'], 'always'],
 ];
 
 /** 全量を走査する検査のうち、旧フックより狭くしたもの（staged の変更が入力に当たらないと飛ばす） */
-const GATED = new Set(['scripts/check-datasets.mjs', 'scripts/check-qualification-ssot.mjs', 'scripts/check-exam-calendar.mjs']);
+const GATED = new Set(['scripts/checks/check-datasets.mjs', 'scripts/checks/check-qualification-ssot.mjs', 'scripts/checks/check-exam-calendar.mjs']);
 /** check-exam-calendar が禁止パターンを走査する置き場（検査の SCAN_ROOTS と同じ並びをテスト側で独立に持つ） */
 const EXAM_CALENDAR_ROOTS = ['content/sns/x/draft/', 'docs/strategy/', 'docs/editorial/', 'docs/marketing/', 'docs/operations/', 'docs/products/', 'content/note/1級・2級土木/', '.claude/agents/', '.claude/skills/', '.claude/todo/', 'src/config/', 'src/lib/', 'content/site/concrete-chief-engineer/', 'content/site/concrete-engineer/', 'content/site/concrete-diagnostician/'];
 
 /** 2 検査の入力（テスト側で独立に持つ。steps の宣言とずれたら下のテストが落ちる） */
 const GATE_INPUTS = {
-  'scripts/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
-  'scripts/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
+  'scripts/checks/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
+  'scripts/checks/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
   // 走査する置き場・試験日の正本と資格の台帳（config/）・検査と部品（scripts/）。台帳と除外が指すパスの実在は追加・削除で変わる（DN-1141）
-  'scripts/check-exam-calendar.mjs': { prefixes: [...EXAM_CALENDAR_ROOTS, 'config/', 'scripts/'], files: [], fileSet: true },
-  'scripts/check-published-vs-redirects.mjs': { prefixes: ['content/site/'], files: ['public/_redirects'], fileSet: false },
-  'scripts/check-orphan-figures.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
-  'scripts/check-table-references.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
-  'scripts/check-figure-embed-dims.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
-  'scripts/check-kindle-epub-leak.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/checks/check-exam-calendar.mjs': { prefixes: [...EXAM_CALENDAR_ROOTS, 'config/', 'scripts/'], files: [], fileSet: true },
+  'scripts/checks/check-published-vs-redirects.mjs': { prefixes: ['content/site/'], files: ['public/_redirects'], fileSet: false },
+  'scripts/checks/check-orphan-figures.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/checks/check-table-references.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/checks/check-figure-embed-dims.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/checks/check-kindle-epub-leak.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
 };
 /**
  * 入力が content/site の記事と図だけの検査（DN-1126）。--staged でも先に content/site の全ファイルを列挙するので、
  * 何も stage していない commit で 5 本合わせて 86 秒かかっていた（会社 PC・2026-11-11）。content/site に触れない commit では飛ばす。
  */
-const SITE_GATED = ['scripts/check-published-vs-redirects.mjs', 'scripts/check-orphan-figures.mjs', 'scripts/check-table-references.mjs', 'scripts/check-figure-embed-dims.mjs', 'scripts/check-kindle-epub-leak.mjs'];
+const SITE_GATED = ['scripts/checks/check-published-vs-redirects.mjs', 'scripts/checks/check-orphan-figures.mjs', 'scripts/checks/check-table-references.mjs', 'scripts/checks/check-figure-embed-dims.mjs', 'scripts/checks/check-kindle-epub-leak.mjs'];
 /** その commit で旧フックより狭くなる（飛ばす）検査 */
 function gatedOut(ctx) {
   const skipped = new Set();
@@ -148,7 +148,7 @@ function legacyPlan(ctx, { gated = false } = {}) {
       if (cond.contentQuality && ctx.contentQualityFiles.length === 0) continue;
     }
     if (gated && gatedOut(ctx).has(script)) continue;
-    out.push([script, script === 'scripts/lint-mdx-mobile.mjs' ? ['--baseline', '--ci', ...ctx.contentQualityFiles] : args]);
+    out.push([script, script === 'scripts/checks/lint-mdx-mobile.mjs' ? ['--baseline', '--ci', ...ctx.contentQualityFiles] : args]);
   }
   return out;
 }
@@ -192,7 +192,7 @@ test('絞り込みのある検査（GATE_INPUTS）を除き、どの staged で�
     ['SKIP_MDX_DATES=0（"1" 以外は回避にならない）', makeCtx({ staged: [mdx], env: { SKIP_MDX_DATES: '0' } })],
     ['SKIP_GIT_BINARY_POLICY / SKIP_ASSET_REENTRY / SKIP_DRIVE_VAULT / SKIP_REFERENCE_SOURCES（空でなければ回避）', makeCtx({ staged: [mdx], env: { SKIP_GIT_BINARY_POLICY: 'x', SKIP_ASSET_REENTRY: '0', SKIP_DRIVE_VAULT: 'yes', SKIP_REFERENCE_SOURCES: '1' } })],
     ['SKIP_* が空文字（回避にならない）', makeCtx({ staged: [mdx], env: { SKIP_GIT_BINARY_POLICY: '', SKIP_DRIVE_VAULT: '' } })],
-    ['検査の script が無い古いツリー（requireFile の 4 本）', makeCtx({ staged: [mdx], missing: ['scripts/check-coconala-orders.mjs', 'scripts/check-coconala-blog.mjs', 'scripts/check-affiliate-wiring.mjs', 'scripts/check-scheduled-exec-branch.mjs'] })],
+    ['検査の script が無い古いツリー（requireFile の 4 本）', makeCtx({ staged: [mdx], missing: ['scripts/checks/check-coconala-orders.mjs', 'scripts/checks/check-coconala-blog.mjs', 'scripts/checks/check-affiliate-wiring.mjs', 'scripts/checks/check-scheduled-exec-branch.mjs'] })],
   ];
   for (const [label, ctx] of scenarios) {
     assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }), label);
@@ -215,17 +215,17 @@ test('content/site だけを読む 5 検査は、content/site に触れない co
   }
   // 転送元の一覧（public/_redirects）だけを変えた commit でも、公開記事との突合は回す
   const r = ran(makeCtx({ staged: ['public/_redirects'] }));
-  assert.ok(r.has('scripts/check-published-vs-redirects.mjs'));
-  assert.ok(!r.has('scripts/check-orphan-figures.mjs'));
+  assert.ok(r.has('scripts/checks/check-published-vs-redirects.mjs'));
+  assert.ok(!r.has('scripts/checks/check-orphan-figures.mjs'));
 });
 
 test('全量を走査する 3 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
   const triggers = {
-    'scripts/check-datasets.mjs': ['config/exam-calendar.json', 'data/note/sales.json', '.claude/state/todo-claims.json', 'content/registry/articles.json', 'scripts/lib/datasets.mjs', 'tools/admin-app/src/x.tsx', 'src/lib/x.ts', '.github/workflows/ci.yml', 'package.json', '.claude/skills/x/SKILL.md'],
-    'scripts/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
+    'scripts/checks/check-datasets.mjs': ['config/exam-calendar.json', 'data/note/sales.json', '.claude/state/todo-claims.json', 'content/registry/articles.json', 'scripts/lib/datasets.mjs', 'tools/admin-app/src/x.tsx', 'src/lib/x.ts', '.github/workflows/ci.yml', 'package.json', '.claude/skills/x/SKILL.md'],
+    'scripts/checks/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
   };
   // 試験日の検査: 走査する置き場・試験日の正本・資格の台帳・検査の部品のどれかに当たれば回す
-  triggers['scripts/check-exam-calendar.mjs'] = ['config/exam-calendar.json', 'config/qualification-registry.json', 'docs/strategy/x.md', '.claude/todo/backlog.md', 'src/lib/x.ts', 'content/sns/x/draft/x.md', 'content/note/1級・2級土木/x/article.md', 'content/site/concrete-engineer/a/article.mdx', 'scripts/lib/exam-calendar-guards.mjs'];
+  triggers['scripts/checks/check-exam-calendar.mjs'] = ['config/exam-calendar.json', 'config/qualification-registry.json', 'docs/strategy/x.md', '.claude/todo/backlog.md', 'src/lib/x.ts', 'content/sns/x/draft/x.md', 'content/note/1級・2級土木/x/article.md', 'content/site/concrete-engineer/a/article.mdx', 'scripts/lib/exam-calendar-guards.mjs'];
   for (const [script, paths] of Object.entries(triggers)) {
     for (const p of paths) {
       const ctx = makeCtx({ staged: [p] });
@@ -234,7 +234,7 @@ test('全量を走査する 3 検査は、入力に当たる変更があれば�
   }
   // 追加・削除は追跡ファイルの集合を変えるので datasets と exam-calendar は必ず回す（参照先の記事の実在・台帳の網羅・除外が指すパスの実在）
   for (const status of ['A', 'D', 'T']) {
-    for (const script of ['scripts/check-datasets.mjs', 'scripts/check-exam-calendar.mjs']) {
+    for (const script of ['scripts/checks/check-datasets.mjs', 'scripts/checks/check-exam-calendar.mjs']) {
       assert.ok(planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === script), `${script} ${status}`);
     }
   }

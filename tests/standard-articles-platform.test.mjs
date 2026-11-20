@@ -10,7 +10,7 @@ import { execFileSync } from 'node:child_process';
 // Linux CI では再現しないので、この検査自体が platform 差を踏む唯一の見張りになる。
 
 function runChecker() {
-  const stdout = execFileSync(process.execPath, ['scripts/check-standard-articles.mjs', '--json'], {
+  const stdout = execFileSync(process.execPath, ['scripts/checks/check-standard-articles.mjs', '--json'], {
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
   });

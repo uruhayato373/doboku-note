@@ -7,7 +7,7 @@ import AdSlot from '@/components/ads/AdSlot';
  * 右の欄の下に続く束（回遊カード＋転職バナーの組）。RailStack の下半分（記事・基準書の章と節・資格トップが共有する）。
  * 1 つ 1 つに種類（data-rail-kind・src/lib/rail-kinds.mjs）を付ける。
  * 上の束の下へ上詰めで並べる（sticky・欄内スクロールは使わない）。
- * 検査（scripts/check-cta-density.mjs）は data-article-sidebar-* を読む: バナーの直後は実カード、
+ * 検査（scripts/checks/check-cta-density.mjs）は data-article-sidebar-* を読む: バナーの直後は実カード、
  * バナーだけの組は作らない（上詰めで広告が続くため・2026-11-16）。
  */
 export default function RailContinuation({ groups }: { groups: RailGroup[] }) {

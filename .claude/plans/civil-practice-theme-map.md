@@ -21,12 +21,12 @@
 | 160項目のカバレッジ | **160 / 160** |
 | 未着手 | 0 |
 
-検証コマンド: `node scripts/check-civil-practice-coverage.mjs`（未着手スロットと未カバー項目を列挙）
+検証コマンド: `node scripts/checks/check-civil-practice-coverage.mjs`（未着手スロットと未カバー項目を列挙）
 
 > [!note] 計画61スロット → 実記事44本（統合したため）
 > 読者にとって同じ判断場面になる項目は1本にまとめた。カバレッジは維持したまま、
 > 記事一覧が原本の目次から遠ざかる効果もある。統合の対応表は
-> `scripts/check-civil-practice-coverage.mjs` の `MERGED` が真実源。
+> `scripts/checks/check-civil-practice-coverage.mjs` の `MERGED` が真実源。
 
 **進め方**: 3〜4本ずつ並行で執筆 → 1本ずつ validate-mdx・lint-mdx-mobile・
 check-bold-rendering・SeeAlso 実在確認 → OGP 生成 → `refresh-indexes` → 逐次コミット。

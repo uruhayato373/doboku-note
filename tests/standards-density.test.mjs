@@ -10,7 +10,7 @@ import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { templateOf, checkPage } from '../scripts/lib/standards-density.mjs';
 
-const SCRIPT = join(REPO_ROOT, 'scripts', 'check-standards-density.mjs');
+const SCRIPT = join(REPO_ROOT, 'scripts', 'checks', 'check-standards-density.mjs');
 const FIX = join(REPO_ROOT, 'tests', 'fixtures', 'standards-density');
 const fixture = (n) => readFileSync(join(FIX, `${n}.html`), 'utf8');
 const rules = readDataset(REPO_ROOT, 'config.standards-page-density');

@@ -130,7 +130,7 @@ note の**売り場（価格・マガジン・収録・カバー・PDF 添付・
 - `scripts/note-edit-magazine.mjs` — マガジン設定編集
 - `scripts/note-magazine-create.mjs` — マガジン新規作成
 - `scripts/note-magazine-add-articles.mjs` — 記事収録
-- `scripts/verify-note-magazines.mjs` — 同期検証
+- `scripts/checks/verify-note-magazines.mjs` — 同期検証
 - `.claude/knowledge/reference/note-api-verification.md` — note API 仕様・真実源
 - `src/lib/note-magazines.ts` — SoT（マガジン定義）
 

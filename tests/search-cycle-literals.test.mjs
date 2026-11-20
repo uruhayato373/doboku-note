@@ -27,7 +27,7 @@ const SEARCH_FILES = [
   'scripts/lib/search-improvement.mjs',
   'scripts/search-improvement.mjs',
   'scripts/report-search-opportunities.mjs',
-  'scripts/check-search-improvements.mjs',
+  'scripts/checks/check-search-improvements.mjs',
   'scripts/build-weekly-review-draft.mjs',
   'tools/admin-app/src/app/metrics/search-strategy/page.tsx',
   'tools/admin-app/src/lib/kpi-tree.ts',

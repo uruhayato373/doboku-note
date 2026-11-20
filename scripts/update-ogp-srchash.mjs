@@ -95,7 +95,7 @@ function parseArgs(argv) {
 
 // ------------------------------------------------------------------ MDX 走査
 // findMdx / buildFullSlug / resolveOgpPath / isPublished は
-// scripts/check-ogp-coverage.mjs:39-71 と同一ロジック（そちらも main 相当のトップレベル文が
+// scripts/checks/check-ogp-coverage.mjs:39-71 と同一ロジック（そちらも main 相当のトップレベル文が
 // 無条件実行される非モジュールなので import せず複製する。ロジックを変えたら両方直すこと）。
 
 function findMdx(dir, parts = []) {

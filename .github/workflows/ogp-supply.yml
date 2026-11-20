@@ -113,7 +113,7 @@ jobs:
 
           echo "::group::check-ogp-coverage --json"
           set +e
-          node scripts/check-ogp-coverage.mjs --json > /tmp/ogp-coverage.json
+          node scripts/checks/check-ogp-coverage.mjs --json > /tmp/ogp-coverage.json
           coverage_exit=$?
           set -e
           echo "exit code: ${coverage_exit}"
@@ -339,7 +339,7 @@ jobs:
         if: steps.detect.outputs.count != '0'
         run: |
           set +e
-          node scripts/check-ogp-coverage.mjs
+          node scripts/checks/check-ogp-coverage.mjs
           coverage_exit=$?
           node scripts/update-ogp-srchash.mjs --check
           srchash_exit=$?

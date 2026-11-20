@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { auditA8 } from '../scripts/check-a8-ui-run.mjs';
+import { auditA8 } from '../scripts/checks/check-a8-ui-run.mjs';
 import { exitCodeOf } from '../scripts/lib/run-audit.mjs';
 
 function put(root, rel, data) {

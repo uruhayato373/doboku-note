@@ -13,7 +13,7 @@ function check(packs) {
   const write = (path, value) => writeFileSync(join(root, path), value);
   try {
     mkdirSync(join(root, 'scripts/lib'), { recursive: true });
-    cpSync(join(REPO_ROOT, 'scripts/check-youtube-video-pack-shorts.mjs'), join(root, 'scripts/check-youtube-video-pack-shorts.mjs'));
+    cpSync(join(REPO_ROOT, 'scripts/checks/check-youtube-video-pack-shorts.mjs'), join(root, 'scripts/checks/check-youtube-video-pack-shorts.mjs'));
     cpSync(join(REPO_ROOT, 'scripts/lib/repository-paths.mjs'), join(root, 'scripts/lib/repository-paths.mjs'));
     for (const lib of ['dataset-io.mjs', 'datasets.mjs', 'dataset-writers.mjs', 'json-io.mjs', 'regexp-escape.mjs', 'jst-date.mjs']) cpSync(join(REPO_ROOT, 'scripts/lib', lib), join(root, 'scripts/lib', lib));
     mkdirSync(join(root, 'config'), { recursive: true });
@@ -28,7 +28,7 @@ function check(packs) {
       write(`${dir}/storyboard.json`, JSON.stringify({ scenes: [] }));
       if (!p.missing) write(`${dir}/youtube.json`, JSON.stringify({ longform: { publishAt: p.plan }, shorts: [] }));
     }
-    const r = spawnSync(process.execPath, [join(root, 'scripts/check-youtube-video-pack-shorts.mjs')], { encoding: 'utf8' });
+    const r = spawnSync(process.execPath, [join(root, 'scripts/checks/check-youtube-video-pack-shorts.mjs')], { encoding: 'utf8' });
     return { status: r.status, text: r.stdout + r.stderr };
   } finally { rmSync(root, { recursive: true, force: true }); }
 }

@@ -11,7 +11,7 @@ import { join } from 'node:path';
 
 import { DESCRIPTION_LINT_MAX, DESCRIPTION_MAX, DESCRIPTION_MIN, TITLE_MAX } from '../scripts/lib/seo-thresholds.mjs';
 import { checkDescription } from '../scripts/lib/seo-checks.mjs';
-import { lintFrontmatter } from '../scripts/lint-frontmatter.mjs';
+import { lintFrontmatter } from '../scripts/checks/lint-frontmatter.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 

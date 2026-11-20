@@ -65,7 +65,7 @@ test('段の失敗の理由は、コマンドが 2 本以上ならどのコマ�
   assert.match(first, /^1\/2 本目（note-traffic-fetch -- --commit）: /);
   assert.doesNotMatch(first, /--from/);
   assert.match(commandFailureReason({ argv: period.argv, index: 1, total: 2, line }), /^2\/2 本目（note-traffic-fetch -- --from 2026-10-12 --to 2026-10-18 --commit）/);
-  assert.equal(commandFailureReason({ argv: ['scripts/check-note-sync.mjs'], index: 0, total: 1, line: 'x' }), 'x');
+  assert.equal(commandFailureReason({ argv: ['scripts/checks/check-note-sync.mjs'], index: 0, total: 1, line: 'x' }), 'x');
   assert.equal(commandFailureReason({ argv: month.argv, index: 0, total: 2, timedOut: true, timeoutMin: 30 }), '1/2 本目（note-traffic-fetch -- --commit）: 30 分で打ち切り');
 });
 

@@ -49,7 +49,7 @@ const LEGACY_ALIASES = {
 export type LegacyCalloutKind = keyof typeof LEGACY_ALIASES;
 
 interface CalloutProps {
-  /** 未知の文字列は許容しない閉じた union。MDX 側の型 typo は content lint（scripts/check-callout-types.mjs）が検出する。 */
+  /** 未知の文字列は許容しない閉じた union。MDX 側の型 typo は content lint（scripts/checks/check-callout-types.mjs）が検出する。 */
   type?: CalloutKind | LegacyCalloutKind;
   title?: string;
   children: ReactNode;
@@ -80,7 +80,7 @@ const CALLOUT_CONFIG: Record<CalloutKind, ToneConfig> = {
  * 型・legacy alias・不明値のフォールバックを1関数に集約する。
  * MDX から渡る `type` は TypeScript の閉じた union で検査できない（.mdx はコンパイル時に
  * この props 型と突き合わされない）ため、静的な typo 検出は content lint
- * （scripts/check-callout-types.mjs）が担う。ここでのフォールバックはキャッシュ済み
+ * （scripts/checks/check-callout-types.mjs）が担う。ここでのフォールバックはキャッシュ済み
  * MDX やレガシー呼び出し向けの実行時安全網。
  */
 export function resolveCalloutKind(type: unknown): CalloutKind {

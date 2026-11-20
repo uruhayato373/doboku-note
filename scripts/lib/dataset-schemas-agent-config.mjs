@@ -3,7 +3,7 @@
  * 認証の許可リスト）の型（DN-0524・案B）。
  *
  * .claude/config/ は台帳（datasets.mjs）の外に置いたまま、ここでファイル名と型を対応させる。
- * 検査は scripts/check-agent-config.mjs（型の無い JSON も止める）。人が書く設定なので .strict() で誤記の欄を止め、
+ * 検査は scripts/checks/check-agent-config.mjs（型の無い JSON も止める）。人が書く設定なので .strict() で誤記の欄を止め、
  * ファイル間の整合（スクリプトの実在・サービス名の対応）は既存の check-*（check-playwright-auth-wiring など）に残す。
  * 書き方の約束は .claude/knowledge/reference/data-storage-decision.md「型の正本は zod」。
  */

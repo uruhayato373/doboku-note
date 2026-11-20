@@ -6,7 +6,7 @@
  *   cva:<name>:base              cva(...) の第 1 引数
  *   cva:<name>:<group>.<key>     cva の variants.<group>.<key>
  * クラスは空白で区切った集合として比べる（並び順は見ない）。条件付き・三項演算子の中の文字列も含める。
- * 読み手: scripts/check-shadcn-parity.mjs（DN-0432）
+ * 読み手: scripts/checks/check-shadcn-parity.mjs（DN-0432）
  * ---------------------------------------------------------------------------
  */
 

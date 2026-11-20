@@ -98,7 +98,7 @@ cd "$(git rev-parse --show-toplevel)" && magick REL.jpg -crop WIDTHxHEIGHT+L+T +
 ```
 
 #### Step 5: 自己検証
-クロップ後の画像を**再度 Read して目視**し、写り込み（特に図番号キャプション・脚注・指）が残っていないか・図が切れていないか確認。続けて `node scripts/check-figure-crop-integrity.mjs --file <REL>` を実行し、`STRAY_SLIVER` が出ないこと・新しく `EDGE_CUT` を作っていないこと（元から縁に接する正当な線は除く）を確かめる。問題なければ `selfVerify='clean'`、少しでも不安なら `'suspect'`。
+クロップ後の画像を**再度 Read して目視**し、写り込み（特に図番号キャプション・脚注・指）が残っていないか・図が切れていないか確認。続けて `node scripts/checks/check-figure-crop-integrity.mjs --file <REL>` を実行し、`STRAY_SLIVER` が出ないこと・新しく `EDGE_CUT` を作っていないこと（元から縁に接する正当な線は除く）を確かめる。問題なければ `selfVerify='clean'`、少しでも不安なら `'suspect'`。
 
 ### stage=reextract
 
@@ -129,7 +129,7 @@ cd "$(git rev-parse --show-toplevel)" && node scripts/figure-reextract.mjs cut -
 300dpi の切り出しは大きくなりやすい（網点のスキャンは圧縮が効かない）ので、書き出した画像が上限（`config/image-limits.json`・webp 150KB／png 100KB）を超えたら、`--width W` で縮めるか png は `--colors 16` で減色し、孤立した黒い点（スキャンのごみ）は `--despeckle N`（面積 N 画素未満の黒い成分を白にする）で消して書き直す。使った `--width`・`--colors`・`--despeckle` も結果に返す。
 
 #### Step 4: 自己検証
-新しい画像を Read し、**欠けていた部分が復元され、写り込み・答えが無い**ことを確認。`node scripts/check-figure-crop-integrity.mjs --file <REL>` で `STRAY_SLIVER`・新しい `EDGE_CUT` が無いことを確かめる。旧画像と比べて図の内容（ラベル・数値・記号）が一致しているか（別の図を掴んでいないか）を確認する。
+新しい画像を Read し、**欠けていた部分が復元され、写り込み・答えが無い**ことを確認。`node scripts/checks/check-figure-crop-integrity.mjs --file <REL>` で `STRAY_SLIVER`・新しい `EDGE_CUT` が無いことを確かめる。旧画像と比べて図の内容（ラベル・数値・記号）が一致しているか（別の図を掴んでいないか）を確認する。
 
 ### 出力（構造化結果のみ・schema 準拠）
 

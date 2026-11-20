@@ -54,7 +54,7 @@ note-update-body / note-publish が本文画像をアップロードすると、
   本文が1文字も増減しない更新に限る）
 - 2026-07-31 以降、`assertLiveBody({paid:true})` が無料プレビュー長を検査し、
   `MIN_FREE_PREVIEW_CHARS`（600字）未満なら `note-publish` / `note-update-body` が FAIL する
-- 全件の実査は `node scripts/check-note-structure.mjs` の `FREE_PREVIEW_COLLAPSE`（CRITICAL）。
+- 全件の実査は `node scripts/checks/check-note-structure.mjs` の `FREE_PREVIEW_COLLAPSE`（CRITICAL）。
   従来の `FULL_LOCK` は `bodyLen<40` と厳しすぎて、この崩れ方を CRITICAL に上げられなかった
 
 関連: [[reference_note_update_body_gotchas]] [[reference_note_publish_price_field]]

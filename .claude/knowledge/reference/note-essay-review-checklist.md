@@ -218,7 +218,7 @@ ls content/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/has
 ## Step 6d: 見出し構成チェック（正準=自治体道路担当）
 
 ```
-node scripts/check-essay-heading-structure.mjs "{persona}" --strict
+node scripts/checks/check-essay-heading-structure.mjs "{persona}" --strict
 ```
 
 ペルソナの見出し構成を正準（自治体道路担当）の構造不変条件で検査する。
@@ -320,7 +320,7 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 | 字数・散文性 | `node scripts/essay-shisaku-charcount.mjs "{persona}" --strict` | 超過0・箇条書き混入0・答案箇条書き0 |
 | 導入部の文体（警告） | 同上（`--strict`なしで「導入部文体混在(警告) N」） | 新規は N=0（導入部ですます統一・Step 3b） |
 | note 互換 | `node scripts/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
-| 見出し構成 | `node scripts/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
+| 見出し構成 | `node scripts/checks/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
 | 引用記号 | `grep -rc "^> " {persona}/*/article.md`（Step 6b） | フレーミング文（本記事の構成・本論文は・A案/B案対象者注記・R4は/R5は 等）に blockquote を使わない＝**全記事 0**（公開済 河川/都市計画/下水道が基準）。設問前文・白書原文の真正引用のみ例外 |
 | 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | 既存商品は **R03-R07＋R8予想2記事**、`pastExamOnlyPersonas` 登録商品は **R03-R07の5記事**。予想記事を追加した場合は両方を検査 |
 | マガジン掲載文・価格 | Step 6f | `note掲載文.txt` 作成（`npm run note-meta-lint` で タイトル≤30/説明≤400/アピール≤250 を検査・段落分割・価格欄＋任意の機械ブロック）／`_meta.yaml` 不在／note-magazines.ts に `price`／ドリフトは `npm run verify-note-magazines -- --vs-txt` |

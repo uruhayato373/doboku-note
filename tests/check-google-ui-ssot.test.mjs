@@ -6,7 +6,7 @@ import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { resolveDataset } from '../scripts/lib/datasets.mjs';
 
-const SCRIPT = resolve('scripts/check-google-ui-ssot.mjs');
+const SCRIPT = resolve('scripts/checks/check-google-ui-ssot.mjs');
 const write = (root, rel, obj) => {
   const p = join(root, rel);
   mkdirSync(join(p, '..'), { recursive: true });

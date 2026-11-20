@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateDispatchLog } from '../scripts/check-dispatch-log.mjs';
+import { validateDispatchLog } from '../scripts/checks/check-dispatch-log.mjs';
 
 const ok = (entries) => ({ _schema: {}, entries });
 

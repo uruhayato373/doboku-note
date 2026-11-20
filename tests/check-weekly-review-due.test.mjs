@@ -4,7 +4,7 @@
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
-import { dueWeek, isoWeek } from '../scripts/check-weekly-review-due.mjs';
+import { dueWeek, isoWeek } from '../scripts/checks/check-weekly-review-due.mjs';
 
 // JST の日時 → UTC ms
 const jst = (y, m, d, h = 0, mi = 0) => Date.UTC(y, m - 1, d, h - 9, mi);
@@ -38,7 +38,7 @@ test('諮問待ちの印: 最新の週次レビューにだけ印があればそ
   const { mkdtempSync, writeFileSync } = await import('node:fs');
   const { tmpdir } = await import('node:os');
   const { join } = await import('node:path');
-  const { pendingQuestionsReview, PENDING_MARK } = await import('../scripts/check-weekly-review-due.mjs');
+  const { pendingQuestionsReview, PENDING_MARK } = await import('../scripts/checks/check-weekly-review-due.mjs');
   const dir = mkdtempSync(join(tmpdir(), 'wr-'));
   assert.equal(pendingQuestionsReview(dir), null);
   writeFileSync(join(dir, '2026-W41-review.md'), `# x\n${PENDING_MARK}\n`);

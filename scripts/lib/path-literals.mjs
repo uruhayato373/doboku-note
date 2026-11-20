@@ -1,6 +1,6 @@
 /**
  * path-literals.mjs — コードと設定ファイルが config/・data/ のパスを直書きしていないか、台帳の id を正しく引いているかの検出。
- * 判定は scripts/check-datasets.mjs が使う（ここは見つけるだけで、ファイルを読まない）。
+ * 判定は scripts/checks/check-datasets.mjs が使う（ここは見つけるだけで、ファイルを読まない）。
  *
  * 置き場を移したとき、直書きは旧パスのまま残り、読めずに黙って空を返す（2026-10-02 に管理画面のアフィリエイト画面と
  * UTM 生成で実際に起きた）。コードは台帳（scripts/lib/datasets.mjs）から datasetPath・datasetDir・latestFile で引く。

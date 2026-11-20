@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "Git に何を追跡してよいかの機械可読ポリシー（DN-0111 Phase 1）。検査は scripts/check-git-binary-policy.mjs、baseline は .claude/state/quality/git-binary-baseline.json。運用の真実源は .claude/todo/backlog.md の DN-0111。",
+  "description": "Git に何を追跡してよいかの機械可読ポリシー（DN-0111 Phase 1）。検査は scripts/checks/check-git-binary-policy.mjs、baseline は .claude/state/quality/git-binary-baseline.json。運用の真実源は .claude/todo/backlog.md の DN-0111。",
   "philosophy": [
     "原本（SSOT）は Git、生成物と著作権物は Git の外。",
     "既存違反を一度に全 FAIL 化しない。baseline ラチェットで『増やすことだけ』を止め、Phase 4 完了後に baseline を 0 へ締める。",

@@ -222,7 +222,7 @@ if (isMain) {
   console.log(`  → ${removed} 行削除して書き戻した`);
 
   try {
-    execFileSync('node', ['scripts/check-backlog-schema.mjs'], { cwd: REPO_ROOT, stdio: 'inherit' });
+    execFileSync('node', ['scripts/checks/check-backlog-schema.mjs'], { cwd: REPO_ROOT, stdio: 'inherit' });
   } catch {
     console.error(`\n[${NAME}] check-backlog-schema が失敗した。上の削除で構造を壊していないか確認すること。`);
     process.exit(1);

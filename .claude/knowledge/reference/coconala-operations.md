@@ -416,7 +416,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 
 ## 6. ドリフト検知（`npm run check-coconala-wiring`）
 
-`scripts/check-coconala-wiring.mjs`（pre-commit・`--staged` で関連 staged 時のみ発火＋CI の `quality-audit --ci` で全件）。決定論的検査＝CLAUDE.md 原則5。
+`scripts/checks/check-coconala-wiring.mjs`（pre-commit・`--staged` で関連 staged 時のみ発火＋CI の `quality-audit --ci` で全件）。決定論的検査＝CLAUDE.md 原則5。
 
 | # | 検査 | 落ちる例 |
 |---|---|---|
@@ -501,7 +501,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-blog-publish.mjs --post <slug> [--commit]` | **ブログ記事**の下書き投入/公開（§9・`/coconala-blog`）。投入前に同名記事を検出（オートセーブ残骸の二重投稿防止）→ guards 全通過→ 2パス入力→ **DOM 実測**（本文90%・見出し適用・順序一致・カード枚数・一覧実在）→ `--commit` で公開→ ログアウト実査（G6）→ frontmatter 書き戻し |
 | `scripts/coconala-blog-delete-draft.mjs [--title <部分一致> \| --all] [--commit]` | ブログの**下書きだけ**を削除（公開中は `statusDraft` を持たないため構造的に対象外）。中断のオートセーブ残骸の掃除。既定 dry-run・削除後に一覧再読で実測 |
 | `scripts/scout-coconala-blogs.mjs [--query <q>]` | ブログ検索/競合ブログ一覧の read-only 偵察（四半期）→ `blog-competitors.json` |
-| `scripts/check-coconala-blog.mjs [--staged\|--json]` | ブログ記事 SoT のオフライン検査（ハードゲート＋公開整合＋送客先ドリフト）。pre-commit / quality:audit / 週次に配線 |
+| `scripts/checks/check-coconala-blog.mjs [--staged\|--json]` | ブログ記事 SoT のオフライン検査（ハードゲート＋公開整合＋送客先ドリフト）。pre-commit / quality:audit / 週次に配線 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
 

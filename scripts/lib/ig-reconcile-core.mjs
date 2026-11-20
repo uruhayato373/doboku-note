@@ -1,6 +1,6 @@
 // ig-reconcile-core.mjs — IG 旧記録 ↔ ライブ公開状態の照合ロジック（純関数）。
 //
-// 背景: scripts/verify-ig-status.mjs（Playwright でライブ取得する CLI）と、CI 週次で
+// 背景: scripts/checks/verify-ig-status.mjs（Playwright でライブ取得する CLI）と、CI 週次で
 //   Graph API 経由の照合を書く scripts/fetch-ig-insights.mjs --reconcile（別ユニット）が、
 //   同じ突合ロジック・同じ snapshot 形状を共有する必要がある。verify-ig-status.mjs は
 //   トップレベルで playwright を import して main を走らせるため、テストや別スクリプトから

@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { inspectHtml, auditDirectory, PAGE_ALLOWLIST, SURFACE_ALLOWLIST } from '../scripts/check-cta-density.mjs';
+import { inspectHtml, auditDirectory, PAGE_ALLOWLIST, SURFACE_ALLOWLIST } from '../scripts/checks/check-cta-density.mjs';
 
 const note = (id, placement = 'article-body', label = id) => `<a data-cta-label="${label}" href="https://note.com/test/m/${id}?utm_content=${label}" data-cta-placement="${placement}" data-cta="note">教材</a>`;
 const ab = n => `<div data-note-body-arm="image">${n}</div><div data-note-body-arm="text">${n}</div>`;
@@ -112,7 +112,7 @@ test('CLIは検査0件でexit 1、違反ありで1、違反なしで0。集計�
   const tempRoot = join(REPO_ROOT, '.tmp');
   mkdirSync(tempRoot, { recursive: true });
   const dir = mkdtempSync(join(tempRoot, 'cta-density-'));
-  const cli = () => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/check-cta-density.mjs'), '--out', dir, '--json'], { encoding: 'utf8' });
+  const cli = () => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/checks/check-cta-density.mjs'), '--out', dir, '--json'], { encoding: 'utf8' });
   try {
     let r = cli();
     assert.equal(r.status, 1);
@@ -249,7 +249,7 @@ test('過去問の右の欄だけ、組の間を埋める article-rail-fill の�
 });
 
 test('インフィード広告: 1 ページ 3 枠まで・前後が一覧の項目でなければ違反', async () => {
-  const { inspectHtml } = await import('../scripts/check-cta-density.mjs');
+  const { inspectHtml } = await import('../scripts/checks/check-cta-density.mjs');
   const row = (i) => `<li><a href="/exam/x/${i}">記事${i}</a></li>`;
   const ad = '<li data-adsense="inFeedThumb"><ins class="adsbygoogle"></ins></li>';
   const ok = `<html><body><main><ul>${row(1)}${ad}${row(2)}</ul></main></body></html>`;

@@ -51,7 +51,7 @@ export function drivePdfDirs(root) {
 }
 
 function republishReport(root) {
-  const out = execFileSync(process.execPath, ['scripts/check-note-republish.mjs', '--json'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  const out = execFileSync(process.execPath, ['scripts/checks/check-note-republish.mjs', '--json'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return JSON.parse(out);
 }
 

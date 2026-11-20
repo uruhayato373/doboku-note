@@ -418,7 +418,7 @@ jobs:
         run: |
           mkdir -p /tmp/metrics-report
           set +e
-          node scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
+          node scripts/checks/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Check daily anomaly
@@ -426,7 +426,7 @@ jobs:
         run: |
           mkdir -p /tmp/metrics-report
           set +e
-          node scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
+          node scripts/checks/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       # 書いた記録（data/ の追加・変更・削除）を一時退避する。パスは YAML に書かず台帳（scripts/lib/datasets.mjs）から引く。

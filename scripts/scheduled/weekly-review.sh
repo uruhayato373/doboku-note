@@ -203,7 +203,7 @@ run_gsc_record() {
   # 実行前のゲートは worktree の外に置く（worktree を汚すと、記録の検査が「未保存の変更」を拾う）
   local gates
   gates="$(mktemp)"
-  node scripts/check-gsc-auto-review.mjs --json > "$gates" || true
+  node scripts/checks/check-gsc-auto-review.mjs --json > "$gates" || true
   local need_rc=0
   node scripts/apply-gsc-records.mjs --needed --before "$gates" || need_rc=$?
   if [ "$need_rc" -eq 3 ]; then echo '[gsc-record] 週次・coverage とも記録済みか、データが古い。Claude は回さない'; rm -f "$gates"; return 0; fi

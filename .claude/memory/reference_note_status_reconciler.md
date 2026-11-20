@@ -6,11 +6,11 @@ metadata:
 ---
 note 記事 frontmatter の `noteStatus` が「公開済みなのに draft」のままドリフトする問題の原因と恒久対策（2026-06-21 実装）。
 
-**原因**: `scripts/note-publish.mjs` の writeBack は元々 `noteUrl`/`noteId`/`notePublishedAt` のみを書き戻し、`noteStatus` は対象外だった。さらに予約投稿は go-live が note サーバ側で後刻に起きるためローカル書戻しの機会が無い。**実シグナルは「noteUrl 非空 OR noteStatus に publish」の OR**（note-lint.mjs / scripts/check-note-3set.mjs）なので、noteUrl さえ入れば機能は壊れず、noteStatus の嘘は赤くならない＝検知されず放置される（2026-06-21、建設部門 無料入口16本で実害化）。
+**原因**: `scripts/note-publish.mjs` の writeBack は元々 `noteUrl`/`noteId`/`notePublishedAt` のみを書き戻し、`noteStatus` は対象外だった。さらに予約投稿は go-live が note サーバ側で後刻に起きるためローカル書戻しの機会が無い。**実シグナルは「noteUrl 非空 OR noteStatus に publish」の OR**（note-lint.mjs / scripts/checks/check-note-3set.mjs）なので、noteUrl さえ入れば機能は壊れず、noteStatus の嘘は赤くならない＝検知されず放置される（2026-06-21、建設部門 無料入口16本で実害化）。
 
 **対策**:
 - writeBack に noteStatus 行追加（即時=published / 予約=reserved）。
-- `npm run verify-note-status`（`scripts/verify-note-status.mjs`）= noteStatus 行を持つ記事のみ（~95本）を note 公開API と突合し drift 検知、`-- --fix` で既存行を是正。連続取得はレート制限されるため throttle(0.4s)+retry 必須。noteStatus 行が無い記事（マガジン収録記事等＝noteUrl管理の別規約）には field 注入しない。
+- `npm run verify-note-status`（`scripts/checks/verify-note-status.mjs`）= noteStatus 行を持つ記事のみ（~95本）を note 公開API と突合し drift 検知、`-- --fix` で既存行を是正。連続取得はレート制限されるため throttle(0.4s)+retry 必須。noteStatus 行が無い記事（マガジン収録記事等＝noteUrl管理の別規約）には field 注入しない。
 - weekly-review skill の Agent B に配線（週次で自己修復）。creds 不要・network依存ゆえ CI ゲート非対象（[[feedback_session_start_git_sync]] 系の verify-note-magazines / audit-note-funnel --live と同系統）。
 
 関連: [[feedback_platform_only_artifacts_destroyed_by_bulk_ops]]（note公開状態の制約）。

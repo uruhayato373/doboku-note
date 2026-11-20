@@ -12,7 +12,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync, utimesSync, realpathSync
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { analyze } from '../scripts/lib/branch-hygiene.mjs';
-import { run } from '../scripts/check-branch-hygiene.mjs';
+import { run } from '../scripts/checks/check-branch-hygiene.mjs';
 
 const NOW = Date.parse('2026-10-12T00:00:00Z');
 const daysAgo = (n) => new Date(NOW - n * 86_400_000).toISOString();

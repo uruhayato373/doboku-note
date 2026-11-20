@@ -104,7 +104,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | 透過抽出（追加ポーズ） | `scripts/character-extract.mjs`（`npm run character-extract`） |
 | 円形アイコン（紺グラデ背景・SNS プロフィール用マスター） | `scripts/generate-character-icons.mjs`（`npm run character-icons`）→ `icons/{pose}-{800,400,180}.png` |
 | サイト CTA 配信アバター（上記アイコンの派生） | `scripts/build-character-avatars.mjs`（`npm run character-avatars`）→ `public/images/character/avatar-{pose}.webp` |
-| 上記 3 者の整合ゲート | `scripts/check-character-avatars.mjs`（`npm run check-character-avatars`・`quality:audit` の ci ゲート） |
+| 上記 3 者の整合ゲート | `scripts/checks/check-character-avatars.mjs`（`npm run check-character-avatars`・`quality:audit` の ci ゲート） |
 
 - 円の意匠（トリミング・紺グラデ）の真実源は `generate-character-icons.mjs` に一本化し、`build-character-avatars.mjs` は**サイズ/形式を落とす派生層**に徹する（意匠の二重管理を避ける）。
 

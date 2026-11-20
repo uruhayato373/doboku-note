@@ -25,7 +25,7 @@ import { readFileSync } from 'node:fs';
 import { join, dirname, relative, basename, sep } from 'node:path';
 import matter from 'gray-matter';
 import { listNoteArticleFiles, normalizeRepoPath } from './lib/note-content-type.mjs';
-import { parseSoT } from './check-magazine-membership.mjs';
+import { parseSoT } from './checks/check-magazine-membership.mjs';
 import { jsonMatches, writeJsonIfChanged } from './lib/write-generated.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';

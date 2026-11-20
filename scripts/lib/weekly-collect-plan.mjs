@@ -115,7 +115,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // Drive を読めるか先に 1 本読む。読めないと note 同期（post）が配布 PDF の要る記事を全部翌週へ回すので、原因（フルディスクアクセス・
       // 取り寄せの禁止）を名指しで先に出す（2026-11-14・3 週続けて -11 を「Drive の停止」と誤って扱っていた）
       id: 'drive', phase: 'pre', title: 'Drive の読み取り（note 同期の配布 PDF）', timeoutMin: 5,
-      commands: [{ argv: ['scripts/check-drive-readable.mjs'] }],
+      commands: [{ argv: ['scripts/checks/check-drive-readable.mjs'] }],
     },
     {
       verify: ['auth-freshness'],
@@ -191,11 +191,11 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 指摘（exit 1 など）は warn、取得失敗が支配的な検査不成立は failed。
       addPaths: ['content/note', datasetPath('config.products'), 'src/lib/note-magazines.ts'],
       commands: [
-        { argv: ['scripts/verify-note-status.mjs', '--ci', '--json', '--snapshot'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/verify-note-status.mjs', '--ci', '--json', '--snapshot'], warn: [1], failPattern: '検査不成立' },
         // exit 1 = 単品の照合が不成立・2 = ずれ（--contents が無いと収録が取れず check-magazine-membership の軸 C が検査不成立になる）
-        { argv: ['scripts/verify-note-magazines.mjs', '--vs-txt', '--contents', '--json'], warn: [2] },
+        { argv: ['scripts/checks/verify-note-magazines.mjs', '--vs-txt', '--contents', '--json'], warn: [2] },
         // snapshot を作り直した直後に三軸（repo・SoT・ライブ）を突き合わせる。exit 2 = 検査不成立
-        { argv: ['scripts/check-magazine-membership.mjs', '--ci'], warn: [1] },
+        { argv: ['scripts/checks/check-magazine-membership.mjs', '--ci'], warn: [1] },
         // 題名・価格は原稿（frontmatter。単品価格は config/products.json の articlePrices の写し）が正で、note のライブはそれに合わせる。note と食い違う記事を「note へ未反映」にする
         { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
       ],
@@ -207,11 +207,11 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/weekly-collect.mjs --only note-audit で回す。
       skip: noteAuditDue({ today, lastAt: noteAuditLastAt }) ? null : `前回（${String(noteAuditLastAt).slice(0, 10)}）から ${NOTE_AUDIT_INTERVAL_DAYS} 日たっていない`,
       commands: [
-        { argv: ['scripts/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
       ],
     },
     {
@@ -220,7 +220,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 全文会員限定（DN-0929）を見つけたのはこの層。代表ページの撮影（--review・最大 25 分）は毎週は回さず、
       // 必要なときに運営者かエージェントが --review で回す（2026-11-14・DN-1196）。指摘（exit 1）は warn、取得失敗が支配的（「検査不成立」）は failed
       commands: [{
-        argv: ['scripts/check-note-public-view.mjs', '--api-only', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`],
+        argv: ['scripts/checks/check-note-public-view.mjs', '--api-only', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`],
         ok: [0], warn: [1], failPattern: '検査不成立',
       }],
     },
@@ -256,7 +256,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
     {
       id: 'note-sync-check', phase: 'post', title: 'note の反映の照合（公開 API）', timeoutMin: 15, browser: false,
       // exit 1 = 反映待ち・止まっている記事がある（同期の上限待ちを含む）。記録は管理画面 /content/note-sync
-      commands: [{ argv: ['scripts/check-note-sync.mjs'], warn: [1] }],
+      commands: [{ argv: ['scripts/checks/check-note-sync.mjs'], warn: [1] }],
     },
   ];
 }

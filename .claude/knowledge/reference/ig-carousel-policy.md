@@ -99,7 +99,7 @@
 | `qNum` | 問番号 | 1-4 |
 | `totalQ` | 総問数 | 通常 4 |
 
-**lists / table を使う判定基準**（lint で機械検出可・`scripts/lint-exam-pack-structure.mjs`）:
+**lists / table を使う判定基準**（lint で機械検出可・`scripts/checks/lint-exam-pack-structure.mjs`）:
 - E1: bodyLines に「（ア）」「（A）」等が 2 個以上 → `lists` 必須
 - E2: bodyLines に `|` 含む行 2 行以上 → `table` 必須
 
@@ -208,7 +208,7 @@ figure スライドが「図で理解が進む論点」に使われているか�
 | `12-16` | coverTitleSm (72px) | ⚠⚠ 警告（lint NOTICE）|
 | `17+` | — | ❌ エラー（lint ERROR、必須短縮）|
 
-機械検証: `node scripts/lint-stories-titles.mjs` で全 slide-data.json の字数判定を一覧化。Evaluator (`ig-carousel-qa`) は lint 出力を Read して軸 4 採点に反映する（ERROR は -2 重大減点、WARN/NOTICE は減点なし・コメントのみ）。
+機械検証: `node scripts/checks/lint-stories-titles.mjs` で全 slide-data.json の字数判定を一覧化。Evaluator (`ig-carousel-qa`) は lint 出力を Read して軸 4 採点に反映する（ERROR は -2 重大減点、WARN/NOTICE は減点なし・コメントのみ）。
 
 ## 相互改善ループ（IG ↔ doboku-note）
 

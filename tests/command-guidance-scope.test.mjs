@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { findBrokenInSource, DOC_SCOPES, WORKFLOW_SCOPE } from '../scripts/check-command-guidance.mjs';
+import { findBrokenInSource, DOC_SCOPES, WORKFLOW_SCOPE } from '../scripts/checks/check-command-guidance.mjs';
 
 const pkgScripts = { build: 'x', 'refresh-indexes': 'x' };
 const exists = (rel) => rel === 'scripts/real.mjs';
@@ -45,7 +45,7 @@ test('プレースホルダ（<name>・X・{script}）は案内として数え�
 test('走査範囲に skills・knowledge・agents・docs・workflows が入っている（--json の scopes）', () => {
   assert.deepEqual(DOC_SCOPES, ['.claude/rules', '.claude/skills', '.claude/knowledge', '.claude/agents', 'docs']);
   assert.equal(WORKFLOW_SCOPE, '.github/workflows');
-  const out = execFileSync(process.execPath, [join(REPO_ROOT, 'scripts', 'check-command-guidance.mjs'), '--json'], {
+  const out = execFileSync(process.execPath, [join(REPO_ROOT, 'scripts', 'checks', 'check-command-guidance.mjs'), '--json'], {
     cwd: REPO_ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 16 * 1024 * 1024,
   });
   const j = JSON.parse(out);
@@ -56,7 +56,7 @@ test('走査範囲に skills・knowledge・agents・docs・workflows が入っ�
 });
 
 test('git grep の出力は CRLF の行も読む（DN-0780: Windows の checkout で取り戻しの案内が 1 件に減り検査不成立になった）', async () => {
-  const { parseGrepLines } = await import('../scripts/check-command-guidance.mjs');
+  const { parseGrepLines } = await import('../scripts/checks/check-command-guidance.mjs');
   const lf = 'a.md:3:npm run drive-vault-sync -- --pull --commit\nb.md:7:text\n';
   const crlf = lf.replace(/\n/g, '\r\n');
   assert.deepEqual(parseGrepLines(crlf).map((m) => [m[1], m[2], m[3]]), parseGrepLines(lf).map((m) => [m[1], m[2], m[3]]));

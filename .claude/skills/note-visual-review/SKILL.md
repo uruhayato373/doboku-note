@@ -27,7 +27,7 @@ note の公開ページを**未ログインの読者の画面**で撮り、`note
 1. **回してよいか**: `~/Library/Logs/doboku-note/weekly-review.lock/pid` のプロセスが生きている間（土曜 9:30 からの収集の最中）は回さない。この Mac はメモリ 8GB なので、重い検査（build・音声・動画の生成）と同時に回さない
 2. **撮る**（ログイン不要・専用の Chromium・Bash の `run_in_background` で回す）:
    ```
-   node scripts/check-note-public-view.mjs --review [パスの一部] \
+   node scripts/checks/check-note-public-view.mjs --review [パスの一部] \
      --out "$HOME/Library/Caches/doboku-note/note-public-view/report.json" \
      --shot-dir "$HOME/Library/Caches/doboku-note/note-public-view"
    ```

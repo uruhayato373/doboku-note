@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const run = (env) =>
-  spawnSync(process.execPath, [join(ROOT, 'scripts/lint-ja.mjs'), '--staged'], {
+  spawnSync(process.execPath, [join(ROOT, 'scripts/checks/lint-ja.mjs'), '--staged'], {
     cwd: ROOT,
     encoding: 'utf8',
     env: { ...process.env, CI: '', REGISTRY_BASE: '', DOBOKU_PRE_COMMIT: '', ...env },

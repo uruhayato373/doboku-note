@@ -17,7 +17,7 @@ pe-comprehensive-management の新年度過去問（例 `r08-primary`）を追�
 
 ## check-sns-urls はローカル doc-meta-index を参照
 
-`scripts/check-sns-urls.mjs`（pre-commit `--staged`）は `/docs/{slug}` リンクを**ローカル `src/config/doc-meta-index.json` の docs キー集合**に対して検証する（L36 `const META = 'src/config/doc-meta-index.json'`）。**本番サイトを fetch しない**。
+`scripts/checks/check-sns-urls.mjs`（pre-commit `--staged`）は `/docs/{slug}` リンクを**ローカル `src/config/doc-meta-index.json` の docs キー集合**に対して検証する（L36 `const META = 'src/config/doc-meta-index.json'`）。**本番サイトを fetch しない**。
 
 含意: あるページへ `/docs/` で結線したいとき、そのページが `published: true` かつ `npm run refresh-indexes`（doc-meta-index 再生成）済みなら、**deploy 前（develop 段階）でも結線 commit は pre-commit を通る**。
 

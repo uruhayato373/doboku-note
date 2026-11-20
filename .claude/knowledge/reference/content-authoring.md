@@ -18,7 +18,7 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 **書き終えたときの決定的ゲート**（2026-10-06・サブエージェントの整形が pre-commit で 67 件止まった）:
 - `npx textlint <file>` を 0 件にする。pre-commit の `lint-ja --staged` は**ファイル全体**を見るので、触っていない既存行の全角数字・prh も commit を止める。`--fix` は prh と全角数字を直すが、送り仮名の置換が動詞の活用（〜ります・〜て）に当たっていないか diff を見る
 - 表→箇条書き・長文の分割など構造だけを変えた編集は `npm run check-mdx-facts -- <file>` で数値と「」の語の減少 0 を確かめる（減少が説明できるなら commit に理由を書く）
-- サブエージェントに MDX の整形を任せるときは、この 2 つと `node scripts/lint-mdx-mobile.mjs <file>` の結果を受入れ条件として依頼文に書く
+- サブエージェントに MDX の整形を任せるときは、この 2 つと `node scripts/checks/lint-mdx-mobile.mjs <file>` の結果を受入れ条件として依頼文に書く
 
 ## ペルソナ・コンテンツ原則
 
@@ -195,7 +195,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 | 長文セルの3列表 | H3/太字リード＋箇条書き | — |
 | 本当に必要な2軸比較（**短い値**） | 2〜3列表のまま可 | 年度→テーマの2列表 |
 
-ルールの重大度・資格×種別の適用は `config/content-rules.json` が SSOT。機械チェックは `scripts/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
+ルールの重大度・資格×種別の適用は `config/content-rules.json` が SSOT。機械チェックは `scripts/checks/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
 
 ## 画像配信
 

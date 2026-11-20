@@ -695,7 +695,7 @@ try {
       const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0] || '<noteId>';
       console.error(`\n[14] ★未完成: 記事 dir に PDF が ${pdfs.length} 件ある＝この記事は添付まで終えて初めて商品になる★`);
       for (const p of pdfs) console.error(`  node scripts/note-attach-file.mjs --note ${pubId} --file "${relative(ROOT, p).replace(/\\/g, '/')}" --commit`);
-      console.error('  添付後の確認: node scripts/check-note-attachments.mjs --live --only ' + pubId);
+      console.error('  添付後の確認: node scripts/checks/check-note-attachments.mjs --live --only ' + pubId);
       process.exitCode = 9;
     }
   }

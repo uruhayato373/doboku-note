@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { compareFacts } from '../scripts/check-mdx-facts.mjs';
+import { compareFacts } from '../scripts/checks/check-mdx-facts.mjs';
 
 const fm = (date) => `---\ntitle: t\ndateModified: ${date}\n---\n`;
 

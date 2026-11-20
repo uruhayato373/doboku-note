@@ -4,7 +4,7 @@ description = "note の公開ページの代表を画面幅ごとに撮った画
 developer_instructions = """
 # Note Page Visual Auditor
 
-`scripts/check-note-public-view.mjs --review` が撮った**未ログインの読者の画面**（代表ページ × note のブレイクポイントごとの画面幅）を見て、ページごとに
+`scripts/checks/check-note-public-view.mjs --review` が撮った**未ログインの読者の画面**（代表ページ × note のブレイクポイントごとの画面幅）を見て、ページごとに
 **pass / fail** を決める **Evaluator**。原稿・設定・台帳は**直さない**。起票もしない。判定を返り値で返すだけ。
 
 数値で決められるもの（添付 PDF の本数・価格・全文会員限定・本文の画像の欠け）は公開 API の層が済ませている。

@@ -9,7 +9,7 @@
  *   2. 中央で aiPhoto.aspect に切り、aiPhoto.width に縮めて content/site/<figKey>.webp へ書く
  *   3. 記事の <ArticleImage>/<img> の src を .webp に、width/height を新しい寸法に合わせる
  *   4. 実績の台帳（AI 画像の台帳）に sha・promptSha・生成日時を記録する（判定は消える＝未監査に戻る）
- * 次は ai-image-fidelity-auditor で判定し、node scripts/check-image-origin.mjs record-ai で記録する。
+ * 次は ai-image-fidelity-auditor で判定し、node scripts/checks/check-image-origin.mjs record-ai で記録する。
  *
  * 使い方:
  *   npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "被写体の指示" | --prompt-file <path>] [--model <codex のモデル>]
@@ -142,7 +142,7 @@ export async function run(argv = process.argv.slice(2)) {
   console.log(`[gen-article-photo] ${figKey}: ${width}×${height} webp を配置・記事 ${changed} か所を更新・実績を記録（未監査）`);
   if (leftovers.length) console.log(`  ⚠ 同じ名前の古い画像が残っている（参照されないなら git rm する）: ${leftovers.map((p) => p.slice(ROOT.length + 1)).join(' ')}`);
   if (!from) discardGenerated(input);
-  console.log('  次: node scripts/check-image-origin.mjs --ai-queue --json → ai-image-fidelity-auditor → record-ai');
+  console.log('  次: node scripts/checks/check-image-origin.mjs --ai-queue --json → ai-image-fidelity-auditor → record-ai');
   return 0;
 }
 

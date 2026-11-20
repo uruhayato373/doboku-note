@@ -255,7 +255,7 @@ published → measured → refresh_due | stopped
 
 ## 8. `check-video-content` 契約
 
-実装は `scripts/check-video-content.mjs`（ライブラリ `scripts/lib/video-content-check.mjs`）。exit 契約:
+実装は `scripts/checks/check-video-content.mjs`（ライブラリ `scripts/lib/video-content-check.mjs`）。exit 契約:
 
 - `0` 合格（packs root 不在＝Phase 1 未着手は「未着手」と明示して exit 0。緑と 0 件検査を混同しないよう、常に検査対象数と実検査数を出力する）
 - `1` 違反あり
@@ -345,7 +345,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 
-撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
+撤去完了の検査は `node scripts/checks/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
 **現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が（SNS 保留中の 2026-11-01 から定期実行を止め手動のみ。再開時は schedule `20 23 * * *`＝毎日08:20 JST を戻す）`develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は `mode=reconcile` で行い、毎日 08:40 JST の schedule（main の版）でも走る。照合の遅れは `check-registry-due`（日次の ops）、台本待ちの確認期限の超過は `check-youtube-plan --due`（週次の ops）が出す。
 

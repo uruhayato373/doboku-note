@@ -56,4 +56,4 @@ UI はコピーまで（実行はしない）。
 
 ## 実装の所在
 scripts/todo-{add,claim,release,complete}.mjs／scripts/lib/git-direct-commit.mjs／scripts/report-defect-learning.mjs／scripts/lib/agent-hooks.mjs（check-capture）／scripts/lib/todo-lifecycle.mjs／scripts/lib/plan-units.mjs／
-scripts/check-task-plan-links.mjs／scripts/check-dispatch-log.mjs／tools/admin-app/src/lib/todo.ts
+scripts/checks/check-task-plan-links.mjs／scripts/checks/check-dispatch-log.mjs／tools/admin-app/src/lib/todo.ts

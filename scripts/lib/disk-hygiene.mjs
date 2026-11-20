@@ -12,7 +12,7 @@
  *
  * 設計:
  *   - ここには **判断だけ**を置く（fs/spawn を呼ばない）。probe と削除は scripts/disk-hygiene.mjs、
- *     読み取り専用の表示は scripts/check-disk-hygiene.mjs。テストはこのファイルを直接叩く。
+ *     読み取り専用の表示は scripts/checks/check-disk-hygiene.mjs。テストはこのファイルを直接叩く。
  *   - 削除してよいのは「再生成できるもの」だけ。履歴（Codex セッション・Claude の .jsonl）は
  *     容量を報告するだけで消さない。
  *   - **迷ったら残す**。ガードの材料が取れなかった（lsof が失敗した等）ときは keep 側へ倒す。

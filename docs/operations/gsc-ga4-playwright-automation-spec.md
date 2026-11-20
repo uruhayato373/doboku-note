@@ -291,7 +291,7 @@ URLごとの出力:
 
 ### `check-gsc-ui-run`（スクリプト）
 
-- 旧 `gsc-csv-auditor`（2026-11-18 に廃止）の判定を `scripts/check-gsc-ui-run.mjs` へ移した。
+- 旧 `gsc-csv-auditor`（2026-11-18 に廃止）の判定を `scripts/checks/check-gsc-ui-run.mjs` へ移した。
 - raw/normalized CSV、manifest、行数、sha256、truncation、rejects、前回差分を検査する。土曜の収集の gsc 段の検算（quality-audit の `gsc-ui-run`）が回す。
 - 外部サイトへアクセスせず、データ品質のみ返す。
 
@@ -347,11 +347,11 @@ allowed-tools: Read, Glob, Grep, Bash, Task
   "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
   "search-growth:report": "node scripts/report-search-growth.mjs",
   "search-growth:audit": "node scripts/run-search-growth-audit.mjs",
-  "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
-  "check-google-ui-ssot": "node scripts/check-google-ui-ssot.mjs",
+  "check-gsc-ui-due": "node scripts/checks/check-gsc-ui-due.mjs",
+  "check-google-ui-ssot": "node scripts/checks/check-google-ui-ssot.mjs",
   "ga4-admin:check": "node scripts/ga4-admin-setup.mjs",
   "ga4-admin:apply": "node scripts/ga4-admin-setup.mjs --commit",
-  "check-ga4-dimensions": "node scripts/check-ga4-custom-dimensions.mjs"
+  "check-ga4-dimensions": "node scripts/checks/check-ga4-custom-dimensions.mjs"
 }
 ```
 
@@ -405,7 +405,7 @@ data/gsc/
 
 `.gitignore` は `data/{gsc,ga4}/ui/` を無視しつつ `!.../ssot/` で例外化する。
 `report-search-growth.mjs` は **SSOT を優先**して読み（`gscUiSource: "ssot"`）、無ければ run ローカルへ
-フォールバックする。整合は `scripts/check-google-ui-ssot.mjs` が検査する。
+フォールバックする。整合は `scripts/checks/check-google-ui-ssot.mjs` が検査する。
 
 ## 10.2 GA4 管理画面 設定の自動化（2026-07-30 追加）
 
@@ -419,7 +419,7 @@ data/gsc/
 | 期待値（SSOT） | `config/ga4-admin-desired-state.json`（customDimensions / dataRetention / unwantedReferrals） |
 | 観測＋作成 | `scripts/ga4-admin-setup.mjs`（Playwright・**既定 dry-run**・`--commit` で作成） |
 | 観測結果（追跡） | `data/ga4/admin-inventory.json` ＋ `history.json` |
-| ドリフト ゲート | `scripts/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
+| ドリフト ゲート | `scripts/checks/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
 
 ### 実機で判明した GA4 UI のクセ（2026-07-30 初回実走で確定）
 
@@ -518,7 +518,7 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - .claude/skills/google-search-growth/SKILL.md
 - .claude/skills/google-search-growth/references/csv-schema.md
 - .claude/skills/google-search-growth/references/recovery.md
-- scripts/check-gsc-ui-run.mjs
+- scripts/checks/check-gsc-ui-run.mjs
 - .claude/agents/seo-fix-planner.md
 - testsとfixtures
 - package.jsonのnpm scripts

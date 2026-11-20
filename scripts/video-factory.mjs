@@ -182,7 +182,7 @@ function ledger() {
   const file = join(ROOT, `.tmp/media/${pack}/work/factory/ledger.json`);
   mkdirSync(join(file, '..'), { recursive: true });
   writeFileSync(file, JSON.stringify(verdicts, null, 2));
-  execFileSync(process.execPath, ['scripts/check-image-origin.mjs', 'record-ai', file], { cwd: ROOT, stdio: 'inherit' });
+  execFileSync(process.execPath, ['scripts/checks/check-image-origin.mjs', 'record-ai', file], { cwd: ROOT, stdio: 'inherit' });
   console.log(`判定 ${verdicts.length} 件を AI 台帳へ写した`);
 }
 
@@ -413,7 +413,7 @@ function gateFacts(pack) {
   const verify = pub.revisionOf
     ? spawnSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'], { cwd: ROOT, encoding: 'utf8' })
     : spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
-  const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
+  const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/checks/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
   const video = mediaById.get(pub.media?.video);
   return {
     policy, reg, mediaById,

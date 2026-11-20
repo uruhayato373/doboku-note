@@ -14,6 +14,7 @@
  * 2026-08-18 時点は移行中で、`LEGACY_*` が現行 SSOT。移動が済んだ領域から
  * 正規の定数へ切り替える（新旧のコピーを同時に持たない）。
  */
+import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,6 +22,24 @@ import { fileURLToPath } from 'node:url';
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const at = (...segments) => join(REPO_ROOT, ...segments);
+
+// --- scripts/ の CLI の置き場 ---------------------------------------------
+/**
+ * scripts/ の直下を用途で分けたフォルダ（CLI の置き場。lib・ads など部品や機能単位のフォルダは含めない）。
+ * フォルダを足したらここにだけ足す。名前から CLI を引く cliRelPath と、到達しない CLI の検査（check-unreachable-cli）が読む。
+ */
+export const CLI_GROUPS = ['checks'];
+
+/** CLI の名前（拡張子なし）から、リポジトリ相対のパスを引く。scripts/ の直下か CLI_GROUPS のどれか。見つからなければ投げる */
+export function cliRelPath(name, root = REPO_ROOT) {
+  for (const dir of ['scripts', ...CLI_GROUPS.map((g) => `scripts/${g}`)]) {
+    for (const ext of ['.mjs', '.ts']) {
+      const rel = `${dir}/${name}${ext}`;
+      if (existsSync(join(root, rel))) return rel;
+    }
+  }
+  throw new Error(`CLI が見つからない: ${name}（scripts/ と ${CLI_GROUPS.map((g) => `scripts/${g}/`).join('・')} を探した）`);
+}
 
 // --- 4 領域のルート -------------------------------------------------------
 export const DOCS_ROOT = at('docs');
@@ -206,6 +225,8 @@ export const MOVED_PATHS = [
  */
 export const RESTRUCTURED_PATHS = [
   // 2026-11-20 に Kindle の spec・表紙の仕様・表紙の制作記録を scripts/ から本のフォルダへ移した（A 系の表紙はフォルダ名を大文字に）
+  // 2026-11-20 に scripts/ 直下の検査（check-・lint-・verify-・audit-・validate-）を scripts/checks/ へ分けた
+  [/^scripts\/((?:check|lint|verify|audit|validate)-[^/]+\.(?:mjs|ts))$/, "scripts/checks/$1"],
   [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
   [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
   [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],

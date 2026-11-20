@@ -83,8 +83,8 @@
       "generator": "npm run ogp",
       "requiredBy": [
         "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
-        "scripts/check-ogp-coverage.mjs",
-        "scripts/check-orphan-ogp.mjs"
+        "scripts/checks/check-ogp-coverage.mjs",
+        "scripts/checks/check-orphan-ogp.mjs"
       ],
       "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
       "phase": "site-ogp-offload"
@@ -159,9 +159,9 @@
       "generator": null,
       "requiredBy": [
         "scripts/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
-        "scripts/check-figure-crop-integrity.mjs",
+        "scripts/checks/check-figure-crop-integrity.mjs",
         "scripts/figure-review-queue.mjs",
-        "scripts/audit-figure-text.mjs"
+        "scripts/checks/audit-figure-text.mjs"
       ],
       "reason": "記事図の切り出し原本（png）。記事が参照して配信するのは同名の webp（Git に残す）で、png を参照する MDX は 0 件。2026-10-22 に 302 件 19 MiB を Git から外した（DN-0707・DN-0111 Phase 4）。R2 キーは r2-sync（upload-images-to-r2）の `posts/${rel}` と同じなので URL は変わらない。切り出し直しの元 PDF からの再現は byte 一致しないので regenerable=false。",
       "phase": "4-site-figure-png"
@@ -199,7 +199,7 @@
       "regenerable": true,
       "generator": "npm run sync-kindle-dist",
       "requiredBy": [
-        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/checks/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
         "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
         "scripts/kdp-batch.mjs",
         ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"

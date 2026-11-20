@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { checkAgentConfigFile } from '../scripts/check-agent-config.mjs';
+import { checkAgentConfigFile } from '../scripts/checks/check-agent-config.mjs';
 import { AGENT_CONFIG_SCHEMAS } from '../scripts/lib/dataset-schemas-agent-config.mjs';
 import { AGENT_CONFIG_ROOT } from '../scripts/lib/repository-paths.mjs';
 

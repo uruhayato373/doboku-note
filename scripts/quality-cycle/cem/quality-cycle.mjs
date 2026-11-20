@@ -55,7 +55,7 @@ import { buildCemQaPrompt, buildRewriterPrompt } from './lib/cem-qa-prompt.mjs';
 // ── 定数 ────────────────────────────────────────────────────────
 
 const BASE_DIR = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
-const LINT_SCRIPT = join(REPO_ROOT, 'scripts/lint-mdx-mobile.mjs');
+const LINT_SCRIPT = join(REPO_ROOT, 'scripts/checks/lint-mdx-mobile.mjs');
 const HUB_SLUG = 'pe-comprehensive-management-keyword-2026';
 const FLAGSHIP_COUNT = 100;
 const DEFAULT_TOP = 200;

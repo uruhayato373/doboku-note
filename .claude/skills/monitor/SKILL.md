@@ -162,7 +162,7 @@ Monitor:
         count=$(echo "$changed" | wc -l)
         echo "MDX CHANGED: $count file(s) detected"
         for f in $changed; do
-          result=$(node scripts/validate-mdx.mjs "$f" 2>&1)
+          result=$(node scripts/checks/validate-mdx.mjs "$f" 2>&1)
           if echo "$result" | grep -q "✗\|error"; then
             echo "VALIDATION ERROR: $f"
             echo "$result" | grep -E "✗|error|→" | head -5

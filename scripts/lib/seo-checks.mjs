@@ -1,7 +1,7 @@
 /**
  * seo-checks — build 済み HTML の SEO 検査関数ライブラリ。
  *
- * out/ 直接検査（scripts/check-seo-build.mjs）と check-seo-meta（out/ 主経路・HTTP 副経路）が
+ * out/ 直接検査（scripts/checks/check-seo-build.mjs）と check-seo-meta（out/ 主経路・HTTP 副経路）が
  * 同一の検査ロジックを共有するための純粋関数群。regex ではなく構造化 HTML パーサ
  * （node-html-parser）で解析し、title / description / self canonical / self og:url / robots /
  * JSON-LD / SSR（main・H1・本文）/ 内部リンクを検査する。

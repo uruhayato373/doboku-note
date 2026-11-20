@@ -477,7 +477,7 @@ async function prepareInstagramPinned() {
     throw new Error('投稿日時は3時間以上先のISO +09:00で指定する');
   }
   const { execFileSync } = await import('node:child_process');
-  execFileSync(process.execPath, [join(ROOT, 'scripts/check-instagram-profile-funnel.mjs')], { cwd: ROOT, stdio: 'inherit' });
+  execFileSync(process.execPath, [join(ROOT, 'scripts/checks/check-instagram-profile-funnel.mjs')], { cwd: ROOT, stdio: 'inherit' });
   const { readFileSync, existsSync } = await import('node:fs');
   const { createHash } = await import('node:crypto');
   const { readDataset } = await import('./lib/dataset-io.mjs');

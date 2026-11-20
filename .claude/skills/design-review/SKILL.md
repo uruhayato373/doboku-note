@@ -135,7 +135,7 @@ UI コンポーネントを書く Generator（Claude Code 本体）と視覚回�
 
 ### 静的 lint（決定論的）
 
-`node scripts/lint-ui.mjs` を変更ファイルに対して実行。以下を HIGH として報告:
+`node scripts/checks/lint-ui.mjs` を変更ファイルに対して実行。以下を HIGH として報告:
 
 - `border-gray-{100,200,300,...}` に `dark:border-*` が無い
 - `rounded-{lg,xl,2xl,3xl}` + `shadow-*` の直書き（デザイントークン `rounded-card-*` / `shadow-card-*` を使うべき）
@@ -246,6 +246,6 @@ Usage sample: /docs/pe-comprehensive-management-section-1
 
 ### 参照
 
-- `scripts/lint-ui.mjs` — 静的 lint の実装
+- `scripts/checks/lint-ui.mjs` — 静的 lint の実装
 - `src/styles/globals.css` — デザイントークン定義（`:root` の `--radius-card-*` / `--shadow-card-*`）
 - `CLAUDE.md` — UI コンポーネント必須ルール（デザイントークン・ダークモード）

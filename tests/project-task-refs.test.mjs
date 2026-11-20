@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { auditProjectDoc } from '../scripts/check-project-task-refs.mjs';
+import { auditProjectDoc } from '../scripts/checks/check-project-task-refs.mjs';
 
 const IDS = new Set(['DN-0001', 'DN-0026']);
 
@@ -88,7 +88,7 @@ test('次のアクション以外の見出し配下の未チェックは warning
 });
 
 // todo-complete が削除前に呼ぶ: 閉じる ID を指す live 文書を列挙する（2026-09-24 DN-0299 の参照切れ）
-import { liveDocsReferencing } from '../scripts/check-project-task-refs.mjs';
+import { liveDocsReferencing } from '../scripts/checks/check-project-task-refs.mjs';
 
 test('liveDocsReferencing: 閉じる ID を指す live 文書だけを返す', () => {
   const docs = [

@@ -24,7 +24,7 @@ test('収録記事の取得失敗は 0 件にせず、過半なら検査不成�
       ].join('\n'),
     );
     chmodSync(join(bin, 'curl'), 0o755);
-    const r = spawnSync('node', ['scripts/verify-note-magazines.mjs', '--contents'], {
+    const r = spawnSync('node', ['scripts/checks/verify-note-magazines.mjs', '--contents'], {
       cwd: ROOT,
       encoding: 'utf8',
       env: { ...process.env, PATH: `${bin}:${process.env.PATH}` },

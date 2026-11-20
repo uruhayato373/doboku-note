@@ -176,7 +176,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
   dumpFailure / findUniqueByLabels。コピーはしない）
 - 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
 - テスト（node:test・20件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
-- 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
+- 継続運用: `scripts/checks/check-a8-report-due.mjs`（surfacer）／`scripts/checks/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
 - 設定 SoT: `config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
 - SSOT: `data/a8/report-log.json`
   （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝案件に対応した行＋当期の口座横断の行 / `monthly`・`daily`＝口座横断 /

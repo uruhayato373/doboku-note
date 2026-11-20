@@ -43,5 +43,5 @@
 ## 答案の作り方
 
 - 型と字数帯は `config/cce-essay-history.json` の `answerModel`（立場別記事は `personaArticle`）。(1) 表題・(3) 業務との関係・(4) 今後の対策を立場ごとに書き、(2) 現状と課題は同じテーマで共通にする。
-- 執筆は `essay-writer`（資格 cce）、採点は `essay-qa`（資格 cce）（テーマ単位で8本ずつ）。機械ゲートは `node scripts/check-cce-essay.mjs`（同じテーマで (1)・(4) が同じ文面なら H12 で止める）。
+- 執筆は `essay-writer`（資格 cce）、採点は `essay-qa`（資格 cce）（テーマ単位で8本ずつ）。機械ゲートは `node scripts/checks/check-cce-essay.mjs`（同じテーマで (1)・(4) が同じ文面なら H12 で止める）。
 - テーマ別5本（1本に8立場）は note から外し、原稿はココナラ K3 の PDF 素材として残す。

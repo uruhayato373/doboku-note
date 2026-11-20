@@ -67,7 +67,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ### 1. コードを書く前に考える
 - **作業開始前に `git branch --show-current` でブランチ確認**。指示と異なれば作業を止めてユーザーに報告する（勝手に `git checkout` しない）
-- **同時に origin との遅れを確認**: `git fetch -q && git log --oneline main..origin/main | head`。複数セッション・worktree 常態＋CI が deploy で main に自動マージするため数十コミット遅れは高頻度。遅れていれば同期してから着手し、**古いベース上のコミットを push しない**（破壊的な reset/同期はユーザー確認後。SessionStart フック `scripts/check-git-sync.mjs` が警告する。経緯 → workflows.md「ブランチ・並行セッション運用」）
+- **同時に origin との遅れを確認**: `git fetch -q && git log --oneline main..origin/main | head`。複数セッション・worktree 常態＋CI が deploy で main に自動マージするため数十コミット遅れは高頻度。遅れていれば同期してから着手し、**古いベース上のコミットを push しない**（破壊的な reset/同期はユーザー確認後。SessionStart フック `scripts/checks/check-git-sync.mjs` が警告する。経緯 → workflows.md「ブランチ・並行セッション運用」）
 - **確認を挟むのは、解釈の違いで成果物が大きく変わるときだけ**（候補を提示して選ばせる）。それ以外は自分で決めて最後まで進める。依頼に誤りがありそう・もっと良い方法があるときは一言だけ指摘してから、依頼どおりに実行する（勝手に範囲を狭めない・広げない・別のものに変えない）
 
 ### 2. シンプルさを最優先する

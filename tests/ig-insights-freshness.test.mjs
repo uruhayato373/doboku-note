@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { assessIgInsights } from '../scripts/check-ig-insights-freshness.mjs';
+import { assessIgInsights } from '../scripts/checks/check-ig-insights-freshness.mjs';
 
 const NOW = Date.parse('2026-09-21T00:00:00Z');
 const nowSec = Math.floor(NOW / 1000);

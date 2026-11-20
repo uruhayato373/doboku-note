@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { auditGscRun } from '../scripts/check-gsc-ui-run.mjs';
+import { auditGscRun } from '../scripts/checks/check-gsc-ui-run.mjs';
 import { exitCodeOf } from '../scripts/lib/run-audit.mjs';
 
 const sha = (s) => createHash('sha256').update(s).digest('hex');

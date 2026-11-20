@@ -164,7 +164,7 @@ function runScanner(jsonLdObjects) {
       path.join(dir, 'sitemap.xml'),
       '<?xml version="1.0"?><urlset><url><loc>https://doboku-note.com/</loc></url></urlset>',
     );
-    const res = spawnSync(process.execPath, ['scripts/check-seo-build.mjs', '--ci', '--out', dir], {
+    const res = spawnSync(process.execPath, ['scripts/checks/check-seo-build.mjs', '--ci', '--out', dir], {
       cwd: ROOT,
       encoding: 'utf8',
     });

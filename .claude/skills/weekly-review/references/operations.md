@@ -23,11 +23,11 @@
 - `scripts/x-queue-surfacer.mjs` — X 予約キューの未投入下書き surfacer（本スキル Agent I の中核。`npm run x-queue-surfacer`）
 - `scripts/fetch-gsc-data/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
-- `scripts/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
-- `scripts/build-growth-digest.mjs` / `scripts/growth-triage.mjs` / `scripts/check-growth-triage.mjs` — 計測ダイジェスト・全件トリアージ・月曜の反映ゲート（本スキル Agent G と Phase 2.5 の中核。真実源 [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)）
-- `scripts/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（日次 ops `note-delivery-due`）
-- `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
-- `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（CI ゲート `coconala-blog`）
-- `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`/google-search-growth` で使う）
-- `scripts/check-disk-hygiene.mjs` — ローカル容量の surfacer（quality-audit report `disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
+- `scripts/checks/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
+- `scripts/build-growth-digest.mjs` / `scripts/growth-triage.mjs` / `scripts/checks/check-growth-triage.mjs` — 計測ダイジェスト・全件トリアージ・月曜の反映ゲート（本スキル Agent G と Phase 2.5 の中核。真実源 [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)）
+- `scripts/checks/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（日次 ops `note-delivery-due`）
+- `scripts/checks/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
+- `scripts/checks/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（CI ゲート `coconala-blog`）
+- `scripts/checks/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`/google-search-growth` で使う）
+- `scripts/checks/check-disk-hygiene.mjs` — ローカル容量の surfacer（quality-audit report `disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
 - `.claude/skills/nsm-experiment/references/definition.md` — NSM 定義の真実源

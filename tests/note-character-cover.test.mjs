@@ -136,7 +136,7 @@ test('article, magazine and batch generators share one inventory so a single rer
   assert.equal(inventory.errors.length, 0);
   assert.ok(inventory.retired.some(r => r.id === 'whitepaper-r7-strategy'));
   // 通常生成器は旧 G2/V4 テンプレを import しない（1 件再生成で旧デザインへ戻る回帰の静的ゲート）
-  for (const file of ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/check-note-cover-fit.mjs']) {
+  for (const file of ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/checks/check-note-cover-fit.mjs']) {
     const source = readFileSync(resolve(root, file), 'utf8');
     assert.doesNotMatch(source, /ogp-templates\.mjs|renderTemplate\(|v4FitIssues/, file);
     assert.match(source, /note-cover-inventory\.mjs/, file);

@@ -149,7 +149,7 @@ function lintFindings(rel, raw) {
   writeFileSync(file, raw);
   let out = '';
   try {
-    out = execFileSync('node', [join(CLAUDE_ROOT, 'scripts', 'lint-mdx-mobile.mjs'), file], { cwd: REPO_ROOT, encoding: 'utf8' });
+    out = execFileSync('node', [join(REPO_ROOT, 'scripts', 'checks', 'lint-mdx-mobile.mjs'), file], { cwd: REPO_ROOT, encoding: 'utf8' });
   } catch (e) {
     out = String(e.stdout ?? '');
   }

@@ -69,7 +69,7 @@ target: coconala
 
 1. 変更内容を提示 → 承認後に `npm run product -- set` で反映（満枠・休止・価格）。
 2. 価格改定は `price`（表示文字列）と `priceYen`（機械照合）を**必ず同時**に更新し、キットの価格表も同一 commit で更新。反映は `/coconala-publish`。
-3. `node scripts/check-coconala-wiring.mjs` を実行して exit 0 を確認してから完了と報告。
+3. `node scripts/checks/check-coconala-wiring.mjs` を実行して exit 0 を確認してから完了と報告。
 
 ## 安全弁（1つでも違反したら成果物を出さない）
 
@@ -99,6 +99,6 @@ target: coconala
 - 出品スクリプト: `scripts/coconala-publish.mjs`（bare 名の画像は `content/coconala/assets/` に解決）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs` / `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
 - プロフィール: `scripts/coconala-profile.mjs`・`coconala-cover.mjs`／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
-- 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit）
+- 機械ガード: `scripts/checks/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_no_price_in_mdx_body]]

@@ -149,7 +149,7 @@ function apply(loaded) {
   writeFileSync(LOG, `${JSON.stringify({ schemaVersion: 1, entries: [...log.entries, ...entries] }, null, 2)}\n`);
   changed.push(LOG);
   try {
-    execFileSync('node', ['scripts/check-backlog-schema.mjs'], { stdio: 'inherit' });
+    execFileSync('node', ['scripts/checks/check-backlog-schema.mjs'], { stdio: 'inherit' });
   } catch {
     for (const [p, body] of originals) if (body != null) writeFileSync(p, body);
     console.error(`${TAG} ✗ check-backlog-schema が落ちたため全ファイルを元に戻した`);

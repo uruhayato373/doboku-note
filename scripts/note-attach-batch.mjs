@@ -34,7 +34,7 @@ const LIMIT = Number((argv.indexOf('--limit') >= 0 ? argv[argv.indexOf('--limit'
 
 if (!existsSync(MISSING)) {
   console.error(`欠落リストがありません: ${MISSING}`);
-  console.error('先に実査する: node scripts/check-note-attachments.mjs --live');
+  console.error('先に実査する: node scripts/checks/check-note-attachments.mjs --live');
   process.exit(1);
 }
 const { measuredAt, missing } = JSON.parse(readFileSync(MISSING, 'utf8'));
@@ -83,7 +83,7 @@ const today = todayJst();
 if (measuredAt !== today) {
   console.warn(`\n★ 母集団が古い（実測 ${measuredAt} / 今日 ${today}）。`);
   console.warn('  これ以降に公開した記事は母集団に入っていないため、ここで「残 0」になっても未添付が残りうる。');
-  console.warn('  実査で採り直す: node scripts/check-note-attachments.mjs --live\n');
+  console.warn('  実査で採り直す: node scripts/checks/check-note-attachments.mjs --live\n');
 }
 const batch = todo.slice(0, LIMIT);
 console.log(`今回の対象: ${batch.length} 件（--limit ${LIMIT}・note の1日100件上限に合わせる）\n`);
@@ -139,5 +139,5 @@ for (const [i, j] of batch.entries()) {
 
 console.log(`\n[note-attach-batch] 成功 ${ok} / 失敗 ${fail} / 残 ${todo.length - ok}`);
 console.log(`done-log: .claude/state/note-attach-done.json（commit すること）`);
-console.log(`確認: node scripts/check-note-attachments.mjs --live`);
+console.log(`確認: node scripts/checks/check-note-attachments.mjs --live`);
 process.exit(fail && ok === 0 ? 1 : 0);

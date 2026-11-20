@@ -18,7 +18,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { describeFigure, captionStatus, hasFigureCaption } from './lib/figure-review.mjs';
-import { analyzeImage } from './check-figure-crop-integrity.mjs';
+import { analyzeImage } from './checks/check-figure-crop-integrity.mjs';
 
 const SHEET_MAX_H = 700;
 const GAP = 24;

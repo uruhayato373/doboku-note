@@ -1,7 +1,7 @@
 import { freshnessDays } from '../scripts/lib/datasets.mjs';
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
-import { assessNoteSyncFreshness } from '../scripts/check-note-sync-freshness.mjs';
+import { assessNoteSyncFreshness } from '../scripts/checks/check-note-sync-freshness.mjs';
 
 const now = Date.parse('2026-10-10T12:00:00Z');
 

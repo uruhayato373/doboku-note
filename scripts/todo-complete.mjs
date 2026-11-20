@@ -34,7 +34,7 @@ import { checkCompleteReadiness, parsePrevention, readClaimsStore, CLAIMS_PATH }
 import { deleteCard } from './backlog-edit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
-import { liveDocsReferencing, readProjectDocs } from './check-project-task-refs.mjs';
+import { liveDocsReferencing, readProjectDocs } from './checks/check-project-task-refs.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const BACKLOG = '.claude/todo/backlog.md';
@@ -159,9 +159,9 @@ if (planUnit) {
 
 // 8. 検査再実行
 try {
-  execFileSync('node', ['scripts/check-backlog-schema.mjs'], { stdio: 'inherit' });
-  execFileSync('node', ['scripts/check-task-plan-links.mjs'], { stdio: 'inherit' });
-  execFileSync('node', ['scripts/check-dispatch-log.mjs'], { stdio: 'inherit' });
+  execFileSync('node', ['scripts/checks/check-backlog-schema.mjs'], { stdio: 'inherit' });
+  execFileSync('node', ['scripts/checks/check-task-plan-links.mjs'], { stdio: 'inherit' });
+  execFileSync('node', ['scripts/checks/check-dispatch-log.mjs'], { stdio: 'inherit' });
 } catch {
   console.error(`\n[todo-complete] 事後検査が失敗した。${id} の削除で構造を壊していないか確認すること。`);
   process.exit(1);

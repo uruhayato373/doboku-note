@@ -26,7 +26,7 @@ backlog の「実行」と「削除」を回す。タスクの選定は**スク�
 ### 起動条件
 
 **判定は機械が持つ**（散文のままでは誰も判定せず、人が覚えている間しか回らない）。
-`scripts/check-backlog-health.mjs` の `DUE_RULES` が唯一の実装で、SessionStart フックが
+`scripts/checks/check-backlog-health.mjs` の `DUE_RULES` が唯一の実装で、SessionStart フックが
 `--due` で毎セッション評価し、**踏んだときだけ**セッション開幕に 1 ブロック出す。
 
 ```bash
@@ -65,7 +65,7 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 
 ### 手順
 
-1. `node scripts/check-backlog-health.mjs --json` で候補シグナルを取る
+1. `node scripts/checks/check-backlog-health.mjs --json` で候補シグナルを取る
 2. **親が実体を検証する**: 対象カードの `[検証:cmd]` を実走し、`git log --oneline -30` と関連 SSOT の現物値を集める（エージェントには推測でコマンドを叩かせない）
 3. tier セクションをシャードにして `backlog-curator` を**同時 3 体まで**起動（🔴 / 🟡 / 🟢+🟣）。1 体あたり 25〜35 枚
 4. 返ってきた verdict（KEEP / RETAG / TRIM / MERGE / DELETE / RESEED / SPLIT）を**親が裁定して適用**する。エージェントは backlog.md を編集しない
@@ -73,7 +73,7 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
    - **SPLIT**（1 カード内に独立した残作業が複数）: 各残作業を `--next-id` で新規カードへ分割し、元カードは削除
    - **RESEED は残作業を明文化できる場合のみ適用する**（できなければ KEEP に留める。「たぶん要らない」で消さない）
 5. 適用後に `check-backlog-schema` と `check-backlog-health` を回して S2/S3/S4/S6/S9/S11/S12 が 0 に戻ったか確認
-6. **実施を記録する**: `node scripts/check-backlog-health.mjs --record-audit`
+6. **実施を記録する**: `node scripts/checks/check-backlog-health.mjs --record-audit`
    （`.claude/state/backlog/audit-log.json`。月初条件はこの記録を見るので、書かないと翌セッションから催促が続く。**回していないのに記録しない**）
 
 ### 退役条件

@@ -10,7 +10,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 > **件数・model・tools の正本**は `.claude/agents/*.md` の frontmatter。下の「スキル → エージェント呼出マップ」と「エージェント一覧」は `npm run build-capability-index` の生成物で、手では直さない（`npm run check-doc-coupling` が一致を見る）。変更の経緯は git の履歴が持つ。
 
-**description の運用**: 呼出時の概要は 120 code points 以下（1 文＋必要なら Use when）とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
+**description の運用**: 呼出時の概要は 120 code points 以下（1 文＋必要なら Use when）とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/checks/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -283,7 +283,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 **PE ガイド記事（`group: guide`）の Evaluator は部分割当**: `keyword-qa` は原則キーワードページ専用だが、**横断トレードオフガイド（`management-tradeoffs`）の §23 構造チェック**は keyword-qa（資格 cem）の追加スコープとして 2026-05-28 起動済み（核同士の対称関係宣言・固有名詞混入・SpecSheetList 個数・評価軸メタ解説）。他の `group: guide` 記事（戦略系 Type-1 / 俯瞰系 Type-2）は依然 lint-mdx-mobile.mjs カテゴリ 12 で構造違反を機械検知のみ。Phase 2 で `guide-qa` Evaluator 新設を検討（note CTA 整合性・サイト内回遊密度の 3 軸）。
 
-**UI・ページデザイン**は Generator/Evaluator を分離する: Generator＝`page-design-builder`（`design-system.md` 単一 SSOT 準拠でページ/レイアウト/UI コンポーネントを実装）、Evaluator＝`/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合・light/dark × desktop/mobile 視覚回帰 + 7 カテゴリ）。静的 lint は `scripts/lint-ui.mjs`。図版 SVG は別系統（`svg-canvas-fitter`/`svg-figure-rewriter` ↔ `svg-figure-auditor`）。
+**UI・ページデザイン**は Generator/Evaluator を分離する: Generator＝`page-design-builder`（`design-system.md` 単一 SSOT 準拠でページ/レイアウト/UI コンポーネントを実装）、Evaluator＝`/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合・light/dark × desktop/mobile 視覚回帰 + 7 カテゴリ）。静的 lint は `scripts/checks/lint-ui.mjs`。図版 SVG は別系統（`svg-canvas-fitter`/`svg-figure-rewriter` ↔ `svg-figure-auditor`）。
 
 ---
 

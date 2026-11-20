@@ -3,7 +3,7 @@ name: YouTube own-channel metrics (monthly)
 # 自社 YouTube の動画別の再生数・尺（台帳 youtube.own-videos）を毎月 1 日に取り、前回比が取り忘れで切れないようにする（DN-0596）。
 # 実装: scripts/youtube-own-metrics.mjs（yt-dlp のチャンネル一覧を読むだけ。動画の再生用 API と映像は使わない）。
 # exit: 0 取得成功 / 1 取得失敗 / 2 検査不成立（動画はあるのに再生数が 1 本も取れない。記録は書かない）。Issue channel: youtube-own-metrics
-# 鮮度の検査: scripts/check-youtube-own-freshness.mjs（quality-audit の ops・日次の ops-audit が読む）。
+# 鮮度の検査: scripts/checks/check-youtube-own-freshness.mjs（quality-audit の ops・日次の ops-audit が読む）。
 #
 # probe_competitors: 競合チャンネルの一覧を GitHub Actions のランナーから yt-dlp で取れるかの確認（DN-0596 手順 1）。
 #   1 チャンネル・10 本だけ取って結果をログに出す。記録（data/）には何も書かず、develop へも push しない。

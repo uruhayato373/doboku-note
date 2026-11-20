@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { CHECKS } from '../scripts/quality-audit.mjs';
-import { checkE2EExecution } from '../scripts/check-e2e-execution.mjs';
+import { checkE2EExecution } from '../scripts/checks/check-e2e-execution.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const fixture = () => ({ stats: { expected: 2, unexpected: 0, flaky: 0, skipped: 0 }, suites: [{ specs: [{ tests: [
@@ -65,5 +65,5 @@ test('CIでstandards-dataの生成漏れをスキップせず、生成とE2E実�
 
 
 test('JSONレポートが存在しないCLI実行も失敗にする', () => {
-  assert.throws(() => execFileSync(process.execPath, [join(ROOT, 'scripts/check-e2e-execution.mjs'), '--report', '.tmp/nonexistent-e2e-execution-report.json'], { cwd: ROOT, stdio: 'pipe' }), (error) => error.status === 1 && String(error.stderr).includes('検査不成立'));
+  assert.throws(() => execFileSync(process.execPath, [join(ROOT, 'scripts/checks/check-e2e-execution.mjs'), '--report', '.tmp/nonexistent-e2e-execution-report.json'], { cwd: ROOT, stdio: 'pipe' }), (error) => error.status === 1 && String(error.stderr).includes('検査不成立'));
 });

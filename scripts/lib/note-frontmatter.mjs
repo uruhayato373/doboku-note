@@ -14,7 +14,7 @@ import { dirname, join } from 'node:path';
 import matter from 'gray-matter';
 
 // 本文が「PDF を配る」と約束している signature（単一真実源）。
-// 元は scripts/check-note-attachments.mjs のローカル定義（PROMISE_RE）。DN-0147 で
+// 元は scripts/checks/check-note-attachments.mjs のローカル定義（PROMISE_RE）。DN-0147 で
 // scripts/lib/note-frontmatter.mjs の pdfPromise 判定がこれより狭い `/PDF/ && /(ダウンロード|添付|配布)/`
 // を独自実装しており、「印刷用PDF」のような言い回しを拾えず 本文再公開の
 // pdfReady/pdfMissing 判定を ready 側に誤らせていた（2026-08-27 実測4件）。

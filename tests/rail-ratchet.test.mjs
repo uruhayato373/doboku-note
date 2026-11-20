@@ -3,7 +3,7 @@
 //   - カードの題名は MetaCard の title（nav-card-title の手書きを戻さない）
 //   - 右の欄に入るカードの部品に、手書きの区切り線の行・手書きの外枠を戻さない（LinkRow・MetaCard を使う）
 //   - data-rail-kind に書く種類は台帳にあるものだけ
-// ビルド後の HTML（右の欄の 1 つ 1 つが台帳の種類か）は scripts/check-cta-density.mjs の rail-kind-unknown が見る。
+// ビルド後の HTML（右の欄の 1 つ 1 つが台帳の種類か）は scripts/checks/check-cta-density.mjs の rail-kind-unknown が見る。
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { relative } from 'node:path';

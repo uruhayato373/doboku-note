@@ -52,9 +52,9 @@ import { listFiles } from './lib/fs-walk.mjs';
 export async function run({ argv = process.argv.slice(2) } = {}) {
   return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
-const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
-const MAG_CTA_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-magazine-cta.mjs');
-const SET_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-3set.mjs');
+const BOLD_CHECKER = join(ROOT, 'scripts', 'checks', 'check-note-bold-paren.mjs');
+const MAG_CTA_CHECKER = join(ROOT, 'scripts', 'checks', 'check-note-magazine-cta.mjs');
+const SET_CHECKER = join(ROOT, 'scripts', 'checks', 'check-note-3set.mjs');
 
 function stagedNoteArticles() {
   try {

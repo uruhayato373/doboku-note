@@ -37,8 +37,8 @@ npm run x-article:publish -- --article 1 --dry-run
 4. 文字数、URL、全予約の衝突を検査する。
 
 ```bash
-node scripts/check-x-length.mjs --draft 094
-node scripts/check-sns-urls.mjs
+node scripts/checks/check-x-length.mjs --draft 094
+node scripts/checks/check-sns-urls.mjs
 npm run x-schedule-guard
 ```
 

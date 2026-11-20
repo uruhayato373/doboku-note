@@ -65,7 +65,7 @@ test('basisDriveIssues: ETIMEDOUT の本は照合せず unreadable に数え、�
 test('check-content-series: Drive の読み取りが ETIMEDOUT でも落ちずに WARN と件数を出す', () => {
   const { vault, books } = fakeVault();
   try {
-    const r = spawnSync(process.execPath, ['scripts/check-content-series.mjs'], {
+    const r = spawnSync(process.execPath, ['scripts/checks/check-content-series.mjs'], {
       cwd: ROOT, encoding: 'utf8', env: { ...process.env, DOBOKU_DRIVE_VAULT: vault, DOBOKU_DRIVE_READ_FAULT: 'ETIMEDOUT' },
     });
     const out = r.stdout + r.stderr;

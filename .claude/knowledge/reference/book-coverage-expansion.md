@@ -13,7 +13,7 @@ title: 書籍の網羅をサイトへ展開する（Writer・QA・写真の手�
 道具はリポジトリにある（DN-0621）。どの PC でも、判定と候補表を Drive から取り戻せば同じ手順で回せる。
 
 1. `npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` で判定（verdict.json）と候補表を手元へ取り戻す。
-2. `node scripts/audit-reference-book-coverage.mjs --briefs [--source-id <id> | --shelf <棚>] [--alias <json>]` で、判定の計画を記事ごとの brief に束ねる。書き出し先は `.tmp/book-coverage/briefs/`（市販書籍の見出しを含むので git 管理外）。同じ記事に効く複数の本の追記は 1 本の brief になる。`items.json` が workflow に渡す記事の一覧。
+2. `node scripts/checks/audit-reference-book-coverage.mjs --briefs [--source-id <id> | --shelf <棚>] [--alias <json>]` で、判定の計画を記事ごとの brief に束ねる。書き出し先は `.tmp/book-coverage/briefs/`（市販書籍の見出しを含むので git 管理外）。同じ記事に効く複数の本の追記は 1 本の brief になる。`items.json` が workflow に渡す記事の一覧。
 3. 出力の「要確認」を読む。新しい記事の案が既にある記事・同じ資格で題名の近い案・既存記事に近い案を挙げる。同じ主題の案は 1 本にまとめ、`{"<案の slug>": "<寄せる先>"}`（題名も変えるなら `{"to": "…", "title": "…"}`）の JSON を `--alias` に渡して作り直す（2026-10-09 に、経営事項審査の新規案が 3 冊から別々に出ていた）。
 4. Workflow `book-coverage-expand`（`.claude/workflows/book-coverage-expand.js`）を、args `{ root: "<リポジトリの絶対パス>", items: <items.json の中身> }` で回す。Writer → QA → 修正 → コミットを記事ごとに進め、コミットは `node scripts/book-coverage-commit.mjs` が 1 本ずつ行う（排他・trailer `Book-Coverage:`・図のサイズの検査・一時の作業ツリーでの静的インデックスの作り直し・develop への push）。QA から再開する記事は item に `"startAt": "qa"` を足す。コミットの段（`book-coverage-photos` は Finalize の段）は effort low で回し、コミットできなかった記事だけ high で 1 回やり直す。やり直した記事は戻り値の `escalated` に出る。執筆・QA・修正は判定が意味の評価なので、effort を下げない。
 5. 写真は、展開の結果の `photosWanted` から `{ article, file, photos: [{ afterHeading, subject }] }` を作り、Workflow `book-coverage-photos` を args `{ root, items }` で回す（§3）。
@@ -74,11 +74,11 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 
 ### 完了条件（Writer が自分で回す）
 
-- `node scripts/lint-mdx-mobile.mjs <article.mdx>`: 追記で増えた指摘が 0。
+- `node scripts/checks/lint-mdx-mobile.mjs <article.mdx>`: 追記で増えた指摘が 0。
 - `npx textlint <article.mdx>`: 指摘 0（`npx textlint --fix` で機械修正できる）。
-- `node scripts/check-figure-canvas.mjs`: 通る。
-- `node scripts/check-image-assets.mjs --ci`: この記事の図に `size-new`（サイズ上限 10KB 超え）が無い。超えたら、同じ値の属性（`font-size`・`text-anchor` など）を親の `<g>` にまとめ、既定値の属性（`stroke-width="1"`）を省いて軽くする。指定の無かった要素が親の値を受け継がないよう、元の既定値は明示する（2026-10-09 に 2 枚が CI で落ちた）。
-- `node scripts/check-reference-sources.mjs --deep 2>&1 | grep <記事のパス>`: 一致 0。40 字以上の一致があれば言い換える。
+- `node scripts/checks/check-figure-canvas.mjs`: 通る。
+- `node scripts/checks/check-image-assets.mjs --ci`: この記事の図に `size-new`（サイズ上限 10KB 超え）が無い。超えたら、同じ値の属性（`font-size`・`text-anchor` など）を親の `<g>` にまとめ、既定値の属性（`stroke-width="1"`）を省いて軽くする。指定の無かった要素が親の値を受け継がないよう、元の既定値は明示する（2026-10-09 に 2 枚が CI で落ちた）。
+- `node scripts/checks/check-reference-sources.mjs --deep 2>&1 | grep <記事のパス>`: 一致 0。40 字以上の一致があれば言い換える。
 - 文字化け（U+FFFD）が 0。
 - 新しい記事なら `npm run check-guide-length` と `npm run check-content-taxonomy` も回す。
 
@@ -111,7 +111,7 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 2. `npm run gen-article-photo -- --fig <資格>/<slug>/img/photo-<英語のスラッグ> --prompt "…"` を回す。1 枚ずつ、親が指定した順番で回す。同時に回すと台帳の JSON がぶつかる。
 3. 記事の指定の位置に `<ArticleImage src="/posts/<資格>/<slug>/img/photo-….webp" alt="…" width={960} height={720} />` を入れる。生成の結果に寸法が出たら、それに合わせる。
 4. できた画像を Read で見て、本文と食い違う形や生成の破綻があれば、prompt を直して作り直す。
-5. 返答に、図のキー（`<資格>/<slug>/img/photo-…`）・prompt・本文の該当箇所を書く。親が `ai-image-fidelity-auditor` に監査させ、`node scripts/check-image-origin.mjs record-ai` で記録する。
+5. 返答に、図のキー（`<資格>/<slug>/img/photo-…`）・prompt・本文の該当箇所を書く。親が `ai-image-fidelity-auditor` に監査させ、`node scripts/checks/check-image-origin.mjs record-ai` で記録する。
 
 ## 4. シリーズの章を書く（Workflow `series-chapter`）
 
@@ -124,7 +124,7 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 ### 親が先にすること
 
 1. 章の記事の置き場（`content/site/<区分>/<slug>/article.mdx`）を決め、台帳の項目の `paths` に入れる（書けた記事を台帳が追えるように）。
-2. `node scripts/check-content-series.mjs --packet <シリーズ id>/<項目 id> --article <記事のパス>` で章の資料（packet）を `.tmp/book-coverage/series/<slug>.packet.md` に作る（割り当てた本の項目の一覧。Drive が要る）。
+2. `node scripts/checks/check-content-series.mjs --packet <シリーズ id>/<項目 id> --article <記事のパス>` で章の資料（packet）を `.tmp/book-coverage/series/<slug>.packet.md` に作る（割り当てた本の項目の一覧。Drive が要る）。
 3. brief の作り手を決める。章の骨子（下の「章の骨子」）が確認済みなら、それを brief にする（`brief: "outline"`）。骨子の無い章で、本の項目が 3 件以上なら担当（workflow の Brief 段）、0〜2 件の章とハブの章は親が既存記事と一次資料から下の形で `.tmp/book-coverage/series/<slug>.brief.md` を書く（本を読ませる担当を起こすより安い）。
 4. Workflow `series-chapter`（`.claude/workflows/series-chapter.js`）を args `{ root, items }` で回す。item は `{ series, item, article, books, brief: "agent" | "parent" | "outline", dn? }`（`books` はコミットの trailer に書く書籍 id。本の項目が 0 件なら `[]`）。同時 3 体。
 5. 終わったら、返答の `factsVerified` をシリーズの事実ファイル（例 [concrete-practice-sources.md](./concrete-practice-sources.md)・[municipal-civil-engineer-sources.md](./municipal-civil-engineer-sources.md)）へ、`inboundLinks` を既存記事へ、`curriculumHint` を `src/config/category-curriculum.json` へ、`visuals` を台帳の項目へ入れる。

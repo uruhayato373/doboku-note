@@ -88,7 +88,7 @@ if (!decision.run) {
 }
 
 // --- 2. 理由別 UI CSV（月次） --------------------------------------------------
-const dueOut = spawnSync("node", ["scripts/check-gsc-ui-due.mjs", "--json"], { encoding: "utf8" });
+const dueOut = spawnSync("node", ["scripts/checks/check-gsc-ui-due.mjs", "--json"], { encoding: "utf8" });
 let gscUiDue = null;
 try {
   gscUiDue = JSON.parse(dueOut.stdout).channels?.find((c) => c.channel === "gsc-ui")?.due ?? null;
@@ -104,7 +104,7 @@ if (gscUiDue === false) {
   console.log(`${TAG} UI CSV 取得: ${fetched.outcome}`);
   if (fetched.normalize) {
     if (run("node", ["scripts/normalize-google-console-csv.mjs"]) !== 0) problems.push("UI CSV: 正規化に失敗");
-    if (run("node", ["scripts/check-google-ui-ssot.mjs"]) !== 0) problems.push("UI CSV: SSOT の整合検査が赤");
+    if (run("node", ["scripts/checks/check-google-ui-ssot.mjs"]) !== 0) problems.push("UI CSV: SSOT の整合検査が赤");
   }
   if (fetched.outcome === "needs-login") {
     notify("Google に再ログインが必要: npm run google-console:login");

@@ -3,7 +3,7 @@
 // リテラル \n に潰れていた（bash では引数 "n" になる）。再導入で赤くなることを固定する。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findCollapsedContinuations } from '../scripts/check-workflow-hygiene.mjs';
+import { findCollapsedContinuations } from '../scripts/checks/check-workflow-hygiene.mjs';
 
 test('潰れた行継続（リテラル \\n + 空白 + --flag）を 1 件検出する', () => {
   const run = 'node scripts/report-automation-failure.mjs \\n            --channel uptime \\n            --title "x"';

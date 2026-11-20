@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { foreignSiteWids, DOBOKU_A8_WID } from '../scripts/check-affiliate-mats.mjs';
+import { foreignSiteWids, DOBOKU_A8_WID } from '../scripts/checks/check-affiliate-mats.mjs';
 
 // 2026-10-17: DX の広告に stats47（wid=001）の提携の素材を貼っていて、クリックが stats47 に帰属していた。
 test('stats47 のサイト（wid=001）の A8 画像 URL を拾う', () => {

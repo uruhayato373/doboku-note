@@ -10,7 +10,7 @@
  * 「起票済」（直していない EXP）は作らない。check-search-improvements（CI）が改善の記録の無い EXP を止める。
  * 2026-10-13 以前にカードで起票した分は searchStrategy.card と dispatch-log の完了 commit で読む（implementationOf）。
  * EXP は data/business/experiments.json の kind: search-strategy。計測の型は config/search-strategy.json の cycle.measure。
- * 取得（GSC 集計・dispatch-log・本番デプロイ）と書き込みは scripts/search-improvement.mjs。検査は scripts/check-search-improvements.mjs。
+ * 取得（GSC 集計・dispatch-log・本番デプロイ）と書き込みは scripts/search-improvement.mjs。検査は scripts/checks/check-search-improvements.mjs。
  * ---------------------------------------------------------------------------
  */
 import { completeOn, specErrors } from './experiment-measure.mjs';

@@ -381,7 +381,7 @@ slide-data.json
 - `.claude/skills/ig-carousel-restyle/SKILL.md` — 一括再生成
 - `.claude/skills/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
 - 公開状態の照合: `verify-ig-status` でライブ↔SoT 突合（公開の状態の正本は台帳・照合は `verify-ig-status --registry`）。照合の手順書・`/ig-reconcile` スキル・`ig-publish-auditor` は SNS の保留に合わせて 2026-10-25 に外した（git の履歴にある）
-- `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
+- `scripts/checks/lint-exam-pack-structure.mjs` — 構造違反 lint
 - `.claude/knowledge/design-system/instagram-carousel.md` — デザイン仕様
 - `scripts/assets/design-tokens/instagram-carousel-tokens.json` — トークン真実源
 - `.claude/knowledge/reference/links-hub.md` — `/links` SNS bio 中継ページ

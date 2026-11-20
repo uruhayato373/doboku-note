@@ -190,7 +190,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
 - `node scripts/instagram/build-highlight-materials.mjs --all` — 6 ハイライト × 32 PNG 一括生成（モダンシック意匠、ジャンル別カラー）
-- `node scripts/lint-stories-titles.mjs` — title 字数 lint（auto-fit 4 段階判定）
+- `node scripts/checks/lint-stories-titles.mjs` — title 字数 lint（auto-fit 4 段階判定）
 - 執筆・採点のエージェントと設計の文書は、SNS の保留に合わせて 2026-10-25 に外した（git の履歴にある）
 
 **SNS 計測・公開状態照合**（「投稿 → 計測 → 改善」ループ。計測は CI 供給が正・ローカル creds 不要）:

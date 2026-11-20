@@ -164,7 +164,7 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 - 母集合生成: `node scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
 - URL Inspection: `npm run inspect-url -- --file <list>`（2,000 URL/日/property 上限）
 - 集計→履歴: `node scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
-- 既存分析（手順は memory の reference_gsc_diagnosis_toolkit）: `scripts/extract-gsc-coverage-urls.mjs`（未登録の理由ごとの URL 一覧 ex0〜ex4）→ `scripts/analyze-gsc-coverage.mjs`（Inspection と検索の数字の突き合わせ）・`scripts/analyze-hubs.mjs`（hub 強化の優先度）・`scripts/build-noindex-candidates.mjs`（noindex 候補）・`scripts/verify-html-links.mjs`（本番 HTML に内部リンクが出ているか）
+- 既存分析（手順は memory の reference_gsc_diagnosis_toolkit）: `scripts/extract-gsc-coverage-urls.mjs`（未登録の理由ごとの URL 一覧 ex0〜ex4）→ `scripts/analyze-gsc-coverage.mjs`（Inspection と検索の数字の突き合わせ）・`scripts/analyze-hubs.mjs`（hub 強化の優先度）・`scripts/build-noindex-candidates.mjs`（noindex 候補）・`scripts/checks/verify-html-links.mjs`（本番 HTML に内部リンクが出ているか）
 
 ## データの所在
 
@@ -571,7 +571,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 ### 2026-09-24（part-N の sitemap 復帰）
 
 - 判断: 2026-09-17 に外した `/standards/` の逐語分冊 part-N（当時 133 件）を sitemap へ戻す。復帰条件「`/exam/` の索引率 70%」は 9/23 の batch で `/exam/` 1,015 / 1,207＝84.1% になり満たした（サイト全体 79.9%・#485 は同日自動クローズ）
-- 変更: `scripts/generate-sitemap.mjs` の除外と `scripts/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
+- 変更: `scripts/generate-sitemap.mjs` の除外と `scripts/checks/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
 - 読み方の注意: 戻した翌週の batch では part-N（9/7 時点で登録済み 25 / 133）の分だけ検出-未登録が増え、indexed_ratio が数 pt 下がる見込み。**part-N を除いた `/exam/` の索引率で比較する**。自動レビューはこの増加を異常と扱わない
 
 ### 2026-09-24（旧 URL 一時 sitemap の採用）
