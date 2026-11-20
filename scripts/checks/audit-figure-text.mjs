@@ -22,7 +22,7 @@
  *   node scripts/checks/audit-figure-text.mjs --limit 20 # 先頭 20 base のみ（動作確認用・結果ファイルは書かない）
  *   node scripts/checks/audit-figure-text.mjs --json     # 進捗を出さず結果サマリのみ
  */
-import { execSync } from "node:child_process";
+import { execFileSync, execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
@@ -79,7 +79,7 @@ for (const baseRel of bases) {
   // 配信中の画像と同じ寸法の png があればそれを読む（同じ画像の可逆版。webp は非可逆で OCR が句点を拾い直す:
   // 2026-10-06 実測で png→webp に替えると同じ画像で clean→maybe 47 件・maybe→clean 15 件）。寸法が違う png は古い別物なので読まない
   const pngRel = variants.find((v) => /\.png$/i.test(v));
-  const dims = (rel) => { try { return execSync(`magick identify -format "%w %h" "${path.join(POSTS, rel)}[0]"`, { encoding: "utf8" }).trim(); } catch { return null; } };
+  const dims = (rel) => { try { return execFileSync("magick", ["identify", "-format", "%w %h", `${path.join(POSTS, rel)}[0]`], { encoding: "utf8" }).trim(); } catch { return null; } };
   const chosen = pngRel && (pngRel === served || dims(pngRel) === dims(served)) ? pngRel : served;
   let src = /\.png$/i.test(chosen) ? path.join(POSTS, chosen) : null;
   if (!src) {

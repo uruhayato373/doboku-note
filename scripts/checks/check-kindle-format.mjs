@@ -25,7 +25,7 @@
 //
 // 終了コード: 全 PASS=0 / 1つでも FAIL=1
 
-import { execSync } from 'node:child_process'
+import { execFileSync } from 'node:child_process'
 import { readdirSync, existsSync } from 'node:fs'
 import { join, basename } from 'node:path'
 import { KINDLE_DIST_DIR } from '../lib/kindle-catalog.mjs'
@@ -33,12 +33,12 @@ import { KINDLE_DIST_DIR } from '../lib/kindle-catalog.mjs'
 const MIN_LINE_HEIGHT = 1.5
 
 function listEntries(epub) {
-  return execSync(`unzip -Z1 ${JSON.stringify(epub)}`, { encoding: 'utf8' })
+  return execFileSync('unzip', ['-Z1', epub], { encoding: 'utf8' })
     .split('\n').map((s) => s.trim()).filter(Boolean)
 }
 function readEntry(epub, name) {
   try {
-    return execSync(`unzip -p ${JSON.stringify(epub)} ${JSON.stringify(name)}`, {
+    return execFileSync('unzip', ['-p', epub, name], {
       encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
     })
   } catch {

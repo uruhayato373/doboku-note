@@ -31,7 +31,7 @@
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { loadSiteRoutes, siteUrlForSlug } from '../../lib/site-links.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../lib/repository-paths.mjs';
@@ -184,7 +184,7 @@ function runScreen() {
   console.log('[screen] lint-mdx-mobile.mjs 実行中...');
   let lintOutput = '';
   try {
-    lintOutput = execSync(`node ${displayPath(LINT_SCRIPT)} ${displayPath(BASE_DIR)}/`, {
+    lintOutput = execFileSync(process.execPath, [displayPath(LINT_SCRIPT), `${displayPath(BASE_DIR)}/`], {
       cwd: REPO_ROOT,
       encoding: 'utf-8',
       maxBuffer: 50 * 1024 * 1024,

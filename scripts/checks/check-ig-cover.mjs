@@ -79,7 +79,7 @@ for (const f of files) {
   // 4. 固定バッジ
   if (!svg.includes(labels.badge)) problems.push(`${f}: 資格別バッジ「${labels.badge}」が無い`);
   // 5. フッター文言
-  if (!svg.includes('doboku-note.com')) problems.push(`${f}: フッターが "doboku-note.com" でない`);
+  if (!/(?<![\w.-])doboku-note\.com(?![\w.-])/.test(svg)) problems.push(`${f}: フッターが "doboku-note.com" でない`);
   if (svg.includes('@doboku-note')) problems.push(`${f}: 旧フッター "@doboku-note" を使用（"doboku-note.com" に統一）`);
   // 8. カバー背景色（管理区分によらず全パック共通 navy）
   // svg-base.mjs の MGMT_COLORS を誤参照して管理区分別色を使うドリフトを防ぐ（2026-06-25）

@@ -50,7 +50,9 @@ function expectedImagesOf(raw) {
   const fm = raw.startsWith('---') ? raw.split('---')[1] || '' : '';
   const isPaid = /notePricing:\s*"?paid"?/.test(fm);
   const boundary = (fm.match(/paidBoundary:\s*"?(.+?)"?\s*$/m) || [])[1] || '試験問題|予想問題';
-  let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '').replace(/<!--[\s\S]*?-->\r?\n?/g, '');
+  let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
+  // 入れ子・分断されたコメントの消し残しが無くなるまで繰り返す
+  for (let prev = null; prev !== body;) { prev = body; body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, ''); }
   const lines = body.split('\n');
   const isImg = (l) => /^\s*!\[[^\]]*\]\([^)]+\)\s*$/.test(l) && !/^\s*!\[[^\]]*\]\(https?:/.test(l);
   if (!isPaid) return lines.filter(isImg).length;

@@ -53,9 +53,10 @@ const stripFm = (raw) => raw.replace(/^---[\s\S]*?---\r?\n/, '');
 
 // 検索用に正規化: HTMLタグ/markdown装飾/画像/リンク/コメント/記号/空白を除去して素テキスト化。
 function norm(s) {
-  return String(s)
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<[^>]+>/g, '')
+  // コメントとタグは、消したあとに新しくできた分も残らないよう変わらなくなるまで繰り返す
+  let t = String(s);
+  for (let prev = null; prev !== t;) { prev = t; t = t.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ''); }
+  return t
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/[#>*`_~|\-]/g, '')

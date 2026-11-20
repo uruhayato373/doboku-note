@@ -64,7 +64,7 @@ for (const f of files) {
   try { labels = figurePackLabels(f.slice(`${ROOT_REL}/`.length).split('/')[0]); } catch (error) { problems.push(`${f}: ${error.message}`); continue; }
   if (!/viewBox="0 0 400 500"/.test(svg)) problems.push(`${f}: viewBox="0 0 400 500" が必要`);
   if (!svg.includes('もっと深く学びたい方へ')) problems.push(`${f}: 見出し「もっと深く学びたい方へ」が無い（旧 maslow 系 CTA の様式。新標準テンプレを使う）`);
-  if (!svg.includes('doboku-note.com')) problems.push(`${f}: URL ボタン "doboku-note.com" が無い`);
+  if (!/(?<![\w.-])doboku-note\.com(?![\w.-])/.test(svg)) problems.push(`${f}: URL ボタン "doboku-note.com" が無い`);
   if (!svg.includes('プロフィールのリンクから') || !svg.includes(labels.destination)) {
     problems.push(`${f}: 誘導文「プロフィールのリンクから／${labels.destination}」が無い`);
   }
