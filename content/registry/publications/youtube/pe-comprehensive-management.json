@@ -871,7 +871,7 @@
       "work": "hakusho-yomu-fukasa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/scene-001",
@@ -906,7 +906,42 @@
         "contentSha256": "1053ab5afbd7c1455655df54f11af509f7b5ae480f8e5852b1fe38d3f02bd9c5"
       },
       "times": {
-        "rendered": "2026-11-20T12:56:56.744Z"
+        "rendered": "2026-11-20T12:56:56.744Z",
+        "uploaded": "2026-11-20T13:04:46.964Z",
+        "scheduled": "2026-11-20T13:04:58.242Z"
+      },
+      "delivery": {
+        "inputSha256": "6b35d1e268b9c090a53315556a383e9d31ce287b3a9f9febc673fb63d562083b",
+        "marker": "dn-single-67ec01f38350ae540e73ee8dbae5442000f25e34",
+        "uploadRequestedAt": "2026-11-20T13:03:55.021Z",
+        "videoId": "txaSAd9OEgc",
+        "processedAt": "2026-11-20T13:04:45.624Z",
+        "thumbnailRequestedAt": "2026-11-20T13:04:46.993Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/default.jpg?sqp=CNCIgdgG&rs=AOn4CLBvoST_ZUspNtGCc_3kpgwV817Zbg",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/mqdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLDjyPE0jQg4ctuDlmshu-wkJ1iyGA",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/hqdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLBBmqXaH9EHOnfkNJcqi4sCZAqHJA",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/sddefault.jpg?sqp=CNCIgdgG&rs=AOn4CLChVrLW4a6infqKkmPntZ4mfVNkVQ",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/maxresdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLC7lRJqrdIOiEutTZ7dSMSvrUNU3g",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/fhddefault.jpg?sqp=CNCIgdgG&rs=AOn4CLCJick1OzO9lS-gDn-0imh8OimiAA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-20T13:04:51.673Z",
+        "scheduleRequestedAt": "2026-11-20T13:04:53.554Z",
+        "scheduleAt": "2026-12-02T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-20T13:04:58.242Z"
+      },
+      "platform": {
+        "id": "txaSAd9OEgc",
+        "url": "https://www.youtube.com/watch?v=txaSAd9OEgc",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-20T13:04:51.673Z"
       }
     },
     {
