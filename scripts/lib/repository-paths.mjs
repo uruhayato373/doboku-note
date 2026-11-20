@@ -104,6 +104,8 @@ export const MOVED_PATHS = [
   [".claude/knowledge/design-system/note-cover-tokens.json", "scripts/assets/design-tokens/note-cover-tokens.json"],
   [".claude/knowledge/design-system/svg-tokens.json", "scripts/assets/design-tokens/svg-tokens.json"],
   [".claude/knowledge/design-system/instagram-carousel-tokens.json", "scripts/assets/design-tokens/instagram-carousel-tokens.json"],
+  // 2026-11-20 に A8 scout の設定を config/ へ移した（scripts/ に設定の正本を置かない）
+  ["scripts/ads/data/a8-curated.json", "config/a8-curated.json"],
   [".claude/config/pe-first-stage-historical-sources.json", "config/pe-first-stage-historical-sources.json"],
   [".claude/config/note-intro-standard-civil-cross.json", "config/note-intro-standard-civil-cross.json"],
   [".claude/config/youtube-production-disclosure.json", "config/youtube-production-disclosure.json"],

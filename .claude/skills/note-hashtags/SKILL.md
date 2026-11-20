@@ -143,6 +143,7 @@ echo "重複: $(sort "$F" | uniq -d | wc -l | tr -d ' ')"
 |---|---|
 | `/social-post note ...` | note 本文の **生成** |
 | `/note-hashtags` | note ハッシュタグの **生成** |
+| `node scripts/backfill-note-hashtags.mjs` | 既存の hashtags.txt が 90 個未満のとき、同じマガジン・同じ資格の実在タグから補う（新語は作らない） |
 | `/note-prepublish-review` | 公開前統合チェック（hashtags.txt 存在を Phase 1 で検証） |
 | `note-link-injector` agent | 本文へのリンク注入 |
 

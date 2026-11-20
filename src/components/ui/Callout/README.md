@@ -69,4 +69,3 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 - 実装: [`Callout.tsx`](./Callout.tsx)
 - ギャラリー（PNG スクショ付き）: [`docs/design/callout-gallery.md`](../../../../docs/design/callout-gallery.md)
 - 使用ガイド: [`.claude/knowledge/reference/content-principles.md`](../../../../.claude/knowledge/reference/content-principles.md)
-- 型移行スクリプト: [`scripts/migrate-callout-types.mjs`](../../../../scripts/migrate-callout-types.mjs)

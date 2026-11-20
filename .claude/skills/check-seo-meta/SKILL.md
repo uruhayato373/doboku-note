@@ -28,7 +28,7 @@ build 済み out/ の全正規 URL の HTML から `<title>`, `<meta>`, `<link r
 > [!note]
 > 判定ロジック（閾値・重大度の level を含む）の実体は `scripts/lib/seo-checks.mjs`。canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
 > ただし **title と description の長さ**（`thresholds.title.max_length`・`thresholds.description.*`）は config が唯一の正本で、`scripts/lib/seo-thresholds.mjs`
-> （seo-checks の警告・lint-frontmatter・fix-descriptions・bulk-rewrite-descriptions）とサイトの `src/lib/metadata.ts`（整形）が読む。
+> （seo-checks の警告・lint-frontmatter）とサイトの `src/lib/metadata.ts`（整形）が読む。
 > 重大度（`severity`）や読み手の無い閾値は config に持たない（値を直しても何も変わらないため削除した）。
 
 ## 前提

@@ -126,6 +126,7 @@ export const DATASETS = [
   d('config.cce-essay-history', 'config/cce-essay-history.json', 'config', 'product', 'コンクリート主任技士 小論文の出題履歴とテーマ分類', { schema: 'ConfigCceEssayHistory' }),
   // アフィリエイト
   d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定', { schema: 'ConfigAffiliateAsp' }),
+  d('config.a8-curated', 'config/a8-curated.json', 'config', 'affiliate', 'A8 scout の採点係数・申請上限・blocklist・vertical の対応（a8-scout-core が読む）', { schema: 'ConfigA8Curated' }),
   d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定', { schema: 'ConfigA8ReportAutomation' }),
   d('config.career-funnel', 'config/career-funnel.json', 'config', 'affiliate', '転職アフィリエイトのファネルの設定', { schema: 'ConfigCareerFunnel' }),
   d('config.affiliate-mats', 'config/affiliate-mats.json', 'config', 'affiliate', 'A8 の広告リンク（mat）の許可リスト', { schema: 'ConfigAffiliateMats' }),

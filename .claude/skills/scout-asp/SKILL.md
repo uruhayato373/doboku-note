@@ -28,7 +28,7 @@ A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続�
 **確認 → 開拓 → 申請 → 承認 → コード取得** を回す。判定はすべて決定的コアに委譲し、SSOT（配置）判断だけ人が持つ。
 
 > **正典は `.claude/knowledge/reference/a8-affiliate-pipeline.md`**。本 skill は手順のみ。スコア式・blocklist・vertical 写像・
-> 申請上限は `scripts/ads/data/a8-curated.json`、状態機械は `a8-scout-core.mjs`、抽出仕様は
+> 申請上限は `config/a8-curated.json`、状態機械は `a8-scout-core.mjs`、抽出仕様は
 > `a8-code-core.mjs` が SSOT。stats47 の `scout-asp` を doboku（転職一本）へ移植・スリム化したもの。
 
 ## doboku 固有の方針（stats47 との違い）
@@ -96,5 +96,5 @@ npm run test:ads                                                 # 純関数コ�
 - 認証方式: `.claude/knowledge/reference/playwright-auth-profiles.md`（a8 profile）
 - コア: `scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs` / 申請上限 `scripts/ads/check-a8-apply-budget.cjs`
 - ブラウザ: `scripts/scout-asp/{a8-browser.ts,login.mjs}`
-- カタログ: `data/a8/catalog.json`（状態機械）/ curated: `scripts/ads/data/a8-curated.json`
+- カタログ: `data/a8/catalog.json`（状態機械）/ curated: `config/a8-curated.json`
 - 配置先 SSOT: `src/config/affiliate-creatives.ts` / `config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`

@@ -2,6 +2,8 @@
 /**
  * 参考文献の市販書籍を「1 ID = 1 Drive ディレクトリ」へ安全にコピーし、
  * 見開き PDF を 1 ページ 1 画像へ展開する。
+ * 単ページの混じる PDF は、先に scripts/inspect-reference-book-layout.mjs で singlePdfPages を出して
+ * config/reference-sources.json の spec に固定する（通しページ番号を再実行でも安定させるため）。
  *
  * 既定は dry-run。--commit でも旧配置の rename / move / delete はしない。
  * 原本コピーとページ画像は一時名へ書き、bytes + sha256 を読み直してから正しい名前へ置く。

@@ -1,7 +1,7 @@
 /**
  * seo-thresholds.mjs — title・description の長さの規則。config/seo-meta-config.json の thresholds が唯一の正本。
  *
- * 読み手（lint-frontmatter・fix-descriptions・bulk-rewrite-descriptions・build 後の seo-checks）は
+ * 読み手（lint-frontmatter・build 後の seo-checks）は
  * 数字を持たずここから受け取る。サイト本体の src/lib/metadata.ts は同じ JSON を直接 import する（zod 等を
  * バンドルに入れないため、この module は使わない）。
  *
