@@ -1,5 +1,7 @@
 # 教材から展開した図解
 
+<!-- x-stock: x-pe1-2027 -->
+
 画像再生成: node scripts/build/render-x-figure-drafts.mjs --draft 100-pe-first-stage-calculation-diagrams
 
 公開前に元記事の本番反映を確認する。

@@ -322,6 +322,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 
 - **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9＋下記 queued 昇格）。緑でない限り予約しない。
 - **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（対象アカウントのX予約一覧で本文冒頭と予約日時の一致を確認）→ `posted`（公開URLなどで配信を確認）。`x-sync-status` はキュー照合で `queued` へ昇格するが、期限経過とキューからの消失だけでは `posted` にしない。ログイン未完了・別アカウント・一覧取得失敗は検査不成立として停止する。guard は `scheduled`＋`queued` を計画衝突の対象にし、`--queue` の二重投入チェックは `queued` を除外する。`x-schedule-view` と予約充足表示は `queued` だけを予約実績に数え、未投入計画を分ける。最終予約記録は途中の空白がない保証ではない。次バッチは未投入の `scheduled` のみを対象化する。
+- **日時未定のストック**: 日時を決めずに置く下書きは、tweets.md の題の直後に `<!-- x-stock: <載せる先> -->` を 1 行書く（載せる先は年間計画の枠 id か、担当のカード番号）。`x-queue-surfacer` は日付が 1 つも読めない下書きのうち印のあるものを「判定不能（要対応）」でなく「ストック」に数える。日付が読める下書きは印があっても due 判定する。使わないと決めた下書きは印でなく status.json の `cancelled`。
 - **アカウント境界（epoch）**: 凍結アカウントの drafts は `content/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
 
 ### 11.5.1 投稿の頻度ゲート（2026-09-21 制定・CI 投稿は 2026-10-24 に廃止）

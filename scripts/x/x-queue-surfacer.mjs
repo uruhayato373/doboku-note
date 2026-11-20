@@ -24,7 +24,7 @@
  */
 import fs from "fs";
 import path from "path";
-import { DAY_MS, parseDatesFromRaw, summarizeStatus } from "../lib/x-queue-lib.mjs";
+import { DAY_MS, parseDatesFromRaw, parseStockMarker, summarizeStatus } from "../lib/x-queue-lib.mjs";
 import { SNS_CONTENT_ROOT } from "../lib/repository-paths.mjs";
 
 const DRAFT_DIR = path.join(SNS_CONTENT_ROOT, "x/draft");
@@ -40,7 +40,8 @@ const NOW = new Date();
 
 // 日付書式・投入集計の実装は lib へ（テストで固定するため。tests/x-queue-surfacer.test.mjs）
 function parseDatesFromMd(mdPath) {
-  return parseDatesFromRaw(fs.readFileSync(mdPath, "utf-8"), NOW);
+  const raw = fs.readFileSync(mdPath, "utf-8");
+  return { ...parseDatesFromRaw(raw, NOW), stock: parseStockMarker(raw) };
 }
 
 // status.json から投入状況を読む（I/O だけ・集計は summarizeStatus）
@@ -69,7 +70,7 @@ if (fs.existsSync(DRAFT_DIR)) {
     const mdPath = path.join(dir, "tweets.md");
     if (!fs.statSync(dir).isDirectory() || !fs.existsSync(mdPath)) continue;
 
-    const { count, dates } = parseDatesFromMd(mdPath);
+    const { count, dates, stock } = parseDatesFromMd(mdPath);
     if (count === 0) continue;
     const start = dates.length ? new Date(Math.min(...dates.map((d) => d.getTime()))) : null;
     const end = dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
@@ -81,7 +82,7 @@ if (fs.existsSync(DRAFT_DIR)) {
     // queued の最終日時だけを表示する。途中の空白は due と日別ビューで確認。
     if (lastScheduled && (!lastQueuedAt || lastScheduled > lastQueuedAt)) lastQueuedAt = lastScheduled;
 
-    drafts.push({ name, count, queued, posted, unqueued, state, start, end });
+    drafts.push({ name, count, queued, posted, unqueued, state, start, end, stock });
   }
 }
 
@@ -99,8 +100,11 @@ const due = drafts
 // 日付が 1 件も読めなかった pack。**due にも「該当なし」にも入れず、判定不能として別に出す**
 // （検査ゼロを PASS と呼ばない）。未投入が残っているものだけ人間向けに出す
 // ＝投入済みの undated（日付を書かない速報系など）を毎週のノイズにしない。
+// ストックの印（x-stock）がある undated は要対応にせず、載せる先ごとに数えて出す。
+// 日付が 1 件でも読める下書きは印があっても due 判定する（印で投入忘れを隠さない）。
 const undated = drafts.filter((d) => !d.start);
-const undatedActionable = undated.filter((d) => d.unqueued > 0);
+const undatedActionable = undated.filter((d) => d.unqueued > 0 && !d.stock);
+const stock = undated.filter((d) => d.unqueued > 0 && d.stock);
 
 if (JSON_OUT) {
   console.log(
@@ -117,7 +121,8 @@ if (JSON_OUT) {
           days_to_go_live: d.daysToGoLive,
           overdue: d.overdue,
         })),
-        undated: undated.map((d) => ({ draft: d.name, tweets: d.count, unqueued: d.unqueued })),
+        undated: undated.map((d) => ({ draft: d.name, tweets: d.count, unqueued: d.unqueued, stock: d.stock })),
+        stock: stock.map((d) => ({ draft: d.name, target: d.stock, unqueued: d.unqueued })),
         all: drafts.map((d) => ({ draft: d.name, state: d.state, unqueued: d.unqueued })),
       },
       null,
@@ -141,6 +146,14 @@ if (undatedActionable.length > 0) {
   for (const d of undatedActionable) {
     lines.push(`   - ${d.name}（未投入 ${d.unqueued}/${d.count}）— 見出しの日付書式を確認する`);
   }
+  lines.push("");
+}
+
+if (stock.length > 0) {
+  const byTarget = new Map();
+  for (const d of stock) byTarget.set(d.stock, (byTarget.get(d.stock) ?? 0) + d.unqueued);
+  const parts = [...byTarget].map(([t, n]) => `${t} ${n} 本`).join("・");
+  lines.push(`📦 ストック: ${stock.length} 件 ${stock.reduce((a, d) => a + d.unqueued, 0)} 本（日時未定・載せる先: ${parts}）`);
   lines.push("");
 }
 

@@ -1,5 +1,7 @@
 # 既存図で確かめる総監の判断ポイント
 
+<!-- x-stock: DN-0220 -->
+
 画像は node scripts/build/render-x-figure-drafts.mjs --draft 103-cem-existing-figure-diagrams で再生成。外部公開・予約なし。
 
 ## Tweet 01: 【技術士総監】将来の400万円を今の価値で比べる

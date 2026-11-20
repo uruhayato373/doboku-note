@@ -1,5 +1,7 @@
 # 教材から展開した図解
 
+<!-- x-stock: x-c1-restart-2027 -->
+
 画像再生成: node scripts/build/render-x-figure-drafts.mjs --draft 101-civil-textbook-diagrams
 
 公開前に元記事の本番反映を確認する。

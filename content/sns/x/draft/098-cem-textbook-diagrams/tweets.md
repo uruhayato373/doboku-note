@@ -1,5 +1,7 @@
 # 教材の学習課題から展開した図解
 
+<!-- x-stock: DN-0220 -->
+
 画像は node scripts/build/render-x-figure-drafts.mjs --draft 098-cem-textbook-diagrams で再生成。公開前に元記事の本番反映を確認する。
 
 ## Tweet 01: 【技術士総監】KPIと目標をつなぐ
