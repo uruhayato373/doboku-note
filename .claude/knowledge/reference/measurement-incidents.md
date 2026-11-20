@@ -51,7 +51,7 @@ title: 計測・検証事故の記録
 
 **原因**: UTM と GA4 のディメンション（`sessionCampaignName`）は正しい。サイトへ来ているのは動画ごとに 2〜4 回・数秒だけの訪問（リンクのプレビュー・巡回に見える）で、サイト内の教材 CTA を押す人がいない。よって 0 行は「計測漏れ」でも UTM の誤りでもなく、概要欄経由で教材まで進んだ人が観測できなかった、が正しい読み。人の訪問か巡回かは GA4 の画面だけでは断定できない（未確認）。
 
-**対策**: 暦の週・月の `values.youtubeCampaignClicks` は `scripts/fetch-business-metrics.mjs` が `sessionCampaignName` 別の `note_cta_click` から合計して載せる。該当の行が無い週・月は 0 とせず値を載せない（欠測のまま）。概要欄から note への直リンクのクリックは YouTube 側でも取れない（定義に既記）。
+**対策**: 暦の週・月の `values.youtubeCampaignClicks` は `scripts/fetch/fetch-business-metrics.mjs` が `sessionCampaignName` 別の `note_cta_click` から合計して載せる。該当の行が無い週・月は 0 とせず値を載せない（欠測のまま）。概要欄から note への直リンクのクリックは YouTube 側でも取れない（定義に既記）。
 
 **教訓**: 「0 行」を見たら、UTM の一致と、その窓の `campaign` レポートに該当の行があるか、その行のエンゲージメントを先に見る。
 
@@ -60,7 +60,7 @@ title: 計測・検証事故の記録
 - 現象: Next.jsの起動が親フォルダーの `EPERM lstat` で停止し、R2素材の取得は認証情報不足、公開画像の取得もTLSエラーまたは503で成立しなかった。
 - 原因: ワークスペース外の参照とネットワークの制約。公開配信側の障害かどうかは、この環境からの応答だけでは確定できない。
 - 検出経緯: 型検査は通ったが、実画面の起動と素材取得で停止した。また、`lint-ui` にファイルを位置引数で渡した最初の実行は対象0件だった。
-- 対策: UI規約は `node scripts/lint-ui.mjs --all` で188ファイルを検査した。部品だけの表示確認もビルドが権限で止まったため未検証とした。TLS検証や権限制御は解除しない。
+- 対策: UI規約は `node scripts/checks/lint-ui.mjs --all` で188ファイルを検査した。部品だけの表示確認もビルドが権限で止まったため未検証とした。TLS検証や権限制御は解除しない。
 - 教訓: 型検査、部品の表示、Next.jsのSSR、R2での配信は別の結果として報告する。対象0件や環境による停止を合格に含めない。
 
 ## 2026-11-06 — 台帳の手書きの「未計測」を信じ、測れている指標のために転送ページを作りかけた
@@ -137,7 +137,7 @@ title: 計測・検証事故の記録
   4. **ヘッドレスの `claude -p` は `.claude/` に書けない**: Claude Code 本体が「sensitive file」として拒否する（承認者がいない）。さらに print モードはバックグラウンドの待機を 600 秒で打ち切る（DN-0829）
 - 検出経緯: 10/24 の点検で Mac の 4 本の失敗と週次レビューの未完を確認し、原因を辿ると全体が「ログイン経路の分散」に行き着いた。個別の失敗を直す前に、経路そのものを数えて一本化することにした（運営者の決定・DN-0817）
 - 対策:
-  - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
+  - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/ops/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
   - 定期実行の CI を止めるときは、ファイルの削除より先に `gh workflow disable` で止める（main の YAML が残る間は cron が走る）
   - ヘッドレスの Claude は `.tmp/claude-out/` に書かせ、終了後に `scripts/apply-claude-out.mjs` が許可リスト（`.claude/todo/weekly.md` など）だけを `.claude/` へ写す。バックグラウンド待機は無期限にせず上限を明示し、プロンプトで背景エージェントを禁じる
   - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面の `/ops/mac`（土曜の流れ）と `/ops/ci`（GitHub Actions）で出す
@@ -166,7 +166,7 @@ title: 計測・検証事故の記録
 - 現象: W42 週次で、同じ日本・web・final・10/5〜10/11 のプロパティ全体が 303 クリック（無次元 byProperty）・byPage 全体が 306 なのに、成長パックのページ明細（dimensions [page]・country=jpn）は 189 行・23 クリック / 1,727 表示（8%）だった
 - 根本原因（実測）: 国の条件を付けたページ別の行の合計は、同じ条件のページ×検索語（471 行）の合計と完全に一致した（週 23 / 1,727、基線 9/7〜10/4 も 77 / 6,493）。Google は条件つきのページ別を検索語の分かる分だけで集計し、匿名化された検索語の分（このサイトでは全体の約 9 割）を入れない。国の条件なしのページ別（CI 日次 `data/gsc/reports/2026-10-17.json`・9/16〜10/13）は 1,315 行・1,203 クリックで、同じ期間のページ×検索語 142 の 8.5 倍あり、条件なしなら匿名化分も入る。取得の不具合ではない（要求は rowLimit 25000・返却 189 行・打ち切りなし）
 - 検出経緯: W42 週次（10/17）で数字の不一致に気づき、DN-0759 で 2 経路の要求条件（dimensions・filters・aggregationType）と行の合計を照合した
-- 対策: 全体の KPI は無次元の集計（byProperty）だけを使う（従来どおり）。ダイジェストのページ明細の表示に、定義（日本で絞ったページ別＝検索語が分かる分だけの下限）と byPage 全体に対する割合を出す（`scripts/build-growth-digest.mjs`）。急落・減衰の検出がこの下限の行で判定している件は、W42 の実測（国で絞る＝byPage 全体の clicks 25%、国の条件なし＝100%）を受けて、ページ別（gscPageWeek・gscPageBase）だけ国の条件なしの取り方へ切り替えた（DN-0806。日本以外の行を含む。ページ×検索語と全体集計は従来どおり）。減衰は取り方が違う週を混ぜず、今週と同じ取り方の週だけで判定する（`gscPageScope`）
+- 対策: 全体の KPI は無次元の集計（byProperty）だけを使う（従来どおり）。ダイジェストのページ明細の表示に、定義（日本で絞ったページ別＝検索語が分かる分だけの下限）と byPage 全体に対する割合を出す（`scripts/build/build-growth-digest.mjs`）。急落・減衰の検出がこの下限の行で判定している件は、W42 の実測（国で絞る＝byPage 全体の clicks 25%、国の条件なし＝100%）を受けて、ページ別（gscPageWeek・gscPageBase）だけ国の条件なしの取り方へ切り替えた（DN-0806。日本以外の行を含む。ページ×検索語と全体集計は従来どおり）。減衰は取り方が違う週を混ぜず、今週と同じ取り方の週だけで判定する（`gscPageScope`）
 - 教訓: GSC で国などの条件を付けたページ別は「ページ×検索語」と同じ母集団になる。ページ別の行の合計を全体の代わりに使わない。2 つの数字を比べるときは、要求条件まで揃えて照合する
 
 ## 2026-10-21 — 場面中点の確認では字幕の語中分断を見落とす
@@ -441,7 +441,7 @@ title: 計測・検証事故の記録
 - **現象**: 本体 checkout（複数セッション・Codex・デスクトップアプリが同時に使う）で `git pull` / `git merge` が `error: could not write index` と `fatal: stash failed` で止まり、同日に `.git/index.lock` の残骸が 4 回残った（12:09・14:22・14:53・15:12）。autostash の設定はどこにも無い。
 - **根本原因**: 早送りできない merge は、作業ツリーを守るため内部で `git stash create` を呼び、index を書き直す（`GIT_TRACE=1` で確認）。同じ瞬間にほかのプロセス（フックの `git status`・デスクトップアプリの差分表示の `git diff`・他セッション）が index を書き直していると、Windows では置き換えがぶつかって失敗し、lock が残ることがある。残った lock があるあいだは、以後の merge がすべて同じ文言で失敗する。単独の `git stash create` は lock が無ければ成功し、同じ merge も再実行で通った＝設定ではなく競合。`timeout` で git を途中終了させた場合（12:09）も lock が残る。
 - **検出経緯**: merge の失敗を 3 回繰り返し、lock を消しても再発した。lock の作成時刻が毎回 15:12:31.017 と同じだったのは Windows のファイル作成時刻トンネリング（同名で作り直したファイルが元の作成時刻を引き継ぐ）で、新しく作られた lock だった。
-- **対策**: 全セッションで走るフック（`scripts/hooks/agent-hook.mjs`）と SessionStart の `scripts/check-git-sync.mjs` の git 呼び出しに `GIT_OPTIONAL_LOCKS=0` を付け、読み取りのついでに index を書き直さないようにした。
+- **対策**: 全セッションで走るフック（`scripts/hooks/agent-hook.mjs`）と SessionStart の `scripts/checks/check-git-sync.mjs` の git 呼び出しに `GIT_OPTIONAL_LOCKS=0` を付け、読み取りのついでに index を書き直さないようにした。
 - **恒久ルール**: (1) lock が残ったら、`git.exe` が動いていないことと lock の古さ（数分以上）を確かめてから消す。(2) 共有 checkout で merge が通らないときは、一時 worktree（`git worktree add --detach <dir> origin/develop` → `cherry-pick` → `push origin HEAD:develop`）で自分のコミットだけを載せる。(3) git を `timeout` で包まない（途中終了で lock と `tmp_obj_*` が残る）。(4) 共有の backlog を直接読み書きしてコミットすると、他セッションの未コミットの編集を巻き込む（同日 DN-0360 で発生）。コミット前に `git diff -- <file>` で自分の差分だけか確かめる。
 
 ## 2026-09-26: 資格の正本を公式照合したときの罠（手書きの写し・要約の日付化け・調査担当の引用・語の定義違い）
@@ -510,7 +510,7 @@ GA4 起点の改善サイクル設計のため `fetch-metrics.yml` と周辺ス�
 - 対策と検証: 試し読みラインを末尾直前に設定し、未ログインAPIの本文14,114文字と8リンクを確認。最終行の後への設定では更新が成立せず、価格・公開ステータスだけの確認は使わなかった。学習用モデルの説明も公開範囲へ置く。
 - 併発した操作の罠: `insertAfter` でURLを8件連続入力すると末尾URLが編集後検証で欠落し停止した（原因未確定）。既存の `insertBeforeHeadingHtml` によるリンク一覧挿入へ変更。`replaceText` は旧文の残存を検出するため、新文に旧文全体を含める追記型指定も検証NGになる。旧文が残らない文単位の置換にした。
 - 教訓: 無料導線は未購入状態の本文と必要リンクを照合する。UIの更新クリックや `price:0` を成功証拠にしない。既存の公開後API検証が停止できたため、新しい重複ゲートは追加しない。
-- 同日のCIでは、新規有料記事15本のL2導線の無料域配置漏れも検出された。`audit-note-funnel --ci` の合格だけでは `magazines/` 内の配置を保証しない。既存ゲート `node scripts/wire-note-paid-cta.mjs --check` の変更対象0件を確認する。ライブでCTAを境界直前へ移す場合、既存境界の保持だけではCTAが有料域に残るため、元の問題見出しへ境界を再設定し、未購入APIのリンクと添付PDFの不変を照合する。
+- 同日のCIでは、新規有料記事15本のL2導線の無料域配置漏れも検出された。`audit-note-funnel --ci` の合格だけでは `magazines/` 内の配置を保証しない。既存ゲート `node scripts/note/wire-note-paid-cta.mjs --check` の変更対象0件を確認する。ライブでCTAを境界直前へ移す場合、既存境界の保持だけではCTAが有料域に残るため、元の問題見出しへ境界を再設定し、未購入APIのリンクと添付PDFの不変を照合する。
 
 ## 2026-09-09: YouTubeサムネイル更新が送信上限で停止
 
@@ -564,7 +564,7 @@ System.IO.IOException: No space left on device : '.../\_diag/Worker_...log'
 履歴が要る処理も shallow で成立する。
 
 機械ゲート `npm run check-workflow-clone-depth`（`quality:audit` の CI ゲート）で禁じる。
-本当に必要な workflow は `scripts/check-workflow-clone-depth.mjs` の `ALLOWLIST` へ
+本当に必要な workflow は `scripts/checks/check-workflow-clone-depth.mjs` の `ALLOWLIST` へ
 **理由を添えて**登録する（理由の無い登録はテストが落とす）。
 
 ### 適用した対策
@@ -726,7 +726,7 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 
 | 対策 | 実体 |
 |---|---|
-| 最新週ベース判定 | `scripts/check-weekly-review.mjs`: 「現存する最新レビューが先週以降か」で判定。保持方針下でも最新週は必ず 1 つ残るので誤検知しない |
+| 最新週ベース判定 | `scripts/checks/check-weekly-review.mjs`: 「現存する最新レビューが先週以降か」で判定。保持方針下でも最新週は必ず 1 つ残るので誤検知しない |
 | 判定のために CI を重くしない | 当初は `git log --diff-filter=A` で履歴判定にしたが `fetch-depth: 0` が必要になり、65,000 ファイルのこのリポジトリでは checkout が job の 5 分 timeout を超えて **cancelled**（2026-07-30 実測）。履歴も全取得も不要な最新週比較へ作り替えた |
 | 誘導の修正 | 失敗メッセージを「誰が生成しているかを先に切り分け → list-first → 不在を確認できないなら作らない」へ |
 
@@ -789,11 +789,11 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 | 取得の status を完全性で決定 | `fetch-gsc-ui-csv.mjs` / `fetch-ga4-ui-csv.mjs`（`bail()` で中断時もマーカーを complete:false で記録） |
 | due 判定に完全性を導入 | `check-gsc-ui-due.mjs`（gsc-ui 必須 / ga4-ui 任意の 2 チャネル） |
 | CSV 情報の追跡 SSOT | `scripts/lib/google-console-ssot.mjs` ＋ `normalize-google-console-csv.mjs` ＋ `.gitignore` の `!.../ssot/` 例外 |
-| SSOT 整合ゲート | `scripts/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
+| SSOT 整合ゲート | `scripts/checks/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
 | レポートの再現性 | `report-search-growth.mjs` が SSOT を優先読込（`gscUiSource` を md に明記） |
 | プロファイル解決 | `google-console-browser.mjs` の `PROFILE_ROOT_CANDIDATES`（env → `~/doboku-note` → 旧 Mac パス） |
-| GA4 設定の desired state | `config/ga4-admin-desired-state.json` ＋ `scripts/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
-| GA4 設定のドリフト検知 | `scripts/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
+| GA4 設定の desired state | `config/ga4-admin-desired-state.json` ＋ `scripts/search/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
+| GA4 設定のドリフト検知 | `scripts/checks/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
 | 合成コマンドの修復 | `normalize` の既定を最新 run に／`search-growth:audit` を部分成功許容＋末尾に SSOT ゲート |
 
 ### 教訓
@@ -931,7 +931,7 @@ W30 週次レビューで homepage の PSI を見て「Performance 59 / LCP 10,1
 - `psi-config.json` を field-primary / lab-secondary に構造化（`judgment` セクション）
 - `performance-auditor` の判定を field-first に改訂し、`lcp_element` を消費して「何が LCP か」まで surface させる
 - `fetch-psi-data.mjs` が PSI の `audits['largest-contentful-paint-element']` を保存するよう修正（従来は破棄していたため、原因特定に Playwright での別計測が必要だった）
-- `scripts/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
+- `scripts/checks/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
 - `weekly-review` の Agent C2 を本原則に整合
 
 ### 追記 2026-08-25／判断更新 2026-09-04: field 欠測を警告として分離する（DN-0127・DN-0158）
@@ -1074,7 +1074,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 ### 関連
 
-- `scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
+- `scripts/storage/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
 - `.github/workflows/r2-sync.yml` - main push 時の R2 同期
 - `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
 - `scripts/diff-r2/diff-r2.mjs` - 差分監査
@@ -1258,7 +1258,7 @@ Cloudflare Bot 保護下では以下も 403 になる可能性がある:
 - Issue [#80](https://github.com/uruhayato373/doboku-note/issues/80) - RSS/Atom フィード生成（close 済）
 - Issue [#159](https://github.com/uruhayato373/doboku-note/issues/159) - Cloudflare Bot 保護調整（バックログ）
 - PR [#158](https://github.com/uruhayato373/doboku-note/pull/158) - フィード実装（merged）
-- `scripts/generate-rss.mjs` - フィード生成スクリプト
+- `scripts/build/generate-rss.mjs` - フィード生成スクリプト
 
 ## 2026-W16: BAILOUT_TO_CLIENT_SIDE_RENDERING による 6 日間 GA4 完全欠損
 
@@ -1310,7 +1310,7 @@ Apr 5 の 144 ファイル H1 構造修正（commit [`3f97641b`](https://github.
 - Issue [#83](https://github.com/uruhayato373/doboku-note/issues/83) - Traffic-Drop 事案（close 済）
 - Issue [#130](https://github.com/uruhayato373/doboku-note/issues/130) - 対策 Umbrella
 - commit [`c6ef1148`](https://github.com/uruhayato373/doboku-note/commit/c6ef1148) - BAILOUT 修正
-- `scripts/check-data-integrity.mjs` - データ整合性検証 lib
+- `scripts/checks/check-data-integrity.mjs` - データ整合性検証 lib
 - `.github/workflows/uptime-ping.yml` - uptime 監視
 
 ---

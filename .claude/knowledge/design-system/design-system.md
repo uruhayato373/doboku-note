@@ -356,7 +356,7 @@ CLAUDE.md §7 と一致:
 - 操作要素には `.focus-ring` を付ける。`focus:outline-none` 単独は禁止。
 - `transition-all` 禁止。変化するプロパティだけを明示する。
 - 新規ページ・改修は §3 のレイアウト体系（PageShell / PageHeader / MetaCard）に乗せる。
-- 機械検出: `node scripts/lint-ui.mjs`（`border-gray-*` の dark 欠落 / `rounded-* + shadow-*` 直書き / インライン borderColor / focus outline 代替欠如 / `transition-all` を検出）。
+- 機械検出: `node scripts/checks/lint-ui.mjs`（`border-gray-*` の dark 欠落 / `rounded-* + shadow-*` 直書き / インライン borderColor / focus outline 代替欠如 / `transition-all` を検出）。
 
 ---
 
@@ -416,7 +416,7 @@ CLAUDE.md §7 と一致:
 
 **個別教材の自動配置**（2026-11-14）: 記事カード内の note は手書き込みで最大3枚。同一商品の再掲は「冒頭バナー＋本文直後の `MagazineHeroCta`（ラベル `-top-end`／`-end`）」の2回だけを許す。記事末（`-footer`）と右サイドバー（`-docs-sb`）のもくじタイルは別枠として各1枚、商品重複に数えない。参考資料を除いた本文の手書き `<MagazineCard>` の商品idと位置、有料 `<NoteLink>` の位置を集め、同じ商品を自動枠から除外する。個別商品のサイドバーカードも記事内と重複させない。最初のh2より前に手書きがあれば冒頭バナーを抑止し、手書きが2枚以上なら自動の note 中間枠、商品一覧型を除いて3枚以上なら冒頭も抑止する（関連記事・転職カードの枠は維持）。教材が使っていた一次の唯一の中間枠は、note抑止後も転職へ転用しない。
 
-択一過去問（`primary`）の中間枠は h2≥3・本文≥2,500字、guide/pillar/textbook/civil-secondary は h2≥5・8,000字で、冒頭・本文直後・手書きと異なる inline 商品を選ぶ。候補がなければ出さない。本文直後は手書きがない場合に限り `end`、未指定なら冒頭商品を再掲する（建設部門の口頭試験期は冒頭だけ口頭教材へ替え、本文直後は科目の模範解答集を残す・DN-0902）。判定は `resolvePlacement`・`resolveArticleMidNoteSlot`・`resolveEndNoteSlot` を描画と検査で共用する。商品一覧型7記事は枚数上限だけを除外し、基準書・`/links`・ココナラ末尾・キャリア記事の複数登録案内を含む検査対象外の範囲と理由は `scripts/check-cta-density.mjs` が共用する `src/lib/cta-density-policy.mjs` の理由つき許可リストに置く。
+択一過去問（`primary`）の中間枠は h2≥3・本文≥2,500字、guide/pillar/textbook/civil-secondary は h2≥5・8,000字で、冒頭・本文直後・手書きと異なる inline 商品を選ぶ。候補がなければ出さない。本文直後は手書きがない場合に限り `end`、未指定なら冒頭商品を再掲する（建設部門の口頭試験期は冒頭だけ口頭教材へ替え、本文直後は科目の模範解答集を残す・DN-0902）。判定は `resolvePlacement`・`resolveArticleMidNoteSlot`・`resolveEndNoteSlot` を描画と検査で共用する。商品一覧型7記事は枚数上限だけを除外し、基準書・`/links`・ココナラ末尾・キャリア記事の複数登録案内を含む検査対象外の範囲と理由は `scripts/checks/check-cta-density.mjs` が共用する `src/lib/cta-density-policy.mjs` の理由つき許可リストに置く。
 
 > 中間 CTA 導入後 1〜2 週はスクロール完了率を GA4 で監視し、悪化時は中間 CTA 閾値を h2≥7 / 12,000 字へ引き上げる（ロールバックレバー）。
 
@@ -457,7 +457,7 @@ CLAUDE.md §7 と一致:
 |---|---|---|
 | Generator（ページ UI を設計・実装） | 親 Claude Code ＋ `page-design-builder` エージェント | §3 体系に沿ったページ/レイアウト案・実装 |
 | Evaluator（デザイン準拠を検証） | `/design-review` スキル（`--visual` で Playwright 視覚回帰） | 7 カテゴリ静的レビュー + light/dark × desktop/mobile スクショ採点 |
-| 静的 lint | `scripts/lint-ui.mjs` | token 逸脱・dark 欠落・インライン borderColor |
+| 静的 lint | `scripts/checks/lint-ui.mjs` | token 逸脱・dark 欠落・インライン borderColor |
 | SVG 図版 | `svg-figure-auditor`（作る・直すは親の `/create-svg`） | §9 別サブシステム |
 
 > Generator（作った直後は「綺麗だ」と判断するバイアスを持つ）と Evaluator を**必ず分離**する。

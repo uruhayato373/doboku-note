@@ -68,7 +68,7 @@
     ],
     "ask": [
       "Bash(npm run ogp-backgrounds:*)",
-      "Bash(node scripts/generate-ogp-backgrounds.mjs:*)"
+      "Bash(node scripts/build/generate-ogp-backgrounds.mjs:*)"
     ],
     "defaultMode": "bypassPermissions"
   },
@@ -81,7 +81,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node scripts/session-start.mjs 2>/dev/null || true",
+            "command": "node scripts/ops/session-start.mjs 2>/dev/null || true",
             "timeout": 120,
             "statusMessage": "同期・台帳・容量を確認中...",
             "async": true

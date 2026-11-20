@@ -3,7 +3,7 @@
 // x が非 0 のとき exit_code が出力されず、GA4 整合性・日次異常アラートが一度も発火しなかった。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findUnguardedExitCaptures } from '../scripts/check-workflow-hygiene.mjs';
+import { findUnguardedExitCaptures } from '../scripts/checks/check-workflow-hygiene.mjs';
 
 test('bash -e のまま $? を読む形を検出する', () => {
   const run = 'mkdir -p /tmp/r\nnode check.mjs --report /tmp/r/a.md\necho "exit_code=$?" >> $GITHUB_OUTPUT';

@@ -11,7 +11,7 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import {
   evaluateBoundary, parseLabelKeys, parseMagazineIds, parseVocabFields,
-} from '../scripts/check-note-vocabulary-boundary.mjs';
+} from '../scripts/checks/check-note-vocabulary-boundary.mjs';
 
 // ---- parseVocabFields ----
 

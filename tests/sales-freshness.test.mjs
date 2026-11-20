@@ -12,7 +12,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { assessSalesBenchmark, assessSalesLog, ageInDays, dueSalesMonth, assessLedgerAge } from '../scripts/check-sales-freshness.mjs';
+import { assessSalesBenchmark, assessSalesLog, ageInDays, dueSalesMonth, assessLedgerAge } from '../scripts/checks/check-sales-freshness.mjs';
 
 const at = (y, m, d) => Date.UTC(y, m - 1, d);
 const NOW = at(2026, 8, 17);

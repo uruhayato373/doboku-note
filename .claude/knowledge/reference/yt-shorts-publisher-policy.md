@@ -118,7 +118,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | 4 軸採点 | `yt-shorts-publisher-qa` |
 | 旧 Shorts の台帳 | 旧 Shorts は台帳（`content/registry/`・kind `legacy-short`）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプト（post-from-schedule 等）を消した |
 | 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
-| 投稿済み動画へのサムネイル変更 | 単一IDは `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs`（ともに既定dry-run、詳細はSNS画像ポリシー §0.1） |
+| 投稿済み動画へのサムネイル変更 | 単一IDは `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube/youtube-thumbnail-rollout.mjs`（ともに既定dry-run、詳細はSNS画像ポリシー §0.1） |
 
 ## 5. 投稿カーデンス・スケジューリング（2026-09-05 更新）
 

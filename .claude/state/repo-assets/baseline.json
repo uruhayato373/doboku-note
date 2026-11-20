@@ -503,9 +503,9 @@
           "reason": "note 添付・商品 PDF。「公開配布可 / 有料添付 / 原典・非公開」の再分類が要るため既定は private 側へ倒す（Phase 4-D で確定）",
           "regenFrom": "magazine-to-pdf の spec + article.md",
           "usedBy": [
-            "scripts/note-attach-file.mjs"
+            "scripts/note/note-attach-file.mjs"
           ],
-          "generator": "scripts/magazine-to-pdf.mjs",
+          "generator": "scripts/note/magazine-to-pdf.mjs",
           "samples": [
             {
               "path": "content/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf",
@@ -548,10 +548,10 @@
           "reason": "note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、ライブ差し替え時の同一性確認に実体が要るため R2 を正とする",
           "regenFrom": "article*.md frontmatter の cover ブロック（generate-note-covers）",
           "usedBy": [
-            "scripts/note-publish.mjs",
+            "scripts/note/note-publish.mjs",
             "scripts/note-update-cover.mjs"
           ],
-          "generator": "scripts/generate-note-covers.mjs",
+          "generator": "scripts/build/generate-note-covers.mjs",
           "samples": [
             {
               "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/06_安全管理-労働災害の防止/img/cover.png",
@@ -762,10 +762,10 @@
           "reason": "note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、ライブ差し替え時の同一性確認に実体が要るため R2 を正とする",
           "regenFrom": "article*.md frontmatter の cover ブロック（generate-note-covers）",
           "usedBy": [
-            "scripts/note-publish.mjs",
+            "scripts/note/note-publish.mjs",
             "scripts/note-update-cover.mjs"
           ],
-          "generator": "scripts/generate-note-covers.mjs",
+          "generator": "scripts/build/generate-note-covers.mjs",
           "samples": [
             {
               "path": "content/note/1級・2級土木/2級土木/2級と1級どちらから受けるか/img/cover.png",
@@ -858,7 +858,7 @@
           "reason": "KDP 入稿成果物。原稿 md からビルドできるはずだが、LIVE 済み書籍と同一性を保つ必要があるか未確認",
           "regenFrom": "content/kindle/books/**（要検証）",
           "usedBy": [
-            "scripts/kdp-publish.mjs"
+            "scripts/kindle/kdp-publish.mjs"
           ],
           "generator": "kindle-build",
           "samples": [

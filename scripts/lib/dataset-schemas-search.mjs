@@ -355,7 +355,7 @@ export const GscReports = reportsDay(
 
 // ---- GA4 管理画面の設定（data/ga4/admin-inventory.json） -----------------------------------------------------------
 
-/** GA4 管理画面の設定の最新。書き手は 2 つ（scripts/ga4-admin-api.mjs＝Admin API・scripts/ga4-admin-setup.mjs＝画面）で、後者は失敗時に欄が欠ける */
+/** GA4 管理画面の設定の最新。書き手は 2 つ（scripts/search/ga4-admin-api.mjs＝Admin API・scripts/search/ga4-admin-setup.mjs＝画面）で、後者は失敗時に欄が欠ける */
 export const Ga4AdminInventory = z
   .looseObject({
     schemaVersion: z.literal(1),
@@ -484,7 +484,7 @@ export const GscUiLastRun = uiLastRun('gsc-ui', { property: z.string().min(1).de
 
 // ---- GSC のサイトマップ・URL 検査・登録申請 -------------------------------------------------------------------------
 
-/** サイトマップの送信状態（data/gsc/sitemaps.json・書き手 scripts/gsc-sitemaps.mjs） */
+/** サイトマップの送信状態（data/gsc/sitemaps.json・書き手 scripts/search/gsc-sitemaps.mjs） */
 export const GscSitemaps = z
   .strictObject({
     schemaVersion: z.literal(1),
@@ -567,7 +567,7 @@ const inspectionDoc = (resultsMax, { requireCounts }) =>
       if (doc.partial !== undefined && doc.total !== undefined && doc.completed !== undefined && doc.partial !== doc.completed < doc.total) flag(ctx, ['partial'], `partial=${doc.partial} が completed ${doc.completed} / total ${doc.total} と合わない`);
     });
 
-/** URL 検査のバッチ（data/gsc/url-inspection/{ts}.json・書き手 scripts/inspect-url.mjs）。インデックス率の元データ */
+/** URL 検査のバッチ（data/gsc/url-inspection/{ts}.json・書き手 scripts/search/inspect-url.mjs）。インデックス率の元データ */
 export const GscUrlInspection = inspectionDoc(Infinity, { requireCounts: true }).meta({ title: 'URL 検査（バッチ）' });
 
 /** URL 検査の単発（data/gsc/url-inspection-single/{ts}.json）。古い記録は partial・completed・total が無い */
@@ -589,7 +589,7 @@ const indexingPriorityType = z.strictObject({
   expectedValue: nonNegative('期待値（meanImpressions × unindexedRate）。表示 0 の候補はこの降順'),
 });
 
-/** 登録を申請する URL の優先順（data/gsc/indexing-priority.json・書き手 scripts/build-gsc-indexing-priority.mjs） */
+/** 登録を申請する URL の優先順（data/gsc/indexing-priority.json・書き手 scripts/build/build-gsc-indexing-priority.mjs） */
 export const GscIndexingPriority = z
   .strictObject({
     schemaVersion: z.literal(1),
@@ -649,7 +649,7 @@ export const GscIndexingPriority = z
   })
   .meta({ title: '登録申請の優先順' });
 
-/** 登録申請の最新の結果（data/gsc/indexing-requests.json・書き手 scripts/gsc-request-indexing.mjs）。ログインできなかった run は items が空 */
+/** 登録申請の最新の結果（data/gsc/indexing-requests.json・書き手 scripts/search/gsc-request-indexing.mjs）。ログインできなかった run は items が空 */
 export const GscIndexingRequests = z
   .strictObject({
     schemaVersion: z.literal(1),
@@ -776,7 +776,7 @@ export const GscUiUrls = z
   })
   .meta({ title: 'GSC 未登録 URL の一覧' });
 
-// ---- Bing（data/bing/snapshots/{date}.json・書き手 scripts/fetch-bing-webmaster.mjs） -----------------------------------
+// ---- Bing（data/bing/snapshots/{date}.json・書き手 scripts/search/fetch-bing-webmaster.mjs） -----------------------------------
 
 const bingSection = (rowShape) =>
   z.discriminatedUnion('ok', [
@@ -816,7 +816,7 @@ export const BingSnapshots = z
   })
   .meta({ title: 'Bing の検索指標' });
 
-// ---- PSI（data/psi/batch/{ts}.json・書き手 scripts/fetch-psi-data.mjs） ------------------------------------------
+// ---- PSI（data/psi/batch/{ts}.json・書き手 scripts/fetch/fetch-psi-data.mjs） ------------------------------------------
 
 const psiScore = z.number().int().min(0).max(100).nullable().describe('Lighthouse のスコア（0〜100・測れなければ null）');
 const psiLab = (what) => z.number().min(0).nullable().describe(`${what}（lab・測れなければ null）`);
@@ -862,7 +862,7 @@ export const PsiBatch = z
   })
   .meta({ title: 'PageSpeed Insights の計測' });
 
-// ---- RUM（data/rum/web-vitals/{date}.json・書き手 scripts/fetch-ga4-web-vitals.mjs） -------------------------------
+// ---- RUM（data/rum/web-vitals/{date}.json・書き手 scripts/search/fetch-ga4-web-vitals.mjs） -------------------------------
 
 const RUM_METRICS = ['LCP', 'INP', 'CLS'];
 const rumCounts = z.strictObject({ good: count('良好'), 'needs-improvement': count('要改善'), poor: count('不良') });

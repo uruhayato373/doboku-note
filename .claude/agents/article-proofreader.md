@@ -53,7 +53,7 @@ target: textbook
 #### R-2: 機械チェック（lint）
 
 ```bash
-node scripts/lint-mdx-mobile.mjs <mdx-path>
+node scripts/checks/lint-mdx-mobile.mjs <mdx-path>
 ```
 
 出力の HIGH/MEDIUM/LOW 件数を軸別に分類:

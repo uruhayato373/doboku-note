@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseBacklog, findOrphanHeadings, KINDS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
-import { validateCards, validateStagedLines, resolveScriptNames } from '../scripts/check-backlog-schema.mjs';
-import { signatureTokens, duplicateCandidates } from '../scripts/check-backlog-health.mjs';
+import { validateCards, validateStagedLines, resolveScriptNames } from '../scripts/checks/check-backlog-schema.mjs';
+import { signatureTokens, duplicateCandidates } from '../scripts/checks/check-backlog-health.mjs';
 
 /**
  * 語彙定数（KINDS / CANONICAL_CATEGORIES）が load-bearing であることを**挙動で**固定する。
@@ -164,7 +164,7 @@ test('優先度の見出しの外のカードと、形式の違う [時期:] は
 });
 
 test('計画の層の契約: monthly.md のタスク表と、weekly.md の削除済み ID を違反にする（2026-09-26）', async () => {
-  const { validateLayers } = await import('../scripts/check-backlog-schema.mjs');
+  const { validateLayers } = await import('../scripts/checks/check-backlog-schema.mjs');
   const v = validateLayers(
     {
       monthly: '# 月間計画\n\n## 今月の成果目標\n\n1. 目標（DN-0001 に触れる文は可）\n\n| ID | 出口 |\n|---|---|\n| DN-0001 | x |',
@@ -177,7 +177,7 @@ test('計画の層の契約: monthly.md のタスク表と、weekly.md の削除
 });
 
 test('S15 computePastWhen: [時期:] の終わりの月を過ぎたカードだけを返す', async () => {
-  const { computePastWhen } = await import('../scripts/check-backlog-health.mjs');
+  const { computePastWhen } = await import('../scripts/checks/check-backlog-health.mjs');
   const cards = [
     { id: 'DN-0001', line: 1, title: 'past', when: '2026-07..2026-08' },
     { id: 'DN-0002', line: 2, title: 'current', when: '2026-09..2026-10' },
@@ -204,7 +204,7 @@ test('[期日:] があれば、その月を [時期:] に含める（🟢・🟣
 
 
 test('消えたカードは完了の記録が無いものを数え、上限を超えたら止める（2026-11-10 の CRLF の置き換えで数十枚が消えかけた）', async () => {
-  const { validateRemovedCards, MAX_UNRECORDED_REMOVALS } = await import('../scripts/check-backlog-schema.mjs');
+  const { validateRemovedCards, MAX_UNRECORDED_REMOVALS } = await import('../scripts/checks/check-backlog-schema.mjs');
   const head = ['DN-1', 'DN-2', 'DN-3', 'DN-4', 'DN-5'];
   assert.deepEqual(validateRemovedCards(head, head, new Set()), [], '何も消えていない');
   assert.deepEqual(validateRemovedCards(head, ['DN-1', 'DN-2', 'DN-3', 'DN-6'], new Set(['DN-4'])), [], '完了の記録がある 1 枚と RESEED の 1 枚は通す');

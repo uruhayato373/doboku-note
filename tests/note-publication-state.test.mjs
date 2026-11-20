@@ -53,7 +53,7 @@ test('公開の後で止まる 2 つを公開の前に拾う: 書きかけのマ
 });
 
 test('npm run note-unpublished はリポジトリの全記事を読めて、公開済みを未公開に数えない', () => {
-  const r = spawnSync(process.execPath, ['scripts/note-unpublished.mjs', '--json'], { cwd: REPO_ROOT, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, ['scripts/note/note-unpublished.mjs', '--json'], { cwd: REPO_ROOT, encoding: 'utf8' });
   const out = JSON.parse(r.stdout);
   assert.ok(out.counts.scanned > 0, '記事を 1 本も走査していない');
   assert.deepEqual(out.unreadable, [], 'frontmatter を読めない記事がある');

@@ -64,7 +64,7 @@
       "id": "article-photo",
       "label": "記事の写真",
       "kind": "script",
-      "entry": "scripts/gen-article-photo.mjs",
+      "entry": "scripts/build/gen-article-photo.mjs",
       "audit": "ai-image-fidelity-auditor"
     },
     {
@@ -85,28 +85,28 @@
       "id": "site-thumbs",
       "label": "サイト内サムネイル",
       "kind": "script",
-      "entry": "scripts/generate-site-thumbnails.mjs",
+      "entry": "scripts/build/generate-site-thumbnails.mjs",
       "audit": "ai-image-fidelity-auditor"
     },
     {
       "id": "site-thumbs-review",
       "label": "サイト内サムネイルの Codex 監査",
       "kind": "script",
-      "entry": "scripts/review-site-thumbnails.mjs",
+      "entry": "scripts/ops/review-site-thumbnails.mjs",
       "audit": "ai-image-fidelity-auditor"
     },
     {
       "id": "site-thumbs-pipeline",
       "label": "サイト内サムネイルの三段の分担",
       "kind": "script",
-      "entry": "scripts/site-thumbnails.mjs",
+      "entry": "scripts/reports/site-thumbnails.mjs",
       "audit": "ai-image-fidelity-auditor"
     },
     {
       "id": "ogp-backgrounds",
       "label": "OGP の背景",
       "kind": "script",
-      "entry": "scripts/generate-ogp-backgrounds.mjs",
+      "entry": "scripts/build/generate-ogp-backgrounds.mjs",
       "audit": "none"
     },
     {
@@ -127,7 +127,7 @@
       "id": "character-assets",
       "label": "キャラクター素材",
       "kind": "manual",
-      "entry": "scripts/character-extract.mjs",
+      "entry": "scripts/content/character-extract.mjs",
       "audit": "none"
     }
   ],

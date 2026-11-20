@@ -22,7 +22,7 @@ import test from 'node:test';
 import {
   auditMagazine, computeExpected, stagedRelevance, findMissing, inclusionSources, listNoteArticles, parseSoT,
   readArticleMeta, snapshotFreshness,
-} from '../scripts/check-magazine-membership.mjs';
+} from '../scripts/checks/check-magazine-membership.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // ---- readArticleMeta ----

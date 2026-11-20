@@ -8,7 +8,7 @@
  * ままにする（共通仕様書を近畿版だけ索引に載せるのと同じ考え方）。
  *
  * 群の項目は文書（`kyushu/hikkei-common-10`）か、冊子の中の項目（`{ document: 'kinki/hikkei', item: 14 }`。
- * 近畿の必携の総目次の番号）。サイト（src/lib/standards.ts）・生成器（scripts/build-standard-articles.mjs）・
+ * 近畿の必携の総目次の番号）。サイト（src/lib/standards.ts）・生成器（scripts/build/build-standard-articles.mjs）・
  * 検査（tests/standards-editions.test.mjs）が同じ関数を使う。
  */
 

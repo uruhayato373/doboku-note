@@ -1,0 +1,323 @@
+#!/usr/bin/env tsx
+/**
+ * check-magazine-cta-reachability.ts
+ * ---------------------------------------------------------------------------
+ * 「公開した note マガジンが、サイトのどこかで CTA として実際に出るか」を機械検査する。
+ *
+ * 背景（2026-07-31）: コンクリート診断士のマガジンを `published: true` にしても CTA が
+ * 1 面も出なかった。配線（magazine-placement.ts）は生きていたのに、
+ *   - `placement.sidebar` は 2026-07 の CTA 統一以降どこからも参照されない（死に配線）
+ *   - `placement.inline` は中間 CTA 経由で **h2>=5 かつ本文 8,000 字** が条件
+ *   - もくじタイル（resolveHubCta）は **台帳（site-cta-surfaces.json）で lead: mokuji の資格のみ**（一次・測量・舗装などは null）
+ * が重なり、published にした瞬間に発火するという handoff の前提が崩れていた。
+ * 収益商品を公開したのに導線ゼロという事故は静かに起きるので、機械で止める。
+ *
+ * 到達手段（いずれか 1 つでも成立すれば OK）:
+ *   1. placement.top … 手書きの位置・商品・枚数を反映した自動配置
+ *   2. 自動中間・末尾 … 描画側と共通の resolveArticleMidNoteSlot / resolveEndNoteSlot が商品を返す
+ *   3. MDX 内 <MagazineCard id="..."> … 参考資料抽出後の本文にあり、商品が公開中
+ *   4. 記事サイドバーの商品カード … 非 HUB の discovery 資格で `placement.top || inline[0]`
+ *      が出る（ArticleSidebar.tsx:84 + sidebar-discovery.ts:15-22）。**中間 CTA の
+ *      h2/字数ゲートを通らない**ので、経路 2 が不成立でもここで出る
+ *   5. カテゴリページの商品カード … 同 discovery 資格の固定商品（CategoryPage.tsx:107,202）
+ *
+ * もくじタイル（hub-cta.ts の HUB 資格）は**到達手段として数えない**。資格単位の導線で
+ * あってマガジン単位ではなく、どのマガジンに着地するかは季節切替（hub-cta.ts:115-119）で
+ * 変わるため。HUB 資格数はログにだけ出す（下の hubCategories）。
+ *
+ * 既存の 0 面マガジン（note 単品 PDF 併売など、サイト CTA を持たない設計のもの）は
+ * `.claude/config/magazine-cta-baseline.json` に id と理由を記録し、**baseline に無い新規の 0 面**
+ * だけを落とす（content-quality-ratchet と同じラチェット方式）。もくじタイル経由かどうかの
+ * 推測判定は置かない——曖昧な warn は「検査したのに素通り」を作るため、0 面は 0 面と数える。
+ *
+ * ページ単位（2026-10-03 拡張）: 9資格の公開学習記事（下書き・career 以外）で、上の手段が 1 つも
+ * 成立しないページを数える。マガジン単位の検査は「各商品が 1 面以上」なので、新しい記事を
+ * placement の許可リストへ足し忘れても、その商品が他ページに面を持てば素通りする（2級 重要
+ * ポイント 5 本と 1級 2 本が CTA ゼロのまま公開されていた）。例外は baseline の zeroPage に理由付きで記録する。
+ * 2026-10-29（DN-0890）: ページ単位でももくじタイルを数えない（もくじが出る資格を判定から外していたので、
+ * 2級の見直しページなど 20 本が商品の導線 0 のまま通っていた）。対象は 12 資格、実務・法令は理由付きで対象外。
+ *
+ * 使い方:
+ *   npx tsx scripts/checks/check-magazine-cta-reachability.ts        # レポート（exit 0）
+ *   npx tsx scripts/checks/check-magazine-cta-reachability.ts --ci   # 到達 0 面のマガジン・CTA ゼロのページがあれば exit 1
+ * ---------------------------------------------------------------------------
+ *
+ * npm run check-magazine-cta — 公開 note 商品の到達面＋教材のある12資格の公開学習記事の商品導線ゼロを検査（下書き・career を除外。参考資料抽出後のカード、自動中間・末尾、サイドバーを描画と同じ resolver で判定し、もくじタイルは数えない。実務・法令は理由付きで対象外、どちらにも無いカテゴリは検査不成立。:ci は baseline 外ゼロで失敗、対象数を出力・quality:audit に同梱）
+ */
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { NOTE_MAGAZINES, getMagazine, type MagazineId } from '../../src/lib/note-magazines';
+import { renderedNoteCards, resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, renderedMagazineCardIds } from '../../src/lib/magazine-placement';
+import { extractReferencesSection } from '../../src/lib/extract-references';
+import { resolveHubCta } from '../../src/lib/hub-cta';
+import { sidebarProduct, DISCOVERY_CATEGORIES } from '../../src/lib/sidebar-discovery';
+import { isCivilConstructionCategory } from '../../src/lib/qualification-names';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { readDataset } from '../lib/dataset-io.mjs';
+import { pageGate } from '../lib/magazine-page-gate.mjs';
+
+// このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
+// src/lib/*.ts も CJS になるため、ESM(.mts) から named import すると
+// cjs-module-lexer が名前付きエクスポートを拾えず
+// 「does not provide an export named 'NOTE_MAGAZINES'」で落ちていた（2026-08-04）。
+// 拡張子を .ts に揃えて同じモジュール系にすることで解消している。
+const CI = process.argv.includes('--ci');
+const POSTS = join(ROOT, 'content/site');
+const EXEMPT_PATH = join(ROOT, '.claude/config/magazine-cta-baseline.json');
+
+type Doc = { slug: string; category: string; group: string; body: string; isCareer: boolean; isPublished: boolean };
+
+// src/lib/doc-classifier.ts:31-39 と同じ対応表。frontmatter の生値 → DocGroupKey。
+const GROUP_FIELD_MAP: Record<string, string> = {
+  'guide': 'guide',
+  'pillar': 'pillar',
+  'past-exam': 'pastExam',
+  'keyword': 'keyword',
+  'primary': 'primary',
+  'secondary': 'secondary',
+  'textbook': 'textbook',
+};
+
+// content/site/{category}/{slug}/article.mdx と {category}/{slug}.mdx の両 Convention を拾う
+function collectDocs(): Doc[] {
+  const out: Doc[] = [];
+  if (!existsSync(POSTS)) return out;
+  for (const category of readdirSync(POSTS, { withFileTypes: true }).filter((d) => d.isDirectory())) {
+    const cdir = join(POSTS, category.name);
+    for (const e of readdirSync(cdir, { withFileTypes: true })) {
+      const file = e.isDirectory() ? join(cdir, e.name, 'article.mdx') : e.name.endsWith('.mdx') ? join(cdir, e.name) : '';
+      if (!file || !existsSync(file)) continue;
+      const raw = readFileSync(file, 'utf8');
+      const name = e.isDirectory() ? e.name : e.name.replace(/\.mdx$/, '');
+      // 生 frontmatter の group 値は classifyDoc の GROUP_FIELD_MAP を通す
+      // （src/lib/doc-classifier.ts:31-39）。past-exam → pastExam の変換を
+      // 落とすと、その記事の配線が丸ごと検査対象外になる。
+      const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim().replace(/^(['"])(.*)\1$/, '$2') ?? '';
+      // career 記事は resolvePlacement が EMPTY を返す（magazine-placement.ts の 0 番ガード）。
+      // ここで tags を見ないと、実際には出ない note CTA を「導線あり」と数えてしまう。
+      const fm = raw.match(/^---[\s\S]*?\n---/)?.[0] ?? '';
+      const isCareer = /^\s*-\s*career\s*$/m.test(fm);
+      out.push({
+        slug: `${category.name}-${name}`,
+        category: category.name,
+        group: GROUP_FIELD_MAP[rawGroup] ?? rawGroup,
+        body: extractReferencesSection(raw.replace(/^---[\s\S]*?\n---\n/, '')).strippedContent,
+        isCareer,
+        isPublished: !/^published:\s*false\s*$/m.test(fm),
+      });
+    }
+  }
+  return out;
+}
+
+const allDocs = collectDocs();
+const docs = allDocs.filter(d => d.isPublished);
+
+// 1級・2級土木の secondary も中間 CTA の対象（DocPage.tsx:336-338 の isCivilSecondary）。
+// 全資格の secondary を一律対象にはしない（土木のみ）。
+const isCivilSecondary = (d: Doc): boolean =>
+  isCivilConstructionCategory(d.category) &&
+  d.group === 'secondary';
+
+// もくじタイル（hub-cta.ts の HUB）に載っている資格 = 資格単位でマガジン導線がある
+// 台帳（config/site-cta-surfaces.json・DN-1223）でもくじへ寄せる資格。以前は hub-cta.ts の HUB 定義を正規表現で読んでいた
+const hubCategories = new Set(Object.entries(readDataset(ROOT, 'config.site-cta-surfaces').qualifications as Record<string, { lead: string }>)
+  .filter(([, row]) => row.lead === 'mokuji').map(([slug]) => slug));
+
+const baselineJson = existsSync(EXEMPT_PATH) ? JSON.parse(readFileSync(EXEMPT_PATH, 'utf8')) : {};
+const baseline: Record<string, string> = baselineJson.zeroSurface ?? {};
+// ページ単位の CTA ゼロの理由付き例外。key は記事 slug（{category}-{name}）。
+const zeroPageBaseline: Record<string, string> = baselineJson.zeroPage ?? {};
+
+// ページ単位の検査対象。土木は記事単位の配線（placement の許可リスト）に頼るため、新しい記事を
+// 許可リストへ足し忘れると CTA ゼロのまま公開される（2026-10-02: 2級 重要ポイント 5 本・1級 2 本）。
+// マガジン単位の検査（各商品が 1 面以上）では、他ページで面を持つ商品ばかりなので素通りする。
+// 測量士・舗装（2026-10-28 に商品を公開）と建築施工管理（商品なしは baseline）は 2026-10-29（DN-0890）に足した。管工事は 2026-11-04（DN-0452）に足した。水産部門（商品なしは baseline）は 2026-11-10（DN-1099）に足した。
+const PAGE_GATE_CATEGORIES = new Set(['pe-water-supply', 'pe-fisheries', 'civil-construction-1', 'civil-construction-2', 'pe-first-stage', 'pe-construction', 'pe-comprehensive-management', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'rccm', 'surveyor', 'pavement', 'pipe-work', 'building-construction']);
+// ページ単位の検査から外すカテゴリと理由。記事のあるカテゴリは検査対象かここのどちらかに入れる（入れ忘れは検査不成立で止める）。
+const PAGE_GATE_EXCLUDED: Record<string, string> = {
+  'civil-practice': '土木施工の実務記事。本文と記事末に有料教材を出さず、テーマのページで資格の記事と教材に出会う設計（content-taxonomy.md §6-3）',
+  laws: '法令の解説。どの資格の読者も読むので 1 つの教材へ送らず、実務記事と同じくテーマのページから教材へつなぐ（DN-0890 で決めた）',
+};
+
+type Reach = { id: string; routes: string[]; categories: Set<string> };
+
+// 試験日で商品が切り替わる面（直前パック→来年向け商品など）があるので、全試験の前と全試験の後の 2 時点で
+// 到達を数える。今日の日付だけで数えると、試験日を過ぎた日の push で直前向けの商品が 0 面になり、
+// 差分と無関係に CI が赤くなる（壁時計に依存する検査をゲートにしない）。商品の到達は 2 時点の和、
+// ページの CTA ゼロはどちらかの時点で 0 なら 0 とみなす。
+const PROBE_TIMES = [Date.parse('2000-01-01T00:00:00+09:00'), Date.parse('2999-01-01T00:00:00+09:00')] as const;
+
+function collectReach(nowMs: number): Map<string, Reach> {
+  const realNow = Date.now;
+  Date.now = () => nowMs;
+  try {
+    return collectReachAt();
+  } finally {
+    Date.now = realNow;
+  }
+}
+
+function collectReachAt(): Map<string, Reach> {
+const reach = new Map<string, Reach>();
+const ensure = (id: string): Reach => {
+  let r = reach.get(id);
+  if (!r) { r = { id, routes: [], categories: new Set() }; reach.set(id, r); }
+  return r;
+};
+
+for (const d of docs) {
+  const p = resolvePlacement(d.slug, d.group as never, d.isCareer, renderedNoteCards(d.body));
+  if (p.top && getMagazine(p.top.magazineId)) {
+    const r = ensure(p.top.magazineId); r.routes.push(`top:${d.slug}`); r.categories.add(d.category);
+  }
+  const midNote = resolveArticleMidNoteSlot(p, d.group as never, d.body, isCivilSecondary(d));
+  if (midNote) {
+    const r = ensure(midNote.magazineId); r.routes.push(`mid:${d.slug}`); r.categories.add(d.category);
+  }
+  const endNote = resolveEndNoteSlot(p, d.body);
+  if (endNote) {
+    const r = ensure(endNote.magazineId); r.routes.push(`end:${d.slug}`); r.categories.add(d.category);
+  }
+  // 記事サイドバーの商品カード（ArticleSidebar.tsx:84）。
+  //   条件: sidebarMokuji が null（＝非 HUB 資格）かつ sidebar-discovery の products に
+  //   その資格がある（sidebarProduct(category) が非 null）。出るマガジンは
+  //   `placement.top || placement.inline[0]`（sidebar-discovery.ts:20）。
+  // **中間 CTA の h2>=5 / 8,000 字ゲートを通らない**ので、経路 2 が不成立の記事でも
+  // inline[0] がここで実際に出る。これを数えないと非 HUB 資格の到達を過小評価する。
+  const sidebar = !resolveHubCta(d.category)
+    ? sidebarProduct(d.category, {slug:d.slug, category:d.category, group:d.group, tags:d.isCareer ? ['career'] : []} as never, d.body)
+    : null;
+  if (sidebar) {
+    const r = ensure(sidebar.id); r.routes.push(`sidebar:${d.slug}`); r.categories.add(d.category);
+  }
+  for (const id of renderedMagazineCardIds(d.body)) {
+    if (!getMagazine(id as MagazineId)) continue;
+    const r = ensure(id); r.routes.push(`card:${d.slug}`); r.categories.add(d.category);
+  }
+}
+
+// カテゴリページの商品カード（CategoryPage.tsx:107 PC / :202 モバイル）。
+// 記事単位ではなく資格単位で、`products[category]` の固定商品が出る。
+// 条件は `slug !== 'concrete-engineer'`（技士は専用ブロックを持つ）かつ hubCta 不在（非 HUB）。
+for (const cat of DISCOVERY_CATEGORIES) {
+  if (cat === 'concrete-engineer' || hubCategories.has(cat)) continue;
+  const mag = sidebarProduct(cat);
+  if (!mag) continue;
+  const r = ensure(mag.id); r.routes.push(`category-page:${cat}`); r.categories.add(cat);
+}
+return reach;
+}
+
+const reachByProbe = PROBE_TIMES.map(collectReach);
+const reach = new Map<string, Reach>();
+for (const probe of reachByProbe) {
+  for (const [id, r] of probe) {
+    const merged = reach.get(id) ?? { id, routes: [], categories: new Set<string>() };
+    for (const route of r.routes) if (!merged.routes.includes(route)) merged.routes.push(route);
+    for (const c of r.categories) merged.categories.add(c);
+    reach.set(id, merged);
+  }
+}
+
+// 売り場から外した商品（catalog.shelvedAt）は getMagazine() が null を返し、サイトに出さない設計なので数えない
+const published = Object.values(NOTE_MAGAZINES).filter((m) => m.published && m.noteUrl && !m.shelvedAt);
+const zero = published.filter((m) => !(reach.get(m.id)?.routes.length));
+const newZero = zero.filter((m) => !baseline[m.id]);
+const fixed = Object.keys(baseline).filter((id) => reach.get(id)?.routes.length);
+
+console.log(`[check-magazine-cta-reachability] 公開マガジン ${published.length} 件を検査（公開記事 ${docs.length} 本（下書き ${allDocs.length - docs.length} 本は対象外）/ HUB 資格 ${hubCategories.size} 件はタイル扱いで到達に数えない / discovery 資格 ${DISCOVERY_CATEGORIES.length} 件）`);
+for (const mag of published) {
+  const r = reach.get(mag.id);
+  const n = r?.routes.length ?? 0;
+  if (n) console.log(`  ✓ ${mag.id}: ${n} 面（${r!.routes.slice(0, 3).join(' / ')}${n > 3 ? ` ほか${n - 3}` : ''}）`);
+  else console.log(`  ${baseline[mag.id] ? '-' : '✗'} ${mag.id}: 0 面${baseline[mag.id] ? `（baseline: ${baseline[mag.id]}）` : ''}`);
+}
+if (fixed.length) console.log(`\n  info: baseline 掲載だが CTA が付いた ${fixed.length} 件（baseline から削除してよい）: ${fixed.join(', ')}`);
+
+// 検査ゼロを PASS と呼ばない（走査対象が取れていないなら故障として落とす）
+if (!docs.length || !published.length) {
+  console.error(`\n✗ 検査不成立: 記事 ${docs.length} 本 / 公開マガジン ${published.length} 件（走査経路が壊れている）`);
+  process.exit(1);
+}
+if (newZero.length) {
+  console.error(`\n✗ サイトから到達できない公開マガジン（baseline 外）${newZero.length} 件: ${newZero.map((m) => m.id).join(', ')}`);
+  console.error('  対処: magazine-placement.ts に top を配線する / 対象記事に <MagazineCard> を置く /');
+  console.error('        サイト CTA を持たない設計なら .claude/config/magazine-cta-baseline.json に理由付きで登録する');
+  console.error('  注意: sidebar 配線は現行コードでは参照されない（2026-07 の CTA 統一で廃止）');
+  if (CI) process.exit(1);
+} else {
+  console.log(`\n✓ 新規の 0 面マガジンなし（0 面 ${zero.length} 件はすべて baseline 記載）`);
+}
+
+// ── ページ単位: 教材のある資格の公開記事に商品の導線が 1 つも出ないページ ──────────────
+// 面の数え方はマガジン単位と同じ（top / 中間 CTA / MagazineCard / 非 HUB のサイドバー）。もくじタイルは数えない。
+// career 記事は note CTA を出さない設計（resolvePlacement の 0 番ガード）なので対象外。
+const pageSurfacesByProbe = reachByProbe.map((probe) => {
+  const surfaces = new Map<string, number>();
+  for (const r of probe.values()) {
+    for (const route of r.routes) {
+      const slug = route.slice(route.indexOf(':') + 1);
+      surfaces.set(slug, (surfaces.get(slug) ?? 0) + 1);
+    }
+  }
+  return surfaces;
+});
+// どちらの時点でも 1 面以上ある（＝試験の前後どちらでも CTA が出る）ページだけを「あり」とする
+const hasSurface = (slug: string): boolean => pageSurfacesByProbe.every((m) => (m.get(slug) ?? 0) > 0);
+const { uncovered, gateDocs, targets: gateTargets, zeroPages } = pageGate(docs, { gate: PAGE_GATE_CATEGORIES, excluded: PAGE_GATE_EXCLUDED, hasSurface });
+const newZeroPages = zeroPages.filter((d) => !zeroPageBaseline[d.slug]);
+const fixedPages = Object.keys(zeroPageBaseline).filter((slug) => hasSurface(slug));
+const excludedCount = docs.filter((d) => Object.hasOwn(PAGE_GATE_EXCLUDED, d.category)).length;
+console.log(`\n[page-gate] 教材のある${PAGE_GATE_CATEGORIES.size}資格の公開記事 ${gateDocs.length} 本（career ${gateDocs.length - gateTargets.length} 本は対象外）/ 実検査 ${gateTargets.length} 本 / CTA ゼロ ${zeroPages.length} 本（baseline 外 ${newZeroPages.length} 本）/ もくじタイルは数えない`);
+console.log(`  対象外のカテゴリ ${Object.keys(PAGE_GATE_EXCLUDED).length} 件・${excludedCount} 本: ${Object.entries(PAGE_GATE_EXCLUDED).map(([c, why]) => `${c}（${why}）`).join(' / ')}`);
+console.log('  基準書（/standards・章ページ）は content/site の記事でないので数えない。note の導線は置かず、転職の枠とテーマ経由の記事で教材へつなぐ（右欄の判定は DN-1171）');
+if (uncovered.length) {
+  console.error(`✗ 検査不成立: 記事のあるカテゴリ ${uncovered.join(', ')} が検査対象（PAGE_GATE_CATEGORIES）にも対象外（PAGE_GATE_EXCLUDED）にも無い。どちらかに理由付きで入れる`);
+  process.exit(1);
+}
+for (const d of zeroPages) {
+  console.log(`  ${zeroPageBaseline[d.slug] ? '-' : '✗'} ${d.slug}${zeroPageBaseline[d.slug] ? `（baseline: ${zeroPageBaseline[d.slug]}）` : ''}`);
+}
+if (fixedPages.length) console.log(`  info: baseline 掲載だが CTA が付いた ${fixedPages.length} 本（baseline から削除してよい）: ${fixedPages.join(', ')}`);
+if (!gateTargets.length) {
+  console.error('✗ 検査不成立: 教材のある資格の公開記事が 0 本（走査経路が壊れている）');
+  process.exit(1);
+}
+if (newZeroPages.length) {
+  console.error(`✗ note CTA が 1 つも出ない公開記事（baseline 外）${newZeroPages.length} 本`);
+  console.error('  対処: magazine-placement.ts の許可リスト（CIVIL_EXAM_PREP_GUIDES 等）に slug を足す / 本文に <MagazineCard> を置く /');
+  console.error('        CTA を持たない設計なら .claude/config/magazine-cta-baseline.json の zeroPage に理由付きで登録する');
+  if (CI) process.exit(1);
+} else {
+  console.log('✓ ページ単位の CTA ゼロなし（baseline 外）');
+}
+
+// ── ページ単位: 商品は出るが、出るのが無料の記事だけのページ ──────────────────────────
+// 上の「CTA ゼロ」は無料の精読ガイドも 1 面に数えるので、有料の教材へ 1 つも行けないページを見逃す
+// （2026-11-15: 2級ガイド 16 本・1級ガイド 7 本が該当）。無料かどうかは価格の数値で決める（価格なし＝無料）。
+// どちらかの時点で「面はあるが有料が 0」なら数える。増やさないラチェット（baseline の freeOnlyPageMax）。
+const isPaid = (id: string): boolean => /[¥￥]\s*[1-9]/.test(getMagazine(id as MagazineId)?.price ?? '');
+const freeOnlyByProbe = reachByProbe.map((probe) => {
+  const paid = new Map<string, boolean>();
+  for (const r of probe.values()) {
+    for (const route of r.routes) {
+      const slug = route.slice(route.indexOf(':') + 1);
+      paid.set(slug, (paid.get(slug) ?? false) || isPaid(r.id));
+    }
+  }
+  return paid;
+});
+const freeOnlyPages = gateTargets.filter((d) => freeOnlyByProbe.some((m) => m.get(d.slug) === false));
+const freeOnlyMax: number = baselineJson.freeOnlyPageMax ?? 0;
+const byCategory = new Map<string, number>();
+for (const d of freeOnlyPages) byCategory.set(d.category, (byCategory.get(d.category) ?? 0) + 1);
+console.log(`\n[free-only] 対象 ${gateTargets.length} 本のうち、出る商品が無料の記事だけのページ ${freeOnlyPages.length} 本（上限 ${freeOnlyMax}）${freeOnlyPages.length ? `: ${[...byCategory].map(([c, n]) => `${c} ${n}`).join(' / ')}` : ''}`);
+for (const d of freeOnlyPages) console.log(`  - ${d.slug}`);
+if (freeOnlyPages.length > freeOnlyMax) {
+  console.error(`✗ 有料の教材が 1 つも出ないページが上限を超えた（${freeOnlyPages.length} > ${freeOnlyMax}）`);
+  console.error('  対処: magazine-placement.ts でそのページの end か top に有料の教材を置く / 意図したものなら baseline の freeOnlyPageMax を理由つきで上げる');
+  if (CI) process.exit(1);
+} else if (freeOnlyPages.length < freeOnlyMax) {
+  console.log(`  info: 上限より少ない（baseline の freeOnlyPageMax を ${freeOnlyPages.length} へ下げてよい）`);
+}

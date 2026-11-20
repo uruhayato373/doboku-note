@@ -25,9 +25,9 @@
       "anchor": ".claude/knowledge/reference/content-principles.md",
       "files": [
         ".claude/knowledge/reference/content-principles.md",
-        "scripts/check-guide-length.mjs",
+        "scripts/checks/check-guide-length.mjs",
         "scripts/lib/pre-commit-steps.mjs",
-        "scripts/quality-audit.mjs",
+        "scripts/ops/quality-audit.mjs",
         ".claude/todo/backlog.md"
       ]
     },
@@ -50,8 +50,8 @@
         "src/lib/law-wiring.ts",
         "config/policy-registry.json",
         "src/lib/topics.ts",
-        "scripts/check-content-taxonomy.mjs",
-        "scripts/report-taxonomy-wiring.mjs",
+        "scripts/checks/check-content-taxonomy.mjs",
+        "scripts/reports/report-taxonomy-wiring.mjs",
         "docs/strategy/21_分類の軸と回遊の配線2026-10.md",
         ".claude/knowledge/reference/content-authoring.md",
         "docs/strategy/05_情報アーキテクチャ.md",

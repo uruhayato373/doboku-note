@@ -6,7 +6,7 @@ metadata:
 ---
 機械品質チェックの統合基盤（2026-07-14 新設）。[[reference_quality_audit_system]] [[feedback_knip_dead_code_audit]] と同系統。
 
-**統合ランナー**: `npm run quality:audit`（report→`.claude/state/quality/audit-latest.md`）/ `quality:audit:ci`（CI gate・15チェック・fail/timeoutでexit 1）。定義は `scripts/quality-audit.mjs` の宣言的 CHECKS 配列（`{id, npm|cmd, timeout, ci:bool, skip()}`）。ci.yml は `quality:audit:ci → build` に集約済み。report-only に降格した既存債務: internal-links（concrete-chief の RelatedKeywords BROKEN_SLUG）、note-meta-lint（`node:fs/promises` の glob が Node20 未提供でクラッシュ＝要修正）。
+**統合ランナー**: `npm run quality:audit`（report→`.claude/state/quality/audit-latest.md`）/ `quality:audit:ci`（CI gate・15チェック・fail/timeoutでexit 1）。定義は `scripts/ops/quality-audit.mjs` の宣言的 CHECKS 配列（`{id, npm|cmd, timeout, ci:bool, skip()}`）。ci.yml は `quality:audit:ci → build` に集約済み。report-only に降格した既存債務: internal-links（concrete-chief の RelatedKeywords BROKEN_SLUG）、note-meta-lint（`node:fs/promises` の glob が Node20 未提供でクラッシュ＝要修正）。
 
 **新規チェックの三点セット**: 閾値=`.claude/config/*`（content-rules.json/image-limits.json）、純ロジック=`#lib/*`（mdx-hygiene-rules/image-audit・ユニットテスト付）、`quality-audit.mjs` の CHECKS 登録。画像=`check-image-assets`（baseline=image-baseline.json）、SVG=detect.mjs の P13/P14/P15。
 
@@ -29,7 +29,7 @@ metadata:
 
 全 published 記事のルーブリック採点カバレッジを一望する census 基盤（2026-07-10 新設・commit 42a32723c）。5/17 GSC急落 RCA で「内部5軸ルーブリックは本文分量軸を持たず Google の index selection/demote と直交する」「採点が総監・civil-1 に偏り他資格ゼロ」が判明したのを受けて構築。真実源は [[project_gsc_pivot_2026_04]] 系でなく本文。
 
-**使い方**: `npm run quality-census`（`scripts/build-quality-census.mjs`）→ `.claude/state/quality/census.json` を生成。`src/config/doc-meta-index.json`（published 真実源）× 全 `*quality-scores.json` を突合し、資格×group×{採点済み/未採点/不合格(weighted<2.0)/薄層} を集計。admin 品質タブ冒頭にも表示（`npm run admin` → `/api/quality-census`）。
+**使い方**: `npm run quality-census`（`scripts/build/build-quality-census.mjs`）→ `.claude/state/quality/census.json` を生成。`src/config/doc-meta-index.json`（published 真実源）× 全 `*quality-scores.json` を突合し、資格×group×{採点済み/未採点/不合格(weighted<2.0)/薄層} を集計。admin 品質タブ冒頭にも表示（`npm run admin` → `/api/quality-census`）。
 
 **薄層(thin)の機械補完**: keyword/guide/textbook かつ 本文実質<3,000字（`check-guide-length` と同じ `body.replace(/\s/g,'').length` 計測=raw MDX・componentタグ込み）。ルーブリックを改変せず body_chars で demote リスクを可視化する設計。
 

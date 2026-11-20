@@ -1,8 +1,8 @@
 # 土木 無料集客記事 公開キュー（note-publish-magazine.mjs --list 入力）
 # 用途: 眠っている draft 無料記事16本を優先順で note 公開する。
 # 実行は【ローカルマシン（note ログイン済み Chrome プロファイルがある会社PC/Mac）】で。
-#   dry（対象確認）: node scripts/note-publish-magazine.mjs --list content/note/1級・2級土木/_publish-queue-無料集客.txt
-#   即時公開:        node scripts/note-publish-magazine.mjs --list content/note/1級・2級土木/_publish-queue-無料集客.txt --commit
+#   dry（対象確認）: node scripts/note/note-publish-magazine.mjs --list content/note/1級・2級土木/_publish-queue-無料集客.txt
+#   即時公開:        node scripts/note/note-publish-magazine.mjs --list content/note/1級・2級土木/_publish-queue-無料集客.txt --commit
 #   1日1本ドリップ:  ... --schedule-start 2026-06-24T07:00 --interval-hours 24 --commit
 # 冪等: frontmatter に noteUrl があれば自動スキップ（再実行で途中再開）。
 # 公開後 note-publish が noteUrl/noteId/notePublishedAt を frontmatter に writeback → git pull で本セッションへ反映。

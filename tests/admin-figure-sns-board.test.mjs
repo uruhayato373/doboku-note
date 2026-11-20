@@ -7,7 +7,7 @@ import { figureSnsBoard } from '../tools/admin-app/src/lib/figure-sns-board.mjs'
 
 function fixture() {
   mkdirSync('.tmp', { recursive: true });
-  const root = mkdtempSync(join(process.cwd(), '.tmp/figure-sns-test-'));
+  const root = mkdtempSync(join(process.cwd(), '.tmp/figure-sns-test-')); // root-ok: リポジトリのルートではなく、テストが作る一時ディレクトリ
   const write = (path, data) => { const full = join(root, path); mkdirSync(join(full, '..'), { recursive: true }); writeFileSync(full, typeof data === 'string' ? data : JSON.stringify(data)); };
   const article = 'content/site/civil-construction-1/example/article.mdx';
   const figure = 'content/site/civil-construction-1/example/img/figure-example.svg';

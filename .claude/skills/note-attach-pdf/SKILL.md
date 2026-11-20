@@ -5,7 +5,7 @@ description: >
   note 記事の本文末尾（有料記事は有料エリア内）に印刷用 PDF を添付するブラウザ CLI（既定 dry/probe・更新は --commit）。Use when user says "note記事にPDFを添付", "マガジンのPDFが未添付", "/note-attach-pdf".
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
+argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
 domain: product
 ---
 
@@ -22,16 +22,16 @@ domain: product
 
 ```bash
 # 1マガジン分を直列バッチ（frontmatter noteId ↔ 同dir PDF を突合・done-logで再開・1記事最大2回試行）
-node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir>            # dry（対象一覧のみ）
-node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit   # 実添付
+node scripts/note/note-attach-magazine-pdfs.mjs --dir <magazineDir>            # dry（対象一覧のみ）
+node scripts/note/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit   # 実添付
 
 # 1記事だけ（単体ツール）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe（挿入メニュー構造ダンプ）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --draft-only # 下書きへ実添付して保存
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付（既定＝本文末尾へ）
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe（挿入メニュー構造ダンプ）
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path> --draft-only # 下書きへ実添付して保存
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付（既定＝本文末尾へ）
 
 # 各セクション内に配置（無料記事など）: 指定テキストを含む最小段落の直後へ挿入（未検出は exit 7 ABORT＝誤挿入防止）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<段落の一部>" --commit --force
+node scripts/note/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<段落の一部>" --commit --force
 ```
 
 - マッピング: `<magazineDir>/<year>/article-<type>.md` の frontmatter `noteId` と同 dir の PDF（II1→`/-II-1-/` ・II2→`/-II-2-/` ・III→`/-III-/`）を突合。noteId 無し（未公開）はスキップ。
@@ -50,7 +50,7 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<
 `note-attach-file --draft-only` は保存後にエディタを再読込し、要求したPDFファイル名の添付がなければ exit 9。`--commit` は再公開後に**ライブの添付リンク数を実測**し、0 なら exit 9（「更新するを押せた＝添付できた」ではない）。両オプションは同時指定できない。横断確認は:
 
 ```bash
-node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実測
+node scripts/checks/check-note-attachments.mjs --live   # 期待本数 vs ライブ実測
 ```
 
 ディスク上に PDF がある公開記事すべてについて、note ライブの添付リンク（`api/v2/attachments/download`）本数を著者ログインで実測し、不足を exit 1 で落とす。**不足と出た記事は、スナップショットへ書く前に単独条件（再読み込み・段階スクロール・長い settle）で必ず測り直す**（2026-09-05／09-06 に、`--only` なら充足なのに全件走査だけ live=0 と報告する取りこぼしが 2 件出たため・DN-0176）。出力の「暫定不足 → 再実測で解消 / 確定不足」は、確定不足だけが本物の欠落で、解消分は全件走査の偽陰性。待ちは `NOTE_ATTACH_SETTLE_MS` / `NOTE_ATTACH_CONFIRM_SETTLE_MS` / `NOTE_ATTACH_CONFIRM_WAIT_MS` で伸ばせる（プロキシ下で有効）。**未ログインの HTML には有料エリアの添付カードが出ない**ため、この live 層は土曜の Mac 収集の後段（`weekly-collect` の note-live 段）が回す。CI は回さない（運営者の端末での取り直しは `--only note-live`）（CI 側は `npm run check-note-attachments` が「約束した PDF がディスクに在るか」だけを見る）。
@@ -68,6 +68,6 @@ node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実�
 
 ## 関連
 
-- `scripts/note-attach-file.mjs`（1記事）／`scripts/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
+- `scripts/note/note-attach-file.mjs`（1記事）／`scripts/note/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
 - 記事公開: `note-publish` ／ マガジンカバー: `note-magazine-cover` ／ 収録: `note-magazine-add`
-- 印刷用 PDF 生成: note マガジンは `scripts/magazine-to-pdf.mjs`（`magazine-pdf-builder`）、択一演習は `scripts/build-takuitsu-pdf.mjs --spec <json>`。択一specは `bookId` / `title` / `subtitle` / `sources` が必須で、自作問題は任意の `creditText` に出典説明を書く。生成器はMDXコメントを除去し、Calloutを要点ボックスへ変換し、システムChromeで描画する。真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]
+- 印刷用 PDF 生成: note マガジンは `scripts/note/magazine-to-pdf.mjs`（`magazine-pdf-builder`）、択一演習は `scripts/build/build-takuitsu-pdf.mjs --spec <json>`。択一specは `bookId` / `title` / `subtitle` / `sources` が必須で、自作問題は任意の `creditText` に出典説明を書く。生成器はMDXコメントを除去し、Calloutを要点ボックスへ変換し、システムChromeで描画する。真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]

@@ -17,8 +17,8 @@ domain: site
 | ファイル | 役割 |
 |---|---|
 | `.claude/agents/exam-keyword-mapping-auditor.md` | 過去問 1 問の紐づけを評価する Evaluator |
-| `scripts/build-keyword-summaries.mjs` | auditor Stage 2 用の事前資産（`keyword-summaries.json`）生成 |
-| `scripts/apply-audit-result.mjs` | 監査差分 JSON を機械的に exam-keyword-map.json に反映 |
+| `scripts/build/build-keyword-summaries.mjs` | auditor Stage 2 用の事前資産（`keyword-summaries.json`）生成 |
+| `scripts/maint/apply-audit-result.mjs` | 監査差分 JSON を機械的に exam-keyword-map.json に反映 |
 | `.claude/state/exam-keyword-map.json` | 単一正源（読み書き対象） |
 | `.claude/state/keyword-summaries.json` | 658 件のキーワード要約（事前生成） |
 | `.claude/state/improvements/pe-priority-2026-05-11.json` | リライト優先度（A/B/C/C'/D）注釈源 |
@@ -36,7 +36,7 @@ domain: site
 **前提条件**: `keyword-summaries.json` が最新であること。なければ実行:
 
 ```bash
-node scripts/build-keyword-summaries.mjs
+node scripts/build/build-keyword-summaries.mjs
 ```
 
 **処理フロー**:
@@ -155,7 +155,7 @@ git diff .claude/state/exam-keyword-map.json
 2. 各エントリの `exam_question` から年度を抽出し、過去問 MDX の該当 `## Ⅰ-1-N` セクション本文を取得
 3. `notebooklm-cross-query.mjs` で「過去問 notebook + 総監標準テキスト」へ並列クエリ:
    ```bash
-   node scripts/notebooklm-cross-query.mjs \
+   node scripts/content/notebooklm-cross-query.mjs \
      --notebooks "総監一次択一過去問,総監標準テキスト" \
      "{設問の概要}。この設問で {候補 slug の概念} は本質的な論点か？"
    ```

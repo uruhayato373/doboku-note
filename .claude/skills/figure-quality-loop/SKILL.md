@@ -20,7 +20,7 @@ needs-source の図は次の段（stage=reextract）で元 PDF のページか�
 切り出し直しの依頼には、記事の `sources:` から引いた原典候補（PDF・向き・OCR）が付く。試験ページでない記事で原典が流用不可の市販書籍しか無い図は、切り出し直しに回らない（自作の図への置き換えか削除を運営者へ上げる・reference-sources-policy.md §6）
 ```
 
-真実源: 判定待ちと台帳の仕組み＝`scripts/figure-review-queue.mjs`・`scripts/lib/figure-review.mjs`、台帳＝`.claude/state/quality/figure-review-ledger.json`、図の出所と needs＝[figure-provenance.md](../../knowledge/reference/figure-provenance.md)。
+真実源: 判定待ちと台帳の仕組み＝`scripts/storage/figure-review-queue.mjs`・`scripts/lib/figure-review.mjs`、台帳＝`.claude/state/quality/figure-review-ledger.json`、図の出所と needs＝[figure-provenance.md](../../knowledge/reference/figure-provenance.md)。
 
 ## 1 周の手順
 
@@ -30,7 +30,7 @@ needs-source の図は次の段（stage=reextract）で元 PDF のページか�
 
 ### 1. 集計して次の一括を決める
 ```bash
-node scripts/figure-review-queue.mjs
+node scripts/storage/figure-review-queue.mjs
 ```
 - exit 2（検査不成立）→ 止めて原因を報告する（`/loop` も止める）。
 - `⚠ OCR 未監査 N 枚` が出たら先に `npm run audit-figures`（OCR・数分）を実行してから集計し直す（答え・本文の写り込みの兆候が欠けるため）。
@@ -39,10 +39,10 @@ node scripts/figure-review-queue.mjs
 判定待ちを 8 枚ずつ回す。ただし切り出し直し待ちが 8 件以上たまったら、次の周は切り出し直しを 4 件回す（判定だけ進んで実際の修正が止まらないように交互にする）。判定待ちが 0 なら切り出し直しだけ:
 ```bash
 mkdir -p .tmp/figure-loop
-node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
+node scripts/storage/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
 # 切り出し直し待ちが 8 件以上、または判定待ちが 0 のとき: --stage reextract --next 4
 ```
-切り出し直しの図が書籍の図（記事の caption・alt が「図X.Y」）なら、worker に原典のページを渡す。`node scripts/find-book-figure.mjs "図2.41" --book <書籍名の一部>` が Drive vault の書籍 OCR から書籍・PDF・ページ・印字ページ・図名を JSON で返すので、`status: found` の `matches[0]` をその要素の `bookHit` に入れる（`multiple` は `--book` で絞る・`not-found` は入れない・exit 2 は vault が無い PC なので切り出し直しを回さない）。
+切り出し直しの図が書籍の図（記事の caption・alt が「図X.Y」）なら、worker に原典のページを渡す。`node scripts/storage/find-book-figure.mjs "図2.41" --book <書籍名の一部>` が Drive vault の書籍 OCR から書籍・PDF・ページ・印字ページ・図名を JSON で返すので、`status: found` の `matches[0]` をその要素の `bookHit` に入れる（`multiple` は `--book` で絞る・`not-found` は入れない・exit 2 は vault が無い PC なので切り出し直しを回さない）。
 
 ### 2. ワーカーを並列で回す
 ```
@@ -53,7 +53,7 @@ Workflow({ scriptPath: "scripts/figure-recrop/figure-crop-batch.workflow.mjs", a
 ### 3. 親の QA（Evaluator）
 Workflow は結果を `.tmp/figure-loop/results-<runId>.json` に保存する（保存の確認はログに出る。失敗の警告が出たら戻り値から自分で保存する）。対象は **画像を書き換えた図（crop / reextract）** と **`selfVerify: suspect` の図**。次の 1 コマンドで 3 つが出るので、親は合否だけを決める:
 ```bash
-node scripts/figure-qa-sheet.mjs <書き換えた図と suspect の figKey...>
+node scripts/storage/figure-qa-sheet.mjs <書き換えた図と suspect の figKey...>
 ```
 - png・webp 両方のクロップ検査（`STRAY_SLIVER` が無く、新しい `EDGE_CUT` を作っていないこと）
 - 新旧を並べた画像 `.tmp/figure-loop/qa-<図名>.png` を Read して、写り込みが消え図本体が欠けていないこと・reextract は同じ図で欠けが戻っていること
@@ -64,7 +64,7 @@ node scripts/figure-qa-sheet.mjs <書き換えた図と suspect の figKey...>
 ### 4. 判定を記録する
 判定 JSON は手で書かない。結果ファイルから作って記録する（QA に合格した書き換え済み・suspect の図だけを `--pass` に並べる。`ok`・`needs-source`・`source-unavailable` の判定は `--pass` なしで記録される）:
 ```bash
-node scripts/figure-review-queue.mjs record --from-results .tmp/figure-loop/results-<runId>.json --pass <QA 合格の figKey...>
+node scripts/storage/figure-review-queue.mjs record --from-results .tmp/figure-loop/results-<runId>.json --pass <QA 合格の figKey...>
 ```
 
 | worker の action | 親の QA | 記録される判定 |
@@ -87,7 +87,7 @@ git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-
 git commit -m "content(figures): 図クロップ品質ループ N 枚（ok a・切り直し b・切り出し直し c・要切り出し直し d・原典なし e）"
 git fetch -q && git rev-list --count HEAD..origin/develop   # 0 でなければ下の載せ直しをしてから
 git push origin develop                     # 載せ直し・検証とは別の呼び出しにする
-node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
+node scripts/storage/figure-review-queue.mjs        # 残数を 1 行で報告
 ```
 - MDX の寸法を変えると pre-commit の lint-ja がその記事全体を見るので、既存の表記ゆれ（「締め固め」「打ち込み」等）でコミットが止まることがある。設問の選択肢を引用した行は原文として除外されるので、止まった行は自前の解説。設問の表記に合わせて直してから同じコミットに入れる（`--no-verify` で飛ばさない）。
 - `develop` が先に進んでいたら、作業ツリーに他のセッションの変更があっても `git reset --keep origin/develop` → `git cherry-pick <自分の sha>` で載せ直し、元のパッチと同じか確かめてから push する（`git rebase` は他人の未コミットの変更で拒否される・stash は共有なので使わない）。
@@ -96,7 +96,7 @@ node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
 
 `/loop /figure-quality-loop`（間隔なし＝自走）。1 回の起動で 1 周回し、手順 1 で「判定待ち・切り出し直し待ちとも 0」なら止める（ScheduleWakeup の `stop`）。外部の状態を待つ処理は無いので、次の周は 60 秒後に予約してよい。検査不成立（exit 2）・push の失敗・同じ図が 2 周続けて QA 不合格のときも止めて報告する。
 
-完了条件（決定的）: `node scripts/figure-review-queue.mjs` が「判定待ち・切り出し直し待ちとも 0」。`source-unavailable` は残ってよい（入手待ち。provenance では `rescan-need-source` として見える）。
+完了条件（決定的）: `node scripts/storage/figure-review-queue.mjs` が「判定待ち・切り出し直し待ちとも 0」。`source-unavailable` は残ってよい（入手待ち。provenance では `rescan-need-source` として見える）。
 
 ## 鉄則
 

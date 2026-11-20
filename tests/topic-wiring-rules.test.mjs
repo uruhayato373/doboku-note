@@ -182,7 +182,7 @@ test('計測: 新しい回遊の面は internal_nav_click のラベルで分か�
   assert.ok(page.includes('data-cta-label="topic-related"') && page.includes('data-cta-label="topic-page"'), 'テーマページの回遊に計測ラベルが無い');
   assert.ok(read('src/components/category/CategoryTopics.tsx').includes('data-cta-label="category-topics"'), '資格のハブの「テーマから探す」に計測ラベルが無い');
   assert.ok(read('src/components/category/CategoryPage.tsx').includes('<CategoryTopics'), '資格のハブからテーマへのリンクが外れている');
-  assert.ok(read('scripts/fetch-ga4-cta-clicks.mjs').includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取っていない');
+  assert.ok(read('scripts/search/fetch-ga4-cta-clicks.mjs').includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取っていない');
 });
 
 test('テーマの有料教材: id は公開中の note の商品を指し、ページは MagazineCard（inline・placement topic-page）で出す', () => {
@@ -207,7 +207,7 @@ test('立場の軸: 自治体の土木職は実務のシリーズと試験側の
 test('育成中のテーマは noindex（サイトマップは out/ の robots を見て外す）', () => {
   const page = read('src/app/topics/[slug]/page.tsx');
   assert.ok(page.includes('noindex: !isTopicIndexable(topic)'), 'テーマページが status を noindex に結んでいない');
-  assert.ok(read('scripts/generate-sitemap.mjs').includes('noindex'), 'サイトマップが noindex のページを外していない');
+  assert.ok(read('scripts/build/generate-sitemap.mjs').includes('noindex'), 'サイトマップが noindex のページを外していない');
 });
 
 test('記事メタの索引は本文の e-Gov へのリンクから法令を持つ', () => {
@@ -227,7 +227,7 @@ test('法令ページ（/laws/）: 領域・カテゴリ・URL・ページのル
   const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
   assert.ok(footer.includes('{lawPage && <LawPageSections data={lawPage} />}'), '法令ページの末尾の自動の節が無い');
   assert.ok(footer.includes('pageLinks={lawPageLinks}'), '記事末の根拠法令から法令ページへつないでいない');
-  assert.ok(read('scripts/generate-sitemap.mjs').includes("/^\\/laws\\/[^/]+$/"), 'サイトマップが法令ページの優先度を持たない');
+  assert.ok(read('scripts/build/generate-sitemap.mjs').includes("/^\\/laws\\/[^/]+$/"), 'サイトマップが法令ページの優先度を持たない');
   // 法令ページ自身は、同じ法令を扱う記事と法令×テーマの集計に入れない
   assert.ok(read('src/lib/article-end-wiring.ts').includes("doc.category !== 'laws'"), '同じ法令を扱う記事に法令ページが混ざる');
   assert.ok(read('src/lib/law-wiring.ts').includes("d.category !== 'laws'"), '法令×テーマの集計に法令ページが混ざる');

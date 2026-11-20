@@ -1,6 +1,7 @@
 /**
- * kindle-catalog.mjs — Kindle 出版データ（catalog.json）を読んで集約・検証する pure module。
- * catalog.json は config/products.json（channel kindle）からの生成物で、書き換えは product-registry.mjs の updateKindleCatalog か npm run product -- set kindle-<書籍id> だけ。
+ * kindle-catalog.mjs — Kindle 書籍の行（商品の正本 config/products.json の Kindle 商品の catalog）を読んで集約・検証する pure module。
+ * 書籍の行は正本の中にだけあり、写しのファイルは作らない（2026-11-20 に写しの catalog.json を廃止）。
+ * 書き換えは product-registry.mjs の updateKindleCatalog か npm run product -- set kindle-<書籍id> だけ。
  *
  * 主な利用者は admin の販売状態（Kindle タブ）（表示専用）。KDP 台帳の母数判定 `kdpLiveBookIdsAsOf` だけは
  * check-kdp-report-freshness と business-direction も共有する。
@@ -9,45 +10,65 @@
  * 副作用は fs の read-only アクセスと git log（read-only）のみ。ネットワーク・書き込みは
  * 一切しない。`config/kdp-memo.json`（accountEmail 等の秘密混じり）は読まない。
  */
-import { readFileSync, existsSync, statSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join, basename } from 'node:path'
-import { REPO_ROOT } from './repository-paths.mjs'
+import { KINDLE_BOOKS_REL, KINDLE_BOOKS_ROOT, REPO_ROOT } from './repository-paths.mjs'
 import { datasetPath } from './datasets.mjs'
 
-export const CATALOG_PATH = join(REPO_ROOT, 'scripts/kindle-published/catalog.json')
+/** 書籍の行を持つファイル（商品の正本）のリポジトリ相対パス */
+export const KINDLE_CATALOG_SOURCE = datasetPath('config.products')
 export const ROYALTIES_PATH = join(REPO_ROOT, datasetPath('kdp.royalties'))
 export const KINDLE_DIST_DIR = join(REPO_ROOT, 'scripts/kindle-dist')
-export const KINDLE_PUBLISHED_DIR = join(REPO_ROOT, 'scripts/kindle-published')
-export const KINDLE_SPECS_DIR = join(REPO_ROOT, 'scripts/kindle-specs')
 
-/** catalog.json を読んで books 配列を返す。壊れていたら throw（呼び手が ok:false にする）。 */
-export function loadKindleCatalog() {
-  const raw = readFileSync(CATALOG_PATH, 'utf8')
-  const parsed = JSON.parse(raw)
-  if (!Array.isArray(parsed.books)) throw new Error('catalog.json: books が配列でない')
-  return parsed.books
+/**
+ * 本のフォルダの中のファイル（spec.json・cover.json・pop-image.json）のリポジトリ相対パス。
+ * フォルダ名は書籍 id（A 系は大文字）。表紙の spec の id が小文字（a-01）でも同じフォルダを引けるよう、大文字小文字は区別しない。
+ * 本のフォルダが無ければ id のままのパスを返す（呼び手が existsSync で確かめる）。
+ */
+export function kindleBookFile(id, name) {
+  const dirs = existsSync(KINDLE_BOOKS_ROOT) ? readdirSync(KINDLE_BOOKS_ROOT) : []
+  const dir = dirs.includes(id) ? id : (dirs.find((d) => d.toLowerCase() === String(id).toLowerCase()) ?? id)
+  return `${KINDLE_BOOKS_REL}/${dir}/${name}`
+}
+export const kindleSpecPath = (id) => kindleBookFile(id, 'spec.json')
+export const kindleCoverSpecPath = (id) => kindleBookFile(id, 'cover.json')
+
+/** spec.json を持つ本の書籍 id（フォルダ名）の一覧 */
+export function kindleSpecIds() {
+  if (!existsSync(KINDLE_BOOKS_ROOT)) return []
+  return readdirSync(KINDLE_BOOKS_ROOT).filter((d) => existsSync(join(KINDLE_BOOKS_ROOT, d, 'spec.json'))).sort()
+}
+
+/** 商品の配列から Kindle 書籍の行を order の順に取り出す（純粋） */
+export function kindleBooksOf(products) {
+  return (products ?? []).filter((p) => p.channel === 'kindle').sort((a, b) => a.order - b.order).map((p) => p.catalog)
 }
 
 /**
- * 純粋: book → repo 相対パス群（A系/B-G系の2系統を吸収）。
- *  - epub/cover: 値が '/' を含む（例 "kindle-dist/e-01.epub"）→ `scripts/` + 値。
- *                含まない（例 "kindle-A-00-goubon.epub"）→ `scripts/kindle-published/` + 値。
- *  - kdpMemo: 値が 'scripts/' で始まる → そのまま。それ以外 → `scripts/kindle-published/` + 値。
- *  - buildSpec: そのまま（'scripts/kindle-specs/<id>.json'）。テーマ駆動の A 系は null。
+ * 書籍の行の配列を返す。root を渡すとその木の正本を読む（テスト用）。
+ * 正本が無い・壊れているときは throw（呼び手が ok:false にする）。0 冊の扱いは呼び手が決める（検査は「検査不成立」で止める）。
+ */
+export function loadKindleCatalog(root = REPO_ROOT) {
+  const parsed = JSON.parse(readFileSync(join(root, KINDLE_CATALOG_SOURCE), 'utf8'))
+  if (!Array.isArray(parsed.products)) throw new Error(`${KINDLE_CATALOG_SOURCE}: products が配列でない`)
+  return kindleBooksOf(parsed.products)
+}
+
+/** 正本が無ければ空配列（集計で「Kindle 無し」として扱う読み手向け）。壊れていれば throw */
+export function loadKindleCatalogIfPresent(root = REPO_ROOT) {
+  return existsSync(join(root, KINDLE_CATALOG_SOURCE)) ? loadKindleCatalog(root) : []
+}
+
+/**
+ * 純粋: book → repo 相対パス群。
+ *  - epub/cover: 値は "kindle-dist/<id>.epub" の形 → `scripts/` + 値（全冊が private R2 の kindle-dist。A 系は 2026-11-20 に合流）。
+ *  - buildSpec: そのまま（'content/kindle/books/<id>/spec.json'）。テーマ駆動の A 系は null。
  */
 export function artifactRelPaths(book) {
-  const withPrefix = (v, defaultDir) => {
-    if (!v) return null
-    if (v.includes('/')) return `scripts/${v}`
-    return `${defaultDir}/${v}`
-  }
-  const kdpMemo = book.kdpMemo
-    ? (book.kdpMemo.startsWith('scripts/') ? book.kdpMemo : `scripts/kindle-published/${book.kdpMemo}`)
-    : null
+  const withPrefix = (v) => (v ? `scripts/${v}` : null)
   return {
-    epub: withPrefix(book.epub, 'scripts/kindle-published'),
-    cover: withPrefix(book.cover, 'scripts/kindle-published'),
-    kdpMemo,
+    epub: withPrefix(book.epub),
+    cover: withPrefix(book.cover),
     buildSpec: book.buildSpec || null,
   }
 }
@@ -72,9 +93,6 @@ export function inspectKindleInventory(books) {
       id: book.id,
       epub: fileInfo(rel.epub),
       cover: fileInfo(rel.cover),
-      // B-G 系のメモは gen-kdp-memo で必要時に生成する派生物。buildSpec があれば
-      // ファイル未生成を「死ポインタ」と数えない。null は参照自体が無いので dead ではない。
-      kdpMemoDead: rel.kdpMemo ? (!existsSync(abs(rel.kdpMemo)) && !book.buildSpec) : false,
       buildSpec: rel.buildSpec ? fileInfo(rel.buildSpec) : null,
       rebuildable: hasBuildRecipe(book),
     }
@@ -149,7 +167,7 @@ export function estimateFreshness(books, pathDateMap, readSpec) {
       inputPaths = [...A_SERIES_INPUTS]
     }
     if (book.builder) inputPaths.push(book.builder)
-    if (book.builder === 'scripts/build-essay-kindle.mjs') inputPaths.push(SHARED_RENDERER)
+    if (book.builder === 'scripts/build/build-essay-kindle.mjs') inputPaths.push(SHARED_RENDERER)
 
     const inputDates = inputPaths.map((p) => pathDateMap.get(p)).filter(Boolean)
     const latestInputDate = inputDates.length ? inputDates.reduce((a, b) => (a > b ? a : b)) : undefined
@@ -260,6 +278,5 @@ export function coverMediaUrl(book) {
   const abs = join(REPO_ROOT, rel.cover)
   if (!existsSync(abs)) return null
   if (rel.cover.startsWith('scripts/kindle-dist/')) return `/media/kindle/${basename(rel.cover)}`
-  if (rel.cover.startsWith('scripts/kindle-published/')) return `/media/kindlepub/${basename(rel.cover)}`
   return null
 }

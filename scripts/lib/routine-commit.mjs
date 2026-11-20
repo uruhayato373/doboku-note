@@ -1,6 +1,6 @@
 /**
  * routine-commit.mjs — Mac の launchd ルーチン（専用 worktree・detached HEAD）が台帳を commit して develop へ push する共通部品。
- * 読み手: scripts/gsc-local-routine.mjs・scripts/coconala-local-routine.mjs。
+ * 読み手: scripts/search/gsc-local-routine.mjs・scripts/coconala/coconala-local-routine.mjs。
  * 順序は CI の書き込み workflow と同じ（commit → fetch → rebase → push）。他の書き込みと競合したら 1 回だけやり直す。
  */
 import { existsSync } from 'node:fs';

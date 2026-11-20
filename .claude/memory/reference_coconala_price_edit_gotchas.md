@@ -4,7 +4,7 @@ description: "ココナラ価格編集の履歴と現行フォーム=固定価�
 metadata:
   type: reference
 ---
-`scripts/coconala-edit.mjs --fields price --commit`（Playwright）でココナラ出品価格を反映する際の罠。下の `#ServicePrice` は 2026-07-22 時点の旧フォームの記録。
+`scripts/coconala/coconala-edit.mjs --fields price --commit`（Playwright）でココナラ出品価格を反映する際の罠。下の `#ServicePrice` は 2026-07-22 時点の旧フォームの記録。
 
 2026-11-01 の現行フォームでは「サービス価格」combobox の固定価格候補を選ぶ。`coconala-edit` は入力警告があれば更新を中止する。保存後は公開ページの価格を照合する。
 

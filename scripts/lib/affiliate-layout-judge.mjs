@@ -1,5 +1,5 @@
 /**
- * affiliate-layout-judge.mjs — 広告配置のスクリーンショット検査（scripts/affiliate-layout-shots.mjs）の対象選定と判定。
+ * affiliate-layout-judge.mjs — 広告配置のスクリーンショット検査（scripts/affiliate/affiliate-layout-shots.mjs）の対象選定と判定。
  * 基準書はローカル本文を読み、サイトと共有の planInlineSlots で期待する面を決める。
  *
  * 2 つの仕事:

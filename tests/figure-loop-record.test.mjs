@@ -6,8 +6,8 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import sharp from 'sharp';
-import { runRecord } from '../scripts/figure-review-queue.mjs';
-import { buildQaSheet } from '../scripts/figure-qa-sheet.mjs';
+import { runRecord } from '../scripts/storage/figure-review-queue.mjs';
+import { buildQaSheet } from '../scripts/storage/figure-qa-sheet.mjs';
 import { captionStatus, hasFigureCaption, verdictsFromResults } from '../scripts/lib/figure-review.mjs';
 
 const LEDGER = '.claude/state/quality/figure-review-ledger.json';

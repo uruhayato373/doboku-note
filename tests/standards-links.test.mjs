@@ -5,7 +5,7 @@ import {
   resolveStandardsHref,
   repositorySource,
   auditStandardsLinks,
-} from '../scripts/check-standards-links.mjs';
+} from '../scripts/checks/check-standards-links.mjs';
 
 /**
  * 共通仕様書へのリンク検査の契約（DN-0879）。

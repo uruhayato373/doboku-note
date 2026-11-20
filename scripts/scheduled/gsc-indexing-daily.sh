@@ -37,11 +37,11 @@ else
 fi
 [ -e "$WT/node_modules" ] || ln -s "$REPO/node_modules" "$WT/node_modules"
 
-if (cd "$WT" && node scripts/gsc-local-routine.mjs) >> "$LOG_FILE" 2>&1; then
+if (cd "$WT" && node scripts/search/gsc-local-routine.mjs) >> "$LOG_FILE" 2>&1; then
   echo "=== $(date -Iseconds) [gsc-indexing] ok ===" >> "$LOG_FILE"
 else
   rc=$?
   echo "=== $(date -Iseconds) [gsc-indexing] FAILED rc=${rc} ===" >> "$LOG_FILE"
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel gsc-indexing-local --title "GSC の登録リクエストが失敗した" --body "ログ: $LOG_FILE") >> "$LOG_FILE" 2>&1 || true
+  (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --channel gsc-indexing-local --title "GSC の登録リクエストが失敗した" --body "ログ: $LOG_FILE") >> "$LOG_FILE" 2>&1 || true
   exit $rc
 fi

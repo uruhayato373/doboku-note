@@ -4,11 +4,11 @@ description: "note-publish 系の公開手順と罠。price欄必須(無し=無�
 metadata:
   type: reference
 ---
-note-publish.mjs の有料判定は **`const isPaid = notePricing === 'paid' && price > 0`**（scripts/note-publish.mjs:90）。`notePricing: paid` でも **frontmatter に `price:` 欄が無い（or 0）と isPaid=false → 無料で公開される**（2026-07-24、完全攻略パック工事/補充18本＋総監3本＝計21本が price 欄欠落で無料公開＝値崩れ事故）。
+note-publish.mjs の有料判定は **`const isPaid = notePricing === 'paid' && price > 0`**（scripts/note/note-publish.mjs:90）。`notePricing: paid` でも **frontmatter に `price:` 欄が無い（or 0）と isPaid=false → 無料で公開される**（2026-07-24、完全攻略パック工事/補充18本＋総監3本＝計21本が price 欄欠落で無料公開＝値崩れ事故）。
 
 **予防**: paid 記事を公開する前に `price:` 欄(>0)を必ず確認。完全攻略パック個別記事は **¥500**（バンドル ¥2,480＝単品比56-65%OFF と整合。price 欄ありの9本が¥500）。パック専用設計で個別 price を未設定にしていた記事が地雷。
 
-**修復ツール（新規 2026-07-24）**: `scripts/note-convert-to-paid.mjs` — 既に無料公開済みの note を有料化する（`--list`/`--article` ＋ `--commit`）。既存 note editor を開く→公開に進む→有料選択＋価格(input#price setter)→有料エリア設定で境界を paidBoundary 直前へ→更新する→API で price>0 検証。note-publish の有料+境界ロジック(steps 9/11)を踏襲。冪等: note-publish は noteUrl あると skip するので既存 note の有料化には使えない＝本ツールが必要。
+**修復ツール（新規 2026-07-24）**: `scripts/note/note-convert-to-paid.mjs` — 既に無料公開済みの note を有料化する（`--list`/`--article` ＋ `--commit`）。既存 note editor を開く→公開に進む→有料選択＋価格(input#price setter)→有料エリア設定で境界を paidBoundary 直前へ→更新する→API で price>0 検証。note-publish の有料+境界ロジック(steps 9/11)を踏襲。冪等: note-publish は noteUrl あると skip するので既存 note の有料化には使えない＝本ツールが必要。
 
 **同一画像の2枚目アップロード失敗（failed=1）**: 本文に同じ画像を2回（例: 著者権威バナーを冒頭+末尾）貼ると note が2枚目のアップロードに失敗し note-publish が `[12] ★中断: 本文画像が未完（leftover=0 failed=1）→ 公開しない★` で公開拒否（安全停止）。別ファイル名コピーでも同一内容だと失敗する場合あり→**重複バナーは1枚に削除**するのが確実（2026-07-24、工事14/補充-基礎杭工）。[[reference_note_update_body_gotchas]]
 
@@ -45,13 +45,13 @@ note-publish.mjs の有料判定は **`const isPaid = notePricing === 'paid' && 
 Kindle択一(E/B/D)と同一原稿の A4 PDF を有料エリアに添付して単発note記事として売る「従チャネル」の公開手順。真実源は 08_Kindle出版戦略.md（Select非加入で併売）・`src/lib/note-magazines.ts` の `*-takuitsu-*-pdf` エントリ。
 
 手順（1記事ずつ・ローカルの `.local/playwright-note-profile` 必須）:
-1. `node scripts/note-publish.mjs --article <dir>/article.md --commit` … frontmatter `paidBoundary` を自動使用、境界検証後に公開、noteUrl/noteId/noteStatus を frontmatter へ自動writeback
-2. `node scripts/note-attach-file.mjs --note <noteKey> --file <dir>/*.pdf --boundary-regex "<paidBoundary値>" --commit`
+1. `node scripts/note/note-publish.mjs --article <dir>/article.md --commit` … frontmatter `paidBoundary` を自動使用、境界検証後に公開、noteUrl/noteId/noteStatus を frontmatter へ自動writeback
+2. `node scripts/note/note-attach-file.mjs --note <noteKey> --file <dir>/*.pdf --boundary-regex "<paidBoundary値>" --commit`
 3. `note-magazines.ts` の該当キーを `published: true` + noteUrl に更新 → pathspec commit（git -c core.quotepath=false）
 
 落とし穴1: **note-attach-file の既定境界regexは「試験問題|予想問題」ハードコード**（note-publish は frontmatter paidBoundary を読むが attach は読まない）。PDF販売記事の境界は「PDF のダウンロードと使い方」なので、attach には必ず `--boundary-regex "PDF のダウンロードと使い方"` を渡す。渡さないと boundary NG で**安全に再公開中断**（無料漏れは起きないが PDF が live に反映されない）。再実行時は既存PDFカード検出で冪等（二重添付なし）。
 
-落とし穴2: **公開状態(noteStatus:published)にすると 3点セットゲート(check-note-3set)が発火**し、pre-commit の note-lint が `img/cover.png` と `#`付きhashtags≥40(標準~90) を要求してコミットをブロックする。build-takuitsu-pdf 直後は cover 未生成・hashtags は`#`なしプレーン8行なので必ず引っかかる。対策: `node scripts/generate-note-covers.mjs "<slug断片>"`（cover.png+svg生成、frontmatter cover: ブロック必須）＋ hashtags.txt を `#`付き~70個へ書き換え。生成物 cover.svg も追跡慣例(git ls-files で453件)。
+落とし穴2: **公開状態(noteStatus:published)にすると 3点セットゲート(check-note-3set)が発火**し、pre-commit の note-lint が `img/cover.png` と `#`付きhashtags≥40(標準~90) を要求してコミットをブロックする。build-takuitsu-pdf 直後は cover 未生成・hashtags は`#`なしプレーン8行なので必ず引っかかる。対策: `node scripts/build/generate-note-covers.mjs "<slug断片>"`（cover.png+svg生成、frontmatter cover: ブロック必須）＋ hashtags.txt を `#`付き~70個へ書き換え。生成物 cover.svg も追跡慣例(git ls-files で453件)。
 
 2026-07-12 に4商品(2級土木630問¥1480/技術士一次560問¥1480/総監令和280問¥980/総監平成400問¥980)を公開・commit 593380d87。live実査 HTTP200+有料維持で確認済。関連: [[project_kindle_publishing_launch]]
 

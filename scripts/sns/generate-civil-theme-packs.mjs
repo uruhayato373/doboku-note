@@ -22,7 +22,7 @@ import { join } from 'node:path';
 import { wrapByCharCount } from './lib/text-wrap.mjs';
 import {
   THEMES, normalizeQuestion, matchesTheme, assignSubtopic, FIGURE_RE, norm,
-} from '../build-takuitsu-reconstruct.mjs';
+} from '../build/build-takuitsu-reconstruct.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 // テーマ処理順 = Kindle GOUBON.order（テーマ間の重複は先勝ちで解消・precedence を一致させる）

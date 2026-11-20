@@ -1,11 +1,11 @@
 {
-  "_doc": "スクリプトの共通部品の写しと readJson の写しの基準値（DN-0802）。増えたら tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs が赤。減ったら pre-commit の scripts/tighten-ratchets.mjs が下げて同じ commit に入れる（手で上げない）。数え方は scripts/lib/code-ratchets.mjs",
+  "_doc": "スクリプトの共通部品の写しと readJson の写しの基準値（DN-0802）。増えたら tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs が赤。減ったら pre-commit の scripts/ops/tighten-ratchets.mjs が下げて同じ commit に入れる（手で上げない）。数え方は scripts/lib/code-ratchets.mjs",
   "scriptHelpers": {
-    "root": 24,
-    "walk": 26,
+    "root": 0,
+    "walk": 20,
     "parseArgs": 17,
     "curlJson": 0,
-    "mdxWalk": 37,
+    "mdxWalk": 22,
     "escapeRegExp": 0,
     "siteSlug": 0,
     "headingId": 0

@@ -78,7 +78,7 @@ content/
 
 ## 逆戻りを止める機械ゲート
 
-置き場の規約は文章だけでは戻る。`scripts/check-information-architecture.mjs` が次を検出する。
+置き場の規約は文章だけでは戻る。`scripts/checks/check-information-architecture.mjs` が次を検出する。
 
 | 検出 | 例 |
 |---|---|
@@ -130,7 +130,7 @@ content/
 
 > [!warning] 廃止済み経路を復活させない
 > `.claude/state/task-queue.json` は 2026-06-11 に廃止済み。現行の進捗 SSOT は `.claude/todo/backlog.md`、
-> 自動化の失敗記録は `scripts/report-automation-failure.mjs`（`automation-failure` Issue）。
+> 自動化の失敗記録は `scripts/reports/report-automation-failure.mjs`（`automation-failure` Issue）。
 > 参照を成立させるためにファイルを作り直してはならない。
 
 ## 判断フロー
@@ -173,7 +173,7 @@ content/
 > commit したのに誰も分析せず、indexed_ratio が 10pt 落ちる間ずっと無記録だった。
 > Issue は通知が飛び open のまま残るので、**能動的な通知チャネル**として機能する。
 >
-> 起票は `scripts/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
+> 起票は `scripts/reports/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
 > あれば新規作成せずコメント追記）。**クローズは起票元の自動化が次に成功したとき `--resolve` で自動**
 > （2026-09-18 に「クローズは人間」から転換。復旧しても誰も閉じず open 8 件・最古 43 日が溜まり、通知
 > チャネルとして死んでいた＝W37 レビュー「消化停止」。自動クローズ後は **7 日超 open だけが慢性問題**として
@@ -220,7 +220,7 @@ content/
 
 **残作業の有無は `handoffs/` に残す理由にならない**（タスクは backlog が持ち、月初→`monthly`・週初→`weekly` へ落ちる）。`handoffs/` は原則ほぼ空。週次 PDCA（`/weekly-review` の Agent H）が抽出漏れを surface し、`/doc-declutter`（`doc-curator`）が外部実体を検証して抽出→削除を適用する。**鉄則＝外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから削除・未確認なら削除しない**。
 
-**機械ゲート**（`scripts/check-handoff-extraction.mjs`・pre-commit）: この規律の「無意識の素通り」だけを塞ぐ。handoff 直下 `*.md` の削除コミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）を検出し backlog が同一コミットに無ければ止める／`_archive/` への追加を無条件で止める。backlog 同梱は「抽出の証明」でなく「思い出させる強制注意」で、判定の質は `/doc-declutter`（`doc-curator`）が担う。回避は `SKIP_HANDOFF_EXTRACT=1`（2026-07-14 の退避事故＝未抽出のまま `_archive` 復活の再発防止・[[feedback_handoff_extract_before_delete]]）。
+**機械ゲート**（`scripts/checks/check-handoff-extraction.mjs`・pre-commit）: この規律の「無意識の素通り」だけを塞ぐ。handoff 直下 `*.md` の削除コミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）を検出し backlog が同一コミットに無ければ止める／`_archive/` への追加を無条件で止める。backlog 同梱は「抽出の証明」でなく「思い出させる強制注意」で、判定の質は `/doc-declutter`（`doc-curator`）が担う。回避は `SKIP_HANDOFF_EXTRACT=1`（2026-07-14 の退避事故＝未抽出のまま `_archive` 復活の再発防止・[[feedback_handoff_extract_before_delete]]）。
 
 ## review のライフサイクル（2026-07-25〜）
 
@@ -231,7 +231,7 @@ content/
 3. 実装完了、別SSOTへの置換、後続レビューによる上書きが確認できたレビューは削除する。履歴はgitが持つ。
 4. `docs/reviews/weekly/` は最新レビューと次週計画の作業中セットだけを保持し、次回生成時に旧週分を抽出確認して削除する。
 
-**週次レビューの機械ゲート**（`scripts/check-handoff-extraction.mjs`・pre-commit・DN-0230）: 旧週ファイル（`docs/reviews/weekly/*.md`）を削除するコミットで、削除される版の「来週／次週への申し送り」の各項目に台帳上の居場所があるかを見る。居場所は、backlog にある DN-ID か dispatch-log の完了記録、experiments.json にある EXP-ID、Issue 参照、`→ 振り分け: 定常`、または残る週次ファイルへの同文転記。1 項目でも無ければ止める。2026-W39 以降のレビューを確定するときは、申し送りの各項目に `→ 振り分け: DN-#### / 定常 / #Issue / EXP-###` を書き、DN-ID が backlog にあることも見る（規約は `/weekly-review` Phase 4）。回避は `SKIP_HANDOFF_EXTRACT=1`。
+**週次レビューの機械ゲート**（`scripts/checks/check-handoff-extraction.mjs`・pre-commit・DN-0230）: 旧週ファイル（`docs/reviews/weekly/*.md`）を削除するコミットで、削除される版の「来週／次週への申し送り」の各項目に台帳上の居場所があるかを見る。居場所は、backlog にある DN-ID か dispatch-log の完了記録、experiments.json にある EXP-ID、Issue 参照、`→ 振り分け: 定常`、または残る週次ファイルへの同文転記。1 項目でも無ければ止める。2026-W39 以降のレビューを確定するときは、申し送りの各項目に `→ 振り分け: DN-#### / 定常 / #Issue / EXP-###` を書き、DN-ID が backlog にあることも見る（規約は `/weekly-review` Phase 4）。回避は `SKIP_HANDOFF_EXTRACT=1`。
 
 再実行可能な監査はスクリプト＋JSONをSSOTとし、Markdownレポートは現役の実装判断に必要な期間だけ保持する。
 
@@ -270,24 +270,24 @@ content/
 4. **揺れやすいパスより安定したインデックスを指す**。章番号付き（`04_コンテンツロードマップ.md` 等）は再編で動きやすいので、可能なら README や本ドキュメント、内容 SSOT（`noteコンテンツ計画.md` 等）を参照する。
 5. **例示パスはプレースホルダで書く**（`{slug}` / `{magazine}` / `YYYY-Www` / `r0X` / `d-xx` 等）。実在ファイル参照と区別され、ガードが誤検知しない。
 6. **廃止台帳・移行履歴など「死んだパスを記録として残す」行**は行末に `<!-- doc-ref:ignore -->` を付ける（このセクション直後の「廃止済み」がその例）。
-7. **新しいツール/スクリプト/処理経路を追加したら、最も近い既存 skill SKILL.md か reference policy から参照を張る（discoverability）＋新旧の棲み分けを明記する**。似た既存ツールがあれば「どちらを使うか」を迷わせない。これも `/doc-sync` の対象＝**routing drift**（新ツール追加で既存の「どれを使うか」案内が旧/別ツールを指したまま陳腐化）と **discoverability gap**（新ツールがどの doc からも参照されず次セッションが再調査）。機械ガード（参照・台帳）は壊れた参照と台帳もれしか見ずこの意味ドリフトは拾えないため、追加コミット前に `/doc-sync` を回す（2026-06-25、`scripts/figure-reel-create.mjs` 新設時に `ig-figure-pack` SKILL.md が過去問専用の旧リール生成スキルを誤案内したまま残った再発防止。[[feedback_new_tool_doc_wiring]]）。
+7. **新しいツール/スクリプト/処理経路を追加したら、最も近い既存 skill SKILL.md か reference policy から参照を張る（discoverability）＋新旧の棲み分けを明記する**。似た既存ツールがあれば「どちらを使うか」を迷わせない。これも `/doc-sync` の対象＝**routing drift**（新ツール追加で既存の「どれを使うか」案内が旧/別ツールを指したまま陳腐化）と **discoverability gap**（新ツールがどの doc からも参照されず次セッションが再調査）。機械ガード（参照・台帳）は壊れた参照と台帳もれしか見ずこの意味ドリフトは拾えないため、追加コミット前に `/doc-sync` を回す（2026-06-25、`scripts/storage/figure-reel-create.mjs` 新設時に `ig-figure-pack` SKILL.md が過去問専用の旧リール生成スキルを誤案内したまま残った再発防止。[[feedback_new_tool_doc_wiring]]）。
 
 ### ガード（再発防止）— ドキュメント整合の4層
 
 | 層 | 手段 | 検知対象 | 実行 |
 |---|---|---|---|
-| 参照 | `scripts/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
-| 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
-| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230）／backlog のカードを消すコミットでそのカードを指す live 文書（引き継ぎ含む）が index に残る・引き継ぎが backlog にも完了記録にも無い ID を指す（DN-0587。CI の dangling-id は `docs/handoffs/`・`docs/reviews/` では warning） | pre-commit（機械） |
-| 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
-| クラスタ | `scripts/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
+| 参照 | `scripts/checks/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
+| 台帳 | `scripts/checks/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
+| handoff | `scripts/checks/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230）／backlog のカードを消すコミットでそのカードを指す live 文書（引き継ぎ含む）が index に残る・引き継ぎが backlog にも完了記録にも無い ID を指す（DN-0587。CI の dangling-id は `docs/handoffs/`・`docs/reviews/` では warning） | pre-commit（機械） |
+| 配線 | `scripts/checks/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
+| クラスタ | `scripts/checks/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |
 
 **参照ガード**（`check-doc-refs.mjs`）: スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。
 
 - 全体検証: `npm run check-doc-refs`
 - pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/lib/pre-commit-steps.mjs` に登録済み）
-- 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/memory/**`（Claude Code の auto-memory。2026-09-14 から repo 管理し `node scripts/setup-memory-link.mjs` が両 PC の `~/.claude/projects/<key>/memory` を junction/symlink でここへ向ける。個人知見なので当時のパスを残す。**正本はここ 1 本**で、別リポジトリへの同期フックは置かない（2026-10-02 に Mac だけ実ディレクトリ＋別リポジトリ同期のまま 188 件 vs 143 件に分裂していた）。`npm run check-memory` が frontmatter・索引の網羅と読み込み上限（200 行 / 25KB）を pre-commit と quality:audit で、`--session` が SessionStart でリンクと別同期フックを検査し、worktree のキーにリンクが無ければ自動で張る）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
+- 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/memory/**`（Claude Code の auto-memory。2026-09-14 から repo 管理し `node scripts/ops/setup-memory-link.mjs` が両 PC の `~/.claude/projects/<key>/memory` を junction/symlink でここへ向ける。個人知見なので当時のパスを残す。**正本はここ 1 本**で、別リポジトリへの同期フックは置かない（2026-10-02 に Mac だけ実ディレクトリ＋別リポジトリ同期のまま 188 件 vs 143 件に分裂していた）。`npm run check-memory` が frontmatter・索引の網羅と読み込み上限（200 行 / 25KB）を pre-commit と quality:audit で、`--session` が SessionStart でリンクと別同期フックを検査し、worktree のキーにリンクが無ければ自動で張る）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
 
 **台帳ガード**（`check-doc-coupling.mjs`・2026-11-11 に生成物の照合へ変更）: スキル・エージェントの一覧（`skills-guide.md`・`agents-registry.md` の生成区間）が frontmatter と一致するかを検証。ずれていればコミット停止（`npm run build-capability-index` で直す）。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。
 

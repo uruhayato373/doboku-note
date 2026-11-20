@@ -1,7 +1,7 @@
 /**
  * affiliate-placement-core.mjs — 転職アフィリエイトの配置ルール（config/affiliate-placements.json）の判定。依存ゼロの純関数。
  *
- * サイト（src/lib/affiliate-placement.ts）・検査（scripts/check-affiliate-placements.mjs）・型（scripts/lib/dataset-schemas-config-ops.mjs）
+ * サイト（src/lib/affiliate-placement.ts）・検査（scripts/checks/check-affiliate-placements.mjs）・型（scripts/lib/dataset-schemas-config-ops.mjs）
  * が同じ判定を使う（1 か所に置く。src/config/site-identity.mjs と同じ置き方）。時刻は引数で受け取る（ビルド時刻・テストの固定時刻）。
  */
 

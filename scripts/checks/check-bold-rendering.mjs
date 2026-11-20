@@ -1,0 +1,213 @@
+#!/usr/bin/env node
+/**
+ * 太字（**...**）が実際に描画されるかを、規則の再実装ではなく AST の実測で検査する。
+ *
+ * 背景: CommonMark の right-flanking 規則により、閉じ ** の直前が約物で直後が
+ * 文字だと ** は閉じデリミタとして認識されず、太字にならずアスタリスクが
+ * そのまま画面に出る（例: `**標準貫入試験（SPT）**である`）。
+ *
+ * pre-commit-mdx.mjs の checkBoldEndingParen は「）」』】）」の5文字だけを見る
+ * 近似ルールで、`**用語。**です` `**A・B**では` のような他の約物を取りこぼす。
+ * ここでは remark で実際にパースし、text ノードに `**` が生き残っていたら
+ * 「太字にならなかった」と判定する（＝描画結果そのものが根拠）。
+ *
+ * 使い方:
+ *   node scripts/checks/check-bold-rendering.mjs            # 全量
+ *   node scripts/checks/check-bold-rendering.mjs --staged   # staged のみ（pre-commit 用）
+ *   node scripts/checks/check-bold-rendering.mjs --json     # 機械可読（fixer が読む）
+ *
+ * npm run check-bold-rendering — 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX は remark-mdx で読み <Callout> など JSX の中も見る・note 記事も対象・quality:audit に同梱）
+ */
+
+import { readFileSync } from 'node:fs';
+import { writeAllSync } from '../lib/write-all-sync.mjs';
+import { listFiles as listFilesUnder } from '../lib/fs-walk.mjs'; // 下の listFiles()（対象ファイルの集合）と名前が衝突するため別名
+import { execFileSync } from "node:child_process";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkMdx from "remark-mdx";
+import { runBody, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+
+const processor = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
+// .mdx は remark-mdx で読む。素の Markdown として読むと `<Callout>` から空行までを HTML の塊とみなし、
+// 中の太字を一切見ない（2026-10-28 に描画検査 check-rendered-pages が Callout 内の崩れを 2 記事で見つけた）
+const mdxProcessor = unified().use(remarkParse).use(remarkMdx).use(remarkGfm).use(remarkMath);
+
+/** text ノードだけを走査して `**` の残存を拾う（tests/bold-rendering.test.mjs が直接呼ぶ） */
+export function findUnrendered(body, isMdx) {
+  let tree;
+  try {
+    tree = (isMdx ? mdxProcessor : processor).parse(body);
+  } catch {
+    return null; // パース不能は呼び出し側で skip 集計
+  }
+  const hits = [];
+  const walk = (node) => {
+    if (node.type === "text" && node.value.includes("**")) {
+      hits.push({
+        line: node.position?.start?.line ?? 0,
+        value: node.value,
+      });
+    }
+    // code / inlineCode / math は太字対象外なので降りない
+    if (node.type === "code" || node.type === "inlineCode") return;
+    if (node.type === "math" || node.type === "inlineMath") return;
+    (node.children ?? []).forEach(walk);
+  };
+  walk(tree);
+  return hits;
+}
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const args = __argv.slice(2);
+const STAGED = args.includes("--staged");
+const JSON_OUT = args.includes("--json");
+
+// note 記事も同じパーサ系（CommonMark の flanking 規則）で描画されるので対象に含める。
+// 2026-09-23 に公開中の note 911 本を実測し、9 本の本文に ** がそのまま出ていた
+// （`**「管理行為」**で` など）。content/site だけを見ていたため素通りしていた。
+const TARGETS = [
+  { root: "content/site", isTarget: (name) => name.endsWith(".mdx") },
+  // note 記事の走査はファイル名で判定する（型別の article-<型>.md を落とさない）
+  { root: "content/note", isTarget: (name) => /^article(-[^/\\]+)?\.md$/.test(name) },
+];
+const ROOTS = TARGETS.map((t) => t.root);
+const isTargetPath = (raw) => {
+  // listFiles は Windows で \ 区切りを返す（そのままだと startsWith が外れて手元だけ対象 0 件になる）
+  const p = raw.replace(/\\/g, "/");
+  const name = p.split("/").pop();
+  return TARGETS.some((t) => p.startsWith(`${t.root}/`) && t.isTarget(name));
+};
+
+/**
+ * 既知の未修正。件数は必ず出力し、黙って隠さない（CLAUDE.md §9）。
+ * ここに足すのは「直し方は判っているが別ゲートに阻まれて commit できない」場合だけ。
+ */
+const ALLOWLIST = new Map();
+
+/** frontmatter を除去し、本文と「本文1行目が元ファイルの何行目か」を返す */
+function stripFrontmatter(raw) {
+  if (!raw.startsWith("---")) return { body: raw, offset: 0 };
+  const end = raw.indexOf("\n---", 3);
+  if (end === -1) return { body: raw, offset: 0 };
+  const head = raw.slice(0, end);
+  const nl = head.split("\n").length + 1; // 閉じ --- の行
+  const rest = raw.slice(end + 4).replace(/^[^\n]*\n?/, "");
+  return { body: rest, offset: nl };
+}
+
+function listFiles() {
+  if (STAGED) {
+    const out = execFileSync(
+      "git",
+      ['-c', 'core.quotepath=false', "diff", "--cached", "--name-only", "--diff-filter=ACM"],
+      { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 },
+    );
+    return out
+      .split("\n")
+      .map((s) => s.trim())
+      .filter(isTargetPath);
+  }
+  // fs.globSync は Node 22+ 専用。CI は Node 20 なので使えない
+  // （使うと対象0件になり「検査不成立」で落ちる。2026-08-04 に CI で顕在化）。
+  return ROOTS.flatMap((root) => listFilesUnder(root, { match: (p) => isTargetPath(p), allowMissing: true }));
+}
+
+const files = listFiles();
+const findings = [];
+let parseFailed = 0;
+let allowed = 0;
+
+for (const file of files) {
+  let raw;
+  try {
+    raw = readFileSync(file, "utf8");
+  } catch {
+    parseFailed++;
+    continue;
+  }
+  const { body, offset } = stripFrontmatter(raw);
+  const hits = findUnrendered(body, file.endsWith(".mdx"));
+  if (hits === null) {
+    parseFailed++;
+    continue;
+  }
+  if (hits.length && ALLOWLIST.has(file)) {
+    allowed += hits.length;
+    continue;
+  }
+  for (const h of hits) {
+    // 元ファイル上の行番号へ戻し、該当行の実テキストを添える
+    const lineNo = h.line + offset;
+    const srcLine = raw.split("\n")[lineNo - 1] ?? "";
+    findings.push({ file, line: lineNo, text: srcLine.trim() });
+  }
+}
+
+if (JSON_OUT) {
+  writeAllSync(1, JSON.stringify({ scanned: files.length, findings }, null, 2) + '\n');
+  __exit(findings.length ? 1 : 0);
+}
+
+const label = STAGED ? "（staged）" : "";
+const allowNote = allowed ? `・allowlist ${allowed} 件を除外` : "";
+
+// 検査ゼロを PASS と呼ばない（CLAUDE.md §9）
+if (files.length === 0) {
+  if (STAGED) {
+    console.log(`[check-bold-rendering] skip（対象 .mdx が staged に無し）`);
+    __exit(0);
+  }
+  console.error(
+    `[check-bold-rendering] FAIL: 検査対象が 0 件。走査ルート ${ROOTS.join(", ")} を確認せよ（検査不成立）`,
+  );
+  __exit(1);
+}
+
+if (parseFailed) {
+  console.error(
+    `[check-bold-rendering] FAIL: ${parseFailed} 件がパース不能（検査不成立）`,
+  );
+  __exit(1);
+}
+
+if (findings.length === 0) {
+  console.log(
+    `[check-bold-rendering] OK（描画されない太字なし${label}・${files.length} 記事を実検査${allowNote}）`,
+  );
+  __exit(0);
+}
+
+console.error(
+  `[check-bold-rendering] ${findings.length} 件の太字が描画されない${label}（${files.length} 記事を実検査）:`,
+);
+console.error("");
+for (const f of findings.slice(0, 40)) {
+  const excerpt = f.text.length > 110 ? `${f.text.slice(0, 110)}…` : f.text;
+  console.error(`  ${f.file}:${f.line}`);
+  console.error(`    ${excerpt}`);
+}
+if (findings.length > 40) {
+  console.error(`  … 他 ${findings.length - 40} 件`);
+}
+console.error("");
+console.error(
+  "  原因: 閉じ ** の直前が約物・直後が文字だと CommonMark の right-flanking が",
+);
+console.error(
+  "  成立せず、太字にならずアスタリスクがそのまま表示される。約物を ** の外へ出す。",
+);
+console.error("  例: **標準貫入試験（SPT）**である → **標準貫入試験**（SPT）である");
+console.error("  一括修正: node scripts/maint/fix-bold-rendering.mjs --commit");
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

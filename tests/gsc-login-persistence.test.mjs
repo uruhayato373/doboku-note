@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { lastCommitRunAt, decideIndexingRun } from '../scripts/lib/gsc-local-routine.mjs';
-import { gscLoginLine } from '../scripts/check-gsc-login.mjs';
+import { gscLoginLine } from '../scripts/checks/check-gsc-login.mjs';
 
 test('未ログインで送れなかった回は「前回の送信」に数えない', () => {
   const runs = [
@@ -27,5 +27,5 @@ test('Google の画面ログインは CI で使わない（Google が Mac 側の
   assert.ok(g, 'registry に google が無い');
   // ci ブロックは無く、画面 CSV の収集 script は collectors（エージェントのセッションでは拒否・土曜の Mac 収集と運営者だけ）
   assert.equal('ci' in g, false);
-  assert.deepEqual(g.collectors, ['scripts/fetch-gsc-ui-csv.mjs', 'scripts/fetch-ga4-ui-csv.mjs']);
+  assert.deepEqual(g.collectors, ['scripts/search/fetch-gsc-ui-csv.mjs', 'scripts/search/fetch-ga4-ui-csv.mjs']);
 });

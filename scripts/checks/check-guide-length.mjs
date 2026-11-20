@@ -1,0 +1,125 @@
+#!/usr/bin/env node
+// ガイド記事（group: guide）の本文ボリューム下限ゲート。
+//
+// ルール（真実源: .claude/knowledge/reference/content-principles.md §25・値は config/content-rules.json の lengths.guideMinChars）:
+//   published かつ group: guide の記事は、本文（frontmatter を除き空白除去後）
+//   下限（3,000 字）以上を必須とする。下回るものは「薄い記事（thin content）」として赤落ち。
+//
+// 背景: ガイド記事は検索流入の入口かつ note 有料コンテンツへのコンバージョン地点
+//   （content-principles §20）。各 H2 セクションが §17（散文 200〜400 字/セクション）を
+//   満たせば標準構成で自然に 3,000 字を超える。下回るのは散文が痩せている兆候。
+//
+// 適用範囲: group: guide のみ。過去問（primary/secondary）・キーワード・textbook は対象外
+//   （§5 §188 の図表中心ページ例外を侵さない）。
+//
+// 使い方:
+//   node scripts/checks/check-guide-length.mjs            # published guide 全件を検査（CI 用）
+//   node scripts/checks/check-guide-length.mjs --staged   # git staged のガイド MDX のみ（pre-commit 用）
+//   node scripts/checks/check-guide-length.mjs --all      # published 問わず全 guide を一覧（バーンダウン進捗確認）
+// 下限未満が 1 件でもあれば exit 1（--all は集計のみで exit 0）。
+
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from '../lib/repository-paths.mjs';
+import { listFiles } from '../lib/fs-walk.mjs';
+import { readDataset } from '../lib/dataset-io.mjs';
+import { runBody, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const THRESHOLD = readDataset(REPO_ROOT, 'config.content-rules').lengths.guideMinChars;
+const ROOT = SITE_CONTENT_ROOT;
+// 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
+const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+const STAGED = __argv.includes('--staged');
+const ALL = __argv.includes('--all');
+
+function walk(dir) {
+  return listFiles(dir, { ext: '.mdx', followLinks: true, allowMissing: true }).map(rel);
+}
+
+// frontmatter を分離し、{ fm, body } を返す。frontmatter が無ければ null。
+function parse(file) {
+  const t = readFileSync(join(REPO_ROOT, file), 'utf8');
+  const m = t.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!m) return null;
+  return { fm: m[1], body: t.slice(m[0].length) };
+}
+
+function field(fm, key) {
+  const m = fm.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
+  return m ? m[1].trim() : undefined;
+}
+
+// 本文文字数（frontmatter 除外・空白除去後）。check-guide-length の SoT 計測。
+function bodyLen(body) {
+  return body.replace(/\s/g, '').length;
+}
+
+let files;
+if (STAGED) {
+  let staged = [];
+  try {
+    staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], {
+      encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+      .split('\n')
+      .map((s) => s.trim())
+      .filter(Boolean);
+  } catch {
+    staged = [];
+  }
+  files = staged.filter((f) => f.startsWith(`${rel(ROOT)}/`) && f.endsWith('.mdx') && existsSync(join(REPO_ROOT, f)));
+} else {
+  files = walk(ROOT);
+}
+
+const rows = [];
+for (const f of files) {
+  const parsed = parse(f);
+  if (!parsed) continue;
+  if (field(parsed.fm, 'group') !== 'guide') continue;
+  const published = /^published:\s*true\s*$/m.test(parsed.fm);
+  // 下限は「published かつ group: guide」に課すルール（本ファイル冒頭・content-principles §25）。
+  // staged でも未公開は対象外にする。以前は STAGED だけ published を見ておらず、
+  // 撤回済み記事（published:false）を1文字でも触ると commit が通らなくなっていた。
+  // 例: primary-statistics-2026 は 2026-05-18 に unpublish 済みで再公開しない方針なのに、
+  // 太字崩れの修正すら弾かれていた（2026-08-04）。--all は従来どおり draft も一覧する。
+  if (!ALL && !published) continue;
+  rows.push({ f, len: bodyLen(parsed.body), published });
+}
+
+rows.sort((a, b) => a.len - b.len);
+
+if (ALL) {
+  const under = rows.filter((r) => r.len < THRESHOLD);
+  console.log(`[check-guide-length] guide 記事 ${rows.length} 件 / 下限 ${THRESHOLD} 字未満 ${under.length} 件`);
+  for (const r of under) {
+    console.log(`  ${String(r.len).padStart(5)}  ${r.published ? '' : '(draft) '}${r.f}`);
+  }
+  __exit(0);
+}
+
+const fails = rows.filter((r) => r.len < THRESHOLD);
+if (fails.length === 0) {
+  const scope = STAGED ? 'staged ' : 'published ';
+  console.log(`[check-guide-length] ✓ ${scope}guide 記事 ${rows.length} 件は全て ${THRESHOLD} 字以上`);
+  __exit(0);
+}
+
+console.error(`[check-guide-length] ✗ ${fails.length} 件のガイド記事が本文 ${THRESHOLD} 字未満（薄い記事）`);
+console.error(`  真実源: .claude/knowledge/reference/content-principles.md §25`);
+for (const r of fails) {
+  const short = THRESHOLD - r.len;
+  console.error(`  ${String(r.len).padStart(5)} 字（あと ${short} 字）  ${r.f}`);
+}
+console.error(`  → 各 H2 セクションの散文導入を §17（200〜400字/セクション）に沿って充実させてください。`);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

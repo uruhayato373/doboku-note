@@ -276,7 +276,7 @@ test('drive-vault-sync --pull: --commit が無ければ手元へ書かず、件�
   const vault = mkdtempSync(join(tmpdir(), 'dn-0631-vault-'));
   writeFileSync(join(vault, DCFG.vaultRoot?.marker || 'README.md'), 'test vault\n');
   const env = { ...process.env, [DCFG.vaultRoot?.env || 'DOBOKU_DRIVE_VAULT']: vault };
-  const run = (...extra) => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, ...extra], { cwd: REPO_ROOT, encoding: 'utf8', env });
+  const run = (...extra) => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/storage/drive-vault-sync.mjs'), '--pull', '--path', rel, ...extra], { cwd: REPO_ROOT, encoding: 'utf8', env });
   try {
     const dry = run();
     assert.equal(dry.status, 0, dry.stderr);

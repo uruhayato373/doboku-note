@@ -178,7 +178,7 @@ test('basenameIndex: 台帳の中で一意で、config/・data/ の外に同名�
 test('findDatasetIds: コードの datasetPath 系と YAML の ci-data の id を拾い、コメントの例と GA4・GSC のレポートの種類の関数は数えない', () => {
   const ids = (src) => findDatasetIds(src).map((r) => `${r.id}@${r.via}`);
   assert.deepEqual(ids("datasetPath('note.sales'); latestFile(ROOT, 'gsc.reports'); listReports('gsc.page');"), ['note.sales@datasetPath', 'gsc.reports@latestFile']);
-  assert.deepEqual(ids('run: node scripts/ci-data.mjs latest gsc.page\n  npm run ci-data -- add --datasets note.sales,kdp.royalties'), ['gsc.page@ci-data latest', 'note.sales@ci-data --datasets', 'kdp.royalties@ci-data --datasets']);
+  assert.deepEqual(ids('run: node scripts/ops/ci-data.mjs latest gsc.page\n  npm run ci-data -- add --datasets note.sales,kdp.royalties'), ['gsc.page@ci-data latest', 'note.sales@ci-data --datasets', 'kdp.royalties@ci-data --datasets']);
   assert.deepEqual(ids(' *   add [--paths a,b] [--datasets id,id]\n# ci-data put foo.bar'), [], 'コメントの使い方の例');
 });
 

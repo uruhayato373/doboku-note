@@ -60,7 +60,7 @@ SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デ
 
 1. **仕様**: `config/figure-sources.json` の `provenance[図キー]` に `{ "kind": "ai-generated", "tool": "…", "prompt": "…" }`。`prompt` は被写体の指示で、本文が説明する部位・台数・形式（車輪の数・フレーム形式・ブームの構造など）を書く
 2. **生成と配置**: `npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "…"] [--model <codex のモデル>]`。生成 → 中央で 4:3 に切る → `<図キー>.webp` を書く → 記事の src と width/height を合わせる → 実績の台帳（`.claude/state/quality/ai-image-review-ledger.json`）に sha と promptSha を記録する。生成済みの画像は `--from <画像>` で配置だけ行う
-3. **監査**: `node scripts/check-image-origin.mjs --ai-queue --json` の項目を `ai-image-fidelity-auditor` が判定（種別・構造・本文・生成の破綻）→ `node scripts/check-image-origin.mjs record-ai <verdicts.json>`。不合格は `prompt` を直して 2 からやり直す
+3. **監査**: `node scripts/checks/check-image-origin.mjs --ai-queue --json` の項目を `ai-image-fidelity-auditor` が判定（種別・構造・本文・生成の破綻）→ `node scripts/checks/check-image-origin.mjs record-ai <verdicts.json>`。不合格は `prompt` を直して 2 からやり直す
 4. **検査**: `npm run check-image-origin`（`quality:audit:ci`）が、出所なし・実写・4:3 でない・未生成・未監査・不合格を止める
 
 ### 本の写真を元に描き直す（2026-10-15 運営者決定・シリーズ企画の写真）
@@ -250,7 +250,7 @@ content/site/{slug}/img/
   {name}.png / .webp      # PDF・スキャンからの切り出し図
 ```
 
-切り出し図は記事が参照・配信する `.webp` だけを Git に置く。元の `.png` は Git に入れず（`.gitignore`）、public R2 の `site-figure-png` group に置く（2026-10-22・DN-0707）。新しく切り出した png は `node scripts/asset-offload.mjs --group site-figure-png --only-new --include-untracked --commit`、手元へ戻すのは `npm run asset-hydrate -- --group site-figure-png`。
+切り出し図は記事が参照・配信する `.webp` だけを Git に置く。元の `.png` は Git に入れず（`.gitignore`）、public R2 の `site-figure-png` group に置く（2026-10-22・DN-0707）。新しく切り出した png は `node scripts/storage/asset-offload.mjs --group site-figure-png --only-new --include-untracked --commit`、手元へ戻すのは `npm run asset-hydrate -- --group site-figure-png`。
 
 ### 推奨ファイル形式
 

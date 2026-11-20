@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('--file 実行で exit 0 かつ stderr に git の fatal が出ない', () => {
-  const r = spawnSync(process.execPath, ['scripts/check-scheduled-exec-branch.mjs', '--file', 'package.json'], {
+  const r = spawnSync(process.execPath, ['scripts/checks/check-scheduled-exec-branch.mjs', '--file', 'package.json'], {
     cwd: ROOT, encoding: 'utf8',
   });
   assert.equal(r.status, 0, r.stderr);

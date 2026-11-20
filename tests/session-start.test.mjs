@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { CHECKS, runCheck } from '../scripts/session-start.mjs';
+import { CHECKS, runCheck } from '../scripts/ops/session-start.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('CHECKS の全 script が run() を export している（import で CLI が走らない）', async () => {
@@ -25,7 +25,7 @@ test('CHECKS の全 script が run() を export している（import で CLI �
 });
 
 test('session-start.mjs は子プロセスを起動しない（child_process を import しない）', () => {
-  const src = readFileSync(join(ROOT, 'scripts/session-start.mjs'), 'utf8');
+  const src = readFileSync(join(ROOT, 'scripts/ops/session-start.mjs'), 'utf8');
   assert.doesNotMatch(src, /from ['"]node:child_process['"]|require\(['"](node:)?child_process['"]\)/);
 });
 

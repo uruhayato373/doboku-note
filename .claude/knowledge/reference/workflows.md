@@ -57,7 +57,7 @@ title: 推奨ワークフロー
 > - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `check-weekly-routine-fired`（npm script・2026-09-19 撤去）
 > - **`git ls-remote` でブランチの有無を見てはいけない**（2026-08-16 に私が踏んだ罠）。PR の close/merge 後にブランチは自動削除されるため、**成功した週でも空になる**。「ブランチが無い＝push 前に落ちた＝起動失敗」と推論したが、これは**不在を証拠と取り違えた誤り**だった。失敗がどの段階で起きているかは、この方法では分からない
 >
-> 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
+> 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/reports/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
 >
 > **`update` は nested オブジェクトを丸ごと置換する**。`job_config.ccr.session_context` だけを送ると `events`（プロンプト本文）が消える。実際に一度消して復元した。触る前に `get` で全文を控え、`environment_id` と `events` を必ず同送すること。
 
@@ -204,7 +204,7 @@ note 導線の機械監査は CI と土曜の収集が分担する。`quality-au
 
 ```
 1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
-2. node scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
+2. node scripts/checks/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
                                                   HIGH/MEDIUM ゼロまで修正→再実行ループ
 3. keyword-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
 4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る
@@ -259,7 +259,7 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 ### origin との遅れを先に解消する（§1）
 
-複数セッション・worktree が常態で、CI が deploy のたびに `develop` → `main` を自動マージするため、ローカルが数十コミット遅れるのは高頻度。2026-06-11 に 43 コミット遅れの古いツリーで作業し、既存作業を重複・劣化させた。SessionStart フック `scripts/check-git-sync.mjs` が開幕で警告する。遅れていれば同期してから着手し、古いベース上のコミットを push しない。破壊的な reset・同期はユーザー確認後、独自コミットは退避ブランチで保全する。
+複数セッション・worktree が常態で、CI が deploy のたびに `develop` → `main` を自動マージするため、ローカルが数十コミット遅れるのは高頻度。2026-06-11 に 43 コミット遅れの古いツリーで作業し、既存作業を重複・劣化させた。SessionStart フック `scripts/checks/check-git-sync.mjs` が開幕で警告する。遅れていれば同期してから着手し、古いベース上のコミットを push しない。破壊的な reset・同期はユーザー確認後、独自コミットは退避ブランチで保全する。
 
 同じフックは、作業ツリーの未コミットの変更が 6 時間以上（いちばん新しい変更の時刻で判定）残っていれば 1 行出す。2026-10-22 に主ツリーへ別セッションの作業（32 ファイル）が 12 時間残り、develop を進められなかった。破棄は auto mode に止められるので、持ち主のセッションに積ませる。持ち主がいなければ、並行セッションがいないこと（`ListAgents`）を確かめてから、その場で `git switch -c` してコミットし PR にして develop へ戻る（並行セッションがいれば `git worktree add` で別ツリーへ移す）。拾った作業は `npm run quality:audit:ci` と全テストを回してから push する（[他人の未コミット作業](../../memory/feedback_commit_others_wip_run_ci_gate.md)）。
 
@@ -272,7 +272,7 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 ### feature ブランチを最新 develop へ載せ直す
 
-`node scripts/replay-onto-develop.mjs <sha...> [--push]`（`npm run replay-onto-develop -- <sha...> --push`）。commit の実在・fetch・`reset --keep origin/develop`・cherry-pick・`git patch-id` での元とのパッチ照合を 1 段ずつ確かめ、失敗したら残った状態と戻し方を出して非 0 で終える。`--push` は同じパッチのときだけ（develop 以外は `--force-with-lease`）。手で `;` 繋ぎにしない（失敗の後も push まで進んだ事故が 3 回。memory `reference_partial_clone_repack_hazard`）。
+`node scripts/ops/replay-onto-develop.mjs <sha...> [--push]`（`npm run replay-onto-develop -- <sha...> --push`）。commit の実在・fetch・`reset --keep origin/develop`・cherry-pick・`git patch-id` での元とのパッチ照合を 1 段ずつ確かめ、失敗したら残った状態と戻し方を出して非 0 で終える。`--push` は同じパッチのときだけ（develop 以外は `--force-with-lease`）。手で `;` 繋ぎにしない（失敗の後も push まで進んだ事故が 3 回。memory `reference_partial_clone_repack_hazard`）。
 
 ### 同一ワークツリーで並行せざるを得ないとき
 

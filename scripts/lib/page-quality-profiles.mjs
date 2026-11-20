@@ -1,7 +1,7 @@
 // page-quality-profiles.mjs — ページの種類ごとの採点プロファイル（config/page-quality-profiles.json）の分類と指標（DN-0936）。
 //
 // 種類は MDX 記事なら領域（categories.json の area）× 記事型（frontmatter の group）、基準書は置き場とファイル名で決める。
-// 指標はどれも本文の文字列だけから数える（LLM を使わない L0 の棚卸し）。読み手は scripts/page-quality-inventory.mjs。
+// 指標はどれも本文の文字列だけから数える（LLM を使わない L0 の棚卸し）。読み手は scripts/reports/page-quality-inventory.mjs。
 
 /**
  * @param {Array<{id:string, match:{area?:string, groups?:string[], paths?:string[], file?:string}}>} profiles

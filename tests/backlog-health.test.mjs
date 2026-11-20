@@ -7,7 +7,7 @@ import {
   computeCompletionProseHeavy,
   computeSsotDuplicationSuspects,
   computeOverdueDue,
-} from '../scripts/check-backlog-health.mjs';
+} from '../scripts/checks/check-backlog-health.mjs';
 
 /**
  * S10「ID の再利用」の契約。

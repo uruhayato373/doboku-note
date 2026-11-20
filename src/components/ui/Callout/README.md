@@ -54,7 +54,7 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 | `point` | `tip` |
 | `error` | `danger` |
 
-上記にない type（`question` など完全に削除済みの旧 type を含む）は未知 type として `note` へフォールバックする（`scripts/check-callout-types.mjs` が検出）。既存 MDX はすべて移行済み。新規執筆では旧 type を使用しない。
+上記にない type（`question` など完全に削除済みの旧 type を含む）は未知 type として `note` へフォールバックする（`scripts/checks/check-callout-types.mjs` が検出）。既存 MDX はすべて移行済み。新規執筆では旧 type を使用しない。
 
 ## 使用ルール
 
@@ -69,4 +69,3 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 - 実装: [`Callout.tsx`](./Callout.tsx)
 - ギャラリー（PNG スクショ付き）: [`docs/design/callout-gallery.md`](../../../../docs/design/callout-gallery.md)
 - 使用ガイド: [`.claude/knowledge/reference/content-principles.md`](../../../../.claude/knowledge/reference/content-principles.md)
-- 型移行スクリプト: [`scripts/migrate-callout-types.mjs`](../../../../scripts/migrate-callout-types.mjs)

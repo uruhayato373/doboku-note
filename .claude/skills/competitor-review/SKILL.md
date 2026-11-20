@@ -37,7 +37,7 @@ twitter -c search "コンクリート診断士 対策" -n 15 | grep -oE '@[A-Za-
 ```bash
 npm run scout-note-competitors                 # note（公開API・curl --ssl-no-revoke・会社PC可）
 npm run scout-coconala-competitors              # ココナラ（Playwright・公開プロフィールの販売実績 header + market-research由来の価格・低頻度厳守）
-node scripts/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
+node scripts/x/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
 npm run scout-ig-competitors                    # IG（未ログイン curl・og:description のフォロワー/投稿数・投稿アカ不使用）
 npm run scan-qualification-market -- --channel youtube   # YouTube（追跡チャンネルの登録者数＋資格キーワードの検索・yt-dlp・ログイン不要）
 npm run scout-youtube-competitors               # YouTube（追跡チャンネルの通常動画100本の再生・尺・題名の語ごとの中央値・yt-dlp の一覧・手動）
@@ -79,7 +79,7 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 - **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・社数の上限なし（2026-11-15 に外した）・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../knowledge/reference/x-post-policy.md) §11
 - **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
-- **定期取得は土曜の Mac の収集に限定**。weekly-collect の `competitors` 段が note / ココナラを四半期の最初の土曜に取得し（取り直しは `node scripts/weekly-collect.mjs --only competitors`）、`check-competitor-scan-due` は段の停止と X・YouTube・market の手動期限を backstop する。新規クラウドルーティンは作らない（DN-0852 で competitor-scan.yml を外した）
+- **定期取得は土曜の Mac の収集に限定**。weekly-collect の `competitors` 段が note / ココナラを四半期の最初の土曜に取得し（取り直しは `node scripts/ops/weekly-collect.mjs --only competitors`）、`check-competitor-scan-due` は段の停止と X・YouTube・market の手動期限を backstop する。新規クラウドルーティンは作らない（DN-0852 で competitor-scan.yml を外した）
 
 ## 勝ち型の抽出 → 原案化（伸びてる投稿レーダー）
 

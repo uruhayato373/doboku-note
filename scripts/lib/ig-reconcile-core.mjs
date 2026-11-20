@@ -1,7 +1,7 @@
 // ig-reconcile-core.mjs — IG 旧記録 ↔ ライブ公開状態の照合ロジック（純関数）。
 //
-// 背景: scripts/verify-ig-status.mjs（Playwright でライブ取得する CLI）と、CI 週次で
-//   Graph API 経由の照合を書く scripts/fetch-ig-insights.mjs --reconcile（別ユニット）が、
+// 背景: scripts/checks/verify-ig-status.mjs（Playwright でライブ取得する CLI）と、CI 週次で
+//   Graph API 経由の照合を書く scripts/fetch/fetch-ig-insights.mjs --reconcile（別ユニット）が、
 //   同じ突合ロジック・同じ snapshot 形状を共有する必要がある。verify-ig-status.mjs は
 //   トップレベルで playwright を import して main を走らせるため、テストや別スクリプトから
 //   ロジックだけを直接呼べない（check-outbound-links → lib/note-refs.mjs と同型の切り出し）。
@@ -18,7 +18,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
-import { readPostedRaw, IG_DIR as DEFAULT_IG_DIR, findPackDirs } from "../ig-status.mjs";
+import { readPostedRaw, IG_DIR as DEFAULT_IG_DIR, findPackDirs } from "../instagram/ig-status.mjs";
 import { markAmbiguousClaims, dropResolvedFalseMatches } from "./ig-ambiguity.mjs";
 
 export const IG_DIR = DEFAULT_IG_DIR;

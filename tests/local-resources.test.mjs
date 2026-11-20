@@ -7,9 +7,9 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync, symlinkSync, utimesSync,
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { safePath, scanTree, acquireLock, warningsFor, GiB, ensureGitMaintenance, renderCleanupWrapper, restoreDiskShortfall } from '../scripts/lib/local-resources.mjs';
-import { pruneTmp } from '../scripts/prune-tmp.mjs';
-import { applyFixes } from '../scripts/disk-hygiene.mjs';
-import { canClean, cleanMain } from '../scripts/local-resource-clean.mjs';
+import { pruneTmp } from '../scripts/local/prune-tmp.mjs';
+import { applyFixes } from '../scripts/local/disk-hygiene.mjs';
+import { canClean, cleanMain } from '../scripts/local/local-resource-clean.mjs';
 import { spawnSync } from 'node:child_process';
 
 function fixture(t) { const root = mkdtempSync(join(tmpdir(), 'resource-test-')); t.after(() => rmSync(root, { recursive: true, force: true })); return root; }
@@ -54,7 +54,7 @@ test('restore disk check skips when nothing is restored and keeps the reserve ot
   assert.equal(restoreDiskShortfall({ freeBytes: 21 * GiB, restoreBytes: GiB, reserveBytes: 20 * GiB }), true);
 });
 test('heavy-work wrapper propagates child failure and releases its lock', () => {
-  const run = () => spawnSync(process.execPath, ['scripts/local-resource-run.mjs', '--', 'node', '-e', 'process.exit(7)'], { encoding: 'utf8', env: { ...process.env, CI: 'true', DOBOKU_HEAVY_LOCK_NAME: `heavy-work-test-${process.pid}` }, timeout: 10000 });
+  const run = () => spawnSync(process.execPath, ['scripts/local/local-resource-run.mjs', '--', 'node', '-e', 'process.exit(7)'], { encoding: 'utf8', env: { ...process.env, CI: 'true', DOBOKU_HEAVY_LOCK_NAME: `heavy-work-test-${process.pid}` }, timeout: 10000 });
   const runWhenAvailable = () => {
     const deadline = Date.now() + 10000;
     let result;
@@ -75,7 +75,7 @@ test('heavy-work wrapper propagates child failure and releases its lock', () => 
 test('quick startup probe remains available while a full audit holds its lock', () => {
   const release = acquireLock(process.cwd(), 'audit');
   try {
-    const result = spawnSync(process.execPath, ['scripts/local-resource-audit.mjs', '--quick'], { encoding: 'utf8', timeout: 10000 });
+    const result = spawnSync(process.execPath, ['scripts/local/local-resource-audit.mjs', '--quick'], { encoding: 'utf8', timeout: 10000 });
     assert.equal(result.status, 0, result.stderr);
   } finally { release(); }
 });

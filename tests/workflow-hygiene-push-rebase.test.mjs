@@ -3,7 +3,7 @@
 // `git push origin develop` していた（develop は 1 日 100 回超 push され non-fast-forward で落ちる）。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findPushWithoutRebase } from '../scripts/check-workflow-hygiene.mjs';
+import { findPushWithoutRebase } from '../scripts/checks/check-workflow-hygiene.mjs';
 
 test('rebase 無しの git push origin develop を 1 件検出する', () => {
   const run = 'git commit -m "x [skip ci]"\ngit push origin develop';

@@ -19,7 +19,7 @@ domain: site
 ## 対象の選び方
 
 1. `npm run audit-figures`（監査→provenance 再生成）。
-2. `node scripts/build-figure-provenance.mjs --list recrop-urgent`（続けて `--list recrop`）で公開×掲載の対象を出す。管理画面の記事図版タブは目視確認専用で、needs の絞り込みやバッジは出さない。
+2. `node scripts/build/build-figure-provenance.mjs --list recrop-urgent`（続けて `--list recrop`）で公開×掲載の対象を出す。管理画面の記事図版タブは目視確認専用で、needs の絞り込みやバッジは出さない。
 3. **対応 needs の精度**: `recrop-urgent`(答え漏らし)・`recrop`(問題文/選択肢＝QA構造で高精度検出) は**ほぼ確実に写り込みあり**＝そのまま対象。`recrop-review`(句点あるが QA 構造なし＝**図の凡例/ラベルの可能性**)は**必ず現物を目視**し、凡例なら触らない（例: 「Uc≥10：粒度分布がよい。」は図の一部＝残す）。着手前に現物を Read するのは全 needs 共通の鉄則。
 
 ## 手順（1 図ずつ）
@@ -30,14 +30,14 @@ sips -s format png <.local/.../img/NAME.webp> --out /tmp/x.png   # Read で目�
 
 # ② 切り位置を決めて適用（crop+webp再生成+MDX width/height更新+OCR報告を1発）
 #    上帯を落とす=--top / 下帯=--bottom(上をFだけ残す) / 中央図=--band Y0 Y1 / 明示=--crop WxH+X+Y
-node scripts/figure-recrop.mjs <.local/.../img/NAME.webp> --top 0.15
+node scripts/storage/figure-recrop.mjs <.local/.../img/NAME.webp> --top 0.15
 #   → まず --dry-run で dims/OCR を確認してから本適用してもよい
 
 # ③ 検証: 出力 JSON の ocr.answer_markers が [] であること＋ Read で図が切れていない/テキスト消滅を目視。
 #         答え語が残れば切り位置を深くして再実行（例 --top 0.15 → 0.30）。
 #         さらに crop_warnings（生クロップの EDGE_CUT/STRAY_SLIVER・自動同梱）が空であること。
 #         残る場合は隣接図の切れ端が残存 or 図本体を切りすぎ → 切り位置を見直す。
-#         機械での再確認は: node scripts/check-figure-crop-integrity.mjs --file <NAME.png>（STRAY_SLIVER で exit 1）。
+#         機械での再確認は: node scripts/checks/check-figure-crop-integrity.mjs --file <NAME.png>（STRAY_SLIVER で exit 1）。
 ```
 
 各図の切り位置は**人（またはエージェント）が図を見て決める**。自動 OCR 帯検出は図の凡例を誤認して切りすぎるため使わない（実証済み）。
@@ -54,7 +54,7 @@ node scripts/figure-recrop.mjs <.local/.../img/NAME.webp> --top 0.15
 
 ```bash
 # webp は figure-recrop.mjs が自動再生成済み。MDX width/height も更新済み。
-node scripts/audit-exam-figures.mjs        # broken_image_reference:0 を確認
+node scripts/checks/audit-exam-figures.mjs        # broken_image_reference:0 を確認
 grep -c "�" <article.mdx>                          # 文字化け 0
 git add <article.mdx> <img/変更した png/webp を明示>   # git add -A 禁止・並行セッション注意
 git commit -m "content(<slug>): 過去問図の写り込みを再クロップで除去（fig-NN…）"
@@ -86,7 +86,7 @@ recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わり
 
 1. **worklist を作る**（`figure-provenance.json` の `needs=recrop-review` を対象）。各図 `{figKey, name, img(相対 .png|.webp), kind, imgSize:[w,h]}`。**除外**: `published:false` ドラフト（例 concrete-diagnostician＝著作権凍結）／機材写真 `.jpg`（OCR 偽陽性＝別途 `manual_needs:ok`）。webp-only 図も対象（worker が sharp extract で直接クロップ）。
 2. **workflow 起動**: `Workflow({ scriptPath: "scripts/figure-recrop/figure-crop-batch.workflow.mjs", args: <worklist> })`。各図を `figure-crop-worker` が並列にクロップ→自己検証→`{action, cropBox, newWidth/Height, removed, reason, selfVerify}` を返す。
-3. **機械ゲート → 目視 QA の順で絞る**。まず全 crop 図に `node scripts/check-figure-crop-integrity.mjs` を通し（STRAY_SLIVER 等を全数機械検出）、**目視（Read）は「機械が fail させた図」＋「worker の selfVerify が怪しい図」に集中**する。ただし機械が拾えない**切り過ぎ（画素欠損）**は目視でしか分からないため、`removed` が大きい図は fail していなくても確認する（下記「QA で捕捉した実例」）。needs-source は疑わしいものをスポット確認。
+3. **機械ゲート → 目視 QA の順で絞る**。まず全 crop 図に `node scripts/checks/check-figure-crop-integrity.mjs` を通し（STRAY_SLIVER 等を全数機械検出）、**目視（Read）は「機械が fail させた図」＋「worker の selfVerify が怪しい図」に集中**する。ただし機械が拾えない**切り過ぎ（画素欠損）**は目視でしか分からないため、`removed` が大きい図は fail していなくても確認する（下記「QA で捕捉した実例」）。needs-source は疑わしいものをスポット確認。
 4. **MDX 寸法＋台帳を直列適用**（親）。crop 後の実寸を読み、記事ごとに `<img width/height>` を置換（`<ArticleImage>` は寸法属性なし＝更新不要）。`figure-sources.json` の `manual_needs` に crop→`ok`／ok→`ok` を記録し、needs-source は `/figure-quality-loop` の切り出し直しへ回す（`rescan-need-source` を書くのは原典が無いと確かめた図だけ。書くとループは原典なしとして扱い、切り出し直しに回さない）し、provenance/text-audit も同期。**MDX は `newline=''` で読み書き**して CRLF/LF を保存（混在を作らない）。
 5. **commit（明示 pathspec・`git add -A` 禁止）** → 完了後 `figure-provenance.md` の census が陳腐化するので更新（SSOT）。
 
@@ -101,7 +101,7 @@ recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わり
 ## 連携
 
 - 対象選定＝`figure-provenance.json`（needs）／品質＝`figure-text-audit.json`。真実源 [figure-provenance.md](../../knowledge/reference/figure-provenance.md)。
-- 機械化ヘルパ＝`scripts/figure-recrop.mjs`（逐次・crop+webp+MDX+OCR）／並列ワーカー＝`figure-crop-worker`（`scripts/figure-crop-batch.workflow.mjs` が spawn）。
+- 機械化ヘルパ＝`scripts/storage/figure-recrop.mjs`（逐次・crop+webp+MDX+OCR）／並列ワーカー＝`figure-crop-worker`（`scripts/figure-crop-batch.workflow.mjs` が spawn）。
 - 別物＝`civil-figure-rework`（問題PDFから抽出・過去問では図なしで不成立）／`figure-crop-auditor`（種類: `scanned`。スキャン教材の bbox 監査）。
 - 継続運用＝`/figure-quality-loop`（画素検査＋OCR の判定待ちを 1 周ずつ回し、判定を画像のハッシュつき台帳に残す。縁で切れた図の元 PDF からの切り出し直しもこちら）。本スキルは 1 枚を手で切り直すときの手順。
 - 大量処理時は本スキルの手順を `figure-crop-auditor`（種類: `past-exam-page` か `scanned`）で採点させながら回してもよい（Generator/Evaluator 分離）。採点と直しの往復は最大 2 回（3 回目は親が判断）。

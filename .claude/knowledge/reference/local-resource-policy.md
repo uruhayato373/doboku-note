@@ -22,7 +22,7 @@
 
 `--commit` で初めて削除する。scratchは7日、build/browser-cacheは14日経過が既定。`--include-recent` は日数だけを解除し、使用中・追跡中・アセット登録済み・リンク・欠測の保護は解除しない。削除直前に再走査して変更があれば停止。再帰削除せず確認済みファイルだけを除去し、空フォルダーは残してよい。
 
-`.tmp`全域の経過日数削除は禁止。`scripts/prune-tmp.mjs` はscratch限定のdry-run互換入口。破棄可能な新規作業出力だけを `.tmp/scratch/` に作り、原本・採用画像・引き継ぎ成果物・確認記録を混ぜない。動画・転送ZIP・読み戻しコピーは保存/引き継ぎ検証を経て個別に整理する。
+`.tmp`全域の経過日数削除は禁止。`scripts/local/prune-tmp.mjs` はscratch限定のdry-run互換入口。破棄可能な新規作業出力だけを `.tmp/scratch/` に作り、原本・採用画像・引き継ぎ成果物・確認記録を混ぜない。動画・転送ZIP・読み戻しコピーは保存/引き継ぎ検証を経て個別に整理する。
 
 認証プロファイル本体、Cookies、Local Storage、IndexedDB、Service Workerは自動削除しない。MCP重複は起動中セッション数と親PIDを確認し、プロセス名だけで終了しない。このプロジェクトのCodex設定ではfilesystem/GitHub MCPを無効化し、既存のファイルツールと `gh` を使う（反映は次のセッション）。
 

@@ -198,7 +198,7 @@ test('CLI: 指定した記事に正答行のある問題が 0 問なら検査不
   writeFileSync(empty, '## 見出し\n\n本文だけ。\n');
   const ok = join(dir, 'ok.mdx');
   writeFileSync(ok, peFirst);
-  const script = join(REPO_ROOT, 'scripts', 'check-answer-marks.mjs');
+  const script = join(REPO_ROOT, 'scripts', 'checks', 'check-answer-marks.mjs');
   const bad = spawnSync(process.execPath, [script, empty], { encoding: 'utf8' });
   assert.equal(bad.status, 1, bad.stdout + bad.stderr);
   assert.match(bad.stderr, /検査不成立/);

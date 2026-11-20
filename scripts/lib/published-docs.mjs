@@ -10,22 +10,11 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, relative, extname } from 'node:path';
 import matter from 'gray-matter';
 import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
+import { listFiles } from './fs-walk.mjs';
 
 const SITE_CONTENT_ROOT = 'content/site';
 
-function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      out.push(...walkMdx(p));
-    } else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') {
-      out.push(p);
-    }
-  }
-  return out;
-}
+const walkMdx = (dir) => listFiles(dir, { allowMissing: true, match: (_p, name) => extname(name).toLowerCase() === '.mdx' });
 
 // `content/site/<資格>/<slug>/article.mdx` → `<資格>-<slug>`（規則は src/lib/site-slug.mjs）
 function toDocSlug(filePath, postsRoot) {

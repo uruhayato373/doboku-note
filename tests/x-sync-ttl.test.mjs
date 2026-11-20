@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
-import { isSyncFresh, run } from '../scripts/x-sync-status.mjs';
+import { isSyncFresh, run } from '../scripts/x/x-sync-status.mjs';
 import { datasetPath } from '../scripts/lib/datasets.mjs';
 
 const MIN = 60_000;

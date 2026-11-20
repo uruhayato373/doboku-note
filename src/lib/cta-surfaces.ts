@@ -5,7 +5,7 @@ import type { MagazineId } from './note-magazines';
 /**
  * サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のどこへ案内するか（DN-1223）。
  * 正本は config/site-cta-surfaces.json。ここは読むだけで、資格ごとの判断を書かない。
- * 検査は scripts/check-cta-surfaces.mjs（商品とテーマの実在・試験日の行事・もくじの有無・コードの直書き）。
+ * 検査は scripts/checks/check-cta-surfaces.mjs（商品とテーマの実在・試験日の行事・もくじの有無・コードの直書き）。
  */
 
 type SurfaceLead = 'mokuji' | 'product' | 'none';

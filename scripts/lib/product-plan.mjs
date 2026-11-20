@@ -40,7 +40,7 @@ export function planNote(products, snapshot) {
     if (!key) continue; // 単品 SKU（/n/）は記事。収録の差は含まれるマガジン側で見る
     const cur = live.get(key);
     if (!cur) {
-      items.push({ ...base, kind: 'create', detail: '正本にあるが note に無い', command: `node scripts/note-magazine-create.mjs${dirArg} --commit` });
+      items.push({ ...base, kind: 'create', detail: '正本にあるが note に無い', command: `node scripts/note/note-magazine-create.mjs${dirArg} --commit` });
       continue;
     }
     if (cur.name !== title) items.push({ ...base, kind: 'rename', detail: `note: ${cur.name}`, command: `npm run note-edit-magazine -- --key ${key} --meta <note掲載文の置き場>` });

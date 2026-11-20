@@ -6,7 +6,7 @@
  * （議員立法の AC1 と内閣提出の AC0 の取り違えなど）。e-Gov の画面は存在しない ID でも HTTP 200 を返すので、
  * リンク切れの検査では見つからない。法令 ID と条の番号は API の写しと照合する。
  *
- * 読み手: scripts/egov-laws.mjs（--check は CI・--drift は ops）。
+ * 読み手: scripts/content/egov-laws.mjs（--check は CI・--drift は ops）。
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';

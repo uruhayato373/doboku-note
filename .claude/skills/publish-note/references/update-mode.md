@@ -12,7 +12,7 @@
 > 旧版（2026-05-21）は「成功した」と記録していたが、再現せず。**全消去だけ成功して paste が空振りすると、空の本文で更新が確定し公開記事が消える**（2026-06-16 に L1 サイトマップで実際に発生→変更履歴から復旧）。
 >
 > **正しい更新手段（用途別）**:
-> 1. **末尾 / 特定箇所への追記**（CTA カード・1 段落程度）→ **type 方式**。caret を末尾へ置き、`type`（文章）＋ `Enter`＋`type`（URL 単独行）＋`Enter`。**URL は type だと OGP カード化する**（synthetic paste 不可）。本文・図版は非破壊。`scripts/wire-note-funnel-cta.mjs` 由来の CTA 追記はこの方式。
+> 1. **末尾 / 特定箇所への追記**（CTA カード・1 段落程度）→ **type 方式**。caret を末尾へ置き、`type`（文章）＋ `Enter`＋`type`（URL 単独行）＋`Enter`。**URL は type だと OGP カード化する**（synthetic paste 不可）。本文・図版は非破壊。`scripts/note/wire-note-funnel-cta.mjs` 由来の CTA 追記はこの方式。
 > 2. **特定の段落・価格・節だけの部分置換**（既存テキストを別テキストへ差し替え）→ **type 方式（Selection 削除 + 再入力）**。TreeWalker で対象文字列を含むノードを特定 → `Range` で**その範囲だけ**を選択 → `Delete` → `type` で新テキスト。**全消去（select-all）は絶対にしない**＝対象 needle で範囲を限定する。詳細は **Phase U-B**。2026-06-19 に建設部門もくじ（intro 段落差し替え + 無料16本リンク化）と総監ロードマップ（③価格 ¥2,480→¥3,480・目的別ガイド節の全面置換）で実証。
 > 2b. **既存リスト（もくじの有料マガジン節等）へ「タイトルがリンクの」項目を追加**（`<li><p><a href>タイトル</a> — 説明</p></li>` 形式）→ **`insertAdjacentHTML` 方式**（専用ツール `note-append-list-links.mjs`）。**重要: `[text](url)` の type はリテラル残存で変換されず、bare URL の type はカード化する＝インラインリンクは type では作れない**（2026-07-05 実測。旧記述「編集画面で inline リンク不可」は誤り）。正しくは、対象 `<ul>` の末尾 `<li>` へ `li.insertAdjacentHTML('afterend', '<li><p><a href="URL">TITLE</a> DESC</p></li>')` で valid な兄弟 li を挿入 → `ed.dispatchEvent(new InputEvent('input',{bubbles:true}))` で ProseMirror が取り込み「更新する」で保存に残る（2026-07-05 に土木もくじへ5誌・API 実査で inline `<a>`＋h3 健全を確認）。**`execCommand('insertHTML')` で `<ul>` 全体を置換すると ProseMirror 再正規化で h3 を巻き込む崩れが出る→ul 末尾への兄弟 li 挿入が最も安定**。主用途は note 導線 **D2（公開マガジンの L2 もくじ未収録）のライブ反映**。
 > 3. **本文の全面差し替え**（大改稿・本文ほぼ全体）→ **編集画面では不可**。`/new` で作り直す（旧記事は変更履歴に残る）か、note の文字数が許せば 1 段落ずつ `type` で手直しする。**全消去→paste はしない**。

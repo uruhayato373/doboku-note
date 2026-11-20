@@ -12,10 +12,10 @@ import { selectSyncTargets } from '../scripts/lib/kindle-catalog.mjs'
  */
 
 const BOOKS = [
-  { id: 'e-01', buildSpec: 'scripts/kindle-specs/e-01.json', status: 'live' },
-  { id: 'g-01', buildSpec: 'scripts/kindle-specs/g-01.json', status: 'ready' },
-  { id: 'g-02', buildSpec: 'scripts/kindle-specs/g-02.json', status: 'in_review' },
-  { id: 'A-00', builder: 'scripts/build-takuitsu-reconstruct.mjs', buildTheme: 'goubon', buildSpec: null, status: 'live' },
+  { id: 'e-01', buildSpec: 'content/kindle/books/e-01/spec.json', status: 'live' },
+  { id: 'g-01', buildSpec: 'content/kindle/books/g-01/spec.json', status: 'ready' },
+  { id: 'g-02', buildSpec: 'content/kindle/books/g-02/spec.json', status: 'in_review' },
+  { id: 'A-00', builder: 'scripts/build/build-takuitsu-reconstruct.mjs', buildTheme: 'goubon', buildSpec: null, status: 'live' },
 ]
 
 test('selectSyncTargets: id 無指定は status=ready のみ対象、live/in_review は skip に回す', () => {

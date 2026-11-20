@@ -1,7 +1,7 @@
 # 構造化章記事（レイヤー2）
 
 `content/site/standards-library/`（レイヤー1＝原典照合用の逐語文字起こし・不変）から
-`scripts/build-standard-articles.mjs` が生成した派生コンテンツです。**手で編集しません。**
+`scripts/build/build-standard-articles.mjs` が生成した派生コンテンツです。**手で編集しません。**
 
 - 章の切り方は PDF の分冊（50 ページ単位）ではなく、原本の柱が示す**編・章**。part 境界を
   またぐ章があるため、全 part を PDF ページ順に結合してから解析しています。

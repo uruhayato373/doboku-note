@@ -6,7 +6,7 @@
  * （手で書いた状態は記事を書くたびに古くなるため。2026-10-13）。実行の記録はバックログのカードが持ち、
  * カードの本文にシリーズの id を書くと管理画面がつなぐ（台帳からカード番号を指さない＝閉じたカードで切れない）。
  *
- * 読み手: scripts/check-content-series.mjs（CI）・管理画面 /content/series。
+ * 読み手: scripts/checks/check-content-series.mjs（CI）・管理画面 /content/series。
  */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { readVaultJson } from './drive-vault.mjs';

@@ -1,6 +1,6 @@
 /**
  * 右の欄（PC ≥993px）に置けるものの種類の台帳。右の欄は RailStack が描き、並べる 1 つ 1 つに data-rail-kind を付ける。
- * ここに無い種類は右の欄に置けない（ビルド後の HTML は scripts/check-cta-density.mjs、コードは tests/rail-ratchet.test.mjs が止める）。
+ * ここに無い種類は右の欄に置けない（ビルド後の HTML は scripts/checks/check-cta-density.mjs、コードは tests/rail-ratchet.test.mjs が止める）。
  *
  * frame: 外枠と題名
  *   shared … MetaCard（枠・角丸・影・題名の大きさが共通）

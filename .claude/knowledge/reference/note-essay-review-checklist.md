@@ -71,11 +71,11 @@ title: note 模範論文レビュー手順書
 
 ## Step 2: 字数実測（最優先・決定論ツール）
 
-**真実源ツール**: `scripts/essay-shisaku-charcount.mjs`（施策ブロックの CJK 字数を計測し 600 字超過を検出する決定論ゲート）。
+**真実源ツール**: `scripts/content/essay-shisaku-charcount.mjs`（施策ブロックの CJK 字数を計測し 600 字超過を検出する決定論ゲート）。
 
 ```bash
-node scripts/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --detail   # ブロック別明細
-node scripts/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --strict    # 超過1件で exit 1（ゲート）
+node scripts/content/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --detail   # ブロック別明細
+node scripts/content/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --strict    # 超過1件で exit 1（ゲート）
 ```
 
 - 施策見出しは **`### 施策N:` / `### 方法N` / `### 戦略N`** で統一する（R08 予想等で `**施策N:**` 太字インラインにすると 2 施策が 1 ブロックに合算され誤計上する。必ず `###` 見出しにする）。
@@ -122,7 +122,7 @@ grep -nE "^- \*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|
 導入部の散文に である調（`〜である。` `〜であり、` `〜だった` `〜だ。` `〜ではない。`）が混じると文体混在。検出：
 
 ```
-node scripts/essay-shisaku-charcount.mjs "{persona}"   # 「導入部文体混在(警告) N」を確認
+node scripts/content/essay-shisaku-charcount.mjs "{persona}"   # 「導入部文体混在(警告) N」を確認
 ```
 
 混在は**警告**（`--strict` の exit には含めない＝既存記事の許容は人間判断）だが、**新規生成時は導入部をですますで書き、警告 0 を目指す**。注: 「であること（です）」のような連体形・「のではなく」のような連結語は である調ではない（ツールも除外済み）。
@@ -134,13 +134,13 @@ node scripts/essay-shisaku-charcount.mjs "{persona}"   # 「導入部文体混�
 既存記事への一括適用は専用スクリプト（冪等・導入部のみ対象）を使う：
 
 ```
-node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当 --dry   # プレビュー
-node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当         # 適用
+node scripts/content/split-essay-intro-paragraphs.mjs 自治体下水道担当 --dry   # プレビュー
+node scripts/content/split-essay-intro-paragraphs.mjs 自治体下水道担当         # 適用
 ```
 
 frontmatter 後〜「## 試験問題/予想問題/A 案」直前の非構造行の内部「。」のみを「。\n\n」へ置換し、末尾の。や 。」、見出し・箇条書き・URL・引用は分割しない。再実行しても変化しない（冪等）。
 
-> **ツール使い分け**: 上記 `split-essay-intro-paragraphs.mjs` は essay マガジンの**導入部に特化**（1 文 1 段落・誤分割回避ロジックあり）。一般の note 記事（入口/ガイド/キーワードページ等）の本文段落を短くするときは汎用ツール `npm run note-reflow -- [--target N] <file|dir>`（`scripts/reflow-note-paragraphs.mjs`、>120 字を文境界で再パッキング・1〜2 文/段落・語句不変）を使う。note-reflow も「## 試験問題」以降の答案本文は自動保護するため essay 記事に誤適用しても答案は割れない。真実源: `content-principles.md §14-e`。
+> **ツール使い分け**: 上記 `split-essay-intro-paragraphs.mjs` は essay マガジンの**導入部に特化**（1 文 1 段落・誤分割回避ロジックあり）。一般の note 記事（入口/ガイド/キーワードページ等）の本文段落を短くするときは汎用ツール `npm run note-reflow -- [--target N] <file|dir>`（`scripts/note/reflow-note-paragraphs.mjs`、>120 字を文境界で再パッキング・1〜2 文/段落・語句不変）を使う。note-reflow も「## 試験問題」以降の答案本文は自動保護するため essay 記事に誤適用しても答案は割れない。真実源: `content-principles.md §14-e`。
 
 PDF は `試験問題 → 採点者視点` のみ収録のため、導入部の段落分割は **PDF に影響しない**（再生成不要）。
 
@@ -204,7 +204,7 @@ grep -nc "^> " article.md
 
 各記事（`{persona}/{RXX}/`）に以下が**揃っているか**確認する。マガジン単位の `_cover.png`/`hashtags.txt` とは別に、**記事ごと**に必要：
 
-- `img/cover.png`: `node scripts/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
+- `img/cover.png`: `node scripts/build/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
   - **frontmatter `cover.headline` は短い単一テーマに留める**（V5 では主見出しを 96〜48px・最大 3 行・幅 394px へ実測で折り返し、入らなければ生成失敗。`cover.banner` は読まれない）。長い銘（例「資源循環 × サプライチェーン強靭化｜…」）は `npm run check-note-cover-fit` で先に止める。完全テーマは `cover.hiSuffix` とタイトルに既出なので重複させない。生成後は cover.png を必ず目視確認
 - `hashtags.txt`: `/note-hashtags` スキルで生成（記事の論点に沿った 90〜99 個・1行1タグ。本文には入れない＝[[feedback_note_prepublish_verify_not_proxy]] の SoT 規約）
 
@@ -218,7 +218,7 @@ ls content/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/has
 ## Step 6d: 見出し構成チェック（正準=自治体道路担当）
 
 ```
-node scripts/check-essay-heading-structure.mjs "{persona}" --strict
+node scripts/checks/check-essay-heading-structure.mjs "{persona}" --strict
 ```
 
 ペルソナの見出し構成を正準（自治体道路担当）の構造不変条件で検査する。
@@ -231,10 +231,10 @@ node scripts/check-essay-heading-structure.mjs "{persona}" --strict
 
 ## Step 6e: 印刷用PDF（記事別）の生成・配置・冒頭訴求
 
-1. spec を作成（道路担当 `scripts/pdf-specs/総監模範論文-自治体道路担当.json` を複製し srcDir/out を差し替え）
+1. spec を作成（道路担当 `content/note/技術士総監/magazines/総監模範論文-自治体道路担当/magazine-pdf.json` を複製し srcDir/out を差し替え）
 2. 記事別PDFを各記事dirへ直接生成：
    ```
-   node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/{persona}.json --in-place
+   node scripts/note/magazine-to-pdf.mjs --spec <マガジンのフォルダ>/magazine-pdf.json --in-place
    ```
    （`--in-place` で各 `{RXX}/` 配下に `{out}.pdf` を配置。試験問題＋模範論文のみ＝note CTA・採点者視点・出題予想根拠は除外）
 3. 各記事冒頭「**この記事でわかること**」末尾に PDF 訴求 1 行を追加（例:「**本記事の模範論文を印刷できる PDF 付き** — 答案用紙への手書き書き写し練習に使えます（購入者は本記事からダウンロード可）」）
@@ -306,7 +306,7 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 1. 各記事本文のプレースホルダを実URLに置換：**`npm run note-inject-magazine-url -- {persona} {magazineURL}`**（冒頭・末尾の2箇所×記事数を一括置換。実体は `scripts/note/inject-magazine-url.cjs`、CRLF保持・旧バリアント吸収・冪等）。各記事の frontmatter `noteUrl:`/`noteId:` にも反映（公開済URLの真実源＝記事 frontmatter）
    - **手作業で置換しない**: `sed -i` は CRLF を LF に壊す、`{{MAGAZINE_URL}}` 以外の旧バリアントを取りこぼす、冪等性が無い——を全部自前で再実装することになり事故る（2026-06-11 Opus が既存スクリプトを探さず手置換し CRLF を一度破壊）。必ず上記スクリプトを使う（[[feedback_note_magazine_url_injection]]）。
    - **執筆時の規約**: マガジン誘導は **`{{MAGAZINE_URL}}` を単独行**で書く（推奨・新規はこの形式のみ）。`（{{MAGAZINE_URL}}）` のように**全角括弧で囲まない**／同一行に文を置かない（note でリンクカード化できず、注入後に `（https://note.com/.../m/xxxx）` の壊れたリンクになる＝港湾R03事故、2026-06-10）。
-   - **自動検知**: `scripts/note-lint.mjs`（pre-commit）が「マガジンURL／`{{MAGAZINE_URL}}` の非単独行」「**markdown リンク形式のマガジンURL `[text](…/m/ID)`**」「**マガジンURL同一行の価格（¥）**」（後 2 者は検査項目 4b＝リンクカード化・CTA に価格を書かない、`content-principles.md §14-c`）「**公開状態の記事の3点セット欠落（`hashtags.txt`）**」（検査項目 4c、`content-principles.md §14-d`）に加え、**部分注入**（同一マガジンdir内に実URL注入済み記事がありながら `{{MAGAZINE_URL}}` が残る記事＝注入漏れ）を BLOCK し、修正コマンド `npm run note-inject-magazine-url -- <persona> <url>`（persona・実URL自動抽出）を提示する。公開前＝全記事 placeholder のときは発火しない。注入漏れ変種は `inject-magazine-url.cjs` の `PLACEHOLDERS` 配列で吸収（空白・括弧バリアントも登録済）。
+   - **自動検知**: `scripts/note/note-lint.mjs`（pre-commit）が「マガジンURL／`{{MAGAZINE_URL}}` の非単独行」「**markdown リンク形式のマガジンURL `[text](…/m/ID)`**」「**マガジンURL同一行の価格（¥）**」（後 2 者は検査項目 4b＝リンクカード化・CTA に価格を書かない、`content-principles.md §14-c`）「**公開状態の記事の3点セット欠落（`hashtags.txt`）**」（検査項目 4c、`content-principles.md §14-d`）に加え、**部分注入**（同一マガジンdir内に実URL注入済み記事がありながら `{{MAGAZINE_URL}}` が残る記事＝注入漏れ）を BLOCK し、修正コマンド `npm run note-inject-magazine-url -- <persona> <url>`（persona・実URL自動抽出）を提示する。公開前＝全記事 placeholder のときは発火しない。注入漏れ変種は `inject-magazine-url.cjs` の `PLACEHOLDERS` 配列で吸収（空白・括弧バリアントも登録済）。
 2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl`（マガジンURL）に更新。`price` フィールドは Step 6f で既に入っているはず（未記載なら追記）
 3. 個別記事も note 投稿済みなら各 PDF を有料エリアに添付（Step 6e の冒頭訴求と対応）
 
@@ -317,10 +317,10 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 | ゲート | コマンド | 合格条件 |
 |---|---|---|
 | ペルソナ採否・分野ラベル | Step 0 / Step 0b（目視） | 真正な経験座（GO）／専門分野が正しい技術士選択科目 or 役割ベース一般化（他部門科目の流用なし） |
-| 字数・散文性 | `node scripts/essay-shisaku-charcount.mjs "{persona}" --strict` | 超過0・箇条書き混入0・答案箇条書き0 |
+| 字数・散文性 | `node scripts/content/essay-shisaku-charcount.mjs "{persona}" --strict` | 超過0・箇条書き混入0・答案箇条書き0 |
 | 導入部の文体（警告） | 同上（`--strict`なしで「導入部文体混在(警告) N」） | 新規は N=0（導入部ですます統一・Step 3b） |
-| note 互換 | `node scripts/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
-| 見出し構成 | `node scripts/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
+| note 互換 | `node scripts/note/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
+| 見出し構成 | `node scripts/checks/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
 | 引用記号 | `grep -rc "^> " {persona}/*/article.md`（Step 6b） | フレーミング文（本記事の構成・本論文は・A案/B案対象者注記・R4は/R5は 等）に blockquote を使わない＝**全記事 0**（公開済 河川/都市計画/下水道が基準）。設問前文・白書原文の真正引用のみ例外 |
 | 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | 既存商品は **R03-R07＋R8予想2記事**、`pastExamOnlyPersonas` 登録商品は **R03-R07の5記事**。予想記事を追加した場合は両方を検査 |
 | マガジン掲載文・価格 | Step 6f | `note掲載文.txt` 作成（`npm run note-meta-lint` で タイトル≤30/説明≤400/アピール≤250 を検査・段落分割・価格欄＋任意の機械ブロック）／`_meta.yaml` 不在／note-magazines.ts に `price`／ドリフトは `npm run verify-note-magazines -- --vs-txt` |

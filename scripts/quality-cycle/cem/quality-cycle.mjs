@@ -31,7 +31,7 @@
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { loadSiteRoutes, siteUrlForSlug } from '../../lib/site-links.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../lib/repository-paths.mjs';
@@ -55,7 +55,7 @@ import { buildCemQaPrompt, buildRewriterPrompt } from './lib/cem-qa-prompt.mjs';
 // ── 定数 ────────────────────────────────────────────────────────
 
 const BASE_DIR = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
-const LINT_SCRIPT = join(REPO_ROOT, 'scripts/lint-mdx-mobile.mjs');
+const LINT_SCRIPT = join(REPO_ROOT, 'scripts/checks/lint-mdx-mobile.mjs');
 const HUB_SLUG = 'pe-comprehensive-management-keyword-2026';
 const FLAGSHIP_COUNT = 100;
 const DEFAULT_TOP = 200;
@@ -184,7 +184,7 @@ function runScreen() {
   console.log('[screen] lint-mdx-mobile.mjs 実行中...');
   let lintOutput = '';
   try {
-    lintOutput = execSync(`node ${displayPath(LINT_SCRIPT)} ${displayPath(BASE_DIR)}/`, {
+    lintOutput = execFileSync(process.execPath, [displayPath(LINT_SCRIPT), `${displayPath(BASE_DIR)}/`], {
       cwd: REPO_ROOT,
       encoding: 'utf-8',
       maxBuffer: 50 * 1024 * 1024,

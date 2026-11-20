@@ -64,9 +64,9 @@ cover の swipeText 系トークンや `quiz-slides.mjs` の `buildQuizCover` �
 3. **3 フォーマット連続実行**（必須順序）:
    ```bash
    # ステップ A: Carousel (1080×1350)
-   node scripts/bulk-generate-exam-packs.mjs $RANGE --size carousel --skip-caption --skip-lint
+   node scripts/maint/bulk-generate-exam-packs.mjs $RANGE --size carousel --skip-caption --skip-lint
    # ステップ B: Reels (1080×1920)
-   node scripts/bulk-generate-exam-packs.mjs $RANGE --size reels --skip-caption --skip-lint
+   node scripts/maint/bulk-generate-exam-packs.mjs $RANGE --size reels --skip-caption --skip-lint
    # ステップ C: Stories (1080×1920、cover のみ独立生成 + 他 3 枚は Reels コピー)
    for d in <対象 pack-dir 群>; do
      node scripts/instagram/build-stories.mjs "$d"
@@ -99,7 +99,7 @@ PNG総数 : 90 枚 (9 × 10)
 - **slide-data.json の編集** → `ig-carousel-writer`
 - **tokens.json の編集** → design-system 担当（人手）
 - **品質採点** → `ig-carousel-qa`
-- **新規パック作成** → `scripts/generate-exam-pack-dirs.mjs`
+- **新規パック作成** → `scripts/build/generate-exam-pack-dirs.mjs`
 - **A シリーズ（運営者作問）の再生成** → `scripts/sns/render-quiz-pack.mjs`（本スキル対象外）
 
 ## 注意

@@ -166,6 +166,8 @@ docs/x-posts/draft/**/status.json
 /test.md
 # Codex の画像生成の出力（参照元は Drive の repo-archive へ退避）
 /generated_images/
+# スキル設計の原典 PDF（Anthropic 公式ガイド）。人だけが読むので Drive vault の repo-archive に置く（2026-11-19）
+/.claude/pdfs/
 
 # 一時出力置き場（.tmp/ 配下はすべて untracked、.gitkeep と README.md のみ追跡）
 /.tmp/*
@@ -268,7 +270,7 @@ content/sns/instagram/**/reels/concat.txt
 
 # doc-meta-index.json は全 MDX frontmatter から build-doc-meta-index.mjs が再生成する成果物。
 # 過去7日で70回commit・97.7MB の履歴肥大の主因だった（1.42MB×70版）。predev / CI 側の
-# 明示ステップで再生成する（真実源: scripts/build-doc-meta-index.mjs）。2026-08-29。
+# 明示ステップで再生成する（真実源: scripts/build/build-doc-meta-index.mjs）。2026-08-29。
 src/config/doc-meta-index.json
 # tag-dictionary.json も全 MDX の tags から build-tag-index.mjs が作る生成物。読み手（build-keyword-relations）の前に
 # refresh-indexes（build-indexes）が作るので追跡しない。生成日時と件数だけの差分で 2 か月 235 回変わっていた（DN-0792）。
@@ -335,10 +337,17 @@ content/sources/textbook/**/*.pdf
 # 2026-08-21・DN-0111 Phase 4-B。
 content/note/**/img/cover*.png
 
+# note の本文の図は同名の figure-*.svg が正本で、note へ上げる PNG は投稿の直前に作る
+# （scripts/lib/note-figure-png.mjs・出力は .tmp/note-figures/）。SVG と書き出しの PNG を両方追跡していた 110 組の
+# PNG を外した（2026-11-19）。SVG の無い図を書く残りの render-figure-*.mjs（DN-1251）が書く PNG もここで無視する。
+# SVG の無い図（PNG 自体が正本）を足すときだけ git add -f する。tests/note-figure-sources.test.mjs が
+# 「対の PNG を追跡しない」「原稿の画像参照が checkout だけで解決できる」を止める。
+content/note/**/img/figure-*.png
+
 # 著者オーソリティ バナーの記事ごとの複製（197 本×約 220KB）。原本は
 # content/note/共通/著者オーソリティ/img/figure-author-authority*.png（追跡）で、各記事の img/ には
-# scripts/distribute-author-authority-banner.mjs が複製するだけの成果物。再生成は
-#   node scripts/distribute-author-authority-banner.mjs --migrate（civil）／--exam concrete --all
+# scripts/note/distribute-author-authority-banner.mjs が複製するだけの成果物。再生成は
+#   node scripts/note/distribute-author-authority-banner.mjs --migrate（civil）／--exam concrete --all
 # 2026-09-05・正方形再設計で 197 本が一斉に差分になったのを機に cover*.png と同じ扱いへ。
 content/note/**/img/figure-author-authority*.png
 !content/note/共通/著者オーソリティ/img/figure-author-authority*.png
@@ -381,22 +390,22 @@ content/site/**/ogp.webp
 # group でR2退避済み（--verify 3者照合OK）。配信は既にR2 301（public/_redirects）
 # 経由で本番稼働中なので untrack しても配信影響なし。新規記事はdevelopへpushすれば
 # ogp-supply.ymlが自動生成してR2へ供給する（即時反映したい場合のみ手動で
-# node scripts/asset-offload.mjs --group site-ogp-png --commit）。
-# 復元は node scripts/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
+# node scripts/storage/asset-offload.mjs --group site-ogp-png --commit）。
+# 復元は node scripts/storage/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
 content/site/**/ogp.png
 content/site/**/ogp-thumb-*.webp
 
 # 記事図の切り出し原本 png（302件・19MiB）は asset-storage.json の site-figure-png
 # group で public R2 へ退避済み（--verify 3者照合OK）。記事が参照・配信するのは同名の
 # webp（Git に残す）。新しく切り出した png は
-# node scripts/asset-offload.mjs --group site-figure-png --only-new --include-untracked --commit
-# で上げ、復元は node scripts/asset-hydrate.mjs --group site-figure-png。2026-10-22・DN-0707。
+# node scripts/storage/asset-offload.mjs --group site-figure-png --only-new --include-untracked --commit
+# で上げ、復元は node scripts/storage/asset-hydrate.mjs --group site-figure-png。2026-10-22・DN-0707。
 content/site/**/img/*.png
 
 # content/note/**/_cover.png（マガジンカバー・2026-09-17 時点 67 件）は実体を Google Drive vault
 # （drive-vault.json の note-magazine-cover-png group・台帳 drive-manifest.json）に置く。
 # マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
-# 別グループとして分離。復元は node scripts/drive-vault-sync.mjs --pull --path 'content/note/{該当パス}/' --commit。
+# 別グループとして分離。復元は node scripts/storage/drive-vault-sync.mjs --pull --path 'content/note/{該当パス}/' --commit。
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。2026-09-17 に magazines/ 直下以外
 # （メンバーシップ特典マガジン `メンバーシップ/予想問題マガジン/_cover.png`）も同じ扱いに広げた。
 content/note/**/_cover.png
@@ -405,7 +414,7 @@ content/note/**/_cover-photo.png
 # content/coconala/assets/（59件・28.3MB）は実体を Google Drive vault
 # （drive-vault.json の coconala-asset group・台帳 drive-manifest.json）に置く。
 # ココナラ出品Playwright自動化はローカル実体を直接参照するので挙動不変。
-# 復元は node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/' --commit。
+# 復元は node scripts/storage/drive-vault-sync.mjs --pull --path 'content/coconala/assets/' --commit。
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 content/coconala/assets/**
 
@@ -413,10 +422,12 @@ content/coconala/assets/**
 # （drive-vault.json の repo-archive group・台帳 drive-manifest.json）に置く: OCR監査ログ・
 # Kindle表紙デザイン案・キャラ素材グリッド原本。監査証跡として当面残す価値があるため消さず退避。
 # 読む人はいても読むコードは無い（audience=human）。
-# 復元は node scripts/drive-vault-sync.mjs --pull --path '{対象パス}' --commit。
+# 復元は node scripts/storage/drive-vault-sync.mjs --pull --path '{対象パス}' --commit。
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 .claude/state/ocr-audit/**
 scripts/kindle-published/cover-designs/**
+# Kindle の表紙の背景（Drive vault の kindle-cover-backgrounds・2026-11-20）
+/content/kindle/cover-backgrounds/
 content/sns/_assets/character/_source/**
 
 # 公的基準（共通仕様書）のページ画像・ページテキスト（DN / 2026-09-05）。
@@ -447,7 +458,7 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 # Lighthouse CI 実行レポート（DN-0240）。CI では artifact としてアップロードするのみ。
 .lighthouseci/
 
-# 管理画面「コンテンツ台帳」の note 記事の索引（scripts/build-content-ledger.mjs が作る生成物・DN-0438）
+# 管理画面「コンテンツ台帳」の note 記事の索引（scripts/build/build-content-ledger.mjs が作る生成物・DN-0438）
 .claude/state/content-ledger.json
 
 

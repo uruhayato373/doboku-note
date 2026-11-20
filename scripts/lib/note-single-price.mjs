@@ -2,7 +2,7 @@
  * note-single-price.mjs — note の単品（config/products.json の channel=note・tier=single＝マガジンに入れず 1 本で売る記事）の
  * 価格・公開状態を、公開 API で読んだ記事の状態と照合する純関数（DN-0704）。
  *
- * 取得はしない。呼び出し側（scripts/verify-note-magazines.mjs）が scripts/lib/note-api.mjs の fetchNote で読み、
+ * 取得はしない。呼び出し側（scripts/checks/verify-note-magazines.mjs）が scripts/lib/note-api.mjs の fetchNote で読み、
  * 結果（state / status / price / error）を id ごとに渡す。テストは取得結果を注入して判定だけを見る。
  *
  * 正本の価格は catalog.price の先頭の ¥金額（"¥2,480（予想模試3回・PDF6冊）" → 2480）。price 欄の無い単品は

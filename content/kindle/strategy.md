@@ -2,7 +2,7 @@
 
 **作成日**: 2026-06-09（v1）/ **更新日**: 2026-07-30（Claude 管理領域へ移管）
 **位置付け**: [04_収益化戦略.md](../../docs/strategy/04_収益化戦略.md) の補足。note・AdSense と並ぶ第3の収益柱（立ち上げ中）。
-**生成ツール**: A系=`scripts/build-takuitsu-reconstruct.mjs` / B・D・E系=`scripts/build-pe1-kindle.mjs` / C・F系=`scripts/build-essay-kindle.mjs`（spec 駆動）。オーケストレーションは `/kindle-build` スキル（後述「制作パイプライン」）
+**生成ツール**: A系=`scripts/build/build-takuitsu-reconstruct.mjs` / B・D・E系=`scripts/build/build-pe1-kindle.mjs` / C・F系=`scripts/build/build-essay-kindle.mjs`（spec 駆動）。オーケストレーションは `/kindle-build` スキル（後述「制作パイプライン」）
 
 > [!success] 実施状況（2026-07-30）
 > `catalog.json` 基準で A 7冊・B 2冊・C 12冊・D 4冊・E 1冊・F 7冊が LIVE（本棚実査で ASIN 33/33 一致）。
@@ -68,8 +68,8 @@
 > - 撤退（2026-11-10 実施）: 販売中だった F 系 8 冊（f-02・f-07・f-08・f-11・f-12・f-13・f-15・f-16）を KDP で出版停止。note の総監マガジンと同一原稿で、f-16 以外は 4 か月で ¥2〜¥54。続けて F 系 16 冊すべて（10-22 に止めた 8 冊を含む）を KDP の「本のアーカイブ」へ移した。本棚の「アーカイブ済みの本」に「下書き」のまま 16/16 冊あることを確認済み。ASIN は残り、「本のアーカイブ解除」と再出版で戻せる。**KDP のアーカイブは本棚から隠すだけで、販売中の本をアーカイブしても売れ続ける**（確認画面の文言）。撤退は必ず出版停止をしてからアーカイブする。
 > - **KDP セレクトの独占条件との抵触（要対応）**: セレクトの本は電子版を Amazon 以外で配れない（自サイトも不可）。9〜10 月に KENP がある C 系・b-reiwa・d-01〜03・e-01・e-02・g-01 などは、note の同じ原稿・同じ過去問解説（科目マガジン・択一 PDF）と併売している。C 系はセレクトを外し日本 35% で値付けを note 価格の範囲で見直す方針（価格案を出してから運営者が決める）。b-reiwa（総監 択一）は note 側の択一 PDF が 4 か月 ¥1,960 と小さいため、Kindle に残すか note 側を下げるかを別途決める。
 > - 次の注力: C 系 12 冊へ令和8年度 本試験の模範解答（note で 2026-11 に公開した 34 本）を足して改版する（ASIN 維持の差し替え・12 月の合格発表まで）。I・J 系の ready 23 冊は一括で出さず、i-02・i-03・i-04・j-02 を先に出して春の売れ方を見る。
-> - C 系 12 冊を令和8年度版に改版（2026-11-10 出版申請・v1.1）: R08 の模範解答を足して R03〜R08（選択科目 11 冊は全18本・必須科目I は全6本）にし、前付けの出題傾向を 6 年分で数え直した（kindle-book-qa の指摘を反映）。副題・説明文・検索語（「令和8年度」「2027年受験」）を年度版にし、表紙は年度と本数がサムネイルで読める POP 表紙（Codex で文字まで生成・制作記録 `scripts/kindle-covers/pop/c-series-r08.pop-image.json`）へ替えた。章に初版から残っていた note 由来の「PDF付き」の約束文をビルダーで除き、説明文の「転載は行っていません」を「日本技術士会の公表資料から引用」に直した。価格は ¥1,650 のまま。**原稿を差し替えた後は、コンテンツページの AI 申告欄とアクセシビリティ欄の「回答が正しいことを確認」のチェックが外れ、入れ直さないと出版が「この項目は必須です」で止まる**（`--publish-only` はこの 2 か所を入れない）。
-> - 1級一次の 2 冊を年度版に改版（2026-11-10 出版申請・v1.1）: 2 冊とも 7〜10 月の購入は 0 冊（印税は KENP だけ）で、値段より見つけてもらえていないことが課題。令和8年度の過去問（サイト primary-r08-a/b）を足し、A-00 は「H26〜R08・440問」、e-02 は「H26〜R08・26回・1263問・図114点」へ。サブタイトル・説明文・検索語（「令和8年度」「2027年受検」）・表紙を更新し、巻末にレビューのお願いを足した（商品ページのレビューは 0 件）。価格は 2 冊とも ¥1,650（70% 帯の上限）。違いは説明文で「論点別に暗記＝A-00／本番の形で通して解く＝e-02」と書き分けた。A-00 は KDP 差し替え用の最小の spec（`scripts/kindle-specs/A-00.json`）を足した。**2 冊とも KDP セレクト加入のまま note の 1級択一 PDF と中身が重なる（上の抵触の項）**。
+> - C 系 12 冊を令和8年度版に改版（2026-11-10 出版申請・v1.1）: R08 の模範解答を足して R03〜R08（選択科目 11 冊は全18本・必須科目I は全6本）にし、前付けの出題傾向を 6 年分で数え直した（kindle-book-qa の指摘を反映）。副題・説明文・検索語（「令和8年度」「2027年受験」）を年度版にし、表紙は年度と本数がサムネイルで読める POP 表紙（Codex で文字まで生成・制作記録 `content/kindle/cover-records/c-series-r08.pop-image.json`）へ替えた。章に初版から残っていた note 由来の「PDF付き」の約束文をビルダーで除き、説明文の「転載は行っていません」を「日本技術士会の公表資料から引用」に直した。価格は ¥1,650 のまま。**原稿を差し替えた後は、コンテンツページの AI 申告欄とアクセシビリティ欄の「回答が正しいことを確認」のチェックが外れ、入れ直さないと出版が「この項目は必須です」で止まる**（`--publish-only` はこの 2 か所を入れない）。
+> - 1級一次の 2 冊を年度版に改版（2026-11-10 出版申請・v1.1）: 2 冊とも 7〜10 月の購入は 0 冊（印税は KENP だけ）で、値段より見つけてもらえていないことが課題。令和8年度の過去問（サイト primary-r08-a/b）を足し、A-00 は「H26〜R08・440問」、e-02 は「H26〜R08・26回・1263問・図114点」へ。サブタイトル・説明文・検索語（「令和8年度」「2027年受検」）・表紙を更新し、巻末にレビューのお願いを足した（商品ページのレビューは 0 件）。価格は 2 冊とも ¥1,650（70% 帯の上限）。違いは説明文で「論点別に暗記＝A-00／本番の形で通して解く＝e-02」と書き分けた。A-00 は KDP 差し替え用の最小の spec（`content/kindle/books/A-00/spec.json`）を足した。**2 冊とも KDP セレクト加入のまま note の 1級択一 PDF と中身が重なる（上の抵触の項）**。
 
 ### 編集軸の考え方
 
@@ -156,7 +156,7 @@
 | D-00 | 合本（3科目） | 560問 | ¥990（日本 35%・要再判断） | D-03 完了後 | — |
 
 > [!note] Dシリーズの技術要件
-> A系と違い**数式（KaTeX→MathML）と画像（webp→JPEG 同梱）**が必須。ビルダーは `scripts/build-pe1-kindle.mjs`（spec = `scripts/kindle-specs/d-xx.json`）。出典クレジットは**日本技術士会**（A系の全国建設研修センターと別文面）。
+> A系と違い**数式（KaTeX→MathML）と画像（webp→JPEG 同梱）**が必須。ビルダーは `scripts/build/build-pe1-kindle.mjs`（spec = `content/kindle/books/d-xx/spec.json`）。出典クレジットは**日本技術士会**（A系の全国建設研修センターと別文面）。
 
 ### 将来候補（図版対応が必要）
 
@@ -221,7 +221,7 @@
 
 #### I・Jシリーズ — 1級・2級土木 第2次検定 記述（2026-09-23 新設）
 
-> **方針**: 土木施工管理の Kindle は択一（A・E）だけだった。note の第2次検定 記述マガジン（施工経験記述・学科記述）を工種・テーマ別の冊に再編集し、書き下ろし前付けを付けて展開する。R8 予想模試・出題分析は年度限定のため除外（evergreen 方針）。まるごと・直前総仕上げ等のパックは束なので Kindle で複製しない。note と同一原稿のため **KDP セレクト非加入＝日本 35%**。ビルダーは build-essay-kindle（`chapterLabel: "h1-tail"`＝coverTitle が YAML 配列で使えないため H1 の末尾を章名に、`dropLines`＝章ごとの著者紹介・添削/会員誘導・サイト誘導の行を除去、`replaceText`＝「本記事」→「本章」）。spec は `scripts/kindle-specs/{i,j}-*.json`。
+> **方針**: 土木施工管理の Kindle は択一（A・E）だけだった。note の第2次検定 記述マガジン（施工経験記述・学科記述）を工種・テーマ別の冊に再編集し、書き下ろし前付けを付けて展開する。R8 予想模試・出題分析は年度限定のため除外（evergreen 方針）。まるごと・直前総仕上げ等のパックは束なので Kindle で複製しない。note と同一原稿のため **KDP セレクト非加入＝日本 35%**。ビルダーは build-essay-kindle（`chapterLabel: "h1-tail"`＝coverTitle が YAML 配列で使えないため H1 の末尾を章名に、`dropLines`＝章ごとの著者紹介・添削/会員誘導・サイト誘導の行を除去、`replaceText`＝「本記事」→「本章」）。spec は `content/kindle/books/{i,j}-*/spec.json`。
 
 | # | 内容 | 章 | 価格 | note の同等品 |
 |---|---|---|---|---|
@@ -367,8 +367,8 @@
 /kindle-build {書籍ID}
  ├─ 構成定義あり → 決定的ビルド（LLM不使用）
  │    A系: build-takuitsu-reconstruct.mjs --theme {key}
- │    B/D/E系: build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json
- │    C/F系: build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json
+ │    B/D/E系: build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json
+ │    C/F系: build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json
  ├─ 構成定義なし → kindle-book-composer（Generator）
  │    A系: THEMES 論点分類設計（件数を本書と突合） / B〜F系: spec + 書き下ろし前付け
  └─ ビルド後 → epubcheck → kindle-book-qa（Evaluator）5軸監査
@@ -395,7 +395,7 @@
 - [x] A-02〜A-06: THEMES 定義追加 → EPUB 生成 → epubcheck 0/0（2026-07-08）
 - [x] A-00 全科目合本: `--theme goubon` モード新設 → EPUB 生成 → epubcheck 0/0（2026-07-08）
 - [x] 元データの破損解説を機械スイープ→e-gov 条文照合つきで補完（A-01 更新版の再アップも可能に）
-- [x] A-02〜A-06・A-00 の表紙作成（spec 駆動 `scripts/kindle-covers/specs/a-0*.json`＋背景6枚 git 管理化・`~/Downloads/kindle-cover-a-*.jpg` 生成済み、2026-07-08）
+- [x] A-02〜A-06・A-00 の表紙作成（spec 駆動 `content/kindle/books/A-0*/cover.json`＋背景6枚 git 管理化・`~/Downloads/kindle-cover-a-*.jpg` 生成済み、2026-07-08）
 - [ ] KDP アップロード（登録順メモ = `~/Downloads/KDP登録順メモ_Aシリーズ全冊.txt`）← **ユーザー作業**
 - [ ] Author Central でプロフィール充実
 
@@ -420,7 +420,7 @@
 
 ```
 [ ] EPUB生成
-    node scripts/build-takuitsu-reconstruct.mjs --theme {key} --format epub
+    node scripts/build/build-takuitsu-reconstruct.mjs --theme {key} --format epub
 
 [ ] Kindle Previewer で確認
     - 目次が機能しているか（各章へジャンプできるか）
@@ -469,11 +469,11 @@
 
 ```
 [ ] 構成定義（初回のみ）
-    kindle-book-composer が scripts/kindle-specs/d-xx.json と
+    kindle-book-composer が content/kindle/books/d-xx/spec.json と
     書き下ろし前付け content/kindle/books/d-xx/front-matter.md を作成
 
 [ ] EPUB生成
-    node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/d-xx.json
+    node scripts/build/build-pe1-kindle.mjs --spec content/kindle/books/d-xx/spec.json
 
 [ ] epubcheck + kindle-book-qa 5軸監査（/kindle-build 経由なら自動）
 
@@ -513,7 +513,7 @@
 ## 出版済み一覧
 
 > [!info] 機械可読 SSOT
-> ASIN・価格・状態・版(version)の真実源は `config/products.json`（channel kindle）。[`scripts/kindle-published/catalog.json`](../../scripts/kindle-published/catalog.json) はそこからの生成物（`npm run product -- gen`）で、下表はそこから派生させる。EPUB を更新して再アップしたら catalog の `version` を上げ `versionHistory` に追記する（版管理の運用は `scripts/kindle-published/README.md`）。
+> ASIN・価格・状態・版(version)の真実源は `config/products.json`（channel kindle）。下表はそこから派生させる（写しの catalog.json は 2026-11-20 に廃止）。EPUB を更新して再アップしたら catalog の `version` を上げ `versionHistory` に追記する（版管理の運用は `scripts/kindle-published/README.md`）。
 
 ### Aシリーズ（1級土木 論点別）
 

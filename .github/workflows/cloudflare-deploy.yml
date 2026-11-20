@@ -55,7 +55,7 @@ jobs:
       # 章データは out/ から除いたので、Pages へ出す前に R2 へ送る
       - name: Upload standards chapter data to R2
         if: inputs.verify_only != true
-        run: node scripts/upload-standards-data-r2.mjs
+        run: node scripts/standards/upload-standards-data-r2.mjs
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
@@ -116,7 +116,7 @@ jobs:
         id: submit
         run: |
           set +e
-          node scripts/indexnow-submit.mjs 2>&1 | tee /tmp/indexnow.log
+          node scripts/search/indexnow-submit.mjs 2>&1 | tee /tmp/indexnow.log
           rc=${PIPESTATUS[0]}
           set -e
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
@@ -145,7 +145,7 @@ jobs:
             echo "- rc=1 は IndexNow が非 2xx。403/422 は key・host の不一致、429 は送信間隔"
             echo "- 設定: \`config/indexnow.json\` / 判定: \`scripts/lib/indexnow.mjs\`"
           } > /tmp/indexnow-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel indexnow \
             --title "IndexNow 送信失敗（rc=${{ steps.submit.outputs.rc }}）" \
             --body-file /tmp/indexnow-body.md
@@ -157,5 +157,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel indexnow \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel indexnow \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

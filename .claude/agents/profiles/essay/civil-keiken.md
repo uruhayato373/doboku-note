@@ -72,14 +72,14 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 - 本文（frontmatter 除く）に価格（¥・XXX円）直書き 0。
 - 既存マガジン・サイトとの完全一致長文行（>25字）が **frontmatter・リンク以外 0**。
 - 形式の見出しが規約どおり存在（PDF spec の include 見出しと整合）。
-- **字数: `node scripts/keiken-charcount.mjs <article.md> --strict` を実行し exit 0（要圧縮(×)・大幅(✗) 0件）を確認**。超過があれば技術内容・プレースホルダ・「失格注意/置換ガイド」を保ったまま冗長表現を削って圧縮し、再実行で解消するまで返却しない。
+- **字数: `node scripts/content/keiken-charcount.mjs <article.md> --strict` を実行し exit 0（要圧縮(×)・大幅(✗) 0件）を確認**。超過があれば技術内容・プレースホルダ・「失格注意/置換ガイド」を保ったまま冗長表現を削って圧縮し、再実行で解消するまで返却しない。
   - **圧縮ガードレール（厳守）**: 字数調整は**答案散文の冗長表現を削るのみ**。注釈行・問題文・工事概要・置換ガイドの**削除や blockquote 化でカウンタを回避してはならない**（過去に注釈削除/blockquote化で字数を誤魔化す事故あり）。答案の番号付きリスト本文も解答欄に書く内容なので削らず、文を簡潔化して収める。
 
 **Step 5: 書き込み先**: `writeMdxFile` 経由（CRLF 統一）。`content/note/{級}/magazines/{magazine}/{slug}/article.md`。
 
 **Step 6: note-lint ゲート（返却前・必須）**
 
-書き込み後、必ず `node scripts/note-lint.mjs <書いた article.md の絶対パス>` を実行し **exit 0（OK）** を確認してから完了報告する。検出される note 非互換は次の3つで、いずれも返却前に自己修正する。
+書き込み後、必ず `node scripts/note/note-lint.mjs <書いた article.md の絶対パス>` を実行し **exit 0（OK）** を確認してから完了報告する。検出される note 非互換は次の3つで、いずれも返却前に自己修正する。
 
 - **markdown 表（pipe 表）**: note 非対応 → 箇条書き（見出し語を `**太字**`）へ変換
 - **太字内全角括弧 Pattern A**: note で描画崩れ → `**A 管理 × B 管理**（補足）` の形（全角括弧は必ず太字 `**` の外）へ
@@ -135,7 +135,7 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 
 ### 著者オーソリティバナー（差別化）
 
-買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝審査する側の視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。一括配布は `node scripts/distribute-author-authority-banner.mjs`。
+買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝審査する側の視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。一括配布は `node scripts/note/distribute-author-authority-banner.mjs`。
 
 ## 採点（essay-qa が読む）
 
@@ -154,7 +154,7 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 ### 決定論ゲート
 
 ```bash
-node scripts/keiken-charcount.mjs <対象 article.md> --strict
+node scripts/content/keiken-charcount.mjs <対象 article.md> --strict
 ```
 
 しきい値の真実源は `config/keiken-answer-sheet-limits.json`（出典ベース確定値）。要圧縮(×)・大幅(✗)が1件でもあれば**不合格**。borderline(△, +10%以内)は許容。**ⅰ）ⅱ）等の列挙マーカーは本文インラインで字数算入される**ため、`1.`型→ⅰ）型へ体裁統一した記事は (3) 対応処置（上限175）の超過に注意（カウンタ済なので strict 結果をそのまま採用）。
@@ -201,5 +201,5 @@ node scripts/keiken-charcount.mjs <対象 article.md> --strict
 ### 参照
 
 - `.claude/knowledge/reference/content-principles.md`
-- 字数ゲート: `/keiken-charcount`（`scripts/keiken-charcount.mjs` + `config/keiken-answer-sheet-limits.json`）
+- 字数ゲート: `/keiken-charcount`（`scripts/content/keiken-charcount.mjs` + `config/keiken-answer-sheet-limits.json`）
 - メモリ: [[feedback_exam_pdf_cross_reference]] / [[feedback_no_price_in_mdx_body]] / [[feedback_essay_char_limit]]

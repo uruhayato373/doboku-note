@@ -15,19 +15,19 @@ domain: product
 
 ```bash
 # 全マガジン一括（content/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」or「想定工事バンク」を含む article.md）
-node scripts/keiken-charcount.mjs
+node scripts/content/keiken-charcount.mjs
 
 # 個別ファイル・ディレクトリ指定
-node scripts/keiken-charcount.mjs content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R04/article.md
+node scripts/content/keiken-charcount.mjs content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R04/article.md
 
 # Evaluator 連携用 JSON
-node scripts/keiken-charcount.mjs --json
+node scripts/content/keiken-charcount.mjs --json
 
 # ゲート用途（OVER が1件でもあれば exit 1）
-node scripts/keiken-charcount.mjs --strict
+node scripts/content/keiken-charcount.mjs --strict
 
 # pre-commit ゲート（staged の keiken 記事だけ検査・OVER で exit 1）。pre-commit-steps.mjs（pre-commit-dispatch.mjs が実行）で自動実行
-node scripts/keiken-charcount.mjs --staged --strict
+node scripts/content/keiken-charcount.mjs --staged --strict
 ```
 
 > **配線もれ防止**: keiken マガジンが本ツールの探索対象（上記フィルタ）から漏れると字数超過が素通りする。

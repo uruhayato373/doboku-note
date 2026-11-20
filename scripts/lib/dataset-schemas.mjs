@@ -184,7 +184,7 @@ export const KdpRoyalties = z
 
 
 /** ココナラの売上履歴（data/coconala/revenue.json）。手数料控除後・トークルームのクローズ日で計上。購入者・サービス名は記録しない */
-/** ココナラの公開プロフィールの評価の数の推移（台帳 coconala.seller-profile・scripts/coconala-seller-profile.mjs・土曜のココナラの段）。 */
+/** ココナラの公開プロフィールの評価の数の推移（台帳 coconala.seller-profile・scripts/coconala/coconala-seller-profile.mjs・土曜のココナラの段）。 */
 export const CoconalaSellerProfile = z
   .object({
     schemaVersion: z.literal(1),
@@ -827,7 +827,7 @@ export const RankWatch = z
   .superRefine(uniqueBy('recordId', 'recordId'))
   .meta({ title: '順位の見張り' });
 
-/** 暦月 × 商品の販売台帳（data/business/product-sales/<月>.json・DN-0947）。書き手は scripts/product-sales.mjs、読み方は scripts/lib/product-sales.mjs */
+/** 暦月 × 商品の販売台帳（data/business/product-sales/<月>.json・DN-0947）。書き手は scripts/reports/product-sales.mjs、読み方は scripts/lib/product-sales.mjs */
 const productSalesCoverage = z
   .object({
     status: z.enum(['measured', 'partial', 'account-only', 'unmeasured']).describe('measured=行の無い商品は計測済み・0 件／partial・account-only・unmeasured=行の無い商品は未計測（0 にしない）'),
@@ -894,7 +894,7 @@ export const BusinessProductSales = z
 const clickStatus = z.enum(['exact', 'window-mismatch', 'missing']).describe('GA4 の窓が月と一致（exact）・ずれ（window-mismatch）・月と重ならない（missing）');
 const salesReconciliationStatus = z.enum(['match', 'match-partial-month', 'mismatch', 'unverified']);
 
-/** サイトの note 送客クリック × note の売上の暦月の突合（data/business/records/site-to-sales-<月>.json）。書き手は scripts/report-site-to-sales.mjs */
+/** サイトの note 送客クリック × note の売上の暦月の突合（data/business/records/site-to-sales-<月>.json）。書き手は scripts/reports/report-site-to-sales.mjs */
 export const BusinessSiteToSales = z
   .object({
     schemaVersion: z.literal(1),
@@ -1021,13 +1021,13 @@ const reviewChecksShape = {
   alertsError: z.string().optional().describe('アラートを読めなかったときの理由'),
 };
 
-/** 月次レビューの点検の振り分け（data/business/records/checks-monthly-<月>[-<時刻>].json）。書き手は scripts/review-checks.mjs */
+/** 月次レビューの点検の振り分け（data/business/records/checks-monthly-<月>[-<時刻>].json）。書き手は scripts/ops/review-checks.mjs */
 export const BusinessChecksMonthly = z
   .object({ cadence: z.literal('monthly'), runKey: month.describe('対象の月'), ...reviewChecksShape })
   .strict()
   .meta({ title: '月次レビューの点検' });
 
-/** 週次レビューの点検の振り分け（data/business/records/checks-weekly-<週>[-<時刻>].json）。書き手は同じ scripts/review-checks.mjs */
+/** 週次レビューの点検の振り分け（data/business/records/checks-weekly-<週>[-<時刻>].json）。書き手は同じ scripts/ops/review-checks.mjs */
 export const BusinessChecksWeekly = z
   .object({ cadence: z.literal('weekly'), runKey: z.string().regex(/^\d{4}-W(0[1-9]|[1-4]\d|5[0-3])$/, 'YYYY-Www').describe('対象の週'), ...reviewChecksShape })
   .strict()
@@ -1038,7 +1038,7 @@ export const BusinessChecksWeekly = z
 const noteSourceCounts = z.record(z.string(), count('流入元ごとの PV'));
 const periodFromTo = z.object({ from: jstDate('開始日'), to: jstDate('終了日') }).strict();
 
-/** note の月間の流入元（data/note/referrers/<月>.json）。取得は scripts/note-traffic-fetch.mjs。summary.salesYen が売上の「完全」判定の基準になる */
+/** note の月間の流入元（data/note/referrers/<月>.json）。取得は scripts/note/note-traffic-fetch.mjs。summary.salesYen が売上の「完全」判定の基準になる */
 export const NoteReferrers = z
   .object({
     schemaVersion: z.literal(1),
@@ -1072,7 +1072,7 @@ export const NoteReferrers = z
   })
   .meta({ title: 'note の月間の流入元' });
 
-/** note の記事別の月間 PV（data/note/articles-pv/<月>.json）。取得は scripts/note-traffic-fetch.mjs */
+/** note の記事別の月間 PV（data/note/articles-pv/<月>.json）。取得は scripts/note/note-traffic-fetch.mjs */
 export const NoteArticlesPv = z
   .object({
     schemaVersion: z.literal(1),
@@ -1159,7 +1159,7 @@ export const NoteMagazines = z
 
 const scanStep = z.looseObject({ key: z.string(), label: z.string(), url: z.string(), ok: z.boolean() });
 
-/** ココナラの取引一覧の最新（data/coconala/orders-snapshot.json）。取得は scripts/coconala-orders.mjs。購入者名・本文は保存しない */
+/** ココナラの取引一覧の最新（data/coconala/orders-snapshot.json）。取得は scripts/coconala/coconala-orders.mjs。購入者名・本文は保存しない */
 export const CoconalaOrdersSnapshot = z
   .object({
     version: z.literal(1),
@@ -1231,7 +1231,7 @@ const coconalaMetrics = {
   favorites: orNull(count('お気に入り'), '読めなかったときは null'),
 };
 
-/** ココナラの出品分析の最新（data/coconala/analytics.json）。取得は scripts/coconala-analytics.mjs。数値は対象期間の累計で週次の増分ではない */
+/** ココナラの出品分析の最新（data/coconala/analytics.json）。取得は scripts/coconala/coconala-analytics.mjs。数値は対象期間の累計で週次の増分ではない */
 export const CoconalaAnalytics = z
   .object({
     version: z.literal(1),

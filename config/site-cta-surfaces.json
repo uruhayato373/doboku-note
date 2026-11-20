@@ -1,5 +1,5 @@
 {
-  "_doc": "サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のどこへ案内するかの台帳（DN-1223）。文脈の合う本文中の単品カードは src/lib/magazine-placement.ts が持ち、ここには書かない。読み手は src/lib/cta-surfaces.ts（サイト）・scripts/lib/site-to-sales.mjs（売上の帰属）・scripts/check-cta-surfaces.mjs（検査）。真実源の説明は .claude/knowledge/reference/note-funnel-architecture.md の「サイトの広い面」。",
+  "_doc": "サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のどこへ案内するかの台帳（DN-1223）。文脈の合う本文中の単品カードは src/lib/magazine-placement.ts が持ち、ここには書かない。読み手は src/lib/cta-surfaces.ts（サイト）・scripts/lib/site-to-sales.mjs（売上の帰属）・scripts/checks/check-cta-surfaces.mjs（検査）。真実源の説明は .claude/knowledge/reference/note-funnel-architecture.md の「サイトの広い面」。",
   "_rules": "lead: mokuji＝資格のもくじ（config/note-funnel.json の L2）へ。product＝単品かパック 1 つへ（もくじがある資格では reason が要る）。none＝出す商品が無い（reason が要る）。seasons は試験日の正本（config/exam-calendar.json）の行事で書く。before-exam＝行事の日の終わりまで（days があればその日数前から）、after-event＝行事の日の始めから days 日。季節の商品は mokuji の資格では資格トップと記事のタイルに、product の資格では資格トップの商品カードに出る。1 資格に before-exam と after-event は 1 つずつまで（売上の帰属の utm が hub-seasonal・hub-after-result の 2 種のため）。",
   "schemaVersion": 1,
   "qualifications": {

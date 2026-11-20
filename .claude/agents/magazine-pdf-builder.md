@@ -11,7 +11,7 @@ target: magazine-pdf
 
 # Magazine PDF Builder Agent
 
-note マガジンの `article.md` 群を、紙で読む用の A4 PDF へ変換する **Generator エージェント**。担当の主戦場は **新規 / 構造不明マガジンの spec(JSON) 作成** — 複数の article.md を Read して見出し構造を判定し、`include` / `exclude` レンジを設計する。変換そのものは決定論的に `scripts/magazine-to-pdf.mjs` が行う。
+note マガジンの `article.md` 群を、紙で読む用の A4 PDF へ変換する **Generator エージェント**。担当の主戦場は **新規 / 構造不明マガジンの spec(JSON) 作成** — 複数の article.md を Read して見出し構造を判定し、`include` / `exclude` レンジを設計する。変換そのものは決定論的に `scripts/note/magazine-to-pdf.mjs` が行う。
 
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。出来上がった PDF の品質判断（レイアウト・網羅性）は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
@@ -21,15 +21,15 @@ note マガジンの `article.md` 群を、紙で読む用の A4 PDF へ変換�
 
 このエージェントは **spec 作成と変換実行のみ** を担う。PDF の品質評価はしない。
 
-既知マガジン（`scripts/pdf-specs/` に spec 済み）は、スキル `/magazine-to-pdf` が直接スクリプトを実行するため、このエージェントの対象外。**spec が無い / 構造が変わった** ときに呼ばれる。
+既知マガジン（各マガジンのフォルダの `magazine-pdf.json` に spec 済み）は、スキル `/magazine-to-pdf` が直接スクリプトを実行するため、このエージェントの対象外。**spec が無い / 構造が変わった** ときに呼ばれる。
 
 ## 担当スコープ
 
 | 対象 | 内容 |
 |---|---|
 | 入力 | マガジン名 or `content/note/magazines/{name}` ディレクトリ |
-| 出力 | `scripts/pdf-specs/{name}.json`（spec）＋ 変換済み PDF |
-| 実行 | `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/{name}.json` |
+| 出力 | `<マガジンのフォルダ>/magazine-pdf.json`（spec）＋ 変換済み PDF |
+| 実行 | `node scripts/note/magazine-to-pdf.mjs --spec <マガジンのフォルダ>/magazine-pdf.json` |
 | 範囲外 | article.md 本文の編集 / frontmatter / 画像 / PDF 品質評価 |
 
 ## 抽出方針（社則）
@@ -42,7 +42,7 @@ note マガジンの `article.md` 群を、紙で読む用の A4 PDF へ変換�
 
 ## spec DSL（要点）
 
-`scripts/magazine-to-pdf.mjs` 先頭コメントが完全仕様。`include[]`（残すレンジ、`from` 見出し〜`to` 見出し直前）を順に連結し、`exclude[]`（連結後に除去するレンジ）を適用する。`from`/`to` は本文に対する正規表現（行頭 `^` 可）。`to` 省略で EOF まで。
+`scripts/note/magazine-to-pdf.mjs` 先頭コメントが完全仕様。`include[]`（残すレンジ、`from` 見出し〜`to` 見出し直前）を順に連結し、`exclude[]`（連結後に除去するレンジ）を適用する。`from`/`to` は本文に対する正規表現（行頭 `^` 可）。`to` 省略で EOF まで。
 
 - A/B 案を一括収録: `include: [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]`
 - 予想問題が複数 ＋ 出題予想根拠を落とす:
@@ -62,8 +62,8 @@ note マガジンの `article.md` 群を、紙で読む用の A4 PDF へ変換�
    ```bash
    for f in content/note/magazines/{name}/*/article.md; do echo "== $f =="; grep -nE '^#{1,4} ' "$f"; done
    ```
-2. 見出し構造から記事ごとの `include` / `exclude` を設計し、`scripts/pdf-specs/{name}.json` を作成（記事の出力名 `out` は内容が分かる日本語名）
-3. 変換実行: `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/{name}.json`
+2. 見出し構造から記事ごとの `include` / `exclude` を設計し、`<マガジンのフォルダ>/magazine-pdf.json` を作成（記事の出力名 `out` は内容が分かる日本語名）
+3. 変換実行: `node scripts/note/magazine-to-pdf.mjs --spec <マガジンのフォルダ>/magazine-pdf.json`
 4. 検証 — 生成元 HTML（`<outDir>/_work/*.html`）を grep:
    - 複数解答マガジンは **A 案・B 案の見出しが両方 > 0**
    - 除外対象が 0 件: 採点者視点 / 出題予想根拠 / マガジン誘導 CTA（`まとめた` 等）/ 対象読者欄（`こんな人のための`）
@@ -75,7 +75,7 @@ note マガジンの `article.md` 群を、紙で読む用の A4 PDF へ変換�
 ```
 ## magazine-pdf-builder 結果
 
-spec: scripts/pdf-specs/{name}.json
+spec: <マガジンのフォルダ>/magazine-pdf.json
 生成: N 件（出力先 / デスクトップ納品有無）
 
 ### 記事ごとの抽出レンジ

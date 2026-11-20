@@ -11,7 +11,7 @@ import { strict as assert } from 'node:assert';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
-import { auditWorkflow, auditGitPublishOrder } from '../scripts/check-workflow-publish-ref.mjs';
+import { auditWorkflow, auditGitPublishOrder } from '../scripts/checks/check-workflow-publish-ref.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
@@ -119,7 +119,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: 1dd9e3b8332688184eaf9ae99774e9af2a7e116a
-      - run: node scripts/youtube-delivery.mjs
+      - run: node scripts/youtube/youtube-delivery.mjs
   publish-pack:
     steps:
       - uses: actions/checkout@v5

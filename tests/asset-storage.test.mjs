@@ -203,7 +203,7 @@ test('sanitizeEntry: 許可キー以外は落とす（秘密の混入経路を�
 test('sanitizeEntry: mime / generator / requiredBy も lean format では書かない', () => {
   const e = sanitizeEntry({
     group: 'note-cover-png', bucket: 'public', r2Key: 'k', sha256: 'x', bytes: 1,
-    mime: 'image/png', generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note-publish.mjs'],
+    mime: 'image/png', generator: 'scripts/build/generate-note-covers.mjs', requiredBy: ['scripts/note/note-publish.mjs'],
   });
   assert.equal(e.mime, undefined);
   assert.equal(e.generator, undefined);
@@ -279,7 +279,7 @@ test('findSecrets: 正常なエントリは誤検出しない（sha256 の 64 �
     logicalPath: 'content/note/a/img/cover.png',
     group: 'note-cover-png', bucket: 'public', r2Key: 'note/covers/a/img/cover.png',
     sha256: 'a'.repeat(64), bytes: 1024, mime: 'image/png', visibility: 'public',
-    regenerable: false, generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note-publish.mjs'],
+    regenerable: false, generator: 'scripts/build/generate-note-covers.mjs', requiredBy: ['scripts/note/note-publish.mjs'],
   });
   assert.deepEqual(findSecrets(m), []);
 });
@@ -307,7 +307,7 @@ const MANIFEST_FIXTURE = {
     'content/site/civil-construction-1/guide-a/ogp.png': {
       bucket: 'public', bytes: 585025, generator: 'npm run ogp', group: 'site-ogp-png', height: 630,
       logicalPath: 'content/site/civil-construction-1/guide-a/ogp.png', mime: 'image/png',
-      r2Key: 'posts/civil-construction-1/guide-a/ogp.png', regenerable: false, requiredBy: ['scripts/check-ogp-coverage.mjs'],
+      r2Key: 'posts/civil-construction-1/guide-a/ogp.png', regenerable: false, requiredBy: ['scripts/checks/check-ogp-coverage.mjs'],
       sha256: '1'.repeat(64), srcHash: '9c8bd3ac01ed389d', verifiedAt: '2026-08-29T09:13:40.166Z', visibility: 'public', width: 1200,
     },
     'content/site/standards-articles/hokkaido/appendix/chapters/1-1/ogp.png': {

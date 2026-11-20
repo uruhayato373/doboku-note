@@ -252,7 +252,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - 各 item は ≤60 字、**内部に句読点を含めない**（末尾の句点は許容しない）
 - 「正答：」「❌」「✅」「適当でないものは N」を items に含めない
 
-機械分割の元凶: `scripts/migrate-civil-answer-style.mjs` の `generateExamPoint()` で約 1,440 個の壊れた ExamPoint が生成された（DEPRECATED 済み）。一括修復は 2026-05 に完了した（専用の Generator は 2026-11-18 に退役）。再発したら `past-exam-rewriter` で直す。
+機械分割の元凶: 旧 `migrate-civil-answer-style.mjs` の `generateExamPoint()` で約 1,440 個の壊れた ExamPoint が生成された（スクリプトは 2026-11-19 に削除）。一括修復は 2026-05 に完了した（専用の Generator は 2026-11-18 に退役）。再発したら `past-exam-rewriter` で直す。
 
 ### 6. 試験での位置づけを明示
 
@@ -496,7 +496,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - OK: `**¥2,480** （6 本セット、単品比 17%OFF）`
 
 **機械検知**:
-- サイト側 MDX と note 記事（`content/note/**/article*.md`・2026-09-23 から）: `scripts/check-bold-rendering.mjs`（`npm run check-bold-rendering`）が原因 1 を検知。規則を再実装せず **remark で実パース**し、`text` ノードに `**` が残る＝描画されていない、で判定する（ground truth）。pre-commit（`--staged`）と `quality:audit --ci` の両経路に結線済み。機械的に安全な形の一括修正は `npm run fix-bold-rendering`（dry-run 既定・`--commit` で適用）
+- サイト側 MDX と note 記事（`content/note/**/article*.md`・2026-09-23 から）: `scripts/checks/check-bold-rendering.mjs`（`npm run check-bold-rendering`）が原因 1 を検知。規則を再実装せず **remark で実パース**し、`text` ノードに `**` が残る＝描画されていない、で判定する（ground truth）。pre-commit（`--staged`）と `quality:audit --ci` の両経路に結線済み。機械的に安全な形の一括修正は `npm run fix-bold-rendering`（dry-run 既定・`--commit` で適用）
   - 旧 `pre-commit-mdx.mjs` の `checkBoldEndingParen` は 2026-08-04 に削除。`）」』】）` の 5 文字だけを見る近似ルールで、`。，％℃` や壊れたリンクを取りこぼす一方、実際には描画される形を誤検知していた
 - note 側ドラフト: `/note-prepublish-review` Phase 1 § 4b の **Pattern A**（`**…（…）…**` 任意位置・リンク有無不問）が原因 1・2 の両方を検出して BLOCK
 - 補助: 同 Phase の **Pattern B'**（`)**（` 境界）はリンク URL 直後の全角括弧連続パターンを検出
@@ -523,7 +523,7 @@ note 記事本文（`content/note/**/article.md`）から有料マガジンへ�
   本記事の論点が、実際の答案でどう展開されるかを確認できます。
   ```
 
-**機械検知**: `scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。
+**機械検知**: `scripts/checks/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。
 
 **もくじ index の例外**: frontmatter `noteSeries: 総合案内`（L1 総合案内・各資格 L2 もくじ）は多数マガジンを一覧する index ページのため、① markdown リンクのコンパクト列挙を許容する（note カードは bare URL でしか生成できず、12 本超を全部カード化すると index が冗長になる）。ただし ② 価格（¥）は index でも禁止（陳腐化する・note カードが実価格を表示する）。in-article CTA は「読者を 1〜2 件へ誘導」＝カード必須、index は「全件の一覧」＝リンク許容、と使い分ける。関連: §14-b（太字内全角括弧）。
 
@@ -541,18 +541,18 @@ note 記事1本の完成条件は **3点セット**: `article.md` + カバー（
 
 **hashtags.txt は「存在」だけでなく「タグ数」も検査する**（下限 `MIN_TAGS`＝既定 40・`NOTE_MIN_HASHTAGS` で調整可）。ハッシュタグは note 検索流入の主要導線で標準は**上限 99 近くの ~90 個**（`/note-hashtags`）。だが「存在だけ」を見ていた旧ゲートを、`/note-hashtags` を実行せず**手書き最小（10 個）や templ 軽量**の `hashtags.txt` が素通りしていた（2026-07-05、civil 二次学科ライン13本が10個・まるごとLP がライブ3個で発覚。バルク公開時に per-article の `/note-hashtags` を省いたのが原因）。下限未満は 3 点セット未完として BLOCK する。バルク記事を作るワークフローは**公開前に必ず `/note-hashtags` を各記事へ回す**（~90 個生成）。
 
-**機械検知**: `scripts/check-note-3set.mjs`。2 モードで運用する。
+**機械検知**: `scripts/checks/check-note-3set.mjs`。2 モードで運用する。
 
-- `scripts/note-lint.mjs`（pre-commit）: 既定モード＝**公開状態の記事のみ** BLOCK（下書き commit は止めない）。公開状態にしたのにアセットが無いコミットを自動で止める。
+- `scripts/note/note-lint.mjs`（pre-commit）: 既定モード＝**公開状態の記事のみ** BLOCK（下書き commit は止めない）。公開状態にしたのにアセットが無いコミットを自動で止める。
 - `/note-prepublish-review` Phase 1（4e）: `--require` モード＝公開意図なので**無条件必須**（公開直前は `noteUrl` 未設定のことが多く state を見ない）。
 
-cover.png はマガジン記事の共用図 `../img/cover.png` も探索する。生成: `node scripts/generate-note-covers.mjs <slug>`（カバー）/ `/note-hashtags <slug>`（タグ）。関連: §14-c（マガジン CTA）。
+cover.png はマガジン記事の共用図 `../img/cover.png` も探索する。生成: `node scripts/build/generate-note-covers.mjs <slug>`（カバー）/ `/note-hashtags <slug>`（タグ）。関連: §14-c（マガジン CTA）。
 
 ### 14-e. note 記事の段落は短く（1〜2 文・~120 字以下）
 
 note はモバイル閲覧が主体で、**1 段落が長いと読まれない**。本文の段落は **1〜2 文・~120 字以下**を目安にし、論点の切れ目で改行（空行）を入れて余白をつくる。1 段落 150〜300 字の塊は避ける（2026-06-12、建設部門入口 16 本で 402 段落中 185 段落が 120 字超だった）。
 
-**自動化（語句を変えず改行だけ足す）**: `node scripts/reflow-note-paragraphs.mjs [--target N] <file|dir>`（`npm run note-reflow`）。長い段落を**文（。）境界**で再パッキングする決定論ツールで、語句・文意は一切変えない（空白除去後の本文一致で検証可能）。見出し・箇条書き・URL 単独行・太字見出しは対象外。`--dry` で点検のみ。**essay マガジン記事の答案本文（`## 試験問題` 以降）は自動保護**して触らない（模範答案は連続散文のため）。導入部に特化した essay 専用ツールは `scripts/split-essay-intro-paragraphs.mjs`（note-essay-review-checklist Step 3c）。
+**自動化（語句を変えず改行だけ足す）**: `node scripts/note/reflow-note-paragraphs.mjs [--target N] <file|dir>`（`npm run note-reflow`）。長い段落を**文（。）境界**で再パッキングする決定論ツールで、語句・文意は一切変えない（空白除去後の本文一致で検証可能）。見出し・箇条書き・URL 単独行・太字見出しは対象外。`--dry` で点検のみ。**essay マガジン記事の答案本文（`## 試験問題` 以降）は自動保護**して触らない（模範答案は連続散文のため）。導入部に特化した essay 専用ツールは `scripts/content/split-essay-intro-paragraphs.mjs`（note-essay-review-checklist Step 3c）。
 
 **残る長文**: `。` を含まない**単文で 120 字超**は機械分割できない（割ると語句改変になる）。これは `--dry`/公開前レビューが WARN で surface するので、**手動で 2 文に分ける**か、許容するか人が判断する。
 
@@ -1027,7 +1027,7 @@ H3 散文の冒頭で「{管理A} は…、{管理B} は…を核とし、両者
 
 **適用範囲**: `group: guide` のみ。**過去問（`group: primary` / `secondary`）・キーワードページ・textbook には適用しない**（§5 §188 の図表中心ページ例外を侵さない）。
 
-**機械検知（ゲート）**: `node scripts/check-guide-length.mjs`（`npm run check-guide-length`）。published かつ `group: guide` の記事本文が 3,000 字未満なら **赤落ち（exit 1）**。pre-commit は staged のガイド MDX のみ、CI（`quality:audit:ci`）は全 published を検査する。**どちらも未公開（`published: false`）は対象外**——撤回済み記事の誤字修正まで commit が弾かれるのを避けるため（2026-08-04 に staged 側だけ published を見ておらず、unpublish 済み記事の太字修正がブロックされた）。
+**機械検知（ゲート）**: `node scripts/checks/check-guide-length.mjs`（`npm run check-guide-length`）。published かつ `group: guide` の記事本文が 3,000 字未満なら **赤落ち（exit 1）**。pre-commit は staged のガイド MDX のみ、CI（`quality:audit:ci`）は全 published を検査する。**どちらも未公開（`published: false`）は対象外**——撤回済み記事の誤字修正まで commit が弾かれるのを避けるため（2026-08-04 に staged 側だけ published を見ておらず、unpublish 済み記事の太字修正がブロックされた）。
 
 **加筆の方向性**: 字数合わせの水増しではなく、§17 に沿って各 H2 セクションの散文導入を 200〜400 字へ充実させ、読者の判断に効く具体（数値・体験・選択基準）を足す。加筆後は `guide-qa`（ガイド軸 5 軸）で再確認する。
 

@@ -36,6 +36,7 @@ import { datasetPath } from "../lib/datasets.mjs";
 import { jstClock } from "../lib/jst-date.mjs";
 import { isQueueable, readXPublication, recordX } from "../lib/registry-x-store.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from '../lib/repository-paths.mjs';
+import { stripHtmlComments } from "../lib/strip-markup.mjs";
 import { parseCliArgs } from "../lib/cli-args.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
@@ -78,7 +79,7 @@ interface TweetBlock {
                          // X ネイティブ予約はスレッド非対応（2026-07-14 実機プローブ:
                          // tweetTextarea_1 追加で scheduleOption が aria-disabled=true）。
                          // → 即時投稿は composer で全部組んで一括投稿、予約はヘッドのみ予約し
-                         //   リプライは scripts/x-thread-replies.mjs が予約時刻経過後にぶら下げる。
+                         //   リプライは scripts/x/x-thread-replies.mjs が予約時刻経過後にぶら下げる。
 }
 
 function parseTweetMd(draftDir: string): TweetBlock[] {
@@ -101,15 +102,14 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
     const isThread = /\[thread\]/i.test(headMatch[2]!);
 
     // ヘッダ行を除いた残り。HTML コメント（投稿予定注記等）・末尾 "---" は除去
-    const rawBody = block
+    const rawBody = stripHtmlComments(block
       // `\r?\n` が要る（2026-08-25）: JS の `.` は `\r` も行終端として除外するので、
       // CRLF の tweets.md では `.+\n` が「`.+` が `\r` 手前で止まり次が `\n` でない」でマッチせず、
       // **見出し行が本文に残る**。40〜50 字ぶん水増しされ全ツイートが 280 字ガードに
       // 引っかかって 1 本も予約できない（draft 090 で 19 本中 17 本が停止）。
       // 文字数ガードが fail-closed で止めたので誤投稿にはならないが、原因が
       // 「本文が長い」に見えるため気づきにくい。
-      .replace(/^## Tweet \d+:.*\r?\n/, "")
-      .replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/^## Tweet \d+:.*\r?\n/, ""))
       .replace(/\n---\s*$/, "")
       .replace(/^\n+/, "")
       .trim();
@@ -273,7 +273,7 @@ async function recordToRegistry(
       const id = postedUrl?.match(/\/status\/(\d+)/)?.[1];
       if (!id || !postedUrl) {
         console.error(
-          `❌ 投稿は済んだが URL が取れない。x.com で確かめて node scripts/registry.mjs show の行を人が直す（または後で照合する）: draft/${folder}#${key}（台帳は変更していない）`
+          `❌ 投稿は済んだが URL が取れない。x.com で確かめて node scripts/ops/registry.mjs show の行を人が直す（または後で照合する）: draft/${folder}#${key}（台帳は変更していない）`
         );
         process.exitCode = 1;
         return;
@@ -551,7 +551,7 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
       console.log(`🧵 head-only: ヘッド投稿後、リプライ${tweet.threadParts.length}本を x-thread-replies へ引き継ぎます`);
     } else if (scheduledDate) {
       console.log(`🧵 スレッド ${tweet.threadParts.length} 本のリプライは X 予約非対応のためヘッドのみ予約します`);
-      console.log(`   予約時刻の経過後に: node scripts/x-thread-replies.mjs --run`);
+      console.log(`   予約時刻の経過後に: node scripts/x/x-thread-replies.mjs --run`);
     } else {
       for (let p = 0; p < tweet.threadParts.length; p++) {
         const part = tweet.threadParts[p];

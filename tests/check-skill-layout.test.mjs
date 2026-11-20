@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { checkSkillFile, frontmatterValue } from '../scripts/check-skill-layout.mjs';
+import { checkSkillFile, frontmatterValue } from '../scripts/checks/check-skill-layout.mjs';
 
 const fm = (name, category) => `---\nname: ${name}\n${category ? `category: ${category}\n` : ''}description: x\n---\n本文\n`;
 

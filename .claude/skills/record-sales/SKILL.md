@@ -46,7 +46,7 @@ note 販売履歴を `data/note/sales.json` に記録し、月次集計を表示
 /record-sales --summary --month 2026-05
 ```
 
-1. `scripts/sales-summary.mjs` を実行
+1. `scripts/reports/sales-summary.mjs` を実行
 2. 月次/商品別の集計を表示
 
 ### ケース 3: productId 検証
@@ -145,5 +145,5 @@ kuro
 ## 参照
 
 - `config/sales-product-map.json` — 商品名 → productId の対応表（旧 sales-recorder の表。命名系統の注意・推定できない場合の記録もここ）
-- `scripts/sales-summary.mjs` — 集計スクリプト
+- `scripts/reports/sales-summary.mjs` — 集計スクリプト
 - `.claude/knowledge/reference/sales-tracking.md` — 運用手順・ポリシー

@@ -13,13 +13,13 @@ domain: site
 基準書の章ページを**読者の画面のまま撮り**、**原本のページ画像と見比べて**、崩れ・欠けを章ごとに pass / fail で記録する。
 機械の検査（`check-standard-articles`）が全部 PASS でも、表の記法の文字が画面に出ていた（DN-0916）ことへの対策。
 
-撮影・対象の選定・判定の検証・記録・起票は `scripts/standards-visual-review.mjs` が決める。
+撮影・対象の選定・判定の検証・記録・起票は `scripts/standards/standards-visual-review.mjs` が決める。
 エージェント `standards-page-visual-auditor`（sonnet・audit-only）は撮影を見て判定を書くだけ。
 
 ## いつ回すか
 
 - **週次の点検**（`review-checks --cadence weekly`）が `standards-visual-review:status` で fail を出したとき（判定待ちがあるのに 14 日回していない・未起票の不合格がある）
-- 生成器 `scripts/build-standard-articles.mjs`・表の台帳・`src/app/standards/**` を直したあと（中身のハッシュが変わった章が自動で先に選ばれる）
+- 生成器 `scripts/build/build-standard-articles.mjs`・表の台帳・`src/app/standards/**` を直したあと（中身のハッシュが変わった章が自動で先に選ばれる）
 - 不合格のカードを直したあとの確認（`--keys` で指定）
 
 ## 手順

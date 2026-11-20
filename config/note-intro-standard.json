@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "_doc": "note 記事の冒頭（著者バナー・ココナラ・マガジン導線）の標準。資格ごとの型（variants）を 1 ファイルに持つ。scripts/standardize-civil1-note-intro.mjs が --variant で選び、wire-note-funnel-cta.mjs が全型の root を標準の持ち場として読む。",
+  "_doc": "note 記事の冒頭（著者バナー・ココナラ・マガジン導線）の標準。資格ごとの型（variants）を 1 ファイルに持つ。scripts/note/standardize-civil1-note-intro.mjs が --variant で選び、wire-note-funnel-cta.mjs が全型の root を標準の持ち場として読む。",
   "variants": {
     "civil1": {
-      "_doc": "1級土木 note 記事の冒頭（最初の ## より前）の標準形。scripts/standardize-civil1-note-intro.mjs が読む。magazines は note-magazines.ts の id と noteUrl に合わせる（説明文に価格は書かない）。rules は上から順に最初に一致したものを使う。正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」",
+      "_doc": "1級土木 note 記事の冒頭（最初の ## より前）の標準形。scripts/note/standardize-civil1-note-intro.mjs が読む。magazines は note-magazines.ts の id と noteUrl に合わせる（説明文に価格は書かない）。rules は上から順に最初に一致したものを使う。正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」",
       "root": "content/note/1級・2級土木/1級土木",
       "banner": "figure-author-authority-pop.png",
       "coconala": {
@@ -152,7 +152,7 @@
       ]
     },
     "civil2": {
-      "_doc": "2級土木 note 記事の冒頭（最初の ## より前）の標準形。scripts/standardize-civil1-note-intro.mjs --variant civil2 が読む。1級版（note-intro-standard.json）と同じ規則。説明文に価格は書かない。rules は上から最初に一致したもの。正典: .claude/knowledge/reference/author-authority-banner.md",
+      "_doc": "2級土木 note 記事の冒頭（最初の ## より前）の標準形。scripts/note/standardize-civil1-note-intro.mjs --variant civil2 が読む。1級版（note-intro-standard.json）と同じ規則。説明文に価格は書かない。rules は上から最初に一致したもの。正典: .claude/knowledge/reference/author-authority-banner.md",
       "root": "content/note/1級・2級土木/2級土木",
       "banner": "figure-author-authority-pop.png",
       "coconala": {

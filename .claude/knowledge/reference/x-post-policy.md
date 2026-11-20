@@ -32,10 +32,10 @@ Evaluator（`x-post-qa`）が共通参照する。
 検証コマンド（`tweets.md` 変更後は commit 前に必須・違反で exit 1）:
 
 ```bash
-node scripts/check-x-length.mjs                 # 全ドラフト（既定280・[longform]は25,000で判定）
-node scripts/check-x-length.mjs --draft 040     # 単一
-node scripts/check-x-length.mjs --over          # 違反のみ
-node scripts/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced）を除く。CI ゲート quality-audit x-length はこれだった（2026-09-23〜10-25。SNS の保留に合わせて CI から外した・再開するときに作り直す）
+node scripts/checks/check-x-length.mjs                 # 全ドラフト（既定280・[longform]は25,000で判定）
+node scripts/checks/check-x-length.mjs --draft 040     # 単一
+node scripts/checks/check-x-length.mjs --over          # 違反のみ
+node scripts/checks/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced）を除く。CI ゲート quality-audit x-length はこれだった（2026-09-23〜10-25。SNS の保留に合わせて CI から外した・再開するときに作り直す）
 ```
 
 > 既知の落とし穴: `check-x-length` は Windows で空振りした事例あり（[[measurement-incidents]] 系）。違反ゼロ表示を鵜呑みにせず、weighted 計算を目視確認する。
@@ -57,7 +57,7 @@ node scripts/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced
 content/sns/x/
 ├── draft/<NNN>-<exam>-<topic>/      ← 試験を slug に含める（多資格識別）
 │   ├── tweets.md                     ← 280 weighted 以下の投稿群
-│   └── img/tweet-NN-<slug>.png       ← scripts/gen-x-card.mjs 生成（任意）
+│   └── img/tweet-NN-<slug>.png       ← scripts/build/gen-x-card.mjs 生成（任意）
 ├── published/                        ← 投稿済みアーカイブ
 └── README.md                         ← テンプレ規約（本 policy へのリンク）
 ```
@@ -145,7 +145,7 @@ content/sns/x/
 
 - **書式**: `## Tweet NN: タイトル [thread]` ＋ 本文内を `--- リプライ ---` 行で区切る。1 部目＝ヘッド、2 部目以降＝リプライ。各部が独立ツイートとして 280 weighted 判定される（`check-x-length` が part 別に検査）。
 - **即時投稿**（`--immediate`）: `publish-x` が composer で全部組んで一括投稿（完全対応）。
-- **予約投稿**: `publish-x` は**ヘッドのみ**ネイティブ予約し、リプライ本文を `status.json` の `thread: { parts, replies_posted_at: null }` に記録する。予約時刻の経過後に **`node scripts/x-thread-replies.mjs --run`** を人間トリガーで実行 → ライブになったヘッドを自分のプロフィールから特定し、リプライをチェーンでぶら下げる（`--list` で pending 確認・`--dry-run` でヘッド特定まで）。リプライが数十分〜数時間遅れても自己リプライとして自然。
+- **予約投稿**: `publish-x` は**ヘッドのみ**ネイティブ予約し、リプライ本文を `status.json` の `thread: { parts, replies_posted_at: null }` に記録する。予約時刻の経過後に **`node scripts/x/x-thread-replies.mjs --run`** を人間トリガーで実行 → ライブになったヘッドを自分のプロフィールから特定し、リプライをチェーンでぶら下げる（`--list` で pending 確認・`--dry-run` でヘッド特定まで）。リプライが数十分〜数時間遅れても自己リプライとして自然。
 - cron 常駐はしない（自動化フットプリント最小化・§11.3）。予約スレッドがある週は、ヘッド配信後に 1 回 `--run` を叩く運用。
 
 ### 5.3 実績・社会的証明型の作法（売上スクショ）
@@ -180,9 +180,9 @@ content/sns/x/
   - 例: `https://doboku-note.com/exam/civil-construction-2/primary/r03-kouki`（旧 `/docs/civil-construction-2-primary-r03-kouki`）
   - 例: `https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026`（総監と土木で分岐する共通名は資格を確定する）
   - 新旧の対応の真実源は `public/_redirects`。資格以降をハイフンでつなぐ（`/exam/<資格>/primary-r03-kouki`）と 404 になる。
-- **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は既存の下書きでは `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。**これから commit する原稿（`--staged`）と note の原稿は旧 `/docs/` 自体を不可**（2026-11-11〜。旧 URL へのリンクが Google に旧 URL を正規と選ばせ続ける）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
+- **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/checks/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は既存の下書きでは `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。**これから commit する原稿（`--staged`）と note の原稿は旧 `/docs/` 自体を不可**（2026-11-11〜。旧 URL へのリンクが Google に旧 URL を正規と選ばせ続ける）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
 
-## 7. サマリカード画像（scripts/gen-x-card.mjs）
+## 7. サマリカード画像（scripts/build/gen-x-card.mjs）
 
 ### 先生付きカードと予約原稿の確認
 
@@ -192,14 +192,14 @@ content/sns/x/
 
 PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-review` が「画像の生成・更新が必要」で停止する。採用後はフォルダ名全体と `--tweet N --force` で上記CLIを実行し、描画台帳も更新する。Git管理外のPOPカードは原稿hashと採用参照の一致、端末のPNGは `check-x-review --local` で実体hashを検査する。AIの忠実性判定・外部投稿への反映は別に記録する。
 
-- 生成: `node scripts/gen-x-card.mjs --draft 091-civil-2026-09-b --force`。代表1枚は `--tweet 1` を追加する。ドラフトはフォルダ名全体で指定する。数字だけの指定は候補が一意の場合のみ受理し、同番号の別企画があれば停止する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
+- 生成: `node scripts/build/gen-x-card.mjs --draft 091-civil-2026-09-b --force`。代表1枚は `--tweet 1` を追加する。ドラフトはフォルダ名全体で指定する。数字だけの指定は候補が一意の場合のみ受理し、同番号の別企画があれば停止する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
 - 確認: `npm run x-review` → `http://127.0.0.1:3026`。`content/sns/x/review.json` の期間・対象計画から、画像・本文・日時・note導線を表示する閲覧専用ページ。検索・週別・note絞り込み・拡大・本文コピーに対応。常時起動は不要。
 - 検査: `npm run check-x-review` は期間内の計画と原稿をドラフト・番号・日時で1件ずつ照合し、欠落・余分な原稿・重複・空白日を検出する。日ごとの本数は対象計画に従い、1日3本以内・間隔60分以上・販売1日1本を横断検査する。原稿とstatusの一致、文字数、公開マガジン・UTM・画像用原稿も検査。`-- --local` は端末の全対象PNGをSHA-256照合する。画像のないCIは原稿と描画台帳のみで、画像実体の検査済みとはしない。
 - 状態: 月次計画は当初案として保持し、確認画面ではstatusの `original_scheduled_at`（未設定なら `scheduled_at`）と当初日時の一致を検査したうえで `scheduled_at` の変更後日時へ解決する。Articleの告知解放も当初日時で月次計画のURLを更新し、原稿の見出しには予約台帳の最新タイトルを使う。`scheduled` は予約用原稿、`queued` は既存の投入済み台帳。確認画面や画像生成からXへの予約完了を推定しない。別企画のArticle公開やURL確定待ちは警告表示して保持する。実投入は§11の実キュー照合へ進む。
 
 ### 従来カード
 
-`scripts/gen-x-card.mjs` が `tweets.md` から 1200×675 カードを生成する。**試験別に色・ヘッダを切替**：
+`scripts/build/gen-x-card.mjs` が `tweets.md` から 1200×675 カードを生成する。**試験別に色・ヘッダを切替**：
 
 | 試験 | ヘッダラベル | 色（帯・フッター） |
 |---|---|---|
@@ -309,7 +309,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 
 **SSOT**: X の投稿の状態（投稿してよいか・投稿したか）の正本はコンテンツ台帳（`content/registry/publications/x/{exam}.json`・[content-registry.md](content-registry.md)）。`content/sns/x/{draft,published}/<NNN>-*/status.json` は文面（`text`）と運用の記録（`scheduled_at` など）を持つ旧い写しで、P7 で文面を `tweets.md` へ寄せてから消す。移行のあいだ書き手は status.json も書くが、`loadLedger` は台帳の stopped・published を重ねて候補から外し、`publish-x` は投稿後に台帳へも書く（`scripts/lib/registry-x-store.mjs`）。
 
-**門番**: `npm run x-schedule-guard`（[scripts/x-schedule-guard.mjs](../../../scripts/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
+**門番**: `npm run x-schedule-guard`（[scripts/x/x-schedule-guard.mjs](../../../scripts/x/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
 
 | 検査 | 判定 | 対応する §11 / 事故 |
 |---|---|---|
@@ -394,7 +394,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 ## 参照
 
 - 戦略: `docs/marketing/01_SNS集客戦略.md`（X 節）/ `02_チャネル動線設計.md`（UTM）
-- 連携スキル: `social-post`（X 投稿テキスト生成）/ `scripts/gen-x-card.mjs`（カード画像・create-x-card スキルは 2026-10-25 に外した）/ `publish-x`（予約投稿）
+- 連携スキル: `social-post`（X 投稿テキスト生成）/ `scripts/build/gen-x-card.mjs`（カード画像・create-x-card スキルは 2026-10-25 に外した）/ `publish-x`（予約投稿）
 - エージェント: `x-post-writer`（Generator）/ `x-post-qa`（Evaluator）
 - IG 対応物: `ig-carousel-policy.md`（パラレル設計の参考）
 

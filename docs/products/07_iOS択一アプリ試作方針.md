@@ -11,7 +11,7 @@
 
 | 論点 | 決定 |
 |---|---|
-| 土台 | 06 の「資格別アプリ × 共通エンジン」と、Web 演習の正規化（`scripts/build-quiz-data.mjs` → `src/lib/quiz/types.ts` の共通スキーマ）をそのまま使う。旧 iOS 仕様（§8）は機能の候補としてだけ使う |
+| 土台 | 06 の「資格別アプリ × 共通エンジン」と、Web 演習の正規化（`scripts/build/build-quiz-data.mjs` → `src/lib/quiz/types.ts` の共通スキーマ）をそのまま使う。旧 iOS 仕様（§8）は機能の候補としてだけ使う |
 | アプリの単位 | 資格の系統でまとめる。**技術士**（第一次試験＋総監 択一）と**土木施工管理技士**（1級＋2級 第一次検定）。施工管理は種目ごとに別アプリにし、管工事・建築・電気工事は土木と混ぜない（§3.3）。アプリを開いたら試験を選ぶ |
 | 出す順番 | 技術士アプリを第一次試験だけで先に出す（試験 2026-11-22）→ 総監をアップデートで足す → 土木施工管理技士アプリを 2027 年春に出す（2級前期は例年 6 月、1級は 7 月） |
 | 作り方 | SwiftUI のネイティブアプリ。問題文・選択肢・解説だけ WKWebView で表示し、Web 版の数式 HTML と図をそのまま使う。Android は作らない（2026-10-10 判断。Android の受験者には Web 演習がある） |
@@ -122,11 +122,11 @@
 
 ```
 doboku-note（このリポジトリ）
-  scripts/build-quiz-data.mjs        … 既存の正規化（総監 cem・2級土木 civil-2 は Web には書かない。組合せ問題は本文の表の行を選択肢にする）
+  scripts/build/build-quiz-data.mjs        … 既存の正規化（総監 cem・2級土木 civil-2 は Web には書かない。組合せ問題は本文の表の行を選択肢にする）
   scripts/lib/quiz-markdown.mjs      … 本文の Markdown・KaTeX を HTML にする（Web と共用）
   src/styles/quiz-content.css        … 問題文・選択肢・解説の見た目（Web と共用。globals.css が @import）
   scripts/lib/quiz-style.mjs         … globals.css の色トークンを抜き出して quiz-tokens.css にする
-  scripts/build-ios-quiz-bundle.mjs  … 正規化済み JSON に図・KaTeX・問題文の CSS・manifest を添え、ID と問題台帳の照合を検査して渡す
+  scripts/build/build-ios-quiz-bundle.mjs  … 正規化済み JSON に図・KaTeX・問題文の CSS・manifest を添え、ID と問題台帳の照合を検査して渡す
         │（JSON・図・CSS をアプリへ同梱）
         ▼
 iOS リポジトリ（別・非公開）

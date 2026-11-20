@@ -215,7 +215,7 @@ MDX での参照は `<ArticleImage src="/posts/{category}/{slug}/img/fig-X-Y.png
 #### Step F: R2 アップロード
 
 ```bash
-node scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
+node scripts/storage/upload-images-to-r2.mjs --prefix {category}/{slug}
 ```
 
 ## 旧スキルからの移行

@@ -1,0 +1,36 @@
+{
+  "bookId": "d-03",
+  "adoptedImage": "content/kindle/books/d-03/pop-image.json",
+  "background": "content/kindle/cover-backgrounds/a-03.png",
+  "accent": "#16365C",
+  "kicker": "技術士第一次試験",
+  "titleLines": [
+    {
+      "text": "専門科目",
+      "size": 300
+    },
+    {
+      "text": "過去問7年分完全解説",
+      "size": 135
+    }
+  ],
+  "subLines": [
+    "令和元〜7年度 245問"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "pe-first-stage",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "専門科目 建設部門",
+    "badge": [
+      "R1〜R7",
+      "7年分"
+    ],
+    "redBand": "令和7年度 本試験まで収録",
+    "navyBand": "全245問 完全解説",
+    "scene": "山岳トンネルの坑口と河川堤防、道路の土木現場",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "片手で現場を示すポーズ"
+  }
+}

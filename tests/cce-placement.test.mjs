@@ -6,15 +6,15 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { buildSync } from 'esbuild';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 async function loadPlacement() {
-  const ts = readFileSync(ROOT + 'src/lib/magazine-placement.ts', 'utf8');
+  const ts = readFileSync(join(ROOT, 'src/lib/magazine-placement.ts'), 'utf8');
   const js = buildSync({
-    stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
+    stdin: { contents: ts, loader: 'ts', resolveDir: join(ROOT, 'src/lib') },
     bundle: true,
     write: false,
     format: 'esm',

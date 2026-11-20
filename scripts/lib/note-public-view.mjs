@@ -7,7 +7,7 @@
  * ブラウザでしか分からない「画像が読み込めるか・カードが描画されるか・スマホ幅ではみ出すか」は
  * evaluateRendered で判定する（DOM 計測値を受け取るだけで、ブラウザには依存しない）。
  *
- * 実行側: scripts/check-note-public-view.mjs（土曜の Mac の収集 weekly-collect の note-public-view 段・DN-0852）。
+ * 実行側: scripts/checks/check-note-public-view.mjs（土曜の Mac の収集 weekly-collect の note-public-view 段・DN-0852）。
  */
 import { homedir } from 'node:os';
 import { join } from 'node:path';

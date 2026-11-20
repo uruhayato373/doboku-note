@@ -185,8 +185,8 @@ function detectAuthExpired(text) {
 
 | ファイル | 用途 | 実装している pattern |
 |---|---|---|
-| `scripts/notebooklm-cross-query.mjs` | 複数 notebook 横断クエリ | 1 / 2 / 3 / 6 |
-| `scripts/notebooklm-notebook-builder.mjs` | notebook/source 操作 | 1 / 2 / 3 / 4 / 5 / 6 |
+| `scripts/content/notebooklm-cross-query.mjs` | 複数 notebook 横断クエリ | 1 / 2 / 3 / 6 |
+| `scripts/content/notebooklm-notebook-builder.mjs` | notebook/source 操作 | 1 / 2 / 3 / 4 / 5 / 6 |
 | `~/bin/notebooklm.bat` | venv activate ラッパー | 1（proxy / encoding 設定） |
 
 新規 wrapper を書く時は notebook-builder.mjs を雛形にすると最も安全。

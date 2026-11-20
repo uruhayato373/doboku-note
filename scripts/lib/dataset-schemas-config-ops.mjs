@@ -205,6 +205,40 @@ const a8SiteFilter = z
   })
   .strict();
 
+/** A8 scout の採点係数・申請上限・blocklist・vertical の対応（config/a8-curated.json）。a8-scout-core.mjs が読む */
+export const ConfigA8Curated = z
+  .object({
+    _doc: note,
+    schemaVersion: z.literal(1),
+    weeklyApplyMax: posInt.describe('週あたりの申請の上限（A8 のスパム判定を避ける）'),
+    minScore: z.number().min(0).max(1),
+    scoreWeights: z.object({ reward: nonNeg, epc: nonNeg, confirm: nonNeg, gap: nonNeg }).strict(),
+    scoreNorm: z
+      .object({
+        rewardCapYen: posInt,
+        rewardRateCapPct: posInt,
+        epcCapYen: posInt,
+        gapBonus: z.object({ gap: nonNeg, thin: nonNeg, other: nonNeg }).strict(),
+      })
+      .strict(),
+    _blocklist_doc: note,
+    blocklistKeywords: nonEmptyStrings,
+    _offTargetNote: note,
+    offTargetKeywords: strings,
+    _vertical_map_doc: note,
+    verticalKeywords: z.record(z.string(), nonEmptyStrings),
+    _category_code_doc: note,
+    categoryCodeToVertical: z.record(z.string().regex(/^\d{2}$/), text),
+    _search_keywords_doc: note,
+    searchKeywords: nonEmptyStrings,
+    _priority_doc: note,
+    priorityBands: z.array(z.object({ minConfirmedEpc: nonNeg, priority: z.number().int() }).strict()),
+    priorityTargetBonus: z.number().int(),
+    _material_pref_doc: note,
+    materialSizePref: z.array(z.object({ width: posInt, height: posInt }).strict()),
+  })
+  .strict();
+
 /** A8.net メディア管理画面のレポート CSV 取得設定（config/a8-report-automation.json） */
 export const ConfigA8ReportAutomation = z
   .object({
@@ -318,7 +352,7 @@ export const ConfigAffiliatePlacements = z
   })
   .meta({ title: '転職アフィリエイトの配置ルール' });
 
-/** 画面の点検（scripts/site-visual-review.mjs）が撮るページと画面幅（config/site-visual-review.json） */
+/** 画面の点検（scripts/reports/site-visual-review.mjs）が撮るページと画面幅（config/site-visual-review.json） */
 const SiteVisualExpect = z.object({ note: z.boolean().optional(), affiliate: z.boolean().optional(), coconala: z.boolean().optional() }).strict();
 export const ConfigSiteVisualReview = z
   .object({
@@ -892,7 +926,7 @@ const AUTOMATION_READER = /^(quality-audit:[\w-]+|issue:[\w-]+|admin:\/[\w/-]*|s
 /**
  * 自動化の台帳（config/automations.json・DN-0817）。どこで（Mac の launchd か GitHub Actions）何がいつ動き、
  * ログインが要るか・何を書き・誰が読むかの正本。台帳と実物（.github/workflows/*.yml・scripts/scheduled/*.plist.tmpl）の
- * 一致・CI でログインしないことは scripts/check-automations.mjs が見る。管理画面 /ops/mac・/ops/ci が表示する。
+ * 一致・CI でログインしないことは scripts/checks/check-automations.mjs が見る。管理画面 /ops/mac・/ops/ci が表示する。
  * GitHub Actions の行は groups のどれか 1 つに属し、/ops/ci は groups の順に区画を分けて出す。
  */
 export const ConfigAutomations = z

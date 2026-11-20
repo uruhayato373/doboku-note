@@ -18,7 +18,7 @@ target: coconala-order
 ## 前提（実行環境・最重要）
 
 - **トークルームの返信送信・購入者対応は運営者（人間）**。
-- **受注の実体は記録を読む**（2026-08-05〜）。`npm run coconala-orders` が取引管理の全タブを走査し `orders-snapshot.json` を生成するが、取得は土曜の Mac 収集（`weekly-collect` の coconala 段）で、セッションからは実行しない（2026-10-24〜）。`orders-snapshot.json` とその取得日を読み、古ければ「未取得」と書いて、運営者に次の土曜か端末での `node scripts/weekly-collect.mjs --only coconala` を案内する。**何が売れたかを推測・記憶で決めない**。書き込み操作はしない（スコープ → coconala-operations.md §2.2b）。
+- **受注の実体は記録を読む**（2026-08-05〜）。`npm run coconala-orders` が取引管理の全タブを走査し `orders-snapshot.json` を生成するが、取得は土曜の Mac 収集（`weekly-collect` の coconala 段）で、セッションからは実行しない（2026-10-24〜）。`orders-snapshot.json` とその取得日を読み、古ければ「未取得」と書いて、運営者に次の土曜か端末での `node scripts/ops/weekly-collect.mjs --only coconala` を案内する。**何が売れたかを推測・記憶で決めない**。書き込み操作はしない（スコープ → coconala-operations.md §2.2b）。
 - **取引は評価まで終えて完了**（2026-08-11〜）。評価期限（概ね完了から2週間）を過ぎるとこちらの評価は公開されない。**通知メールは出品アカウントの登録アドレス `dobokunotecom@gmail.com` にしか届かず Gmail コネクタ側には来ない**ので、メールに頼らず `check-coconala-orders`（評価未送信・期限切迫）で拾う。
 - 顧客の提出原稿は**リポジトリに置かない**。scratchpad か `.tmp/` に保存し、commit しない。
 - **長期不在中は全件受付休止が既定**（購入から48時間以内に連絡しないと自動キャンセル）。休止/再開は `coconala-listing-operator`。
@@ -130,7 +130,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 ## 参照
 
 - スキル: `.claude/skills/coconala-order/SKILL.md`（受注）／`coconala-status/SKILL.md`（照合）
-- 購入者評価: `scripts/coconala-rate-buyer.mjs`（既定は入力までで停止・送信は `--submit`・運営者）。未送信と期限切迫は `check-coconala-orders` が surface する
-- 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）／返信文 Evaluator: `civil-keiken-tensaku-qa.md`（機械ゲート `scripts/check-tensaku-reply.mjs`）
+- 購入者評価: `scripts/coconala/coconala-rate-buyer.mjs`（既定は入力までで停止・送信は `--submit`・運営者）。未送信と期限切迫は `check-coconala-orders` が surface する
+- 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）／返信文 Evaluator: `civil-keiken-tensaku-qa.md`（機械ゲート `scripts/checks/check-tensaku-reply.mjs`）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_metrics_cicd_supplied]]

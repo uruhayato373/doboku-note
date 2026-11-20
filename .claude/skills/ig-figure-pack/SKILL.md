@@ -68,11 +68,11 @@ captionは「短い問い→図の読み方→注意条件→次の学習先」�
 ## 検証と公開への引継ぎ
 
 ```bash
-node scripts/check-ig-cover.mjs
-node scripts/check-ig-cta.mjs
+node scripts/checks/check-ig-cover.mjs
+node scripts/checks/check-ig-cta.mjs
 ```
 
-追跡済みのパックは `node scripts/render-figure-pack.mjs --pack civil-1/keyword-packs/{slug}` で4枚PNGを再生成する。`--check` は元記事・元図のSHA-256と入力4枚だけを検証し、`--out-dir .tmp/figure-pack-preview` で出力先を指定できる。ハッシュが変わったら意味を再確認し、必要なスライドとsource.jsonを更新してから再生成する。
+追跡済みのパックは `node scripts/build/render-figure-pack.mjs --pack civil-1/keyword-packs/{slug}` で4枚PNGを再生成する。`--check` は元記事・元図のSHA-256と入力4枚だけを検証し、`--out-dir .tmp/figure-pack-preview` で出力先を指定できる。ハッシュが変わったら意味を再確認し、必要なスライドとsource.jsonを更新してから再生成する。
 
 表紙・CTA・白背景は機械ゲート、図の意味と可読性は目視で確認する。サイト専用SVG監査をIGのnavy帯へ適用して、正規の濃色帯を違反扱いしない。
 
@@ -80,7 +80,7 @@ node scripts/check-ig-cta.mjs
 
 ## 単一図の派生画像
 
-図解パックのナレーション付きReelsは `node scripts/figure-reel-create.mjs --pack civil-1/keyword-packs/{slug}` を使う。`carousel/img` の4枚のPNGと `reels/script.txt`（1スライド1行）、VOICEVOX・ffmpegが必要。総監は `--pack cem/keyword-packs/{slug}`。旧過去問パックのリール生成（削除済み）とは入力が異なる。
+図解パックのナレーション付きReelsは `node scripts/storage/figure-reel-create.mjs --pack civil-1/keyword-packs/{slug}` を使う。`carousel/img` の4枚のPNGと `reels/script.txt`（1スライド1行）、VOICEVOX・ffmpegが必要。総監は `--pack cem/keyword-packs/{slug}`。旧過去問パックのリール生成（削除済み）とは入力が異なる。
 
 カルーセルとは別に、図1枚をIG・動画サムネ・縦型へ書き出す場合は既存コマンドを使う。資格名は `src/config/categories.json` から自動取得し、`--mgmt` は任意の管理分野・テーマ（16文字以内）とする。総監キーワードの短いslug指定も利用できるが、管理分野は自動推測しない。
 
@@ -95,6 +95,6 @@ node scripts/sns/render-figure-sns.mjs \
 
 ### 同じ図をX下書きへ展開するとき
 
-`content/sns/x/draft/NNN-slug-diagrams/{tweets.md,status.json,images.json}` に、元記事・元図のパスとsha256、学習上の疑問、投稿番号、画像名を記録する。`node scripts/render-x-figure-drafts.mjs --draft NNN-slug-diagrams --check` で下書き状態と元データを確認し、`--check` を外してPNGを生成する。元記事が変わった場合は内容を再確認してからハッシュを更新する。画像はDriveの `x-rendered-image`、公開状態は既存X台帳で管理する。退避対象は番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png` のみ。既存Xカードはこのgroupの対象外。
+`content/sns/x/draft/NNN-slug-diagrams/{tweets.md,status.json,images.json}` に、元記事・元図のパスとsha256、学習上の疑問、投稿番号、画像名を記録する。`node scripts/build/render-x-figure-drafts.mjs --draft NNN-slug-diagrams --check` で下書き状態と元データを確認し、`--check` を外してPNGを生成する。元記事が変わった場合は内容を再確認してからハッシュを更新する。画像はDriveの `x-rendered-image`、公開状態は既存X台帳で管理する。退避対象は番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png` のみ。既存Xカードはこのgroupの対象外。
 
 図解Reelsの音声クレジットは、生成時にVOICEVOXの話者一覧から実際のspeaker IDの声名を取得し、`reels/caption.txt` に記録する。既定ID 1はずんだもん（あまあま）。声名を数値IDから推測しない。専門用語は生成前に `scripts/lib/sns-common/reading-dict.mjs` を適用し、実機の読みを確認する。誤読を直した場合は音声・動画を再生成し、Drive台帳とクラウド実体を再照合する。

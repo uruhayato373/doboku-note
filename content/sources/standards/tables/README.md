@@ -1,7 +1,7 @@
 # content/sources/standards/tables/ — 原本と照合して組み直した表
 
 共通仕様書の章記事（`content/site/standards-articles/`）で、`pdftotext -layout` の版面のままでは表にできない表を、
-原本のページ画像と照合して組み直したもの。1 表 1 ファイル（`{key}.json`）。生成器 `scripts/build-standard-articles.mjs` が読む。
+原本のページ画像と照合して組み直したもの。1 表 1 ファイル（`{key}.json`）。生成器 `scripts/build/build-standard-articles.mjs` が読む。
 
 2026-10-16 時点で 217 件（近畿版などの共通仕様書 8 文書で共有 95・北海道版 120・四国版／北陸版だけの地域版 9 ほか）。
 共通仕様書で版面のまま残る表は「図の中の文字」の 4 件だけ（各文書）。2026-10-19 以降に加えた必携・マニュアル・特記・参考資料・付表の 13 文書も 2026-10-25 に組み直し、台帳（inventory）は 0 件（DN-0850）。残る版面は図の中の文字と記入欄だけの様式で、`kind: verbatim` として版面のまま出す。文書ごとの件数は `config/standards-structure.json` の `readabilityBaselines.verbatimTables`（増やさない）。

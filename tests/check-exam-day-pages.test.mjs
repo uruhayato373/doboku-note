@@ -3,7 +3,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { judgeEvents, upcomingEvents } from '../scripts/check-exam-day-pages.mjs';
+import { judgeEvents, upcomingEvents } from '../scripts/checks/check-exam-day-pages.mjs';
 import { ConfigExamDayPages } from '../scripts/lib/dataset-schemas.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';

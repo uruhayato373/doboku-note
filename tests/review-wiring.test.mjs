@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { extractCommands, diffWiring, validateWiring, cardsFromReview, formatSections, reportSections, isoWeekOf } from '../scripts/lib/review-wiring.mjs';
 
 test('スキル本文から npm run と node scripts のコマンドを重複なく拾う', () => {
-  const text = '`npm run business-review -- report` と `node scripts/check-backlog-health.mjs` と `npm run business-review`';
+  const text = '`npm run business-review -- report` と `node scripts/checks/check-backlog-health.mjs` と `npm run business-review`';
   assert.deepEqual(extractCommands(text), ['business-review', 'node:check-backlog-health']);
 });
 

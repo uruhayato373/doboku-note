@@ -11,10 +11,10 @@ import { readDocMetaIndex, DOC_META_INDEX } from '../scripts/lib/doc-meta-index.
 
 function fakeRepo(indexBody) {
   const root = mkdtempSync(join(tmpdir(), 'dmi-'));
-  mkdirSync(join(root, 'scripts'), { recursive: true });
+  mkdirSync(join(root, 'scripts/build'), { recursive: true });
   mkdirSync(join(root, 'src/config'), { recursive: true });
   // 本物の生成器の代わりに、呼ばれたら索引を書くだけのスタブを置く
-  writeFileSync(join(root, 'scripts/build-doc-meta-index.mjs'),
+  writeFileSync(join(root, 'scripts/build/build-doc-meta-index.mjs'),
     `import { writeFileSync } from 'node:fs';\nwriteFileSync('${DOC_META_INDEX}', JSON.stringify({ docs: { generated: {} } }));\n`);
   if (indexBody) writeFileSync(join(root, DOC_META_INDEX), JSON.stringify(indexBody));
   return root;

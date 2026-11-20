@@ -42,7 +42,7 @@ test('保存前に止まった中断は自動で再試行し、それ以外は�
 });
 
 test('添付上限は本文の全文置換より前に止め、翌日の再試行を妨げない', () => {
-  const source = readFileSync(new URL('../scripts/note-update-body.mjs', import.meta.url), 'utf8');
+  const source = readFileSync(new URL('../scripts/note/note-update-body.mjs', import.meta.url), 'utf8');
   const check = source.indexOf('usedToday + toReattach.length > ATTACH_DAILY_LIMIT');
   const mutation = source.indexOf('await emptyAndPaste(page, body, probe)');
   assert.ok(check > 0 && check < mutation, '上限到達時に既存の添付をエディタから消してはいけない');

@@ -1,22 +1,10 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { datasetPath } from './lib/datasets.mjs';
-import { isReportRef, latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
-import {
-  renderQuizPremiumFunnelMarkdown,
-  summarizeQuizPremiumFunnel,
-} from './lib/quiz-premium-funnel.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+// 転送だけ。本体は scripts/reports/report-quiz-premium-funnel.mjs（2026-11-20 に scripts/ 直下を領域・用途のフォルダへ分けた）。
+// 定期実行のワークフローは定義が main・checkout が develop なので、main へ deploy されるまで旧パスで呼ばれる。
+// main のワークフローが新パスになったら、このファイルを消す。
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const OUT = datasetPath('analysis.quiz-premium-funnel');
-const argv = process.argv.slice(2);
-const inputIndex = argv.indexOf('--input');
-const explicit = inputIndex >= 0 ? argv[inputIndex + 1] : null;
-const input = explicit ? resolve(ROOT, explicit) : latestReportRef(ROOT, 'ga4.quiz-funnel');
-const snapshot = input && (isReportRef(input) || existsSync(input)) ? readJsonOrReport(ROOT, input) : null;
-const summary = summarizeQuizPremiumFunnel(snapshot);
-
-mkdirSync(dirname(join(ROOT, OUT)), { recursive: true });
-writeFileSync(join(ROOT, OUT), JSON.stringify({ schemaVersion: 1, ...summary }, null, 2) + '\n');
-console.log(`[report-quiz-premium-funnel] status=${summary.status} / source=${input ?? '未取得'}`);
+const target = fileURLToPath(new URL('./reports/report-quiz-premium-funnel.mjs', import.meta.url));
+const r = spawnSync(process.execPath, [target, ...process.argv.slice(2)], { stdio: 'inherit' });
+process.exit(r.status ?? 1);

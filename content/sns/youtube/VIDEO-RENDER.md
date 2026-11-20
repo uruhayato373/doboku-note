@@ -24,8 +24,8 @@ npm run check-youtube-cover-handoff -- --local
 Windows/MacのどちらでもVOICEVOXエンジンとffmpeg/ffprobeが必要。メモリの少ない端末ではエンジンを `--cpu_num_threads 1` で起動し、パックを順に生成する。VOICEVOXを起動して以下を実行する。動画生成用のGitHub Actionsは現在ない。
 
 ```bash
-node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --skip-tts
-node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --speaker 13
+node scripts/build/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --skip-tts
+node scripts/build/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --speaker 13
 npm run shorts-factory -- render --pack civil-construction-1/koji-gaiyo-7items --key <key>
 ```
 
@@ -35,7 +35,7 @@ npm run shorts-factory -- render --pack civil-construction-1/koji-gaiyo-7items -
 
 ## 図解を使った場面画像の確認
 
-`node scripts/video-scene-sheet.mjs <packId>` は `render-manifest.json` の全場面を記録順に1枚ずつ並べ、画像SHAと `N/N` 件を照合する。短い表紙が10秒刻みのコンタクトシートから抜けても、このシートの1枚目には必ず載る。表紙POP・本文図解の指定では、採用意匠をこのシートで確認してから台帳へ取り込む。`npm run media -- preview --pub <公開ID> --commit` でも同じ全場面シートを `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
+`node scripts/youtube/video-scene-sheet.mjs <packId>` は `render-manifest.json` の全場面を記録順に1枚ずつ並べ、画像SHAと `N/N` 件を照合する。短い表紙が10秒刻みのコンタクトシートから抜けても、このシートの1枚目には必ず載る。表紙POP・本文図解の指定では、採用意匠をこのシートで確認してから台帳へ取り込む。`npm run media -- preview --pub <公開ID> --commit` でも同じ全場面シートを `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
 
 通常動画の `visual.art` は、章扉・対応図・比較・手順・記入例・サイト図解を再構成した画像を指定する。総まとめは生成済みstoryboardを直接直さず、`compilation.json.visuals[sceneId]` を更新して `build-video-compilation` を実行する。語り・字幕・尺は変わらない。図解の `art.source` には参照元SVGの実在パスを記録する。
 
@@ -66,11 +66,11 @@ done
 npm run check-youtube-cover-handoff -- --local
 ```
 
-YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
+YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/youtube/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
 
 説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。
 
-旧A案の適用手順：2026-09-09採用の橋＋ノートのロゴは、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+旧A案の適用手順：2026-09-09採用の橋＋ノートのロゴは、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/youtube/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
 
 従来の `pop-v2` 組版によるPOP表紙の一括制作は `npm run youtube-covers -- --all`、ローカル採用は `--commit`。旧A案の一括処理はPOP表紙へ重ねて実行しない。画像一覧は `.tmp/youtube-covers/pop-all/index.html`。`brand-video-pack` も `pop-v2` / `pop-poster-v3` の表紙は追加合成せず、採用PNGの画素を保持する。
 
@@ -83,16 +83,16 @@ YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実�
 コピー・参照SHA・全文プロンプト・実寸・確認結果は `pop-image.json` の `revisions`、PNGは `.tmp/media/` に保存する。各 `output.path` を対象として保存とクラウド照合を行う（下記PATHは対象JSONの実値へ置換）。
 
 ```bash
-node scripts/drive-vault-sync.mjs --path PATH --commit
-node scripts/drive-vault-sync.mjs --path PATH --verify --deep --cloud --commit
-node scripts/drive-vault-sync.mjs --path PATH --pull --commit
+node scripts/storage/drive-vault-sync.mjs --path PATH --commit
+node scripts/storage/drive-vault-sync.mjs --path PATH --verify --deep --cloud --commit
+node scripts/storage/drive-vault-sync.mjs --path PATH --pull --commit
 ```
 
 完全再現は復元PNGと `output.sha256` の一致で判断する。フォントや画像生成モデルの再実行には依存しない。内容変更は別の派生版として記録する。生成時の実寸が媒体寸法と異なる場合は、採用前に最終サイズと安全域を整え、最終PNGのSHAを記録する。
 
 `revisions` への保存や意匠承認だけでは採用されない。表紙の最終PNGを媒体確認後に `cover-design.json` の採用入力へ接続（pop-poster-v3 は採用PNG必須。欠落時は停止し、テンプレートへ戻さない）し、素材・公開台帳は既存 `media` / `registry` 経由で更新してから `check-youtube-cover-handoff --local` を実行する。private R2の `stage-youtube-covers` が転送するのも、この採用入力に接続済みの画像だけ。制作途中の比較画像を転送・公開済みとは扱わない。これらの採用検査・転送は表紙用。通常動画の本文・締めは `storyboard.imageDesign` と `pop-image.json.activeBodyRevision` で採用版を指定する（[本文POPの制作契約](../../../.claude/knowledge/reference/video-content-policy.md)）。
 
-本文POPの原本・修正版・採用PNGは `.tmp/media/{exam}/{pack}/work/{role}.{sha8}.png` に揃え、`content-media` として保存する。別端末では `node scripts/drive-vault-sync.mjs --pull --path .tmp/media/{exam}/{pack}/work/ --commit` で復元してから通常動画を再生成する。本文画像の自動pullは行わず、不足時は停止する。画像の再生成は同じ画素を保証しないため、再現には保存済みPNGを使う。
+本文POPの原本・修正版・採用PNGは `.tmp/media/{exam}/{pack}/work/{role}.{sha8}.png` に揃え、`content-media` として保存する。別端末では `node scripts/storage/drive-vault-sync.mjs --pull --path .tmp/media/{exam}/{pack}/work/ --commit` で復元してから通常動画を再生成する。本文画像の自動pullは行わず、不足時は停止する。画像の再生成は同じ画素を保証しないため、再現には保存済みPNGを使う。
 
 ## 全場面差し替え版の完全復元
 
@@ -117,4 +117,4 @@ npm run youtube-shorts:restore -- --pack-dir content/sns/video-packs/civil-const
 
 図解の指示には場面全体と前後で共通の事例を渡す。表の先頭行だけを抜き出して、要約に必要な「対応」「結果」等を落とさない。紙・車体・計器の不要な細字や数字は無地にする。字幕安全域は生成時の構図で確保し、原本全体を動画寸法へ正規化する。図解主体は `full-frame-v1` の原本SHA・実画素照合を通し、後付け縮小・余白を加えない。切り抜き・文字の消去で修正せず、図の対応、原寸と360px、字幕入り動画をそれぞれ確認する。
 
-入力照合の原本は `.tmp/video-render/<work>/` のmanifest・WAV・PNG・ASSである。完成後は既存保管先へ `node scripts/drive-vault-sync.mjs --group video-render-artifact --path .tmp/video-render/<work>/ --commit` で保存し、同じ指定に `--verify --cloud` を付けて確認する。再検証で原本が無い場合は同じgroup/pathの `--pull --commit` で復元する。`media pull` は採用素材だけの復元なので区別する。
+入力照合の原本は `.tmp/video-render/<work>/` のmanifest・WAV・PNG・ASSである。完成後は既存保管先へ `node scripts/storage/drive-vault-sync.mjs --group video-render-artifact --path .tmp/video-render/<work>/ --commit` で保存し、同じ指定に `--verify --cloud` を付けて確認する。再検証で原本が無い場合は同じgroup/pathの `--pull --commit` で復元する。`media pull` は採用素材だけの復元なので区別する。

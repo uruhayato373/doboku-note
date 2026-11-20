@@ -8,7 +8,7 @@ import type { ExamData } from "@/components/home";
 // label はナビ用の categories.json と意図的に異なる（例: pe-construction はナビ「技術士第二次試験（建設部門）」
 // に対しカードは「技術士（建設部門）」）。そのためカード固有データは home-exam-cards.json に分離する。
 // 「どの資格をトップに出すか」は categories.json（visible / variant）が真実源で、両者の slug 整合は
-// scripts/check-home-exam-coverage.mjs（pre-commit / CI）が強制する。
+// scripts/checks/check-home-exam-coverage.mjs（pre-commit / CI）が強制する。
 // → 新資格をトップに出すには home-exam-cards.json にカードを追加する。
 //
 // もとは src/app/page.tsx にべた書きだったが、検索ゼロステート（SearchZeroState）も同じ資格カードを

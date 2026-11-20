@@ -1,5 +1,5 @@
 /**
- * scripts/check-jst-date.mjs — JST の日付が UTC・実行環境のタイムゾーン・自前計算で出ていないかの検査。
+ * scripts/checks/check-jst-date.mjs — JST の日付が UTC・実行環境のタイムゾーン・自前計算で出ていないかの検査。
  * 検出の型（utc-date・plus9・local-ymd）と、allowlist の kinds による免除、リポジトリ全体が通ることを固定する。
  */
 import test from 'node:test';
@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { ALLOW, KINDS, ROOTS, findHits, isAllowed } from '../scripts/check-jst-date.mjs';
+import { ALLOW, KINDS, ROOTS, findHits, isAllowed } from '../scripts/checks/check-jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const kinds = (src) => findHits(src).map((h) => `${h.kind}@${h.line}`);
@@ -63,7 +63,7 @@ test('allowlist: 全件に理由があり、検出の型は既知で、実在す
 });
 
 test('リポジトリ全体（scripts・.claude・tools・src）が通り、実検査したファイル数を出す', () => {
-  const r = spawnSync(process.execPath, ['scripts/check-jst-date.mjs'], { cwd: ROOT, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, ['scripts/checks/check-jst-date.mjs'], { cwd: ROOT, encoding: 'utf8' });
   assert.equal(r.status, 0, `${r.stdout}\n${r.stderr}`);
   const n = Number(/(\d+) ファイルを実検査/.exec(r.stdout)?.[1]);
   assert.ok(n > 500, `実検査 ${n} ファイル（検査不成立）`);

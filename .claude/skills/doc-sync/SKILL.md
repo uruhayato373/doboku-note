@@ -12,8 +12,8 @@ domain: ops
 親（あなた）が決定論的な抽出と grep を担い、判定だけを Evaluator サブエージェント **`doc-sync-auditor`** に委ねる。
 
 > **3 層の役割分担（混同しない）**
-> - `scripts/check-doc-refs.mjs` … 壊れたパス参照（機械・pre-commit）
-> - `scripts/check-doc-coupling.mjs` … スキル/エージェント台帳の更新もれ（機械・pre-commit）
+> - `scripts/checks/check-doc-refs.mjs` … 壊れたパス参照（機械・pre-commit）
+> - `scripts/checks/check-doc-coupling.mjs` … スキル/エージェント台帳の更新もれ（機械・pre-commit）
 > - **本スキル + `doc-sync-auditor`** … prose・表・コマンド・件数・閾値の**意味的ズレ**（LLM 判定・節目に手動）
 
 ## いつ回すか（発火規律）
@@ -91,5 +91,5 @@ npm run check-doc-coupling    # 台帳更新もれゼロ（staged 前提）
 ## 連携
 
 - Evaluator: `doc-sync-auditor`（判定）
-- 機械ガード: `scripts/check-doc-refs.mjs` / `scripts/check-doc-coupling.mjs`（pre-commit）
+- 機械ガード: `scripts/checks/check-doc-refs.mjs` / `scripts/checks/check-doc-coupling.mjs`（pre-commit）
 - ルール真実源: CLAUDE.md §8 / `.claude/knowledge/reference/information-architecture.md`「SSOT と参照規律」

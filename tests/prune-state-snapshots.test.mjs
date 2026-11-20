@@ -21,7 +21,7 @@ import {
 } from '../scripts/lib/prune-state-snapshots.mjs';
 import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
-const CLI = join(REPO, 'scripts', 'prune-state-snapshots.mjs');
+const CLI = join(REPO, 'scripts', 'maint', 'prune-state-snapshots.mjs');
 const NOW = Date.parse('2026-09-14T00:00:00Z');
 const day = (n) => new Date(NOW - n * 86400000).toISOString().slice(0, 19).replace(/:/g, '-');
 

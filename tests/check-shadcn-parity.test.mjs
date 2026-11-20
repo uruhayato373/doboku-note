@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { URL } from 'node:url';
 import { diffEntities, extractEntities } from '../scripts/lib/shadcn-parity.mjs';
-import { findSizeOverrides, judge } from '../scripts/check-shadcn-parity.mjs';
+import { findSizeOverrides, judge } from '../scripts/checks/check-shadcn-parity.mjs';
 
 const REF_BADGE = readFileSync(new URL('../.claude/config/shadcn-reference/badge.tsx', import.meta.url), 'utf8');
 

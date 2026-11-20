@@ -62,7 +62,7 @@ test('バナー以外の欠落画像は原本へ化けない', () => {
 });
 
 test('note-update-body は欠落画像を黙って除去せず中断する（既定）', () => {
-  const src = readFileSync('scripts/note-update-body.mjs', 'utf8');
+  const src = readFileSync('scripts/note/note-update-body.mjs', 'utf8');
   assert.ok(src.includes("const ALLOW_MISSING_IMAGES = argv.includes('--allow-missing-images')"),
     '明示の逃げ道フラグが無い');
   const i = src.indexOf('const localMissing');

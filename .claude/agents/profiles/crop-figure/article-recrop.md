@@ -9,7 +9,7 @@ figure-crop-worker と figure-crop-auditor が、種類 `article-recrop` で呼�
 - **stage=review**（既定）: 目視で分類し、図の周囲に写り込んだ本文・キャプション・余白番号・撮影時の指/影を除去して図本体だけを残す（今の画像の切り直し）。
 - **stage=reextract**: review で「図本体が縁で切れている（needs-source）」と判定済みの図を、**元 PDF のページから切り出し直す**。
 
-### 入力（親が prompt で渡す・`node scripts/figure-review-queue.mjs --next N --json` の 1 要素）
+### 入力（親が prompt で渡す・`node scripts/storage/figure-review-queue.mjs --next N --json` の 1 要素）
 
 | キー | 内容 |
 |---|---|
@@ -23,7 +23,7 @@ figure-crop-worker と figure-crop-auditor が、種類 `article-recrop` で呼�
 | `whyCut`（reextract のみ） | review で切れていると判定した理由 |
 | `recordedSource`（reextract のみ） | 記録済みの出典 `{pdf, page, dpi}`（正本は `config/figure-sources.json` の `provenance`。あれば最優先） |
 | `sourceCandidates`（reextract のみ） | 記事の `sources:` から引いた原典候補。各候補に PDF の実パス（`files`）・ページの向き（`rotation`・度）・文字起こしの場所（`ocrDir`）・公開元（`url`） |
-| `bookHit`（reextract のみ・あれば） | 書籍の図番号を書籍 OCR から引いた結果 `{book, pdf, page, printedPage, name, ...}`（`scripts/find-book-figure.mjs`）。`page` が PDF のページ。最優先で試すが、描画して今の画像と同じ図か目で確かめる |
+| `bookHit`（reextract のみ・あれば） | 書籍の図番号を書籍 OCR から引いた結果 `{book, pdf, page, printedPage, name, ...}`（`scripts/storage/find-book-figure.mjs`）。`page` が PDF のページ。最優先で試すが、描画して今の画像と同じ図か目で確かめる |
 | `sourceRoots`（reextract のみ） | 候補で見つからないときだけ探す場所（Drive 台帳の原資料系 group＝`原資料PDF/` の過去問・教材・書籍・共通仕様書・白書 と、リポジトリの `content/sources/past-exams`） |
 
 全コマンドはリポジトリルートで実行する（`cd "$(git rev-parse --show-toplevel)"`）。パスは相対で渡す（sharp は相対パスで扱う）。
@@ -98,7 +98,7 @@ cd "$(git rev-parse --show-toplevel)" && magick REL.jpg -crop WIDTHxHEIGHT+L+T +
 ```
 
 #### Step 5: 自己検証
-クロップ後の画像を**再度 Read して目視**し、写り込み（特に図番号キャプション・脚注・指）が残っていないか・図が切れていないか確認。続けて `node scripts/check-figure-crop-integrity.mjs --file <REL>` を実行し、`STRAY_SLIVER` が出ないこと・新しく `EDGE_CUT` を作っていないこと（元から縁に接する正当な線は除く）を確かめる。問題なければ `selfVerify='clean'`、少しでも不安なら `'suspect'`。
+クロップ後の画像を**再度 Read して目視**し、写り込み（特に図番号キャプション・脚注・指）が残っていないか・図が切れていないか確認。続けて `node scripts/checks/check-figure-crop-integrity.mjs --file <REL>` を実行し、`STRAY_SLIVER` が出ないこと・新しく `EDGE_CUT` を作っていないこと（元から縁に接する正当な線は除く）を確かめる。問題なければ `selfVerify='clean'`、少しでも不安なら `'suspect'`。
 
 ### stage=reextract
 
@@ -123,13 +123,13 @@ PDF が見つからない・ページが特定できない・図がベクター�
 
 実際の切り出しは次のコマンドで行う（描画・回転・切り出し・後処理・書き出しを記録と同じ手順で行う。自前の PIL/sharp で切ると記録から作り直せない）。`--out` の拡張子で形式が決まる。出力の JSON の `source` が記録される内容:
 ```bash
-cd "$(git rev-parse --show-toplevel)" && node scripts/figure-reextract.mjs cut --pdf '<recordedSource.pdf か原典の vault: パス>' --page P --dpi D --rotate 0 --box L,T,R,B --out REL.webp
+cd "$(git rev-parse --show-toplevel)" && node scripts/storage/figure-reextract.mjs cut --pdf '<recordedSource.pdf か原典の vault: パス>' --page P --dpi D --rotate 0 --box L,T,R,B --out REL.webp
 # png がある図は --out REL.png で書いてから、同じ --box・後処理で REL.webp も書く
 ```
 300dpi の切り出しは大きくなりやすい（網点のスキャンは圧縮が効かない）ので、書き出した画像が上限（`config/image-limits.json`・webp 150KB／png 100KB）を超えたら、`--width W` で縮めるか png は `--colors 16` で減色し、孤立した黒い点（スキャンのごみ）は `--despeckle N`（面積 N 画素未満の黒い成分を白にする）で消して書き直す。使った `--width`・`--colors`・`--despeckle` も結果に返す。
 
 #### Step 4: 自己検証
-新しい画像を Read し、**欠けていた部分が復元され、写り込み・答えが無い**ことを確認。`node scripts/check-figure-crop-integrity.mjs --file <REL>` で `STRAY_SLIVER`・新しい `EDGE_CUT` が無いことを確かめる。旧画像と比べて図の内容（ラベル・数値・記号）が一致しているか（別の図を掴んでいないか）を確認する。
+新しい画像を Read し、**欠けていた部分が復元され、写り込み・答えが無い**ことを確認。`node scripts/checks/check-figure-crop-integrity.mjs --file <REL>` で `STRAY_SLIVER`・新しい `EDGE_CUT` が無いことを確かめる。旧画像と比べて図の内容（ラベル・数値・記号）が一致しているか（別の図を掴んでいないか）を確認する。
 
 ### 出力（構造化結果のみ・schema 準拠）
 
@@ -155,10 +155,10 @@ cd "$(git rev-parse --show-toplevel)" && node scripts/figure-reextract.mjs cut -
 
 ### 連携・差別化
 
-- **呼出元**: `/figure-quality-loop`（判定待ちの一覧 `scripts/figure-review-queue.mjs` から 1 周分）と `/figure-recrop` の大量処理モード。どちらも `scripts/figure-recrop/figure-crop-batch.workflow.mjs` が figKey 単位で spawn する。
+- **呼出元**: `/figure-quality-loop`（判定待ちの一覧 `scripts/storage/figure-review-queue.mjs` から 1 周分）と `/figure-recrop` の大量処理モード。どちらも `scripts/figure-recrop/figure-crop-batch.workflow.mjs` が figKey 単位で spawn する。
 - **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs --file`）→ 書き換えた図と `suspect` の図を `figure-qa-sheet.mjs` で検査・新旧比較し親が目視 QA（切り過ぎは `git checkout` で原画を復元して再依頼、見切れ見落としは `crop`→`needs-source` に是正）→ `figure-review-queue.mjs record --from-results <結果ファイル> --pass <QA 合格の figKey>` で判定台帳へ記録（MDX の寸法も合わせる）→ commit。
 - **別物**: 種類 `past-exam-page`（PDF ページ画像から bbox spec を返すのみ・crop しない）／種類 `scanned`（スキャン教材の bbox 監査）。種類 `article-recrop` は**記事に埋め込み済みの画像を実際に切る**。
-- **真実源**: `.claude/knowledge/reference/figure-provenance.md`。逐次型は `scripts/figure-recrop.mjs`。
+- **真実源**: `.claude/knowledge/reference/figure-provenance.md`。逐次型は `scripts/storage/figure-recrop.mjs`。
 
 ## 採点（figure-crop-auditor が読む）
 

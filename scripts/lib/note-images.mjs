@@ -20,6 +20,7 @@
  */
 import { existsSync } from 'node:fs';
 import { resolve, basename, join } from 'node:path';
+import { figureSvgFor, renderNoteFigure } from './note-figure-png.mjs';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -30,7 +31,7 @@ const TOKEN_RE = /〔〔IMG:\d+〕〕/g;
 /**
  * 著者オーソリティ バナーの記事ごとの複製は **生成物で git 管理外**（.gitignore の
  * `content/note/（任意の階層）/img/figure-author-authority*.png`）。原本は下の追跡ディレクトリにあり、
- * 各記事のコピーは scripts/distribute-author-authority-banner.mjs が原本を複製しただけ
+ * 各記事のコピーは scripts/note/distribute-author-authority-banner.mjs が原本を複製しただけ
  * （2026-09-23 に 251 枚すべてが原本 2 種とバイト一致することを確認）。
  *
  * そのため git の checkout（CI の ops-write・worktree）では記事側のファイルが無い。
@@ -55,11 +56,14 @@ export function resolveAuthorBannerOrigin(abs) {
 /**
  * 本文 markdown の画像行 `^![alt](path)$` を一意トークンへ置換する（除去しない）。
  * ファイルが存在しない画像行のみ従来どおり除去し WARN 収集する。
+ * 同名の `.svg` がある PNG の参照は SVG が正本（note-figure-png.mjs）。render: true（note へ上げる側）なら
+ * その場で PNG を作って abs に入れ、既定（計画・検査）では作らずに SVG のパスを abs に入れる。
  * @param {string} body  frontmatter 除去済みの本文
  * @param {string} articleDir  article.md のあるディレクトリ絶対パス（相対 img/ 解決用）
+ * @param {{ render?: boolean }} [opts]
  * @returns {{ body:string, images:Array<{token:string,abs:string,alt:string}>, missing:string[] }}
  */
-export function extractBodyImages(body, articleDir) {
+export function extractBodyImages(body, articleDir, { render = false } = {}) {
   const images = [];
   const missing = [];
   let n = 0;
@@ -72,7 +76,9 @@ export function extractBodyImages(body, articleDir) {
     // 外部 URL 画像は対象外（除去＝従来挙動）。ローカル相対パスのみアップロード対象。
     if (/^https?:\/\//.test(rel)) { missing.push(rel + '（外部URL・除去）'); return null; }
     let abs = resolve(articleDir, rel);
-    if (!existsSync(abs)) {
+    const svg = figureSvgFor(abs);
+    if (svg) abs = render ? renderNoteFigure(svg) : svg;
+    else if (!existsSync(abs)) {
       const origin = resolveAuthorBannerOrigin(abs);
       if (origin) abs = origin;
       else { missing.push(rel + '（ファイル無し・除去）'); return null; }

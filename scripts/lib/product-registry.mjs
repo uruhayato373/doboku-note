@@ -6,7 +6,7 @@
  * Product・ConfigProducts（台帳 config.products）。
  * ここに置くもの: 読み込み・正規化した書き出し（並び channel → id・キー順・字下げ 2・LF）・収録の意図の解決・
  * note-magazines.ts の生成ブロック（読み手は変えないため、正本から TS の該当エントリを書き出す）。
- * 判定はこの lib に集約し、CLI（scripts/product.mjs）・検査（scripts/check-products.mjs）・DB 生成から呼ぶ。
+ * 判定はこの lib に集約し、CLI（scripts/ops/product.mjs）・検査（scripts/checks/check-products.mjs）・DB 生成から呼ぶ。
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -124,23 +124,14 @@ export function formatProducts() {
   return { written: products.length, errors: [] };
 }
 
-// ---- Kindle カタログ（scripts/kindle-published/catalog.json は正本から作る生成物） ----
+// ---- Kindle の書籍の行（正本の Kindle 商品の catalog。読み手は kindle-catalog.mjs の loadKindleCatalog） ----
 
-export const KINDLE_CATALOG_FILE = join(ROOT, 'scripts', 'kindle-published', 'catalog.json');
 export const kindleProductId = (bookId) => `kindle-${String(bookId).toLowerCase()}`;
-
-/** Kindle カタログの全文（books は order の順・字下げ 2・LF・末尾改行。読み手は今までどおりこのファイルを読む） */
-export function renderKindleCatalog(products, channels) {
-  const meta = channels?.kindle;
-  if (!meta) throw new Error(`${PRODUCTS_REL} に channels.kindle が無い`);
-  const books = products.filter((p) => p.channel === 'kindle').sort((a, b) => a.order - b.order).map((p) => p.catalog);
-  return JSON.stringify({ _comment: meta.catalogComment, schemaVersion: meta.catalogSchemaVersion, updatedAt: meta.updatedAt, books }, null, 2) + '\n';
-}
 
 /**
  * Kindle カタログを書き換える唯一の入口（KDP の提出・価格改定・原稿差し替えの記録）。
  * mutator はカタログと同じ形 { _comment, schemaVersion, updatedAt, books } を受け取り、その場で書き換える。
- * 書き換えた books を正本（config/products.json）へ戻し、カタログを作り直す。正本に無い書籍は足さない（npm run product で先に足す）
+ * 書き換えた books を正本（config/products.json）へ戻す（写しのファイルは作らない）。正本に無い書籍は足さない（npm run product で先に足す）
  */
 export function updateKindleCatalog(mutator) {
   const { products, channels, errors } = loadProducts();
@@ -159,19 +150,7 @@ export function updateKindleCatalog(mutator) {
   }
   const nextChannels = { ...channels, kindle: { ...meta, catalogComment: c._comment, catalogSchemaVersion: c.schemaVersion, updatedAt: c.updatedAt } };
   saveProducts(changed, { channels: nextChannels });
-  writeKindleCatalog();
   return result;
-}
-
-/** 正本から Kindle カタログを書く（gen と updateKindleCatalog が呼ぶ）。書いたら true */
-export function writeKindleCatalog({ check = false } = {}) {
-  const { products, channels } = loadProducts();
-  const next = renderKindleCatalog(products, channels);
-  const cur = existsSync(KINDLE_CATALOG_FILE) ? readFileSync(KINDLE_CATALOG_FILE, 'utf8').replace(/\r\n/g, '\n') : null;
-  if (cur === next) return false;
-  if (check) return true;
-  writeFileSync(KINDLE_CATALOG_FILE, next);
-  return true;
 }
 
 // ---- ココナラ（src/lib/coconala-services.ts の SERVICES_RAW の中身は正本から作る生成ブロック） ----

@@ -92,7 +92,7 @@ confidence 3 段階: **high**（シグナルが処分を裏付け）／**med**�
 ## 担当外
 
 - **削除（git rm）・trim・抽出・参照更新・memory 同期の実行** — 親（`/doc-declutter` スキル）。
-- **完了状態・参照・重複の機械検証（Bash/git/grep）** — 親が事前に実施。決定論で拾える分は `scripts/check-doc-lifecycle.mjs`（機械の候補 surfacer）。
+- **完了状態・参照・重複の機械検証（Bash/git/grep）** — 親が事前に実施。決定論で拾える分は `scripts/checks/check-doc-lifecycle.mjs`（機械の候補 surfacer）。
 - **コード変更起点の prose 陳腐化** — `doc-sync-auditor`（守備範囲が直交）。
-- **壊れたパス参照の検知** — `scripts/check-doc-refs.mjs`（機械）。
-- **スキル/エージェント台帳の更新もれ検知** — `scripts/check-doc-coupling.mjs`（機械・pre-commit）。
+- **壊れたパス参照の検知** — `scripts/checks/check-doc-refs.mjs`（機械）。
+- **スキル/エージェント台帳の更新もれ検知** — `scripts/checks/check-doc-coupling.mjs`（機械・pre-commit）。

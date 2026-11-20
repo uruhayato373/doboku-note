@@ -1,14 +1,13 @@
 import assert from 'node:assert/strict';
 import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { test } from 'node:test';
-import { fileURLToPath } from 'node:url';
 import { approvalHash, approvalParts } from '../scripts/lib/content-registry.mjs';
 import { spawnSync } from 'node:child_process';
 import { finalApprovalGate, findFfmpeg, partitionByFinalApproval, previewConcat, previewMetrics, runPackPreview, runPreview, writePreviewPublication } from '../scripts/lib/media-preview.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const VC = { maxOpeningCoverSec: 3, maxRepeatFrameRatio: 0.3, longStaticSec: 20 };
 const sc = (sceneId, sec) => ({ sceneId, actualSec: sec, designSec: sec });
 

@@ -112,7 +112,7 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/build/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
 本文までCodexのPOP画像で制作するパックは、storyboardの `imageDesign: {mode: "codex-pop", scope: "all-body", revision: "<改訂キー>"}` と、`pop-image.json.activeBodyRevision` を同じキーにする。`revisions[改訂キー].images` に表紙を除く全場面（締めも含む）の `sceneId`・`inputSha256`（`popSceneHash`で語り/コピー/出典を結合）・`generation`（tool=`image_gen`、全文prompt、references、原本output）・採用 `output`（path/sha256/width/height）を残す。原本と採用PNGはDriveのcontent-mediaへ保存し、参照パスはリポジトリ相対とする。
 
@@ -140,7 +140,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。改行は全場面で、「、」「：」「・」「〜」「／」「→」と全角空白の後ろ、「（」「「」の前を優先し、無ければ語の切れ目で行う（英数字の並び「1,500m3」は分けない）。行頭に句読点と「・」を置かない（2026-10-08 に全場面へ広げた。それまでの character・compare・sheet 以外は文字数での改行で「リ/スク」「1,500m/3」が出ていた）。語の切れ目ではどの文字サイズでも収まらない狭い枠だけ、文字数での改行に戻す（描画できていた画面を止めない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
 
-全場面の意匠確認は `node scripts/video-scene-sheet.mjs <packId>`（先に `render-longform`）で行う。render-manifest の採用PNGだけを順に並べ、表紙を含む場面数 `N/N` と各画像SHAが一致しないと停止する。確認時はコマンドが返したパス、または台帳の `scene-sheet` 素材が指すSHA付きファイルを開く。同じpreviewフォルダに残る古い `scene-sheet-13.jpg` 等をファイル名だけで選ばない。1枚目と残り全場面の意匠を確認し、10秒間隔のコンタクトシートは画面遷移用に使う。`npm run media -- preview --pub <公開ID> --commit` は全場面シートも `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
+全場面の意匠確認は `node scripts/youtube/video-scene-sheet.mjs <packId>`（先に `render-longform`）で行う。render-manifest の採用PNGだけを順に並べ、表紙を含む場面数 `N/N` と各画像SHAが一致しないと停止する。確認時はコマンドが返したパス、または台帳の `scene-sheet` 素材が指すSHA付きファイルを開く。同じpreviewフォルダに残る古い `scene-sheet-13.jpg` 等をファイル名だけで選ばない。1枚目と残り全場面の意匠を確認し、10秒間隔のコンタクトシートは画面遷移用に使う。`npm run media -- preview --pub <公開ID> --commit` は全場面シートも `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
 
 公開前の画面確認は `npm run video-preview-sheet -- --pack-dir <パック>`（先に `render-longform --skip-tts`。台帳の公開 ID から回すときは `npm run media -- preview --pub`）で行う。数値（冒頭の表紙の秒数・直前と同じ画面・20秒以上同じ画面が続く箇所）は `render-manifest.json` と PNG だけで出るので動画も ffmpeg も要らず、ffmpeg が無いと無音プレビューとコンタクトシートは作れず exit 2（検査不成立）になる。閾値は `config/video-content.json` の `visualCheck`。手で回すときは、先に全場面シートの `N/N` と1枚目の表紙・残り全画像を確認する。続いて `--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで画面遷移を確認する（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる。Mac の Homebrew 版 ffmpeg は libass を持たず `ass` フィルタが無いので、`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` を使う）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
 
@@ -154,7 +154,7 @@ ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <di
 
 通常動画と動画パック派生Shortsの合成では、静止画を各場面の音声実尺で切って連結し、字幕込みで1回のエンコードを行う。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
 
-完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時は `youtube-longform:stage` で対象mp4とサムネイルを、採用サムネ更新時は `node scripts/stage-youtube-covers.mjs --commit` で確認済みPNGをprivate R2へ一時配置できる。前者は予約状態・videoId・publishAtの実査後、後者は更新結果の照合と記録取得後に、それぞれのコマンドの `--delete --commit` で転送用キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
+完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時は `youtube-longform:stage` で対象mp4とサムネイルを、採用サムネ更新時は `node scripts/youtube/stage-youtube-covers.mjs --commit` で確認済みPNGをprivate R2へ一時配置できる。前者は予約状態・videoId・publishAtの実査後、後者は更新結果の照合と記録取得後に、それぞれのコマンドの `--delete --commit` で転送用キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
 
 ```bash
 npm run drive-vault-sync -- --group video-render-artifact
@@ -255,7 +255,7 @@ published → measured → refresh_due | stopped
 
 ## 8. `check-video-content` 契約
 
-実装は `scripts/check-video-content.mjs`（ライブラリ `scripts/lib/video-content-check.mjs`）。exit 契約:
+実装は `scripts/checks/check-video-content.mjs`（ライブラリ `scripts/lib/video-content-check.mjs`）。exit 契約:
 
 - `0` 合格（packs root 不在＝Phase 1 未着手は「未着手」と明示して exit 0。緑と 0 件検査を混同しないよう、常に検査対象数と実検査数を出力する）
 - `1` 違反あり
@@ -317,7 +317,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 動画ファイルは同じYouTube URLのまま差し替えられない。再アップロードと旧版削除をユーザーが承認した場合も、新版の処理完了・再生・サムネ・公開範囲/予約日時・Shortsの関連動画を確認してから旧版を削除する。旧URLの視聴数やコメントは新版に移らない。
 
-`scripts/prepare-youtube-migration.mjs` は完全なチャンネル一覧と検証済みレンダーから移行計画を作る。`--inventory` / `--progress` / `--verification` にローカルJSONを渡し、既定は計画生成のみ、`--commit` はSHA-256付きの動画・サムネ・計画をprivate R2へ一時転送する。公開リポジトリへ非公開動画IDや旧新対応表を追加しない。恒久的な生成物保管先は引き続きDrive。
+`scripts/youtube/prepare-youtube-migration.mjs` は完全なチャンネル一覧と検証済みレンダーから移行計画を作る。`--inventory` / `--progress` / `--verification` にローカルJSONを渡し、既定は計画生成のみ、`--commit` はSHA-256付きの動画・サムネ・計画をprivate R2へ一時転送する。公開リポジトリへ非公開動画IDや旧新対応表を追加しない。恒久的な生成物保管先は引き続きDrive。
 
 生成物の容量が大きいため、転送時は動画を1本ずつ読み、全本のバイナリをメモリに保持しない。Driveとprivate R2の両方で実体をハッシュ照合した完成動画は、手元のキャッシュを整理できる。ローカルmp4がない場合、この計画処理は既知のハッシュに対応するprivate R2実体を読み、ハッシュとffprobeを再検査する（R2の認証情報が必要）。未転送・未検証の完成動画や採用原本を容量対策だけで消さない。再生成可能なWAV・場面PNGは完成mp4の保存検証後に整理できる。
 
@@ -331,7 +331,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 ### 定期予約・公開CI（2026-09-10）
 
-`post-youtube-scheduled.yml`（毎日20:17 JST）は **2026-10-24 に廃止した（運営者の決定・DN-0817。CI からの YouTube 投入は止まっている）**。再開するときは、新しい workflow を `config/automations.json` の台帳に載せて作る。以下は廃止前の設計の記録で、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行するものだった。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
+`post-youtube-scheduled.yml`（毎日20:17 JST）は **2026-10-24 に廃止した（運営者の決定・DN-0817。CI からの YouTube 投入は止まっている）**。再開するときは、新しい workflow を `config/automations.json` の台帳に載せて作る。以下は廃止前の設計の記録で、固定した検証済みコードの `node scripts/youtube/youtube-delivery.mjs` を実行するものだった。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
 
 対象・日次上限は `config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
 
@@ -343,9 +343,9 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 日次キューに入らない承認済み通常動画は、手動の `youtube-single-publish.yml` で公開IDと確認済みdigestを固定して投入する（[content-registry.md](content-registry.md)「初回の YouTube 通常動画を個別予約する」）。初回は `publish-youtube`、改訂版公開IDは `publish-youtube-revision` へ振り分ける。廃止前の `pack_publish=<packId>:<longform|thumbnail>[:PUBLISH]` と同名タイトル検索は使わない。改訂版CLIの個別実行手順は同文書「公開済み素材と未反映の改訂版」。
 
-旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
+旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/youtube/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 
-撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
+撤去完了の検査は `node scripts/checks/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
 **現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が（SNS 保留中の 2026-11-01 から定期実行を止め手動のみ。再開時は schedule `20 23 * * *`＝毎日08:20 JST を戻す）`develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は `mode=reconcile` で行い、毎日 08:40 JST の schedule（main の版）でも走る。照合の遅れは `check-registry-due`（日次の ops）、台本待ちの確認期限の超過は `check-youtube-plan --due`（週次の ops）が出す。
 

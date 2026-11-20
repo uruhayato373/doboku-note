@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { stripTweetMemos } from './x-tweets-md.mjs';
-import { tweetLength } from '../check-x-length.mjs';
+import { tweetLength } from '../checks/check-x-length.mjs';
 import { cardSpecHash } from './x-character-spec.mjs';
 import { resolveReviewPlans } from './x-review-schedule.mjs';
 

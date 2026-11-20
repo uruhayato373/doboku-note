@@ -883,7 +883,7 @@ export const ConfigCoconalaAccount = z
 
 // ---- ココナラブログの偵察（config/coconala-blog.json） ------------------------------------------
 
-/** ココナラブログ（記事型）の偵察対象と運用値。scripts/scout-coconala-blogs.mjs が読む */
+/** ココナラブログ（記事型）の偵察対象と運用値。scripts/coconala/scout-coconala-blogs.mjs が読む */
 export const ConfigCoconalaBlog = z
   .object({
     schemaVersion: z.literal(1),
@@ -960,7 +960,7 @@ const kdpBook = z
   })
   .strict();
 
-/** KDP 入稿の既定値と各本の固有値。題名・価格は scripts/kindle-specs/<id>.json が正本で、ここには読み・シリーズ・キーワード・説明を置く */
+/** KDP 入稿の既定値と各本の固有値。題名・価格は content/kindle/books/<id>/spec.json が正本で、ここには読み・シリーズ・キーワード・説明を置く */
 export const ConfigKdpMemo = z
   .object({
     schemaVersion: z.literal(1),
@@ -993,7 +993,7 @@ export const ConfigPeAnswerSheets = z
 const LIMIT_KEYS = ['current2_q1', 'current2_q2', 'legacy3_q1', 'legacy3_q2', 'legacy3_q3', 'yosou'];
 const limitEntry = z.object({ maxChars: positiveInt.describe('解答欄の字数上限'), label: text }).strict();
 
-/** 1級・2級土木 第二次検定 問題 1（施工経験記述）の解答欄しきい値。キーは scripts/keiken-charcount.mjs が読む snake_case */
+/** 1級・2級土木 第二次検定 問題 1（施工経験記述）の解答欄しきい値。キーは scripts/content/keiken-charcount.mjs が読む snake_case */
 export const ConfigKeikenAnswerSheetLimits = z
   .object({
     schemaVersion: z.literal(1),
@@ -1122,7 +1122,7 @@ const RULE_ID = z.string().regex(/^\d+-\d+$/, 'ルール id（0-1 など）');
 const SEVERITY = z.enum(['HIGH', 'MEDIUM', 'LOW']);
 const ruleOverride = z.object({ enabled: z.literal(false).optional().describe('false でこのルールを無効化'), severity: SEVERITY.optional().describe('重大度の上書き') }).strict();
 
-/** サイト記事（content/site/**）の機械品質ルールの重大度・適用範囲。scripts/lint-mdx-mobile.mjs・check-content-quality・管理画面が読む */
+/** サイト記事（content/site/**）の機械品質ルールの重大度・適用範囲。scripts/checks/lint-mdx-mobile.mjs・check-content-quality・管理画面が読む */
 export const ConfigContentRules = z
   .object({
     schemaVersion: z.literal(1),
@@ -1294,8 +1294,8 @@ export const NoteProduct = z
   .strict();
 
 /**
- * Kindle の 1 冊の行（scripts/kindle-published/catalog.json の books[] へそのまま書き出す）。
- * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物のキー順を変えない）
+ * Kindle の 1 冊の行（kindle-catalog.mjs の loadKindleCatalog がそのまま返す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（欄の順を変えない）
  */
 const kindleBook = z
   .object({ id: z.string().min(1) })
@@ -1363,7 +1363,7 @@ const productChannels = z
     kindle: z
       .object({ catalogComment: text, catalogSchemaVersion: z.number().int(), updatedAt: text })
       .strict()
-      .describe('scripts/kindle-published/catalog.json の先頭の欄（_comment・schemaVersion・updatedAt）'),
+      .describe('Kindle の書籍全体の付帯情報（updateKindleCatalog が受け渡す _comment・schemaVersion・updatedAt）'),
   })
   .partial()
   .strict();
@@ -1529,7 +1529,7 @@ export const ConfigDemandMap = z
   })
   .meta({ title: '悩みと商品候補の地図' });
 
-/** 運営の固定費の表。月ごとに繰り返す費用だけを持ち、土曜の収集が月の費用（costYen）の計測記録を作る（scripts/record-operating-costs.mjs） */
+/** 運営の固定費の表。月ごとに繰り返す費用だけを持ち、土曜の収集が月の費用（costYen）の計測記録を作る（scripts/fetch/record-operating-costs.mjs） */
 export const ConfigOperatingCosts = z
   .object({
     schemaVersion: z.literal(1),

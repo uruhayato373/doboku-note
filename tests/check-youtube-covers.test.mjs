@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { designProblems, effectiveCover, ledgerProblems } from '../scripts/check-youtube-covers.mjs';
+import { designProblems, effectiveCover, ledgerProblems } from '../scripts/checks/check-youtube-covers.mjs';
 
 const pop = { format: 'longform', exam: 'civil-2', headline: ['題材選び', '自分の経験'], accentLine: 1, subtitle: '担当した管理を探す',
   character: { pose: 'checklist-pen', frame: 'waist' }, design: 'pop-poster-v3', approvedImage: { path: 'cover.png', sha256: 'a'.repeat(64) } };

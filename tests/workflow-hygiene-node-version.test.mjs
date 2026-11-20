@@ -2,7 +2,7 @@
 // それまで node-version は "20" が 32 か所・"22" が 13 か所で混在していた（Node 20 は 2026-04 に EOL）。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findNonStandardNodeVersions, NODE_VERSION } from '../scripts/check-workflow-hygiene.mjs';
+import { findNonStandardNodeVersions, NODE_VERSION } from '../scripts/checks/check-workflow-hygiene.mjs';
 
 test('22 以外の node-version を行番号つきで検出する（引用符の有無を問わない）', () => {
   const yml = 'steps:\n  - uses: actions/setup-node@abc\n    with:\n      node-version: "20"\n  - uses: x\n    with:\n      node-version: 18\n      node-version: \'22\'';

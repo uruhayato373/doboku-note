@@ -16,7 +16,7 @@ import { yen } from './format';
  * ledger.ts — 管理画面「コンテンツ台帳」（/content/ledger）の表示モデル（DN-0438）。
  *
  * 1 行 = 1 制作物。テーマ、note 記事のカバー分類、チャネル、状態で絞る。
- *   - note の記事: 索引 .claude/state/content-ledger.json（scripts/build-content-ledger.mjs が作る）を読むだけ。
+ *   - note の記事: 索引 .claude/state/content-ledger.json（scripts/build/build-content-ledger.mjs が作る）を読むだけ。
  *     原稿約 920 本と同期の計画を画面で読み直さない（この端末では 1 分を超える）
  *   - note のマガジン・ココナラ・Kindle: 件数が少なく速いので、商品ラインナップと同じ読み込み（lib/lineup.ts）を使い、
  *     テーマは product-lineup.json のルール（資格 × 試験区分のマス）から取る
@@ -156,7 +156,7 @@ function refreshIndexIfStale(generatedAt: string | null): boolean {
   }
   if (!stale) return false;
   try {
-    const child = spawn(process.execPath, [repoPath('scripts', 'build-content-ledger.mjs')], { cwd: findRepoRoot(), detached: process.platform !== 'win32', stdio: 'ignore', windowsHide: true });
+    const child = spawn(process.execPath, [repoPath('scripts', 'build', 'build-content-ledger.mjs')], { cwd: findRepoRoot(), detached: process.platform !== 'win32', stdio: 'ignore', windowsHide: true });
     child.unref();
     refreshStartedAt = Date.now();
     return true;

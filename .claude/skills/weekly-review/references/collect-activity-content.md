@@ -68,7 +68,7 @@
 
 - **公開ページの確認（note）**: 毎週は、土曜の Mac の収集（weekly-collect の `note-public-view` 段・レビューの前）が公開 API で全件（添付 PDF・価格・全文会員限定・本文の画像の欠け）を数値で判定した結果を、`npm run check-weekly-collect` の同じ段の合否と理由で読む（warn・failed は理由を「課題・ブロッカー」に書き、行き先を決める）。**代表ページの撮影と目視は毎週は回さない**（2026-11-14〜・DN-1196。note の本文やカバーをまとめて直した後・新しいマガジンを出した後・公開 API の層が指摘を出した記事・運営者の指示のときだけ、`/note-visual-review` で撮影と目視を回す。手順と見る観点の正本はそのスキルと `note-page-visual-auditor`。下の 1〜3 は週次レビューの中で撮影済みの画像を読むときの要約）。撮影を回さなかった週は「撮影は未実施（必要時のみ）」と書き、「未確認」や「異常なし」と書かない。
 - **撮影を回した週の目視（note・YouTube／エージェント・2026-09-23〜）**: 撮影は**代表ページ**（資格×記事の種類ごと 1 本＝約 30 本）を**note のブレイクポイントで区切った帯ごとの画面幅**（`config/public-view-breakpoints.json`・5 幅）で撮って手元の置き場に残す（YouTube は SNS 保留中で撮っていない・DN-0852）。数値で決められない見た目の崩れはここで見る。
-  1. `node scripts/fetch-note-public-view-shots.mjs --json` でその日の撮影を `.tmp/note-public-view-review/<撮影日>/` へ写す。exit 2（撮影なし・8 日より古い・欠け）は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`coverage` の撮影成立数/予定数を確認する。`breakpointDrift` はCSSが全部読めた場合だけ見直しの根拠にし、`unreadable` があれば判定保留とする。
+  1. `node scripts/fetch/fetch-note-public-view-shots.mjs --json` でその日の撮影を `.tmp/note-public-view-review/<撮影日>/` へ写す。exit 2（撮影なし・8 日より古い・欠け）は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`coverage` の撮影成立数/予定数を確認する。`breakpointDrift` はCSSが全部読めた場合だけ見直しの根拠にし、`unreadable` があれば判定保留とする。
   2. sonnet のサブエージェント（`general-purpose`・1 体。note と YouTube で分けてもよい）に各 `review/index.json` と画像の場所を渡し、ページごとに**画面幅を並べて**見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 特定の画面幅でだけ崩れる（重なり・はみ出し・切れ・空の枠・カードや図の欠け）／記号がそのまま出ている（`**`・バッククォート・`\*`）／カバー・サムネイルの文字が切れる／本文の図が題材と合わない／画面の価格表示と `index.json` の原稿価格の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `ID・URL・画面幅・何が・どの画像か・重さ（直す/様子見）` の表。
   3. 「直す」は親が画像を見て確かめてから backlog へ DN を起票する（原因が原稿なら原稿を直して再公開、共通の型なら検査側で機械化できないかも書く）。
 
@@ -83,8 +83,8 @@
 - 「検索の改善を記録 N 件（EXP-###…）/ 計測開始 M 件 / 判定 K 件 / 週次の処置 要処置 0」（`search-improvement` の record・sync・close・triage を行ったとき）
 - 「GSC・GA4 自動化の異常」（gsc 段の検算 `gsc-ui-due`・`gsc-indexing-due`、週次の点検の `ga4-dimensions`、ops Issue の `gsc-sitemaps-due` のどれかが赤のときのみ・理由と直し方つき）
 - 「**note 未着（購入者が受け取れない）**」（ops Issue `note-delivery-due` が開いているときのみ・**レポート最上段に置く**）
-- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは運営者が端末で `scripts/weekly-collect.mjs --only coconala`）
-- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 運営者が端末で `scripts/weekly-collect.mjs --only coconala`。Claude の中からは取りに行かない）
+- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは運営者が端末で `scripts/ops/weekly-collect.mjs --only coconala`）
+- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 運営者が端末で `scripts/ops/weekly-collect.mjs --only coconala`。Claude の中からは取りに行かない）
 - 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ 各要素の `review` コマンドを転記）
 - 「A8 成果取込 DUE（月次）」（a8 段の検算 `a8-report-due` が落ちているときのみ・→ 次セッションで `/a8-report`）
 - 「実験の再測定 DUE」（`check-experiment-due` の `dueCount > 0` のときのみ・→ 次セッションで各要素の `review` コマンドを実行）

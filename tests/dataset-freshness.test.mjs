@@ -12,11 +12,11 @@ import { DATASETS, freshnessDays, freshnessOf, freshnessProblems } from '../scri
 import { assessSnapshot } from '../scripts/lib/coconala-guards.mjs';
 import { assessCloudflareMetrics } from '../scripts/lib/cloudflare-analytics.mjs';
 import { evaluateSitemapsDue } from '../scripts/lib/gsc-sitemaps.mjs';
-import { assessAfbOutcomesFreshness } from '../scripts/check-afb-outcomes-freshness.mjs';
-import { assessIgInsights } from '../scripts/check-ig-insights-freshness.mjs';
-import { assessSalesLog } from '../scripts/check-sales-freshness.mjs';
-import { snapshotFreshness } from '../scripts/check-magazine-membership.mjs';
-import { checkTriage } from '../scripts/check-growth-triage.mjs';
+import { assessAfbOutcomesFreshness } from '../scripts/checks/check-afb-outcomes-freshness.mjs';
+import { assessIgInsights } from '../scripts/checks/check-ig-insights-freshness.mjs';
+import { assessSalesLog } from '../scripts/checks/check-sales-freshness.mjs';
+import { snapshotFreshness } from '../scripts/checks/check-magazine-membership.mjs';
+import { checkTriage } from '../scripts/checks/check-growth-triage.mjs';
 import { SCAN_STALE_DAYS } from '../scripts/lib/qualification-market.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -113,31 +113,31 @@ test('市場スキャン: 古いとみなす日数は台帳 analysis.qualificati
 
 test('読み手は閾値を台帳から読む（検査・管理画面に写しを置いていない）', () => {
   const readers = [
-    ['scripts/check-sales-freshness.mjs', 'note.sales'],
+    ['scripts/checks/check-sales-freshness.mjs', 'note.sales'],
     ['scripts/lib/coconala-guards.mjs', 'coconala.orders-snapshot'],
-    ['scripts/check-coconala-analytics.mjs', 'coconala.analytics'],
-    ['scripts/check-magazine-membership.mjs', 'note.magazines'],
+    ['scripts/checks/check-coconala-analytics.mjs', 'coconala.analytics'],
+    ['scripts/checks/check-magazine-membership.mjs', 'note.magazines'],
     ['tools/admin-app/src/lib/note-status.ts', 'note.magazines'],
     ['tools/admin-app/src/lib/note-status.ts', 'note.status'],
-    ['scripts/check-growth-triage.mjs', 'analysis.growth-digest'],
-    ['scripts/report-web-vitals.mjs', 'rum.web-vitals'],
-    ['scripts/check-ga4-custom-dimensions.mjs', 'ga4.admin-inventory'],
+    ['scripts/checks/check-growth-triage.mjs', 'analysis.growth-digest'],
+    ['scripts/reports/report-web-vitals.mjs', 'rum.web-vitals'],
+    ['scripts/checks/check-ga4-custom-dimensions.mjs', 'ga4.admin-inventory'],
     ['scripts/lib/qualification-market.mjs', 'analysis.qualification-market'],
-    ['scripts/check-afb-outcomes-freshness.mjs', 'afb.outcomes'],
-    ['scripts/check-ig-insights-freshness.mjs', 'instagram.insights'],
-    ['scripts/check-cloudflare-metrics-freshness.mjs', 'cloudflare.zone'],
+    ['scripts/checks/check-afb-outcomes-freshness.mjs', 'afb.outcomes'],
+    ['scripts/checks/check-ig-insights-freshness.mjs', 'instagram.insights'],
+    ['scripts/checks/check-cloudflare-metrics-freshness.mjs', 'cloudflare.zone'],
     ['scripts/lib/cloudflare-analytics.mjs', 'cloudflare.zone'],
     ['scripts/lib/gsc-sitemaps.mjs', 'gsc.sitemaps'],
-    ['scripts/check-a8-report-due.mjs', 'a8.ui-last-run'],
-    ['scripts/check-gsc-ui-due.mjs', 'gsc.ui-last-run'],
-    ['scripts/report-career-funnel.mjs', 'ga4.reports'],
+    ['scripts/checks/check-a8-report-due.mjs', 'a8.ui-last-run'],
+    ['scripts/checks/check-gsc-ui-due.mjs', 'gsc.ui-last-run'],
+    ['scripts/reports/report-career-funnel.mjs', 'ga4.reports'],
   ];
   for (const [file, id] of readers) {
     const src = readFileSync(join(ROOT, file), 'utf8');
     assert.match(src, new RegExp(`freshnessDays\\(\\s*['"]${id.replace('.', '\\.')}['"]`), `${file} は ${id} の閾値を台帳（freshnessDays）から読む`);
   }
   // 競合の再取得は、チャネルごとのデータセットの宣言を引く（id は PLATFORMS の dataset から）
-  const competitor = readFileSync(join(ROOT, 'scripts/check-competitor-scan-due.mjs'), 'utf8');
+  const competitor = readFileSync(join(ROOT, 'scripts/checks/check-competitor-scan-due.mjs'), 'utf8');
   assert.match(competitor, /freshnessDays\(dataset, 'warnDays'\)/);
   for (const id of ['note.competitors', 'coconala.competitors', 'x.competitors', 'instagram.competitors', 'analysis.qualification-market']) {
     assert.ok(freshnessDays(id, 'warnDays') > 0, `${id} の warnDays が台帳に無い`);

@@ -67,7 +67,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 - **正規表記は日本語名**（`tags.json` の `name`。試験実施機関の表記・`categories.json` の label・curriculum の分野名と一致させる）。例外は structural / flag（`guide` `career` など group を写す機械値）だけ。
 - 英語 `slug` と `aliases[]` は**受理はするが正規でない綴り**。`build-doc-meta-index` がビルド時に canonical へ正規化し（元の綴りは `tagsRaw`）、runtime（関連記事・テーマ収集・構造タグ判定）は canonical だけを見る。
-- 新規・変更記事は正規表記で書く。別名で書くと pre-commit の `--staged` が赤になる。既存記事の別名は `node scripts/migrate-tag-aliases.mjs <file> --write` で直す（既定 dry-run・frontmatter の tags 行だけを書き換え・CRLF 保持）。
+- 新規・変更記事は正規表記で書く。別名で書くと pre-commit の `--staged` が赤になる。既存記事の別名は `node scripts/maint/migrate-tag-aliases.mjs <file> --write` で直す（既定 dry-run・frontmatter の tags 行だけを書き換え・CRLF 保持）。
 - 2026-09-11 時点で公開 1,211 本は未登録 0・別名 0・構造タグ不整合 0。`.claude/config/content-taxonomy-baseline.json` は空で、増えた時点で `:ci` が赤になる。
 
 ### 5-3. 記事に付けるタグの最小構成

@@ -16,12 +16,12 @@ title: 著者オーソリティ 汎用バナー 運用ポリシー
 | `content/note/共通/著者オーソリティ/img/figure-author-authority-concrete.png` | concrete 完成バナー（同上、キーアートは base-keyart-concrete.png） |
 | `content/note/共通/著者オーソリティ/img/figure-author-authority-pop.png` | 1級・2級土木用のキャラクターPOP版（1280×1280・緑主色）。コピー・SHA・目視結果は同階層の `pop-image.json`（DN-0450。2026-09-30 に1級も同じ版へ統一） |
 | `content/note/共通/著者オーソリティ/img/figure-author-authority-concrete-pop.png` | コンクリート3資格用のキャラクターPOP版（1280×1280・紫主色・3本柱の3つ目は「主任技士・診断士｜当事者性」）。記録は同階層の `pop-image-concrete.json`（2026-10-04） |
-| `scripts/render-note-author-authority.mjs` | キーアート＋コピー合成。`--variant civil\|concrete` で対象切替（`node scripts/render-note-author-authority.mjs --variant concrete` で再生成） |
-| `scripts/distribute-author-authority-banner.mjs` | 各 note 商品 article.md へ画像配布＋top/bottom 挿入（冪等）。`--exam civil\|concrete`／`--migrate` 対応 |
-| `scripts/note-swap-author-banner.mjs` | 既公開記事のライブ反映（バナー画像＋説明文2段落のみ差替。全文置換はしない） |
+| `scripts/build/render-note-author-authority.mjs` | キーアート＋コピー合成。`--variant civil\|concrete` で対象切替（`node scripts/build/render-note-author-authority.mjs --variant concrete` で再生成） |
+| `scripts/note/distribute-author-authority-banner.mjs` | 各 note 商品 article.md へ画像配布＋top/bottom 挿入（冪等）。`--exam civil\|concrete`／`--migrate` 対応 |
+| `scripts/note/note-swap-author-banner.mjs` | 既公開記事のライブ反映（バナー画像＋説明文2段落のみ差替。全文置換はしない） |
 
 > [!note] 各記事の `img/figure-author-authority*.png` は git 追跡しない（2026-09-05）
-> 原本は上表の `共通/著者オーソリティ/img/` の 2 ファイルだけを追跡し、記事ごとの複製（247 本）は `.gitignore` で除外する（cover*.png と同じ扱い。正方形再設計で 197 本が一斉差分＝約 60MB の履歴肥大になるため）。手元に無ければ `node scripts/distribute-author-authority-banner.mjs --migrate`（civil）／`--exam concrete --all` で再複製する。
+> 原本は上表の `共通/著者オーソリティ/img/` の 2 ファイルだけを追跡し、記事ごとの複製（247 本）は `.gitignore` で除外する（cover*.png と同じ扱い。正方形再設計で 197 本が一斉差分＝約 60MB の履歴肥大になるため）。手元に無ければ `node scripts/note/distribute-author-authority-banner.mjs --migrate`（civil）／`--exam concrete --all` で再複製する。
 
 ## フレーミング（厳守・誇張禁止）
 
@@ -51,7 +51,7 @@ title: 著者オーソリティ 汎用バナー 運用ポリシー
 
 各 article.md で:
 - 画像行は **alt を空にする**（`![](img/figure-author-authority.png)`）。note はキャプションを表示しないため、alt があると意図せずキャプションとして出てしまう
-- **top**: H1 直後に 画像 → P1 → P2 の順で挿入。P1・P2 は資格別（`--exam`）に固定文言（[distribute-author-authority-banner.mjs](../../../scripts/distribute-author-authority-banner.mjs) が真実源）:
+- **top**: H1 直後に 画像 → P1 → P2 の順で挿入。P1・P2 は資格別（`--exam`）に固定文言（[distribute-author-authority-banner.mjs](../../../scripts/note/distribute-author-authority-banner.mjs) が真実源）:
   - civil P1: 「この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。1級・2級土木施工管理技士にも自分で合格しており、受験者と同じ答案を書いた当事者です。」
   - concrete P1: 「この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格しており、小論文・記述式を書いた当事者です。」
   - P2（共通）: 「総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「評価される書き方」を整理しています。」
@@ -95,10 +95,10 @@ npm run note-swap-author-banner -- --list <paths.txt> --commit         # 一括�
 安全ゲート: account=dobokunote 確認／編集前に旧 figure の位置・前後文脈を表示／PDF 添付数が編集前後で減少していないか／画像数が差替前後で同数（bottom 未検出時のみ +1 許容）／公開後に public API で新本文の存在と旧キャプションの不在を検証／1日あたりの成功件数上限は `--daily-limit`（既定90）で `.claude/state/note-swap-banner-done.json` に記録。ただし **画像アップロードは note の 100 ファイル/日上限に数えられない**（2026-09-05 に 1 日で 136 本・約 150 枚を通した実測。上限に掛かるのは PDF 等のファイル添付）ので、バナー差し替えだけなら `--daily-limit 400` で 1 日に回してよい。
 
 ```bash
-node scripts/distribute-author-authority-banner.mjs                          # civil 入口(free)のみ・キャリア系除外
-node scripts/distribute-author-authority-banner.mjs --exam concrete --all    # concrete 3資格の全 article.md
-node scripts/distribute-author-authority-banner.mjs --migrate --dry          # civil の既存バナー移行を確認のみ
-node scripts/distribute-author-authority-banner.mjs --exam concrete --migrate # concrete の既存バナーを移行
+node scripts/note/distribute-author-authority-banner.mjs                          # civil 入口(free)のみ・キャリア系除外
+node scripts/note/distribute-author-authority-banner.mjs --exam concrete --all    # concrete 3資格の全 article.md
+node scripts/note/distribute-author-authority-banner.mjs --migrate --dry          # civil の既存バナー移行を確認のみ
+node scripts/note/distribute-author-authority-banner.mjs --exam concrete --migrate # concrete の既存バナーを移行
 ```
 
 注意: 各 article.md は独立 note 投稿。ソース挿入後、**ライブ反映には `npm run note-swap-author-banner`（上記）が必要**。

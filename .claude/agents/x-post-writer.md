@@ -34,7 +34,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 > Generator と Evaluator を分離する — 自己評価バイアスは構造で解決する。
 > **資格別には分かれない**。`exam` パラメータで総監/1級/2級を横断する（IG の各 writer と同じ）。
 
-執筆のみを担う。品質採点は `x-post-qa`、カード画像は `scripts/gen-x-card.mjs`、予約投稿は `publish-x` が担当する。
+執筆のみを担う。品質採点は `x-post-qa`、カード画像は `scripts/build/gen-x-card.mjs`、予約投稿は `publish-x` が担当する。
 
 ## 入力
 
@@ -78,7 +78,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 |---|---|---|
 | ココナラ | 「販売実績 2 件」「同じ方からの追加購入（リピート）1 件」「出品者ランク レギュラー」「本人確認済み」 | **★レビュー・高評価への言及**（購入者→出品者のレビューは 0 件。記録上あるのは出品者→購入者の評価） |
 | note | 累計の販売記録に基づく事実。**`npm run check-sales-freshness` が緑なら「今月」「直近」も可**（policy §5.3 の sales.json 突合が成立するため） | 鮮度検査が **WARN/FAIL のときの「今月」「直近」売上**（転記が止まっていると実態と乖離する。2026-07 は 18% しか入っておらず 34 日気づかなかった） |
-| Kindle | `scripts/kindle-published/catalog.json`で`status: live`かつASIN確認済みの書籍。g-01 / g-02は発売中と書ける | カタログが`ready` / `in_review`の書籍を発売中と書くこと。note商品は`note-magazines.ts`が`published:true`かつライブURL設定済みの場合だけ販売中と書く |
+| Kindle | `config/products.json` の Kindle の書籍で`status: live`かつASIN確認済みの書籍。g-01 / g-02は発売中と書ける | カタログが`ready` / `in_review`の書籍を発売中と書くこと。note商品は`note-magazines.ts`が`published:true`かつライブURL設定済みの場合だけ販売中と書く |
 
 - 送客先が**今も買える状態か**をカタログで確認してから URL を貼る（`coconala-services.ts` の `status:'listed'` / `note-magazines.ts` の `published:true`）。受付終了した 5 出品の URL は貼らない。`check-x-campaign-plan` が計画段階で機械遮断するが、原稿側でも確認する。
 - 合格保証・断定表現は禁止。訴求は「再受験コスト vs 教材コスト」の機会費用対比に寄せる。
@@ -97,8 +97,8 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
    - **サイトへのリンクは新 URL（`https://doboku-note.com/exam/{資格}/{種別}/{slug}` 等）で書く（404 防止・最重要）**。旧 `/docs/{slug}` は 2026-08-22 の移行で 301（新規ドラフトでは使わない・DN-0288）。例: `content/site/civil-construction-2/primary-r03-kouki/` → `/exam/civil-construction-2/primary/r03-kouki`。対応の真実源は `public/_redirects`。曖昧な共通 dir 名（`keyword-2026` 等）は試験文脈で資格を確定する。詳細は policy §6。
    - 誇張・捏造をしない。固有名詞・数値・法則名はソースに忠実。
 4. 執筆後の検証：
-   - `node scripts/check-x-length.mjs --draft <NNN>` で文字数 **違反 0**（weighted を目視でも確認）。
-   - `node scripts/check-sns-urls.mjs` で **サイトへのリンクが全て本番に実在**することを確認（broken があれば提案された正しい URL に修正）。旧 `/docs/` を書いていたら新 URL に替える。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
+   - `node scripts/checks/check-x-length.mjs --draft <NNN>` で文字数 **違反 0**（weighted を目視でも確認）。
+   - `node scripts/checks/check-sns-urls.mjs` で **サイトへのリンクが全て本番に実在**することを確認（broken があれば提案された正しい URL に修正）。旧 `/docs/` を書いていたら新 URL に替える。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
    - `npm run check-exam-calendar` で試験日SSOTと誤日付の混入がないことを確認する。
    - **凍結回避の自己点検（policy §11）**: ドラフト内の各ツイートが near-duplicate テンプレになっていないか（フック・語順・CTA が使い回しでないか）／同一 URL を多数のツイートに貼っていないか／ハッシュタグが毎回まったく同じ固定になっていないかを確認。連投系（1問1答・過去問・angle-slice）は特に骨格の反復に注意し、URL は一部のツイートだけに付ける。
 5. ネタ源 MDX で気づいた doboku-note 側の問題は**直接編集せず** `content/sns/instagram/_keyword-findings.md` 等の findings に追記。
@@ -126,6 +126,6 @@ findings: 0
 ## 担当外
 
 - **品質採点・偽成功検証** — `x-post-qa`
-- **カード画像生成** — `scripts/gen-x-card.mjs`（create-x-card スキルは 2026-10-25 に外した）
+- **カード画像生成** — `scripts/build/gen-x-card.mjs`（create-x-card スキルは 2026-10-25 に外した）
 - **予約投稿** — `publish-x`
 - **リプライ運用** — `/x-reply`（人が 1 件ずつ承認して送る。policy §10）

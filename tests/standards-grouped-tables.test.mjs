@@ -11,14 +11,14 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
 import remarkGfm from 'remark-gfm';
-import { buildDocument } from '../scripts/build-standard-articles.mjs';
+import { buildDocument } from '../scripts/build/build-standard-articles.mjs';
 import { createHash } from 'node:crypto';
 import { loadTableOverrides, loadDocumentPages, ARTICLES_ROOT, getCatalog, loadOverrides } from '../scripts/lib/standards-structure.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { resolveTablePart } from '../scripts/lib/standards-table.mjs';
 import { classifyGroupedTable, prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact } from '../scripts/lib/standards-grouped-tables.mjs';
 import { restoreStandardSearchText } from '../scripts/lib/standards-search-text.mjs';
-import { isIndexableHtml } from '../scripts/build-search-index.mjs';
+import { isIndexableHtml } from '../scripts/build/build-search-index.mjs';
 
 const root = join(ARTICLES_ROOT, 'mlit', 'sekou-kanri-kijun');
 const manifest = JSON.parse(readFileSync(join(root, 'manifest.json'), 'utf8'));

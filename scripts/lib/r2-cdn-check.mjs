@@ -1,5 +1,5 @@
 /**
- * R2 へ送った画像の CDN キャッシュ更新と照合の判定（scripts/purge-r2-changed.mjs が使う・副作用なし）。
+ * R2 へ送った画像の CDN キャッシュ更新と照合の判定（scripts/storage/purge-r2-changed.mjs が使う・副作用なし）。
  *
  * 同じ URL へ上書きしても Cloudflare の CDN は max-age の間は旧版を返す（DN-0756・2026-10-16 に 140 点中 22 点が旧 SVG）。
  * r2-sync は送った画像だけを URL で purge し、通常 URL の実体の SHA-256 が送った中身と一致するかを数える。

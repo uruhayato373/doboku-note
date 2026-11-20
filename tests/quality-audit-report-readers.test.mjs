@@ -19,9 +19,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
-import { CHECKS } from '../scripts/quality-audit.mjs';
+import { CHECKS } from '../scripts/ops/quality-audit.mjs';
 
-const SRC = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
+const SRC = readFileSync(join(ROOT, 'scripts/ops/quality-audit.mjs'), 'utf8');
 
 /**
  * quality-audit.mjs が export する CHECKS をそのまま読む（DN-0788）。
@@ -49,7 +49,7 @@ test('expectedFail がある場合は ci:false に限り、理由に期限/Phase
 });
 
 test('partitionReportOnly: expected は exit に効かず、unexpectedPass は失敗扱い（昇格ラチェット）', async () => {
-  const { partitionReportOnly } = await import('../scripts/quality-audit.mjs');
+  const { partitionReportOnly } = await import('../scripts/ops/quality-audit.mjs');
   const results = [
     { id: 'a', status: 'fail', expectedFail: 'Phase 03 まで' },
     { id: 'b', status: 'fail', expectedFail: null },
@@ -110,7 +110,7 @@ test('CI が赤いことを届ける経路が実在する（ci.yml の失敗通�
 });
 
 test('GitHub annotation exposes failure details without allowing injected workflow commands', async () => {
-  const { githubFailureAnnotation } = await import('../scripts/quality-audit.mjs');
+  const { githubFailureAnnotation } = await import('../scripts/ops/quality-audit.mjs');
   const line = githubFailureAnnotation({ id: 'eslint', status: 'fail', exitCode: 1, excerpt: '50%\r\n::notice::injected' });
   assert.match(line, /^::error::eslint: fail/);
   assert.ok(line.includes('50%25%0D%0A::notice::injected'));

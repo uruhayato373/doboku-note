@@ -4,18 +4,18 @@ title: note 記事用 図解 SVG ポリシー
 
 # note 記事用 図解 SVG ポリシー
 
-note.com に PNG 化して掲載する図解（`content/note/{slug}/img/figure-*.png`）を作るときの真実源。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。
+note.com に PNG 化して掲載する図解を作るときの真実源。正本は `content/note/{slug}/img/figure-*.svg` で、原稿は同名の `figure-*.png` を指す。PNG は Git で追跡せず、投稿系（note-publish・note-update-body など）が上げる直前に SVG から作る（`scripts/lib/note-figure-png.mjs`・SVG の寸法の 2 倍・白背景・2026-11-19）。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。
 
 ## 適用範囲
 
-- `content/note/**/img/figure-*.svg` および `figure-*.png`（cover.png は除外、`scripts/generate-note-covers.mjs` 専用）
+- `content/note/**/img/figure-*.svg` および `figure-*.png`（cover.png は除外、`scripts/build/generate-note-covers.mjs` 専用）
 - `.tmp/gen-figures-*.mjs` 等で生成する note 用図解スクリプト
 
 doboku-note 本体（`content/site/**/img/*.svg`）は本ポリシー対象外。SVG inline 配信なので別ルール。
 
 ## cover.png のセーフティゾーン（参考）
 
-`content/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `scripts/lib/note-character-cover.mjs`（V5 キャラクターカバー・2026-09-17〜）で生成する。サイズは note 推奨の 1280×670。文言は frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle` → title（仕様は `.claude/knowledge/design-system/note-cover-character-v5.md`）。
+`content/note/**/img/cover.png` は `scripts/build/generate-note-covers.mjs` が `scripts/lib/note-character-cover.mjs`（V5 キャラクターカバー・2026-09-17〜）で生成する。サイズは note 推奨の 1280×670。文言は frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle` → title（仕様は `.claude/knowledge/design-system/note-cover-character-v5.md`）。
 
 **セーフティゾーン**: 主見出しは x=345〜739・y=239〜435 の枠に 96〜48px・最大 3 行で実測して収め、Satori の実描画枠が中央 630×216 の外に出れば生成失敗。リード 584px・補足 388px・訴求帯 554px。人物（右側 280×330）・ロゴ・背景写真は全幅側（クロップで欠けても問題なし）。
 
@@ -134,7 +134,8 @@ for f in content/note/{slug}/img/figure-*.svg; do
 done
 # → 16 未満が出たら修正
 
-# 2. PNG を Read で目視確認
+# 2. note へ上げるのと同じ PNG を作って Read で目視確認（.tmp/note-figures/ に出る）
+node scripts/build/render-note-figures.mjs content/note/{slug}/img
 # → レイアウト重なり・密度過多をチェック
 
 # 3. 縮小プレビュー（任意・厳密チェック）
@@ -155,16 +156,16 @@ done
 ## 7. 雛形リファレンス
 
 良い参考実装:
-- `scripts/render-figure-soukan-analysis.mjs` — 総監択一式17年分分析の生成スクリプト（横棒均等配分・タイムライン）
+- `content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/figure-*.svg` — 完成 SVG（フロー・マトリクス・比較）。図は SVG を直接書く（記事ごとの生成スクリプトは 2026-11-19 に退役）
 - `content/note/一般部門との違い/img/figure-{1,2,3}-*.svg` — 完成 SVG（比較表・横棒・マトリクス 3 種）
 
 ## 8. 修正サイクル
 
 既存図解の修正時:
 
-1. SVG ソースを編集（PNG ではなく）
-2. `node .tmp/gen-figures-{NN}.mjs` で再生成
-3. 上記「5. 検証手順」を実行
-4. 問題があれば 1 へ戻る
+1. SVG ソースを編集する（生成スクリプトがある図はスクリプト側を直して SVG を作り直す）
+2. 上記「5. 検証手順」を実行（PNG は `render-note-figures.mjs` で確認用に作るだけ。コミットしない）
+3. 問題があれば 1 へ戻る
+4. note への反映は `note-update-body`（PNG はその場で SVG から作られる）
 
-PNG だけ修正することは絶対にしない（再生成で消える）。
+PNG は Git に置かない（`.gitignore` の `content/note/**/img/figure-*.png`）。SVG の無い図（PNG 自体が正本）を足すときだけ `git add -f` する。原稿の画像参照が Git の checkout だけで解決できることは `tests/note-figure-sources.test.mjs` が止める。

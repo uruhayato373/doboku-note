@@ -2,7 +2,7 @@
 // 同じ行にマージ・削除の記述なしで書いたままのカードを拾う
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { collectMergeRefs, computeStaleMergeNotes } from '../scripts/check-backlog-health.mjs';
+import { collectMergeRefs, computeStaleMergeNotes } from '../scripts/checks/check-backlog-health.mjs';
 
 const card = (id, body) => ({ id, line: 1, title: `${id} の題名`, body });
 

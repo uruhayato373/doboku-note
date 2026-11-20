@@ -3,7 +3,7 @@
   "_doc": "商品の正本（全チャネルの全商品・DN-0492）。手で書かず npm run product で読み書きする（並びは channel → id）。note-magazines.ts の生成ブロックは npm run product -- gen。説明は .claude/knowledge/reference/data-storage-decision.md「商品の正本」",
   "channels": {
     "kindle": {
-      "catalogComment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
+      "catalogComment": "Kindle 全書籍のマスター登録簿（書籍の行は各商品の catalog。写しのファイルは作らず scripts/lib/kindle-catalog.mjs の loadKindleCatalog で読む）。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は全冊 private R2 の kindle-dist（B 以降は 2026-10-12、A 系は 2026-11-20 に Git から外した）. 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
       "catalogSchemaVersion": 1,
       "updatedAt": "2026-09-23"
     }
@@ -1543,11 +1543,10 @@
         "status": "live",
         "submittedDate": "2026-07-11",
         "publishedDate": "2026-07-11",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "goubon",
-        "epub": "kindle-A-00-goubon.epub",
-        "cover": "kindle-cover-a-00.jpg",
-        "kdpMemo": "KDP入力メモ_A-00全科目合本.txt",
+        "epub": "kindle-dist/a-00.epub",
+        "cover": "kindle-dist/a-00.jpg",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1567,7 +1566,6 @@
           }
         ],
         "notes": "LIVE（2026-07-15 本棚突合で確認）。分冊 A-01〜A-06 との重複コンテンツ規約は審査を通過。",
-        "dist": "kindle-published/kindle-A-00-goubon.epub",
         "draftAsin": "A2901CR7S6QQJY",
         "uploaded": {
           "epub": {
@@ -1608,11 +1606,10 @@
         "rontenCount": 9,
         "status": "live",
         "publishedDate": "2026-07-08",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "anzen",
-        "epub": "kindle-A-01-anzen-updated.epub",
-        "cover": "kindle-cover-A-01.jpg",
-        "kdpMemo": "KDP入力メモ_A-01安全管理.txt",
+        "epub": "kindle-dist/a-01.epub",
+        "cover": "kindle-dist/a-01.jpg",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1626,7 +1623,6 @@
             "change": "尻切れ解説の恒久補完後の更新版 EPUB を再アップ"
           }
         ],
-        "dist": "kindle-published/kindle-A-01-anzen-updated.epub",
         "draftAsin": "AT465EYYW4VCN",
         "uploaded": {
           "epub": {
@@ -1666,11 +1662,10 @@
         "questionCount": 126,
         "status": "live",
         "publishedDate": "2026-07-10",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "hoki",
-        "epub": "kindle-A-02-hoki.epub",
-        "cover": "kindle-cover-a-02.jpg",
-        "kdpMemo": null,
+        "epub": "kindle-dist/a-02.epub",
+        "cover": "kindle-dist/a-02.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1679,7 +1674,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-02-hoki.epub",
         "draftAsin": "A5YT5D5ZGEA59",
         "uploaded": {
           "epub": {
@@ -1719,11 +1713,10 @@
         "questionCount": 42,
         "status": "unpublished",
         "publishedDate": "2026-07-10",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "sekokeikaku",
-        "epub": "kindle-A-03-sekokeikaku.epub",
-        "cover": "kindle-cover-a-03.jpg",
-        "kdpMemo": "KDP入力メモ_A-03施工計画.txt",
+        "epub": "kindle-dist/a-03.epub",
+        "cover": "kindle-dist/a-03.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1732,7 +1725,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-03-sekokeikaku.epub",
         "draftAsin": "A3TMN4ARVI63H6",
         "uploaded": {
           "epub": {
@@ -1772,11 +1764,10 @@
         "questionCount": 31,
         "status": "unpublished",
         "publishedDate": "2026-07-10",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "kankyo",
-        "epub": "kindle-A-04-kankyo.epub",
-        "cover": "kindle-cover-a-04.jpg",
-        "kdpMemo": "KDP入力メモ_A-04環境管理.txt",
+        "epub": "kindle-dist/a-04.epub",
+        "cover": "kindle-dist/a-04.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1785,7 +1776,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-04-kankyo.epub",
         "draftAsin": "A2LJM7G3D1YA9V",
         "uploaded": {
           "epub": {
@@ -1825,11 +1815,10 @@
         "questionCount": 65,
         "status": "unpublished",
         "publishedDate": "2026-07-10",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "hinshitsu",
-        "epub": "kindle-A-05-hinshitsu.epub",
-        "cover": "kindle-cover-a-05.jpg",
-        "kdpMemo": "KDP入力メモ_A-05品質管理.txt",
+        "epub": "kindle-dist/a-05.epub",
+        "cover": "kindle-dist/a-05.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1838,7 +1827,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-05-hinshitsu.epub",
         "draftAsin": "A1Q5I6TCI7EHV5",
         "uploaded": {
           "epub": {
@@ -1879,11 +1867,10 @@
         "rontenCount": 4,
         "status": "unpublished",
         "publishedDate": "2026-07-10",
-        "builder": "scripts/build-takuitsu-reconstruct.mjs",
+        "builder": "scripts/build/build-takuitsu-reconstruct.mjs",
         "buildTheme": "koutei",
-        "epub": "kindle-A-06-koutei.epub",
-        "cover": "kindle-cover-a-06.jpg",
-        "kdpMemo": "KDP入力メモ_A-06工程管理.txt",
+        "epub": "kindle-dist/a-06.epub",
+        "cover": "kindle-dist/a-06.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1892,7 +1879,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-06-koutei.epub",
         "draftAsin": "ACL3CWR633GU0",
         "uploaded": {
           "epub": {
@@ -1929,11 +1915,10 @@
         "priceJpy": 1250,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/b-heisei.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-heisei/spec.json",
         "epub": "kindle-dist/b-heisei.epub",
         "cover": "kindle-dist/b-heisei.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-heisei.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1988,11 +1973,10 @@
         "status": "live",
         "submittedDate": "2026-07-16",
         "publishedDate": "2026-07-23",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/b-reiwa.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-reiwa/spec.json",
         "epub": "kindle-dist/b-reiwa.epub",
         "cover": "kindle-dist/b-reiwa.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-reiwa.txt",
         "version": "1.0",
         "notes": "2026-07-16 KDP 新規提出・レビュー中（ASIN 未表示）。LIVE 化後に asin/status=live/publishedDate を更新。",
         "versionHistory": [
@@ -2043,11 +2027,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-01.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-01/spec.json",
         "epub": "kindle-dist/c-01.epub",
         "cover": "kindle-dist/c-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-01.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2106,11 +2089,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-02.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-02/spec.json",
         "epub": "kindle-dist/c-02.epub",
         "cover": "kindle-dist/c-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-02.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2169,11 +2151,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-03.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-03/spec.json",
         "epub": "kindle-dist/c-03.epub",
         "cover": "kindle-dist/c-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-03.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2232,11 +2213,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-04.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-04/spec.json",
         "epub": "kindle-dist/c-04.epub",
         "cover": "kindle-dist/c-04.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-04.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2295,11 +2275,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-05.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-05/spec.json",
         "epub": "kindle-dist/c-05.epub",
         "cover": "kindle-dist/c-05.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-05.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2358,11 +2337,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-06.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-06/spec.json",
         "epub": "kindle-dist/c-06.epub",
         "cover": "kindle-dist/c-06.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-06.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2421,11 +2399,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-07.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-07/spec.json",
         "epub": "kindle-dist/c-07.epub",
         "cover": "kindle-dist/c-07.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-07.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2484,11 +2461,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-08.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-08/spec.json",
         "epub": "kindle-dist/c-08.epub",
         "cover": "kindle-dist/c-08.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-08.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2547,11 +2523,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-09.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-09/spec.json",
         "epub": "kindle-dist/c-09.epub",
         "cover": "kindle-dist/c-09.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-09.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2610,11 +2585,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-10.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-10/spec.json",
         "epub": "kindle-dist/c-10.epub",
         "cover": "kindle-dist/c-10.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-10.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2673,11 +2647,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-11.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-11/spec.json",
         "epub": "kindle-dist/c-11.epub",
         "cover": "kindle-dist/c-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-11.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2736,11 +2709,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/c-I.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-I/spec.json",
         "epub": "kindle-dist/c-I.epub",
         "cover": "kindle-dist/c-I.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-I.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2801,11 +2773,10 @@
         "status": "live",
         "submittedDate": "2026-07-16",
         "publishedDate": "2026-07-23",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/d-00.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-00/spec.json",
         "epub": "kindle-dist/d-00.epub",
         "cover": "kindle-dist/d-00.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-00.txt",
         "version": "1.1",
         "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを既刊へ差し替え、KDP原稿チェック完了・正常保存・誤字脱字0件を再確認。KDP Selectは2026-10-14 PDTまで登録中、自動更新OFFを実機確認。同日、note版とのデジタル独占競合を解消するためKDPサポートへ早期解除を申請（回答待ち）。分冊 d-01/d-02/d-03 との重複コンテンツ規約は審査で実態確認。 2026-09-23 KDP 価格ページで日本の実効レート 35% を実測（KDP セレクト登録なし表示・プランのラジオは 70% のまま）。早期解除が通った可能性。価格は据え置き・要再判断。 2026-10-26 運営者判断（DN-0871）で価格を ¥990 → ¥1,250 に改定（kdp-publish --set-price --commit・日本の実効レート 35% を確認・本棚の表示価格 ¥1,250・販売中）。",
         "versionHistory": [
@@ -2870,11 +2841,10 @@
         "status": "live",
         "submittedDate": "2026-07-11",
         "publishedDate": "2026-07-11",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/d-01.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-01/spec.json",
         "epub": "kindle-dist/d-01.epub",
         "cover": "kindle-dist/d-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-01.txt",
         "version": "1.0",
         "notes": "KDP 本棚の突合で LIVE 判明(2026-07-15確認)。提出が著者統一(7/11)前後の境目のため、LIVE 版の内部 EPUB が最新 QA 版と一致するかは未確認。",
         "versionHistory": [
@@ -2927,11 +2897,10 @@
         "status": "live",
         "submittedDate": "2026-07-12",
         "publishedDate": "2026-07-12",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/d-02.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-02/spec.json",
         "epub": "kindle-dist/d-02.epub",
         "cover": "kindle-dist/d-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-02.txt",
         "version": "1.0",
         "notes": "KDP 本棚の突合で LIVE 判明(2026-07-15確認)。提出が著者統一(7/11)前後の境目のため、LIVE 版の内部 EPUB が最新 QA 版と一致するかは未確認。",
         "versionHistory": [
@@ -2984,11 +2953,10 @@
         "status": "live",
         "submittedDate": "2026-07-16",
         "publishedDate": "2026-07-23",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/d-03.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-03/spec.json",
         "epub": "kindle-dist/d-03.epub",
         "cover": "kindle-dist/d-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-03.txt",
         "version": "1.1",
         "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを既刊へ差し替え、KDP原稿チェック完了・保存後再検証済み。KDP Selectは2026-10-13 PDTまで登録中、自動更新OFFを実機確認。同日、note版とのデジタル独占競合を解消するためKDPサポートへ早期解除を申請（回答待ち）。 2026-09-23 KDP 価格ページで日本の実効レート 35% を実測（KDP セレクト登録なし表示・プランのラジオは 70% のまま）。早期解除が通った可能性。価格は据え置き・要再判断。",
         "versionHistory": [
@@ -3046,11 +3014,10 @@
         "status": "live",
         "submittedDate": "2026-07-15",
         "publishedDate": "2026-07-15",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/e-01.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-01/spec.json",
         "epub": "kindle-dist/e-01.epub",
         "cover": "kindle-dist/e-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-01.txt",
         "version": "1.0",
         "duplicateDraftAsin": "B0H8KH1N6G",
         "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G（下書き・未出版・売上ゼロ）は、ASIN が付いた本のため KDP の操作メニューに削除が無く、2026-11-10 に本棚のアーカイブへ移した。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
@@ -3102,11 +3069,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/e-02.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02/spec.json",
         "epub": "kindle-dist/e-02.epub",
         "cover": "kindle-dist/e-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-02.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -3174,11 +3140,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-01.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-01/spec.json",
         "epub": "kindle-dist/f-01.epub",
         "cover": "kindle-dist/f-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3225,11 +3190,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-02.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-02/spec.json",
         "epub": "kindle-dist/f-02.epub",
         "cover": "kindle-dist/f-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3276,11 +3240,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-03.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-03/spec.json",
         "epub": "kindle-dist/f-03.epub",
         "cover": "kindle-dist/f-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-03.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3327,11 +3290,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-04.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-04/spec.json",
         "epub": "kindle-dist/f-04.epub",
         "cover": "kindle-dist/f-04.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-04.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3378,11 +3340,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-05.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-05/spec.json",
         "epub": "kindle-dist/f-05.epub",
         "cover": "kindle-dist/f-05.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-05.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3429,11 +3390,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-06.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-06/spec.json",
         "epub": "kindle-dist/f-06.epub",
         "cover": "kindle-dist/f-06.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-06.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3480,11 +3440,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-07.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-07/spec.json",
         "epub": "kindle-dist/f-07.epub",
         "cover": "kindle-dist/f-07.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-07.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3531,11 +3490,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-08.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-08/spec.json",
         "epub": "kindle-dist/f-08.epub",
         "cover": "kindle-dist/f-08.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-08.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3591,11 +3549,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-09.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-09/spec.json",
         "epub": "kindle-dist/f-09.epub",
         "cover": "kindle-dist/f-09.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-09.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3651,11 +3608,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-10.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-10/spec.json",
         "epub": "kindle-dist/f-10.epub",
         "cover": "kindle-dist/f-10.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-10.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3711,11 +3667,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-11.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-11/spec.json",
         "epub": "kindle-dist/f-11.epub",
         "cover": "kindle-dist/f-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-11.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3771,11 +3726,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-12.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-12/spec.json",
         "epub": "kindle-dist/f-12.epub",
         "cover": "kindle-dist/f-12.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-12.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3831,11 +3785,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-13.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-13/spec.json",
         "epub": "kindle-dist/f-13.epub",
         "cover": "kindle-dist/f-13.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-13.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3891,11 +3844,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-14.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-14/spec.json",
         "epub": "kindle-dist/f-14.epub",
         "cover": "kindle-dist/f-14.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-14.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3951,11 +3903,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-15.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-15/spec.json",
         "epub": "kindle-dist/f-15.epub",
         "cover": "kindle-dist/f-15.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-15.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4018,11 +3969,10 @@
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "unpublished",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/f-16.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/f-16/spec.json",
         "epub": "kindle-dist/f-16.epub",
         "cover": "kindle-dist/f-16.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-16.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4085,11 +4035,10 @@
         "priceJpy": 990,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/g-01.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/g-01/spec.json",
         "epub": "kindle-dist/g-01.epub",
         "cover": "kindle-dist/g-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_g-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4151,11 +4100,10 @@
         "priceJpy": 1250,
         "royalty": 0.7,
         "status": "live",
-        "builder": "scripts/build-pe1-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/g-02.json",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/g-02/spec.json",
         "epub": "kindle-dist/g-02.epub",
         "cover": "kindle-dist/g-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_g-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4211,11 +4159,10 @@
         "priceJpy": 2980,
         "royalty": 0.35,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/h-01.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/h-01/spec.json",
         "epub": "kindle-dist/h-01.epub",
         "cover": "kindle-dist/h-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_h-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4286,11 +4233,10 @@
         "royalty": 0.35,
         "chapterCount": 5,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-01.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-01/spec.json",
         "epub": "kindle-dist/i-01.epub",
         "cover": "kindle-dist/i-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4339,11 +4285,10 @@
         "royalty": 0.35,
         "chapterCount": 5,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-02.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-02/spec.json",
         "epub": "kindle-dist/i-02.epub",
         "cover": "kindle-dist/i-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4379,11 +4324,10 @@
         "royalty": 0.35,
         "chapterCount": 10,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-03.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-03/spec.json",
         "epub": "kindle-dist/i-03.epub",
         "cover": "kindle-dist/i-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-03.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4419,11 +4363,10 @@
         "royalty": 0.35,
         "chapterCount": 6,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-04.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-04/spec.json",
         "epub": "kindle-dist/i-04.epub",
         "cover": "kindle-dist/i-04.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-04.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4459,11 +4402,10 @@
         "royalty": 0.35,
         "chapterCount": 14,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-11.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-11/spec.json",
         "epub": "kindle-dist/i-11.epub",
         "cover": "kindle-dist/i-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-11.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4499,11 +4441,10 @@
         "royalty": 0.35,
         "chapterCount": 13,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-12.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-12/spec.json",
         "epub": "kindle-dist/i-12.epub",
         "cover": "kindle-dist/i-12.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-12.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4539,11 +4480,10 @@
         "royalty": 0.35,
         "chapterCount": 11,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-13.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-13/spec.json",
         "epub": "kindle-dist/i-13.epub",
         "cover": "kindle-dist/i-13.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-13.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4579,11 +4519,10 @@
         "royalty": 0.35,
         "chapterCount": 14,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-14.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-14/spec.json",
         "epub": "kindle-dist/i-14.epub",
         "cover": "kindle-dist/i-14.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-14.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4619,11 +4558,10 @@
         "royalty": 0.35,
         "chapterCount": 12,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-15.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-15/spec.json",
         "epub": "kindle-dist/i-15.epub",
         "cover": "kindle-dist/i-15.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-15.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4659,11 +4597,10 @@
         "royalty": 0.35,
         "chapterCount": 12,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-16.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-16/spec.json",
         "epub": "kindle-dist/i-16.epub",
         "cover": "kindle-dist/i-16.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-16.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4699,11 +4636,10 @@
         "royalty": 0.35,
         "chapterCount": 12,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-17.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-17/spec.json",
         "epub": "kindle-dist/i-17.epub",
         "cover": "kindle-dist/i-17.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-17.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4739,11 +4675,10 @@
         "royalty": 0.35,
         "chapterCount": 16,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-18.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-18/spec.json",
         "epub": "kindle-dist/i-18.epub",
         "cover": "kindle-dist/i-18.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-18.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4779,11 +4714,10 @@
         "royalty": 0.35,
         "chapterCount": 8,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-19.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-19/spec.json",
         "epub": "kindle-dist/i-19.epub",
         "cover": "kindle-dist/i-19.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-19.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4819,11 +4753,10 @@
         "royalty": 0.35,
         "chapterCount": 7,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-20.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-20/spec.json",
         "epub": "kindle-dist/i-20.epub",
         "cover": "kindle-dist/i-20.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-20.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4859,11 +4792,10 @@
         "royalty": 0.35,
         "chapterCount": 10,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-21.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-21/spec.json",
         "epub": "kindle-dist/i-21.epub",
         "cover": "kindle-dist/i-21.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-21.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4899,11 +4831,10 @@
         "royalty": 0.35,
         "chapterCount": 7,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-22.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-22/spec.json",
         "epub": "kindle-dist/i-22.epub",
         "cover": "kindle-dist/i-22.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-22.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4939,11 +4870,10 @@
         "royalty": 0.35,
         "chapterCount": 9,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-23.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-23/spec.json",
         "epub": "kindle-dist/i-23.epub",
         "cover": "kindle-dist/i-23.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-23.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4979,11 +4909,10 @@
         "royalty": 0.35,
         "chapterCount": 9,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/i-24.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-24/spec.json",
         "epub": "kindle-dist/i-24.epub",
         "cover": "kindle-dist/i-24.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-24.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5019,11 +4948,10 @@
         "royalty": 0.35,
         "chapterCount": 5,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-01.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-01/spec.json",
         "epub": "kindle-dist/j-01.epub",
         "cover": "kindle-dist/j-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5076,11 +5004,10 @@
         "royalty": 0.35,
         "chapterCount": 4,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-02.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-02/spec.json",
         "epub": "kindle-dist/j-02.epub",
         "cover": "kindle-dist/j-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5116,11 +5043,10 @@
         "royalty": 0.35,
         "chapterCount": 6,
         "status": "live",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-03.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-03/spec.json",
         "epub": "kindle-dist/j-03.epub",
         "cover": "kindle-dist/j-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-03.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5173,11 +5099,10 @@
         "royalty": 0.35,
         "chapterCount": 16,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-11.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-11/spec.json",
         "epub": "kindle-dist/j-11.epub",
         "cover": "kindle-dist/j-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-11.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5213,11 +5138,10 @@
         "royalty": 0.35,
         "chapterCount": 13,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-12.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-12/spec.json",
         "epub": "kindle-dist/j-12.epub",
         "cover": "kindle-dist/j-12.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-12.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5253,11 +5177,10 @@
         "royalty": 0.35,
         "chapterCount": 13,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-13.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-13/spec.json",
         "epub": "kindle-dist/j-13.epub",
         "cover": "kindle-dist/j-13.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-13.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5293,11 +5216,10 @@
         "royalty": 0.35,
         "chapterCount": 8,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-14.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-14/spec.json",
         "epub": "kindle-dist/j-14.epub",
         "cover": "kindle-dist/j-14.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-14.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5333,11 +5255,10 @@
         "royalty": 0.35,
         "chapterCount": 10,
         "status": "ready",
-        "builder": "scripts/build-essay-kindle.mjs",
-        "buildSpec": "scripts/kindle-specs/j-15.json",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-15/spec.json",
         "epub": "kindle-dist/j-15.epub",
         "cover": "kindle-dist/j-15.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-15.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -7675,7 +7596,7 @@
       "members": [],
       "includes": [],
       "memo": [
-        "1級版。PDF は生成済み（scripts/kindle-specs/e-02.json → build-takuitsu-pdf）。",
+        "1級版。PDF は生成済み（content/kindle/books/e-02/spec.json → build-takuitsu-pdf）。",
         "Kindle A系（A-01〜A-06）が KDP Select 加入 LIVE のため、独占明け（~2026-10-06）に",
         "Select を外してから note 公開する（content/kindle/strategy.md）。それまで published: false。"
       ]

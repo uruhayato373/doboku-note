@@ -4,7 +4,7 @@
  * 規則の正本は src/lib/cta-stack.ts（置かれた列の幅いっぱい・上に見出しなし）。記事末で横長バナー（740px）・note（300px の中央寄せ）・
  * ココナラ（2 列の片側）がばらばらだった（2026-11-16 運営者指摘・67 種類 × 2 幅のうち 43 で不一致）。
  * page.evaluate(inspectCtaStacksInPage) で使う。関数の外の変数を参照しない（ブラウザへ文字列で渡るため）。
- * 使う側: scripts/site-visual-review.mjs（機械で決まる崩れ cta-width）・e2e/cta.spec.ts。
+ * 使う側: scripts/reports/site-visual-review.mjs（機械で決まる崩れ cta-width）・e2e/cta.spec.ts。
  *
  * 幅は導線を包む data-cta-stack の箱（CTA_STACK_CLASS を当てた要素）で測り、無ければ導線そのもので測る。data-cta-stack="exempt" は規則の外（トップの全幅の見出し画像）。
  * 判定: 右の欄・ヘッダー・フッター・ナビの外にある、見えている導線を上から並べ、横に並ぶもの（縦の範囲が重なる＝2 列のカードなど）は 1 行にまとめる。

@@ -238,7 +238,7 @@ done
 - **接続詞を段落冒頭に置く** — 「一方で」「さらに」「ただし」を新段落の頭にして流れを保つ
 - **「評価軸：xxx」は独立段落にする** — トレードオフ章
 - **文章リライトはしない** — 改行調整のみ
-- **決定論ツールで一括適用可**: `npm run note-reflow -- [--target N] <file|dir>`（`scripts/reflow-note-paragraphs.mjs`）。>120 字の段落を文（。）境界で再パッキング（語句不変・改行のみ）。答案本文（`## 試験問題` 以降）・見出し・**画像行（`![` で始まる行）**・箇条書きは自動保護。`--dry` で点検先行。詳細: `content-principles.md §14-e`
+- **決定論ツールで一括適用可**: `npm run note-reflow -- [--target N] <file|dir>`（`scripts/note/reflow-note-paragraphs.mjs`）。>120 字の段落を文（。）境界で再パッキング（語句不変・改行のみ）。答案本文（`## 試験問題` 以降）・見出し・**画像行（`![` で始まる行）**・箇条書きは自動保護。`--dry` で点検先行。詳細: `content-principles.md §14-e`
 
 ### 番号削除（一括）
 
@@ -318,7 +318,7 @@ https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}
 
 ### スクリプト雛形
 
-`scripts/render-figure-safety-management.mjs` を参考に `scripts/render-figure-{管理名スラッグ}.mjs` を新規作成。
+SVG を `content/note/{slug}/img/figure-*.svg` に直接書く（生成スクリプトは作らない。note へ上げる PNG は投稿時に SVG から作られ、見た目の確認は `node scripts/build/render-note-figures.mjs <svg>`）。記事ごとの生成スクリプト（render-figure-*.mjs）は 2026-11-19 に退役した。参考にする完成 SVG は `content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/`。
 
 ### 必須仕様（note-svg-policy 準拠）
 
@@ -364,7 +364,7 @@ done
 ### コマンド
 
 ```bash
-node scripts/generate-note-covers.mjs {管理名スラッグ}
+node scripts/build/generate-note-covers.mjs {管理名スラッグ}
 # → content/note/{slug}/img/cover.png が生成される（PNG のみ）
 ```
 
@@ -423,7 +423,7 @@ grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' content/note/magazines/総監テキ
 # → WebSearch で実在確認済みの法令番号と突合
 
 # 6. note 非互換ゲート（pipe表・太字内全角括弧・マガジンCTA形式 = markdown リンク/同一行¥）
-node scripts/note-lint.mjs content/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
+node scripts/note/note-lint.mjs content/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
 # → ✅ OK であること。commit 時に pre-commit でも自動 BLOCK（content-principles.md §14-c）。
 #   マガジン導線は markdown リンクでなく bare URL 単独行・CTA に価格(¥)を書かない。
 
@@ -478,8 +478,8 @@ B9: 最終検証＋commit/push
 ## 参考実装
 
 - **安全管理（完成版）**：`content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/article.md`（806行・19出題例・12図版・カバー画像・全条文 e-gov リンク済み）
-- **図版生成スクリプト**：`scripts/render-figure-safety-management.mjs`
-- **カバー生成**：`scripts/generate-note-covers.mjs`
+- **図版**：`content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/figure-*.svg`（SVG が正本）
+- **カバー生成**：`scripts/build/generate-note-covers.mjs`
 - **既存スキル**：`.claude/skills/note-prepublish-review/SKILL.md`（公開前チェック）
 - **図版品質**：`.claude/knowledge/reference/note-svg-policy.md`
 - **記事品質**：`.claude/knowledge/reference/content-principles.md`

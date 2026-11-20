@@ -18,7 +18,7 @@
 
 | 項目 | 内容 |
 |---|---|
-| ジェネレータ | `scripts/build-takuitsu-reconstruct.mjs`（1 ソース → md / 印刷 html / EPUB） |
+| ジェネレータ | `scripts/build/build-takuitsu-reconstruct.mjs`（1 ソース → md / 印刷 html / EPUB） |
 | 入力 | `src/config/civil-1-exam-questions.json`（H26〜R07・全 1162 問・構造化済み） |
 | 試作テーマ | 安全管理（抽出 194 問 → 図版依存 4 問除外・同趣旨 30 問圧縮 → 収録 160 問・9 論点） |
 | 出力 | `.tmp/takuitsu-anzen/`：`anzen.epub`（Kindle 入稿）／`article.md`（note 貼付）／`print.html`（PDF 化用） |
@@ -34,7 +34,7 @@
 
 ```bash
 # md + 印刷 html + epub をまとめて生成（既定 --format both）
-node scripts/build-takuitsu-reconstruct.mjs --theme anzen
+node scripts/build/build-takuitsu-reconstruct.mjs --theme anzen
 #   --format md | epub | both / --outDir <dir>
 ```
 

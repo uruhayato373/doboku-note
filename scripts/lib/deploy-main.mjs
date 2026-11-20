@@ -1,4 +1,4 @@
-// deploy-main の判定（純粋）。実行は scripts/deploy-main.mjs。
+// deploy-main の判定（純粋）。実行は scripts/ops/deploy-main.mjs。
 
 /** 検査の結果から、昇格してよい develop の commit を選ぶ。commits は新しい順、runs は gh run list の JSON。 */
 export function pickGateTarget(commits, runs) {

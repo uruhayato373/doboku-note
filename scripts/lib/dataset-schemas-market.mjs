@@ -146,7 +146,7 @@ const NoteCompetitorRow = z
     if (min !== null && !(min <= median && median <= max)) flag(ctx, ['price'], '価格が min ≤ median ≤ max になっていない');
   });
 
-/** note の競合クリエイターの時系列（data/note/competitors/<日付>.json）。取得は scripts/scout-note-competitors.mjs */
+/** note の競合クリエイターの時系列（data/note/competitors/<日付>.json）。取得は scripts/note/scout-note-competitors.mjs */
 export const NoteCompetitors = competitorSnapshot({
   head: {
     notePagesPerCreator: z.number().int().min(1).describe('単品記事を何ページ取ったか（1 ページ 1 作者）'),
@@ -204,7 +204,7 @@ const CoconalaCompetitorRow = z
     if (min !== null && !(min <= median && median <= max)) flag(ctx, ['price'], '価格が min ≤ median ≤ max になっていない');
   });
 
-/** ココナラの競合セラーの時系列（data/coconala/competitors/<日付>.json）。取得は scripts/scout-coconala-competitors.mjs */
+/** ココナラの競合セラーの時系列（data/coconala/competitors/<日付>.json）。取得は scripts/coconala/scout-coconala-competitors.mjs */
 export const CoconalaCompetitors = competitorSnapshot({
   head: { platform: z.literal('coconala'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'price', 'new-product', 'removed', 'sales'],
@@ -305,7 +305,7 @@ const XCompetitorRow = z
   .strict()
   .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra', 'engagementLeaders']));
 
-/** X の競合アカウントの時系列（data/x/competitors/<日付>.json）。取得は scripts/scout-x-competitors.mjs */
+/** X の競合アカウントの時系列（data/x/competitors/<日付>.json）。取得は scripts/x/scout-x-competitors.mjs */
 export const XCompetitors = competitorSnapshot({
   head: { platform: z.literal('x'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'followers', 'posts', 'slowdown', 'revived'],
@@ -328,7 +328,7 @@ const IgCompetitorRow = z
   .strict()
   .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra']));
 
-/** Instagram の競合アカウントの時系列（data/instagram/competitors/<日付>.json）。取得は scripts/scout-ig-competitors.mjs */
+/** Instagram の競合アカウントの時系列（data/instagram/competitors/<日付>.json）。取得は scripts/instagram/scout-ig-competitors.mjs */
 export const InstagramCompetitors = competitorSnapshot({
   head: { platform: z.literal('ig'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'followers', 'new-posts', 'removed-posts'],
@@ -340,7 +340,7 @@ export const InstagramCompetitors = competitorSnapshot({
 
 const blogPost = z.object({ title: z.string().nullable(), url: z.url() }).strict();
 
-/** ココナラブログの競合（data/coconala/blog-competitors/<日付>.json）。取得は scripts/scout-coconala-blogs.mjs（検索語ごと・見張るユーザーごと） */
+/** ココナラブログの競合（data/coconala/blog-competitors/<日付>.json）。取得は scripts/coconala/scout-coconala-blogs.mjs（検索語ごと・見張るユーザーごと） */
 export const CoconalaBlogCompetitors = z
   .object({
     schemaVersion: z.literal(1),
@@ -414,7 +414,7 @@ export const CoconalaBlogCompetitors = z
 
 // ---- 自分の X 投稿 ------------------------------------------------------------------------------
 
-/** 自分の X 投稿の反応（data/x/own-posts/<日付>.json）。取得は scripts/x-own-metrics.mjs */
+/** 自分の X 投稿の反応（data/x/own-posts/<日付>.json）。取得は scripts/x/x-own-metrics.mjs */
 export const XOwnPosts = z
   .object({
     schemaVersion: z.literal(1),
@@ -456,7 +456,7 @@ export const XOwnPosts = z
 
 const noteStatusRow = { rel: z.string().min(1).describe('記事ファイルのリポジトリ相対パス'), noteId: z.string().describe('note の記事 id（無ければ「(空)」）'), status: z.string().describe('frontmatter の noteStatus') };
 
-/** note 記事の公開状態の要約（data/note/status.json）。取得は scripts/verify-note-status.mjs --snapshot（週次の CI） */
+/** note 記事の公開状態の要約（data/note/status.json）。取得は scripts/checks/verify-note-status.mjs --snapshot（週次の CI） */
 export const NoteStatusSnapshot = z
   .object({
     schemaVersion: z.literal(1),
@@ -491,7 +491,7 @@ export const NoteStatusSnapshot = z
 /** ココナラの市場調査の検索語の区分（coconala-research.mjs の classify の語彙と同じ） */
 const researchSegment = coconalaSegment;
 
-/** ココナラの市場調査（data/coconala/market-research.json）。取得は scripts/coconala-research.mjs（1 ページごとに書く＝途中経過のファイルも通る） */
+/** ココナラの市場調査（data/coconala/market-research.json）。取得は scripts/coconala/coconala-research.mjs（1 ページごとに書く＝途中経過のファイルも通る） */
 export const CoconalaMarketResearch = z
   .object({
     schemaVersion: z.literal(2).describe('保存形の版。2 は出品を services に URL で 1 件ずつ持つ形（1 は語ごとに出品を重ねて持つ旧形で、読み込み時に 2 へ畳む）'),
@@ -624,7 +624,7 @@ const scanHit = (item, { total = false } = {}) =>
       if (h.error !== undefined && h.items.length > 0) flag(ctx, ['items'], '取得に失敗した語（error あり）が items を持っている');
     });
 
-/** 資格ごとの市場スキャン（data/analysis/qualification-market/<日付>.json）。取得は scripts/scan-qualification-market.mjs。1 ファイル＝その日の市場で、前のファイルを土台に取った語だけ上書きする */
+/** 資格ごとの市場スキャン（data/analysis/qualification-market/<日付>.json）。取得は scripts/reports/scan-qualification-market.mjs。1 ファイル＝その日の市場で、前のファイルを土台に取った語だけ上書きする */
 export const QualificationMarketScan = z
   .object({
     schemaVersion: z.literal(1),
@@ -736,7 +736,7 @@ export const A8Catalog = z
   })
   .meta({ title: 'A8 の提携案件' });
 
-/** A8 の画面取得を最後に回した記録（data/a8/ui-last-run.json）。書くのは scripts/fetch-a8-ui-csv.mjs（ドライランでは書かない）。鮮度の宣言は台帳 */
+/** A8 の画面取得を最後に回した記録（data/a8/ui-last-run.json）。書くのは scripts/fetch/fetch-a8-ui-csv.mjs（ドライランでは書かない）。鮮度の宣言は台帳 */
 export const A8UiLastRun = z
   .object({
     schemaVersion: z.literal(1),
@@ -785,7 +785,7 @@ const ytVideo = z
   })
   .strict();
 
-/** 自社チャンネルの動画ごとの再生数・尺（data/youtube/own-videos/<日付>.json）。取得は scripts/youtube-own-metrics.mjs（月次） */
+/** 自社チャンネルの動画ごとの再生数・尺（data/youtube/own-videos/<日付>.json）。取得は scripts/youtube/youtube-own-metrics.mjs（月次） */
 export const YoutubeOwnVideos = z
   .object({
     schemaVersion: z.literal(1),
@@ -916,7 +916,7 @@ const YoutubeCompetitorRow = z
   .strict()
   .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra']));
 
-/** YouTube の競合チャンネルの時系列（data/youtube/competitors/<日付>.json）。取得は scripts/scout-youtube-competitors.mjs（四半期） */
+/** YouTube の競合チャンネルの時系列（data/youtube/competitors/<日付>.json）。取得は scripts/youtube/scout-youtube-competitors.mjs（四半期） */
 export const YoutubeCompetitors = competitorSnapshot({
   head: { platform: z.literal('youtube'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'subscribers', 'new-videos'],

@@ -24,7 +24,7 @@ const path = require("node:path");
 
 const PROJECT_ROOT = path.resolve(__dirname, "../.."); // root-ok: CJS（ファイルの場所から決めている）
 const CATALOG_PATH = path.join(PROJECT_ROOT, "data/a8/catalog.json"); // path-literal-ok: CommonJS で同期関数（loadCatalog）が export され ESM の台帳を読めない（台帳 id: a8.catalog）
-const CURATED_PATH = path.join(PROJECT_ROOT, "scripts/ads/data/a8-curated.json");
+const CURATED_PATH = path.join(PROJECT_ROOT, "config/a8-curated.json"); // path-literal-ok: CommonJS で同期関数が ESM の台帳を読めない（台帳 id: config.a8-curated）
 
 function loadCatalog() {
   try {

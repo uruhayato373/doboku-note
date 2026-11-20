@@ -187,7 +187,7 @@ export async function enumerateQuestions(qualification, root = REPO_ROOT) {
       .sort();
     return files.flatMap((f) => parseMdxQuestions(readFileSync(f, 'utf8'), { dir: cfg.source.dir, slug: basename(dirname(f)), headingId: cfg.source.headingId }));
   }
-  const { SOURCES, buildDataset } = await import('../build-quiz-data.mjs');
+  const { SOURCES, buildDataset } = await import('../build/build-quiz-data.mjs');
   const source = SOURCES.find((s) => s.exam === cfg.quizExam);
   return buildDataset(source).questions.map((q) => ({ id: q.id, correct: q.correct ?? null, articlePath: q.articlePath }));
 }

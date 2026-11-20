@@ -45,13 +45,13 @@ metadata:
 
 ## 統合: SEO 施策の恒久知見（旧 seo_phase1_phase2_2026_05）
 - LCP: AdSense を `lazyOnload` に変更済み（`NEXT_PUBLIC_ADSENSE_EAGER=1` で即時ロールバック可）。`images.unoptimized:false` 化は Static Export 制約で実装不可。lab PSI のばらつき大→実効果は CrUX（28日後）で判断。
-- 独自データ公開: `essay-keyword-frequency.json`・`/docs/pe-comprehensive-management-essay-data-2026`・`...-primary-statistics-2026`（R01-R07×280問 χ²=1.107＝正答番号偏りなし）。`llms.txt`＋`llms-full.txt`（`scripts/build-llms-txt.mjs` が生成。旧 build-llms-full.mjs は 2026-10-27 に削除）。2026-05-17 ベースライン: Bing 252/Direct 101/Google 77/OpenAI 45（AI 検索合計 61 ≒ Google の79%）。
+- 独自データ公開: `essay-keyword-frequency.json`・`/docs/pe-comprehensive-management-essay-data-2026`・`...-primary-statistics-2026`（R01-R07×280問 χ²=1.107＝正答番号偏りなし）。`llms.txt`＋`llms-full.txt`（`scripts/build/build-llms-txt.mjs` が生成。旧 build-llms-full.mjs は 2026-10-27 に削除）。2026-05-17 ベースライン: Bing 252/Direct 101/Google 77/OpenAI 45（AI 検索合計 61 ≒ Google の79%）。
 
 ## 統合: GA4 取得の既定フィルタ（旧 ga4_default_filter）
 `fetch-ga4-data.mjs` は 2026-05-17 以降、既定で country=Japan＋参照スパム5件除外。生データが要るときだけ `--include-all`。〜2026-05-16 の記録（フィルタ前で5〜6倍値）と直接比較しない。スパム追加は `SPAM_REFERRAL_SOURCES` 配列へ。経緯は measurement-incidents.md 2026-04-26。
 
 ## 統合: ピラー構造と内部リンク（旧 pillar_architecture / issue29_internal_links）
-- PE 5ピラー（経済性/人的資源/情報/安全/社会環境）は hub→pillar＋spoke→pillar が双方向化済み、過去問(H21〜R07・680問)がキーワード紐付け済みで `<RelatedExamQuestions>` 表示。過去問追加後は `npm run refresh-indexes`、新 PE keyword 追加時は `add-pillar-backlinks.mjs`（冪等）。Civil 5ピラーは過去問のキーワード紐付けが 0 件で過去問掲載は保留（再開は別 Issue・要設計）。
+- PE 5ピラー（経済性/人的資源/情報/安全/社会環境）は hub→pillar＋spoke→pillar が双方向化済み、過去問(H21〜R07・680問)がキーワード紐付け済みで `<RelatedExamQuestions>` 表示。過去問追加後は `npm run refresh-indexes`、ピラーへの導線は `PillarNavCard`（サイドバー・モバイル末尾）が出すので、新 PE keyword に本文の導線は足さない（本文へ「📘 学習ガイド」の引用を差し込む旧 add-pillar-backlinks.mjs は 2026-11-19 に削除）。Civil 5ピラーは過去問のキーワード紐付けが 0 件で過去問掲載は保留（再開は別 Issue・要設計）。
 - Issue #29（内部リンク拡充）は PE keyword 648ページに `<RelatedKeywords>` を設置して完了・追加施策しない（`insert-keyword-relations` 手順は exam-backlinks SKILL）。既知の制約: pe-chapters.json 未登録の orphan（general-overview 等）は対象外／section 6.2 は意味的に異質なキーワードが混在し関連リンクが弱い→section 再編で改善。
 
 ## 統合: コンテンツ復活・reference-materials 分離（旧 content_resurrection・2026-04-19）

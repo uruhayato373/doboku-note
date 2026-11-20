@@ -10,9 +10,9 @@
 // CLI（X は tweets.md 直書きのため人手/エージェントが Bash で呼ぶ）:
 //   node scripts/lib/utm-builder.mjs --url <URL> --channel x --format post --campaign <name> [--content <c>] [--force]
 
-import { fileURLToPath } from 'node:url';
 import { loadUtmTemplates } from './utm-contract.mjs';
 import { parseCliArgs } from './cli-args.mjs';
+import { isCliEntry } from './cli-run.mjs';
 
 // 契約（config/utm-templates.json）の読み込みは scripts/lib/utm-contract.mjs。従来どおりここから import できるよう再公開する。
 export { loadUtmTemplates };
@@ -82,7 +82,7 @@ function parseArgs(argv) {
   }, argv);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   const a = parseArgs(process.argv.slice(2));
   if (!a.url || !a.channel || !a.format) {
     console.error('Usage: node utm-builder.mjs --url <URL> --channel <x|instagram|youtube|note> --format <post|reel|carousel|shorts|...> [--campaign <name>] [--content <c>] [--force]');

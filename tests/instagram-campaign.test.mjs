@@ -12,7 +12,7 @@ const write = (root, path, value) => { const p = join(root, path); mkdirSync(dir
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'ig-campaign-')); t.after(() => rmSync(root, { recursive: true, force: true }));
   for (const f of ['scripts/lib/instagram-video-design.mjs', 'scripts/lib/video-explanation.mjs', 'config/video-brand.json', 'config/character-poses.json',
-    'scripts/render-instagram-video-pack-carousels.mjs', 'scripts/render-instagram-video-pack-reels.mjs', 'scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', 'scripts/lib/sns-common/reading-dict.mjs']) write(root, f, readFileSync(join(repo, f), 'utf8'));
+    'scripts/build/render-instagram-video-pack-carousels.mjs', 'scripts/build/render-instagram-video-pack-reels.mjs', 'scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', 'scripts/lib/sns-common/reading-dict.mjs']) write(root, f, readFileSync(join(repo, f), 'utf8'));
   const topics = Array.from({ length: 112 }, (_, i) => { const dir = `content/sns/instagram/video-packs/civil-construction-1/p-${i}`;
     return { sourcePackId: `p-${i}`, exam: 'civil-construction-1', carousel: dir, reels: [`${dir}-a`, `${dir}-b`] }; });
   const plan = { schemaVersion: 1, id: 'test', account: 'dobokunotecom', design: IG_DESIGN, productionFirst: true, publicationEnabled: false,

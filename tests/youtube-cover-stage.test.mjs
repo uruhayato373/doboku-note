@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { approvedCoverTransfers, verifyCoverBytes } from '../scripts/stage-youtube-covers.mjs';
+import { approvedCoverTransfers, verifyCoverBytes } from '../scripts/youtube/stage-youtube-covers.mjs';
 import { coverInputDigest } from '../scripts/lib/youtube-approved-cover.mjs';
 
 const bytes = Buffer.from('approved pixels');

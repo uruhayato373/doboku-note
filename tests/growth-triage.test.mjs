@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateDecisions, renderCard, insertCard, nextExperimentId, newExperiment, closeExperiment, pendingItems } from '../scripts/lib/growth-triage.mjs';
 import { parseBacklog, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
-import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
+import { validateCards, validateStagedLines } from '../scripts/checks/check-backlog-schema.mjs';
 import { loadDomains } from '../scripts/lib/domains.mjs';
 
 const seo = { id: 'OPP-aaaaaaaaaa', category: 'seo', type: 'seo-high-impr-low-ctr', title: '「過去問 解答」は平均 4 位なのに CTR 0%', key: { page: '/exam/civil-construction-1/secondary/r07', query: '過去問 解答' }, expectedWeeklyGain: { value: 3.2, unit: 'searchClicks' }, contentPath: 'content/site/civil-construction-1/secondary-r07.mdx', suggest: ['experiment', 'backlog'] };
@@ -78,7 +78,7 @@ test('pendingItems counts only decisions made for this digest week', () => {
   assert.deepEqual(pendingItems(digest, { entries: [{ id: seo.id, week: '2026-W38' }] }).map((i) => i.id), [rev.id]);
 });
 
-import { checkTriage } from '../scripts/check-growth-triage.mjs';
+import { checkTriage } from '../scripts/checks/check-growth-triage.mjs';
 
 test('check-growth-triage requires full disposition of the digest and the marker in the review', () => {
   const digest = { week: '2026-W38', generatedAt: '2026-09-25T21:10:00Z', surfaced: [seo, rev] };

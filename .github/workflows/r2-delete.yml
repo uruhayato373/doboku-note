@@ -59,4 +59,4 @@ jobs:
           if [ "${{ github.event.inputs.allow_unpreserved }}" = "true" ]; then
             ARGS="$ARGS --allow-unpreserved"
           fi
-          node scripts/delete-r2-objects.mjs $ARGS
+          node scripts/storage/delete-r2-objects.mjs $ARGS

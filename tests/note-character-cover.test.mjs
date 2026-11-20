@@ -9,7 +9,7 @@ import sharp from 'sharp';
 import { readFileSync } from 'node:fs';
 import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues, COVER_LAYOUTS, magazineDisplayCopy } from '../scripts/lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from '../scripts/lib/note-cover-inventory.mjs';
-import { MAGAZINES } from '../scripts/generate-magazine-covers.mjs';
+import { MAGAZINES } from '../scripts/build/generate-magazine-covers.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('pose choices follow the topic and keep explicit editorial choices', () => {
@@ -38,7 +38,7 @@ test('a series has reproducible variation without changing its supplied copy', (
 
 test('output roots cannot overlap the source checkout or its content tree', () => {
   const root = mkdtempSync(resolve(tmpdir(), 'note-cover-output-'));
-  const script = fileURLToPath(new URL('../scripts/generate-note-character-covers.mjs', import.meta.url));
+  const script = fileURLToPath(new URL('../scripts/build/generate-note-character-covers.mjs', import.meta.url));
   try {
     for (const output of [root, resolve(root, 'content'), resolve(root, 'content/note')]) {
       const result = spawnSync(process.execPath, [script, '--source-root', root, '--output-root', output], { encoding: 'utf8' });
@@ -136,7 +136,7 @@ test('article, magazine and batch generators share one inventory so a single rer
   assert.equal(inventory.errors.length, 0);
   assert.ok(inventory.retired.some(r => r.id === 'whitepaper-r7-strategy'));
   // 通常生成器は旧 G2/V4 テンプレを import しない（1 件再生成で旧デザインへ戻る回帰の静的ゲート）
-  for (const file of ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/check-note-cover-fit.mjs']) {
+  for (const file of ['scripts/build/generate-note-covers.mjs', 'scripts/build/generate-magazine-covers.mjs', 'scripts/checks/check-note-cover-fit.mjs']) {
     const source = readFileSync(resolve(root, file), 'utf8');
     assert.doesNotMatch(source, /ogp-templates\.mjs|renderTemplate\(|v4FitIssues/, file);
     assert.match(source, /note-cover-inventory\.mjs/, file);

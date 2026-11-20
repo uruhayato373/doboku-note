@@ -20,9 +20,9 @@ domain: material
 
 | ファイル | 役割 |
 |---|---|
-| `scripts/build-exam-notebook.mjs` | MDX → MD 変換（JSX 削除、frontmatter 簡略化、U+FFFD 検出） |
-| `scripts/notebooklm-notebook-builder.mjs` | notebook 操作 CLI（find-or-create / list-sources / add-source / bulk-add） |
-| `scripts/notebooklm-cross-query.mjs` | 構築後のクエリ用（既存ラッパー） |
+| `scripts/build/build-exam-notebook.mjs` | MDX → MD 変換（JSX 削除、frontmatter 簡略化、U+FFFD 検出） |
+| `scripts/content/notebooklm-notebook-builder.mjs` | notebook 操作 CLI（find-or-create / list-sources / add-source / bulk-add） |
+| `scripts/content/notebooklm-cross-query.mjs` | 構築後のクエリ用（既存ラッパー） |
 | `.tmp/exam-notebook/{year}-primary.md` | 変換結果（gitignore 配下） |
 | `.tmp/exam-notebook/manifest-{label}.json` | bulk-add 用マニフェスト |
 
@@ -38,8 +38,8 @@ domain: material
 MDX を変換し `.tmp/exam-notebook/{year}-primary.md` に出力。副作用なし、idempotent。
 
 ```bash
-node scripts/build-exam-notebook.mjs --year r07
-node scripts/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
+node scripts/build/build-exam-notebook.mjs --year r07
+node scripts/build/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
 ```
 
 **変換ポリシー**:
@@ -59,7 +59,7 @@ node scripts/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
 
 ```bash
 # 1. 変換
-node scripts/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
+node scripts/build/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
 
 # 2. マニフェスト作成（年度ごとに { file, title } を列挙）
 cat > .tmp/exam-notebook/manifest-r03-r07.json <<EOF
@@ -73,7 +73,7 @@ cat > .tmp/exam-notebook/manifest-r03-r07.json <<EOF
 EOF
 
 # 3. notebook 構築（idempotent: 既存 source は --skip-existing で skip）
-node scripts/notebooklm-notebook-builder.mjs bulk-add \
+node scripts/content/notebooklm-notebook-builder.mjs bulk-add \
   --notebook "総監一次択一過去問" \
   --manifest .tmp/exam-notebook/manifest-r03-r07.json \
   --skip-existing
@@ -84,7 +84,7 @@ node scripts/notebooklm-notebook-builder.mjs bulk-add \
 `notebooklm source list -n <notebook> --json` で投入結果を検証。
 
 ```bash
-node scripts/notebooklm-notebook-builder.mjs list-sources --notebook "総監一次択一過去問"
+node scripts/content/notebooklm-notebook-builder.mjs list-sources --notebook "総監一次択一過去問"
 ```
 
 各 source の `status: "ready"` を確認。`failed` があれば該当年度を `refresh` で再投入。
@@ -95,15 +95,15 @@ node scripts/notebooklm-notebook-builder.mjs list-sources --notebook "総監一�
 
 ```bash
 # 1. 既存 source を削除
-node scripts/notebooklm-notebook-builder.mjs delete-source \
+node scripts/content/notebooklm-notebook-builder.mjs delete-source \
   --notebook "総監一次択一過去問" \
   --title "R07一次択一40問"
 
 # 2. 再変換
-node scripts/build-exam-notebook.mjs --year r07
+node scripts/build/build-exam-notebook.mjs --year r07
 
 # 3. 再投入
-node scripts/notebooklm-notebook-builder.mjs add-source \
+node scripts/content/notebooklm-notebook-builder.mjs add-source \
   --notebook "総監一次択一過去問" \
   --file .tmp/exam-notebook/r07-primary.md \
   --title "R07一次択一40問"
@@ -115,12 +115,12 @@ node scripts/notebooklm-notebook-builder.mjs add-source \
 
 ```bash
 # 単一 notebook
-node scripts/notebooklm-cross-query.mjs \
+node scripts/content/notebooklm-cross-query.mjs \
   --notebooks "総監一次択一過去問" \
   "R07 Ⅰ-1-24 の選択肢で問われている用語を 3 つ挙げてください"
 
 # 教材と並列クエリ（needs_review 検証用途）
-node scripts/notebooklm-cross-query.mjs \
+node scripts/content/notebooklm-cross-query.mjs \
   --notebooks "総監一次択一過去問,総監標準テキスト" \
   "サプライチェーンは BCM の検討範囲に含まれるか"
 ```

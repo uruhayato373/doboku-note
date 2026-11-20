@@ -20,10 +20,10 @@ domain: product
 
 0. **受注の実体を読む**: `data/coconala/orders-snapshot.json` の取得日を報告の冒頭に書き、`npm run check-coconala-orders` を実行する（取得は土曜の Mac 収集の coconala 段。セッションからは `coconala-orders` を動かさない）。
    記録漏れ・金額ズレ・**返信期限（無連絡で自動キャンセル）**・納品滞留を機械が surface する。
-   snapshot が古い/無いときは exit 2＝**検査不成立**なので「受注 0 件」と報告せず「未取得」と書き、運営者に次の土曜か端末での `node scripts/weekly-collect.mjs --only coconala` を案内する。
-1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
+   snapshot が古い/無いときは exit 2＝**検査不成立**なので「受注 0 件」と報告せず「未取得」と書き、運営者に次の土曜か端末での `node scripts/ops/weekly-collect.mjs --only coconala` を案内する。
+1. **整合チェック**: `node scripts/checks/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
    ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
-2. **KPI を読む**: 取得（`coconala-analytics -- --append-kpi`）は土曜の Mac の収集（weekly-collect の coconala 段）だけが行う。セッションはログインして取りに行かず、`data/coconala/kpi.json` の `weekly` / `blogsWeekly`（`weekOf`＝ISO 週初の月曜）と `npm run check-coconala-analytics`（鮮度・欠測・マスク値・kpi.json 整合）を読み、`data/coconala/analytics.json` の取得日を報告に書く。古い・空なら数値を埋めず「未取得」と書き、次の土曜の収集を待つか、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only coconala` を実行する。読み方は下の「分析の記録の読み方」。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
+2. **KPI を読む**: 取得（`coconala-analytics -- --append-kpi`）は土曜の Mac の収集（weekly-collect の coconala 段）だけが行う。セッションはログインして取りに行かず、`data/coconala/kpi.json` の `weekly` / `blogsWeekly`（`weekOf`＝ISO 週初の月曜）と `npm run check-coconala-analytics`（鮮度・欠測・マスク値・kpi.json 整合）を読み、`data/coconala/analytics.json` の取得日を報告に書く。古い・空なら数値を埋めず「未取得」と書き、次の土曜の収集を待つか、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/ops/weekly-collect.mjs --only coconala` を実行する。読み方は下の「分析の記録の読み方」。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
    数値は `period` 区間の累計（`cumulative: true`・既定30日ローリング）なので、**前週行との引き算で「今週の伸び」を出さない**。
 3. **受注サマリ**: `data/coconala/orders.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
 4. **判定を報告**:
@@ -66,8 +66,8 @@ domain: product
 ## 参照
 
 - エージェント: `.claude/agents/coconala-traffic-analyst.md`（閾値越えの週だけ・解釈）／`.claude/agents/coconala-listing-operator.md`（是正の実行）
-- 分析の収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-analytics.mjs`（`npm run coconala-analytics`）／検査: `scripts/check-coconala-analytics.mjs`
-- 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）／`scripts/check-coconala-orders.mjs`（`npm run check-coconala-orders`）
-- 受注の実体収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
+- 分析の収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala/coconala-analytics.mjs`（`npm run coconala-analytics`）／検査: `scripts/checks/check-coconala-analytics.mjs`
+- 機械ガード: `scripts/checks/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）／`scripts/checks/check-coconala-orders.mjs`（`npm run check-coconala-orders`）
+- 受注の実体収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / KPI・撤退ライン: `content/note/1級・2級土木/ココナラ展開キット.md` §6
 - 受注処理は `/coconala-order`（`coconala-order-drafter`）

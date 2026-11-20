@@ -33,7 +33,7 @@ function checkGrowthWindow(file, ctx) {
   if (baseline.startDate !== shiftDate(baseline.endDate, -(baseline.days - 1))) flag(ctx, ['baseline', 'days'], `days ${baseline.days} が基線の開始〜終了日の日数と合わない`);
 }
 
-// ---- 成長パック（analysis.growth-pack・scripts/fetch-growth-pack.mjs が書く） ---------------
+// ---- 成長パック（analysis.growth-pack・scripts/fetch/fetch-growth-pack.mjs が書く） ---------------
 
 const GA4_METRICS = z.object({
   sessions: num('セッション'),
@@ -142,7 +142,7 @@ export const GrowthPack = z
   })
   .meta({ title: '成長パック（週次の材料）' });
 
-// ---- 成長ダイジェスト（analysis.growth-digest・scripts/build-growth-digest.mjs が書く） -----
+// ---- 成長ダイジェスト（analysis.growth-digest・scripts/build/build-growth-digest.mjs が書く） -----
 
 const DELTA_PCT = z.number().nullable().describe('基線の週平均との差（%）。基線が 0 のとき null');
 const KPI_GA4 = z.object({
@@ -238,7 +238,7 @@ export const GrowthDigest = z
   })
   .meta({ title: '成長ダイジェスト（週次の改善機会）' });
 
-// ---- 収益導線の網羅（analysis.monetization-coverage・scripts/report-monetization-coverage.mts が書く） ----
+// ---- 収益導線の網羅（analysis.monetization-coverage・scripts/reports/report-monetization-coverage.mts が書く） ----
 
 const PairWindow = windowStartEnd('GA4 の取得窓');
 /** 記事・ハブごとの収益導線の網羅（data/analysis/monetization/coverage-{時刻}.json）。読むのは最新 1 本 */
@@ -312,7 +312,7 @@ export const MonetizationCoverage = z
   })
   .meta({ title: '収益導線の網羅' });
 
-// ---- 演習アプリの有料化ファネル（analysis.quiz-premium-funnel・scripts/report-quiz-premium-funnel.mjs が書く） ----
+// ---- 演習アプリの有料化ファネル（analysis.quiz-premium-funnel・scripts/reports/report-quiz-premium-funnel.mjs が書く） ----
 
 const QuizFunnelMetrics = z.object({
   quizUsers: count('演習の利用者（quiz_start の totalUsers）'),
@@ -348,7 +348,7 @@ export const QuizPremiumFunnel = z
   })
   .meta({ title: '演習アプリの有料化ファネル' });
 
-// ---- 転職アフィリエイトのファネル（analysis.career-funnel・scripts/report-career-funnel.mjs が書く） ----
+// ---- 転職アフィリエイトのファネル（analysis.career-funnel・scripts/reports/report-career-funnel.mjs が書く） ----
 
 const ImprClicks = z.object({ impressions: count('表示'), clicks: count('クリック') }).strict();
 const A8Sum = z.object({ clicks: count('クリック'), conversions: count('発生'), approved: count('確定'), revenueYen: count('確定報酬（円）') }).strict();

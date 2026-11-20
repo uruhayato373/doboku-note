@@ -44,6 +44,7 @@ import { parseBacklog } from './backlog-lib.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
 import { youtubePublications } from './registry-youtube-view.mjs';
 import { loadVideoState } from './registry-video-state.mjs';
+import { KINDLE_CATALOG_SOURCE, loadKindleCatalog } from './kindle-catalog.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
@@ -471,10 +472,10 @@ export function mapNoteArticles(entries, todayKey) {
   return events;
 }
 
-/** Kindle catalog → 提出日・公開日（商品）。 */
-export function mapKindleCatalog(json, relPath) {
+/** Kindle の書籍の行 → 提出日・公開日（商品）。 */
+export function mapKindleCatalog(books, relPath) {
   const events = [];
-  for (const b of json?.books ?? []) {
+  for (const b of books ?? []) {
     for (const [field, verb] of [['submittedDate', '提出'], ['publishedDate', '公開']]) {
       const date = toJstDate(b[field]);
       if (!date) continue;
@@ -798,8 +799,8 @@ function readNoteArticles(rootDir, todayKey) {
 }
 
 function readKindleCatalog(rootDir) {
-  const relPath = 'scripts/kindle-published/catalog.json';
-  return readSource('kindle-catalog', 'kindle', relPath, () => mapKindleCatalog(readJsonFile(join(rootDir, relPath)), relPath));
+  const relPath = KINDLE_CATALOG_SOURCE;
+  return readSource('kindle-catalog', 'kindle', relPath, () => mapKindleCatalog(loadKindleCatalog(rootDir), relPath));
 }
 
 async function readCoconalaCatalog(rootDir) {

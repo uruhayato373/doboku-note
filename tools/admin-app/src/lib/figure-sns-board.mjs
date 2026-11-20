@@ -2,9 +2,9 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { globSync } from 'glob';
-import { validateFigurePack, FIGURE_SLIDES } from '../../../../scripts/render-figure-pack.mjs';
-import { validateXFigureDraft } from '../../../../scripts/render-x-figure-drafts.mjs';
-import { normalizePosted } from '../../../../scripts/ig-status.mjs';
+import { validateFigurePack, FIGURE_SLIDES } from '../../../../scripts/build/render-figure-pack.mjs';
+import { validateXFigureDraft } from '../../../../scripts/build/render-x-figure-drafts.mjs';
+import { normalizePosted } from '../../../../scripts/instagram/ig-status.mjs';
 
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
 const hash = path => createHash('sha256').update(readFileSync(path)).digest('hex');

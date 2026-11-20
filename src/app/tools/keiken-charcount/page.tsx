@@ -22,7 +22,7 @@ const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
   { id: "civil-2-experience-essay", lead: "2級｜自分の工事に置き換えて書ける完成答案" },
 ];
 
-// 解答欄の字数上限は config/keiken-answer-sheet-limits.json が唯一の正本（scripts/keiken-charcount.mjs と同じ）。
+// 解答欄の字数上限は config/keiken-answer-sheet-limits.json が唯一の正本（scripts/content/keiken-charcount.mjs と同じ）。
 // 静的ページなのでビルド時にここで読み、級 × 設問キーの maxChars だけをクライアントへ渡す（説明文などは載せない）。
 const LIMITS = Object.fromEntries(
   Object.entries(limitsConfig.grades).map(([grade, g]) => [

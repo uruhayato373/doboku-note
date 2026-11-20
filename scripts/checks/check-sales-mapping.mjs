@@ -1,0 +1,185 @@
+#!/usr/bin/env node
+// data/note/sales.json に出現する productId と、公開済み単品商品が config/sales-product-map.json（旧 sales-recorder エージェントの表）の
+// mapping テーブルに文書化されているかを検証する（capability ドリフトの再発防止）。
+//
+// 背景: .claude/knowledge/reference/sales-tracking.md「新商品の追加」手順② は「新商品を売ったら
+// config/sales-product-map.json に追加する」と定めるが、
+// 人手の規律のため取りこぼす（2026-06、建設部門2次 選択科目マガジン・他科目R8予想 等が
+// mapping に1件も無く、エージェントに任せると半数が article:unknown-* に落ちて手作業化した）。
+// check-doc-coupling.mjs が「台帳の更新もれ」を機械検知するのと同じ思想で、本ガードは
+// 「sales mapping の更新もれ」を commit 時に検知して止める。
+//
+// 検査内容:
+//   1. data/note/sales.json の distinct productId を収集
+//   2. src/lib/note-magazines.ts の公開済み単品（/n/）を article:<id> として収集
+//   3. config/sales-product-map.json の productId・examples・looseIds をパターンとして集め
+//      （`{subject}`→任意 slug, `{N}`→数字, `{a|b}`→選択肢, `*`→任意）正規表現に変換
+//   4. どのパターンにも一致せずカタログ（note-magazines.ts の公開済み）にも無い productId と、公開単品の明示 mapping 漏れを
+//      違反として列挙。article:unknown-* は note-sales-fetch が「保留」として書く正規の状態なので WARN（題名つき）に留める
+//      （2026-10-08: unknown 1 件と新マガジンの初売上で CI の書き戻しが止まり、10 月の売上が台帳に入らなかった。
+//      未解決は business-direction が売上の網羅性を partial にして示す）
+//
+// --staged 時は data/note/sales.json / sales-product-map.json / note-magazines.ts のいずれかが
+// staged の場合のみ起動（それ以外は no-op）。
+// 違反が 1 件でもあれば exit 1。緊急回避: SKIP_SALES_MAPPING=1、または git commit --no-verify。
+//
+// 使い方:
+//   node scripts/checks/check-sales-mapping.mjs            # 常時フル検査
+//   node scripts/checks/check-sales-mapping.mjs --staged   # pre-commit 用
+//   npm run check-sales-mapping
+//
+// 真実源: .claude/knowledge/reference/sales-tracking.md / config/sales-product-map.json
+
+import { readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { catalogProductIds, publishedArticleProductIds } from '../lib/sales-mapping.mjs';
+import { datasetPath } from '../lib/datasets.mjs';
+import { REPO_ROOT } from '../lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const SALES_LOG = datasetPath('note.sales');
+const MAP_FILE = datasetPath('config.sales-product-map');
+const NOTE_CATALOG = join(REPO_ROOT, 'src', 'lib', 'note-magazines.ts');
+// git の出力（リポジトリからの相対・/ 区切り）と比べるための形
+const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+
+if (process.env.SKIP_SALES_MAPPING === '1') {
+  console.log('[check-sales-mapping] スキップ（SKIP_SALES_MAPPING=1）');
+  __exit(0);
+}
+
+const staged = __argv.includes('--staged');
+
+if (staged) {
+  let stagedFiles = [];
+  try {
+    stagedFiles = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR'], {
+      encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+      .split('\n')
+      .map((s) => s.trim())
+      .filter(Boolean);
+  } catch {
+    stagedFiles = [];
+  }
+  if (
+    !stagedFiles.includes(SALES_LOG) &&
+    !stagedFiles.includes(MAP_FILE) &&
+    !stagedFiles.includes(repoRel(NOTE_CATALOG))
+  ) {
+    __exit(0); // 売上系の変更が無いコミットは対象外
+  }
+}
+
+// --- 1. data/note/sales.json の distinct productId ---
+let log;
+try {
+  log = JSON.parse(readFileSync(SALES_LOG, 'utf8'));
+} catch (e) {
+  console.error(`[check-sales-mapping] ${SALES_LOG} を読めません: ${e.message}`);
+  __exit(1);
+}
+const productIds = [...new Set((log.sales || []).map((s) => s.productId).filter(Boolean))];
+
+// --- 2. config/sales-product-map.json から productId パターンを集める ---
+const salesMap = JSON.parse(readFileSync(MAP_FILE, 'utf8'));
+const codeSpans = [
+  ...salesMap.sections.flatMap((sec) => sec.entries.flatMap((e) => [e.productId, ...(e.examples ?? [])])),
+  ...(salesMap.looseIds ?? []),
+].map((t) => t.trim());
+
+// productId らしいトークンのみ採用（小文字 slug。空白・大文字・< > （ 等を含むものは除外）
+// 先頭は小文字/数字。以降は `{N}` 等プレースホルダ内の大文字も許容する。
+const idLike = (t) =>
+  /^[a-z0-9][a-zA-Z0-9:_*{}|/.\-]*$/.test(t) && (t.startsWith('article:') || t.includes('-'));
+const patternTokens = [...new Set(codeSpans.filter(idLike))];
+
+// 正規表現メタ文字をエスケープ（リテラル部分用）
+const escapeLit = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, (r) => '\\' + r);
+
+// パターン文字列 → 正規表現。`{subject}`→slug, `{N}`→数字, `{a|b}`→選択肢, `*`→任意。
+// `{...}` と `*` を境界にトークン分割し、リテラル部分だけをエスケープする。
+function patternToRegExp(p) {
+  let out = '';
+  let last = 0;
+  const re = /\{([^}]+)\}|\*/g;
+  let m;
+  while ((m = re.exec(p)) !== null) {
+    out += escapeLit(p.slice(last, m.index));
+    if (m[0] === '*') {
+      out += '.*';
+    } else {
+      const inner = m[1];
+      if (inner.includes('|')) {
+        out += '(' + inner.split('|').map((x) => escapeLit(x.trim())).join('|') + ')';
+      } else if (/^N$/i.test(inner)) {
+        out += '[0-9]+';
+      } else {
+        out += '[a-z0-9-]+';
+      }
+    }
+    last = re.lastIndex;
+  }
+  out += escapeLit(p.slice(last));
+  return new RegExp('^' + out + '$');
+}
+
+const patterns = patternTokens.map((t) => ({ src: t, re: patternToRegExp(t) }));
+const catalogSource = readFileSync(NOTE_CATALOG, 'utf8');
+const catalogArticleIds = publishedArticleProductIds(catalogSource);
+const catalogIds = new Set(catalogProductIds(catalogSource));
+
+// --- 3. 公開済み単品カタログを収集し、売上実績と合わせて照合 ---
+const violations = [];
+const unresolved = [];
+for (const id of productIds) {
+  if (/(^|:)unknown-/.test(id)) {
+    unresolved.push(id);
+    continue;
+  }
+  const hit = catalogIds.has(id) || patterns.some((p) => p.re.test(id));
+  if (!hit) {
+    violations.push({ id, reason: 'note-magazines.ts の公開済みにも sales-product-map.json の mapping にも無い' });
+  }
+}
+if (unresolved.length) {
+  const titleOf = (id) => (log.sales || []).find((s) => s.productId === id)?.title ?? '';
+  console.log(`[check-sales-mapping] WARN: productId 未解決 ${unresolved.length} 件（article:unknown-*・正しい id に直すまで売上の網羅性は partial）`);
+  for (const id of unresolved) console.log(`  - ${id}  ${titleOf(id)}`);
+}
+
+for (const id of catalogArticleIds) {
+  if (!patternTokens.includes(id)) {
+    violations.push({
+      id,
+      reason: 'note-magazines.ts の公開済み単品だが sales-product-map.json に明示 mapping がない',
+    });
+  }
+}
+
+if (violations.length === 0) {
+  console.log(
+    `[check-sales-mapping] ✓ 売上 productId ${productIds.length} 種（未解決 ${unresolved.length}）＋公開単品 ${catalogArticleIds.length} 件は全てカタログか sales-product-map.json の mapping に存在`
+  );
+  __exit(0);
+}
+
+console.error('[check-sales-mapping] ✗ mapping 未文書化の productId を検出:');
+for (const v of violations) {
+  console.error(`  - ${v.id}  （${v.reason}）`);
+}
+console.error('');
+console.error('対処: sales-product-map の対応表（台帳 config.sales-product-map）に該当行を追加し');
+console.error('      （命名規則は .claude/knowledge/reference/sales-tracking.md）、同一コミットに含めてください。');
+console.error(`      slug 自体が誤りなら ${SALES_LOG} を修正。緊急回避は SKIP_SALES_MAPPING=1。`);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

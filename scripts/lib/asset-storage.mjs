@@ -104,7 +104,7 @@ export async function makeS3() {
     throw new Error(
       'asset-storage: R2 credential が無い。.env.local に CLOUDFLARE_ACCOUNT_ID / '
       + 'CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY を置くか、CI の env で供給すること。'
-      + '（credential をローカルへ置かない運用なら scripts/asset-inbox-push.mjs で CI へ渡す。'
+      + '（credential をローカルへ置かない運用なら scripts/storage/asset-inbox-push.mjs で CI へ渡す。'
       + '--dry-run / --offline なら credential 不要）',
     );
   }
@@ -446,7 +446,7 @@ export function expandManifestFromLeanFormat(manifest, cfg = loadConfig()) {
 // srcHash は OGP 画像の鮮度検知用（DN-0156 系）。中身は MDX frontmatter（title 等）から
 // 導出した非秘密の短縮ハッシュで、値そのものが秘密になり得ないので allowlist に入れてよい
 // （長さの根拠は findSecrets の long-hex-secret 除外条件を参照。16 桁に切り詰める理由は
-// scripts/update-ogp-srchash.mjs のコメントを参照）。
+// scripts/maint/update-ogp-srchash.mjs のコメントを参照）。
 const ENTRY_KEYS = ['bucket', 'r2Key', 'sha256', 'bytes', 'visibility', 'regenerable', 'group', 'verifiedAt', 'width', 'height', 'srcHash'];
 export function sanitizeEntry(e) {
   const out = {};
@@ -533,7 +533,7 @@ export function ensureLocal(absPath) {
   const rel = toPosix(absPath.startsWith(REPO_ROOT) ? absPath.slice(REPO_ROOT.length + 1) : absPath);
   const entry = loadManifest().entries?.[rel];
   if (!entry) return false;
-  const r = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/asset-hydrate.mjs'), '--path', rel], {
+  const r = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/storage/asset-hydrate.mjs'), '--path', rel], {
     cwd: REPO_ROOT, stdio: 'inherit',
   });
   return r.status === 0 && existsSync(absPath);

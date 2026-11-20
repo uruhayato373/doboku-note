@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pendingFiles, jstDate } from '../scripts/past-exam-fetch.mjs';
-import { buildPlan, findRemote, toRepoPath, resolveFolderIds } from '../scripts/drive-browser-transfer.mjs';
+import { pendingFiles, jstDate } from '../scripts/content/past-exam-fetch.mjs';
+import { buildPlan, findRemote, toRepoPath, resolveFolderIds } from '../scripts/storage/drive-browser-transfer.mjs';
 
 const cfg = { groups: [
   { id: 'past-exam-source-pdf', status: 'active', match: { pathRegex: '^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$' }, vaultDir: '原資料PDF/過去問', keyFrom: 'stripPrefix:content/sources/past-exams/' },

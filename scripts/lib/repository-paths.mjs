@@ -14,6 +14,7 @@
  * 2026-08-18 時点は移行中で、`LEGACY_*` が現行 SSOT。移動が済んだ領域から
  * 正規の定数へ切り替える（新旧のコピーを同時に持たない）。
  */
+import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,6 +22,24 @@ import { fileURLToPath } from 'node:url';
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const at = (...segments) => join(REPO_ROOT, ...segments);
+
+// --- scripts/ の CLI の置き場 ---------------------------------------------
+/**
+ * scripts/ の直下を用途で分けたフォルダ（CLI の置き場。lib・ads など部品や機能単位のフォルダは含めない）。
+ * フォルダを足したらここにだけ足す。名前から CLI を引く cliRelPath と、到達しない CLI の検査（check-unreachable-cli）が読む。
+ */
+export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle', 'affiliate', 'search', 'standards', 'content', 'storage', 'build', 'reports', 'fetch', 'ops', 'local', 'maint'];
+
+/** CLI の名前（拡張子なし）から、リポジトリ相対のパスを引く。scripts/ の直下か CLI_GROUPS のどれか。見つからなければ投げる */
+export function cliRelPath(name, root = REPO_ROOT) {
+  for (const dir of ['scripts', ...CLI_GROUPS.map((g) => `scripts/${g}`)]) {
+    for (const ext of ['.mjs', '.ts']) {
+      const rel = `${dir}/${name}${ext}`;
+      if (existsSync(join(root, rel))) return rel;
+    }
+  }
+  throw new Error(`CLI が見つからない: ${name}（scripts/ と ${CLI_GROUPS.map((g) => `scripts/${g}/`).join('・')} を探した）`);
+}
 
 // --- 4 領域のルート -------------------------------------------------------
 export const DOCS_ROOT = at('docs');
@@ -42,6 +61,9 @@ export const COCONALA_CONTENT_ROOT = at('content', 'coconala');
 export const COCONALA_BLOG_ROOT = at('content', 'coconala', 'blog');
 export const SNS_CONTENT_ROOT = at('content', 'sns');
 export const KINDLE_CONTENT_ROOT = at('content', 'kindle');
+/** Kindle の本ごとのフォルダ（books/<書籍id>/ に spec.json・cover.json・front-matter.md・pop-image.json）。引き方は kindle-catalog.mjs の kindleBookFile */
+export const KINDLE_BOOKS_REL = 'content/kindle/books';
+export const KINDLE_BOOKS_ROOT = at('content', 'kindle', 'books');
 export const CONTENT_SOURCES_ROOT = at('content', 'sources');
 export const TEXTBOOK_SOURCES_ROOT = at('content', 'sources', 'textbook');
 
@@ -101,6 +123,8 @@ export const MOVED_PATHS = [
   [".claude/knowledge/design-system/note-cover-tokens.json", "scripts/assets/design-tokens/note-cover-tokens.json"],
   [".claude/knowledge/design-system/svg-tokens.json", "scripts/assets/design-tokens/svg-tokens.json"],
   [".claude/knowledge/design-system/instagram-carousel-tokens.json", "scripts/assets/design-tokens/instagram-carousel-tokens.json"],
+  // 2026-11-20 に A8 scout の設定を config/ へ移した（scripts/ に設定の正本を置かない）
+  ["scripts/ads/data/a8-curated.json", "config/a8-curated.json"],
   [".claude/config/pe-first-stage-historical-sources.json", "config/pe-first-stage-historical-sources.json"],
   [".claude/config/note-intro-standard-civil-cross.json", "config/note-intro-standard-civil-cross.json"],
   [".claude/config/youtube-production-disclosure.json", "config/youtube-production-disclosure.json"],
@@ -200,6 +224,47 @@ export const MOVED_PATHS = [
  * （.claude/config/information-architecture.json には書かない。移動表に載らない旧パスだけをそちらに書く）。
  */
 export const RESTRUCTURED_PATHS = [
+  // 2026-11-20 に Kindle の spec・表紙の仕様・表紙の制作記録を scripts/ から本のフォルダへ移した（A 系の表紙はフォルダ名を大文字に）
+  // 2026-11-20 に scripts/ 直下の検査（check-・lint-・verify-・audit-・validate-）を scripts/checks/ へ分けた
+  [/^scripts\/((?:check|lint|verify|audit|validate)-[^/]+\.(?:mjs|ts))$/, "scripts/checks/$1"],
+  // 2026-11-20 にチャネルの CLI を scripts/<チャネル>/ へ分けた
+  [/^scripts\/((?:note|magazine)-[^/]+\.mjs)$/, "scripts/note/$1"],
+  [/^scripts\/(coconala-[^/]+\.mjs)$/, "scripts/coconala/$1"],
+  [/^scripts\/(x-[^/]+\.mjs)$/, "scripts/x/$1"],
+  [/^scripts\/((?:youtube|video)-[^/]+\.mjs)$/, "scripts/youtube/$1"],
+  [/^scripts\/((?:ig|instagram)-[^/]+\.mjs)$/, "scripts/instagram/$1"],
+  [/^scripts\/(kdp-[^/]+\.mjs)$/, "scripts/kindle/$1"],
+  // 2026-11-20 に残りのチャネルの CLI と、領域（検索・アフィリエイト・基準書・教材づくり）の CLI を分けた
+  [/^scripts\/((?:prepare-youtube-|refresh-legacy-youtube|brand-video-pack|restore-video-pack|prepare-video-pack|shorts-factory|angle-reel|scout-youtube-)[^/]*\.(?:mjs|mts))$/, "scripts/youtube/$1"],
+  [/^scripts\/((?:prepare-instagram-|publish-instagram-|scout-ig-)[^/]*\.mjs)$/, "scripts/instagram/$1"],
+  [/^scripts\/((?:prepare-x-|scout-x-)[^/]*\.mjs)$/, "scripts/x/$1"],
+  [/^scripts\/((?:scout-note-|wire-note-|reflow-note-|standardize-civil1-note-|distribute-author-)[^/]*\.mjs)$/, "scripts/note/$1"],
+  [/^scripts\/(scout-coconala-[^/]*\.mjs)$/, "scripts/coconala/$1"],
+  [/^scripts\/((?:afb-|affiliate-|moshimo-|normalize-a8-)[^/]*\.mjs)$/, "scripts/affiliate/$1"],
+  [/^scripts\/((?:gsc-|ga4-|google-console-|inspect-url|inspection-|indexnow-|list-sitemap-|psi-|search-|run-search-|growth-|extract-gsc-|analyze-gsc-|analyze-hubs|build-noindex-|verify-html-|normalize-google-|append-coverage-|fetch-gsc-|fetch-ga4-|fetch-bing-)[^/]*\.mjs)$/, "scripts/search/$1"],
+  [/^scripts\/((?:standards-|add-standards-|upload-standards-)[^/]*\.mjs)$/, "scripts/standards/$1"],
+  [/^scripts\/((?:pe-|past-exam-|parse-exam-|keiken-|essay-|split-essay-|book-coverage-|reference-book-|inspect-reference-|notebooklm-|egov-|detect-ocr-|character-extract|whitepaper-|gemini-)[^/]*\.mjs)$/, "scripts/content/$1"],
+  // 2026-11-20 に用途の CLI（置き場・生成・集計・取得）を分けた（検索の転送 fetch-bing-webmaster などは上の search が先に当たる）
+  [/^scripts\/((?:asset-|drive-|delete-r2-|purge-r2-|upload-images-|ensure-local-media|local-media-|media\.|figure-|ogp-|image-|svg-|find-book-figure)[^/]*\.mjs)$/, "scripts/storage/$1"],
+  [/^scripts\/((?:build-|generate-|gen-|render-|make-)[^/]*\.(?:mjs|ts))$/, "scripts/build/$1"],
+  [/^scripts\/((?:report-|analyze-|sales-|business-review|channel-economics|measure-|snapshot-|quality-snapshot|product-sales|scan-qualification|page-quality|site-layout-census|site-thumbnails|site-visual-review)[^/]*\.(?:mjs|mts))$/, "scripts/reports/$1"],
+  [/^scripts\/((?:fetch-|record-)[^/]*\.mjs)$/, "scripts/fetch/$1"],
+  // 2026-11-20 に残りの CLI（台帳・運用・手元の環境・一括修正、チャネルの保守）を分けた。直下にはフックと merge driver の入口だけが残る
+  [/^scripts\/((?:stage-youtube-covers|stage-youtube-renders-r2|stage-youtube-shorts-r2|prune-video-renders|apply-video-brand|update-youtube-authority-metadata)\.mjs)$/, "scripts/youtube/$1"],
+  [/^scripts\/((?:stage-ig-media-r2|prune-instagram-video-pack-reels)\.mjs)$/, "scripts/instagram/$1"],
+  [/^scripts\/((?:add-note-cover|add-note-utm|backfill-note-article-meta|backfill-note-hashtags)\.mjs)$/, "scripts/note/$1"],
+  [/^scripts\/((?:apply-gsc-records)\.mjs)$/, "scripts/search/$1"],
+  [/^scripts\/((?:sync-kindle-dist)\.mjs)$/, "scripts/kindle/$1"],
+  [/^scripts\/((?:backlog-edit|backlog-gate|backlog-sweep-pick|roll-backlog-when|todo-add|todo-claim|todo-complete|todo-release|review-checks|review-prepare|review-site-thumbnails|weekly-collect|schedule-view|session-start|setup-memory-link|cmd-help|data|product|product-db|registry|registry-reconcile|quality-audit|ci-data|ci-stats|tighten-ratchets|replay-onto-develop|deploy-main|sync-codex-compat|sync-qualification-names|sync-past-exam-ledger|sync-shadcn-reference|playwright-auth|auth-session-refresh)\.mjs)$/, "scripts/ops/$1"],
+  [/^scripts\/((?:dev-server|static-server|kill-port|disk-hygiene|install-disk-hygiene-launchd|install-disk-hygiene-schtasks|install-gsc-indexing-launchd|install-weekly-review-launchd|local-resource-audit|local-resource-clean|local-resource-run|local-storage-verify|clean-build-output|slim-build-output|prune-tmp)\.mjs)$/, "scripts/local/$1"],
+  [/^scripts\/((?:add-img-dimensions|apply-audit-result|apply-seo-meta|backfill-mdx-dates|backfill-reference-sources|bulk-generate-exam-packs|bulk-score|fix-bold-rendering|fix-legacy-site-links|migrate-civil-frontmatter|migrate-tag-aliases|prune-state-snapshots|update-mdx-image-refs|update-ogp-srchash)\.mjs)$/, "scripts/maint/$1"],
+  [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
+  [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
+  [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],
+  ["scripts/kindle-covers/pop/c-series-r08.pop-image.json", "content/kindle/cover-records/c-series-r08.pop-image.json"],
+  [/^scripts\/kindle-covers\/pop\/([^/]+)\.pop-image\.json$/, "content/kindle/books/$1/pop-image.json"],
+  // 2026-11-20 に表紙の背景を content/kindle/cover-backgrounds/（Drive vault・Git 管理外）へ移した
+  ["scripts/kindle-covers/backgrounds", "content/kindle/cover-backgrounds"],
   ["data/sales/sales-log.json", "data/note/sales.json"],
   ["data/sales/kdp-royalties.json", "data/kdp/royalties.json"],
   ["data/note/magazines-snapshot.json", "data/note/magazines.json"],

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-import { afbPeriod, afbRequest, parseAfbOutcomes, collectAfbOutcomes } from '../scripts/fetch-afb-outcomes.mjs';
+import { afbPeriod, afbRequest, parseAfbOutcomes, collectAfbOutcomes } from '../scripts/fetch/fetch-afb-outcomes.mjs';
 import { SiteAttributionError } from '../scripts/lib/asp-site-guard.mjs';
 
 const config = JSON.parse(readFileSync('config/affiliate-asp.json', 'utf8'));

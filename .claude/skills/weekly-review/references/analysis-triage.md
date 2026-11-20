@@ -15,10 +15,10 @@
 `/backlog-sweep` の実績を読む。**この節が dispatch-log の唯一の読み手**なので、省略すると記録が誰にも読まれないログになる（§9「読む人がいない検査は無いのと同じ」）。
 
 ```bash
-node scripts/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
-node scripts/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
-node scripts/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
-node scripts/report-defect-learning.mjs --since <今週月曜>  # 起票・完了した不具合と再発防止（検査 / memory / 正典 / 残すもの無し）の内訳
+node scripts/ops/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
+node scripts/checks/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
+node scripts/checks/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
+node scripts/reports/report-defect-learning.mjs --since <今週月曜>  # 起票・完了した不具合と再発防止（検査 / memory / 正典 / 残すもの無し）の内訳
 node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d.entries.filter(e=>e.at>='<今週月曜>');const by=k=>w.filter(e=>e.outcome===k).length;console.log(JSON.stringify({total:w.length,done:by('done'),swept:by('swept'),blocked:by('blocked'),fail:by('fail'),byExecutor:w.reduce((a,e)=>((a[e.executor]=(a[e.executor]||0)+1),a),{})}))"
 ```
 
@@ -54,7 +54,7 @@ blocked / fail があれば「課題・ブロッカー」へ、繰り返し bloc
 npm run review-checks -- --cadence weekly --run YYYY-Www --write
 ```
 
-（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs` と `npm run quality:audit:weekly`（quality-audit の cadence weekly＝期日が週・月の単位の点検と、結果がリポジトリの中身だけで決まる点検。毎日は回さない・DN-0847）と `npm run check-taxonomy-wiring`（分類と回遊の配線の要対応。赤なら `npm run report-taxonomy-wiring` で中身を読み、テーマ所属なしは分野・管理のタグか `topics:` を付け、昇格できる育成中のテーマは status を hub にするか判断し、一次資料で確かめてから 180 日を超えた計画・施策は一次資料で確かめ直して `config/policy-registry.json` の `checkedAt` を更新する。法令の節が出ない公開ハブは、そのテーマの記事 2 本以上の本文で関係する法令の条を e-Gov へリンクして引く（条文は一次資料で照合する）。規則は `.claude/knowledge/reference/content-taxonomy.md` §6）と `npm run standards-visual-review:status`（基準書の章ページの画面の目視判定。赤なら未起票の不合格を `standards-visual-review record --ticket` で起票するか、判定待ちが 14 日以上回っていないので `/standards-visual-review` を回す）と `npm run site-visual-review:status`（サイトの代表ページの全画面幅の点検。赤なら `/site-visual-review` で判定待ちを回すか、`site-visual-review record --ticket` で起票する）。結果は回ごとに `data/business/records/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
+（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/checks/check-backlog-health.mjs` と `npm run quality:audit:weekly`（quality-audit の cadence weekly＝期日が週・月の単位の点検と、結果がリポジトリの中身だけで決まる点検。毎日は回さない・DN-0847）と `npm run check-taxonomy-wiring`（分類と回遊の配線の要対応。赤なら `npm run report-taxonomy-wiring` で中身を読み、テーマ所属なしは分野・管理のタグか `topics:` を付け、昇格できる育成中のテーマは status を hub にするか判断し、一次資料で確かめてから 180 日を超えた計画・施策は一次資料で確かめ直して `config/policy-registry.json` の `checkedAt` を更新する。法令の節が出ない公開ハブは、そのテーマの記事 2 本以上の本文で関係する法令の条を e-Gov へリンクして引く（条文は一次資料で照合する）。規則は `.claude/knowledge/reference/content-taxonomy.md` §6）と `npm run standards-visual-review:status`（基準書の章ページの画面の目視判定。赤なら未起票の不合格を `standards-visual-review record --ticket` で起票するか、判定待ちが 14 日以上回っていないので `/standards-visual-review` を回す）と `npm run site-visual-review:status`（サイトの代表ページの全画面幅の点検。赤なら `/site-visual-review` で判定待ちを回すか、`site-visual-review record --ticket` で起票する）。結果は回ごとに `data/business/records/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
 レポートの「## 点検と Issue」に、失敗・検査不成立の点検と開いている Issue・Dependabot の脆弱性の**全件**を
 `- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先の無い項目が残る週は「実施できた」にならない（管理画面のレビュー手順が数える）。
 

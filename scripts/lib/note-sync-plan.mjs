@@ -30,7 +30,7 @@ export const BLOCKERS = {
   'trial-guard': { label: '会員特典マガジン内の無料記事（公開範囲の指定が要る）', action: '誰でも読めるなら frontmatter に memberTrial: bottom、全文を会員限定にするなら memberTrial: lock を書く' },
   'image-missing': { label: '本文の画像ファイルが手元に無い', action: '画像を記事の img/ に戻す（意図して外すなら本文から画像行を消す）' },
   boundary: { label: '有料境界の基準にする見出しが本文に無い', action: 'frontmatter の paidBoundary に境界の直後に来る H2 の先頭（正規表現）を書く' },
-  meta: { label: '価格・有料/無料・有料境界の設定が変わった（note 側で直接変えられた場合を含む）', action: '原稿の価格を正として node scripts/note-article-price-sweep.mjs で note へ反映してから同期する' },
+  meta: { label: '価格・有料/無料・有料境界の設定が変わった（note 側で直接変えられた場合を含む）', action: '原稿の価格を正として node scripts/note/note-article-price-sweep.mjs で note へ反映してから同期する' },
 };
 
 function readAborted(root) {
@@ -51,7 +51,7 @@ export function drivePdfDirs(root) {
 }
 
 function republishReport(root) {
-  const out = execFileSync(process.execPath, ['scripts/check-note-republish.mjs', '--json'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  const out = execFileSync(process.execPath, ['scripts/checks/check-note-republish.mjs', '--json'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return JSON.parse(out);
 }
 

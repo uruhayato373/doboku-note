@@ -1,0 +1,165 @@
+#!/usr/bin/env node
+/** YouTube Shorts 量産メタデータと公開枠のオフライン整合ゲート。 */
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { utmChannel } from '../lib/utm-contract.mjs';
+import { loadVideoState } from '../lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { readDataset } from '../lib/dataset-io.mjs';
+import { jstDayOf } from '../lib/jst-date.mjs';
+
+const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
+// 概要欄の送客リンクの UTM の期待値は契約（config/utm-templates.json の youtube.shorts）から受け取る
+const SHORTS_UTM = utmChannel('youtube.shorts');
+const EXAMS = [
+  'civil-construction-1',
+  'civil-construction-2',
+  'concrete-engineer',
+  'concrete-chief-engineer',
+  'pe-comprehensive-management',
+  'pe-construction',
+];
+const errors = [];
+const warnings = [];
+const titles = new Map();
+const slots = new Map();
+const daily = new Map();
+const pendingSlots = [];
+// 1 日の公開の上限（通常動画とショートの合計）は予約を組む側（shorts-release・video-factory・youtube-daily-release）と同じ設定から引き、日は JST で数える
+const DAILY_MAX = readDataset(ROOT, 'config.video-auto-publish').maxPublishPerDay;
+const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published', 'measured', 'refresh_due']);
+const STATE = loadVideoState(ROOT);
+let packCount = 0;
+let targetCount = 0;
+let shortsCount = 0;
+let stoppedCount = 0;
+
+function readJsonLenient(path) {
+  return JSON.parse(readFileSync(path, 'utf8'));
+}
+
+function addSlot(value, label) {
+  if (!value) return;
+  if (slots.has(value)) errors.push(`公開枠重複: ${value} (${slots.get(value)}, ${label})`);
+  else slots.set(value, label);
+  const day = jstDayOf(value);
+  daily.set(day, (daily.get(day) ?? 0) + 1);
+}
+
+// 公開の正本は台帳。停止済みの旧 publishAt を予定枠として復活させない。
+function publicationSlot(packId, kind, item) {
+  const derivatives = STATE.packs?.[packId]?.derivatives;
+  const row = kind === 'longform' ? derivatives?.longform : derivatives?.shorts?.find((s) => s.key === item.key);
+  if (row?.status === 'stopped') return;
+  const label = `${packId}:${kind === 'longform' ? kind : item.key}`;
+  if (APPROVED.has(row?.status)) {
+    // 実予約・公開のある行は台帳の時刻だけを見る。承認済みで未予約なら制作計画を検査する。
+    const live = ['scheduled', 'published', 'measured', 'refresh_due'].includes(row.status);
+    const value = live ? row.publishAt : row.publishAt ?? item?.publishAt;
+    if (row.status === 'scheduled' && !value) errors.push(`${label}: 台帳の予約日時なし`);
+    addSlot(value, label);
+  } else if (item?.publishAt) pendingSlots.push([item.publishAt, label]);
+}
+
+for (const exam of EXAMS) {
+  const examRoot = join(PACKS_ROOT, exam);
+  // 動画が 1 本も無い資格はフォルダが無い。全資格で 0 本のときは末尾で止める
+  if (!existsSync(examRoot)) continue;
+  for (const packId of readdirSync(examRoot).sort()) {
+    const dir = join(examRoot, packId);
+    const manifestPath = join(dir, 'video-pack.json');
+    const storyboardPath = join(dir, 'storyboard.json');
+    const youtubePath = join(dir, 'youtube.json');
+    if (!existsSync(manifestPath)) continue;
+    targetCount += 1;
+    if (![storyboardPath, youtubePath].every(existsSync)) {
+      if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) errors.push(`${packId}: storyboard.json または youtube.json がない`);
+      else warnings.push(`${packId}: 未承認パックのメタデータ未作成`);
+      continue;
+    }
+    packCount += 1;
+    const manifest = readJsonLenient(manifestPath);
+    const storyboard = readJsonLenient(storyboardPath);
+    const youtube = readJsonLenient(youtubePath);
+    const sceneIds = new Set((storyboard.scenes ?? []).map((scene) => scene.sceneId));
+    const shorts = youtube.shorts ?? [];
+    const expected = manifest.outputs?.shorts;
+    if (!Number.isInteger(expected) || expected < 0) errors.push(`${packId}: outputs.shorts が非負の整数ではない (${expected})`);
+    // ショートは年間の枠で選んで作る。未着手のパックは企画の希望本数があっても失敗にしない
+    // 型の台帳（shorts-design.json）で作ったショートの本数は年間計画の shortsRule と枠が持ち、check-youtube-plan が見る。
+    // video-pack.json は内容QAの digest に入るので、ショートを足すたびに書き換えない（2026-11-12）
+    const designed = existsSync(join(dir, 'shorts-design.json'));
+    if (shorts.length && shorts.length !== expected && !designed) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
+    if (!youtube.longform) errors.push(`${packId}: longform メタデータなし`);
+    else publicationSlot(packId, 'longform', youtube.longform);
+
+    const covers = existsSync(join(dir, 'cover-design.json')) ? readJsonLenient(join(dir, 'cover-design.json')).covers ?? {} : {};
+    const pop = existsSync(join(dir, 'pop-image.json')) ? readJsonLenient(join(dir, 'pop-image.json')) : {};
+    const rows = STATE.packs?.[packId]?.derivatives?.shorts ?? [];
+    for (const item of shorts) {
+      const row = rows.find((candidate) => candidate.key === item.key);
+      // 停止したショートは公開されない。標準（全面画像）への移行は再開するときに shorts-factory で行う
+      if (row?.status === 'stopped') { stoppedCount += 1; continue; }
+      shortsCount += 1;
+      const adopted = pop.revisions?.[pop.activeShorts?.[item.key]];
+      // 表紙は shorts-factory の採用（pop-poster-v3-shorts）か、cover-design.json の pop-poster-v3。台本に見出しを持つショートは cover-design.json を書き換えない
+      if (row && adopted?.version !== 'pop-poster-v3-shorts' && covers[item.key]?.design !== 'pop-poster-v3') errors.push(`${packId}:${item.key}: 表紙が pop-poster-v3 ではない`);
+      if (row && adopted && adopted.render?.videoSha256 !== item.sha256) errors.push(`${packId}:${item.key}: 採用画像の描画記録が今の動画と合わない`);
+      if (row && adopted && (adopted.screenReview?.verdict !== 'pass' || adopted.screenReview.videoSha256 !== item.sha256)) errors.push(`${packId}:${item.key}: 今の動画の画面確認 pass が無い`);
+      const label = `${packId}:${item.key ?? '?'}`;
+      const chars = [...String(item.title ?? '')].length;
+      if (!item.key) errors.push(`${label}: keyなし`);
+      if (!sceneIds.has(item.sceneId)) errors.push(`${label}: sceneIdがstoryboardにない (${item.sceneId})`);
+      if (!item.title || chars > 40) errors.push(`${label}: title ${chars}字 (上限40)`);
+      if (/[（(][^）)]*$/.test(item.title ?? '')) errors.push(`${label}: 閉じていない括弧を含むtitle`);
+      if (titles.has(item.title)) errors.push(`${label}: title重複 (${titles.get(item.title)})`);
+      else titles.set(item.title, label);
+      const description = String(item.description ?? '');
+      for (const token of [
+        `utm_source=${SHORTS_UTM.source}`,
+        `utm_medium=${SHORTS_UTM.medium}`,
+        `utm_campaign=${packId}`,
+        `utm_content=${SHORTS_UTM.content}`,
+        '技術士（総合技術監理部門）',
+      ]) {
+        if (!description.includes(token)) errors.push(`${label}: descriptionに ${token} がない`);
+      }
+      const disclosureCount = description.split('【この動画の制作について】').length - 1;
+      if (disclosureCount !== 1) errors.push(`${label}: 制作表記見出し=${disclosureCount}回 (期待値1)`);
+      // 描画先（video/render/…/shorts/…）か、差し替え版を中身のハッシュ名で置いた移行先（youtube-migration/<回>/media/<sha256>.<拡張子>。ファイル名が sha と一致すること）
+      const migrated = (key, ext, sha) => new RegExp(`^youtube-migration/[^/]+/media/([a-f0-9]{64})\\.${ext}$`, 'u').exec(key ?? '')?.[1] === sha;
+      if (!/^video\/render\/.+\/shorts\/.+\/shorts\.mp4$/u.test(item.r2Key ?? '') && !migrated(item.r2Key, 'mp4', item.sha256)) errors.push(`${label}: r2Key不正`);
+      if (!/^video\/render\/.+\/shorts\/.+\/thumbnail\.png$/u.test(item.thumbnailR2Key ?? '') && !migrated(item.thumbnailR2Key, 'png', item.thumbnailSha256)) errors.push(`${label}: thumbnailR2Key不正`);
+      // 描画前（台帳の行が draft で動画の sha が無い）のショートは制作中。sha と予約日時は描画と承認の段で入る
+      const inProduction = (!row || row.status === 'draft') && !item.sha256;
+      if (inProduction) { warnings.push(`${label}: 制作中（描画前）`); publicationSlot(packId, 'short', item); continue; }
+      if (!/^[a-f0-9]{64}$/u.test(item.sha256 ?? '')) errors.push(`${label}: sha256未確定または不正`);
+      if (!/^[a-f0-9]{64}$/u.test(item.thumbnailSha256 ?? '')) errors.push(`${label}: thumbnailSha256未確定または不正`);
+      if (!item.publishAt && APPROVED.has(row?.status)) errors.push(`${label}: publishAtなし`);
+      else if (!item.publishAt) warnings.push(`${label}: 予約日時は承認の段で決める`);
+      if (item.publishAt && youtube.longform?.publishAt && item.publishAt <= youtube.longform.publishAt) {
+        errors.push(`${label}: 通常動画より前または同時に公開 (${item.publishAt})`);
+      }
+      publicationSlot(packId, 'short', item);
+    }
+  }
+}
+
+if (!packCount) errors.push('動画パックを1件も検査していません');
+for (const [day, count] of daily) {
+  if (count > DAILY_MAX) errors.push(`${day}: 公開${count}本 (1日上限${DAILY_MAX}本)`);
+}
+for (const [publishAt, label] of pendingSlots) {
+  const day = jstDayOf(publishAt);
+  if (slots.has(publishAt)) warnings.push(`承認前の予定枠が重複: ${publishAt} (${slots.get(publishAt)}, ${label})`);
+  if ((daily.get(day) ?? 0) >= DAILY_MAX) warnings.push(`承認前の予定枠: ${day} は既に${daily.get(day)}本（承認すると1日上限${DAILY_MAX}本を超える）: ${label}`);
+}
+
+console.log(`YouTube Shorts gate: targets=${targetCount}, packs=${packCount}, shorts=${shortsCount}, stopped=${stoppedCount}, titles=${titles.size}, slots=${slots.size}`);
+for (const warning of warnings) console.warn(`WARN: ${warning}`);
+if (targetCount === 0) errors.push('対象の動画が 0 本で検査不成立');
+if (errors.length) {
+  for (const error of errors) console.error(`FAIL: ${error}`);
+  process.exit(1);
+}
+console.log('PASS: パックごとの制作本数・タイトル・UTM・著者表記・関連scene・公開枠上限・表紙の標準・画面確認が整合');

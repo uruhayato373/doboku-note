@@ -122,7 +122,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `body` / `purchaseNote` | サービス内容 / 購入にあたってのお願い（現行の既存出品編集フォームでは各1500字 / 1000字まで・ともに※必須） |
 | `faq` / `options` | 既存出品の `coconala-edit` は現行フォームに FAQ と有料オプションを投入する。新規出品の `coconala-publish` は FAQ だけ投入し（2026-11-02〜）、有料オプションは未対応。2026-09-25 の一回限りの FAQ 反映は旧フォームで実施。`check-coconala-live` は FAQ を照合しないため、更新後は公開ページで確認する |
 
-> カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
+> カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
 ### 2.2 受注実績: `data/coconala/orders.json`（v2）
 
@@ -168,7 +168,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ### 2.2b 受注の実体: `data/coconala/orders-snapshot.json`（read-only 収集）
 
-`npm run coconala-orders`（`scripts/coconala-orders.mjs`・Playwright・**書き込み一切なし**）が
+`npm run coconala-orders`（`scripts/coconala/coconala-orders.mjs`・Playwright・**書き込み一切なし**）が
 取引管理（出品）の全タブを走査して生成する機械可読スナップショット。orders.json が「こちらの記録」、
 snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` が `talkroomId` で突合する。
 
@@ -233,7 +233,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 | **エージェント参照 SSOT** | `data/coconala/market-summary.json` | キーワード別の価格分位・セグメント内訳・レビュー数トップ5 に畳んだ派生物。**着手時はまずこれを read** | 約 8KB |
 | アーカイブ（生データ） | `data/coconala/market-research.json` | 全出品の実測明細（URL で一意）。個別出品の詳細まで見たいときだけ read | 約 700KB |
 
-- **再取得（実測）**: `npm run coconala-research`（＝`scripts/coconala-research.mjs`・Playwright）。生データ更新後にサマリーも自動再生成。
+- **再取得（実測）**: `npm run coconala-research`（＝`scripts/coconala/coconala-research.mjs`・Playwright）。生データ更新後にサマリーも自動再生成。
 - **サマリーだけ再生成**: `npm run coconala-summary`（＝`--summary-only`・Playwright 不使用・生データから畳むだけ・秒で終わる）。
 - **公開・ログイン不要ページの read-only 調査**で、§4 の「ダッシュボードはスクレイプしない」とは**スコープが直交**する（あちらは自社 KPI＝ログイン必須・規約と bot 検知の懸念。こちらは公開検索ページを低頻度〔商品設計時＝数ヶ月に1度〕に読むだけ・書き込みは一切しない）。
 
@@ -416,7 +416,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 
 ## 6. ドリフト検知（`npm run check-coconala-wiring`）
 
-`scripts/check-coconala-wiring.mjs`（pre-commit・`--staged` で関連 staged 時のみ発火＋CI の `quality-audit --ci` で全件）。決定論的検査＝CLAUDE.md 原則5。
+`scripts/checks/check-coconala-wiring.mjs`（pre-commit・`--staged` で関連 staged 時のみ発火＋CI の `quality-audit --ci` で全件）。決定論的検査＝CLAUDE.md 原則5。
 
 | # | 検査 | 落ちる例 |
 |---|---|---|
@@ -491,18 +491,18 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 | スクリプト | 役割 |
 |---|---|
-| `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
-| `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新。公開中サービスで `--commit` なしは送信しない dry-run（画像のアップロード・削除は送信前でも即反映されるので、dry-run では画像に触らず枚数だけ読む） |
-| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**（現行の出品フォームでは「SKIP: タイトルフィールド無し」で使えない。DN-0946 で対応するまでは画面の「下書きを削除」で消す）。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
-| `scripts/coconala-seller-profile.mjs`（`npm run coconala-seller-profile`） | 公開プロフィールの「評価: N 件」をログインなしで取り、`coconala.seller-profile`（行は `{date, ratingCount, fetchedAt}`）に追記する。土曜のローカル定期（`coconala-local-routine`）の段「評価の数」で回り、管理画面 チャネル設計の KPI「ココナラの評価の数」の実績になる。exit 1＝解析失敗・2＝取得失敗。2026-11-02 時点で評価は 4 件 |
-| `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
-| `scripts/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
-| `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
-| `scripts/coconala-blog-publish.mjs --post <slug> [--commit]` | **ブログ記事**の下書き投入/公開（§9・`/coconala-blog`）。投入前に同名記事を検出（オートセーブ残骸の二重投稿防止）→ guards 全通過→ 2パス入力→ **DOM 実測**（本文90%・見出し適用・順序一致・カード枚数・一覧実在）→ `--commit` で公開→ ログアウト実査（G6）→ frontmatter 書き戻し |
-| `scripts/coconala-blog-delete-draft.mjs [--title <部分一致> \| --all] [--commit]` | ブログの**下書きだけ**を削除（公開中は `statusDraft` を持たないため構造的に対象外）。中断のオートセーブ残骸の掃除。既定 dry-run・削除後に一覧再読で実測 |
-| `scripts/scout-coconala-blogs.mjs [--query <q>]` | ブログ検索/競合ブログ一覧の read-only 偵察（四半期）→ `blog-competitors.json` |
-| `scripts/check-coconala-blog.mjs [--staged\|--json]` | ブログ記事 SoT のオフライン検査（ハードゲート＋公開整合＋送客先ドリフト）。pre-commit / quality:audit / 週次に配線 |
-| `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
+| `scripts/coconala/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
+| `scripts/coconala/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新。公開中サービスで `--commit` なしは送信しない dry-run（画像のアップロード・削除は送信前でも即反映されるので、dry-run では画像に触らず枚数だけ読む） |
+| `scripts/coconala/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**（現行の出品フォームでは「SKIP: タイトルフィールド無し」で使えない。DN-0946 で対応するまでは画面の「下書きを削除」で消す）。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
+| `scripts/coconala/coconala-seller-profile.mjs`（`npm run coconala-seller-profile`） | 公開プロフィールの「評価: N 件」をログインなしで取り、`coconala.seller-profile`（行は `{date, ratingCount, fetchedAt}`）に追記する。土曜のローカル定期（`coconala-local-routine`）の段「評価の数」で回り、管理画面 チャネル設計の KPI「ココナラの評価の数」の実績になる。exit 1＝解析失敗・2＝取得失敗。2026-11-02 時点で評価は 4 件 |
+| `scripts/coconala/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
+| `scripts/coconala/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
+| `scripts/coconala/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
+| `scripts/coconala/coconala-blog-publish.mjs --post <slug> [--commit]` | **ブログ記事**の下書き投入/公開（§9・`/coconala-blog`）。投入前に同名記事を検出（オートセーブ残骸の二重投稿防止）→ guards 全通過→ 2パス入力→ **DOM 実測**（本文90%・見出し適用・順序一致・カード枚数・一覧実在）→ `--commit` で公開→ ログアウト実査（G6）→ frontmatter 書き戻し |
+| `scripts/coconala/coconala-blog-delete-draft.mjs [--title <部分一致> \| --all] [--commit]` | ブログの**下書きだけ**を削除（公開中は `statusDraft` を持たないため構造的に対象外）。中断のオートセーブ残骸の掃除。既定 dry-run・削除後に一覧再読で実測 |
+| `scripts/coconala/scout-coconala-blogs.mjs [--query <q>]` | ブログ検索/競合ブログ一覧の read-only 偵察（四半期）→ `blog-competitors.json` |
+| `scripts/checks/check-coconala-blog.mjs [--staged\|--json]` | ブログ記事 SoT のオフライン検査（ハードゲート＋公開整合＋送客先ドリフト）。pre-commit / quality:audit / 週次に配線 |
+| `scripts/coconala/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
 
 > [!warning] 「内容の入力に進む」の後で止まる → 原因は種別ラジオの未選択だった（2026-09-25 特定）
@@ -517,8 +517,8 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 | スクリプト | 役割 |
 |---|---|
-| 画像生成 | 画像は Codex（`npm run media -- plate`、記事の写真は `scripts/gen-article-photo.mjs`）。Gemini は使わない（運営者の決定 2026-10-09）。使ったら来歴と `ai-image-fidelity-auditor` の判定 ok が要る |
-| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | data/coconala/thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
+| 画像生成 | 画像は Codex（`npm run media -- plate`、記事の写真は `scripts/build/gen-article-photo.mjs`）。Gemini は使わない（運営者の決定 2026-10-09）。使ったら来歴と `ai-image-fidelity-auditor` の判定 ok が要る |
+| `scripts/coconala/coconala-thumb.mjs [--service <id>] [--bg <png>]` | data/coconala/thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
 
 素材は `content/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
 
@@ -576,7 +576,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 **`--replace-image` は全スロットを消す（2026-09-23）**: 画像2枚の商品（診断・添削）はサムネ差し替えでギャラリーも消えるので、直後に `--image gallery-*.png --force-image` で入れ直す。間を空けると別セッションの note 一括更新がブラウザを取り、同時1本ガードで入れ直しが弾かれて「サムネ1枚だけ」の状態が公開に残る（9/23 に実際に20分残った）。並走が続くときは `DOBOKU_PW_ALLOW_PARALLEL=1` にして空きメモリガード（既定は搭載メモリ 8GB 以下で 1200MB・それ以上で 2048MB）は残し、`LaunchGuardError` のときだけ待ち直す。途中で「未ログイン」になったら `npm run auth:login -- --service coconala` で人がログインし直してから再開する。
 
-**アップロード（自動化済み・2026-07-18）**: `node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
+**アップロード（自動化済み・2026-07-18）**: `node scripts/coconala/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
 
 > [!warning] `--image` のパス解決と orphan draft（2026-07-18 事故→恒久対策）
 > `--image` の **bare 名**（例 `thumb-x.png`）は `content/coconala/assets/` に解決される（`resolveImagePath`・session lib）。以前は cwd 相対で解決したため不正パスが ENOENT を起こし、**下書き作成後にクラッシュ→空の orphan draft が残る**事故があった。恒久対策として publish/edit は**ブラウザ操作より前に画像存在を検査（fail-fast）**する。万一 orphan（サービスタイトル未設定・¥0・下書き中）が出たら `npm run coconala-delete-draft -- --id <n> --commit` で掃除（現行フォームでは使えない・DN-0946。それまでは画面の「下書きを削除」）（公開中商品はガードで誤爆しない）。編集ページの正URLは `/mypage/services/{id}`（`/edit` は 404）。
@@ -586,7 +586,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | スクリプト | 役割 |
 |---|---|
 | `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文・**note 専用節（印刷用PDF 案内）・著者バナー画像とその定型キャプション**を機械除去し、最後に**除去で中身が空になった見出し/太字ラベルを落とす**。`assertNoFunnel` で残存検査。境界は `tests/strip-note-funnel.test.mjs` で固定 |
-| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `content/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `content/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
+| `scripts/build/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `content/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `content/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
 
 > [!warning] 納品前は「URL 0 件」だけでなく **PDF そのもの**を見る（2026-08-06）
 > ビルドのゲートは「note.com/URL が残っていないか」しか見ない。これは緑のまま、
@@ -739,7 +739,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 の3点から**記事型（9.2）を先に立てる**。9.3 は出品フォーム未探査のまま残置（backlog）。
 
 実装 → [coconala-blog-policy.md](coconala-blog-policy.md)（真実源）・`/coconala-blog` スキル・
-`scripts/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
+`scripts/coconala/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
 
 ## 関連
 

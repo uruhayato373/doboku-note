@@ -32,9 +32,9 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | 役割 | ファイル |
 |---|---|
 | 過去問パック生成 (B) | `scripts/ig-post-create/ig-post-create.mjs` (`--exam`) |
-| 過去問 MDX パーサ | `scripts/parse-exam-questions.mjs` |
-| 過去問パック構造化 | `scripts/generate-exam-pack-dirs.mjs` |
-| 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
+| 過去問 MDX パーサ | `scripts/content/parse-exam-questions.mjs` |
+| 過去問パック構造化 | `scripts/build/generate-exam-pack-dirs.mjs` |
+| 過去問パック 一括生成 | `scripts/maint/bulk-generate-exam-packs.mjs` |
 | 過去問 SoT | `src/config/exam-questions.json` (720 問) |
 | 過去問 slide-data SoT | `content/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` |
 | 過去問スライドビルダー | `scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
@@ -83,21 +83,21 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 ```bash
 # 1. 過去問 MDX をパース（H21-R8 全 720 問抽出）
-node scripts/parse-exam-questions.mjs
+node scripts/content/parse-exam-questions.mjs
 
 # 2. R7 全年度を 4 問パックに集約（管理別グループ化）
-node scripts/generate-exam-pack-dirs.mjs --year r07
+node scripts/build/generate-exam-pack-dirs.mjs --year r07
 # → content/sns/instagram/cem/exam-packs/r07/pack-{01..09}/slide-data.json
 
 # 3. 1 パック分の PNG + caption 生成
 node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size carousel
 
 # 4. 全パック一括生成
-node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel
+node scripts/maint/bulk-generate-exam-packs.mjs --year r07 --size carousel
 
 # 5. 全年度展開
-node scripts/generate-exam-pack-dirs.mjs --force  # H21-R7 全パック
-node scripts/bulk-generate-exam-packs.mjs --all   # 約 130 パック生成
+node scripts/build/generate-exam-pack-dirs.mjs --force  # H21-R7 全パック
+node scripts/maint/bulk-generate-exam-packs.mjs --all   # 約 130 パック生成
 ```
 
 ### slide-data.json スキーマ（exam パック）

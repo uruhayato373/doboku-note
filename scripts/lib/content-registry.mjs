@@ -1,6 +1,6 @@
 /**
  * content-registry.mjs — コンテンツ台帳（content/registry）の読み込み・ID・承認ハッシュ・状態の唯一の実装。
- * 設計は .claude/knowledge/reference/content-registry.md。CLI（scripts/registry.mjs・scripts/media.mjs）・検査
+ * 設計は .claude/knowledge/reference/content-registry.md。CLI（scripts/ops/registry.mjs・scripts/storage/media.mjs）・検査
  * （content-registry-check.mjs）・管理画面が同じ関数を使う。依存ゼロ（zod は書き込み側の content-registry-write.mjs だけ）。
  */
 import { createHash } from 'node:crypto';

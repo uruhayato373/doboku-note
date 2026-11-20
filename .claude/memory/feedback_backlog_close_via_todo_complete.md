@@ -8,7 +8,7 @@ metadata:
   modified: 2026-11-12T04:24:28.551Z
 ---
 
-済んだカードは backlog.md から手で消さない。`node scripts/todo-claim.mjs DN-#### --owner <名前>` → `node scripts/todo-complete.mjs DN-#### --confirm-conditions --commit --note … --verify …`（不具合は `--prevention gate:/memory:/doc:/none:` 必須）で閉じる。`--commit` は dispatch-log とカードの削除を書くだけで git commit はしないので、続けて pathspec で commit する。
+済んだカードは backlog.md から手で消さない。`node scripts/ops/todo-claim.mjs DN-#### --owner <名前>` → `node scripts/ops/todo-complete.mjs DN-#### --confirm-conditions --commit --note … --verify …`（不具合は `--prevention gate:/memory:/doc:/none:` 必須）で閉じる。`--commit` は dispatch-log とカードの削除を書くだけで git commit はしないので、続けて pathspec で commit する。
 
 **Why:** 2026-11-12 に DN-1146・DN-1077・DN-1105 を手で消し、完了の記録が残らなかった。4 枚目以降は pre-commit の check-backlog-schema（removed-cards・上限 2）が止めたので気づいた。消したカードは git の履歴から戻して todo:complete で閉じ直した。
 

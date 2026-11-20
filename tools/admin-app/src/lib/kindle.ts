@@ -27,15 +27,13 @@ import {
 // 入力（原稿ソース・spec・builder・共有レンダラ）と成果物（EPUB/表紙）の両方を含む。
 const GIT_LOG_PATHS = [
   'scripts/kindle-dist',
-  'scripts/kindle-published',
   'content/site',
   'content/note',
   'content/kindle',
-  'scripts/kindle-specs',
   'src/config/civil-1-exam-questions.json',
-  'scripts/build-essay-kindle.mjs',
-  'scripts/build-pe1-kindle.mjs',
-  'scripts/build-takuitsu-reconstruct.mjs',
+  'scripts/build/build-essay-kindle.mjs',
+  'scripts/build/build-pe1-kindle.mjs',
+  'scripts/build/build-takuitsu-reconstruct.mjs',
   'scripts/lib/kindle-md.mjs',
 ];
 
@@ -55,7 +53,6 @@ export interface KindleBookView {
   epubExists: boolean;
   epubBytes: number;
   coverUrl: string | null;
-  kdpMemoDead: boolean;
   rebuildable: boolean;
   freshness: 'fresh' | 'stale' | 'unknown';
 }
@@ -85,7 +82,6 @@ export interface KindleView {
     byStatus: Record<string, number>;
     staleCount: number;
     unknownCount: number;
-    deadMemoCount: number;
     notRebuildableCount: number;
   };
   /** git log 取得の成否。false なら freshness は全冊 unknown ＝ stale=0 を健全と読まない。 */
@@ -168,7 +164,7 @@ export async function loadKindleView(): Promise<KindleView> {
 
   const bookViews: KindleBookView[] = books.map((b: Record<string, unknown>) => {
     const inv = invById.get(b.id as string) as
-      | { epub: { exists: boolean; bytes: number }; kdpMemoDead: boolean; rebuildable: boolean }
+      | { epub: { exists: boolean; bytes: number }; rebuildable: boolean }
       | undefined;
     const f = (freshness.perBook as Record<string, { freshness: 'fresh' | 'stale' | 'unknown' }>)[b.id as string];
     const asin = (b.asin as string | null) ?? null;
@@ -188,7 +184,6 @@ export async function loadKindleView(): Promise<KindleView> {
       epubExists: inv?.epub.exists ?? false,
       epubBytes: inv?.epub.bytes ?? 0,
       coverUrl: coverMediaUrl(b),
-      kdpMemoDead: inv?.kdpMemoDead ?? true,
       rebuildable: inv?.rebuildable ?? false,
       freshness: f?.freshness ?? 'unknown',
     };
@@ -211,7 +206,6 @@ export async function loadKindleView(): Promise<KindleView> {
       byStatus,
       staleCount: freshness.staleIds.length,
       unknownCount: freshness.unknownIds.length,
-      deadMemoCount: bookViews.filter((b) => b.kdpMemoDead).length,
       notRebuildableCount: bookViews.filter((b) => !b.rebuildable).length,
     },
     freshnessOk,

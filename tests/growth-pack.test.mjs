@@ -84,8 +84,8 @@ test('ページ別の取り方（国の条件の有無）を meta.filters から
   assert.equal(gscPageScope(sec()), 'all-countries');
   assert.equal(gscPageScope({ rows: [] }), 'unspecified');
 
-  // 旧パック（W42・国で絞る）は旧区画 gscPageCoverageWeek を持ったまま型に合い、取れなかったときの ok:false も通る
-  const pack = JSON.parse(readFileSync('data/analysis/growth/pack-2026-W42.json', 'utf8'));
+  // 旧パック（W42・国で絞る。実データは週次の取得が消すので、行を 3 行に削った写しを tests/fixtures に持つ）は旧区画 gscPageCoverageWeek を持ったまま型に合い、取れなかったときの ok:false も通る
+  const pack = JSON.parse(readFileSync('tests/fixtures/growth-pack-2026-W42.json', 'utf8'));
   assert.equal(gscPageScope(pack.sections.gscPageWeek), 'country:jpn');
   assert.ok(GrowthPack.safeParse(pack).success);
   assert.ok(GrowthPack.safeParse({ ...pack, sections: { ...pack.sections, gscPageCoverageWeek: { ok: false, error: 'quota' } } }).success);

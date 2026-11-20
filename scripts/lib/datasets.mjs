@@ -65,7 +65,7 @@ const SLOTS = {
  * drive（実体は Google Drive vault。config/drive-vault.json の group id。path は repo 側の写しの置き場で git 管理外。drive-vault-sync で同期し、
  *   ほかの PC は --pull で取り戻す）・local（git 管理外で、作り直せる一時出力だけ。記録・判定は置かない。regen に作り直し方が要る）・
  * regen（作り直すコマンド・手順）・
- * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/prune-state-snapshots.mjs が消す）・
+ * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/maint/prune-state-snapshots.mjs が消す）・
  * freshness（最新の記録の古さの閾値。検査と管理画面が freshnessOf・freshnessDays で引く）
  * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article'|'experiment'|'affiliate-program'|'metric', keys?, prefix?, ignore?, severity?, copies? }]。
  *   check-datasets が全ファイルで参照先の実在と写しの一致を見る＝外部キー相当。参照切れは既定で error、生成した索引の過去分など書き換えない記録は
@@ -126,6 +126,7 @@ export const DATASETS = [
   d('config.cce-essay-history', 'config/cce-essay-history.json', 'config', 'product', 'コンクリート主任技士 小論文の出題履歴とテーマ分類', { schema: 'ConfigCceEssayHistory' }),
   // アフィリエイト
   d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定', { schema: 'ConfigAffiliateAsp' }),
+  d('config.a8-curated', 'config/a8-curated.json', 'config', 'affiliate', 'A8 scout の採点係数・申請上限・blocklist・vertical の対応（a8-scout-core が読む）', { schema: 'ConfigA8Curated' }),
   d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定', { schema: 'ConfigA8ReportAutomation' }),
   d('config.career-funnel', 'config/career-funnel.json', 'config', 'affiliate', '転職アフィリエイトのファネルの設定', { schema: 'ConfigCareerFunnel' }),
   d('config.affiliate-mats', 'config/affiliate-mats.json', 'config', 'affiliate', 'A8 の広告リンク（mat）の許可リスト', { schema: 'ConfigAffiliateMats' }),
@@ -152,7 +153,7 @@ export const DATASETS = [
   d('config.public-view-breakpoints', 'config/public-view-breakpoints.json', 'config', 'site', '公開ページの見え方検査の画面幅', { schema: 'ConfigPublicViewBreakpoints' }),
   d('config.standards-structure', 'config/standards-structure.json', 'config', 'site', '土木工事共通仕様書の構造化の設定', { schema: 'ConfigStandardsStructure' }),
   d('config.ogp-settings', 'config/ogp/settings.json', 'config', 'site', 'OGP の設定（テンプレートの自動選定・定義＝note カバー共通・タイトルの改行と字の大きさ）', { schema: 'ConfigOgpSettings' }),
-  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像（AI で作った一点物。実体は private R2・素材の group ogp-background。2026-10-10 に git から外した）', { local: true, regen: 'npm run asset-hydrate -- --group ogp-background（R2 から取り戻す。作り直しは scripts/generate-ogp-backgrounds.mjs だが同じ画素は再現しない）' }),
+  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像（AI で作った一点物。実体は private R2・素材の group ogp-background。2026-10-10 に git から外した）', { local: true, regen: 'npm run asset-hydrate -- --group ogp-background（R2 から取り戻す。作り直しは scripts/build/generate-ogp-backgrounds.mjs だが同じ画素は再現しない）' }),
   // SNS
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール', { schema: 'ConfigXAccount' }),
   d('config.x-reply-trial', 'config/x-reply-trial.json', 'config', 'sns', 'X の返信の試行（検索語・候補の判定語・1 日の上限）', { schema: 'ConfigXReplyTrial' }),
@@ -358,7 +359,7 @@ export const DATASETS = [
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
   d('state.quality-scores-by-qualification', '.claude/state/quality/{name}-scores.json', 'state', 'site', '資格ごとの採点（1級土木一次・2級土木・コンクリート主任技士・建設部門・第一次試験・総監その他）'),
   d('state.quality-history', '.claude/state/quality/history.jsonl', 'ledger', 'ops', 'quality:audit の結果の推移'),
-  d('state.gemini-trial', '.claude/state/quality/gemini-trial.json', 'state', 'site', 'Gemini の一次採点と Claude の評価役の採点の比較（DN-0939・scripts/gemini-scoring-trial.mjs）'),
+  d('state.gemini-trial', '.claude/state/quality/gemini-trial.json', 'state', 'site', 'Gemini の一次採点と Claude の評価役の採点の比較（DN-0939・scripts/content/gemini-scoring-trial.mjs）'),
   d('state.quality-census', '.claude/state/quality/census.json', 'state', 'ops', '品質の棚卸し（census）の最新'),
   d('state.quality-census-history', '.claude/state/quality/census-history.jsonl', 'ledger', 'ops', '同上の推移'),
   d('state.quality-latest-report', '.claude/state/quality/latest-report.md', 'report', 'ops', 'quality:audit の最新の報告'),
@@ -414,7 +415,7 @@ export const DATASETS = [
   d('state.video-editorial-findings', '.claude/state/video-editorial-findings.json', 'state', 'sns', '動画パックの編集の指摘'),
   d('state.yt-verify', '.claude/state/yt-verify/latest.json', 'state', 'sns', 'YouTube の公開の照合の最新'),
   d('state.x-posted-live', '.claude/state/x-posted-live/latest.json', 'state', 'sns', 'X の投稿の照合の最新'),
-  d('state.x-sync-last-run', '.claude/state/x-publish/last-sync.json', 'state', 'sns', 'X の予約キュー照合（x-sync-status）を最後に完走した時刻と結果。SessionStart が TTL 内なら Playwright を起動しない（DN-0688）', { local: true, regen: 'node scripts/x-sync-status.mjs --dry（次の照合で作り直す。git には入れない＝セッションごとに変わり、CI の scheduled-publish が拾うと bot commit になる）' }),
+  d('state.x-sync-last-run', '.claude/state/x-publish/last-sync.json', 'state', 'sns', 'X の予約キュー照合（x-sync-status）を最後に完走した時刻と結果。SessionStart が TTL 内なら Playwright を起動しない（DN-0688）', { local: true, regen: 'node scripts/x/x-sync-status.mjs --dry（次の照合で作り直す。git には入れない＝セッションごとに変わり、CI の scheduled-publish が拾うと bot commit になる）' }),
   d('state.x-repost-queue', '.claude/state/x-repost/{name}', 'raw', 'sns', 'X の引用リポストの候補・承認・停止の印', { local: true, regen: '/x-repost が作り直す' }),
   d('state.instagram', '.claude/state/instagram-{name}.json', 'state', 'sns', 'Instagram のキャンペーンと編集の品質確認'),
   d('state.ig-reconcile', '.claude/state/ig-reconcile/{name}.json', 'state', 'sns', 'Instagram の照合結果（verify-ig-status）'),
@@ -445,7 +446,7 @@ export const areaOf = (dataset) => Object.keys(AREAS).find((k) => dataset.path.s
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
 
 /**
- * 台帳から消した id → 後継の id。ワークフローは id で記録を指すので（scripts/ci-data.mjs）、main の YAML が
+ * 台帳から消した id → 後継の id。ワークフローは id で記録を指すので（scripts/ops/ci-data.mjs）、main の YAML が
  * 古い id を渡しても止まらないよう、消した id はここへ移して後継に読み替える（tests/ci-data.test.mjs が YAML の id を検査）。
  */
 export const RETIRED_IDS = {

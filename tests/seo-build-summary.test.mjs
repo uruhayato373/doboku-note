@@ -86,7 +86,7 @@ test('台帳に宣言され、型が履歴の不変条件（昇順・型別の�
 });
 
 test('週次レビューの下書きがこの節を出し、CI が結果を渡して書き戻す', () => {
-  const draft = readFileSync(join(REPO_ROOT, 'scripts/build-weekly-review-draft.mjs'), 'utf8');
+  const draft = readFileSync(join(REPO_ROOT, 'scripts/build/build-weekly-review-draft.mjs'), 'utf8');
   assert.match(draft, /renderSeoBuildSection\(/);
   assert.match(draft, /analysis\.seo-build-summary/);
   const ci = readFileSync(join(REPO_ROOT, '.github/workflows/ci.yml'), 'utf8');

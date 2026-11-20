@@ -26,7 +26,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
 | `report-psi-regression`（Script） | PSI の重大度・回帰の判定（旧 performance-auditor・DN-1242） | CWV / PSI | psi → JSON（親が読む） |
-| **GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record）** | **土曜の Mac（収集の前段と後段の間・2026-10-25〜・DN-0849。旧 CI の `gsc-auto-review.yml`）** | **記録層の自動化**。ヘッドレスの Claude Code が `scripts/scheduled/gsc-record-prompt.md` に沿って断片を `.tmp/claude-out/gsc/` に書き、`scripts/apply-gsc-records.mjs` が検査して追記・push する（Claude は `.claude/` に書けない）。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
+| **GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record）** | **土曜の Mac（収集の前段と後段の間・2026-10-25〜・DN-0849。旧 CI の `gsc-auto-review.yml`）** | **記録層の自動化**。ヘッドレスの Claude Code が `scripts/scheduled/gsc-record-prompt.md` に沿って断片を `.tmp/claude-out/gsc/` に書き、`scripts/search/apply-gsc-records.mjs` が検査して追記・push する（Claude は `.claude/` に書けない）。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
 | `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記。＋月 1 回の画面の実査 4 項目（メッセージ・生成 AI 機能の表示・外部リンク・クロールの統計情報） | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次。**取得と正規化は土曜の Mac 収集（`weekly-collect` の gsc 段）が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
@@ -39,7 +39,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
 | `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `data/gsc/indexing-{priority,history}.json` → DUE |
 | `gsc-request-indexing` | Script（Playwright・**Mac の launchd が毎日 10 件**（`npm run gsc-indexing:install`）・土曜の収集も同じ処理・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
-| `gsc-local-routine` | 土曜の Mac 収集（`weekly-collect` の gsc 段・`scripts/gsc-local-routine.mjs`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。収集用 worktree（`.claude/worktrees/weekly-collect`）で実行し台帳を push。未ログインは段が失敗として記録される。運営者が取り直すなら収集用 worktree の端末で `node scripts/weekly-collect.mjs --only gsc`（登録リクエストは 20 時間ルールで間引かれることがある）。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24）。毎日の launchd `gsc-local` は 2026-10-24 に廃止（DN-0817） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
+| `gsc-local-routine` | 土曜の Mac 収集（`weekly-collect` の gsc 段・`scripts/search/gsc-local-routine.mjs`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。収集用 worktree（`.claude/worktrees/weekly-collect`）で実行し台帳を push。未ログインは段が失敗として記録される。運営者が取り直すなら収集用 worktree の端末で `node scripts/ops/weekly-collect.mjs --only gsc`（登録リクエストは 20 時間ルールで間引かれることがある）。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24）。毎日の launchd `gsc-local` は 2026-10-24 に廃止（DN-0817） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
 | `check-gsc-sitemaps` | Script（surfacer・オフライン） | `data/gsc/sitemaps.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
 | `search-improvement` | Script（週次レビューが record/triage/close、CI fetch-metrics が sync・28日計測） | 11〜30 位の帯の候補→改善→本番反映起点の前後計測。入口 `/weekly-review`、詳細 [検索キーワード戦略](../../../docs/strategy/16_検索キーワード戦略.md) | `experiments.json`（kind search-strategy）。旧 `data/gsc/rank-watch/<月>.jsonl` は 2026-10-13 廃止後の不変アーカイブ（書き手なし） |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
@@ -63,7 +63,7 @@ coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bi
 
 2026-08-22 の URL 移行後も旧 `/docs` が表示の 32%（28 日で 4,487 / 14,183）を取り、新 URL 18 件が「Google が旧 URL を正規に選択」の重複だった（2026-09-23）。
 Google の「Move a site with URL changes」（2026-08-20 更新）の手順どおり、旧 URL だけを載せた `sitemap-legacy.xml` を
-`scripts/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。移転日より後に作った記事（frontmatter の created が 2026-08-22 より後）の `/docs/<slug>` は実在したことが無いので出さない（2026-10-11・載せていた 254 件が GSC の「検出 - インデックス未登録」を 173 件水増ししていた）。
+`scripts/build/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。移転日より後に作った記事（frontmatter の created が 2026-08-22 より後）の `/docs/<slug>` は実在したことが無いので出さない（2026-10-11・載せていた 254 件が GSC の「検出 - インデックス未登録」を 173 件水増ししていた）。
 `sitemap.xml`（index-coverage・IndexNow・check-seo-build の母集合）には混ぜない。GSC の旧 sitemap に出る「リダイレクト」警告は Google の手順上ふつうなので無視する。
 期限 `LEGACY_SITEMAP_UNTIL`（`scripts/lib/legacy-sitemap.mjs`）を過ぎたビルドでは自動で出さなくなる。延長・前倒しは旧 URL の表示比率（`gsc-page` の `/docs/` 行）で判断する。
 
@@ -161,10 +161,10 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 ### 補助ツール（深掘り時）
 
-- 母集合生成: `node scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
+- 母集合生成: `node scripts/search/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
 - URL Inspection: `npm run inspect-url -- --file <list>`（2,000 URL/日/property 上限）
-- 集計→履歴: `node scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
-- 既存分析: `scripts/{analyze-gsc-coverage,analyze-hubs,build-noindex-candidates}.mjs`
+- 集計→履歴: `node scripts/search/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
+- 既存分析（手順は memory の reference_gsc_diagnosis_toolkit）: `scripts/search/extract-gsc-coverage-urls.mjs`（未登録の理由ごとの URL 一覧 ex0〜ex4）→ `scripts/search/analyze-gsc-coverage.mjs`（Inspection と検索の数字の突き合わせ）・`scripts/search/analyze-hubs.mjs`（hub 強化の優先度）・`scripts/search/build-noindex-candidates.mjs`（noindex 候補）・`scripts/checks/verify-html-links.mjs`（本番 HTML に内部リンクが出ているか）
 
 ## データの所在
 
@@ -571,7 +571,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 ### 2026-09-24（part-N の sitemap 復帰）
 
 - 判断: 2026-09-17 に外した `/standards/` の逐語分冊 part-N（当時 133 件）を sitemap へ戻す。復帰条件「`/exam/` の索引率 70%」は 9/23 の batch で `/exam/` 1,015 / 1,207＝84.1% になり満たした（サイト全体 79.9%・#485 は同日自動クローズ）
-- 変更: `scripts/generate-sitemap.mjs` の除外と `scripts/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
+- 変更: `scripts/build/generate-sitemap.mjs` の除外と `scripts/checks/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
 - 読み方の注意: 戻した翌週の batch では part-N（9/7 時点で登録済み 25 / 133）の分だけ検出-未登録が増え、indexed_ratio が数 pt 下がる見込み。**part-N を除いた `/exam/` の索引率で比較する**。自動レビューはこの増加を異常と扱わない
 
 ### 2026-09-24（旧 URL 一時 sitemap の採用）

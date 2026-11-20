@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { existsSync } from 'node:fs';
 import { GATES, GATE_CONCURRENCY, UNIT_TEST_RULES, failureLines, gateEnv, planGates, runPlan, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
 import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
-import { CHECKS } from '../scripts/quality-audit.mjs';
+import { CHECKS } from '../scripts/ops/quality-audit.mjs';
 
 test('planGates: staged のパスに応じて回す検査と対象を決める', () => {
   // 設定・記録の JSON は型の実データのテスト（unit-tests）も回すので、ここではそれを除いて比べる
@@ -18,7 +18,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'keiken-answer-split', 'unit-tests', 'content-series', 'topic-wiring', 'generated-indexes']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
-  assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
+  assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/checks/audit-katex-warnings.mjs', '--strict']);
   // SNS の検査は SNS の保留に合わせて 2026-10-25 に CI と pre-commit の速い検査から外した（再開するときに作り直す）
   // content/sns の json・md・txt は素材の参照の検査（media-references）だけ回す（下のテスト）
   assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['media-references']);
@@ -29,7 +29,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.deepEqual(planGates(['content/site/a/img/x.svg']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(planGates(['content/site/a/img/photo-x.webp']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(only(['config/products.json']), ['products']);
-  assert.deepEqual(only(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']), ['products']);
+  assert.deepEqual(only(['src/lib/coconala-services.ts']), ['products']);
   // 転職アフィリエイトの配置ルールと、それが突き合わせる正本
   for (const f of ['config/affiliate-placements.json', 'config/affiliate-mats.json', 'config/cta-placements.json', 'data/affiliate/catalog.json', 'src/config/affiliate-creatives.ts']) {
     assert.deepEqual(only([f]), ['affiliate-placements'], f);
@@ -45,7 +45,7 @@ test('note の原稿・マガジンの写し・収録の期待値を stage し�
   assert.deepEqual(ids(['config/note-magazine-membership.json']), ['unit-tests', 'generated-indexes'], '設定の JSON は型の実データのテストも回す');
   assert.ok(!ids(['content/note/1級・2級土木/2級土木/R8二次の出題予想/hashtags.txt']).includes('generated-indexes'));
   const gate = GATES.find((g) => g.id === 'generated-indexes');
-  assert.deepEqual(gate.cmd([]), ['node', 'scripts/build-note-published-index.mjs', '--check', '--staged']);
+  assert.deepEqual(gate.cmd([]), ['node', 'scripts/build/build-note-published-index.mjs', '--check', '--staged']);
   assert.ok(ids(['content/note/x/y/Article.md']).includes('generated-indexes'), 'isNoteArticleFile と同じく大文字小文字を区別しない');
 });
 
@@ -70,7 +70,7 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
     ['.claude/config/review-wiring.json', 'review-wiring'],
     ['.claude/skills/weekly-review/SKILL.md', 'review-wiring'],
     ['package.json', 'gate-parity'],
-    ['scripts/quality-audit.mjs', 'gate-parity'],
+    ['scripts/ops/quality-audit.mjs', 'gate-parity'],
     ['config/domains.json', 'domains'],
     ['.claude/agents/guide-qa.md', 'domains'],
     ['.claude/knowledge/reference/workflows.md', 'domains'],
@@ -115,19 +115,19 @@ test('planGates: 1級・2級土木の記事と note・Kindle の原稿は経験�
 });
 
 test('planGates: スクリプトとワークフローを変えたら、書き方の規約と knip を先に見る（2026-10-10 に CI で初めて落ちた）', () => {
-  for (const f of ['scripts/book-coverage-commit.mjs', '.claude/workflows/book-coverage-expand.js', 'tools/admin-app/src/app/ops/store/dataset-query.tsx', 'scripts/lib/x.mjs']) {
+  for (const f of ['scripts/content/book-coverage-commit.mjs', '.claude/workflows/book-coverage-expand.js', 'tools/admin-app/src/app/ops/store/dataset-query.tsx', 'scripts/lib/x.mjs']) {
     const ids = planGates([f]).map((g) => g.id);
     assert.ok(ids.includes('unit-tests') && ids.includes('knip-ratchet'), f);
   }
   assert.ok(!planGates(['src/lib/coconala-services.ts']).some((g) => g.id === 'unit-tests'), 'サイトの src/ は CI の全量に任せる');
-  assert.ok(!planGates(['scripts/kindle-published/catalog.json']).some((g) => g.id === 'unit-tests'), 'コードでない JSON は見ない');
+  assert.ok(!planGates(['src/lib/note-magazines.ts']).some((g) => g.id === 'unit-tests'), '生成物の TS は見ない');
 });
 
 test('unit-tests は hook の GIT_INDEX_FILE などを外して起動する（テストの git が commit 用の index を書き換えない）', () => {
   // 2026-10-27: todo-add.test.mjs の一時リポジトリの git add が commit 用の index を 17,802 件から 2 件に置き換えた
   const env = { PATH: '/bin', GIT_INDEX_FILE: '/repo/.git/next-index.lock', GIT_DIR: '/repo/.git', HOME: '/h' };
-  const unit = planGates(['scripts/todo-add.mjs']).find((g) => g.id === 'unit-tests');
-  assert.ok(unit, 'scripts/todo-add.mjs で unit-tests が回らない');
+  const unit = planGates(['scripts/ops/todo-add.mjs']).find((g) => g.id === 'unit-tests');
+  assert.ok(unit, 'scripts/ops/todo-add.mjs で unit-tests が回らない');
   const isolated = gateEnv(unit, env);
   assert.equal(isolated.GIT_INDEX_FILE, undefined);
   assert.equal(isolated.GIT_DIR, undefined);
@@ -152,7 +152,7 @@ test('content/sns の文書を stage したら素材の参照（check-media-refe
   assert.ok(ids(['content/sns/x/y.md']).includes('media-references'));
   assert.ok(!ids(['content/sns/x/y.png']).includes('media-references'), '走査対象は json・md・txt だけ');
   assert.ok(!ids(['content/site/a/b/article.mdx']).includes('media-references'));
-  assert.deepEqual(GATES.find((g) => g.id === 'media-references').cmd([]), ['node', 'scripts/check-media-references.mjs']);
+  assert.deepEqual(GATES.find((g) => g.id === 'media-references').cmd([]), ['node', 'scripts/checks/check-media-references.mjs']);
 });
 
 test('runPlan: 検査を並行で回し、結果は計画の順に返す（直列だと記事 1 本の commit で所要時間が足し算になる・DN-1141）', async () => {

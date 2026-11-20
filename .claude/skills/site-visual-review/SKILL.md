@@ -13,7 +13,7 @@ domain: site
 サイトの代表ページを**全部の画面幅で撮り**、**機械の検査**と**エージェントの目視**で pass / fail を記録し、不合格を**直して撮り直す**。
 1 つの画面幅だけを見た確認は、ほかの幅の崩れを通す（2026-11-11 にトップページで、1280px を超える幅だけ 2 区画が左右 40px 広いのを人が見つけた）。
 
-撮影・対象の選定・機械の検査・判定の検証・記録・起票は `scripts/site-visual-review.mjs` が決める。
+撮影・対象の選定・機械の検査・判定の検証・記録・起票は `scripts/reports/site-visual-review.mjs` が決める。
 エージェント `site-page-visual-auditor`（sonnet・audit-only）は撮影を見て判定を書くだけ。直すのは親（またはページの UI を組む `page-design-builder`）。
 
 - 対象と画面幅: `config/site-visual-review.json`（ページの種類ごとの代表 URL・必ず出す導線 `expect`・画面幅）。機械の検査は全部の幅、撮影して目視に回すのは `visual: true` の幅（375・768・1440）と機械で決まる崩れが出た幅だけ。`shotMaxWidth`（960px）より広い撮影は縮めて渡す（判定のトークンの大半は画像）

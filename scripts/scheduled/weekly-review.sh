@@ -1,8 +1,8 @@
 #!/bin/bash
 # launchd から毎週土曜 9:30 と、ログイン・起動のたび（RunAtLoad）に呼ばれるラッパー（com.doboku-note.weekly-review）。名前は登録済みの launchd に合わせて残している。
 # 土曜の開始時刻から日曜の間だけ、収集の記録から今週まだ終わっていない範囲（全部・後段だけ・なし）を決めて回す（再起動で途中終了した回の回し直し・DN-1196）。
-#   1. 土曜の収集（前）: ログインが要る取得と、その検算・note の公開状態の照合を scripts/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819・DN-0847）
-#   2. GSC の記録層: 要るときだけヘッドレスの Claude に週次観測・coverage の断片を書かせ、scripts/apply-gsc-records.mjs が
+#   1. 土曜の収集（前）: ログインが要る取得と、その検算・note の公開状態の照合を scripts/ops/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819・DN-0847）
+#   2. GSC の記録層: 要るときだけヘッドレスの Claude に週次観測・coverage の断片を書かせ、scripts/search/apply-gsc-records.mjs が
 #      gsc-management.md へ追記して push する（旧 gsc-auto-review.yml・CI の中の Claude をやめて土曜へ寄せた・DN-0849）
 #   3. 土曜の収集（後）: 時間がかかる照合と note への書き込みを --phase post で回す
 # 導入・状態確認・即実行・解除: npm run weekly-review:install [-- --status|--run-now|--uninstall]
@@ -49,6 +49,10 @@ fi
 
 REPO="${DOBOKU_WEEKLY_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 REPO="$(cd "$REPO" && pwd -P)"
+# 失敗の通知は $REPO（人の checkout）で回す。この runner は origin/develop の版なので、$REPO が古いと新しいパスが無い
+# （2026-11-20 に scripts/ をフォルダに分けた）。無ければ旧パス（転送か旧版の本体）を使う
+REPORT_FAILURE="scripts/reports/report-automation-failure.mjs"
+[ -f "$REPO/$REPORT_FAILURE" ] || REPORT_FAILURE="scripts/report-automation-failure.mjs"
 CWT="$REPO/.claude/worktrees/weekly-collect"
 LOG_DIR="$HOME/Library/Logs/doboku-note"
 LOG_FILE="$LOG_DIR/weekly-review.log"
@@ -88,7 +92,7 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   if [ -f "$LOCK/pid" ] && kill -0 "$(cat "$LOCK/pid")" 2>/dev/null; then
     echo "[weekly-review] already running pid=$(cat "$LOCK/pid")" >> "$LOG_FILE"
     if [ -n "$(find "$LOCK" -maxdepth 0 -mmin +"$STUCK_MINUTES" 2>/dev/null)" ]; then
-      (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-run --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
+      (cd "$REPO" && node "$REPORT_FAILURE" --channel weekly-collect --key saturday-mac-run --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
     fi
     exit 0
   fi
@@ -113,7 +117,7 @@ notify() { # channel title rc label
     tail -30 "$LOG_FILE" | sed 's/[[:cntrl:]]//g'
     echo '```'
   } > "$body"
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel "$1" --key "$KEY" --title "$2" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo "[weekly-review] failure notification also failed ($1)" >> "$LOG_FILE"
+  (cd "$REPO" && node "$REPORT_FAILURE" --channel "$1" --key "$KEY" --title "$2" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo "[weekly-review] failure notification also failed ($1)" >> "$LOG_FILE"
   rm -f "$body"
 }
 
@@ -126,9 +130,9 @@ finish() {
   # set -e で途中終了したときは収集の失敗として扱う
   [ "$rc" -eq 0 ] || [ "$collect_rc" -ne 0 ] || [ "$gsc_rc" -ne 0 ] || collect_rc=$rc
   if [ "$collect_rc" -eq 0 ]; then
-    (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --body "復旧: $week の土曜の収集（前・後）が合格") >> "$LOG_FILE" 2>&1 || true
+    (cd "$REPO" && node "$REPORT_FAILURE" --resolve --channel weekly-collect --body "復旧: $week の土曜の収集（前・後）が合格") >> "$LOG_FILE" 2>&1 || true
     if [ "$gsc_rc" -eq 0 ]; then
-      (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --key "$KEY" --body "復旧: $week の土曜の収集と GSC の記録層がどちらも合格") >> "$LOG_FILE" 2>&1 || true
+      (cd "$REPO" && node "$REPORT_FAILURE" --resolve --channel weekly-collect --key "$KEY" --body "復旧: $week の土曜の収集と GSC の記録層がどちらも合格") >> "$LOG_FILE" 2>&1 || true
     fi
   else
     echo "=== $(date -Iseconds) [weekly-collect] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
@@ -183,14 +187,14 @@ prepare_collect_worktree() {
   git -C "$CWT" clean -q -fd || return 1
   link_deps "$CWT"
   # pre-commit が読む生成物（git 追跡外）。無いと commit の瞬間に ENOENT で落ちる
-  (cd "$CWT" && node scripts/build-doc-meta-index.mjs --ci > /dev/null) || return 1
+  (cd "$CWT" && node scripts/build/build-doc-meta-index.mjs --ci > /dev/null) || return 1
 }
 
 collect_phase() { # pre|post
   local rc=0
   prepare_collect_worktree || rc=$?
   if [ "$rc" -eq 0 ]; then
-    (cd "$CWT" && node scripts/weekly-collect.mjs --phase "$1") || rc=$?
+    (cd "$CWT" && node scripts/ops/weekly-collect.mjs --phase "$1") || rc=$?
   fi
   echo "[weekly-collect] --phase $1 rc=$rc"
   [ "$rc" -eq 0 ] || collect_rc=$rc
@@ -203,9 +207,9 @@ run_gsc_record() {
   # 実行前のゲートは worktree の外に置く（worktree を汚すと、記録の検査が「未保存の変更」を拾う）
   local gates
   gates="$(mktemp)"
-  node scripts/check-gsc-auto-review.mjs --json > "$gates" || true
+  node scripts/checks/check-gsc-auto-review.mjs --json > "$gates" || true
   local need_rc=0
-  node scripts/apply-gsc-records.mjs --needed --before "$gates" || need_rc=$?
+  node scripts/search/apply-gsc-records.mjs --needed --before "$gates" || need_rc=$?
   if [ "$need_rc" -eq 3 ]; then echo '[gsc-record] 週次・coverage とも記録済みか、データが古い。Claude は回さない'; rm -f "$gates"; return 0; fi
   [ "$need_rc" -eq 0 ] || { rm -f "$gates"; return "$need_rc"; }
   local rc=0
@@ -214,7 +218,7 @@ run_gsc_record() {
     --permission-mode acceptEdits \
     --allowedTools "Bash Read Write Edit Glob Grep Agent" \
     --disallowedTools "ScheduleWakeup Bash(git commit:*) Bash(git push:*) Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(rm -rf:*)" || rc=$?
-  [ "$rc" -ne 0 ] || node scripts/apply-gsc-records.mjs --before "$gates" || rc=$?
+  [ "$rc" -ne 0 ] || node scripts/search/apply-gsc-records.mjs --before "$gates" || rc=$?
   rm -f "$gates"
   [ "$rc" -ne 0 ] || rm -rf .tmp/claude-out/gsc
   git -C "$REPO" fetch -q origin develop || true
@@ -235,7 +239,7 @@ run_gsc_record() {
 
 # いま回す範囲（all・post・none）を、収集の記録（runs.json）から決める
 prepare_collect_worktree || { echo "[weekly-collect] worktree を用意できない"; collect_rc=1; exit 1; }
-plan="$(cd "$CWT" && node scripts/weekly-collect.mjs --resume-plan)" || plan=""
+plan="$(cd "$CWT" && node scripts/ops/weekly-collect.mjs --resume-plan)" || plan=""
 if [ "$force" = "1" ] && [ "$plan" = "none" ]; then plan="all"; fi
 case "$plan" in
   all|post) ;;
@@ -248,7 +252,7 @@ find "$LOG_DIR" -maxdepth 1 -name 'weekly-collect-attempts-*' -mtime +30 -delete
 if [ "$force" != "1" ] && [ "$attempts" -gt "$MAX_ATTEMPTS" ]; then
   echo "[weekly-collect] 今週は ${MAX_ATTEMPTS} 回起動して終わらなかったので、これ以上は回さない（範囲: ${plan}）"
   quiet_exit=1
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-retries --title "土曜の収集が ${MAX_ATTEMPTS} 回起動しても終わらない" --body "$week の収集（範囲 ${plan}）が終わらないまま ${MAX_ATTEMPTS} 回起動した。Mac が途中で再起動していないか（メモリ不足）を確かめる。ログ: ~/Library/Logs/doboku-note/weekly-review.log") || true
+  (cd "$REPO" && node "$REPORT_FAILURE" --channel weekly-collect --key saturday-mac-retries --title "土曜の収集が ${MAX_ATTEMPTS} 回起動しても終わらない" --body "$week の収集（範囲 ${plan}）が終わらないまま ${MAX_ATTEMPTS} 回起動した。Mac が途中で再起動していないか（メモリ不足）を確かめる。ログ: ~/Library/Logs/doboku-note/weekly-review.log") || true
   exit 0
 fi
 echo "$attempts" > "$attempts_file"

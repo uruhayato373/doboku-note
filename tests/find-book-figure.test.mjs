@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { findFigures, loadBooks, queryKey, run } from '../scripts/find-book-figure.mjs';
+import { findFigures, loadBooks, queryKey, run } from '../scripts/storage/find-book-figure.mjs';
 import { parseOcrFigureEntries } from '../scripts/lib/figure-references.mjs';
 
 const OCR_A = `<!-- p0121 印字:113 -->

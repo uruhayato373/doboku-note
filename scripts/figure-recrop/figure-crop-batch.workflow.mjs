@@ -4,7 +4,7 @@
 // 並列に処理し、構造化結果の配列を返す。MDX 寸法・判定台帳の記録と最終目視 QA・commit は親が直列で行う。
 //
 // 起動例（親側）:
-//   node scripts/figure-review-queue.mjs --next 12 --json > .tmp/figure-loop/batch.json
+//   node scripts/storage/figure-review-queue.mjs --next 12 --json > .tmp/figure-loop/batch.json
 //   Workflow({ scriptPath: "scripts/figure-recrop/figure-crop-batch.workflow.mjs",
 //              args: <batch.json の配列> })
 //

@@ -79,15 +79,15 @@ Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を�
 通ったパックは親が予約する。Workflow の中では外へ出さない。
 
 ```bash
-node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
-node --env-file=<.env.local> scripts/video-factory.mjs cleanup --packs <a,b>  # audit-funnel で実体を確かめたあと
+node --env-file=<.env.local> scripts/youtube/video-factory.mjs publish --packs <a,b>
+node --env-file=<.env.local> scripts/youtube/video-factory.mjs cleanup --packs <a,b>  # audit-funnel で実体を確かめたあと
 ```
 
 在庫にするときは Workflow へ `stock: true` を渡す。関門を検査してコミットするところで止まり、承認も公開日時も書かない。予約するときに次を実行する。画面確認の判定は公開日時に左右されないので、やり直しは要らない。
 
 ```bash
-node scripts/video-factory.mjs schedule --packs <a,b>
-node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
+node scripts/youtube/video-factory.mjs schedule --packs <a,b>
+node --env-file=<.env.local> scripts/youtube/video-factory.mjs publish --packs <a,b>
 ```
 
 トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
@@ -154,7 +154,7 @@ npm run youtube-daily -- run     # 関連動画を記録したショートの予
 - ショートの公開は親の公開の 10 時間後以降の枠（`SHORT_AFTER_PARENT_HOURS`）。親が公開されてから、その夜の実行で関連動画を設定して予約できる間を空ける。
 - `run` は develop へ commit・push する。他のセッションと作業ツリーを共有しない専用の worktree で回す（未コミットの変更があると止まる）。
 - `expired` は関連動画を設定できないまま公開日時を過ぎたショート。日時を付け直す。
-- 予約の後の段は `node --env-file=.env.local scripts/video-factory.mjs status --r2` で見る。`verify` は公開日時を過ぎても毎朝の照合（reconcile）で published になっていない行、`cleanup-pending` は R2 の転送ファイル（video/render/<作品>/）が残る行で、予約を実体で確かめてから `video-factory cleanup --packs …` で消す（DN-1070）。
+- 予約の後の段は `node --env-file=.env.local scripts/youtube/video-factory.mjs status --r2` で見る。`verify` は公開日時を過ぎても毎朝の照合（reconcile）で published になっていない行、`cleanup-pending` は R2 の転送ファイル（video/render/<作品>/）が残る行で、予約を実体で確かめてから `video-factory cleanup --packs …` で消す（DN-1070）。
 - 直すまで出さない作品は `config/video-auto-publish.json` の `hold`（作品・理由・カード）に書く。通常動画・ショート・承認の付け直しのどれも出さない。直したら行を消す。
 - 前倒しの間は、前倒しより前に承認して未投稿の通常動画（`toReplace`）の承認を `run` が外し、空き枠から日時を付け直して同じ流れに乗せる（承認は予約の前に関門で書き直す）。改訂版（diagram-led）は DN-0670 の判断待ちで対象外。
 

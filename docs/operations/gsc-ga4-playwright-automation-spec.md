@@ -135,9 +135,9 @@ data/ga4/ui/<run-id>/  # raw CSV + manifest + normalized JSON
 `fetch-gsc-ui-csv.mjs`のCLI:
 
 ```bash
-node scripts/fetch-gsc-ui-csv.mjs --dry-run
-node scripts/fetch-gsc-ui-csv.mjs --issues crawledNotIndexed,redirect,notFound
-node scripts/fetch-gsc-ui-csv.mjs --issues all --headed
+node scripts/search/fetch-gsc-ui-csv.mjs --dry-run
+node scripts/search/fetch-gsc-ui-csv.mjs --issues crawledNotIndexed,redirect,notFound
+node scripts/search/fetch-gsc-ui-csv.mjs --issues all --headed
 ```
 
 処理:
@@ -291,7 +291,7 @@ URLごとの出力:
 
 ### `check-gsc-ui-run`（スクリプト）
 
-- 旧 `gsc-csv-auditor`（2026-11-18 に廃止）の判定を `scripts/check-gsc-ui-run.mjs` へ移した。
+- 旧 `gsc-csv-auditor`（2026-11-18 に廃止）の判定を `scripts/checks/check-gsc-ui-run.mjs` へ移した。
 - raw/normalized CSV、manifest、行数、sha256、truncation、rejects、前回差分を検査する。土曜の収集の gsc 段の検算（quality-audit の `gsc-ui-run`）が回す。
 - 外部サイトへアクセスせず、データ品質のみ返す。
 
@@ -341,17 +341,17 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 
 ```json
 {
-  "google-console:login": "node scripts/google-console-login.mjs",
-  "gsc-ui:fetch": "node scripts/fetch-gsc-ui-csv.mjs",
-  "ga4-ui:fetch": "node scripts/fetch-ga4-ui-csv.mjs",
-  "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
-  "search-growth:report": "node scripts/report-search-growth.mjs",
-  "search-growth:audit": "node scripts/run-search-growth-audit.mjs",
-  "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
-  "check-google-ui-ssot": "node scripts/check-google-ui-ssot.mjs",
-  "ga4-admin:check": "node scripts/ga4-admin-setup.mjs",
-  "ga4-admin:apply": "node scripts/ga4-admin-setup.mjs --commit",
-  "check-ga4-dimensions": "node scripts/check-ga4-custom-dimensions.mjs"
+  "google-console:login": "node scripts/search/google-console-login.mjs",
+  "gsc-ui:fetch": "node scripts/search/fetch-gsc-ui-csv.mjs",
+  "ga4-ui:fetch": "node scripts/search/fetch-ga4-ui-csv.mjs",
+  "google-console:normalize": "node scripts/search/normalize-google-console-csv.mjs",
+  "search-growth:report": "node scripts/reports/report-search-growth.mjs",
+  "search-growth:audit": "node scripts/search/run-search-growth-audit.mjs",
+  "check-gsc-ui-due": "node scripts/checks/check-gsc-ui-due.mjs",
+  "check-google-ui-ssot": "node scripts/checks/check-google-ui-ssot.mjs",
+  "ga4-admin:check": "node scripts/search/ga4-admin-setup.mjs",
+  "ga4-admin:apply": "node scripts/search/ga4-admin-setup.mjs --commit",
+  "check-ga4-dimensions": "node scripts/checks/check-ga4-custom-dimensions.mjs"
 }
 ```
 
@@ -360,7 +360,7 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 > **引数なし**で呼ばれ `resolveRunDir` が null → 毎回 exit 2 で report に到達していなかった。
 > `&&` を `;` に変えると今度は **cmd.exe が `;` を区切りとして扱わず** npm が `gsc-ui:fetch;` という
 > スクリプト名を探して即死する（Windows 実測）。「失敗を許容する連鎖」は POSIX と Windows の両方で
-> 動く形にシェルでは書けないため、連鎖の意味を `scripts/run-search-growth-audit.mjs` に移した。
+> 動く形にシェルでは書けないため、連鎖の意味を `scripts/search/run-search-growth-audit.mjs` に移した。
 >
 > | 取得の exit code | 意味 | 連鎖の挙動 |
 > |--:|---|---|
@@ -405,7 +405,7 @@ data/gsc/
 
 `.gitignore` は `data/{gsc,ga4}/ui/` を無視しつつ `!.../ssot/` で例外化する。
 `report-search-growth.mjs` は **SSOT を優先**して読み（`gscUiSource: "ssot"`）、無ければ run ローカルへ
-フォールバックする。整合は `scripts/check-google-ui-ssot.mjs` が検査する。
+フォールバックする。整合は `scripts/checks/check-google-ui-ssot.mjs` が検査する。
 
 ## 10.2 GA4 管理画面 設定の自動化（2026-07-30 追加）
 
@@ -417,9 +417,9 @@ data/gsc/
 | 要素 | 実体 |
 |---|---|
 | 期待値（SSOT） | `config/ga4-admin-desired-state.json`（customDimensions / dataRetention / unwantedReferrals） |
-| 観測＋作成 | `scripts/ga4-admin-setup.mjs`（Playwright・**既定 dry-run**・`--commit` で作成） |
+| 観測＋作成 | `scripts/search/ga4-admin-setup.mjs`（Playwright・**既定 dry-run**・`--commit` で作成） |
 | 観測結果（追跡） | `data/ga4/admin-inventory.json` ＋ `history.json` |
-| ドリフト ゲート | `scripts/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
+| ドリフト ゲート | `scripts/checks/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
 
 ### 実機で判明した GA4 UI のクセ（2026-07-30 初回実走で確定）
 
@@ -495,9 +495,9 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - .claude/agents/gsc-index-auditor.md
 - .github/workflows/fetch-metrics.yml
 - .github/workflows/index-coverage.yml
-- scripts/inspect-url.mjs
+- scripts/search/inspect-url.mjs
 - scripts/fetch-gsc-data/fetch-gsc-data.mjs
-- scripts/fetch-ga4-data.mjs
+- scripts/search/fetch-ga4-data.mjs
 
 ゴール:
 1. ログイン済み永続Chromeプロファイルを使い、GSC Page indexingの理由別詳細画面から
@@ -509,16 +509,16 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 6. skill /google-search-growth で全体をオーケストレーションする。
 
 実装対象:
-- scripts/google-console-login.mjs
-- scripts/fetch-gsc-ui-csv.mjs
-- scripts/fetch-ga4-ui-csv.mjs
-- scripts/normalize-google-console-csv.mjs
-- scripts/report-search-growth.mjs
+- scripts/search/google-console-login.mjs
+- scripts/search/fetch-gsc-ui-csv.mjs
+- scripts/search/fetch-ga4-ui-csv.mjs
+- scripts/search/normalize-google-console-csv.mjs
+- scripts/reports/report-search-growth.mjs
 - config/google-console-automation.json
 - .claude/skills/google-search-growth/SKILL.md
 - .claude/skills/google-search-growth/references/csv-schema.md
 - .claude/skills/google-search-growth/references/recovery.md
-- scripts/check-gsc-ui-run.mjs
+- scripts/checks/check-gsc-ui-run.mjs
 - .claude/agents/seo-fix-planner.md
 - testsとfixtures
 - package.jsonのnpm scripts

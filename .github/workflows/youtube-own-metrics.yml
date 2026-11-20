@@ -1,9 +1,9 @@
 name: YouTube own-channel metrics (monthly)
 
 # 自社 YouTube の動画別の再生数・尺（台帳 youtube.own-videos）を毎月 1 日に取り、前回比が取り忘れで切れないようにする（DN-0596）。
-# 実装: scripts/youtube-own-metrics.mjs（yt-dlp のチャンネル一覧を読むだけ。動画の再生用 API と映像は使わない）。
+# 実装: scripts/youtube/youtube-own-metrics.mjs（yt-dlp のチャンネル一覧を読むだけ。動画の再生用 API と映像は使わない）。
 # exit: 0 取得成功 / 1 取得失敗 / 2 検査不成立（動画はあるのに再生数が 1 本も取れない。記録は書かない）。Issue channel: youtube-own-metrics
-# 鮮度の検査: scripts/check-youtube-own-freshness.mjs（quality-audit の ops・日次の ops-audit が読む）。
+# 鮮度の検査: scripts/checks/check-youtube-own-freshness.mjs（quality-audit の ops・日次の ops-audit が読む）。
 #
 # probe_competitors: 競合チャンネルの一覧を GitHub Actions のランナーから yt-dlp で取れるかの確認（DN-0596 手順 1）。
 #   1 チャンネル・10 本だけ取って結果をログに出す。記録（data/）には何も書かず、develop へも push しない。
@@ -71,7 +71,7 @@ jobs:
         run: |
           handle=$(node --input-type=module -e 'import { readDataset } from "./scripts/lib/dataset-io.mjs"; const c = readDataset(process.cwd(), "config.competitors").youtube; console.log(c[0].handle)')
           echo "probe 対象: $handle"
-          node scripts/scout-youtube-competitors.mjs --handle "$handle" --limit 10
+          node scripts/youtube/scout-youtube-competitors.mjs --handle "$handle" --limit 10
 
       - name: Fetch own-channel metrics
         id: fetch
@@ -85,7 +85,7 @@ jobs:
           set +e
           args=""
           if [ "$DRY_RUN" = "true" ]; then args="--dry-run"; fi
-          node scripts/youtube-own-metrics.mjs $args 2>&1 | tee "$RUNNER_TEMP/yt-own.log"
+          node scripts/youtube/youtube-own-metrics.mjs $args 2>&1 | tee "$RUNNER_TEMP/yt-own.log"
           echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
 
       # 取得が失敗した run では書いたファイルが無い。ci-data は無いパスを飛ばすので「取得失敗」が「publish 失敗」に見えない
@@ -94,7 +94,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          node scripts/ci-data.mjs add --datasets youtube.own-videos
+          node scripts/ops/ci-data.mjs add --datasets youtube.own-videos
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
@@ -126,7 +126,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel youtube-own-metrics \
             --title "自社 YouTube の月次取得に失敗（rc=${{ steps.fetch.outputs.exit_code }}）" \
             --body-file "$RUNNER_TEMP/yt-own-body.md"
@@ -137,7 +137,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel youtube-own-metrics \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel youtube-own-metrics \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail on fetch error

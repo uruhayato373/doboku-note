@@ -1,6 +1,6 @@
 # GSC/GA4 UI CSV 正規化 schema（真実源）
 
-`scripts/lib/google-console-csv.mjs` と `scripts/normalize-google-console-csv.mjs` が生成する
+`scripts/lib/google-console-csv.mjs` と `scripts/search/normalize-google-console-csv.mjs` が生成する
 共通 JSON の仕様。CSV を直接分析せず、必ずこの共通形式へ正規化してから突合する。
 
 ## 生成物の置き場

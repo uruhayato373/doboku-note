@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { applyTableOverride, tableKey } from '../scripts/lib/standards-table.mjs';
 import { loadTableOverrides, variantsOf } from '../scripts/lib/standards-structure.mjs';
 import { RE_STANDARD_FIGURE_TITLE, isFigureCaption } from '../scripts/lib/standards-figures.mjs';
-import { parseTranscribedGfmTable } from '../scripts/build-standard-articles.mjs';
+import { parseTranscribedGfmTable } from '../scripts/build/build-standard-articles.mjs';
 import { SITE_CONTENT_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // 画面の目視判定（standards-visual-review）で見つかった基準書の崩れの回帰を固定する（DN-0916・DN-1052・DN-1053）

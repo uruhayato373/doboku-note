@@ -8,7 +8,7 @@
 //
 // 要確認: メトリクス名は API バージョンで変わる。初回 run の insightsError で確定する。
 //
-// mediaToLive() の返り値は scripts/verify-ig-status.mjs の reconcile(packs, liveData) が受け取る
+// mediaToLive() の返り値は scripts/checks/verify-ig-status.mjs の reconcile(packs, liveData) が受け取る
 // liveData 形（shortcodes / live / recordedInfo）と同じにしてある（将来 Playwright 版と差し替え可能にする）。
 //
 // 使い方（例）:

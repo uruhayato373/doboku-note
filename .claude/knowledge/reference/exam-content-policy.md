@@ -63,7 +63,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **整備の目標**: 公開済み一次検定 過去問を逐条解説する
 - **構造**: 問題ごとに H2 `## 問題 No.N`、解答は `<details>` で開閉式、各問題に `<ExamPoint>` 1 個（最大 1 個）
 - **ExamPoint ルール**: `summary` 30〜50 字（本質）、`items` は体言止め 1〜3 個（≤60 字、句読点禁止）。詳細は [content-principles.md §5「items の禁止パターン」](./content-principles.md) 参照
-- **過去歴**: `migrate-civil-answer-style.mjs` の `generateExamPoint()` バグで約 1,440 個の壊れた items が生成された（2026-04-24）。修復は専用の Generator で 2026-05-16 に実施済み（2026-11-18 に退役）
+- **過去歴**: 旧 `migrate-civil-answer-style.mjs`（2026-11-19 に削除）の `generateExamPoint()` バグで約 1,440 個の壊れた items が生成された（2026-04-24）。修復は専用の Generator で 2026-05-16 に実施済み（2026-11-18 に退役）
 - **執筆ツール**: 既存リライトは `past-exam-rewriter`、新規変換は `/pdf-to-mdx --exam civil-construction-1`
 
 #### 1級土木 secondary（`group: secondary`、二次過去問）
@@ -146,7 +146,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 ## Part 4: 新資格を追加するときの手順
 
-- **資格の正本に登録する（最初に行う）**: `config/qualification-registry.json` で `portfolio` を `active` にする（候補として既にあれば `candidate` から変える）。日程 `exam-calendar.json`・受験者数 `exam-stats.json`・出題形式 `exam-formats.json` の同 id を公式で照合し直して `checkedBy: self` にし、`scripts/check-exam-calendar.mjs` の `expected` に公式日付を、`config/product-lineup.json` に資格の行（商品の分類先。試験区分は `exam-formats.json` の stages から自動で付くので書かない）を足す。四者の id の整合は `npm run check-exam-calendar` が止める。過去問を取得する資格は `config/past-exam-inventory.json` にも同じ id で年度の行を足す（整合と取得の催促は `npm run check-past-exam-inventory`。台帳に無い資格は検査しない）。展開を決める前の判断材料は `npm run qualification-market`（管理画面 戦略＞資格と市場＞展開の判断）、判断の記録は `docs/strategy/06_多資格展開戦略.md`。管理画面「資格と市場 ＞ 資格一覧」（`/strategy/qualifications`）で候補の日程・受験者数を確認できる
+- **資格の正本に登録する（最初に行う）**: `config/qualification-registry.json` で `portfolio` を `active` にする（候補として既にあれば `candidate` から変える）。日程 `exam-calendar.json`・受験者数 `exam-stats.json`・出題形式 `exam-formats.json` の同 id を公式で照合し直して `checkedBy: self` にし、`scripts/checks/check-exam-calendar.mjs` の `expected` に公式日付を、`config/product-lineup.json` に資格の行（商品の分類先。試験区分は `exam-formats.json` の stages から自動で付くので書かない）を足す。四者の id の整合は `npm run check-exam-calendar` が止める。過去問を取得する資格は `config/past-exam-inventory.json` にも同じ id で年度の行を足す（整合と取得の催促は `npm run check-past-exam-inventory`。台帳に無い資格は検査しない）。展開を決める前の判断材料は `npm run qualification-market`（管理画面 戦略＞資格と市場＞展開の判断）、判断の記録は `docs/strategy/06_多資格展開戦略.md`。管理画面「資格と市場 ＞ 資格一覧」（`/strategy/qualifications`）で候補の日程・受験者数を確認できる
 0. `src/config/categories.json` に entry を足し、`area`（exam / practice / standards / laws）と許可する `groups`（＝表示順）を宣言する。カテゴリページの表示の決まりは同じ entry の `layout` に書く（`view`＝ビュー・`sort`＝記事型の中の並べ替え・`ogpExamKey`＝OGP の外枠の色・`groupLabels`/`groupDescriptions`＝記事型の見出しと説明・`jumps`＝「学習を始める」。DN-0793。`tests/category-layout.test.mjs` が架空のカテゴリで確かめる）。コードに資格ごとの分岐を足さない。記事型の定義と許可表は [content-taxonomy.md](./content-taxonomy.md) §3（`npm run check-content-taxonomy` が強制）
 1. Part 1 の「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加
@@ -192,7 +192,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 ### 新資格メモ: コンクリート主任技士（`concrete-chief-engineer`、2026-05-30 公開）
 
 - groups = guide / textbook / primary（第1次/第2次区分なし、四肢択一＋小論文の単一試験）。variant=civil / order=2.5。
-- **小論文の出題履歴**: 正本は `config/cce-essay-history.json`（H24〜R7・確度付き。JCI は問題文を公開しないため書籍と公開記事の突合）。サイト `guide-essay` と note の傾向記事は `cce-essay-history:start` マーカー間を `node scripts/check-cce-essay.mjs --fix` で生成し、手で年度を写さない。新年度の追記・テーマ別答案の制作は `/cce-essay-cycle`。
+- **小論文の出題履歴**: 正本は `config/cce-essay-history.json`（H24〜R7・確度付き。JCI は問題文を公開しないため書籍と公開記事の突合）。サイト `guide-essay` と note の傾向記事は `cce-essay-history:start` マーカー間を `node scripts/checks/check-cce-essay.mjs --fix` で生成し、手で年度を写さない。新年度の追記・テーマ別答案の制作は `/cce-essay-cycle`。
 - **公開構成**: ガイド3 + 過去問8分野（材料/性質/耐久性/配合設計/製造QC/施工/製品/構造設計）+ テキスト8分野 = 計19記事 published:true。診断士と異なり**出荷済**。差は「①問題の図依存率が低く逐語転記が安定 ②正答が各問末尾 [正解(n)] にあり確定可能」だったこと。
 - **過去問の年度範囲（2026-07-17 拡張）**: **平成24〜令和5年度・計303問**（分野別8記事に `### {年度} 問題N` で横断収録）。2026-07-17 に H24（26問）・H25（12問）を 2022年版底本から追加。**H24/H25 は OCR 品質がまだらで、選択肢文が復元不能に破綻した問題・公式解答表と技術判断が食い違う問題は収録せず skip**。未収録は H25 の18問（Q1,3,4,5,7,8,9,10,12,13,14,15,16,17,19,20,21,26）と H24 の conflict 4問（Q14,16,17,18）。正答は各年度の公式解答表から機械照合済み。**残の年度拡張余地**: R6・R7（原典スキャン未入手）と上記22問。原典入手後に視覚照合し、解答キーに合わせた本文の再構成はしない。年度表記は「令和元年度」へ統一済み（2026-09-04）。
 - **図依存問題の図クロップ手法（実証済）**: 事前レンダリング済み頁 PNG をサブエージェントに読ませ、図の外接矩形を**「頁全体に対する割合 x/y/w/h」で返させる**→ 親が `magick -crop {w*W}x{h*H}+{x*W}+{y*H}` で実ピクセル切り出し→ `-quality 82` で webp。選択肢が図の問題は「問題図（全選択肢/全曲線）」を収録し**解説図（正答強調）は除外**。データ表（計量値・配合条件等）は4列超でも**インライン markdown 転記**（モバイルより完全性優先、過去問の慣行）。手順 → [[reference-scanned-pdf-pipeline]]。
@@ -230,7 +230,7 @@ figure-canvas 標準で別途作図する。構成を独自編集へ転換した
 `civil-practice-reference-values` まで完了。記事は `group: guide` として §20 Type-2「次のステップ」・
 §26 読者ベネフィット型リード・3,000字下限に準拠。読者は受験者でなく実務者だが、論点が1級土木
 第2次検定と重なるため末尾で資格記事へ送客している記事もある。検証コマンド:
-`node scripts/check-civil-practice-coverage.mjs`（未着手スロット・未カバー項目を列挙）。
+`node scripts/checks/check-civil-practice-coverage.mjs`（未着手スロット・未カバー項目を列挙）。
 
 **資格への橋渡し（2026-09-25〜・EXP-012）**: 本文に試験文脈を入れない規約は維持したまま、記事末に
 `QualificationBridge`（立場 3 択: 発注者／施工会社／迷っている）を `ArticleFooter` が自動で出す。

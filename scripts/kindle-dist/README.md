@@ -1,6 +1,6 @@
 # scripts/kindle-dist/
 
-KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）**の置き場。実体は **private R2（`kindle/dist/`）が正本で git には載せない**（DN-0562・2026-10-12・`.gitignore` 済み）。手元に無いときは `npm run asset-hydrate -- --group kindle-dist` で取り戻す。作り直した版は `node scripts/asset-offload.mjs --group kindle-dist --include-untracked --commit` で R2 へ上げる（CI の check-kindle-epub-leak は R2 から取り戻して読む）（B〜J シリーズ。冊数と状態は `scripts/kindle-published/catalog.json` が真実源）。
+KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）**の置き場。実体は **private R2（`kindle/dist/`）が正本で git には載せない**（DN-0562・2026-10-12・`.gitignore` 済み）。手元に無いときは `npm run asset-hydrate -- --group kindle-dist` で取り戻す。作り直した版は `node scripts/storage/asset-offload.mjs --group kindle-dist --include-untracked --commit` で R2 へ上げる（CI の check-kindle-epub-leak は R2 から取り戻して読む）（B〜J シリーズ。冊数と状態は `config/products.json` の Kindle の書籍が真実源）。
 KDP のアカウント作成数制限で提出は数日〜に分けて進めるため、いつでも取り出せるよう成果物を保全する。
 
 - `<id>.epub` … 入稿用 EPUB（build-pe1-kindle / build-essay-kindle の出力）
@@ -8,17 +8,17 @@ KDP のアカウント作成数制限で提出は数日〜に分けて進める�
 
 ## マスター登録簿
 
-全書籍の状態は [`../kindle-published/catalog.json`](../kindle-published/catalog.json) が真実源。
+全書籍の状態は [`config/products.json`](../../config/products.json) の Kindle の書籍が真実源。
 `status` = `ready`（制作完了・提出待ち）/ `in_review`（KDP審査中）/ `live`（公開済）。
 提出して ASIN が出たら catalog の `asin` と `status=live` を更新する（Claude に ASIN を渡せば処理）。
 
-A シリーズ（公開済/審査中）の実物は歴史的経緯で [`../kindle-published/`](../kindle-published/) 直下にある。
+A シリーズも 2026-11-20 からここ（`a-0x.epub`・`a-0x.jpg`）に置く（DN-1204。それまでは `scripts/kindle-published/` で Git 追跡していた）。人が読む ASIN の表は [`content/kindle/published.md`](../../content/kindle/published.md)。
 
 ## 再生成（spec / theme から決定的に再現できる）
 
 EPUB は B〜G 系の `buildSpec` または A 系の `buildTheme` から再現可能。表紙は、`adoptedImage` のある本は採用済み JPEG と制作記録
-（`kindle-covers/pop/<id>.pop-image.json`）が正本で再生成しない。それ以外の旧本だけ `kindle-covers/specs/<id>.json`＋`backgrounds/` から再現する。A 系は公開済み版を保護するため、ID を明示したときだけ
-`scripts/kindle-published/` の catalog 配布先へ再生成する。
+（`content/kindle/books/<id>/pop-image.json`）が正本で再生成しない。それ以外の旧本だけ `content/kindle/books/<id>/cover.json`＋背景 `content/kindle/cover-backgrounds/`（Drive vault・Git 管理外） から再現する。A 系は公開済み版を保護するため、ID を明示したときだけ
+catalog の配布先（`scripts/kindle-dist/a-0x.*`）へ再生成する。
 
 ```bash
 npm run sync-kindle-dist              # ready 全冊を再ビルド → kindle-dist/ へ
@@ -29,4 +29,4 @@ npm run sync-kindle-dist -- A-00 A-01     # A 系は buildTheme で再生成（�
 
 ## KDP 入稿メモ
 
-各本の入力メモは [`../kindle-published/`](../kindle-published/) の `KDP入力メモ_<id>.txt`（`npm run gen-kdp-memo <id>` で共通テンプレ生成・著者=doboku-note で統一）。
+各本の入力メモは `npm run gen-kdp-memo <id>` で `.tmp/kdp-memo/KDP入力メモ_<id>.txt` に作る（共通テンプレ・著者=doboku-note で統一・Git に残さない）。

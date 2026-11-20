@@ -1,7 +1,7 @@
 // ig-writers-ledger.test.mjs — Instagram の書き手が台帳（正本）を読んで判断するときの純関数（DN-0611）。
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { isSchedulableLedgerRow, LEDGER_FORMAT, recordMarkToLedger } from '../scripts/ig-status.mjs';
+import { isSchedulableLedgerRow, LEDGER_FORMAT, recordMarkToLedger } from '../scripts/instagram/ig-status.mjs';
 
 test('isSchedulableLedgerRow: 遷移表で scheduled へ行ける状態だけ予約してよい', () => {
   for (const status of ['draft', 'rendered', 'approved']) assert.equal(isSchedulableLedgerRow({ status }), true, status);

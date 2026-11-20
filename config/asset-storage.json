@@ -43,9 +43,9 @@
       "keyFrom": "stripPrefix:content/note/",
       "visibilityFrom": "fixed:private",
       "regenerable": false,
-      "generator": "scripts/generate-note-covers.mjs",
+      "generator": "scripts/build/generate-note-covers.mjs",
       "requiredBy": [
-        "scripts/note-sync-routine.mjs（登録した版を保存）"
+        "scripts/note/note-sync-routine.mjs（登録した版を保存）"
       ],
       "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。 2026-09-05（DN-0171）に byVisibility → private 一本化: public 複製はサイトも note も読んでおらず（src/ tools/ に参照 0）、公開のたびに private の旧コピーが台帳外で残る型の温床だった。",
       "phase": "4-B"
@@ -83,8 +83,8 @@
       "generator": "npm run ogp",
       "requiredBy": [
         "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
-        "scripts/check-ogp-coverage.mjs",
-        "scripts/check-orphan-ogp.mjs"
+        "scripts/checks/check-ogp-coverage.mjs",
+        "scripts/checks/check-orphan-ogp.mjs"
       ],
       "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
       "phase": "site-ogp-offload"
@@ -158,10 +158,10 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [
-        "scripts/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
-        "scripts/check-figure-crop-integrity.mjs",
-        "scripts/figure-review-queue.mjs",
-        "scripts/audit-figure-text.mjs"
+        "scripts/build/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
+        "scripts/checks/check-figure-crop-integrity.mjs",
+        "scripts/storage/figure-review-queue.mjs",
+        "scripts/checks/audit-figure-text.mjs"
       ],
       "reason": "記事図の切り出し原本（png）。記事が参照して配信するのは同名の webp（Git に残す）で、png を参照する MDX は 0 件。2026-10-22 に 302 件 19 MiB を Git から外した（DN-0707・DN-0111 Phase 4）。R2 キーは r2-sync（upload-images-to-r2）の `posts/${rel}` と同じなので URL は変わらない。切り出し直しの元 PDF からの再現は byte 一致しないので regenerable=false。",
       "phase": "4-site-figure-png"
@@ -177,10 +177,10 @@
       "keyFrom": "stripPrefix:config/ogp/backgrounds/",
       "visibilityFrom": "fixed:private",
       "regenerable": false,
-      "generator": "scripts/generate-ogp-backgrounds.mjs",
+      "generator": "scripts/build/generate-ogp-backgrounds.mjs",
       "requiredBy": [
         "scripts/ogp-create/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
-        "scripts/coconala-thumb.mjs（ココナラのサムネイル）",
+        "scripts/coconala/coconala-thumb.mjs（ココナラのサムネイル）",
         ".github/workflows/ogp-supply.yml（CI の OGP 生成の前に asset-hydrate で取り戻す）"
       ],
       "reason": "資格別の OGP 背景（AI で作った一点物・7 枚 9.6MB）。config/ は人が決める設定の置き場で、CI が読む素材は private R2 が原則なので 2026-10-10 に git から外した（data/ の SSOT 見直し）。Codex の画像生成は同じ画素を再現しないので、再生成ではなく保管する。手元・CI とも使う直前に asset-hydrate で取り戻し、無ければ requireLocalAsset が止める",
@@ -199,9 +199,9 @@
       "regenerable": true,
       "generator": "npm run sync-kindle-dist",
       "requiredBy": [
-        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
-        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
-        "scripts/kdp-batch.mjs",
+        "scripts/checks/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kindle/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kindle/kdp-batch.mjs",
         ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
       ],
       "reason": "KDP へ入稿する EPUB（65）と表紙 jpg（72）。Git に入れると作り直すたびに履歴へ積まれる（2026-08-22 以降で 286 版・159MB）ので、CI が読む配布物は private R2 が原則（asset-storage-policy §1 ci）として 2026-10-12 に git から外した（DN-0562）。spec から決定的に再ビルドできる（regenerable）が、入稿済みの版を保全するため R2 を正本にする。人が入稿に使う控えは Drive vault。",

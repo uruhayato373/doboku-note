@@ -17,7 +17,7 @@ export { standardBookLabel, standardChapterHeading } from '@/lib/standards-chapt
  * 構造化章記事（レイヤー2）の読み出し。
  *
  * レイヤー1（content/site/standards-library/**）は原典照合用の逐語文字起こしで不変。
- * レイヤー2はそこから scripts/build-standard-articles.mjs が生成した派生コンテンツで、
+ * レイヤー2はそこから scripts/build/build-standard-articles.mjs が生成した派生コンテンツで、
  * 台帳は content/site/standards-articles/{agency}/{document}/manifest.json。
  *
  * アンカー ID はここに持たない。src/lib/toc.ts の extractHeadings（rehypeHeadingIds と同じ
@@ -243,7 +243,7 @@ export function isStandardChapterMerged(agencyId: string, documentId: string): b
 /**
  * 章記事の OGP 画像 URL。
  *
- * 実体は scripts/build-standards-ogp.mjs が
+ * 実体は scripts/build/build-standards-ogp.mjs が
  * content/site/standards-articles/{agency}/{document}/chapters/{chapterId}/ogp.png へ生成し、
  * asset-storage の site-ogp-png グループ（`^content/site/.+/ogp\.png$` → `posts/` prefix）が
  * R2 へ供給する。パスと R2 キーが 1:1 なので、ここでの導出と供給側がズレない。

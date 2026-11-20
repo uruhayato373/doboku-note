@@ -11,7 +11,7 @@
  */
 import test from "node:test";
 import assert from "node:assert/strict";
-import { fixLine, renderStats } from "../scripts/fix-bold-rendering.mjs";
+import { fixLine, renderStats } from "../scripts/maint/fix-bold-rendering.mjs";
 
 /** 修正後の行が「アスタリスクが残っていない」ことを実パースで確認する */
 function assertRenders(line, msg) {
@@ -143,7 +143,7 @@ test("回帰(2026-09-23): 太字のリンク **[表題](url)** の (url) を補�
 });
 
 test("回帰(2026-10-28): .mdx は JSX の中の崩れた太字も拾う（素の Markdown 読みは <Callout> の中を飛ばしていた）", async () => {
-  const { findUnrendered } = await import("../scripts/check-bold-rendering.mjs");
+  const { findUnrendered } = await import("../scripts/checks/check-bold-rendering.mjs");
   const body = '<Callout type="note" title="訳語">\nCheck は「確認」ではなく**「検討」**、Act は「改善」ではなく**「処置」**が正確な訳語。\n</Callout>\n';
   assert.equal(findUnrendered(body, false).length, 0, "素の Markdown 読みでは見えない（前提の確認）");
   assert.ok(findUnrendered(body, true).length > 0);

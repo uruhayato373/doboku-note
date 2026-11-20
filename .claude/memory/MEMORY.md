@@ -28,6 +28,7 @@
 - [IGパック記録](feedback_ig_pack_posted_json.md) — posted.json・配色は現物確認
 - [Kindle重複防止](feedback_kindle_dup_prevention.md) — 差替えでASIN維持
 - [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認
+- [CLI を import しない](feedback_cli_import_executes.md) — 読み込み確認で実行が始まる・ログイン済みブラウザが開く
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR・引用符なしheredoc禁止
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
 - [競合の空きの確かめ方](feedback_competitor_ledger_before_claims.md) — 立ち位置の台帳・市場の検索・報告も裏取り

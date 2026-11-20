@@ -69,9 +69,9 @@ frontmatter（`published: false` ＋ `reviewStatus: needs-review` の人間ゲ�
 `writeMdxFile`（`scripts/lib/mdx-io.mjs`、CRLF 保持）経由で書き込み後、以下を**全て自己実行して PASS**させてから返す（不合格のまま返却しない）：
 
 ```bash
-node scripts/essay-shisaku-charcount.mjs "{magazine}" --strict          # 各施策600字超 0
-node scripts/check-essay-heading-structure.mjs "{magazine}" --strict     # 見出し構造違反 0（特に R08 二記事化）
-node scripts/note-lint.mjs "<書いた article.md の絶対パス>"               # pipe表/太字内全角括弧/U+FFFD 0
+node scripts/content/essay-shisaku-charcount.mjs "{magazine}" --strict          # 各施策600字超 0
+node scripts/checks/check-essay-heading-structure.mjs "{magazine}" --strict     # 見出し構造違反 0（特に R08 二記事化）
+node scripts/note/note-lint.mjs "<書いた article.md の絶対パス>"               # pipe表/太字内全角括弧/U+FFFD 0
 ```
 
 - 散文性: `grep -nE "^- \*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服)" article.md` が 0。
@@ -79,7 +79,7 @@ node scripts/note-lint.mjs "<書いた article.md の絶対パス>"             
 
 ### アセット（親と分担）
 
-- カバー: `node scripts/generate-note-covers.mjs "{magazine}"`、ハッシュタグ: `/note-hashtags`（`hashtags.txt`・本文に入れない）。記事ごとに必須（checklist Step 6c）。
+- カバー: `node scripts/build/generate-note-covers.mjs "{magazine}"`、ハッシュタグ: `/note-hashtags`（`hashtags.txt`・本文に入れない）。記事ごとに必須（checklist Step 6c）。
 
 ### 担当外（cem 固有）
 
@@ -114,9 +114,9 @@ node scripts/note-lint.mjs "<書いた article.md の絶対パス>"             
 ### 決定論ゲートの実行
 
 ```bash
-node scripts/essay-shisaku-charcount.mjs "{magazine}" --strict          # 各施策600字超 0（601字以上は無条件で不合格）
-node scripts/check-essay-heading-structure.mjs "{magazine}" --strict     # 見出し構造違反 0（特に R08 二記事化）
-node scripts/note-lint.mjs "<対象 article.md の絶対パス>"                 # pipe表/太字内全角括弧/U+FFFD 0
+node scripts/content/essay-shisaku-charcount.mjs "{magazine}" --strict          # 各施策600字超 0（601字以上は無条件で不合格）
+node scripts/checks/check-essay-heading-structure.mjs "{magazine}" --strict     # 見出し構造違反 0（特に R08 二記事化）
+node scripts/note/note-lint.mjs "<対象 article.md の絶対パス>"                 # pipe表/太字内全角括弧/U+FFFD 0
 grep -nE "^- \*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服)" "<path>"   # 答案箇条書き 0
 grep -nc "^> " "<path>"                                                  # blockquote 濫用チェック（フレーミング文に > を使っていないか）
 ```
@@ -165,5 +165,5 @@ grep -nc "^> " "<path>"                                                  # block
 ### 参照
 
 - `.claude/knowledge/reference/note-essay-review-checklist.md`（評価軸・しきい値・横展開ランブックの SSOT）
-- 字数ゲート: `scripts/essay-shisaku-charcount.mjs` / 見出し: `scripts/check-essay-heading-structure.mjs` / note 互換: `scripts/note-lint.mjs`
+- 字数ゲート: `scripts/content/essay-shisaku-charcount.mjs` / 見出し: `scripts/checks/check-essay-heading-structure.mjs` / note 互換: `scripts/note/note-lint.mjs`
 - メモリ: [[feedback_essay_char_limit]] / [[feedback_essay_q2_prose]] / [[feedback_essay_q3_general_level]] / [[feedback_essay_persona_authentic_seat]] / [[feedback_essay_persona_field_label]] / [[feedback_no_price_in_mdx_body]]

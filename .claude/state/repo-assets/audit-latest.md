@@ -34,7 +34,7 @@ garbage: 0 bytes / in-pack objects: 120,312
   - 理由: KDP 入稿成果物。scripts/kindle-dist/ 配下は R2 バックアップ済み（kindle-dist group・2026-08-29 決着）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない
   - 再生成入力: content/kindle/books/**（要検証）
   - 生成器: `kindle-build`
-  - 参照コード: `scripts/kdp-publish.mjs`
+  - 参照コード: `scripts/kindle/kdp-publish.mjs`
 - **`site-image`** — 48.2 MiB / 926 files
   - 理由: 公開記事の図版・OGP。R2 へは CI が同期するが Git 側が原本。ただし巨大 blob は個別に REVIEW へ落とす
   - 参照コード: `MDX 本文 / og:image`
@@ -43,7 +43,7 @@ garbage: 0 bytes / in-pack objects: 120,312
   - 参照コード: `Next.js static assets`
 - **`ogp-background`** — 9.2 MiB / 10 files
   - 理由: 資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）
-  - 参照コード: `scripts/generate-note-covers.mjs` / `scripts/generate-magazine-covers.mjs` / `scripts/coconala-thumb.mjs` / `.claude/skills/ogp-create`
+  - 参照コード: `scripts/build/generate-note-covers.mjs` / `scripts/build/generate-magazine-covers.mjs` / `scripts/coconala/coconala-thumb.mjs` / `.claude/skills/ogp-create`
 - **`obsidian-env`** — 5.9 MiB / 64 files
   - 理由: Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で KEEP_GIT 判定済み）
   - 参照コード: `Obsidian エディタ`
@@ -65,7 +65,7 @@ garbage: 0 bytes / in-pack objects: 120,312
   - 理由: KDP 入稿成果物。scripts/kindle-dist/ 配下は R2 バックアップ済み（kindle-dist group・2026-08-29 決着）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない
   - 再生成入力: content/kindle/books/**（要検証）
   - 生成器: `kindle-build`
-  - 参照コード: `scripts/kdp-publish.mjs`
+  - 参照コード: `scripts/kindle/kdp-publish.mjs`
 - **`text-ssot`** — 11 MiB / 2 files
   - 理由: 原稿・設定・コードの SSOT
 - **`public-static`** — 6.7 MiB / 2 files

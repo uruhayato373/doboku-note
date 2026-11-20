@@ -31,18 +31,18 @@ domain: material
    新資格は `dir: content/sources/past-exams/{資格名}` と `official`（`page`・`windowYears`・`publishLagDays`・`policy`）も足す。
 3. **公式から取得**: `npm run past-exam-fetch -- [--exam <id>] [--year <西暦>]` で予定を確かめ、`--commit` で取得して `acquiredAt` を書く。
    会社PCのプロキシは時々 407 を返す。取得済みは飛ばすので、失敗が消えるまで同じコマンドを繰り返す。
-4. **置き先を決める**: `node scripts/drive-browser-transfer.mjs plan --group past-exam-source-pdf > .tmp/past-exam-plan.json`。
+4. **置き先を決める**: `node scripts/storage/drive-browser-transfer.mjs plan --group past-exam-source-pdf > .tmp/past-exam-plan.json`。
 5. **Drive のフォルダを用意する（Drive MCP）**: plan の各 `vaultPath` について、`原資料PDF/過去問`（`search_files` で `title = '過去問'` かつ親が `原資料PDF`）配下の
    `{資格}/{年度}` を `search_files` で探し、無ければ `create_file`（`application/vnd.google-apps.folder`）で作る。得たフォルダ ID を plan の `folderId` に書く。
-6. **アップロード**: `node scripts/drive-browser-transfer.mjs upload --plan .tmp/past-exam-plan.json`（Playwright の Google プロファイル。
+6. **アップロード**: `node scripts/storage/drive-browser-transfer.mjs upload --plan .tmp/past-exam-plan.json`（Playwright の Google プロファイル。
    別プロファイルの Chrome が動いていて止まったら `DOBOKU_PW_ALLOW_PARALLEL=1`）。ここでの「SENT」は送信しただけで、実在の確認ではない。
 7. **一覧を取る（Drive MCP）**: `search_files` で `mimeType = 'application/pdf' and createdTime > '<アップロード開始時刻>'`（`pageSize` 100・次ページも）を取り、
    `files` 配列をそのまま `.tmp/past-exam-listing.json` に保存する。件数が plan と合わなければ、足りないフォルダだけの plan で 6 をやり直す。
    `parentId` がマイドライブ直下など予定と違うファイルは `update_file`（`parentId`）で正しいフォルダへ移し、listing の `parentId` も直す（verify は親フォルダが違うものを通さない）。
-8. **読み戻して照合**: `node scripts/drive-browser-transfer.mjs verify --plan .tmp/past-exam-plan.json --listing .tmp/past-exam-listing.json --out .tmp/past-exam-receipts`。
+8. **読み戻して照合**: `node scripts/storage/drive-browser-transfer.mjs verify --plan .tmp/past-exam-plan.json --listing .tmp/past-exam-listing.json --out .tmp/past-exam-receipts`。
    全件一致したフォルダだけ receipt ができる。
-9. **台帳に登録**: 各 receipt を `node scripts/drive-connector-register.mjs --receipt <file>` で dry-run し、全件通ったら同じ引数に `--commit`。
-   マウントの Drive フォルダへ直接置いたファイルは、`node scripts/drive-vault-sync.mjs --group past-exam-source-pdf --from-vault --cloud --commit` で Drive API のハッシュから登録する（アップロードが終わるまで「Drive 未退避」の WARN が残る）。
+9. **台帳に登録**: 各 receipt を `node scripts/storage/drive-connector-register.mjs --receipt <file>` で dry-run し、全件通ったら同じ引数に `--commit`。
+   マウントの Drive フォルダへ直接置いたファイルは、`node scripts/storage/drive-vault-sync.mjs --group past-exam-source-pdf --from-vault --cloud --commit` で Drive API のハッシュから登録する（アップロードが終わるまで「Drive 未退避」の WARN が残る）。
 10. **問題台帳を配線し直す**: 問題台帳の対象資格（1級・2級土木・技術士一次・総監・測量士・測量士補・コンクリート主任技士。対象は `scripts/lib/past-exam-ledger.mjs` の `LEDGER_EXAMS`）は `npm run sync-past-exam-ledger -- --write` で、足した問題・正答の原典を問題台帳の行へ結ぶ（照合・正答の記録は消えない）。
 11. **合格条件**: `npm run check-past-exam-inventory` で FAIL 0・対象の「Drive 未退避」0、`npm run check-drive-vault` が整合。
     在庫台帳と Drive 台帳（と配線し直した問題台帳）を同じ commit にする（`git add` はこれらのファイルだけ）。
@@ -53,9 +53,9 @@ domain: material
 
 1. 置き先（例 `原資料PDF/過去問`）に同名フォルダが無いことを Drive MCP で確かめる（Drive はフォルダのアップロードで同名を統合しない）。
 2. `.tmp/units.json` に `[{ "parentId": "<置き先の ID>", "parentName": "過去問", "dir": "content/sources/past-exams/{資格}" }]` を書き、
-   `node scripts/drive-browser-transfer.mjs upload-tree --units .tmp/units.json`。既存の資格に年度だけ足すときは `parentId` を資格フォルダにして `dir` を年度フォルダにする。
+   `node scripts/storage/drive-browser-transfer.mjs upload-tree --units .tmp/units.json`。既存の資格に年度だけ足すときは `parentId` を資格フォルダにして `dir` を年度フォルダにする。
 3. Drive MCP で `mimeType = 'application/vnd.google-apps.folder' and createdTime > '<開始時刻>'` を取り `.tmp/folders.json` に保存し（既存フォルダも辿るなら資格フォルダも含める）、
-   `node scripts/drive-browser-transfer.mjs resolve --plan .tmp/past-exam-plan.json --folders .tmp/folders.json --root-id <原資料PDF/過去問 の ID> --root-path 原資料PDF/過去問`。
+   `node scripts/storage/drive-browser-transfer.mjs resolve --plan .tmp/past-exam-plan.json --folders .tmp/folders.json --root-id <原資料PDF/過去問 の ID> --root-path 原資料PDF/過去問`。
 4. 以降は手順 7〜11 と同じ（listing は PDF の createdTime で取り、ページを全部たどる）。
 
 資格台帳に無い試験（技術士の他部門・都道府県の採用試験など）は、在庫台帳に `registry: false` と `label` を付けて載せる。

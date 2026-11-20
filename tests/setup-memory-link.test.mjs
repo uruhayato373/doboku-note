@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 import process from 'node:process';
 import { join, resolve } from 'node:path';
 
-import { claudeProjectKey, defaultMemoryTarget, setupMemoryLink, setupSettingsLink } from '../scripts/setup-memory-link.mjs';
+import { claudeProjectKey, defaultMemoryTarget, setupMemoryLink, setupSettingsLink } from '../scripts/ops/setup-memory-link.mjs';
 
 const isWin = process.platform === 'win32';
 

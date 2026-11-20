@@ -6,7 +6,7 @@
  * 日本語表示の一覧は「1.2万回」を数値にできない（yt-dlp が null を返す）ので、題名は日本語表示、再生数は英語表示の
  * 一覧から取り、動画 ID で結合する。投稿日は一覧に無い。
  *
- * 書き手: scripts/youtube-own-metrics.mjs（自社）・scripts/scout-youtube-competitors.mjs（競合）。集計の純関数はテストが読む。
+ * 書き手: scripts/youtube/youtube-own-metrics.mjs（自社）・scripts/youtube/scout-youtube-competitors.mjs（競合）。集計の純関数はテストが読む。
  */
 import { execFileSync } from 'node:child_process';
 

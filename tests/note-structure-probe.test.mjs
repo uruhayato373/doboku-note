@@ -9,7 +9,7 @@
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
 
-const { analyzeSource } = await import('../scripts/check-note-structure.mjs');
+const { analyzeSource } = await import('../scripts/checks/check-note-structure.mjs');
 
 const article = (freeQuote) => `---
 notePricing: paid

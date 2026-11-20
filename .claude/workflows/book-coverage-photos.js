@@ -16,7 +16,7 @@ const M = args?.root
 if (!M || !M.startsWith('/') && !/^[A-Za-z]:[\\/]/.test(M)) throw new Error('args.root にリポジトリの絶対パスを渡す')
 const items = args.items ?? []
 const DOC = `${M}/.claude/knowledge/reference/book-coverage-expansion.md`
-const COMMIT = `node ${M}/scripts/book-coverage-commit.mjs`
+const COMMIT = `node ${M}/scripts/content/book-coverage-commit.mjs`
 const VERDICTS = (f) => `${M}/.tmp/book-coverage/verdicts-${f}.json`
 
 function limiter(n) {
@@ -69,9 +69,9 @@ const regenPrompt = (it, fails) => `写真の監査で不合格になったも�
 
 const finPrompt = (it, verdicts) => `写真の判定を記録して、記事をコミットする。作業ディレクトリは ${M}。ファイルは絶対パスで扱い、Bash で別の場所へ cd しない。記事: ${it.article}
 判定: ${JSON.stringify(verdicts)}
-1. ok の判定だけを JSON 配列（[{figKey, verdict, reason}]）にして ${VERDICTS(it.file)} に書き、\`node ${M}/scripts/check-image-origin.mjs record-ai ${VERDICTS(it.file)}\` を回す。
+1. ok の判定だけを JSON 配列（[{figKey, verdict, reason}]）にして ${VERDICTS(it.file)} に書き、\`node ${M}/scripts/checks/check-image-origin.mjs record-ai ${VERDICTS(it.file)}\` を回す。
 2. fail のまま残った写真は外す: article.mdx からその <ArticleImage>（前後の空行も）を消し、img/ の webp を消し、図の出典の台帳（scripts/lib/datasets.mjs の config.figure-sources）の provenance と AI 写真の判定の台帳（state.ai-image-review-ledger）の figures からその figKey の行を消す（JSON の書式は保つ）。
-3. \`node ${M}/scripts/check-image-origin.mjs\` を回し、この記事の写真に違反が無いことを確かめる（ほかの記事の違反は無視）。
+3. \`node ${M}/scripts/checks/check-image-origin.mjs\` を回し、この記事の写真に違反が無いことを確かめる（ほかの記事の違反は無視）。
 4. \`${COMMIT} ${it.article} --subject "記事の写真を AI で作って入れる（実物どおりかを監査済み）" --with-ai-ledgers\` を回す。exit 1 で pre-commit が止めたら、この記事の中だけで直してもう一度（最大 3 回）。
 git はこのスクリプトの外で使わない。返答は構造化出力（記録した件数・外した figKey・committed・最後に出たコミットの sha）。`
 

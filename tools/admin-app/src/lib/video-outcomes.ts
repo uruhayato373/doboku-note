@@ -7,8 +7,8 @@ import { readDataset, readLatest } from '../../../../scripts/lib/dataset-io.mjs'
 import { YoutubeAnalytics } from '../../../../scripts/lib/dataset-schemas.mjs';
 import type { z } from 'zod';
 import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
-import { checkAnalyticsSnapshot } from '../../../../scripts/check-youtube-analytics.mjs';
-import { analyticsTargets } from '../../../../scripts/youtube-analytics.mjs';
+import { checkAnalyticsSnapshot } from '../../../../scripts/checks/check-youtube-analytics.mjs';
+import { analyticsTargets } from '../../../../scripts/youtube/youtube-analytics.mjs';
 import { loadVideoState } from '../../../../scripts/lib/registry-video-state.mjs';
 import {
   loadConfig as loadVideoConfig,

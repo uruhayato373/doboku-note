@@ -3,9 +3,9 @@
  * ---------------------------------------------------------------------------
  * 資格 id は qualification-registry.json が定義し、exam-calendar.json（日程）と exam-stats.json
  * （受験者数）が同じ id で持つ。三者の id が食い違うと、候補資格が片方の正本にだけ残ったり、
- * 展開中の資格の日程が無検査で素通りしたりする。scripts/check-exam-calendar.mjs から呼ぶ。
+ * 展開中の資格の日程が無検査で素通りしたりする。scripts/checks/check-exam-calendar.mjs から呼ぶ。
  * 資格の名前（label・shortLabel）と並び順も registry だけが持ち、ほかは loadRegistry と下の関数で引く
- * （写しを作らない。scripts/check-qualification-ssot.mjs が止める）。
+ * （写しを作らない。scripts/checks/check-qualification-ssot.mjs が止める）。
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from 'node:fs';

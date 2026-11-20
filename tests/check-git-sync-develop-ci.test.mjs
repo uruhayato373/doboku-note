@@ -2,7 +2,7 @@
 // DN-1133: 同じ判定を develop への push の直前にも使う。実行中・取り消しを飛ばして、結果の出ている最新の実行で判定する
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { formatDevelopCi } from '../scripts/check-git-sync.mjs';
+import { formatDevelopCi } from '../scripts/checks/check-git-sync.mjs';
 import { formatDevelopCi as fromLib, pickVerdictRun } from '../scripts/lib/develop-ci-status.mjs';
 
 const failure = { status: 'completed', conclusion: 'failure', url: 'https://x/runs/1', createdAt: '2026-09-14T01:02:03Z', headSha: 'abcdef1234' };

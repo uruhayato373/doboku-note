@@ -29,7 +29,7 @@ export const dynamic = 'force-dynamic';
  *   - `noteMagazine` = 商品（マガジン）への所属ラベル。check-magazine-membership（quality-audit の
  *     ci ゲート）と check-note-price-consistency が**この単位で集計する**
  *   - `noteSeries`   = 編集上の系列マーカー。`noteSeries: 総合案内` は もくじ index の例外判定に使われ、
- *     scripts/check-note-magazine-cta.mjs → note-lint（pre-commit）が読む
+ *     scripts/checks/check-note-magazine-cta.mjs → note-lint（pre-commit）が読む
  *
  * どちらも生きているが集計単位が違うので、畳み込むと画面の表示と検査の単位がズレる。
  * この表はマガジン（商品）を絞る面なので `noteMagazine` だけを使う。2 語彙の境界をどう引くかは

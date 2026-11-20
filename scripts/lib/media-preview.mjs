@@ -12,7 +12,7 @@ import { loadRegistry, mediaIdOf, parsePubId } from './content-registry.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { mediaPath, mimeOf } from './media-paths.mjs';
-import { createSceneSheet } from '../video-scene-sheet.mjs';
+import { createSceneSheet } from '../youtube/video-scene-sheet.mjs';
 import { FONTS_REL } from './repository-paths.mjs';
 
 const FFMPEG_FULL = '/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg';
@@ -300,7 +300,7 @@ function printMetrics(metrics) {
 }
 
 /**
- * 台帳を使わず、動画パック 1 本の画面確認をする（DN-0603・scripts/video-preview-sheet.mjs の本体）。
+ * 台帳を使わず、動画パック 1 本の画面確認をする（DN-0603・scripts/youtube/video-preview-sheet.mjs の本体）。
  * 数値は render-manifest.json と場面の PNG だけで出す（動画も ffmpeg も要らない）。無音プレビューとコンタクトシートは ffmpeg があるときだけ作る。
  * 出力は .tmp/video-render/{packId}/preview/（Git に入れない）。注意は承認を止めない。
  * 終了コード: 0＝完走（注意があっても 0）／1＝入力が足りない（描画していない・PNG 欠け）／2＝検査不成立（ffmpeg が無く、動画とシートは作れなかった。数値は出した）

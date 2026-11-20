@@ -19,10 +19,13 @@ zsh の `path` は PATH と連動する配列なので、`for f in ...; do path=
 `todo-complete --commit`（完了処理の実行で、git commit はしない）の後に ancestor 確認 → `git worktree remove --force` とつなぎ、未 commit のカード削除を作業ツリーごと消した。HEAD が origin/develop のままなら ancestor は必ず真になる。消す前は ancestor に加えて `git status --porcelain` が空であることも確かめ、`--force` は空を確かめた後だけ使う。
 
 ## 外向きの操作は commit の成否に && でつなぐ（2026-10-28）
-note の無料記事の下書きを commit してから公開する手順を `git commit … ; git push … ; node scripts/note-publish.mjs --commit` と `;` でつなぎ、pre-commit が止めた（記事カタログの stage 漏れ）のに公開まで進んだ。中身は検査済みで実害は無かったが、検査の止めを素通りして取り消しの効かない操作をした。note の公開・push・デプロイのような外向きの操作は、直前の commit と検査に `&&` でつなぎ、`git log -1` で commit ができたことを確かめてから実行する。
+note の無料記事の下書きを commit してから公開する手順を `git commit … ; git push … ; node scripts/note/note-publish.mjs --commit` と `;` でつなぎ、pre-commit が止めた（記事カタログの stage 漏れ）のに公開まで進んだ。中身は検査済みで実害は無かったが、検査の止めを素通りして取り消しの効かない操作をした。note の公開・push・デプロイのような外向きの操作は、直前の commit と検査に `&&` でつなぎ、`git log -1` で commit ができたことを確かめてから実行する。
 
 ## zsh で `$var:…` と書かない（2026-11-02）
 `git push origin $c:refs/heads/main` を zsh が `$c:r`（拡張子を外す修飾子）と読み、`d4894…efs/heads/main does not match any` で main への push が失敗した。直後の「デプロイが起動したか」の確認も前回の run に一致して、成功に見えた。変数の後ろに `:` が続くときは `"${c}:refs/heads/main"` と波括弧で囲む。起動の確認は、run の headSha と今 push した SHA の一致で見る。
 
 ## 連結した確認は失敗の後も緑を出す（2026-11-05）
 main への push を `$C:refs/heads/main` と書いたら、zsh が `:r` を修飾子として読んで失敗した。同じコマンドの後段の本番確認が旧版に対して緑を出し、全体は exit 0 で終わった。止まる処理は手でつながず、スクリプトにして「exit 0 は最後の確認まで通ったとき」にする。deploy は `npm run deploy:main`。`$変数:文字` と main への直接 push は `check-shell-traps` フックが止める（tests/agent-hooks.test.mjs・tests/deploy-main.test.mjs）。バックグラウンドの完了通知が exit 0 でも、結果は出力を読んで確かめる。
+
+## 失敗した cd の後に `;` で続けない（2026-11-19）
+YouTube の毎日の予約で `( cd <worktree> && git fetch && s=$(git status …); if [ -z "$s" ]; then git checkout --detach origin/develop; fi )` と書いた。worktree が消えていて cd が失敗したのに、`;` の後の if が s を空と読み、メインのチェックアウトを detached にした（同じコミットだったので `git checkout develop` で戻した）。cd を含む連結は全体を `&&` でつなぐか、先に `[ -d <dir> ] || exit 1` を置く。

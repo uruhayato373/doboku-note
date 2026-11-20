@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { missingMedia } from '../scripts/check-media-references.mjs';
+import { missingMedia } from '../scripts/checks/check-media-references.mjs';
 
 const path = '.tmp/media/a/b/work/cover.1234abcd.png';
 test('文書が指す素材が台帳に無ければ返す', () => {

@@ -66,4 +66,4 @@ title: 書籍の網羅の意味判定（Evaluator の手順）
 ```
 
 - `judged` は units の件数、`counts` は units の判定ごとの件数と一致させる。
-- 書き終えたら `node scripts/audit-reference-book-coverage.mjs --check --source-id <id>` を回し、違反 0 になるまで直す（分担のときは親が結合してから回す）。
+- 書き終えたら `node scripts/checks/audit-reference-book-coverage.mjs --check --source-id <id>` を回し、違反 0 になるまで直す（分担のときは親が結合してから回す）。

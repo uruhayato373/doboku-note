@@ -1,5 +1,5 @@
 // growth-opportunities（純粋ロジック）— 成長パック（GA4 × GSC の週・基線）と既存の計測成果物から、
-// 週次レビューでトリアージする改善機会を決定的に抽出する。I/O は scripts/build-growth-digest.mjs。
+// 週次レビューでトリアージする改善機会を決定的に抽出する。I/O は scripts/build/build-growth-digest.mjs。
 //
 // 設計:
 // - 閾値判定はコードで決める（CLAUDE.md §5）。意味の判断（なぜ・何を変えるか）は週次レビューとエージェントが担う

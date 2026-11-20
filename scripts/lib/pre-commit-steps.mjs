@@ -24,6 +24,7 @@
 //   tail / failHint       出力を捕まえて、失敗時だけ末尾 tail 行と failHint を出す（旧フックの `> log; tail -N log`）
 
 import { AREAS } from './datasets.mjs';
+import { cliRelPath } from './repository-paths.mjs';
 import { CODE_DIRS, CONFIG_DIRS } from './qualification-ssot.mjs';
 import { SCAN_ROOTS as EXAM_CALENDAR_SCAN_ROOTS } from './exam-calendar-guards.mjs';
 
@@ -40,7 +41,7 @@ const changesFileSet = (ctx) => ctx.entries.some((e) => e.status !== 'M');
 const touchesSite = (ctx) => touchesPrefix(ctx, ['content/site/']);
 
 /** 旧フックで `node <検査のスクリプト> --staged` の形だった検査を作る */
-const s = (name, args = ['--staged'], extra = {}) => ({ id: name, script: `scripts/${name}.mjs`, args, inProcess: true, ...extra });
+const s = (name, args = ['--staged'], extra = {}) => ({ id: name, script: cliRelPath(name), args, inProcess: true, ...extra });
 
 export const STEPS = [
   // 記事の dateModified を commit の瞬間に frontmatter へ書く（2026-08-22）。
@@ -51,7 +52,7 @@ export const STEPS = [
   // 回避は SKIP_MDX_DATES=1。作業ツリーと index を書き換えるので、必ず最初に回す。
   {
     id: 'backfill-mdx-dates',
-    script: 'scripts/backfill-mdx-dates.mjs',
+    script: 'scripts/maint/backfill-mdx-dates.mjs',
     inProcess: true,
     args: ['--staged'],
     skipEnv: { name: 'SKIP_MDX_DATES', mode: 'eq1' },
@@ -72,12 +73,12 @@ export const STEPS = [
   {
     // CI の content-quality-ratchet を staged の published: true の記事だけに回す（新規違反だけで止める）
     id: 'content-quality',
-    script: 'scripts/lint-mdx-mobile.mjs',
+    script: 'scripts/checks/lint-mdx-mobile.mjs',
     inProcess: true,
     args: (ctx) => ['--baseline', '--ci', ...ctx.contentQualityFiles],
     when: (ctx) => ctx.contentQualityFiles.length > 0,
     tail: 20,
-    failHint: '[content-quality --staged] baseline に無い新規違反がある。上の指摘を直してから commit する（詳細は node scripts/lint-mdx-mobile.mjs <file>）',
+    failHint: '[content-quality --staged] baseline に無い新規違反がある。上の指摘を直してから commit する（詳細は node scripts/checks/lint-mdx-mobile.mjs <file>）',
   },
   // 建設部門 BK マガジン模範解答の字数ハード上限（答案枚数×600字）超過検出（手書き不可答案の再発防止）
   s('check-note-charlimits'),
@@ -94,7 +95,7 @@ export const STEPS = [
   {
     id: 'check-magazine-cta-reachability',
     bin: 'npx tsx',
-    script: 'scripts/check-magazine-cta-reachability.ts',
+    script: 'scripts/checks/check-magazine-cta-reachability.ts',
     args: ['--ci'],
     when: (ctx) =>
       hasStaged(ctx, /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/) ||
@@ -112,7 +113,7 @@ export const STEPS = [
   {
     // docs/ か backlog が staged のときだけ全量（0.5 秒）。出力は捕まえ、失敗したときだけ末尾 15 行を出す
     id: 'check-project-task-refs',
-    script: 'scripts/check-project-task-refs.mjs',
+    script: 'scripts/checks/check-project-task-refs.mjs',
     inProcess: true,
     args: [],
     when: (ctx) => ctx.stagedAny.some((f) => f.startsWith('docs/') || f === '.claude/todo/backlog.md'),
@@ -180,7 +181,7 @@ export const STEPS = [
   // 復活し develop の CI が 6 run 連続で赤のまま誰も読まなかった再発防止（CLAUDE.md か .claude/rules を stage したときだけ）
   {
     id: 'check-claude-md-size',
-    script: 'scripts/check-claude-md-size.mjs',
+    script: 'scripts/checks/check-claude-md-size.mjs',
     inProcess: true,
     args: [],
     when: (ctx) => hasStaged(ctx, /^(CLAUDE\.md|\.claude\/rules\/)/),
@@ -189,7 +190,7 @@ export const STEPS = [
   // 記憶だけの push は CI を走らせない（ci.yml の paths-ignore）ので、ここが記憶の唯一のゲート
   {
     id: 'check-memory',
-    script: 'scripts/check-memory.mjs',
+    script: 'scripts/checks/check-memory.mjs',
     inProcess: true,
     args: [],
     when: (ctx) => hasStaged(ctx, /^\.claude\/memory\//),

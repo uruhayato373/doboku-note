@@ -1,0 +1,277 @@
+#!/usr/bin/env node
+/**
+ * render-longform.mjs — 動画パック（DN-0110 Phase 1）の 16:9 通常動画レンダラー。
+ *
+ * 経路: storyboard.json → 1920×1080 PNG（satori）＋ VOICEVOX TTS wav ＋ ASS 字幕 → ffmpeg mp4
+ *
+ * 出力は .tmp/video-render/{packId}/（パックディレクトリには書かない＝mp4/wav の Git 混入防止。
+ * 完成 mp4/wav は Google Drive vault へ、状態はコンテンツ台帳（content/registry）へ）。
+ *
+ * 会社PC（VOICEVOX/ffmpeg なし）では --skip-tts で PNG + ASS + render-manifest.json まで生成し、
+ * mp4 合成は Mac または GitHub Actions で同コマンドを完走させる（戦略 06 §5.3）。
+ *
+ * Usage:
+ *   node scripts/build/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts] [--speaker <VOICEVOX ID>] [--loudnorm]
+ *
+ * 前提（mp4 まで作る場合）: VOICEVOX エンジン起動中、ffmpeg が PATH に存在
+ *
+ * npm run render-longform — 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。任意の --loudnorm で音量補正。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
+ */
+
+import satori from 'satori';
+import { Resvg } from '@resvg/resvg-js';
+import sharp from 'sharp';
+import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync, renameSync } from 'node:fs';
+import { resolve, join, basename, extname, relative, isAbsolute } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { parseArgs } from 'node:util';
+
+import {
+  LONGFORM_W, LONGFORM_H, SUBTITLE_VERSION, buildLongformAss, buildSceneNode, planLongformRender,
+} from '../lib/longform-render.mjs';
+import { narrationInput, reusableNarration, sha256 } from '../lib/video-narration-cache.mjs';
+import { readLongformPopImages } from '../lib/longform-pop-images.mjs';
+import { readDataset } from '../lib/dataset-io.mjs';
+import { requirePaletteKey } from '../lib/qualification-palette.mjs';
+import { verifyLearningFrame } from '../lib/learning-frame.mjs';
+import { longformInputHash, verifyLongformRender } from '../lib/longform-render-integrity.mjs';
+import { renderYoutubeCover, validateCoverDesign } from '../lib/youtube-cover.mjs';
+import { readVideoCta } from '../lib/video-cta.mjs';
+import { renderCharacterFrame } from '../lib/character-framing.mjs';
+import { buildEditorialArtwork } from '../lib/video-editorial-art.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from '../lib/repository-paths.mjs';
+
+const { values: args } = parseArgs({
+  args: process.argv.slice(2),
+  options: {
+    'pack-dir': { type: 'string' },
+    speaker: { type: 'string', default: String(readDataset(ROOT, 'config.character-poses').identity.voicevoxSpeaker) },
+    'skip-tts': { type: 'boolean' },
+    'skip-png': { type: 'boolean' },
+    resume: { type: 'boolean' },
+    'refresh-png': { type: 'boolean' },
+    loudnorm: { type: 'boolean' },
+  },
+});
+
+if (!args['pack-dir']) {
+  console.error('Usage: node scripts/build/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts]');
+  process.exit(1);
+}
+
+const packDir = resolve(ROOT, args['pack-dir']);
+const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
+const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
+const inputSha256 = longformInputHash(packDir);
+const popImages = readLongformPopImages(ROOT, packDir, storyboard, { local: true });
+if (popImages.size && args['skip-png']) throw new Error('本文POP画像があるパックは --skip-png 不可');
+const coverDesignPath = join(packDir, 'cover-design.json');
+const coverSpec = existsSync(coverDesignPath)
+  ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: requirePaletteKey(manifest.exam) }).covers.longform : null;
+if (coverSpec && args['skip-png']) throw new Error('cover-design があるパックは --skip-png 不可。冒頭と動画を揃えて再生成してください');
+if (coverSpec && coverSpec.format !== 'longform') throw new Error('longform cover の format が不一致');
+
+const { resolveExam } = await import(
+  pathToFileURL(resolve(ROOT, 'scripts/sns/lib/exam-palette.mjs')).href
+);
+const { scenes, theme, packTitle } = planLongformRender(manifest, storyboard, resolveExam);
+const cta = await readVideoCta(ROOT, packDir, 'longform');
+if (cta && args['skip-png']) throw new Error('cta-design があるパックは --skip-png 不可');
+
+async function loadVisualAsset(scene) {
+  if (scene.visual?.kind !== 'figure' || scene.visual.flow) return null;
+  if (!scene.visual.src) throw new Error(`figure scene の visual.src がありません: ${scene.sceneId}`);
+  const assetPath = resolve(ROOT, scene.visual.src);
+  const relativePath = relative(ROOT, assetPath);
+  if (relativePath.startsWith('..') || isAbsolute(relativePath)) {
+    throw new Error(`figure scene がリポジトリ外を参照しています: ${scene.visual.src}`);
+  }
+  const supported = new Set(['.svg', '.png', '.webp', '.jpg', '.jpeg']);
+  if (!supported.has(extname(assetPath).toLowerCase())) {
+    throw new Error(`figure scene の画像形式が未対応です: ${scene.visual.src}`);
+  }
+
+  // satori の data URI 対応差を吸収するため、SVG/WebP/JPEG も PNG に正規化する。
+  const png = await sharp(assetPath)
+    .resize({ width: 704, height: 704, fit: 'contain', withoutEnlargement: true, background: '#ffffff' })
+    .flatten({ background: '#ffffff' })
+    .png()
+    .toBuffer();
+  return `data:image/png;base64,${png.toString('base64')}`;
+}
+
+// visual.character: 確認済み（quality: ready）のポーズだけを台帳の切り取りで読む。
+const characterImages = new Map();
+async function loadCharacter(scene) {
+  const character = scene.visual?.character;
+  if (!character) return null;
+  const frame = character.frame ?? 'waist';
+  const key = `${character.pose}:${frame}`;
+  if (!characterImages.has(key)) {
+    const image = await renderCharacterFrame(ROOT, { pose: character.pose, frame, width: 440 });
+    characterImages.set(key, { uri: `data:image/png;base64,${image.buffer.toString('base64')}`, width: image.width, height: image.height });
+  }
+  return characterImages.get(key);
+}
+
+// ─── 依存（TTS/ffmpeg は mp4 を作るときだけ要求） ─────────────
+const { isRunning, synthesize } = await import(
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/tts-client.mjs')).href
+);
+const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
+  pathToFileURL(resolve(ROOT, 'scripts/lib/ffmpeg-compose.mjs')).href
+);
+
+if (!args['skip-tts']) {
+  if (!ffmpegAvailable()) { console.error('ffmpeg が PATH にありません（PNG/ASS のみ生成するなら --skip-tts）'); process.exit(1); }
+  if (!(await isRunning())) { console.error('VOICEVOX が起動していません（PNG/ASS のみ生成するなら --skip-tts）'); process.exit(1); }
+}
+
+// ─── フォント（FONTS_ROOT の共通素材） ─────────────
+const FONT_DIR = FONTS_ROOT;
+const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
+const fonts = [
+  { name: 'Noto Sans JP', data: readFileSync(resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')), weight: 700, style: 'normal' },
+  ...[400, 500, 700].map((w) => ({
+    name: 'NotoSansJP',
+    data: readFileSync(resolve(FONTSOURCE_DIR, `noto-sans-jp/files/noto-sans-jp-japanese-${w}-normal.woff`)),
+    weight: w, style: 'normal',
+  })),
+];
+
+// ─── メイン ───────────────────────────────────────────────────
+async function main() {
+  const outDir = join(ROOT, '.tmp', 'video-render', manifest.packId);
+  const imgDir = join(outDir, 'img');
+  const wavDir = join(outDir, 'wav');
+  mkdirSync(imgDir, { recursive: true });
+  mkdirSync(wavDir, { recursive: true });
+
+  const cachePath = join(outDir, 'tts-inputs.json');
+  const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : {};
+  const pngPaths = [];
+  const wavPaths = [];
+
+  for (const [i, scene] of scenes.entries()) {
+    const pad = String(i).padStart(2, '0');
+    const pngPath = join(imgDir, `${pad}-${scene.sceneId}.png`);
+    const wavPath = join(wavDir, `${pad}-${scene.sceneId}.wav`);
+
+    if (i === 0 && coverSpec) {
+      if (coverSpec.approvedImage?.normalization) await verifyLearningFrame(ROOT, coverSpec.approvedImage);
+      const cover = await renderYoutubeCover(ROOT, coverSpec);
+      writeFileSync(pngPath, cover.buffer);
+      writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else if (popImages.has(scene.sceneId)) {
+      await verifyLearningFrame(ROOT, popImages.get(scene.sceneId));
+      // resume / refresh の指定にかかわらず、検査済み生成画像をそのまま採用する。
+      writeFileSync(pngPath, readFileSync(resolve(ROOT, popImages.get(scene.sceneId).path)));
+    } else if (scene.visual?.art) {
+      const source = scene.visual.art.source;
+      if (source) {
+        const sourcePath = resolve(ROOT, source);
+        if (relative(ROOT, sourcePath).startsWith('..') || !existsSync(sourcePath)) {
+          throw new Error(`画像設計のサイト図解が参照できません: ${source}`);
+        }
+      }
+      const svg = buildEditorialArtwork(scene, { theme: manifest.exam.startsWith('pe-') ? theme : undefined });
+      writeFileSync(join(imgDir, `${pad}-${scene.sceneId}.svg`), svg);
+      writeFileSync(pngPath, new Resvg(svg, { font: {
+        fontFiles: [resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')],
+        loadSystemFonts: false, defaultFontFamily: 'Noto Sans JP',
+      } }).render().asPng());
+    } else if (scene.sceneId === 'cta' && cta) {
+      writeFileSync(pngPath, cta.buffer);
+      writeFileSync(join(outDir, 'cta-provenance.json'), JSON.stringify(cta.provenance, null, 2) + '\n');
+    } else if (!args['skip-png'] && !(args.resume && !args['refresh-png'] && existsSync(pngPath) && statSync(pngPath).size > 0)) {
+      process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
+      const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene), character: await loadCharacter(scene) });
+      const svg = await satori(node, { width: LONGFORM_W, height: LONGFORM_H, fonts });
+      writeFileSync(pngPath, new Resvg(svg, { fitTo: { mode: 'width', value: LONGFORM_W } }).render().asPng());
+      console.log('✓');
+    }
+
+    if (!args['skip-tts']) {
+      const input = narrationInput(scene.narration, Number(args.speaker));
+      const reusable = args.resume && existsSync(wavPath)
+        && reusableNarration(cache[scene.sceneId], input, readFileSync(wavPath));
+      if (!reusable) {
+        process.stdout.write(`  [TTS ${i + 1}/${scenes.length}] ${scene.narration.slice(0, 20)}... `);
+        const wavBuf = await synthesize({ text: input.text, speaker: Number(args.speaker) });
+        writeFileSync(wavPath + '.tmp', Buffer.from(wavBuf));
+        renameSync(wavPath + '.tmp', wavPath);
+        cache[scene.sceneId] = { inputSha256: input.inputSha256, sha256: sha256(wavBuf) };
+        writeFileSync(cachePath + '.tmp', JSON.stringify(cache, null, 2) + '\n');
+        renameSync(cachePath + '.tmp', cachePath);
+        console.log('✓');
+      }
+    }
+
+    pngPaths.push(pngPath);
+    wavPaths.push(wavPath);
+  }
+
+  // 実尺: TTS 済みなら wav 実測、skip 時は storyboard の設計尺
+  let durations = null;
+  if (!args['skip-tts']) {
+    durations = [];
+    for (const wav of wavPaths) durations.push(await probeDuration(wav));
+  }
+
+  const assPath = join(outDir, 'subtitles.ass');
+  writeFileSync(assPath, buildLongformAss(scenes, durations ?? undefined), 'utf8');
+
+  let mp4Path = null;
+  let totalSec = null;
+  if (!args['skip-tts']) {
+    mp4Path = join(outDir, 'video.mp4');
+    console.log('\n[ffmpeg] 動画合成中...');
+    // 総まとめ（compilation.json）は聞き流し用途なので音量を -16 LUFS へそろえる
+    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { loudnorm: args.loudnorm || existsSync(join(packDir, 'compilation.json')) } });
+    totalSec = await probeDuration(mp4Path);
+    console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
+  }
+
+  // 後続（Drive 保存 / status 更新 / QA）が読む機械可読サマリ
+  const renderManifest = {
+    packId: manifest.packId,
+    exam: manifest.exam,
+    format: storyboard.format,
+    render: [LONGFORM_W, LONGFORM_H],
+    renderedAt: new Date().toISOString(),
+    tts: !args['skip-tts'],
+    speaker: args['skip-tts'] ? null : Number(args.speaker),
+    loudnorm: !args['skip-tts'] && Boolean(args.loudnorm || existsSync(join(packDir, 'compilation.json'))),
+    subtitles: !args['skip-tts'],
+    scenes: scenes.map((s, i) => ({
+      sceneId: s.sceneId,
+      png: basename(pngPaths[i]),
+      pngSha256: sha256(readFileSync(pngPaths[i])),
+      ...(popImages.has(s.sceneId) ? { generatedImage: popImages.get(s.sceneId) } : {}),
+      wav: args['skip-tts'] ? null : basename(wavPaths[i]),
+      ...(!args['skip-tts'] ? {
+        narrationInputSha256: narrationInput(s.narration, Number(args.speaker)).inputSha256,
+        wavSha256: sha256(readFileSync(wavPaths[i])),
+      } : {}),
+      designSec: s.end - s.start,
+      actualSec: durations?.[i] ?? null,
+    })),
+    mp4: mp4Path ? basename(mp4Path) : null,
+    totalSec,
+    ...(mp4Path ? { integrity: {
+      schemaVersion: 1, inputSha256, subtitleVersion: SUBTITLE_VERSION,
+      subtitlesSha256: sha256(readFileSync(assPath)),
+      mp4Sha256: sha256(readFileSync(mp4Path)),
+    } } : {}),
+  };
+  if (longformInputHash(packDir) !== inputSha256) throw new Error('生成中に台本・画像指定が変わりました。採用せず再生成してください');
+  writeFileSync(join(outDir, 'render-manifest.json'), JSON.stringify(renderManifest, null, 2) + '\n', 'utf8');
+  if (mp4Path) console.log(`  入力・画像・音声・字幕・MP4一致: ${verifyLongformRender(packDir, outDir).scenesChecked}場面`);
+
+  console.log(`\n✓ 出力: ${outDir}`);
+  if (args['skip-tts']) {
+    console.log('  （--skip-tts: PNG + ASS + render-manifest のみ。mp4 は VOICEVOX + ffmpeg のある環境で同コマンドを再実行）');
+  }
+}
+
+main().catch((e) => { console.error(e); process.exit(1); });

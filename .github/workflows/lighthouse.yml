@@ -39,7 +39,7 @@ jobs:
 
       # src/config/doc-meta-index.json はビルド生成物で git 追跡していない（ci.yml / e2e.yml と同じ理由）。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       - name: Build
         run: npm run build
@@ -59,7 +59,7 @@ jobs:
             echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             echo "- 再現: \`npm run build && npx lhci autorun --config=lighthouserc.json\`"
           } > /tmp/lighthouse-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel lighthouse-nightly \
             --title "develop 夜間 Lighthouse 失敗" \
             --body-file /tmp/lighthouse-body.md
@@ -71,7 +71,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel lighthouse-nightly \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel lighthouse-nightly \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Upload Lighthouse reports

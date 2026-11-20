@@ -200,7 +200,7 @@
 **計測指標**: `gsc_impressions`、インデックス済み数
 
 **アクション**:
-1. `scripts/generate-sitemap.mjs` の優先度ロジック確認
+1. `scripts/build/generate-sitemap.mjs` の優先度ロジック確認
 2. 上位パターンに対応するルールを追加
 3. デプロイ → 10 日待機
 

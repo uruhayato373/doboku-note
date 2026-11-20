@@ -1,0 +1,87 @@
+#!/usr/bin/env node
+/** Calendar-period aggregates. Credentials and user identifiers never enter stored records. */
+// npm run fetch-business-metrics — GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）。GSC確定前（終了日から4日未満）の期間だけskipし確定済みは取得、明示 --monthly が未確定なら exit 2
+import { BetaAnalyticsDataClient } from '@google-analytics/data';
+import { google } from 'googleapis';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import dotenv from 'dotenv';
+import { direction, duePeriods, weekPeriod, addDays, GSC_FINAL_LAG_DAYS, jst, records, currentRecords, samePeriod, saveRecord } from '../lib/business-direction.mjs';
+import { GSC_PROPERTY, SITE_ORIGIN } from '../lib/site-identity.mjs';
+import { REPO_ROOT as root } from '../lib/repository-paths.mjs';
+import { escapeRegExp } from '../lib/regexp-escape.mjs';
+import { campaignClickTotals } from '../lib/metric-status.mjs';
+
+/** sessionCampaignName 別の note_cta_click の行の上限。これに届いたら打ち切りの疑いで値を載せない */
+const CAMPAIGN_ROW_LIMIT = 10000;
+const args = process.argv.slice(2);
+dotenv.config({ path: '.env.local', quiet: true });
+/** 正規表現のメタ文字をすべてエスケープする（GSC の includingRegex に渡す） */
+const field = (fieldName, value, matchType = 'EXACT') => ({ filter: { fieldName, stringFilter: { matchType, value } } });
+async function run() {
+  const c = direction(root), key = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH, id = process.env.GA4_PROPERTY_ID;
+  if (!key || !id) throw new Error('credentials-unavailable');
+  if (id !== '419382901') throw new Error('property-mismatch');
+  const credentials = JSON.parse(readFileSync(resolve(root, key), 'utf8'));
+  const ga = new BetaAnalyticsDataClient({ credentials });
+  const auth = new google.auth.GoogleAuth({ credentials, scopes: ['https://www.googleapis.com/auth/webmasters.readonly'] });
+  const gsc = google.searchconsole({ version: 'v1', auth });
+  const monthlyOnly = args.includes('--monthly');
+  const weekIndex = args.indexOf('--week');
+  const explicitPeriod = weekIndex >= 0 ? weekPeriod(args[weekIndex + 1]) : null;
+  if (explicitPeriod && explicitPeriod.endDate > addDays(jst(), -GSC_FINAL_LAG_DAYS)) throw new Error('gsc-final-data-not-yet-due');
+  // GSC final data can lag. Skip only the unfinished period; the finished one is still fetched.
+  const { due, skipped } = explicitPeriod ? { due: [{ period: explicitPeriod }], skipped: [] } : duePeriods(monthlyOnly ? ['monthly'] : ['weekly', 'monthly']);
+  for (const s of skipped) console.log(`[business-metrics] ${s.cadence} ${s.period.startDate}〜${s.period.endDate} はGSC確定前（終了日から4日未満）のため取得しない`);
+  if (!due.length) {
+    if (monthlyOnly) throw new Error('gsc-final-data-not-yet-due');
+    console.log('[business-metrics] 取得対象0件（全期間がGSC確定前）。記録なし'); return;
+  }
+  const pending = [];
+  for (const { period } of due) {
+    for (const qualification of ['all', ...c.qualifications.map(q => q.id)]) {
+      const expressions = [field('country', 'Japan'), field('sessionDefaultChannelGroup', 'Organic Search')];
+      if (qualification !== 'all') expressions.push(field('pagePath', `/exam/${qualification}/`, 'BEGINS_WITH'));
+      const [users] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], metrics: [{ name: 'activeUsers' }], dimensionFilter: { andGroup: { expressions } } });
+      const values = { organicUsers: Number(users.rows?.[0]?.metricValues?.[0]?.value ?? 0) };
+      const eventExpressions = [field('country', 'Japan'), { filter: { fieldName: 'eventName', inListFilter: { values: ['note_cta_click', 'quiz_start', 'quiz_complete'] } } }];
+      if (qualification !== 'all') eventExpressions.push(qualification === 'civil-construction-1' ? { orGroup: { expressions: [field('pagePath', `/exam/${qualification}/`, 'BEGINS_WITH'), field('pagePath', '/tools/kakomon-quiz')] } } : field('pagePath', `/exam/${qualification}/`, 'BEGINS_WITH'));
+      const [events] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], dimensions: [{ name: 'eventName' }], metrics: [{ name: 'eventCount' }], dimensionFilter: { andGroup: { expressions: eventExpressions } } });
+      values.noteCtaClicks = Number(events.rows?.find(r => r.dimensionValues?.[0]?.value === 'note_cta_click')?.metricValues?.[0]?.value ?? 0);
+      if (['all','civil-construction-1'].includes(qualification)) for (const [event, metric] of [['quiz_start','quizStarts'],['quiz_complete','quizCompletions']]) values[metric] = Number(events.rows?.find(r => r.dimensionValues?.[0]?.value === event)?.metricValues?.[0]?.value ?? 0);
+      // SNS 経由のサイト利用者（リンクの utm_source・DN-0598）。資格別には割らない
+      const social = [];
+      if (qualification === 'all') for (const [source, metric] of [['youtube', 'youtubeUsers'], ['x', 'xUsers'], ['instagram', 'instagramUsers']]) {
+        const [report] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], metrics: [{ name: 'activeUsers' }], dimensionFilter: { andGroup: { expressions: [field('country', 'Japan'), field('sessionSource', source)] } } });
+        values[metric] = Number(report.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+        social.push(report);
+      }
+      // X・動画（utm_campaign）からの教材クリック（DN-1086）。キャンペーン別に取り、集合は metric-status と共有する。資格別には割らない
+      let campaignLimited = false;
+      if (qualification === 'all') {
+        const [byCampaign] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], dimensions: [{ name: 'sessionCampaignName' }], metrics: [{ name: 'eventCount' }], limit: CAMPAIGN_ROW_LIMIT, dimensionFilter: { andGroup: { expressions: [field('country', 'Japan'), field('eventName', 'note_cta_click')] } } });
+        const rows = (byCampaign.rows ?? []).map((r) => ({ campaign: r.dimensionValues?.[0]?.value, eventCount: Number(r.metricValues?.[0]?.value ?? 0) }));
+        campaignLimited = (byCampaign.rowCount ?? rows.length) > rows.length || byCampaign.metadata?.subjectToThresholding || byCampaign.metadata?.samplingMetadatas?.length;
+        if ((byCampaign.rowCount ?? rows.length) <= rows.length) Object.assign(values, campaignClickTotals(root, rows));
+      }
+      const limited = campaignLimited || users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || social.some((r) => r.metadata?.subjectToThresholding) || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length || social.some((r) => r.metadata?.samplingMetadatas?.length);
+      pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。', values });
+      const filters = [{ dimension: 'country', operator: 'equals', expression: 'jpn' }];
+      if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^${escapeRegExp(SITE_ORIGIN)}/exam/${qualification}/` });
+      const aggregationType = qualification === 'all' ? 'byProperty' : 'auto';
+      const { data } = await gsc.searchanalytics.query({ siteUrl: GSC_PROPERTY, requestBody: { ...period, dimensions: [], aggregationType, type: 'web', dataState: 'final', dimensionFilterGroups: [{ filters }] } });
+      const clicks = data.rows?.[0]?.clicks;
+      pending.push({ kind: 'measurement', qualification, period, channel: 'GSC', subject: 'aggregate', coverage: qualification === 'all' && Number.isFinite(clicks) ? 'complete' : 'partial', source: `GSC Search Analytics API ${GSC_PROPERTY}・日本/Web/final・太平洋時間。dimensions=[]・aggregation=${data.responseAggregationType ?? aggregationType}・取得${data.rows?.length ?? 0}行。${qualification === 'all' ? '全プロパティ集計。' : '正規URLのpageフィルタ。Google側で明細が欠落し得るため下限。'}`, values: { gscClicks: Number.isFinite(clicks) ? clicks : null } });
+    }
+  }
+  if (!args.includes('--commit')) { console.log(`[business-metrics] dry-run: ${pending.length}集計取得。--commitで追記`); return; }
+  let count = 0;
+  for (const r of pending) {
+    const old = currentRecords(records(root), 'measurement').find(x => x.qualification === r.qualification && x.channel === r.channel && x.subject === r.subject && samePeriod(x.period, r.period));
+    if (old && JSON.stringify(old.values) === JSON.stringify(r.values) && old.coverage === r.coverage && old.source === r.source) continue;
+    saveRecord(root, { ...r, ...(old ? { supersedes: old.file } : {}) }); count++;
+  }
+  console.log(`[business-metrics] ${pending.length}集計検査、${count}記録追記。個人情報なし`);
+}
+// exit 1 = 取得失敗、exit 2 = 明示の --monthly が確定前で取得対象外（検査不成立）。
+run().catch((e) => { const reason = ['credentials-unavailable', 'property-mismatch', 'gsc-final-data-not-yet-due'].includes(e.message) ? e.message : 'api-or-network-failed'; console.error(`[business-metrics] 取得不成立 (${reason})。未取得値は記録しません。`); process.exitCode = reason === 'gsc-final-data-not-yet-due' ? 2 : 1; });

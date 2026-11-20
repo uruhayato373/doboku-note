@@ -18,7 +18,7 @@
   "inputs": [
     {
       "id": "digest",
-      "command": "node scripts/build-growth-digest.mjs --print",
+      "command": "node scripts/build/build-growth-digest.mjs --print",
       "rc": 0,
       "status": "pass",
       "durationMs": 196,
@@ -27,7 +27,7 @@
     },
     {
       "id": "business",
-      "command": "node scripts/business-review.mjs report --start 2026-11-02 --end 2026-11-08 --json",
+      "command": "node scripts/reports/business-review.mjs report --start 2026-11-02 --end 2026-11-08 --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 1695,
@@ -36,7 +36,7 @@
     },
     {
       "id": "businessPrev",
-      "command": "node scripts/business-review.mjs report --start 2026-10-26 --end 2026-11-01 --json",
+      "command": "node scripts/reports/business-review.mjs report --start 2026-10-26 --end 2026-11-01 --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 1477,
@@ -45,7 +45,7 @@
     },
     {
       "id": "triage",
-      "command": "node scripts/growth-triage.mjs list --json",
+      "command": "node scripts/search/growth-triage.mjs list --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 158,
@@ -54,7 +54,7 @@
     },
     {
       "id": "experiments",
-      "command": "node scripts/check-experiment-due.mjs --json",
+      "command": "node scripts/checks/check-experiment-due.mjs --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 65,
@@ -63,7 +63,7 @@
     },
     {
       "id": "checks",
-      "command": "node scripts/review-checks.mjs --cadence weekly --run 2026-W46",
+      "command": "node scripts/ops/review-checks.mjs --cadence weekly --run 2026-W46",
       "rc": 0,
       "status": "pass",
       "durationMs": 196467,
@@ -72,7 +72,7 @@
     },
     {
       "id": "gate",
-      "command": "node scripts/backlog-gate.mjs --weekly",
+      "command": "node scripts/ops/backlog-gate.mjs --weekly",
       "rc": 0,
       "status": "pass",
       "durationMs": 276,
@@ -81,7 +81,7 @@
     },
     {
       "id": "backlogHealth",
-      "command": "node scripts/check-backlog-health.mjs",
+      "command": "node scripts/checks/check-backlog-health.mjs",
       "rc": 0,
       "status": "pass",
       "durationMs": 7886,
@@ -90,7 +90,7 @@
     },
     {
       "id": "search",
-      "command": "node scripts/report-search-opportunities.mjs --json",
+      "command": "node scripts/reports/report-search-opportunities.mjs --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 831,

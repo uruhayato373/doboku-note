@@ -2,8 +2,8 @@ import { execFile } from 'node:child_process';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
 
-import { auditRuns, healthTargets, latestRun, runListArgs } from '../../../../scripts/check-workflow-health.mjs';
-import { channelOfTitle, LABEL as ISSUE_LABEL } from '../../../../scripts/report-automation-failure.mjs';
+import { auditRuns, healthTargets, latestRun, runListArgs } from '../../../../scripts/checks/check-workflow-health.mjs';
+import { channelOfTitle, LABEL as ISSUE_LABEL } from '../../../../scripts/reports/report-automation-failure.mjs';
 import { datasetPath, freshnessDays } from '../../../../scripts/lib/datasets.mjs';
 import { readJsonIf } from '../../../../scripts/lib/json-io.mjs';
 import { readWeeklyDraft, WEEKLY_REVIEW_LOG, weeklyLaunchd } from '../../../../scripts/lib/review-automation.mjs';
@@ -84,7 +84,7 @@ export function loadAutomations(): AutomationsView {
 }
 
 /**
- * GitHub Actions の 1 本の直近の実行（gh run list）。取得と判定は scripts/check-workflow-health.mjs と同じ関数を使い、
+ * GitHub Actions の 1 本の直近の実行（gh run list）。取得と判定は scripts/checks/check-workflow-health.mjs と同じ関数を使い、
  * 判定を写さない。監視の設定（config/workflow-health.json）に無い workflow は判定を付けない（月次・手動起動を
  * 「最後の成功が古い」で赤くしない）。取れなければ error を持たせ、成功と読み替えない。
  */
@@ -137,7 +137,7 @@ export async function loadWorkflowRuns(automations: Automation[]): Promise<Map<s
   return out;
 }
 
-/** GSC の記録層（週次観測・coverage）の要否。scripts/check-gsc-auto-review.mjs --json の gates をそのまま使う（判定を写さない） */
+/** GSC の記録層（週次観測・coverage）の要否。scripts/checks/check-gsc-auto-review.mjs --json の gates をそのまま使う（判定を写さない） */
 export interface GscRecordGates {
   gscDataStale: boolean;
   weeklyAlreadyLogged: boolean;
@@ -159,7 +159,7 @@ export async function loadSaturday(): Promise<SaturdayView> {
   let gsc: SaturdayView['gsc'];
   try {
     // 記録が要る（due）と exit 1 で終わることがあるので、stdout は終了コードに関わらず読む
-    const stdout = await execFileAsync(process.execPath, [join(root, 'scripts', 'check-gsc-auto-review.mjs'), '--json'], { cwd: root, timeout: 60_000, maxBuffer: 8 * 1024 * 1024 })
+    const stdout = await execFileAsync(process.execPath, [join(root, 'scripts', 'checks', 'check-gsc-auto-review.mjs'), '--json'], { cwd: root, timeout: 60_000, maxBuffer: 8 * 1024 * 1024 })
       .then((r) => r.stdout, (e: { stdout?: string; message?: string }) => { if (e.stdout) return e.stdout; throw e; });
     const j = JSON.parse(stdout) as { gates?: GscRecordGates; logPath?: string };
     gsc = { gates: j.gates ?? null, logPath: j.logPath ?? null, error: j.gates ? null : 'gates が無い' };
@@ -185,7 +185,7 @@ export interface AutomationIssuesView {
   error: string | null;
 }
 
-/** 題名の channel（規約は scripts/report-automation-failure.mjs）を、台帳の readers で Mac と CI に振り分ける（純関数） */
+/** 題名の channel（規約は scripts/reports/report-automation-failure.mjs）を、台帳の readers で Mac と CI に振り分ける（純関数） */
 export function classifyIssues(list: { number: number; title: string; url: string }[], automations: Automation[]): AutomationIssue[] {
   const byChannel = new Map<string, Automation>();
   for (const a of automations) for (const r of a.readers) if (r.startsWith('issue:')) byChannel.set(r.slice('issue:'.length), a);

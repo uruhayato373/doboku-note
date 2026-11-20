@@ -69,7 +69,7 @@
     }
   },
   "guard": {
-    "script": "scripts/check-figure-canvas.mjs",
+    "script": "scripts/checks/check-figure-canvas.mjs",
     "scope": "content/site/**/img/figure-*.svg",
     "rule": "接尾辞 --wide なら viewBox==[640,360]、それ以外は viewBox==[400,500]",
     "migrationAllowlist": []

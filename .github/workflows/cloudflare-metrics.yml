@@ -4,11 +4,11 @@ name: ☁️ Cloudflare zone analytics (daily) + config audit (Friday)
 # 準備（npm ci・doc-meta-index）・鍵・develop への書き戻しが同じなので、1 ジョブの中で何を回すかを分ける。
 #
 # - 毎日（23 20 * * *）: Zone Analytics（GraphQL）の日次トラフィック指標を取得し、記録（台帳 cloudflare.zone）として commit する
-#   実装: scripts/fetch-cloudflare-analytics.mjs（lib: scripts/lib/cloudflare-analytics.mjs）
+#   実装: scripts/fetch/fetch-cloudflare-analytics.mjs（lib: scripts/lib/cloudflare-analytics.mjs）
 #   exit: 0 取得成功 / 1 認証・ネットワーク失敗 / 2 検査不成立（0 件取得。成果物は書かない）。Issue channel: cloudflare-metrics
 # - 金曜（47 13 * * 5）: ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を REST API から取得し、baseline との差分だけを検知する
 #   read-only audit。是正はしない。土曜の週次レビューが新しい結果を読めるよう金曜の夜に回す（DN-0847）
-#   実装: scripts/fetch-cloudflare-zone-config.mjs（lib: scripts/lib/cloudflare-zone-config.mjs）
+#   実装: scripts/fetch/fetch-cloudflare-zone-config.mjs（lib: scripts/lib/cloudflare-zone-config.mjs）
 #   exit: 0 ドリフトなし / 1 認証・ネットワーク失敗 / 2 ドリフトあり。Issue channel: cloudflare-config
 #   rc=2（ドリフトあり）は**是正 or 承認するまで赤が正常**。手動実行の accept_baseline: true で現在値を新しい baseline として
 #   commit すると緑に戻る。
@@ -88,7 +88,7 @@ jobs:
       # check-x-campaign-plan などが src/config/doc-meta-index.json を直接読むが、これは
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       - name: Fetch Cloudflare zone analytics
         id: fetch
@@ -102,7 +102,7 @@ jobs:
           set -o pipefail
           # bash -e のままだと非 0 で step が終わり exit_code が出力されない（2026-09 発覚）
           set +e
-          node scripts/fetch-cloudflare-analytics.mjs 2>&1 | tee "$RUNNER_TEMP/cf.log"
+          node scripts/fetch/fetch-cloudflare-analytics.mjs 2>&1 | tee "$RUNNER_TEMP/cf.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Audit Cloudflare zone config
@@ -121,7 +121,7 @@ jobs:
           if [ "$ACCEPT_BASELINE" = "true" ]; then
             ARGS="--accept-baseline"
           fi
-          node scripts/fetch-cloudflare-zone-config.mjs $ARGS 2>&1 | tee "$RUNNER_TEMP/cf-config.log"
+          node scripts/fetch/fetch-cloudflare-zone-config.mjs $ARGS 2>&1 | tee "$RUNNER_TEMP/cf-config.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Publish to develop (data/ と .claude/state/cloudflare/)
@@ -133,9 +133,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           if [ "$ANALYTICS" = "true" ]; then
-            node scripts/prune-state-snapshots.mjs --commit --family cloudflare
+            node scripts/maint/prune-state-snapshots.mjs --commit --family cloudflare
             # 取得が失敗した run では書いたファイルが無い。ci-data は無いパスを飛ばすので「取得失敗」が「publish 失敗」に見えない
-            node scripts/ci-data.mjs add --paths data
+            node scripts/ops/ci-data.mjs add --paths data
           fi
           # 取得が失敗した run ではディレクトリ自体が無い。pathspec 不一致で git が exit 128 になり
           # 「取得失敗」が「publish 失敗」に見えるのを避ける（2026-09-21 初回 run で実測）。
@@ -173,7 +173,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel cloudflare-metrics \
             --title "Cloudflare zone analytics 取得失敗（rc=${{ steps.fetch.outputs.exit_code }}）" \
             --body-file "$RUNNER_TEMP/cf-body.md"
@@ -184,7 +184,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel cloudflare-metrics \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel cloudflare-metrics \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       # ---- 設定の監査の通知（channel: cloudflare-config）----
@@ -194,7 +194,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel cloudflare-config \
             --title "Cloudflare zone 設定ドリフト" \
             --body-file .claude/state/cloudflare/zone-config-drift.json
@@ -205,7 +205,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel cloudflare-config \
             --title "Cloudflare zone config 取得失敗" \
             --body-file "$RUNNER_TEMP/cf-config.log"
@@ -216,7 +216,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel cloudflare-config \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel cloudflare-config \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail on fetch error, drift or audit error

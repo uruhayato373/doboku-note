@@ -24,6 +24,7 @@ import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
 import { articlesIndex, magazines, noteArticleCounts } from './content';
 import { loadKindleView } from './kindle';
+import { KINDLE_CATALOG_SOURCE } from '../../../../scripts/lib/kindle-catalog.mjs';
 import { findRepoRoot, repoPath } from './repo-root';
 
 /**
@@ -102,7 +103,7 @@ function videoLifecycle(): ChannelLifecycle {
 function siteLifecycle(): ChannelLifecycle {
   const href = '/content/articles';
   // doc-meta-index.json は **published:false を除外して生成される**
-  // （scripts/build-doc-meta-index.mjs L85-88）。index だけを数えると
+  // （scripts/build/build-doc-meta-index.mjs L85-88）。index だけを数えると
   // 「下書き 0」という偽の緑になるので、非公開は MDX を直接走査して数える。
   const source = 'src/config/doc-meta-index.json（公開）＋ content/site/**/*.mdx の published:false（下書き）';
   try {
@@ -203,7 +204,7 @@ function coconalaLifecycle(): ChannelLifecycle {
 
 async function kindleLifecycle(): Promise<ChannelLifecycle> {
   const href = '/product/status?ch=kindle';
-  const source = 'scripts/kindle-published/catalog.json（status）';
+  const source = `${KINDLE_CATALOG_SOURCE} の Kindle の書籍（status）`;
   try {
     // loadKindleView は git log を非同期実行する（同期版は next dev の単一プロセスを
     // ブロックし並行リクエストを詰まらせるため 2026-08-28 に async化）。

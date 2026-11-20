@@ -29,7 +29,7 @@
 
 ## 1.5 論点パック（シリーズ C・1級/2級土木）
 
-年度括り（旧 `civil-{1,2}/exam-packs`）を廃し、**1論点 × 4問（異なる年度から採録）**で括る。分類は Kindle A系（`scripts/build-takuitsu-reconstruct.mjs` の `THEMES` = 6管理テーマ・39論点）と**同一ロジックを import**して一致させる（テーマ間の重複は GOUBON 順の先勝ちで解消）。
+年度括り（旧 `civil-{1,2}/exam-packs`）を廃し、**1論点 × 4問（異なる年度から採録）**で括る。分類は Kindle A系（`scripts/build/build-takuitsu-reconstruct.mjs` の `THEMES` = 6管理テーマ・39論点）と**同一ロジックを import**して一致させる（テーマ間の重複は GOUBON 順の先勝ちで解消）。
 
 - **対象**: 6管理テーマ（安全/法規/施工計画/環境/品質/工程）＝施工管理法＋法規ドメイン。土木一般・専門土木の技術系論点は THEMES 未定義のため対象外（別途論点設計が必要）
 - **頻出度★**: 論点の出現年数 / 総回数（1級=12・2級=10）を 0.6/0.3 で ★★★/★★☆/★☆☆
@@ -131,17 +131,17 @@ scripts/
 
 ```bash
 # 1. 過去問 MDX を 1 度だけパース（src/config/exam-questions.json 出力）
-node scripts/parse-exam-questions.mjs
+node scripts/content/parse-exam-questions.mjs
 
 # 2. 全年度を 4 問パックに集約
-node scripts/generate-exam-pack-dirs.mjs            # H21-R7 全パック
+node scripts/build/generate-exam-pack-dirs.mjs            # H21-R7 全パック
 # または
-node scripts/generate-exam-pack-dirs.mjs --year r07 # 単年度
+node scripts/build/generate-exam-pack-dirs.mjs --year r07 # 単年度
 
 # 3. PNG + caption 一括生成
-node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel
+node scripts/maint/bulk-generate-exam-packs.mjs --year r07 --size carousel
 # または
-node scripts/bulk-generate-exam-packs.mjs --all  # 全 130 パック
+node scripts/maint/bulk-generate-exam-packs.mjs --all  # 全 130 パック
 ```
 
 ### 単一パック生成・修正
@@ -381,7 +381,7 @@ slide-data.json
 - `.claude/skills/ig-carousel-restyle/SKILL.md` — 一括再生成
 - `.claude/skills/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
 - 公開状態の照合: `verify-ig-status` でライブ↔SoT 突合（公開の状態の正本は台帳・照合は `verify-ig-status --registry`）。照合の手順書・`/ig-reconcile` スキル・`ig-publish-auditor` は SNS の保留に合わせて 2026-10-25 に外した（git の履歴にある）
-- `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
+- `scripts/checks/lint-exam-pack-structure.mjs` — 構造違反 lint
 - `.claude/knowledge/design-system/instagram-carousel.md` — デザイン仕様
 - `scripts/assets/design-tokens/instagram-carousel-tokens.json` — トークン真実源
 - `.claude/knowledge/reference/links-hub.md` — `/links` SNS bio 中継ページ

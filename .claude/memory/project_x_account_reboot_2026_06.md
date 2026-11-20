@@ -8,7 +8,7 @@ metadata:
 2026-06-21、前アカ凍結（[[feedback_x_suspension_guardrail]]）後にユーザーが**新 X アカウントで再開**を決定。技術士建設部門（筆記7/20）・総監（必須7/19）の**1ヶ月前カウントダウン**、1日2投稿（建設1＋総監1）、主軸「再受験コスト（受験料¥14,000＋もう1年）＞合格を今買う」。
 
 **再発防止設計（ブランチ feat/x-schedule-guard・develop ベース、未 push）**:
-- **予約前ゲート** `npm run x-schedule-guard`（`scripts/x-schedule-guard.mjs`）: 全 status.json(SSOT) を読み、同時刻衝突／near-dup(正規化トライグラムJaccard≥0.62)／1日上限超 を BLOCK(exit1)、時刻ジッタ無／同一URL反復 を WARN。`--queue` で X実キュー(Playwright)突合し既存予約と重複なら BLOCK。新規期は `--max-per-day 2`。
+- **予約前ゲート** `npm run x-schedule-guard`（`scripts/x/x-schedule-guard.mjs`）: 全 status.json(SSOT) を読み、同時刻衝突／near-dup(正規化トライグラムJaccard≥0.62)／1日上限超 を BLOCK(exit1)、時刻ジッタ無／同一URL反復 を WARN。`--queue` で X実キュー(Playwright)突合し既存予約と重複なら BLOCK。新規期は `--max-per-day 2`。
 - **アカウント境界**: 旧アカ32ドラフトを `docs/sns/x/draft|published/_archive-old-account/` へ隔離。`_`接頭辞は guard / x-schedule-view / x-sync-status がスキャン除外＝新アカはクリーン台帳から。旧 status を新アカで publish しない物理防壁。
 - 分業フロー＝writer→`x-post-qa`(§11ゲート採点)→status.json記入→**guard緑**→`publish-x --tweets N-M`(範囲限定で誤爆防止)→`x-sync-status`(偽成功実査)。週次小分け。真実源 `x-post-policy.md` §11.5、publish-x SKILL にもゲート配線済。
 - **状態ライフサイクル** `scheduled`(計画・未投入)→`queued`(キュー投入済・x-sync-statusが実在確認して昇格＝§9検証兼ねる)→`posted`。guardの`--queue`二重チェックは`queued`を除外するので**後日バッチを積んでも緑を維持**（2026-06-21、Day1-2投稿後に既queued誤検出する穴を修正）。
@@ -27,8 +27,8 @@ metadata:
 
 ## 統合: X 運用の恒久ルール（旧 x_30days_campaign / x_multi_exam_agents / sns_publish_infra）
 - **偽成功を疑う**: 2026-05-25 の「30日×3投稿=90件予約完了」は status.json 上のみで、実キューには1件も無かった（x-publish-log.csv にも記録ゼロ）。status.json の scheduled は X 投入を意味しない。**実体は必ずライブキュー（仮想スクロール全件ダンプ `.tmp/x-dump-scheduled-text.mjs` / `x-sync-status`）で確認**する。[[feedback_publish_x_false_success]]。同一投稿の連投はスパム判定リスク→コピー複数種＋画像で一意化、毎日の時間帯を分離（カウントダウン 08:00／クイズ 12:15）。
-- **280 weighted 上限**: 2026-05 に 30ドラフト208/216ツイートが超過で予約 reject されていた。`node scripts/check-x-length.mjs --over`（日本語=2/URL=23）で新規ドラフト直後に確認。テンプレ規約は `docs/sns/x/README.md`（ハッシュタグ・URL 1本・CTA は `→`・表禁止）。真実源 `docs/reference/x-post-policy.md`。
-- **資格別エージェントは作らない**（媒体×機能で分業・`exam` パラメータで横断）: `x-post-writer`（Generator）/`x-post-qa`（Evaluator・5軸＋重大減点ゲート）。カード画像 `scripts/gen-x-card.mjs` は draft slug で試験判定（総監=管理分野色・1級=青・2級=緑）。X はリプライ運用（1日10件）がフォロワー獲得の本質で writer はネタ供給に徹する。連携スキル `social-post`/`create-x-card`/`publish-x`。
+- **280 weighted 上限**: 2026-05 に 30ドラフト208/216ツイートが超過で予約 reject されていた。`node scripts/checks/check-x-length.mjs --over`（日本語=2/URL=23）で新規ドラフト直後に確認。テンプレ規約は `docs/sns/x/README.md`（ハッシュタグ・URL 1本・CTA は `→`・表禁止）。真実源 `docs/reference/x-post-policy.md`。
+- **資格別エージェントは作らない**（媒体×機能で分業・`exam` パラメータで横断）: `x-post-writer`（Generator）/`x-post-qa`（Evaluator・5軸＋重大減点ゲート）。カード画像 `scripts/build/gen-x-card.mjs` は draft slug で試験判定（総監=管理分野色・1級=青・2級=緑）。X はリプライ運用（1日10件）がフォロワー獲得の本質で writer はネタ供給に徹する。連携スキル `social-post`/`create-x-card`/`publish-x`。
 - 予約時刻の前倒しに X 専用の取消/再予約スクリプトは無く、予約キュー `/compose/post/unsent/scheduled` を開き本文 needle で自分の投稿を特定→in-place 編集（`[role="dialog"]` にスコープ・`.first()`）で実施した前例。他の予約には触れない。
   - **2026-10-04 実証の手順**（8 本移動・件数不変を全件ダンプで確認）: 一覧の `[data-testid="unsentTweet"]` を needle で特定→クリック→`[role="dialog"] [data-testid="scheduleOption"]` を DOM click→select 5 個（月・日・年・時・分の順）→`scheduledConfirmationPrimaryAction`（「更新」）→本文 `tweetTextarea_0` を `focus()` して `ControlOrMeta+Enter`（click はオーバーレイに遮られる）。移動先は `content/sns/x/review.json` の期間（to）内に収める（外へ出すと `check-x-review` が「画像原稿の欠落」で CI を落とす）。status.json は `original_scheduled_at`・`rescheduled_at` を残して書き換える。
 - 新アカ再開時の既定: 1日2投稿上限（`x-schedule-guard --max-per-day 2`）、販売 CTA 比率は約36%以下、当日応援はリンク無。投稿表示をプロフィールで時々目視（§11.3 ban evasion リスク＝同一端末/IP で新アカも凍結されうる）。残: プロフィール/links-hub への @doboku373 配線。

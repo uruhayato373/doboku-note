@@ -58,7 +58,7 @@ candidate → applied → approved → harvested → registered → published
 ## スコアリング（curated 値・ハードコードしない）
 
 `score = 0.40·rewardNorm + 0.25·epcNorm + 0.15·confirmNorm + 0.20·gapBonus`。
-係数・上限・blocklist・vertical 写像・`weeklyApplyMax`・`minScore` の SSOT は `scripts/ads/data/a8-curated.json`。
+係数・上限・blocklist・vertical 写像・`weeklyApplyMax`・`minScore` の SSOT は `config/a8-curated.json`。
 
 - **vertical（doboku career 3軸）**: `civil-career`（施工管理系＝GKS/ビルドジョブ枠）/ `pe-career`（技術士ハイクラス枠）/
   `career`（汎用フォールバック）。`resolveVertical` は最長一致で `civil-career`/`pe-career` を汎用 `career` に先取りさせない。
@@ -171,12 +171,12 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 ### レポート系ファイル
 
-- ブラウザ: `scripts/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/lib/a8-report-browser.mjs`
+- ブラウザ: `scripts/fetch/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/lib/a8-report-browser.mjs`
   （**汎用部は `scripts/lib/google-console-browser.mjs` を import 再利用**＝launchContext / downloadTo /
   dumpFailure / findUniqueByLabels。コピーはしない）
-- 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
+- 正規化: `scripts/affiliate/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
 - テスト（node:test・20件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
-- 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
+- 継続運用: `scripts/checks/check-a8-report-due.mjs`（surfacer）／`scripts/checks/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
 - 設定 SoT: `config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
 - SSOT: `data/a8/report-log.json`
   （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝案件に対応した行＋当期の口座横断の行 / `monthly`・`daily`＝口座横断 /
@@ -227,7 +227,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - コア（純関数）: `scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`
 - テスト（node:test・30件）: `scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）
 - 申請上限: `scripts/ads/check-a8-apply-budget.cjs`
-- curated（係数・blocklist・vertical・上限・`searchKeywords`）: `scripts/ads/data/a8-curated.json`
+- curated（係数・blocklist・vertical・上限・`searchKeywords`）: `config/a8-curated.json`
 - カタログ（状態機械）: `data/a8/catalog.json`
 - 実行の正直さ判定（純関数）: `scripts/lib/report-honesty.mjs`（`classifyRun` / `classifyCrossCheck` 等）。
   テスト `tests/report-honesty.test.mjs`（`npm test`）。GSC 側の `gsc-request-indexing` と共用

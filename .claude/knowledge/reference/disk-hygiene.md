@@ -89,7 +89,7 @@ npm run disk-hygiene:install -- --status    # 登録状況（Windows は :win）
 npm run disk-hygiene:install -- --run-now   # 今すぐ 1 回
 npm run disk-hygiene:install -- --uninstall # 解除
 npm run check-disk-hygiene                  # いまの状態（表・exit 0/1/2）
-node scripts/disk-hygiene.mjs --dry-run     # 何を消すかとガード理由（削除しない）
+node scripts/local/disk-hygiene.mjs --dry-run     # 何を消すかとガード理由（削除しない）
 ```
 
 ログは macOS が `~/Library/Logs/doboku-note/disk-hygiene.log`、Windows が `~/.local/state/doboku-note/logs/disk-hygiene.log`（AppData 配下にしないのは MSIX アプリ〔ChatGPT/Codex〕から読むと仮想化で別の場所を見るため）。完走したときだけ
@@ -137,7 +137,7 @@ Windows 実測（2026-09-14・16GB 機）: X 用プロファイル 1.4GB のう�
 
 関連: [asset-storage-policy.md](asset-storage-policy.md)（置き場のルーティング） /
 [information-architecture.md](information-architecture.md)（情報の置き場） /
-`scripts/prune-tmp.mjs`（scratch限定の互換入口・既定dry-run、削除は `--commit`）
+`scripts/local/prune-tmp.mjs`（scratch限定の互換入口・既定dry-run、削除は `--commit`）
 
 導入コマンドはGitの `maintenance start` も登録する。既存登録への再実行は可能で、登録失敗を成功として扱わない。
 

@@ -89,7 +89,7 @@ test('check-coverage-thresholds: 未検査の残る行が履歴に積まれた�
     const history = join(dir, 'history.json');
     writeFileSync(history, JSON.stringify([entry]));
     try {
-      execFileSync(process.execPath, [join(ROOT, 'scripts/check-coverage-thresholds.mjs'), '--history', history], { encoding: 'utf8', stdio: 'pipe' });
+      execFileSync(process.execPath, [join(ROOT, 'scripts/checks/check-coverage-thresholds.mjs'), '--history', history], { encoding: 'utf8', stdio: 'pipe' });
       return 0;
     } catch (e) {
       return e.status;

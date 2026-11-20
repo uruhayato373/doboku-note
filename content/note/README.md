@@ -149,7 +149,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 | `noteSeries` | **表示用の編集ラベル**（カバー生成の系列名・もくじ index の判定マーカー） | `noteMagazine` と語尾が異なってよい自由記述（例: 「…小論文」と「…小論文集」）。特殊値 `総合案内` はもくじ index ページを示し、`note-lint` 経由で markdown リンク列挙を許容する |
 
 **noteMagazine が正**（商品を特定する必要がある処理）: マガジン収録数の突合（`check-magazine-membership`）・note 公開時の価格/CTA 解決（`note-publish.mjs`）。
-**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`scripts/add-note-cover.mjs`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
+**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`scripts/note/add-note-cover.mjs`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
 
 **書いてはいけない逸脱**（`npm run check-note-vocabulary-boundary` が検知・pre-commit 非搭載のため commit 前に手動実行を推奨）:
 - `noteSeries` に `note-magazines.ts` の `id`（内部slug）をそのまま書く
@@ -169,8 +169,8 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 ## 関連ツール（パス前提）
 
 - 記事カタログ: `npm run build-note-catalog` → `.claude/state/note-published.json`（全記事の URL・ID・状態・価格・所属マガジンを 1 ファイルで引ける**読み取り専用の生成物**。正本は各記事 frontmatter と `src/lib/note-magazines.ts`。手で編集しない。refresh-indexes に含まれ、鮮度は CI の check-generated-indexes が検査。記事を stage した commit では pre-commit も `build-note-published-index.mjs --check --staged` で作り直し漏れと stage 漏れを止める。題名は本文の H1 から取るので、H1 を変えたら作り直す）
-- 紙用 PDF 変換: `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`
-- カバー画像生成: `node scripts/generate-note-covers.mjs [slug部分一致]`（再帰走査・試験別構造に自動対応）
-- UTM 付与: `node scripts/add-note-utm.mjs <slug|prefix>`
-- 図版 render: `scripts/render-figure-*.mjs`
+- 紙用 PDF 変換: `node scripts/note/magazine-to-pdf.mjs --spec <マガジンのフォルダ>/magazine-pdf.json`
+- カバー画像生成: `node scripts/build/generate-note-covers.mjs [slug部分一致]`（再帰走査・試験別構造に自動対応）
+- UTM 付与: `node scripts/note/add-note-utm.mjs <slug|prefix>`
+- 図版: 正本は `img/figure-*.svg`（直接書く・直す）。note へ上げる PNG は投稿時に作る。確認用は `node scripts/build/render-note-figures.mjs <svg|dir>`
 - note 公開状態の照合: `npm run verify-note-magazines`

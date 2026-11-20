@@ -1,0 +1,36 @@
+{
+  "bookId": "d-00",
+  "adoptedImage": "content/kindle/books/d-00/pop-image.json",
+  "background": "content/kindle/cover-backgrounds/a-03.png",
+  "accent": "#16365C",
+  "kicker": "技術士第一次試験",
+  "titleLines": [
+    {
+      "text": "合本",
+      "size": 300
+    },
+    {
+      "text": "基礎・適性・専門",
+      "size": 168
+    }
+  ],
+  "subLines": [
+    "令和元〜7年度 基礎210問＋適性105問＋専門245問 計560問"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "pe-first-stage",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "基礎・適性・専門 全3科目",
+    "badge": [
+      "3科目",
+      "計560問"
+    ],
+    "redBand": "令和7年度 本試験まで収録",
+    "navyBand": "R1〜R7 7年分 完全解説",
+    "scene": "基礎・適性・専門の3冊の分厚い問題集を積み上げた机と、背景に都市",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "3冊の本を抱えて胸を張るポーズ"
+  }
+}

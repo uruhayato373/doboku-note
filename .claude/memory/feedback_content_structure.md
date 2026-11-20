@@ -26,7 +26,7 @@ metadata:
 
 ## ガイド記事（group: guide）は本文3,000字以上が必須下限（2026-06-21 ユーザー方針）
 本文（frontmatter 除外・空白除去後）3,000字未満は thin content で公開品質を満たさない。ガイドは検索流入の入口かつ note 有料へのコンバージョン地点で、各 H2 が散文200〜400字（§17）なら標準構成で自然に3,000字を超える（下回るのは散文が箇条書き・表・Callout に逃げた兆候）。
-- 公開前に `npm run check-guide-length`（published 全件・赤落ち）。加筆は水増しでなく具体（数値・体験・選択基準）。過去問(primary/secondary)・キーワード・textbook には適用しない（content-principles §5 §188 の図表中心ページ例外を侵さない）。真実源 content-principles.md §25、ゲート scripts/check-guide-length.mjs。既存31本の加筆バーンダウンは docs/todo/backlog.md。31本完了後に pre-commit/CI へ配線予定（それまで未配線）。関連: [[feedback_factcheck_guide_facts]]
+- 公開前に `npm run check-guide-length`（published 全件・赤落ち）。加筆は水増しでなく具体（数値・体験・選択基準）。過去問(primary/secondary)・キーワード・textbook には適用しない（content-principles §5 §188 の図表中心ページ例外を侵さない）。真実源 content-principles.md §25、ゲート scripts/checks/check-guide-length.mjs。既存31本の加筆バーンダウンは docs/todo/backlog.md。31本完了後に pre-commit/CI へ配線予定（それまで未配線）。関連: [[feedback_factcheck_guide_facts]]
 
 ## MDX 本文に note マガジン価格と内部 ID を直書きしない
 `.local/r2/posts/` 配下の MDX 本文に note マガジン価格（`¥X,XXX`）と内部 ID（`M3`, `M4` 等）を直書きしない。価格表示は `src/lib/note-magazines.ts` の `price` から `<MagazineInlineCard>` / `<MagazineSidebarCard>` 経由のみ（料金改定時に全本文を grep 書き換えする運用は非現実的・SoT 1箇所更新で全カードに伝播するアーキテクチャを維持）。2026-05-19 に本文56箇所を14ファイルから一括削除（commit `40c76549a`・[[handoff-2026-05-19-r8-hub-spoke-ux-refactor]]）。

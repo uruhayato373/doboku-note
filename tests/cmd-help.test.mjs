@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { headerComment, scriptFile, scriptsWithoutHeader, searchCommands } from '../scripts/lib/cmd-help.mjs';
-import { compareHeaderBaseline, NO_HEADER_BASELINE } from '../scripts/check-command-guidance.mjs';
+import { compareHeaderBaseline, NO_HEADER_BASELINE } from '../scripts/checks/check-command-guidance.mjs';
 
 test('冒頭コメントの基準: 基準に無いファイルの欠けは止め、冒頭コメントが付いたファイルは基準から消させる', () => {
   const base = ['scripts/old-a.mjs', 'scripts/old-b.mjs'];
@@ -16,11 +16,11 @@ test('冒頭コメントの基準: 基準に無いファイルの欠けは止め
 });
 
 test('scriptFile: node / tsx / npx tsx が最初に起動するファイルを返し、ファイルを起動しない script は null', () => {
-  assert.equal(scriptFile('node scripts/deploy-main.mjs'), 'scripts/deploy-main.mjs');
+  assert.equal(scriptFile('node scripts/ops/deploy-main.mjs'), 'scripts/ops/deploy-main.mjs');
   assert.equal(scriptFile('node --test --test-concurrency=2 tests/a.test.mjs'), 'tests/a.test.mjs');
-  assert.equal(scriptFile('tsx scripts/build-standards-data.ts && node scripts/check-standards-data.mjs'), 'scripts/build-standards-data.ts');
+  assert.equal(scriptFile('tsx scripts/build/build-standards-data.ts && node scripts/checks/check-standards-data.mjs'), 'scripts/build/build-standards-data.ts');
   assert.equal(scriptFile('npx tsx scripts/x.mts --ci'), 'scripts/x.mts');
-  assert.equal(scriptFile('node scripts/build-doc-meta-index.mjs --ci'), 'scripts/build-doc-meta-index.mjs');
+  assert.equal(scriptFile('node scripts/build/build-doc-meta-index.mjs --ci'), 'scripts/build/build-doc-meta-index.mjs');
   assert.equal(scriptFile('tsc --noEmit'), null);
   assert.equal(scriptFile('npm run build-backlinks && npm run build-indexes'), null);
 });
@@ -48,13 +48,13 @@ test('headerComment: import から始まるファイルは冒頭コメントな�
 });
 
 const FILES = {
-  'scripts/deploy-main.mjs': '// develop の検査済み commit を main へ昇格する。\n// exit 0 は本番の確認まで通ったときだけ。\n',
-  'scripts/check-production-ssr.mjs': '/** 本番の SSR を確かめる。deploy:main が最後に呼ぶ。 */\n',
+  'scripts/ops/deploy-main.mjs': '// develop の検査済み commit を main へ昇格する。\n// exit 0 は本番の確認まで通ったときだけ。\n',
+  'scripts/checks/check-production-ssr.mjs': '/** 本番の SSR を確かめる。deploy:main が最後に呼ぶ。 */\n',
   'scripts/no-header.mjs': 'import a from "a";\n',
 };
 const SCRIPTS = {
-  'check-production-ssr': 'node scripts/check-production-ssr.mjs',
-  'deploy:main': 'node scripts/deploy-main.mjs',
+  'check-production-ssr': 'node scripts/checks/check-production-ssr.mjs',
+  'deploy:main': 'node scripts/ops/deploy-main.mjs',
   'type-check': 'tsc --noEmit',
   'no-header': 'node scripts/no-header.mjs',
   'gone': 'node scripts/gone.mjs',
@@ -65,7 +65,7 @@ test('searchCommands: 名前・実コマンド・冒頭コメントから探し�
   const hits = searchCommands({ scripts: SCRIPTS, readFile, query: 'deploy' });
   assert.deepEqual(hits.map((h) => h.name), ['deploy:main', 'check-production-ssr']);
   assert.deepEqual(hits[0].header, ['develop の検査済み commit を main へ昇格する。', 'exit 0 は本番の確認まで通ったときだけ。']);
-  assert.equal(hits[0].file, 'scripts/deploy-main.mjs');
+  assert.equal(hits[0].file, 'scripts/ops/deploy-main.mjs');
 });
 
 test('searchCommands: 語を並べると全部を含むものだけ。大文字小文字は区別しない。語なしは 0 件', () => {

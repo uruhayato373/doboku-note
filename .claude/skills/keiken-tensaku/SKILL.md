@@ -28,9 +28,9 @@ domain: product
 
 1. **入力検証**: 提出原稿の実在を確認。工事概要＋設問構造が読み取れない場合は不足項目を報告して停止（ヒアリングシートの再送を依頼する運用）。
 2. **Generator 起動**: `civil-keiken-tensaku-drafter` に path / grade / theme / mode を渡す。
-3. **出力**: 入力と同じディレクトリに `添削下書き.md`（添削）／`骨子シート.md`（骨子）／`診断下書き.md`（診断）。骨子は `node scripts/check-kosshi-sheet.mjs <骨子シート> --source <ヒアリングシート>` が exit 0 であること。
+3. **出力**: 入力と同じディレクトリに `添削下書き.md`（添削）／`骨子シート.md`（骨子）／`診断下書き.md`（診断）。骨子は `node scripts/checks/check-kosshi-sheet.mjs <骨子シート> --source <ヒアリングシート>` が exit 0 であること。
 4. **返信文を作る**: 下書きから顧客へ送る文面を同じディレクトリに `返信文.txt` として作る（採用する指摘は最重要の1〜2点、書き換え例の見出し末尾に `（N字）` を付ける）。骨子は、返信文（短い送付文）＋骨子シートを送る。骨子シートが 3000 字を超えるならファイル添付にする（`check-kosshi-sheet` の出力に表示される）。
-5. **返信文の検証（Generator/Evaluator 分離）**: `civil-keiken-tensaku-qa` に reply / source / draft / grade / mode を渡す（骨子は draft に骨子シートを渡し、`check-kosshi-sheet` も QA が実行する）。機械ゲート `node scripts/check-tensaku-reply.mjs <返信文> --source <原稿> [--grade N]` はこのエージェントが実行する。**PASS になるまで親が返信文を直して再検証する**（FAIL・BLOCKED のまま運営者へ渡さない）。
+5. **返信文の検証（Generator/Evaluator 分離）**: `civil-keiken-tensaku-qa` に reply / source / draft / grade / mode を渡す（骨子は draft に骨子シートを渡し、`check-kosshi-sheet` も QA が実行する）。機械ゲート `node scripts/checks/check-tensaku-reply.mjs <返信文> --source <原稿> [--grade N]` はこのエージェントが実行する。**PASS になるまで親が返信文を直して再検証する**（FAIL・BLOCKED のまま運営者へ渡さない）。
 6. **運営者への引き継ぎ表示**: QA の判定と「未確認のまま残る点」を添えて、以下のチェックリストを表示して終了。
    - [ ] ストップウォッチ開始（実測ゲート中は所要時間を [添削実測/README.md](../../../content/note/1級・2級土木/メンバーシップ/添削実測/README.md) の実測ログへ記録）
    - [ ] NG→OK は**最重要の1〜2点だけ**採用（全部直さない）

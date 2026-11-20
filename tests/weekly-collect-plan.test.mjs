@@ -65,13 +65,13 @@ test('段の失敗の理由は、コマンドが 2 本以上ならどのコマ�
   assert.match(first, /^1\/2 本目（note-traffic-fetch -- --commit）: /);
   assert.doesNotMatch(first, /--from/);
   assert.match(commandFailureReason({ argv: period.argv, index: 1, total: 2, line }), /^2\/2 本目（note-traffic-fetch -- --from 2026-10-12 --to 2026-10-18 --commit）/);
-  assert.equal(commandFailureReason({ argv: ['scripts/check-note-sync.mjs'], index: 0, total: 1, line: 'x' }), 'x');
+  assert.equal(commandFailureReason({ argv: ['scripts/checks/check-note-sync.mjs'], index: 0, total: 1, line: 'x' }), 'x');
   assert.equal(commandFailureReason({ argv: month.argv, index: 0, total: 2, timedOut: true, timeoutMin: 30 }), '1/2 本目（note-traffic-fetch -- --commit）: 30 分で打ち切り');
 });
 
 // ---- 収集の検算・note-audit・段ごとの最新（DN-0847）
 test('検算（verify）は quality-audit の cadence:collect の点検と 1 対 1（書き写さず id で引く）', async () => {
-  const { CHECKS } = await import('../scripts/quality-audit.mjs');
+  const { CHECKS } = await import('../scripts/ops/quality-audit.mjs');
   const collect = CHECKS.filter((c) => c.cadence === 'collect').map((c) => c.id).sort();
   const verify = buildStages({ today: '2026-10-24' }).flatMap((s) => s.verify ?? []);
   assert.ok(collect.length >= 7, `collect の点検が ${collect.length} 件しか無い（検査不成立）`);
@@ -190,7 +190,7 @@ test('四半期の初日と、競合の取得は四半期の最初の土曜だ�
   assert.equal(due.skip, null);
   assert.equal(due.phase, 'pre');
   assert.equal(due.browser, true); // ココナラの 2 本は手元の永続 profile
-  assert.deepEqual(argvOf([due], 'competitors').map((a) => a.split(' ').find((x) => /scout|research/.test(x))), ['scout-note-competitors', 'scripts/coconala-research.mjs', 'scout-coconala-competitors']);
+  assert.deepEqual(argvOf([due], 'competitors').map((a) => a.split(' ').find((x) => /scout|research/.test(x))), ['scout-note-competitors', 'scripts/coconala/coconala-research.mjs', 'scout-coconala-competitors']);
 });
 
 test('売上の段のあとに、前々月と前月の受取額と固定費を記録する段がある（確定した月だけ書く）', () => {
@@ -198,10 +198,10 @@ test('売上の段のあとに、前々月と前月の受取額と固定費を�
   const ids = stages.map((s) => s.id);
   assert.ok(ids.indexOf('business-records') > ids.indexOf('product-sales'));
   assert.deepEqual(argvOf(stages, 'business-records'), [
-    'scripts/record-net-receipts.mjs --month 2026-09 --when-complete --commit',
-    'scripts/record-operating-costs.mjs --month 2026-09 --commit',
-    'scripts/record-net-receipts.mjs --month 2026-10 --when-complete --commit',
-    'scripts/record-operating-costs.mjs --month 2026-10 --commit',
+    'scripts/fetch/record-net-receipts.mjs --month 2026-09 --when-complete --commit',
+    'scripts/fetch/record-operating-costs.mjs --month 2026-09 --commit',
+    'scripts/fetch/record-net-receipts.mjs --month 2026-10 --when-complete --commit',
+    'scripts/fetch/record-operating-costs.mjs --month 2026-10 --commit',
   ]);
   assert.equal(stages.find((s) => s.id === 'business-records').browser, false);
 });

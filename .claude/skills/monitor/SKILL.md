@@ -114,7 +114,7 @@ upload-images-to-r2.mjs の出力から進捗と失敗を通知。
 
 ```
 Monitor:
-  command: cd "$CLAUDE_PROJECT_DIR" && node scripts/upload-images-to-r2.mjs 2>&1 | grep --line-buffered -iE "(Target|送る|Progress|FAILED|Done|Error)"
+  command: cd "$CLAUDE_PROJECT_DIR" && node scripts/storage/upload-images-to-r2.mjs 2>&1 | grep --line-buffered -iE "(Target|送る|Progress|FAILED|Done|Error)"
   description: "R2 image upload progress"
   persistent: false
   timeout_ms: 600000
@@ -162,7 +162,7 @@ Monitor:
         count=$(echo "$changed" | wc -l)
         echo "MDX CHANGED: $count file(s) detected"
         for f in $changed; do
-          result=$(node scripts/validate-mdx.mjs "$f" 2>&1)
+          result=$(node scripts/checks/validate-mdx.mjs "$f" 2>&1)
           if echo "$result" | grep -q "✗\|error"; then
             echo "VALIDATION ERROR: $f"
             echo "$result" | grep -E "✗|error|→" | head -5

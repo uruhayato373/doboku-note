@@ -11,7 +11,7 @@ before(() => {
   // 追跡中の public/quiz を書き換えないよう一時ディレクトリへ生成する（DN-0511）
   const out = mkdtempSync(join(tmpdir(), 'quiz-'));
   try {
-    execFileSync(process.execPath, ['scripts/build-quiz-data.mjs', '--out-dir', out], { cwd: root, stdio: 'pipe' });
+    execFileSync(process.execPath, ['scripts/build/build-quiz-data.mjs', '--out-dir', out], { cwd: root, stdio: 'pipe' });
     dataset = JSON.parse(readFileSync(join(out, 'pe-first-stage.json'), 'utf8'));
   } finally {
     rmSync(out, { recursive: true, force: true });

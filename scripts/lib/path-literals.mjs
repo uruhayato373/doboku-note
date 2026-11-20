@@ -1,6 +1,6 @@
 /**
  * path-literals.mjs — コードと設定ファイルが config/・data/ のパスを直書きしていないか、台帳の id を正しく引いているかの検出。
- * 判定は scripts/check-datasets.mjs が使う（ここは見つけるだけで、ファイルを読まない）。
+ * 判定は scripts/checks/check-datasets.mjs が使う（ここは見つけるだけで、ファイルを読まない）。
  *
  * 置き場を移したとき、直書きは旧パスのまま残り、読めずに黙って空を返す（2026-10-02 に管理画面のアフィリエイト画面と
  * UTM 生成で実際に起きた）。コードは台帳（scripts/lib/datasets.mjs）から datasetPath・datasetDir・latestFile で引く。
@@ -131,7 +131,7 @@ export function basenameIndex(trackedFiles) {
  * listReports・latestReport は GA4・GSC のレポートの種類なので含めない
  */
 const ID_CALL = /\b(datasetPath|datasetDir|datasetFiles|latestFile|datasetById|resolveDataset|readDataset|readDatasetIf|readLatest|writeDataset|appendDataset|freshnessOf|freshnessDays)\(\s*(?:[A-Za-z_$][\w$.]*\s*,\s*)?(['"])([a-z0-9]+(?:\.[a-z0-9-]+)+)\2/g;
-/** ワークフローの `node scripts/ci-data.mjs put|latest|path <id>`・`npm run ci-data -- …` */
+/** ワークフローの `node scripts/ops/ci-data.mjs put|latest|path <id>`・`npm run ci-data -- …` */
 const CI_DATA_ID = /ci-data(?:\.mjs)?(?:\s+--)?\s+(?:put|latest|path)\s+([a-z0-9]+\.[a-z0-9-]+)/g;
 const CI_DATA_DATASETS = /--datasets\s+([a-z0-9.,-]+)/g;
 

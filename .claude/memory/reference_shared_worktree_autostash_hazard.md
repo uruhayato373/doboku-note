@@ -125,7 +125,7 @@ Next 16 (Turbopack) は **同一プロジェクトディレクトリに対する
 
 **正しい対処**: `preview_start({url: "http://127.0.0.1:3021/..."})` で**既存サーバーにタブを向ける**（サーバーを起動せずブラウザタブだけ開く）。検証はこれで足りる。
 
-**もう1つの罠**: `npm run admin` は先頭で `node scripts/kill-port.mjs 3021` を実行する。そのまま叩くと**別セッションの admin server を問答無用で殺す**。並行時は絶対に実行しない。
+**もう1つの罠**: `npm run admin` は先頭で `node scripts/local/kill-port.mjs 3021` を実行する。そのまま叩くと**別セッションの admin server を問答無用で殺す**。並行時は絶対に実行しない。
 
 admin が 3021 に縛られる理由は OAuth/webhook/CORS ではなく、手順書が 3021 前提であること。
 
@@ -133,4 +133,4 @@ admin が 3021 に縛られる理由は OAuth/webhook/CORS ではなく、手順
 
 ## worktree で dev 検証するときの preview 起動（2026-10-02 実測・Mac）
 `preview_start` は**本体の** `.claude/launch.json` しか読まない（worktree 側に足しても "No server named"）。`npm run dev` は predev で `kill-port 3020` を実行し**別セッションの dev を殺す**ので使わない。本体の launch.json に一時エントリ `{"runtimeExecutable":"bash","runtimeArgs":["-c","cd <worktree> && exec npx next dev --webpack -p 3031"],"port":3031}` を足して起動し、検証後に必ず削除する（diff が空に戻ることを確認）。
-- E2E を worktree で回すとき（2026-10-21 実測）: `E2E_DEV=1` は port 3020 固定で `reuseExistingServer`（playwright.config.ts）。3020 が空いていれば一時エントリを `next dev --webpack -p 3020 <worktree>` にして起動し、worktree で `E2E_DEV=1 node node_modules/@playwright/test/cli.js test <spec> --project=desktop-chromium -g <名前>` と回せる（launch.json は起動直後に戻す）。worktree には生成物の `public/quiz/*.json` が無く、`npm test` の e2e-execution（`playwright test --list`）が ENOENT で落ちるので、先に `node scripts/build-quiz-data.mjs`
+- E2E を worktree で回すとき（2026-10-21 実測）: `E2E_DEV=1` は port 3020 固定で `reuseExistingServer`（playwright.config.ts）。3020 が空いていれば一時エントリを `next dev --webpack -p 3020 <worktree>` にして起動し、worktree で `E2E_DEV=1 node node_modules/@playwright/test/cli.js test <spec> --project=desktop-chromium -g <名前>` と回せる（launch.json は起動直後に戻す）。worktree には生成物の `public/quiz/*.json` が無く、`npm test` の e2e-execution（`playwright test --list`）が ENOENT で落ちるので、先に `node scripts/build/build-quiz-data.mjs`

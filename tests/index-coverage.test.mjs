@@ -66,7 +66,7 @@ test('append-coverage-history: 履歴の 1 行に資格別（by_qualification）
     const batch = join(dir, '2026-10-02T00-00-00.json');
     writeFileSync(batch, JSON.stringify({ version: 1, partial: false, results: ROWS.map((r) => (r.error ? { url: r.url, error: r.error } : { url: r.url, index: r.index })) }));
     const history = join(dir, 'history.json');
-    execFileSync(process.execPath, [join(ROOT, 'scripts/append-coverage-history.mjs'), '--batch', batch, '--date', '2026-10-02', '--sitemap-count', '6', '--history', history], { cwd: ROOT, encoding: 'utf8' });
+    execFileSync(process.execPath, [join(ROOT, 'scripts/search/append-coverage-history.mjs'), '--batch', batch, '--date', '2026-10-02', '--sitemap-count', '6', '--history', history], { cwd: ROOT, encoding: 'utf8' });
     const [entry] = JSON.parse(readFileSync(history, 'utf8')).entries;
     assert.equal(entry.inspected, 6);
     assert.equal(entry.indexed, 4);

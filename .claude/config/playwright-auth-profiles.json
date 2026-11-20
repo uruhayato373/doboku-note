@@ -12,30 +12,30 @@
       "interactiveLoginRequired": true,
       "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。売上ページは購入者一覧のパスワード再確認があり、note-reauth が資格情報ストアの ID/PW で 1 回通す。",
       "collectors": [
-        "scripts/note-sales-fetch.mjs",
-        "scripts/note-traffic-fetch.mjs",
-        "scripts/check-note-attachments.mjs",
-        "scripts/note-account-name.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/note/note-sales-fetch.mjs",
+        "scripts/note/note-traffic-fetch.mjs",
+        "scripts/checks/check-note-attachments.mjs",
+        "scripts/note/note-account-name.mjs",
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/note-publish.mjs",
-        "scripts/note-publish-discover.mjs",
-        "scripts/note-update-body.mjs",
-        "scripts/note-update-partial.mjs",
-        "scripts/note-sync-tags.mjs",
-        "scripts/note-article-price-sweep.mjs",
-        "scripts/note-magazine-create.mjs",
-        "scripts/note-magazine-add-articles.mjs",
-        "scripts/note-magazine-cover.mjs",
-        "scripts/note-edit-magazine.mjs",
-        "scripts/note-attach-file.mjs",
-        "scripts/note-append-cta.mjs",
-        "scripts/note-append-list-links.mjs",
-        "scripts/note-comment-reply.mjs",
-        "scripts/note-convert-to-paid.mjs",
-        "scripts/note-swap-author-banner.mjs",
-        "scripts/note-reanchor-boundary.mjs"
+        "scripts/note/note-publish.mjs",
+        "scripts/note/note-publish-discover.mjs",
+        "scripts/note/note-update-body.mjs",
+        "scripts/note/note-update-partial.mjs",
+        "scripts/note/note-sync-tags.mjs",
+        "scripts/note/note-article-price-sweep.mjs",
+        "scripts/note/note-magazine-create.mjs",
+        "scripts/note/note-magazine-add-articles.mjs",
+        "scripts/note/note-magazine-cover.mjs",
+        "scripts/note/note-edit-magazine.mjs",
+        "scripts/note/note-attach-file.mjs",
+        "scripts/note/note-append-cta.mjs",
+        "scripts/note/note-append-list-links.mjs",
+        "scripts/note/note-comment-reply.mjs",
+        "scripts/note/note-convert-to-paid.mjs",
+        "scripts/note/note-swap-author-banner.mjs",
+        "scripts/note/note-reanchor-boundary.mjs"
       ],
       "credential": {
         "label": "note",
@@ -58,24 +58,24 @@
       "interactiveLoginRequired": true,
       "notes": "sellerName: dobokunote の本文一致 assert あり。ココナラは hosted runner からの接続を 403 で返す（2026-10-13・DN-0667）。取得は土曜の Mac 収集（weekly-collect）で行う。",
       "collectors": [
-        "scripts/coconala-orders.mjs",
-        "scripts/coconala-analytics.mjs",
-        "scripts/coconala-revenue.mjs",
-        "scripts/check-coconala-analytics.mjs",
-        "scripts/check-coconala-blog.mjs",
-        "scripts/coconala-discover.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/coconala/coconala-orders.mjs",
+        "scripts/coconala/coconala-analytics.mjs",
+        "scripts/coconala/coconala-revenue.mjs",
+        "scripts/checks/check-coconala-analytics.mjs",
+        "scripts/checks/check-coconala-blog.mjs",
+        "scripts/coconala/coconala-discover.mjs",
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-pause.mjs",
-        "scripts/coconala-profile.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/coconala-delete-draft.mjs",
-        "scripts/coconala-blog-publish.mjs",
-        "scripts/coconala-blog-delete-draft.mjs",
-        "scripts/coconala-rate-buyer.mjs"
+        "scripts/coconala/coconala-publish.mjs",
+        "scripts/coconala/coconala-edit.mjs",
+        "scripts/coconala/coconala-pause.mjs",
+        "scripts/coconala/coconala-profile.mjs",
+        "scripts/coconala/coconala-thumb.mjs",
+        "scripts/coconala/coconala-delete-draft.mjs",
+        "scripts/coconala/coconala-blog-publish.mjs",
+        "scripts/coconala/coconala-blog-delete-draft.mjs",
+        "scripts/coconala/coconala-rate-buyer.mjs"
       ],
       "credential": {
         "label": "ココナラ",
@@ -98,11 +98,11 @@
       "interactiveLoginRequired": true,
       "notes": "専用 account config JSON は無し。Amazon は端末変更で再認証を求め、2 段階認証・CAPTCHA でも止まる（2026-09-21・2026-10-16 に自動ログインが止まった・DN-0480）。取得は土曜の Mac 収集（weekly-collect）で行い、切れたら人が入り直す。",
       "collectors": [
-        "scripts/kdp-report.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/kindle/kdp-report.mjs",
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/kdp-publish.mjs"
+        "scripts/kindle/kdp-publish.mjs"
       ],
       "credential": {
         "label": "Amazon KDP",
@@ -125,15 +125,15 @@
       "interactiveLoginRequired": true,
       "notes": "x.com は datacenter IP からボット確認の挑戦ページになる（2026-09-21）ため、読み取り・投稿とも運営者の Mac で行う。",
       "collectors": [
-        "scripts/x-own-metrics.mjs",
-        "scripts/x-sync-status.mjs",
+        "scripts/x/x-own-metrics.mjs",
+        "scripts/x/x-sync-status.mjs",
         "scripts/x-repost/x-repost-discover.ts"
       ],
       "writers": [
           "scripts/publish-x/publish-x.ts",
         "scripts/x-repost/x-repost-exec.ts",
-        "scripts/x-article-publish.mjs",
-        "scripts/x-thread-replies.mjs"
+        "scripts/x/x-article-publish.mjs",
+        "scripts/x/x-thread-replies.mjs"
       ],
       "credential": {
         "label": "X",
@@ -156,7 +156,7 @@
       "interactiveLoginRequired": true,
       "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は Playwright で行う。2026-09-21 に CI で使った直後に Meta がセッションを全面失効させたため、運営者の Mac だけで使う。",
       "collectors": [
-        "scripts/verify-ig-status.mjs"
+        "scripts/checks/verify-ig-status.mjs"
       ],
       "writers": [
         "scripts/publish-ig-bs/publish-ig-bs.ts"
@@ -182,8 +182,8 @@
       "interactiveLoginRequired": true,
       "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。Google は datacenter IP からのセッションを全面失効させた（2026-09-21）ため、画面 CSV の取得は運営者の Mac だけで行う。検索の数値と URL 検査は公式 API で CI 取得済み（DN-0318）。",
       "collectors": [
-        "scripts/fetch-gsc-ui-csv.mjs",
-        "scripts/fetch-ga4-ui-csv.mjs"
+        "scripts/search/fetch-gsc-ui-csv.mjs",
+        "scripts/search/fetch-ga4-ui-csv.mjs"
       ],
       "writers": [],
       "credential": {
@@ -207,13 +207,13 @@
       "interactiveLoginRequired": true,
       "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。period-daily は headless で期間入力欄が見つからないため取得対象外（--reports で 3 本に限定）。",
       "collectors": [
-        "scripts/fetch-a8-ui-csv.mjs",
-        "scripts/normalize-a8-csv.mjs",
-        "scripts/affiliate-status.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/fetch/fetch-a8-ui-csv.mjs",
+        "scripts/affiliate/normalize-a8-csv.mjs",
+        "scripts/affiliate/affiliate-status.mjs",
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/affiliate-apply.mjs"
+        "scripts/affiliate/affiliate-apply.mjs"
       ],
       "credential": {
         "label": "A8.net",
@@ -237,8 +237,8 @@
       "interactiveLoginRequired": true,
       "notes": "2026-11-14 から土曜の収集（auth・moshimo）に参加。loginUrl は 2026-11-15 に資格情報なしの取得で login-form の account・password 欄を確認（/af/login は 404）。",
       "collectors": [
-        "scripts/affiliate-status.mjs",
-        "scripts/auth-session-refresh.mjs"
+        "scripts/affiliate/affiliate-status.mjs",
+        "scripts/ops/auth-session-refresh.mjs"
       ],
       "writers": [],
       "credential": {
@@ -263,8 +263,8 @@
       "interactiveLoginRequired": true,
       "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。URL は affiliate-asp.json（baseUrl+homePath / readyPath）に合わせ、判定はテキストでなく #top_site_select の DOM（readyMarker）。doboku-note は afb の広告を置いていない（記事のリンク・配置・広告素材 0）ので取得を止めている（運営者判断・DN-0643）。",
       "collectors": [
-        "scripts/afb-scan.mjs",
-        "scripts/affiliate-status.mjs"
+        "scripts/affiliate/afb-scan.mjs",
+        "scripts/affiliate/affiliate-status.mjs"
       ],
       "writers": [],
       "credential": {
@@ -287,7 +287,7 @@
       "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass"
     },
     "refreshTask": {
-      "mac": "土曜の Mac 収集（node scripts/weekly-collect.mjs の auth 段が scripts/auth-session-refresh.mjs を呼ぶ）。毎日の launchd・Windows タスクは無い"
+      "mac": "土曜の Mac 収集（node scripts/ops/weekly-collect.mjs の auth 段が scripts/ops/auth-session-refresh.mjs を呼ぶ）。毎日の launchd・Windows タスクは無い"
     }
   }
 }

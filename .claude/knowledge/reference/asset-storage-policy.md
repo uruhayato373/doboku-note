@@ -33,7 +33,8 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 - YouTube 改訂版の正本は `content-media` の Drive。予約を実行する CI へ渡す MP4 と表紙は `registry -- stage-youtube-revision` が private R2 の `youtube-revision-assets/` に一時転送し、CI が SHA-256 を照合して復元する。詳細は [content-registry.md](content-registry.md)。
 - **同じパスが両 tier に一致する状態を作らない**。`check-drive-vault` が `git ls-files ∪ ignore 済み` を走査して衝突を FAIL にする。
 - **Git に残すもの**は変わらない: 記事・SNS の原本（.md / frontmatter / slide-data / caption / status）、真正ベクター .svg、
-  各台帳（`manifest.json` / `drive-manifest.json`）と README。
+  各台帳（`manifest.json` / `drive-manifest.json`）と README。note の本文の図は SVG だけを置き、上げる PNG は投稿の直前に
+  作る（`scripts/lib/note-figure-png.mjs`・2026-11-19）。SVG の無い図・見本・元絵の PNG は、それ自体が正本なので Git に残す。
 
 ### 1-3. 端末間引き継ぎの完了条件
 
@@ -47,7 +48,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 
 採用済みYouTubeカバーは `npm run check-youtube-cover-handoff` を `quality:audit` に組み込み、Drive台帳の未登録・読み戻し記録欠落・採用後の入力変更・対象0件を停止条件にする。これはオフライン台帳検査で、Drive実体の現存を再確認するものではない。`-- --local` はローカル全件SHAも照合する。
 
-コネクターから転送したファイルは `node scripts/drive-connector-register.mjs --receipt <json>` でdry-runし、全件正常なら同じ引数に `--commit` を付ける。receiptはgroup、実査済みfolder（id/vaultPath）、files（repoPath/id/parentId/name/bytes/sha256/verification=`remote-bytes-sha256`/verifiedAt）を持つ。SHA-256はローカル値を転記せず、Driveから取得した実バイトで計算する。コネクターの一時ダウンロードURLや認証値をGitへ入れない。
+コネクターから転送したファイルは `node scripts/storage/drive-connector-register.mjs --receipt <json>` でdry-runし、全件正常なら同じ引数に `--commit` を付ける。receiptはgroup、実査済みfolder（id/vaultPath）、files（repoPath/id/parentId/name/bytes/sha256/verification=`remote-bytes-sha256`/verifiedAt）を持つ。SHA-256はローカル値を転記せず、Driveから取得した実バイトで計算する。コネクターの一時ダウンロードURLや認証値をGitへ入れない。
 
 登録処理はパス逸脱・group違い・親フォルダー違い・重複・サイズだけの検証・SHA不一致を全件検査し、1件でも不正なら台帳を書かない。`driveFileId`も同じ台帳に保持する。マウントのあるMacでは従来の `drive-vault-sync --pull --group <id> --commit`、無い端末ではこのIDでコネクターから取得してハッシュ照合する。ダウンロード手段が無い場合は転送を保留し、別の場所へ勝手に移さない。
 
@@ -69,12 +70,13 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `source-transcript` | human | 原資料ディレクトリ内の `ocr/**/*.md` | README を除く文字起こし。参考文献台帳から置き場を解決し、frontmatter の `source` / `sourcePdfs` で原本へ接続 |
 | `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
-| `x-rendered-image` | human | Drive `制作物/Xレンダー/` | サイト図から生成した番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png`。`images.json` の元図・元記事ハッシュを確認し `node scripts/render-x-figure-drafts.mjs --draft <番号付き下書き名>` で再生成 |
+| `x-rendered-image` | human | Drive `制作物/Xレンダー/` | サイト図から生成した番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png`。`images.json` の元図・元記事ハッシュを確認し `node scripts/build/render-x-figure-drafts.mjs --draft <番号付き下書き名>` で再生成 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
 | `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 2026-09-09 の日付フォルダの採用表紙。2026-10-09 に `content-media`（ID ごとの置き場）へ移した（DN-0607）。新しく置かない |
 | `content-media` | human | Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` | コンテンツ台帳（[content-registry.md](content-registry.md)）の素材の正本。中身の sha を名前に入れ、一度置いたら書き換えない（`immutable`・上書きと `--force` を拒否）。`npm run media -- promote・sync・verify・pull` |
 | `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
-| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 65・表紙 jpg 72（90.2MB）。2026-10-12（DN-0562）に Git から外した。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・2026-10-26 に 137 件が R2 と sha256 一致を確認済み） |
+| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 72・表紙 jpg 72（全冊）。2026-10-12（DN-0562）に Git から外し、A 系 7 冊は 2026-11-20（DN-1204）に `scripts/kindle-published/` から合流（差し替え前の旧版は Drive の repo-archive）。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・2026-10-26 に 137 件が R2 と sha256 一致を確認済み） |
+| `kindle-cover-backgrounds` | human | Drive vault `制作物/Kindle/表紙の背景/` | Kindle の旧組版の表紙の背景 PNG（AI で作った一点物・7 枚 13.5MB）。読むのは手元の `sync-kindle-dist`（`build-kindle-cover.mjs`）だけで CI は読まない。2026-11-20 に `scripts/kindle-covers/backgrounds/` から `content/kindle/cover-backgrounds/` へ移して Git から外した。手元に無ければ `ensureLocalFromVault` が取り戻す |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
 | `note-cover-pop-preview` | human | Drive `制作物/noteカバー/POP版/` | 新テンプレートの全件確認用。記事・マガジン画像、生成manifest、QA結果を個別復元できる形で保存 |
@@ -162,7 +164,7 @@ Drive のパスは参照しない＝この移動でビルドは壊れない。
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
   `npm run drive-vault-sync -- --group source-transcript --pull --commit`（詳細手順は
   `content/sources/textbook/README.md`）
-- **ローカルの読者（`scripts/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
+- **ローカルの読者（`scripts/checks/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
   残るため、この Mac 上では従来どおり動く。CI・fresh clone では実体が無い前提でコードを書く
   （現状これらのスクリプトはローカル専用運用で CI には配線されていない）
 - PDF・ページ画像も `textbook-source-pdf` / `textbook-page-image` で Drive vault に置く。文字起こしは
@@ -246,7 +248,7 @@ tar -xzf hydrated-assets.tar.gz
 > `/c/Users/...` 形式のパスを使う。
 
 **退避（offload）も CI に代行させられる**（2026-08-25 新設）。CI は checkout で gitignore 済みの
-実体を得られないので、`scripts/asset-inbox-push.mjs` が GitHub Release を橋にしてファイルを CI まで運ぶ。
+実体を得られないので、`scripts/storage/asset-inbox-push.mjs` が GitHub Release を橋にしてファイルを CI まで運ぶ。
 
 **例外は CI 自身が実体を生成できるアセット**——`site-ogp-png` がその第一号で、`ogp-supply.yml` が
 CI 内で `ogp-create.mjs` を実行して `ogp.png` を作ってから供給するため、この Release 橋を経由しない
@@ -267,7 +269,7 @@ npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R
 
 CI 側は tarball を tar 任せに展開しない。リポジトリ外で作られた入力なので、
 `.github/workflows/*.yml` を差し替えられると R2 credential ごと持っていかれる。
-`scripts/asset-inbox-ingest.mjs` が 1 エントリずつ (a) 絶対パス・`..` の拒否
+`scripts/storage/asset-inbox-ingest.mjs` が 1 エントリずつ (a) 絶対パス・`..` の拒否
 (b) 退避 group に該当しないパスの拒否 (c) `inbox.json` の sha256 照合 (d) 過不足の検出
 を行い、**1 件でも落ちたら配置しない**。
 
@@ -277,7 +279,7 @@ CI 側は tarball を tar 任せに展開しない。リポジトリ外で作ら
 ローカルにしか実体が無い状態が続き、気づくのはその端末を失ったときになる。
 
 ```bash
-node scripts/asset-offload.mjs --group <group> --commit
+node scripts/storage/asset-offload.mjs --group <group> --commit
 ```
 
 未退避は `npm run check-asset-storage` が検出する（`quality:audit` に同梱）。
@@ -291,9 +293,9 @@ node scripts/asset-offload.mjs --group <group> --commit
 順序を守る。**1 つでも欠けたらそのグループは外さない。**
 
 ```bash
-node scripts/asset-offload.mjs --group <group>                        # 1. dry-run（件数・容量・公開内訳）
-node scripts/asset-offload.mjs --group <group> --commit               # 2. upload（bytes と sha256 を読み直して検証）
-node scripts/asset-offload.mjs --group <group> --verify --out list.txt # 3. ローカル・manifest・R2 の 3 者照合
+node scripts/storage/asset-offload.mjs --group <group>                        # 1. dry-run（件数・容量・公開内訳）
+node scripts/storage/asset-offload.mjs --group <group> --commit               # 2. upload（bytes と sha256 を読み直して検証）
+node scripts/storage/asset-offload.mjs --group <group> --verify --out list.txt # 3. ローカル・manifest・R2 の 3 者照合
 xargs -a list.txt git rm --cached                                     # 4. 追跡解除（ローカル実体は消さない）
 ```
 
@@ -359,7 +361,7 @@ BK-01_道路/R03 の 3 本を再生成して R2 の記録と突き合わせた�
 | `R2 credential が無い` | `.env.local` 未設定、または会社 PC のプロキシ | `--offline` で cache のみ使う。足りないものは一覧で出る |
 | `sha256 が manifest と違う` | R2 側の破損 or 差し替え | 一時ファイルのまま捨てられる（壊れたものを正しい名前で置かない）。別端末の実体から `--commit` で上げ直す |
 | `解決不能` | cache に無く再生成もできない | 台帳と R2 を `check-asset-storage` と `--verify` で確認する。台帳に無いなら退避されていない |
-| `[WARN] local-newer` | ローカルで作り直した実体が R2 へ反映されていない | `node scripts/asset-inbox-push.mjs --path <該当> --commit` で CI へ送る。§2 の inbox 経路 |
+| `[WARN] local-newer` | ローカルで作り直した実体が R2 へ反映されていない | `node scripts/storage/asset-inbox-push.mjs --path <該当> --commit` で CI へ送る。§2 の inbox 経路 |
 | 取得が遅い | 直列実行 | `--concurrency`（既定 8）。868 件の直列は約 12 分かかった |
 
 cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256検証が成功したファイルは、

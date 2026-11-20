@@ -21,7 +21,7 @@ cd "$PROJECT_DIR"
   echo "=== $(date -Iseconds) [disk-hygiene] start ==="
 } >> "$LOG_FILE"
 
-if node scripts/disk-hygiene.mjs --fix >> "$LOG_FILE" 2>&1; then
+if node scripts/local/disk-hygiene.mjs --fix >> "$LOG_FILE" 2>&1; then
   echo "=== $(date -Iseconds) [disk-hygiene] ok ===" >> "$LOG_FILE"
 else
   rc=$?

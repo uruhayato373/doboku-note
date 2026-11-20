@@ -28,4 +28,4 @@ No additional text, no old leftover phrases (no "添削", "書き直し", "模�
 2. 運営者に見せて承認をもらう（承認前に 3〜5 をしない）
 3. 承認後、`data/coconala/thumb-approved.json` に coconala-cce-essay-shindan の path と sha256（`shasum -a 256`）を足す
 4. 手元に置いてあるカタログの行（config/products.json・config/coconala-listings.json・src/lib/coconala-services.ts。控えは `.tmp/dn-0941-catalog.patch`）を戻し、`npm run check-coconala-wiring` が exit 0 になることを確かめて、変更ファイルだけ git add して develop へ commit
-5. 運営者が下書き 4482903 を確認したら、`node scripts/coconala-publish.mjs --service coconala-cce-essay-shindan --image pop-20260927/thumb-cce-essay-shindan.png --commit` で公開する（本文の「11/25 までに受領した分は試験前に返却」を守れる日までに）
+5. 運営者が下書き 4482903 を確認したら、`node scripts/coconala/coconala-publish.mjs --service coconala-cce-essay-shindan --image pop-20260927/thumb-cce-essay-shindan.png --commit` で公開する（本文の「11/25 までに受領した分は試験前に返却」を守れる日までに）

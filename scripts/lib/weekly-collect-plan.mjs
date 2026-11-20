@@ -1,5 +1,5 @@
 /**
- * weekly-collect-plan.mjs — 土曜の Mac の収集（scripts/weekly-collect.mjs）が回す段の表と、対象の月・期間の決め方（DN-0817・DN-0819）。
+ * weekly-collect-plan.mjs — 土曜の Mac の収集（scripts/ops/weekly-collect.mjs）が回す段の表と、対象の月・期間の決め方（DN-0817・DN-0819）。
  * ---------------------------------------------------------------------------
  * ログインが要る取得と書き込みは、土曜の週次レビュー（scripts/scheduled/weekly-review.sh）の前後でこの表の順に 1 本ずつ回す。
  * Claude Code の中（CLAUDECODE=1）では資格情報が読めないので、収集は必ず `claude -p` の外の bash から呼ぶ。
@@ -8,7 +8,7 @@
  *
  * 段の項目:
  *   id・title・phase（pre|post）・timeoutMin・browser（起動前にブラウザの空きを待つ）・selfCommits（自分で commit・push する）
- *   verify: 取った記録の検算（scripts/quality-audit.mjs の cadence:'collect' の点検 id。コマンドはそちらの定義を使う）。
+ *   verify: 取った記録の検算（scripts/ops/quality-audit.mjs の cadence:'collect' の点検 id。コマンドはそちらの定義を使う）。
  *     取る月が無くて skip した週も回し、落ちたら段を failed にする。同じ点検を毎日 ops で繰り返さない（DN-0847）
  *   addPaths: data/ の外に書く段が commit する置き場（note-audit の題名・価格のずれの印）
  *   commands: [{ argv, ok, warn, onlyIfPrev }]
@@ -115,13 +115,13 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // Drive を読めるか先に 1 本読む。読めないと note 同期（post）が配布 PDF の要る記事を全部翌週へ回すので、原因（フルディスクアクセス・
       // 取り寄せの禁止）を名指しで先に出す（2026-11-14・3 週続けて -11 を「Drive の停止」と誤って扱っていた）
       id: 'drive', phase: 'pre', title: 'Drive の読み取り（note 同期の配布 PDF）', timeoutMin: 5,
-      commands: [{ argv: ['scripts/check-drive-readable.mjs'] }],
+      commands: [{ argv: ['scripts/checks/check-drive-readable.mjs'] }],
     },
     {
       verify: ['auth-freshness'],
       id: 'auth', phase: 'pre', title: 'ログインの確認と入り直し', timeoutMin: 20, browser: true,
       // export と CI の起動はしない（CI はログインを使わない・DN-0822）。afb の成果取得は未実装
-      commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
+      commands: [{ argv: ['scripts/ops/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
     },
     {
       id: 'a8', phase: 'pre', title: 'A8 の成果（前月と当月）', timeoutMin: 30, browser: true,
@@ -161,7 +161,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
     },
     {
       id: 'coconala', phase: 'pre', title: 'ココナラの取引・出品分析・売上履歴', timeoutMin: 30, browser: true, selfCommits: true,
-      commands: [{ argv: ['scripts/coconala-local-routine.mjs'] }],
+      commands: [{ argv: ['scripts/coconala/coconala-local-routine.mjs'] }],
       verify: ['coconala-analytics'],
     },
     {
@@ -174,14 +174,14 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 受取額は note・ココナラ・KDP が 3 つとも確定した週（KDP は翌月 16 日以降）に入る。逃した週の分を拾うので前々月も回す
       id: 'business-records', phase: 'pre', title: '月の受取額と固定費の記録（前々月と前月）', timeoutMin: 5, browser: false,
       commands: [previousMonth(prev), prev].flatMap((m) => [
-        { argv: ['scripts/record-net-receipts.mjs', '--month', m, '--when-complete', '--commit'] },
-        { argv: ['scripts/record-operating-costs.mjs', '--month', m, '--commit'] },
+        { argv: ['scripts/fetch/record-net-receipts.mjs', '--month', m, '--when-complete', '--commit'] },
+        { argv: ['scripts/fetch/record-operating-costs.mjs', '--month', m, '--commit'] },
       ]),
     },
     {
       id: 'gsc', phase: 'pre', title: 'GSC の登録リクエスト 10 件と月次の理由別 CSV', timeoutMin: 40, browser: true, selfCommits: true,
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
-      commands: [{ argv: ['scripts/gsc-local-routine.mjs'] }],
+      commands: [{ argv: ['scripts/search/gsc-local-routine.mjs'] }],
       verify: ['gsc-ui-due', 'gsc-indexing-due', 'gsc-ui-run'],
     },
     {
@@ -191,27 +191,27 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 指摘（exit 1 など）は warn、取得失敗が支配的な検査不成立は failed。
       addPaths: ['content/note', datasetPath('config.products'), 'src/lib/note-magazines.ts'],
       commands: [
-        { argv: ['scripts/verify-note-status.mjs', '--ci', '--json', '--snapshot'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/verify-note-status.mjs', '--ci', '--json', '--snapshot'], warn: [1], failPattern: '検査不成立' },
         // exit 1 = 単品の照合が不成立・2 = ずれ（--contents が無いと収録が取れず check-magazine-membership の軸 C が検査不成立になる）
-        { argv: ['scripts/verify-note-magazines.mjs', '--vs-txt', '--contents', '--json'], warn: [2] },
+        { argv: ['scripts/checks/verify-note-magazines.mjs', '--vs-txt', '--contents', '--json'], warn: [2] },
         // snapshot を作り直した直後に三軸（repo・SoT・ライブ）を突き合わせる。exit 2 = 検査不成立
-        { argv: ['scripts/check-magazine-membership.mjs', '--ci'], warn: [1] },
+        { argv: ['scripts/checks/check-magazine-membership.mjs', '--ci'], warn: [1] },
         // 題名・価格は原稿（frontmatter。単品価格は config/products.json の articlePrices の写し）が正で、note のライブはそれに合わせる。note と食い違う記事を「note へ未反映」にする
-        { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
+        { argv: ['scripts/note/note-reconcile-title-price.mjs', '--commit'] },
       ],
     },
     {
       id: 'note-audit', phase: 'pre', title: 'note の全記事の照合（構造・タグ・本文・カード・導線。月 1 回）', timeoutMin: 60, browser: false,
       // 旧 note-live-audit.yml（CI・月曜・平均 40 分・19 回中 13 回赤）の残り 5 本。どれも全記事の公開 API を 1 本ずつ呼ぶ（前段 2 時間のうち 58 分を占めた）。
       // 土曜の収集へ移してからの検出は注意 1〜2 件だったので、NOTE_AUDIT_INTERVAL_DAYS ごとに下げた（2026-11-14・DN-1196）。
-      // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/weekly-collect.mjs --only note-audit で回す。
+      // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/ops/weekly-collect.mjs --only note-audit で回す。
       skip: noteAuditDue({ today, lastAt: noteAuditLastAt }) ? null : `前回（${String(noteAuditLastAt).slice(0, 10)}）から ${NOTE_AUDIT_INTERVAL_DAYS} 日たっていない`,
       commands: [
-        { argv: ['scripts/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/checks/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
       ],
     },
     {
@@ -220,7 +220,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 全文会員限定（DN-0929）を見つけたのはこの層。代表ページの撮影（--review・最大 25 分）は毎週は回さず、
       // 必要なときに運営者かエージェントが --review で回す（2026-11-14・DN-1196）。指摘（exit 1）は warn、取得失敗が支配的（「検査不成立」）は failed
       commands: [{
-        argv: ['scripts/check-note-public-view.mjs', '--api-only', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`],
+        argv: ['scripts/checks/check-note-public-view.mjs', '--api-only', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`],
         ok: [0], warn: [1], failPattern: '検査不成立',
       }],
     },
@@ -233,7 +233,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       commands: [
         { argv: ['npm', 'run', '-s', 'scout-note-competitors'] },
         // 検索結果を 1 件も読めない取り直しは exit 1（前回の記録を空で上書きしない・#1227）
-        { argv: ['scripts/coconala-research.mjs', '--refresh', '--details', '0'] },
+        { argv: ['scripts/coconala/coconala-research.mjs', '--refresh', '--details', '0'] },
         { argv: ['npm', 'run', '-s', 'scout-coconala-competitors'] },
       ],
     },
@@ -250,13 +250,13 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 2026-10-24 の初回は 180 分で打ち切られ、実行記録も台帳も残らなかった（1 記事の更新は実測で約 3.6 分・Drive の取り寄せが停滞して 33 件失敗）。
       // 上限 80 記事に加えて、開始から 270 分（段の上限 300 分の 30 分前）で区切る。締め切りまでに終わる分だけ更新して記録・push し、
       // 残りは翌週へ回す（急ぐときは運営者が --only note-sync を別の日に回す）。途中で止めても公開中の記事は変わらない
-      commands: [{ argv: ['scripts/note-sync-routine.mjs', '--max', '80', '--deadline-min', '270'] }],
+      commands: [{ argv: ['scripts/note/note-sync-routine.mjs', '--max', '80', '--deadline-min', '270'] }],
       verify: ['note-sync-freshness'],
     },
     {
       id: 'note-sync-check', phase: 'post', title: 'note の反映の照合（公開 API）', timeoutMin: 15, browser: false,
       // exit 1 = 反映待ち・止まっている記事がある（同期の上限待ちを含む）。記録は管理画面 /content/note-sync
-      commands: [{ argv: ['scripts/check-note-sync.mjs'], warn: [1] }],
+      commands: [{ argv: ['scripts/checks/check-note-sync.mjs'], warn: [1] }],
     },
   ];
 }

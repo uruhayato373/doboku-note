@@ -1,6 +1,6 @@
 # 教材から展開した図解
 
-画像再生成: node scripts/render-x-figure-drafts.mjs --draft 101-civil-textbook-diagrams
+画像再生成: node scripts/build/render-x-figure-drafts.mjs --draft 101-civil-textbook-diagrams
 
 公開前に元記事の本番反映を確認する。
 

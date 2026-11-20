@@ -10,7 +10,7 @@ domain: ops
 
 ## 用途
 
-各PCでPlaywrightの認証保存先を確認し、診断、手動ログイン、read-only状態確認、旧profileの安全な移行を行う。認証ロジックはすべて`scripts/playwright-auth.mjs`へ委譲し、このスキルには複製しない。
+各PCでPlaywrightの認証保存先を確認し、診断、手動ログイン、read-only状態確認、旧profileの安全な移行を行う。認証ロジックはすべて`scripts/ops/playwright-auth.mjs`へ委譲し、このスキルには複製しない。
 
 ## 引数
 
@@ -38,10 +38,10 @@ domain: ops
 - login/statusは投稿・公開・購入・申請・download・uploadを行わない。
 - afbの別process statusは`unsupported`。GmailはPlaywright対象外。
 - CIはログインしない（resolverがAUTH_CI_NO_LOGINで拒否）。ログインが要る取得は土曜のMac収集（`weekly-collect`）だけが行う。
-- エージェントのセッション（`CLAUDECODE=1`）は収集用scriptのprofileを使えない。収集の記録と最終取得日を読む。取り直しは運営者が端末で`node scripts/weekly-collect.mjs --only <段>`。
+- エージェントのセッション（`CLAUDECODE=1`）は収集用scriptのprofileを使えない。収集の記録と最終取得日を読む。取り直しは運営者が端末で`node scripts/ops/weekly-collect.mjs --only <段>`。
 
 ## 参照
 
 - `.claude/knowledge/reference/playwright-auth-profiles.md`
 - `.claude/config/playwright-auth-profiles.json`
-- `scripts/playwright-auth.mjs`
+- `scripts/ops/playwright-auth.mjs`

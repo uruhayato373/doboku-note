@@ -47,7 +47,7 @@
 
 境界の実例: 「薄層377本の散文増補」は既存成果物の質を上げるので `改善`／「BK-09/10 R08予想問題集の生成」は新しい成果物が増えるので `制作`。
 
-選定順序は `node scripts/backlog-sweep-pick.mjs` が出す（**不具合を第1キー・tier を第2キー**・🟣 と `[進行中]` は自動選定しない）。tier がもはや不具合の緊急度を表していない（🟢 に沈む）ため、壊れているものを先に出す。**単独で回せるか（ユーザーの手・対話が要るか）は選定側が本文を読んで判断する**——旧 `[実行:]` 軸は 2026-08-26 に廃止した（起票時の判断をタグに凍結すると陳腐化し、モデルが本文から再導出できるため。doboku / stats47 両方）。
+選定順序は `node scripts/ops/backlog-sweep-pick.mjs` が出す（**不具合を第1キー・tier を第2キー**・🟣 と `[進行中]` は自動選定しない）。tier がもはや不具合の緊急度を表していない（🟢 に沈む）ため、壊れているものを先に出す。**単独で回せるか（ユーザーの手・対話が要るか）は選定側が本文を読んで判断する**——旧 `[実行:]` 軸は 2026-08-26 に廃止した（起票時の判断をタグに凍結すると陳腐化し、モデルが本文から再導出できるため。doboku / stats47 両方）。
 
 **`[検証:]` を付けない判断**（2026-08-25 に実測して確定・DN-0129 の結論）:
 
@@ -186,7 +186,7 @@
 
 **起点**: 2026-11-10 の口頭試験の棚卸し。note の建設部門の口頭試験教材（`content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md`・¥1,980）の販売は 10/12 の 1 件だけ。pejp の AI 模擬面接（汎用）に対し、受けた設問に沿った準備で差をつける。運営者の方針（2026-11-10）で、新しい商品は作らず既存の教材を厚くする。
 
-**2026-11-10 の試行**: 本文に PDF 添付（建設部門-口頭試験対策-想定33問.pdf・git 管理外で手元の checkout にだけある）があるため `--reattach-pdf` が要る。当日は添付のアップロードの日次上限（90 件）に他の公開で達していて、本文に触れずに止まった（DEFER）。翌日以降に `node scripts/note-update-body.mjs --article content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md --reattach-pdf --force-retry --commit` を、note のプロファイルを他の処理が使っていない時に回す。
+**2026-11-10 の試行**: 本文に PDF 添付（建設部門-口頭試験対策-想定33問.pdf・git 管理外で手元の checkout にだけある）があるため `--reattach-pdf` が要る。当日は添付のアップロードの日次上限（90 件）に他の公開で達していて、本文に触れずに止まった（DEFER）。翌日以降に `node scripts/note/note-update-body.mjs --article content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md --reattach-pdf --force-retry --commit` を、note のプロファイルを他の処理が使っていない時に回す。
 
 **担当（2026-11-10 運営者決定）**: 運営者が自分で回す。口頭試験（12 月上旬〜）の前に効かせるため、期日は 11/20。
 
@@ -395,7 +395,7 @@
 
 **読み方**: `npm run report-product-funnel`（`--product <販売先 ID か商品 ID>`）。DN-0912（ハブ経由の購入の測り方）と DN-0410（チャネル別の送客）はこのイベントを読む。
 
-**残り**: ① 土曜の収集の product-sales 段が当月（2026-11）の販売台帳を作ること（2026-11-12 時点で data/business/product-sales/ は 2026-10 まで） ② EXP-052 の 6 週の記録（〜2026-12-15） ③ 運用の約束: Kindle の戻りの UTM は A 系の本を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（再出版は運営者）。note の記事の utm_term は公開済みの記事を直すとき `node scripts/add-note-utm.mjs '<記事のフォルダ>'`（pre-commit の check-note-site-utm が求める）
+**残り**: ① 土曜の収集の product-sales 段が当月（2026-11）の販売台帳を作ること（2026-11-12 時点で data/business/product-sales/ は 2026-10 まで） ② EXP-052 の 6 週の記録（〜2026-12-15） ③ 運用の約束: Kindle の戻りの UTM は A 系の本を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（再出版は運営者）。note の記事の utm_term は公開済みの記事を直すとき `node scripts/note/add-note-utm.mjs '<記事のフォルダ>'`（pre-commit の check-note-site-utm が求める）
 
 **完了条件**: 2026-11 の販売台帳が土曜の収集で作られ、EXP-052 の 6 週の記録が終わっている。
 
@@ -435,7 +435,7 @@
 2. 試験当日〜正答公開後に、公式問題 PDF と正答 PDF から既存の過去問ページと同じ手順（起稿→原典照合）で 4 ページを作り、無料演習（建設 3 科目）に追加する。あわせて水産部門の専門科目（`r08-fisheries`）を、既存の水産 16 回分と同じ形（問題と公式の正答だけ・演習には入れない）で作る。スキャンなら書き起こしと別の担当に全問照合させる（2026-11-10 追加）。
 3. 速報ページから過去問一覧・note 直前パックへの導線を置く。
 
-**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
+**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/checks/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build/build-quiz-data.mjs` が通る。
 
 **進捗（2026-10-02）**: 手順1を完了。解答速報ページの枠 `/exam/pe-first-stage/guide/r08-answers`（公式の問題・正答の確認先、正答訂正の注意、科目ごとの自己採点、合格発表、直前対策の導線、FAQ）を本番へ反映（PR #844）。正答の公開日は実施案内に書かれていないため断定していない。残りは試験後: 公式正答の公開を確認したらページに掲載日を追記し、令和8年度の4ページ（基礎・適性・建設・上下水道）を起稿して演習へ追加する。
 
@@ -458,7 +458,7 @@
 8. ~~スキル・エージェントの扱い~~ → 2026-11-17 に削除した（運営者決定で器も残さない）。`magazine-membership`（マガジン収録の検査）は会員制と無関係なので残る。
 
 **進捗（2026-11-04）**: 手順 1 は運営者が在籍会員 0 人を確認した。手順 2 は添削つきプランから 7 誌の紐づけを外した（`--unlink-all-benefit`）。通年プラン 4956c2d4f928 の編集画面は既に 404。手順 4 は「はじめに-合格ラボ」が note の仕様で下書きに戻せない（特典マガジンに入っていた記事のため）ので、非公開にするには削除しかない。22 記事の is_limited は紐づけを外しても true のまま。
-**運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、（プランの削除は note の画面で行う。操作スクリプトは 2026-11-17 に削除）、`node scripts/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
+**運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、（プランの削除は note の画面で行う。操作スクリプトは 2026-11-17 に削除）、`node scripts/note/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
 
 **進捗（2026-11-04・削除後）**: マガジン mbe07bd5cecda は 404、添削つきプランは編集画面が開けず削除済みと判断。22 記事は `circle_plans` と `belonging_magazine_keys` が空なのに `is_limited=true` のまま。公開設定に「試し読みエリアを設定」が出て、`note-update-body` は trial-guard で止まる（ライブは未変更）。隠れているのは末尾の「以上、〜でした。」だけで読者への実害は無い。記事 n6b66793ca20c は運営者が削除し（2026-11-04・404 を確認）、原稿も外した。`civil-membership-odai-lab` は published:false にした。**残り**: ①is_limited を外す方法を公開設定の画面で調べる。原稿の memberTrial と末尾の文は、外せるまで残す ②手順 7・8 ③`civil-membership-odai-lab` を商品の正本から外す（verify-note-magazines が「非公開化?」を 1 件出し続ける）。`note-membership-plan-status --delete` の会員ゲートはプラン名を読めず誤判定する（DN-0876 と同じ PR で直す）。
 
@@ -510,6 +510,18 @@
 **完了条件**: 2027-03-31 の判定を記録した。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
+
+**起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
+
+同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に、用途のフォルダ（storage・build・reports・fetch）へ分けたときも 17 本に、残りの CLI（ops・local・maint）を分けたときも 6 本に同じ転送を残した。Mac の launchd（gsc-indexing-daily.sh）は元の checkout の古い版のまま origin/develop の worktree で `scripts/gsc-local-routine.mjs` を呼ぶので、これにも転送を置いた（元の checkout を新しい版にしたあとで消す）。
+
+**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 57 本（main のワークフロー用 56・launchd 用 1）を消す。
+
+**完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
+
 
 
 
@@ -597,7 +609,7 @@
 ### [DN-1224] 基準書・資格トップの右の欄の続きの束に cta-density の右欄検査を当てる
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-16]
 
-**起点**: DN-1218 段 3（#1620 の次の PR・78f7223e6）で基準書の章・節（standards-rail-fill）と資格トップ（category-rail-fill）の右の欄に回遊＋転職バナーの組を足したが、scripts/check-cta-density.mjs の右欄検査（affiliate-rail-adjacent・data-article-sidebar-card(s) の印）はこの 2 種に当てていない。同じ案件の繰り返し（ピクセルなしの fill 面）とバナーだけの組を許す宣言が検査側に無いため、印を付けると誤検出になる。今は構造（バナーの直後が実カード・バナーだけの組は data-article-sidebar-fill）を src/lib/rail-continuation.ts が保っているだけで、機械の検査は素通り（検査 0 件）。
+**起点**: DN-1218 段 3（#1620 の次の PR・78f7223e6）で基準書の章・節（standards-rail-fill）と資格トップ（category-rail-fill）の右の欄に回遊＋転職バナーの組を足したが、scripts/checks/check-cta-density.mjs の右欄検査（affiliate-rail-adjacent・data-article-sidebar-card(s) の印）はこの 2 種に当てていない。同じ案件の繰り返し（ピクセルなしの fill 面）とバナーだけの組を許す宣言が検査側に無いため、印を付けると誤検出になる。今は構造（バナーの直後が実カード・バナーだけの組は data-article-sidebar-fill）を src/lib/rail-continuation.ts が保っているだけで、機械の検査は素通り（検査 0 件）。
 
 **やること**: 検査に *-rail-fill 面の繰り返しとバナーだけの組を許す印を足し、基準書・資格トップの右欄にも data-article-sidebar-cards 相当の印を付けて検査対象にする。検査対象数を出力に出す。
 
@@ -628,7 +640,7 @@
 
 **起点**: 2026-11-15 の施工管理基準 30 章の画面判定（DN-1213・DN-1216）で、作業票の `sourceImages`／shots の `sourcePages` が全章で空になり、判定役が原本のページ画像と見比べられなかった（画面が読めるかだけの判定になった）。
 
-**原因**（DN-1216 の調査）: ページ画像は Drive vault に 269 ページ分ある。`scripts/standards-visual-review.mjs`（353 行付近）は正規 Markdown の要素数と表示後の要素数を順番で照合し、数が合わないと対応付け（mdPages）を null にする。表を見出し＋3 列以下に組み直した文書（`mlit/sekou-kanri-kijun`）は 1 つの元の表が複数の表になるので数が合わない（9-4 は 12 要素 → 27 表）。
+**原因**（DN-1216 の調査）: ページ画像は Drive vault に 269 ページ分ある。`scripts/standards/standards-visual-review.mjs`（353 行付近）は正規 Markdown の要素数と表示後の要素数を順番で照合し、数が合わないと対応付け（mdPages）を null にする。表を見出し＋3 列以下に組み直した文書（`mlit/sekou-kanri-kijun`）は 1 つの元の表が複数の表になるので数が合わない（9-4 は 12 要素 → 27 表）。
 
 **やること**: 組み直した表（`<section data-standard-table="…">`・`*.grouped.json` の key とページ）から、表示後の表ごとに原本のページを引けるようにする。直したら施工管理基準 30 章を原本と見比べて判定し直す。
 
@@ -747,7 +759,7 @@
 
 **起点**: 2026-11-14 の再発防止の検討（DN-1190 の調査）。11/7 の土曜の収集で、売上 1 件（article:unknown-20261105-0）の資格の未分類で commit 前の検査（qualification-market）が落ち、A8・ココナラ・note のアクセス・商品別販売など無関係な記録 19 ファイルがまとめて develop に入らなかった。note の 10 月のアクセス（referrers/2026-10.json）はこのとき取れていたのに失われた。
 
-**原因**: `scripts/weekly-collect.mjs` の `commitPending` は、段の記録を前段・後段の終わり（と selfCommits の段の直前）にまとめて 1 回 commit する。pre-commit の検査は staged 全体で回るので、1 ファイルの違反で全部が止まる。段ごとに commit するだけでは、落ちたファイルが staged に残って次の commit も止める。
+**原因**: `scripts/ops/weekly-collect.mjs` の `commitPending` は、段の記録を前段・後段の終わり（と selfCommits の段の直前）にまとめて 1 回 commit する。pre-commit の検査は staged 全体で回るので、1 ファイルの違反で全部が止まる。段ごとに commit するだけでは、落ちたファイルが staged に残って次の commit も止める。
 
 **やること**: 段ごとに、その段が書いたファイルだけを commit する。commit が検査で落ちたら、その段のファイルを staged から外して退避（既存の leftover の退避と同じ置き場）し、段を failed にして次の段へ進む。検査の失敗の理由は段の reason に残す。
 
@@ -775,7 +787,7 @@
 **起点**: 週次レビュー（2026-11-09〜2026-11-15）。Issue #1445（gsc-indexing-local・11/6〜）が 7 日を超えて開いている。11/14 朝の回は登録リクエスト自体は送れた（受理 10 件）が、記録の commit が pre-commit の `check-category-curriculum` の ERROR（`pe-fisheries.examGuide` の slug 不在: guide-overview が doc-meta-index に無い）で落ちた（`~/Library/Logs/doboku-note/gsc-indexing.log`）。同じ検査は、doc-meta-index を作り直した worktree では通る（slug 参照 348 件・全て実在）。朝の処理が使うチェックアウトの doc-meta-index が古いまま commit している疑い（未確認）。あわせて「button-not-found」で送れない URL が 5 件ある。
 
 **やること**:
-1. gsc-indexing-local が commit する前に `node scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
+1. gsc-indexing-local が commit する前に `node scripts/build/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
 2. button-not-found の 5 件（主任技士 materials・総監 h21-secondary・水産部門のガイドほか）が、URL 検査の画面で登録できない状態（既に登録済み・上限）なのか、画面の変更なのかを切り分ける。
 
 **進み（2026-11-15）**: 11/15 07:40 の回は rc=0 で記録を develop へ push した（commit の失敗は 11/14 の 1 回だけ）。button-not-found は 5 件 → 21 件に増えた（h21-secondary・水産部門の選択科目・道路構造の基準ほか）。残りはやること 1 の再発防止と 2 の切り分け。Issue #1445 は 11/15 の成功の後も開いたまま（自動で閉じる配線を確かめる）。
@@ -844,7 +856,7 @@
 ### [DN-1181] 正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
 
-**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
+**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/checks/check-table-references.mjs と scripts/checks/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
 
 **やること**: build-gallery-comment.mjs の 2 か所を直し、直す前後で出力がどう変わるかを確かめる。正規表現の中のバックスラッシュ＋英字の書き損じ（\c・\p など意図しないエスケープ）を scripts・.claude/scripts・.claude/skills から探す検査を、決まった合格条件で書けるなら tests に足す。
 
@@ -854,7 +866,7 @@
 ### [DN-1177] 記事本文に手書きした試験日・合格率を正本と突き合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-13]
 
-**起点**: 2026-11-13 の構成・SSOT 監査。試験日の正本は `config/exam-calendar.json`、合格率は `config/exam-stats.json` だが、記事本文は手書きで、正本から値を引く MDX 部品は無い。正本の試験日から逆引きすると、本文への直書きは 1級土木が 3 記事 6 か所、2級土木が 4 記事 16 か所（技術士系は 0）。合格率の数値は 19 記事 37 か所。試験日の検査 `scripts/lib/exam-calendar-guards.mjs` は既知の誤記の形を止める方式で、正本と違う日付を一般には検出しない。合格率を本文と照らす検査は無い。`scripts/check-exam-calendar.mjs` は期待値として同じ日付をスクリプトの中にも持ち、年度の更新で JSON とスクリプトの 2 か所を直すことになる。令和9年度の日程が出たときに、古い日付の記事が残る。
+**起点**: 2026-11-13 の構成・SSOT 監査。試験日の正本は `config/exam-calendar.json`、合格率は `config/exam-stats.json` だが、記事本文は手書きで、正本から値を引く MDX 部品は無い。正本の試験日から逆引きすると、本文への直書きは 1級土木が 3 記事 6 か所、2級土木が 4 記事 16 か所（技術士系は 0）。合格率の数値は 19 記事 37 か所。試験日の検査 `scripts/lib/exam-calendar-guards.mjs` は既知の誤記の形を止める方式で、正本と違う日付を一般には検出しない。合格率を本文と照らす検査は無い。`scripts/checks/check-exam-calendar.mjs` は期待値として同じ日付をスクリプトの中にも持ち、年度の更新で JSON とスクリプトの 2 か所を直すことになる。令和9年度の日程が出たときに、古い日付の記事が残る。
 
 **やること**: 本文の試験日・合格率を拾い、資格の正本の値と違うものを一覧にする検査を足す（年度を明記した過去の値は対象外にする）。直書きが多い記事は、正本から値を出す部品にするかを決める。`check-exam-calendar.mjs` の期待値の二重持ちは、二重入力の照合として残すのか正本だけにするのかを決める。
 
@@ -984,7 +996,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **決めること（運営者）**: 4 冊の新しい価格。d-00 は ¥1,480 以下（または note の PDF を上げる）。分冊は d-00 との差も見る。
 
-**やること**: 表紙の審査が終わったら（`node scripts/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`scripts/kindle-specs/d-0*.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
+**やること**: 表紙の審査が終わったら（`node scripts/kindle/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`content/kindle/books/d-0*/spec.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
 
 **完了条件**: KDP の 4 冊の価格が決めた値になり、catalog と一致している（`npm run check-kindle-prices`）。
 
@@ -993,7 +1005,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 ### [DN-1142] ココナラの商品画像の差し替えが、既存の画像を消さずに 2 枚目へ足し、ok:true を返す
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-12]
 
-2026-11-12、`node scripts/coconala-edit.mjs --service coconala-pe-oral-qa --image <png> --replace-image --commit` を実行すると、`画像差し替え: {"ok":true,"before":0,"after":1,"changed":true}` を返した。しかし公開ページでは既存の画像（df8bb1ae）が 1 枚目に残り、新しい画像（6060b8a5）は 2 枚目に足されていた。差し替える前の枚数を 0 と数えているので、既存の画像を消す段が動いていない。
+2026-11-12、`node scripts/coconala/coconala-edit.mjs --service coconala-pe-oral-qa --image <png> --replace-image --commit` を実行すると、`画像差し替え: {"ok":true,"before":0,"after":1,"changed":true}` を返した。しかし公開ページでは既存の画像（df8bb1ae）が 1 枚目に残り、新しい画像（6060b8a5）は 2 枚目に足されていた。差し替える前の枚数を 0 と数えているので、既存の画像を消す段が動いていない。
 
 - 影響: 旧価格（¥5,000）入りの画像がメイン画像のまま残り、表示の価格（¥4,000）と食い違った。1 枚目の削除は手作業で行う。
 - 完了条件: `--replace-image` の実行後に編集画面の画像が 1 枚だけで、それが新しい画像であること。差し替え後に公開ページの画像の数と先頭の画像を照合し、合わなければ exit 1 にする。
@@ -1176,7 +1188,7 @@ psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 4291064
 **起点**: 2026-11-10、事業レポートの欠測の実査（PR #1501・#1502）。X・動画からの教材クリック（`xCampaignClicks`・`youtubeCampaignClicks`）は 28 日窓の GA4 レポート（`ga4.campaign-note-cta`）からしか読めず、週次・月次のセルには「別期間」としか出ない。`youtubeCampaignClicks` は取得はできているが該当の行が 0 件で、計測漏れか本当に 0 かを確かめていない。
 
 **やること**:
-1. `scripts/fetch-business-metrics.mjs` に `sessionCampaignName` 別の `note_cta_click` の問い合わせを足し、完了した週・月の値を measurement の `values.xCampaignClicks`・`values.youtubeCampaignClicks` に入れる。キャンペーンの集合は `scripts/lib/metric-status.mjs` の `campaignNames` を共有する（絞り込みを 2 か所に書かない）。
+1. `scripts/fetch/fetch-business-metrics.mjs` に `sessionCampaignName` 別の `note_cta_click` の問い合わせを足し、完了した週・月の値を measurement の `values.xCampaignClicks`・`values.youtubeCampaignClicks` に入れる。キャンペーンの集合は `scripts/lib/metric-status.mjs` の `campaignNames` を共有する（絞り込みを 2 か所に書かない）。
 2. `youtubeCampaignClicks` が 0 行の理由を確かめる。動画の説明欄・固定コメントの UTM の `utm_campaign` が動画パックの id と一致しているかを、公開済みの動画 1 本で見る。
 
 **完了条件**: 金曜の CI（`fetch-metrics.yml`）のあと、直近の完了した週のセルに X からの教材クリックが値で入る。`youtubeCampaignClicks` は 0 行の理由が記録されている（UTM の不一致なら直す）。GA4 の API は会社 PC から叩けないので、確かめるのは CI の実行結果。
@@ -1207,7 +1219,7 @@ psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 4291064
 
 **判断理由（共通事業方針）**: 読者の課題＝2027 年の 2級一次を過去問中心に仕上げたい受験者（A: 資格）。支払う理由＝最新年度まで入った全問を手元で解ける。需要の証拠＝2級一次の流入はあるが PDF の販売は未検証（DN-0957）。次の検証＝2027 年の前期の山の販売。
 
-**やること**: (1) 掲載を確かめたら past-exam-archive の手順で後期の問題・正答肢を取得し、Drive vault へ退避 (2) exam-questions-import で content/site/civil-construction-2/primary-r08-kouki を作り、原本と 1 問ずつ照合、問題台帳に記録 (3) scripts/kindle-specs/e-01.json に primary-r08-zenki・primary-r08-kouki を足して 2級の一次 過去問 PDF（content/note/1級・2級土木/2級土木/一次択一-過去問PDF）と Kindle e-01 を令和8年度版にする（前期だけで先に作り直さない＝note の添付の上限と再反映の手間を 1 回にする）
+**やること**: (1) 掲載を確かめたら past-exam-archive の手順で後期の問題・正答肢を取得し、Drive vault へ退避 (2) exam-questions-import で content/site/civil-construction-2/primary-r08-kouki を作り、原本と 1 問ずつ照合、問題台帳に記録 (3) content/kindle/books/e-01/spec.json に primary-r08-zenki・primary-r08-kouki を足して 2級の一次 過去問 PDF（content/note/1級・2級土木/2級土木/一次択一-過去問PDF）と Kindle e-01 を令和8年度版にする（前期だけで先に作り直さない＝note の添付の上限と再反映の手間を 1 回にする）
 
 **完了条件**: 2級の一次 過去問 PDF と e-01 が令和3〜8年度（前期・後期）で note・KDP に反映されたら、このカードを削除する。
 
@@ -1267,7 +1279,7 @@ psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 4291064
 ### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
 
-scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
+scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/note/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
 
 
 
@@ -1304,7 +1316,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
   - markup: 表－2（試験項目と持ち込み数量）が記法の文字の段落になり、区切り行『||---|---|』と『<br>』の文字もそのまま画面に出て、行・列が読み取れない（markup-02、page-01 でも確認）。（markup-02.png）
   - markup: 表－3（持ち込み骨材の内訳）と表－4（目標動的安定度）も同様に記法の文字の段落で出ている（markup-03、page-01）。撮影（shots）は 0 件のため、表としての描画が無い。原本（p721-725）との個別照合はしていない。（markup-03.png）
 
-**やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
+**やること**: 原因（生成器 scripts/build/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
 
 **完了条件**: `npm run standards-visual-review -- prepare --keys kinki/hikkei/19-2,kinki/hikkei/36-1` で撮り直して判定し、record で全章が pass と台帳に記録される。
 
@@ -1884,9 +1896,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-10-26 に DN-0832 を調べたとき、`check-reference-sources --deep` に、DN-0832 とは別の逐語一致（verbatim）の FAIL が 7 件あった（civil1-textbook を出典にする 3 記事）。DN-0832 を直しても、この 7 件があるので --deep は exit 0 にならない。この端末は Drive のマウントが無く、件数と記事名はまだ確かめていない。
 
-**やること**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` を回して 7 件の記事と一致した文を出し、記事の文を自分の言葉に書き直す（市販書籍の文を写さない）。書き直したら refresh-indexes を回す。
+**やること**: Drive をマウントした端末で `node scripts/checks/check-reference-sources.mjs --deep` を回して 7 件の記事と一致した文を出し、記事の文を自分の言葉に書き直す（市販書籍の文を写さない）。書き直したら refresh-indexes を回す。
 
-**完了条件**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` が exit 0。
+**完了条件**: Drive をマウントした端末で `node scripts/checks/check-reference-sources.mjs --deep` が exit 0。
 
 
 
@@ -1983,7 +1995,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **起点**: 旧 DN-0445（2026-10-26 に DN-0544 へ統合）の残り。2級の施工経験記述で、無料記事から予想模試・完成答案・全3テーマの添削と骨子指導へ進む導線の効果を確かめる。売上とアクセスは発生した結果であり、購入理由は推測しない。DN-0544 の冒頭の切り替え・自己採点記事の公開・土木もくじの試験後の案内は 2026-10-27 に済んだ。
 
 **やること**:
-1. 10/31（土）の収集の `note-traffic` 段で 10/19〜10/25 の期間が `data/note/traffic-period/` に入ったら、9/28〜10/25 の 4 週について、残り2週間の仕上げ手順 `n1edc95f39203`・R8二次の出題予想 `naa0821a3d631`・土木もくじ `n4fde0f62dc20`・予想模試の PV を、欠測と実測を分けて `data/business/records/` へ記録する（`saveRecord`）。`note-traffic-fetch` はログインが要る収集で、エージェントのセッションでは実行できない（`AUTH_AGENT_COLLECT_REFUSED`）。10/31 に入らなければ、運営者が `node scripts/weekly-collect.mjs --only note-traffic` を実行する。10/12〜18 の期間では、出題予想（79・31）と残り2週間（14・6）が同じ題名で 2 行ずつ出ているので、行の取り違えが無いか確かめてから記録する。ココナラ2級の受注・値下げ実験の評価と、試験後の価格・出品の判断は DN-0538 の手順 1・3 で行う。
+1. 10/31（土）の収集の `note-traffic` 段で 10/19〜10/25 の期間が `data/note/traffic-period/` に入ったら、9/28〜10/25 の 4 週について、残り2週間の仕上げ手順 `n1edc95f39203`・R8二次の出題予想 `naa0821a3d631`・土木もくじ `n4fde0f62dc20`・予想模試の PV を、欠測と実測を分けて `data/business/records/` へ記録する（`saveRecord`）。`note-traffic-fetch` はログインが要る収集で、エージェントのセッションでは実行できない（`AUTH_AGENT_COLLECT_REFUSED`）。10/31 に入らなければ、運営者が `node scripts/ops/weekly-collect.mjs --only note-traffic` を実行する。10/12〜18 の期間では、出題予想（79・31）と残り2週間（14・6）が同じ題名で 2 行ずつ出ているので、行の取り違えが無いか確かめてから記録する。ココナラ2級の受注・値下げ実験の評価と、試験後の価格・出品の判断は DN-0538 の手順 1・3 で行う。
 2. 顧客の実際の原稿と公開許諾を得て、無料記事「添削で直った答案の実例」を制作・公開する。素材待ちのため工事・数値・添削前後は創作しない。
 3. X の固定ポスト・自己紹介の試験後の更新は、SNS の保留が解けてから行う。
 
@@ -1996,7 +2008,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **起点**: 2026-10-27、主任技士添削（services/4425046・公開中）の出品文を `npm run coconala-edit -- --service coconala-cce-essay-tensaku --fields body` で直そうとしたら、dry-run が `body(内容): selector 不在(#ServiceHead)` を出した。公開中の出品の編集画面（/mypage/services/{id}）は作りが変わっていて、本文の欄は自動で付く ID の textarea（例 `v-0-1-8`）になっている。`scripts/lib/coconala-form.mjs` は旧画面の `#ServiceHead`・`#ServiceBody` などを前提にしている。今回は運営者が画面で手作業で保存した。dry-run は「OK」を返すので、本文が入らないまま `--commit` すると「更新したのに変わっていない」偽成功になる。
 
 **やること**:
-1. 今の編集画面の欄（サービスタイトル・キャッチコピー・サービス内容・購入にあたってのお願い・価格・お届け日数）を、ラベルの文言から引く形で特定する（自動の ID に頼らない）。`scripts/coconala-discover.mjs` は運営者がターミナルで回す（エージェントからは実行できない）
+1. 今の編集画面の欄（サービスタイトル・キャッチコピー・サービス内容・購入にあたってのお願い・価格・お届け日数）を、ラベルの文言から引く形で特定する（自動の ID に頼らない）。`scripts/coconala/coconala-discover.mjs` は運営者がターミナルで回す（エージェントからは実行できない）
 2. `coconala-form.mjs` を直し、欄が見つからないときは dry-run も失敗にする（いまは「selector 不在」を出しても ok を返す）
 3. 反映後は `npm run check-coconala-live` で本文の一致を確かめる手順を、`coconala-edit` の出力に出す
 
@@ -2187,7 +2199,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: 既存画像を変更したケースで、記事が参照する通常URLの実体が変更後SHA-256と一致することを機械検査する。対象数・実検査数・不一致数を出し、0件や取得失敗はPASSにしない。既存の配信テスト・本番SSR検査も通る。
 
-**進捗（2026-10-20）**: PR #1134 を develop へマージ。r2-sync が送った画像を `upload-images-r2 --changed-out` で書き出し、`scripts/purge-r2-changed.mjs` が上書き分を URL で purge してから全件の通常 URL を SHA-256 で照合する（対象・実検査・一致・旧版・取得失敗を出し、旧版は exit 1・取れない URL は exit 2）。手元で一致・不一致・0 件の 3 通りを確認。**残り**: (1) 今のトークンにはキャッシュ パージ権限が無い（ダッシュボードで確認）ので、運営者が doboku-note.com の「キャッシュ パージ」＋「ゾーン 読み取り」のトークンを作り `CLOUDFLARE_CACHE_PURGE_TOKEN` に登録する (2) main への反映後、既存画像を上書きした r2-sync の run で照合が一致 N/N になることを確かめてこのカードを閉じる。
+**進捗（2026-10-20）**: PR #1134 を develop へマージ。r2-sync が送った画像を `upload-images-r2 --changed-out` で書き出し、`scripts/storage/purge-r2-changed.mjs` が上書き分を URL で purge してから全件の通常 URL を SHA-256 で照合する（対象・実検査・一致・旧版・取得失敗を出し、旧版は exit 1・取れない URL は exit 2）。手元で一致・不一致・0 件の 3 通りを確認。**残り**: (1) 今のトークンにはキャッシュ パージ権限が無い（ダッシュボードで確認）ので、運営者が doboku-note.com の「キャッシュ パージ」＋「ゾーン 読み取り」のトークンを作り `CLOUDFLARE_CACHE_PURGE_TOKEN` に登録する (2) main への反映後、既存画像を上書きした r2-sync の run で照合が一致 N/N になることを確かめてこのカードを閉じる。
 
 **進捗（2026-11-15）**: DN-1199 の本番反映で再発した。r2-sync（run 43660863887）が 34 図を上書きし、purge が HTTP 401（`CLOUDFLARE_CACHE_PURGE_TOKEN` が空）で 0/34、照合は一致 20・旧版 14 で exit 1。同じ図を r2-sync で送り直しても「変更なし」で purge の対象に入らないので、旧版の URL はダッシュボードの Custom Purge か 1 日の期限切れを待つしかない。残りは変わらず、運営者がトークン（doboku-note.com の Cache Purge＋Zone Read）を作って Secrets に入れること。
 
@@ -2220,7 +2232,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
 
-ココナラ DM 10051134 の購入者（予想模擬試験＋二次対策16冊セットを購入。2026-09-01 に経験記述の区切りの誤りを指摘し、修正版を送付済み）から、2026-10-12 に本番の受検報告とお礼が届き、10-13 に返信済み。合格発表は 2027-01-08（config/exam-calendar.json）。発表後に DM で結果を伺い、合格なら体験談の掲載可否（匿名可）とココナラでの評価をお願いする。不合格なら労いと翌年の案内にとどめ、売り込まない。体験談を使う場合は掲載先（ココナラ出品ページ・サイト・note）と表現を運営者が決め、合格保証の印象を与える書き方をしない。DM の本文は node scripts/coconala-dm.mjs 10051134 で取れる（出力は .tmp/ のみ・個人情報をリポジトリに入れない）。送信は運営者が行う。
+ココナラ DM 10051134 の購入者（予想模擬試験＋二次対策16冊セットを購入。2026-09-01 に経験記述の区切りの誤りを指摘し、修正版を送付済み）から、2026-10-12 に本番の受検報告とお礼が届き、10-13 に返信済み。合格発表は 2027-01-08（config/exam-calendar.json）。発表後に DM で結果を伺い、合格なら体験談の掲載可否（匿名可）とココナラでの評価をお願いする。不合格なら労いと翌年の案内にとどめ、売り込まない。体験談を使う場合は掲載先（ココナラ出品ページ・サイト・note）と表現を運営者が決め、合格保証の印象を与える書き方をしない。DM の本文は node scripts/coconala/coconala-dm.mjs 10051134 で取れる（出力は .tmp/ のみ・個人情報をリポジトリに入れない）。送信は運営者が行う。
 
 
 
@@ -2332,8 +2344,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **やること**:
 1. 競合: `competitor-scan.yml`（四半期・note/coconala/ig を自動取得）に youtube を足す。先に GitHub Actions のランナーで yt-dlp の一覧（`--flat-playlist`）が取れるかを probe で2回確かめる。動画の再生用 API（player）と映像は使わない
 2. 自社: 月次の workflow（毎月1日・JST）で `youtube-own-metrics` を回し、`ci-data add` で `data/youtube/own-videos/` へ書き戻す
-3. `scripts/check-competitor-scan-due.mjs` の youtube を `automation: 'ci'` にする。自社の月次の鮮度（台帳の `freshness.warnDays` 35）を読む検査を `quality-audit.mjs` の ops に足し、`note:` に読み手を書く
-4. 失敗は `scripts/report-automation-failure.mjs` へ（取得 0 件は exit 1・検査不成立を緑にしない）
+3. `scripts/checks/check-competitor-scan-due.mjs` の youtube を `automation: 'ci'` にする。自社の月次の鮮度（台帳の `freshness.warnDays` 35）を読む検査を `quality-audit.mjs` の ops に足し、`note:` に読み手を書く
+4. 失敗は `scripts/reports/report-automation-failure.mjs` へ（取得 0 件は exit 1・検査不成立を緑にしない）
 **罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
@@ -2488,9 +2500,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-10-07 にマガジンのカバー 56 誌（39＋17。1 誌は登録後の確認で落ちた回に入った）を会社 PC の `note-sync-routine --magazines-only` で note へ登録した。会社 PC には Google ドライブのマウントが無いので、登録した版の控え（Drive vault の `note-magazine-cover-png`）の保存が `drive-vault-sync` で失敗した（実行記録の problems に「マガジンカバーを Drive へ保存できなかった」）。台帳（`magazineCovers`）の記録と note 上の画像は済んでいる。
 
-**やること**: Drive をマウントした PC（Mac）で、最新の develop から `node scripts/generate-magazine-covers.mjs` でマガジンの `_cover.png` を作り直し、`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` で控えを保存する。作り直した画像の sha256 が台帳の `magazineCovers[*].sha256` と一致することを確かめてから保存する（一致しなければ保存せず理由を書く）。
+**やること**: Drive をマウントした PC（Mac）で、最新の develop から `node scripts/build/generate-magazine-covers.mjs` でマガジンの `_cover.png` を作り直し、`node scripts/storage/drive-vault-sync.mjs --group note-magazine-cover-png --commit` で控えを保存する。作り直した画像の sha256 が台帳の `magazineCovers[*].sha256` と一致することを確かめてから保存する（一致しなければ保存せず理由を書く）。
 
-**完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
+**完了条件**: `node scripts/storage/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
 止まっている所（2026-10-26）: マガジンカバー側とカバー未退避 14 件は済み。残りは記事カバーの local-newer 139 件（本体 Mac の作業ツリー）。うち 135 件は note に登録済みの版（text-first 設計・2026-09-28）が R2 にあり、手元が 8/31〜9/24 の旧版なので R2 へ上げてはいけない（手元を `asset-hydrate` で R2 から戻す側）。
 残る 3 件は採用版の判断待ち: 総監 設問3国家施策バンク/00-序章 は手元・R2・note 登録のどれも別の値、技術士建設部門・総監の「筆記合格発表後にやること-無料」は note 登録の記録なし。
@@ -2559,7 +2571,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: PR #848 で、公開中サービスの `coconala-edit.mjs` を `--commit` なしで回すと送信しない dry-run になり、画像には触らず枚数だけ読むようにした（回帰テスト `tests/coconala-submit-choice.test.mjs`）。2026-10-03 の実機確認は Mac のココナラのログインが切れていて未実施（6 分待機でタイムアウト・パスワードはエージェントが入れない）。
 
-**やること**: 運営者が Mac でココナラに再ログインしたあと、`node scripts/coconala-edit.mjs --service coconala-cce-essay-tensaku --image <main の content/coconala/assets/thumb-cce-essay-tensaku.png の絶対パス> --replace-image` を実行し、公開ページ https://coconala.com/services/4425046 の og:image（実行前 `757b3de9-9784853.png`）と比べる。
+**やること**: 運営者が Mac でココナラに再ログインしたあと、`node scripts/coconala/coconala-edit.mjs --service coconala-cce-essay-tensaku --image <main の content/coconala/assets/thumb-cce-essay-tensaku.png の絶対パス> --replace-image` を実行し、公開ページ https://coconala.com/services/4425046 の og:image（実行前 `757b3de9-9784853.png`）と比べる。
 
 **完了条件**: 上の実行が `RESULT` の `mode:"dry-run"`・exit 0 で終わり、公開ページの og:image が実行前と同じ。
 
@@ -2668,11 +2680,11 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-09-29 に note の反映を記事単位に変えた。記事ごとの反映計画（`scripts/lib/note-sync-plan.mjs`）が本文・カバー・タグの未反映分と止まっている理由を決め、土曜の収集の後段 note-sync（`note-update-body --sync`）が 1 記事 1 回の更新にまとめて反映し、`npm run check-note-sync` が判定を持つ。カバー台帳は再公開台帳へ統合した。統合時点の計画は公開 918 本のうち反映済み 410・反映待ち 505（本文 295〔配布 PDF の取り寄せ 203〕・カバー 216）・止まっている 3（中断: nded084d4f646 R06 過去問模範答案・n8d98d7fc24cc 工事21 下水処理場水槽RC・n3eb135ebdff7 序章＝DN-0271）。マガジンはカバーの新レイアウト（designVersion.magazine を上げた）で 98 誌が要登録。旧 DN-0269（原稿と公開記事のずれの解消と CI 検査）・DN-0277（【〇〇】に直した 257 本の再公開）・DN-0316（総監 2 本の冒頭 CTA 除去の反映）を統合した。
 
-**やること**: (1) 残りは `node scripts/note-sync-plan.mjs` の現在値（2026-10-24: 反映待ち 371〔部品は本文 374・カバー 15・タグ 0〕・止まっている 3）。土曜の収集の後段 note-sync（1 回 80 記事）が反映する。PDF を取り寄せられない件は DN-0567。(2) 止まっている 3 本（BK-10 鉄道 R07・R08予想の III、BK-11 トンネル R03 の III。前回の更新が途中で止まった）は管理画面 /content/note-sync で理由を見て直す。(3) 結果は管理画面の「週次の結果」と `npm run check-note-sync` で見る。
+**やること**: (1) 残りは `node scripts/note/note-sync-plan.mjs` の現在値（2026-10-24: 反映待ち 371〔部品は本文 374・カバー 15・タグ 0〕・止まっている 3）。土曜の収集の後段 note-sync（1 回 80 記事）が反映する。PDF を取り寄せられない件は DN-0567。(2) 止まっている 3 本（BK-10 鉄道 R07・R08予想の III、BK-11 トンネル R03 の III。前回の更新が途中で止まった）は管理画面 /content/note-sync で理由を見て直す。(3) 結果は管理画面の「週次の結果」と `npm run check-note-sync` で見る。
 
 **追記（2026-09-29・コンクリート主任技士の小論文 37 本）**: bea060922 で `magazines/コンクリート主任技士-実務立場別小論文集`（01〜08 の 32 本）と`-小論文-模範答案集`（5 本）の冒頭と末尾に、ココナラ添削（services/4425046）への導線を入れた。同期計画では 37 本とも反映待ち（本文）・noteId あり（2026-09-29 確認）。週次の同期のあとに公開ページで導線が出ているかを照合し、**照合できた日付を DN-0265（コンクリート主任技士のココナラ出品の継続判定）の効果判定の起点に使う**。照合の方法: 37 本とも有料記事で、末尾の導線は有料部分の区切りより後ろにある。**公開 API（`https://note.com/api/v3/notes/<noteId>`）で見えるのは冒頭の導線だけ**なので、冒頭はこの本文に `services/4425046` があるかで 37 本を照合し、末尾は `data/note/sync-log.json` の該当 run で 37 本が本文を更新済み（failed に無い）ことと、ログイン済みの編集画面で数本を目視して確かめる。照合日と件数（冒頭 n/37）をこのカードに書き、同じ日付を DN-0265 の起点に写す。
 
-**現状（2026-11-03）**: `note-sync-routine --dry-run --only content/note/1級・2級土木/` で 1級・2級土木の範囲だけで反映待ち 323（部品は本文 325・カバー 1）・止まっている 3。土曜の note-sync は 1 回 80 本まで（`--max 80`）なので、このままだと 4 週かかる。急ぐ記事だけは、運営者のターミナルで使い捨ての worktree（detached・origin/develop）を作り `node scripts/note-sync-routine.mjs --only <記事のフォルダ> --max 1` を 1 本ずつ回せば前倒しできる（2026-11-03 にキャリア記事 24 本をこの方法で反映・1 本 約 3.6 分）。空きメモリが 1,200MB を割ると子プロセスが起動を見送って失敗する（DN-0954）
+**現状（2026-11-03）**: `note-sync-routine --dry-run --only content/note/1級・2級土木/` で 1級・2級土木の範囲だけで反映待ち 323（部品は本文 325・カバー 1）・止まっている 3。土曜の note-sync は 1 回 80 本まで（`--max 80`）なので、このままだと 4 週かかる。急ぐ記事だけは、運営者のターミナルで使い捨ての worktree（detached・origin/develop）を作り `node scripts/note/note-sync-routine.mjs --only <記事のフォルダ> --max 1` を 1 本ずつ回せば前倒しできる（2026-11-03 にキャリア記事 24 本をこの方法で反映・1 本 約 3.6 分）。空きメモリが 1,200MB を割ると子プロセスが起動を見送って失敗する（DN-0954）
 
 **完了条件**: `npm run check-note-sync` が exit 0（反映待ち・止まっている記事・マガジンの要登録が 0）になったら、このカードを削除する。
 ### [DN-0439] コンテンツ台帳から、選んだ制作物の反映計画を作って一括で更新する（ずれの検知をチャネル共通の部品に）
@@ -2728,7 +2740,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-09-23 の URL 検査 batch で 17 URL が「重複（Google が旧 `/docs/` を正規に選択）」だった。#598 は note の被リンクが旧 URL を正規に選ばせる一因と見て張り替えたが、17 件のうち 7 件は note から張られていないのに同じ状態で、note の寄与は未検証。note から張られている 10 件を指す公開 note 記事は 18 本（PDF 付き 0）。
 
-**やること**: 次の URL 検査 batch 以降で 17 件の `google_canonical` を比べる。note から張られていない 7 件が新 URL へ切り替わり、張られている 10 件が旧 URL のまま残るなら、その 18 本を `node scripts/note-update-body.mjs --list <list> --commit` で再公開する（PDF 付きが無いので `--reattach-pdf` は不要）。両群とも切り替わる、または両群とも残るなら再公開しない。
+**やること**: 次の URL 検査 batch 以降で 17 件の `google_canonical` を比べる。note から張られていない 7 件が新 URL へ切り替わり、張られている 10 件が旧 URL のまま残るなら、その 18 本を `node scripts/note/note-update-body.mjs --list <list> --commit` で再公開する（PDF 付きが無いので `--reattach-pdf` は不要）。両群とも切り替わる、または両群とも残るなら再公開しない。
 
 **追記（2026-09-27）**: 旧 DN-0387 を統合。`/docs/pe-construction-r07-railway`（「技術士鉄道」）と `/docs/pe-construction-hissu-kamoku-kaitourei`（「技術士模範解答」）は 1 回の 301 で新 URL へ転送され、サイト内リンクも直した。次の GSC 集計で同じ検索語に新 URL が出るかも同じ比較で確かめる。
 
@@ -2741,7 +2753,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-09-14 の設計（`~/.claude/plans/greedy-jingling-boole.md`）で個人設定は private dotfiles + symlink、memory は repo `.claude/memory/` を junction/symlink、user-scope MCP `github`/`filesystem` は削除、と決めた。Windows は同日に実施済み。Mac は未着手。
 
-Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設定一本化の PR を取り込む、(2) `npm run disk-hygiene:install` と `npm run pre-commit:install`、(3) dotfiles の `bin/link.mjs --host mac` で `~/.claude/settings.json`（`cleanupPeriodDays: 7` 入り）と `~/.codex/config.toml` を張る、(4) `node scripts/setup-memory-link.mjs` で `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory` を repo へ向ける（既存の実ディレクトリは `memory.bak-*` に退避される）、(5) `claude mcp remove -s user github filesystem`、(6) DN-0231 の partial clone。
+Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設定一本化の PR を取り込む、(2) `npm run disk-hygiene:install` と `npm run pre-commit:install`、(3) dotfiles の `bin/link.mjs --host mac` で `~/.claude/settings.json`（`cleanupPeriodDays: 7` 入り）と `~/.codex/config.toml` を張る、(4) `node scripts/ops/setup-memory-link.mjs` で `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory` を repo へ向ける（既存の実ディレクトリは `memory.bak-*` に退避される）、(5) `claude mcp remove -s user github filesystem`、(6) DN-0231 の partial clone。
 
 **(4) は 2026-10-02 に実施済み**: Mac は (4) 未実施のまま別リポジトリ `doboku-note-memory` へ SessionStart/End フック（`~/.claude/hooks/sync-memory.sh`）で同期され、repo と 188 件 vs 143 件に分裂していた。統合して `.claude/memory` へリンクし、フックを `~/.claude/settings.json` から外した（スクリプトは `sync-memory.sh.retired-2026-10-02`、元ディレクトリは `memory.bak-*` に退避）。再発は `npm run check-memory`（SessionStart の `--session`）が検出する。残りは (1)(2)(3)(5)(6)。
 
@@ -2763,13 +2775,13 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 **起点**: 2026-10-02、Mac の記憶が別リポジトリ `doboku-note-memory` へフック同期されたまま repo と分裂していた（DN-0233 (4)）。Windows は 09-14 に junction 済みのはずだが、同じフックや実ディレクトリが残っていないかは未確認。**着手条件**: `check-memory` を入れる PR（feature/memory-guard）が develop にマージ済み。
 
 Windows の PowerShell で repo 直下から順に:
-1. `git switch develop; git pull` で記憶の統合と `scripts/check-memory.mjs` を取り込む。
-2. `node scripts/check-memory.mjs --local` で現状を見る。exit 0 なら 6 へ。
+1. `git switch develop; git pull` で記憶の統合と `scripts/checks/check-memory.mjs` を取り込む。
+2. `node scripts/checks/check-memory.mjs --local` で現状を見る。exit 0 なら 6 へ。
 3. 「実ディレクトリ」と出たら、中身を先に救う: `$m="$env:USERPROFILE\.claude\projects\<key>\memory"`（`<key>` は repo の絶対パスの英数字以外を `-` にしたもの。例 `C--Users-<名前>-doboku-note`）。`Compare-Object (ls $m -Name) (ls .claude\memory -Name)` で `<=` 側（Windows にだけある記憶）を `.claude\memory` へコピーする。同名で中身が違うものは上書きせず別名で残し、`MEMORY.md` に 1 行ずつ足して `npm run check-memory` が通ってから develop へコミット・push する。
-4. `node scripts/setup-memory-link.mjs` を実行する（実ディレクトリは `memory.bak-*` に退避され、junction が張られる。管理者権限は不要）。
+4. `node scripts/ops/setup-memory-link.mjs` を実行する（実ディレクトリは `memory.bak-*` に退避され、junction が張られる。管理者権限は不要）。
 5. 「別同期フック」と出たら、`$env:USERPROFILE\.claude\settings.json` の `hooks` から `sync-memory` を呼ぶ SessionStart/SessionEnd を消し、`$env:USERPROFILE\.claude\hooks\sync-memory.*` を `.retired-2026-10-02` 付きに改名する。dotfiles の `claude/` に同じフックがあればそちらも消す（dotfiles から張り直すと復活する）。
 6. `npm run pre-commit:install`（pre-commit に記憶のゲートが加わったため。**Mac も同じくマージ後に 1 回**）。
-7. `node scripts/check-memory.mjs --local` が exit 0、`(Get-Item $m).LinkType` が `Junction` で `Target` が repo の `.claude\memory`。
+7. `node scripts/checks/check-memory.mjs --local` が exit 0、`(Get-Item $m).LinkType` が `Junction` で `Target` が repo の `.claude\memory`。
 
 **運用の約束**: 記憶はファイルが repo 内にあるだけで、コミット・push しないと他の PC に届かない。記憶を書いた作業のコミットに `.claude/memory` を含める（記憶だけの develop push は CI を走らせない）。
 
@@ -2799,8 +2811,8 @@ Windows の PowerShell で repo 直下から順に:
 
 **やること**:
 
-1. 生成テンプレート（`scripts/prepare-youtube-longforms.mts` の description）を「1行目＝要約、2〜3行目＝▼主CTA＋URL」に変える。パック固有の主CTAは従来どおりとし、季節の主商品（一次期＝模試・論点、二次期＝経験記述の診断・添削）を置くかは 07 §6 の切替に従う。
-2. 制作表記を「技術士（建設部門・総合技術監理部門）・1級土木施工管理技士」に直す。`scripts/update-youtube-authority-metadata.mjs` は最初の「▼」の前に表記を差し込むので、リンクを冒頭へ移すと表記まで上がる。差し込み位置も合わせて直す。
+1. 生成テンプレート（`scripts/youtube/prepare-youtube-longforms.mts` の description）を「1行目＝要約、2〜3行目＝▼主CTA＋URL」に変える。パック固有の主CTAは従来どおりとし、季節の主商品（一次期＝模試・論点、二次期＝経験記述の診断・添削）を置くかは 07 §6 の切替に従う。
+2. 制作表記を「技術士（建設部門・総合技術監理部門）・1級土木施工管理技士」に直す。`scripts/youtube/update-youtube-authority-metadata.mjs` は最初の「▼」の前に表記を差し込むので、リンクを冒頭へ移すと表記まで上がる。差し込み位置も合わせて直す。
 3. 全 `youtube.json` を再生成し、予約済み・公開済み（`.claude/state/video-content-status.json` の longform と Shorts）へ `publish-video-pack.cjs --phase metadata` で同期する。ローカルに YouTube の資格情報が無いため、CI から実行する経路を用意する。
 
 **A8 リンク**: 概要欄にココナラ登録の A8 リンクを置く場合、YouTube チャンネルは A8 の掲載サイトに未登録（2026-09-24 時点で stats47・doboku-note・kazu-note のみ）。先に掲載サイトとして登録する（DN-0283 と同じプログラム）。
@@ -2828,7 +2840,7 @@ Windows の PowerShell で repo 直下から順に:
 
 **起点**: 2026-09-10の実査では、ローカル自動監査のR2資格情報が未設定、rcloneの `doboku-gdrive` 接続も未設定で `npm run resources:cloud` が検査不成立。Driveコネクタ経由では既存vaultの1ファイルを全バイト・SHA-256照合できており、Drive自体の不存在ではない。
 
-1. DN-0135の行15（監査キーの最小権限化）と連携し、このWindows端末の監査に読み取り専用資格情報を設定する。必要なら `scripts/local-storage-verify.mjs` のキー選択を監査専用設定に対応させ、検査目的で書き込み権限を追加しない。
+1. DN-0135の行15（監査キーの最小権限化）と連携し、このWindows端末の監査に読み取り専用資格情報を設定する。必要なら `scripts/local/local-storage-verify.mjs` のキー選択を監査専用設定に対応させ、検査目的で書き込み権限を追加しない。
 2. 人のOAuthログインでrcloneの `doboku-gdrive` を既存の `doboku-note` vaultへ接続する。接続先は `config/drive-vault.json` に従う。vaultの重複作成や全量ローカル同期をせず、秘密情報をGit・監査ログへ保存しない。
 3. 定期実行と同じ端末・実行環境で `npm run resources:cloud` を実行し、R2・Driveとも選定サンプルの全バイトをストリームで読み、容量とSHA-256を照合する。認証・通信失敗を0件成功やメタデータ照合で代用しない。
 
@@ -2880,9 +2892,9 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0272] 部分更新の `replaceTopCta`／`insertTopCta` が冒頭 CTA を見出しにし、直後の見出しをカードで割る
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:不具合] [起票:2026-09-23]
 
-**起点**: 2026-09-23 に公開 note 918 本をライブ API で走査したところ、R8予想問題（n8e92e4673a99）と総監択一式17年分分析（n3bcb87efddad）の 2 本で、冒頭 CTA の文が `h2` になり、その後ろに URL だけの段落・カードが並び、直後の見出し「R8 で何が出るのか」「はじめに」が「R」「は」の段落＋カード＋残りの段落に割れていた（目次から節が消える）。2 本とも同日に全文更新で元の構造へ戻し、API で確認済み。形から見て、`scripts/note-update-partial.mjs` の `replaceTopCta`／`insertTopCta` が「次の `h2` の直前へ caret を置いて Enter→文字入力→URL 入力」する実装で、入力が見出しブロックの中に入ったとみられる（どの実行で起きたかは未特定）。
+**起点**: 2026-09-23 に公開 note 918 本をライブ API で走査したところ、R8予想問題（n8e92e4673a99）と総監択一式17年分分析（n3bcb87efddad）の 2 本で、冒頭 CTA の文が `h2` になり、その後ろに URL だけの段落・カードが並び、直後の見出し「R8 で何が出るのか」「はじめに」が「R」「は」の段落＋カード＋残りの段落に割れていた（目次から節が消える）。2 本とも同日に全文更新で元の構造へ戻し、API で確認済み。形から見て、`scripts/note/note-update-partial.mjs` の `replaceTopCta`／`insertTopCta` が「次の `h2` の直前へ caret を置いて Enter→文字入力→URL 入力」する実装で、入力が見出しブロックの中に入ったとみられる（どの実行で起きたかは未特定）。
 
-**やること**: コードは PR #773（2026-09-30 マージ）で済んだ（冒頭 CTA を HTML 差し込み＋URL 段落の cardify に置換、保存前に対象 h2 の一致・60 字超の見出しの増加を検査、`check-note-live-headings` に割れ見出し・長い見出しの検査を追加）。残りは運営者の了承を得て 1 本で冒頭 CTA の部分更新を実行し、ライブで確かめること（手順: `npm run note-update-partial -- --spec <spec>` を dry-run → `--commit` → `node scripts/check-note-live-headings.mjs <記事パスの一部>`）。
+**やること**: コードは PR #773（2026-09-30 マージ）で済んだ（冒頭 CTA を HTML 差し込み＋URL 段落の cardify に置換、保存前に対象 h2 の一致・60 字超の見出しの増加を検査、`check-note-live-headings` に割れ見出し・長い見出しの検査を追加）。残りは運営者の了承を得て 1 本で冒頭 CTA の部分更新を実行し、ライブで確かめること（手順: `npm run note-update-partial -- --spec <spec>` を dry-run → `--commit` → `node scripts/checks/check-note-live-headings.mjs <記事パスの一部>`）。
 
 **完了条件**: 冒頭 CTA を差し替える部分更新を 1 本で実行し、ライブ API で CTA が引用ブロック、直後の見出しが `h2` のまま、60 字超の見出しが 0 であることを確認できる。
 
@@ -3025,7 +3037,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0946] coconala-delete-draft を新しい出品フォームに対応させる
 タグ: [領域:商品] [時期:2026-12] [種類:不具合] [起票:2026-11-02]
 
-**起点**: 2026-11-02 に新規の下書きを作ったとき、孤児の下書き 3 件の掃除で `node scripts/coconala-delete-draft.mjs` が「SKIP: タイトルフィールド無し」になり使えなかった（旧フォーム用の G2 判定）。画面の「下書きを削除」で手作業で消した。
+**起点**: 2026-11-02 に新規の下書きを作ったとき、孤児の下書き 3 件の掃除で `node scripts/coconala/coconala-delete-draft.mjs` が「SKIP: タイトルフィールド無し」になり使えなかった（旧フォーム用の G2 判定）。画面の「下書きを削除」で手作業で消した。
 **やること**: 新しいフォームでタイトル欄を読めるようにし、4 重のガード（カタログ在籍拒否・URL 一致・タイトル空・削除導線）を保ったまま孤児を消せるようにする。
 **完了条件**: 新しいフォームの孤児の下書きを `--commit` で削除でき、公開中の商品には触れないことをテストか dry-run で確かめている。
 
@@ -3055,6 +3067,89 @@ Windows の PowerShell で repo 直下から順に:
 
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-1259] scripts/kindle-dist（配布物の手元の置き場）を scripts/ の外へ移すかを決める
+タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
+
+**起点**: 2026-11-20、scripts/ にあったデータ（Kindle・PDF の spec、入稿メモ、EPUB、背景）を正しい置き場へ移した（PR #1676〜#1681）。残る `scripts/kindle-dist/`（README 1 件だけ Git 追跡・中身は private R2 の kindle-dist から取り戻す配布物の置き場）は、実装の置き場 scripts/ に制作物の実体を置いている形のまま。
+
+**やること**:
+1. 配布物の手元の置き場を scripts/ の外（例: `content/kindle/dist/` か `.local/`）へ移すかを決める。読み手（asset-storage.json の kindle-dist group の pathRegex と keyFrom、ci.yml の取り戻し、kdp-publish・kdp-batch・sync-kindle-dist・check-kindle-format・check-kindle-epub-leak・build-pop-cover・管理画面の /media/kindle、manifest.json のキー 144 件）を数える。
+2. 移すなら R2 のキーは変えずに手元のパスだけ変えられるか（keyFrom）を確かめる。
+
+**完了条件**: 移すか移さないかの判断と理由が記録され、移すなら CI の取り戻しと EPUB 検査が新しい置き場で通る。
+
+
+### [DN-1258] Kindle 表紙の制作記録の pop.reference が Git 管理外の c-05.jpg を指している件を整理する
+タグ: [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-20]
+
+**起点**: 2026-11-20、表紙の仕様を `content/kindle/books/<id>/cover.json` へ移したとき。28 冊の `pop.reference` と `cover-records/c-series-r08.pop-image.json` の `reference` が、Git 管理外の `scripts/kindle-dist/c-05.jpg`（private R2 の kindle-dist）を指している。取り戻せば実在するが、参照画像の中身が作り直しで変わると制作記録の意味が変わる。
+
+**やること**:
+1. `reference` が「生成のときに見せた画像」の記録として要るかを決める。
+2. 要るなら、参照に使った版を sha256 つきで固定する（例: 制作記録に sha256 を書く・Drive の repo-archive に版を残す）。要らないなら欄の意味を README に書く。
+
+**完了条件**: `pop.reference` の指す先と、その版がいつのものかが記録から分かる。
+
+
+### [DN-1257] Kindle の題名と価格の正本を products.json と spec.json のどちらかに決める
+タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
+
+**起点**: 2026-11-20、scripts/ のデータ置き場を整理したとき（PR #1676〜#1681）。Kindle の題名と価格の正本が文書によって食い違っている。`.claude/rules/operations.md` は「`config/products.json`（priceJpy）が正本」、`scripts/lib/dataset-schemas-config-business.mjs` の ConfigKdpMemo の説明は「題名・価格は `content/kindle/books/<id>/spec.json` が正本」。今は `check-kindle-prices` が両者の一致を見ているので壊れてはいない。
+
+**やること**:
+1. 提出・価格改定の流れ（`kdp-publish.mjs --set-price`・`gen-kdp-memo`・ビルダー）がどちらを読み、どちらへ書くかを確かめる。
+2. 片方を正本に決め、もう片方は正本から引く（写しを持たない）か、検査で一致を保つ理由を書く。
+3. 文書 2 か所の記述をそろえる。
+
+**完了条件**: 題名と価格の正本が 1 か所に決まり、rules・型の説明・kdp-operator の記述が同じことを言う。
+
+
+
+
+### [DN-1255] note 記事の列挙（7 か所の自前走査）を lib の 1 関数にまとめる
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。content/note の article.md を独自に走査する実装が 7 か所ある（lib の `note-attachments.mjs:73 walkArticles`・`note-bank-articles:46`・`note-content-type:26`・`note-cover-inventory:37`・`note-republish-hash`・`note-attach` と、lib の外の `check-magazine-membership.mjs:71 listNoteArticles`）。記事ファイル名の正規表現 `ARTICLE_RE` も 2 か所（`note-attachments:21`・`product-registry:233`）
+- やること: note 記事の列挙を `scripts/lib/` の 1 関数（site の `listSiteMdx` に相当）にまとめ、各所を置き換える
+- 完了条件: 置き換えの前後で列挙される記事の一覧が全件一致
+
+
+### [DN-1254] scripts の小さな helper の書き写し（sleep・エスケープ・sha256・git・R2 など）を lib に寄せる
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。小さな helper の書き写しが多い: `sleep` 53 ファイル（lib の `note-browser.mjs:42`・`coconala-session.mjs:35` も各自 export）・HTML/XML のエスケープ 58（汎用の置き場が無い）・`sha256` 系 55（lib の 4 本が各自 export）・`toPosix` 12・`median` 14（lib 内に 5 本。`ci-stats` は上側の中央値で意味が違う）・`addDays` 7（lib 内に 4 本）・git の自前ラッパー 30（`git ls-files -z` の写し 12）・R2 クライアントの自前生成 8 と `.env.local` の自前読み 4（正規は `lib/asset-storage.mjs` の `makeS3`・`loadEnvLocal`）
+- やること: 置き場の無いもの（エスケープ・git の一覧・日付演算）の lib を決めて作り、置換で済むものから寄せる。意味の違うもの（median・同期版 sleep・`"` を逃がさない esc）は名前を分ける
+- 完了条件: 各 helper の自前定義の数が下がり、code-ratchet に数え方を足して戻りを止める
+
+
+### [DN-1253] scripts の frontmatter の正規表現読み（約 50 ファイル）を共通部品にそろえる
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。frontmatter を正規表現で読む自前の関数（`fmField` 8・`fm` 9・`stripFrontmatter` 8・`splitFrontmatter` 5・インラインの `replace(/^---…/)` 22 ファイル）が約 50 ファイルにある。lib の中でも `stripFrontmatter` が 3 か所（`katex-audit`・`page-quality-profiles`・`table-rendering-rules`）で戻り値の形が違う
+- やること: 正規表現の読み（値は文字列のまま）と gray-matter（YAML の型で読む）のどちらに寄せるかを決め、軽量に 1 欄だけ読む共通部品を `scripts/lib/` に置いて置き換える
+- 完了条件: 置き換えた各スクリプトで、変更前後の出力が同じ（全記事で照合）。新しい自前定義を止めるラチェット
+
+
+### [DN-1252] scripts の引数の手読み（約 105 ファイル）を parseCliArgs にそろえ、ラチェットで止める
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。引数を手で読む関数（`getArg` 39・`arg` 21・`opt` 9・`argValue` 6・`val` 8・`flag` 12 など）が約 105 ファイルにあり、`scripts/lib/cli-args.mjs` の `parseCliArgs` を使っていない。code-ratchet（`scripts/lib/code-ratchets.mjs`）は `parseArgs` という名前しか数えないので増えても止まらない。
+  - 自前の `parseArgs` 17 件のうち 6 件は知らない引数で止める安全策（例 `normalize-a8-csv.mjs:49`・2026-09-26 の事故対策）、6 件は宣言なしの汎用パーサ（`ig-graph-publish`・`stage-ig-media-r2` など同じ中身）
+- やること: `parseCliArgs` に「知らない引数で止める」（strict）を足す。手読みを置き換え、ラチェットの数え方を `getArg|arg|opt|argValue|val|flag` の定義まで広げる
+- 完了条件: 置き換えた各スクリプトの `--help` 相当と主要な引数の組で、変更前後の挙動が同じ。ラチェットの基準値が下がる
+
+
+### [DN-1251] note の本文の図で SVG の無い 16 件を SVG 化し、残る render-figure-*.mjs 5 本を退役させる
+タグ: [領域:教材] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 に note の本文の図を「SVG が正本・PNG は投稿の直前に作る」形へ変えた（scripts/lib/note-figure-png.mjs）。同名の SVG が無い図 16 件は、PNG 自体が正本のまま Git に残っている。
+  - 土木の経験記述・入門クラスタの 13 件と総監の 2 件は、生成スクリプト（render-figure-2c-entry-cluster・2c-essay-cluster・2c-essay-fail・civil1-essay-cluster・soukan-analysis）が SVG を組みながら保存せず、PNG だけを書いている
+  - `技術士総監/記述式の書き方/img/figure-four-layer-structure.png` は生成元が見つからない
+  - SVG のある図の生成スクリプト 28 本は 2026-11-19 に退役した（図は SVG を直接直す）。残るのは上の 5 本と SNS 用の render-figure-pack
+- やること: 上の 5 本で SVG を一度だけ書き出して 15 件を SVG 化し、PNG を git rm して 5 本も消す。figure-four-layer-structure は SVG で作り直すか、PNG を正本のまま残すかを決める（確認は node scripts/build/render-note-figures.mjs）
+- 完了条件: content/note の追跡中の PNG が、SVG の無い原本（sample.png・著者バナーの原本と元絵・anki-sample・ogp など）だけになる。npm test（tests/note-figure-sources.test.mjs）が通る
+
 
 ### [DN-1231] 暗い配色でインフィード広告の背景が白く浮く
 タグ: [領域:サイト] [種類:改善] [起票:2026-11-17]
@@ -3094,16 +3189,6 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: 追跡を外したファイルの一覧と理由が commit にあり、`.claude/state/` の追跡サイズが減り、quality:audit:ci が通る。
 
 
-### [DN-1204] Kindle の出版済み成果物（scripts/kindle-published の epub・jpg）を置き場の基準どおりに移し、追跡から外す
-タグ: [領域:管理] [時期:2026-12] [種類:制作] [起票:2026-11-15]
-
-**起点**: 2026-11-15、運営者が git で追跡している大きなファイルの置き場を決めた（DN-1179・`/asset-route` の基準）。`scripts/kindle-published/` に 60 ファイル（epub 8・表紙 jpg 8・KDP 入力メモ txt 42 ほか）が追跡されている。配布 EPUB と表紙は 2026-10-12（DN-0562）に private R2 の `kindle/dist/` へ移した前例がある（asset-storage-policy.md の `kindle-dist`）。
-
-**やること**:
-1. 参照元（`kdp-publish.mjs`・`sync-kindle-dist.mjs`・`gen-kdp-memo.mjs`・`kdp-batch.mjs`・`check-kdp-report-freshness.mjs`・`pre-commit-ci-gates.mjs`）が何を読むかを確かめ、epub と jpg を人が使う置き場（Drive vault の `Kindle/`。CI が読むものは private R2）へ移して追跡から外す。txt の KDP 入力メモと json・md は小さいので、置き場を変えるかを参照元に合わせて決める。
-2. 移した先と件数を asset-storage-policy.md の表に書き、参照元のパスを直す。
-
-**完了条件**: `git ls-files scripts/kindle-published` に epub・jpg が無く、KDP の入稿と照合のスクリプトが新しい置き場で動く。
 
 
 ### [DN-1186] 静的生成で 1 ページごとに全記事を走査している分を測り、大きければ直す
@@ -3119,7 +3204,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-1185] Pagefind の索引作成（ビルドのうち 53〜61 秒）を速くできるか調べる
 タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
 
-**起点**: 2026-11-13 の実測。build のうち Pagefind の索引作成が 53〜61 秒で、next build の静的生成（83〜126 秒）の半分ほど。scripts/build-search-index.mjs は out/ の HTML 2,435 件を 1 件ずつ読み、noindex でないものを順に addHTMLFile している。Pre-merge check・E2E・夜間・デプロイのどのビルドでも走る。
+**起点**: 2026-11-13 の実測。build のうち Pagefind の索引作成が 53〜61 秒で、next build の静的生成（83〜126 秒）の半分ほど。scripts/build/build-search-index.mjs は out/ の HTML 2,435 件を 1 件ずつ読み、noindex でないものを順に addHTMLFile している。Pre-merge check・E2E・夜間・デプロイのどのビルドでも走る。
 
 **やること**: noindex のページを索引に入れない現在の結果を変えずに速くできるかを調べる（Pagefind の Node API の一次情報を読む。ディレクトリ単位の追加と除外の指定・並行の追加など）。索引の件数（現在は「HTML n 件を検査 / 索引 m 件 / noindex で除外 k 件」を出力）が前後で同じことを確かめる。
 
@@ -3259,7 +3344,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-1071] 音声の関門で場面の欠落と数字の誤読を見られるようにする
 タグ: [領域:SNS] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-10]
 
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。音声の一致度は読み仮名の 2-gram の Dice 係数で語順を見ず、閾値は全体で 0.85（`scripts/lib/video-publish-gate.mjs:28-41`、`config/video-auto-publish.json`）。期待側の読みも合成と同じ VOICEVOX で作る（`scripts/video-factory.mjs:228`）。`video-review` は音声を聞けず、採用記録は `continuousListening: 'not-performed'`。推測: 辞書に無い誤読は期待側にも同じ誤りが入って一致し、12 場面中 1 場面の欠落や数字 1 か所の誤読は 0.85 を下回らない。運営者の抜き打ちの試聴は記録も通知も無い。
+**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。音声の一致度は読み仮名の 2-gram の Dice 係数で語順を見ず、閾値は全体で 0.85（`scripts/lib/video-publish-gate.mjs:28-41`、`config/video-auto-publish.json`）。期待側の読みも合成と同じ VOICEVOX で作る（`scripts/youtube/video-factory.mjs:228`）。`video-review` は音声を聞けず、採用記録は `continuousListening: 'not-performed'`。推測: 辞書に無い誤読は期待側にも同じ誤りが入って一致し、12 場面中 1 場面の欠落や数字 1 か所の誤読は 0.85 を下回らない。運営者の抜き打ちの試聴は記録も通知も無い。
 
 **やること**:
 1. 場面ごとの一致度の最小値も閾値にする
@@ -3368,7 +3453,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0861] 転送の見直し: 2026-08-22 の旧 /docs・/category → 正規 URL の転送を外せるか判断する
 タグ: [領域:サイト] [時期:2027-09] [種類:意思決定] [起票:2026-10-26] [期日:2027-09-30]
 
-対象: scripts/build-public-route-redirects.ts が生成する旧 /docs/<slug>（静的 134 本＋接頭辞の動的 25 本で 1,456 件）と /category/<slug>、/docs → /exam、/category → /exam。旧 /docs/river/* などの旧カテゴリ階層の動的ルール 7 本も含む。
+対象: scripts/build/build-public-route-redirects.ts が生成する旧 /docs/<slug>（静的 134 本＋接頭辞の動的 25 本で 1,456 件）と /category/<slug>、/docs → /exam、/category → /exam。旧 /docs/river/* などの旧カテゴリ階層の動的ルール 7 本も含む。
 
 外す条件と手順は docs/strategy/05_情報アーキテクチャ.md「転送の見直し（いつ外すか）」。全部を満たした群だけ public/_redirects から外し、1 つでも欠ければ見直しを 6 か月後に延ばす（表の見直し時期も更新）。
 
@@ -3509,7 +3594,7 @@ Windows の PowerShell で repo 直下から順に:
 **保留**: 公開（手順 3）は、依存先 DN-0597（YouTube Analytics の取得・時期 2026-11）が済み、SNS の新規投稿の保留（2026-10-17〜）が解けてから。手順 1・2 は先にできる。
 **やること**（2026-10-08 の判断: DN-0597 で視聴維持を取れるようになってから公開する）:
 1. 表紙と締めを採用画像にする（cover-design.json・cta-design.json を足す。sns-image-policy §0.1）
-2. Mac で `node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
+2. Mac で `node scripts/build/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
 3. video-content-qa（6軸）→ youtube.json（題名・概要欄・UTM `utm_campaign=koji-gaiyo-sheet-zukai`）→ ユーザー承認 → 公開
 4. 28日後に旧版 `koji-gaiyo-7items` と、再生・平均視聴率（DN-0597 の YouTube Analytics）を比べる
 **完了条件**: 比べた結果を 07 §11 に1段落で残し、`single-topic-zukai` を active か rejected にする。active なら公開済みパックの作り直しの順番を決める。
@@ -3588,7 +3673,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0426] 年度切替後、年度表現の陳腐化検査を ci:true へ上げて 0 件まで追う
 タグ: [コンテンツ品質] [時期:2027-01..2027-03] [領域:サイト] [種類:改善] [起票:2026-09-17] [期日:2027-01-31]
 
-**やった**: `scripts/check-year-staleness.mjs`（+ `scripts/lib/year-staleness.mjs`・test 9件）を新設。当年度は `exam-calendar.json` の `exams[*].year` 最大値、対象は `content/site/**` の frontmatter title/seoTitle/description（本文は過去問・白書の年度引用が桁違いに多くregexでは陳腐化と正しい年度引用を区別できないため対象外）。group（past-exam/primary/secondary）と、ディレクトリ名が特定年度を表す記事（`r05-essay-*`・`primary-r07-a` 等＝その年度自体が主題）は除外。現状 5 件 warn（すべて「令和X年度からY年度まで」型の歴史的レンジ引用で、机上では偽陽性）。`package.json`・quality-audit.mjs（`ci:false`・report）に配線済み。
+**やった**: `scripts/checks/check-year-staleness.mjs`（+ `scripts/lib/year-staleness.mjs`・test 9件）を新設。当年度は `exam-calendar.json` の `exams[*].year` 最大値、対象は `content/site/**` の frontmatter title/seoTitle/description（本文は過去問・白書の年度引用が桁違いに多くregexでは陳腐化と正しい年度引用を区別できないため対象外）。group（past-exam/primary/secondary）と、ディレクトリ名が特定年度を表す記事（`r05-essay-*`・`primary-r07-a` 等＝その年度自体が主題）は除外。現状 5 件 warn（すべて「令和X年度からY年度まで」型の歴史的レンジ引用で、机上では偽陽性）。`package.json`・quality-audit.mjs（`ci:false`・report）に配線済み。
 
 **残り**: 次の年度切替（2027年1月）の直後に quality-audit.mjs の `year-staleness` エントリを `ci:true` へ上げ、週次レビューで一覧を見ながら 2 週間以内に 0 件（または全件を年度スラッグ除外に追加）へ収束させたら `ci:false` へ戻し、このカードを削除する。
 
@@ -3726,7 +3811,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0276「次の実投稿で publish-x.ts が posted_url を書くか確認する」**
 
-**やった**: (2)(3) は実装・実データ検証済み。`scripts/check-x-posted-live.mjs`（+ `scripts/lib/x-posted-live.mjs`・test 5件）が `content/sns/x/{draft,published}/*/status.json` の `status:"posted"` を集め、`posted_url` を持つものだけ `https://publish.twitter.com/oembed?url=...`（ログイン不要）で照合する。既存 8 件（旧「19件」から実減）で実行し、live 8 / gone 0 / 取得失敗 0 を確認した。`posted_url` の無い投稿済み（162件）と本文にサイトリンクが無いもの（121件・意図的な linkless 施策を含むため gate しない）は件数のみ報告する。週次 `link-audit.yml`（金曜）に組み込み済み（PR は本カードのブランチで作成）。
+**やった**: (2)(3) は実装・実データ検証済み。`scripts/checks/check-x-posted-live.mjs`（+ `scripts/lib/x-posted-live.mjs`・test 5件）が `content/sns/x/{draft,published}/*/status.json` の `status:"posted"` を集め、`posted_url` を持つものだけ `https://publish.twitter.com/oembed?url=...`（ログイン不要）で照合する。既存 8 件（旧「19件」から実減）で実行し、live 8 / gone 0 / 取得失敗 0 を確認した。`posted_url` の無い投稿済み（162件）と本文にサイトリンクが無いもの（121件・意図的な linkless 施策を含むため gate しない）は件数のみ報告する。週次 `link-audit.yml`（金曜）に組み込み済み（PR は本カードのブランチで作成）。
 (1) `publish-x.ts` に `findLatestPostedUrl()` を追加し、即時投稿の直後に自分のプロフィールから本文一致で `/status/<ID>` を読み、`status.json` の `posted_url`（既存8件と同じキー名）へ書くようにした。取れなくても投稿は失敗にしない。
 
 **残り**: (1) は次に実際に X へ即時投稿したときにだけ検証できる（ドライランでは compose 画面を閉じる前に return するため、この経路を通らない）。次の投稿後に対象記事の `status.json` に `posted_url` が入っているか確認し、入っていれば削除する。

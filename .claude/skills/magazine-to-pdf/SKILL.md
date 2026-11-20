@@ -11,13 +11,13 @@ domain: product
 
 note マガジンの `article.md` を、紙に印刷して読むための A4 PDF へ変換する。本文（試験問題・予想問題本文・模範論文）を残し、note 掲載専用パーツ（対象読者欄・マガジン誘導・フォロー誘導）と補助解説（採点者視点・出題予想根拠・解答骨子）を除外する。受験者が解答を紙で通読・印刷したいときに使う。
 
-変換は決定論的に `scripts/magazine-to-pdf.mjs` が行い、マガジンごとの抽出ルールは `scripts/pdf-specs/{name}.json` に切り出して管理する（スクリプトを増やさずパラメータ化）。
+変換は決定論的に `scripts/note/magazine-to-pdf.mjs` が行い、マガジンごとの抽出ルールは `<マガジンのフォルダ>/magazine-pdf.json` に切り出して管理する（スクリプトを増やさずパラメータ化）。
 
 ## 引数
 
 | フラグ | 必須 | 説明 |
 |---|---|---|
-| `--spec <path>` | ✓ | 変換ルール JSON。`scripts/pdf-specs/{name}.json` |
+| `--spec <path>` | ✓ | 変換ルール JSON。`<マガジンのフォルダ>/magazine-pdf.json` |
 | `--desktop` | | 生成 PDF をデスクトップにもコピー（spec の `deliverTo: "desktop"` と同等） |
 | `--in-place` | | 生成 PDF を**各記事の `srcDir/{記事dir}/` 配下にも配置**（spec の `deliverTo: "in-place"` と同等）。note 有料記事への購入特典PDF添付用。各記事dirに `{out}.pdf` が置かれる |
 
@@ -27,16 +27,16 @@ note マガジンの `article.md` を、紙に印刷して読むための A4 PDF
 
 ### ケース 1: 既存マガジンの再生成（spec 済み）
 
-`scripts/pdf-specs/` に spec がある場合は直接スクリプトを実行する。
+各マガジンのフォルダの `magazine-pdf.json` に spec がある場合は直接スクリプトを実行する。
 
 ```bash
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監模範論文-自治体道路担当.json
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監記述式-R8予想問題集.json
+node scripts/note/magazine-to-pdf.mjs --spec content/note/技術士総監/magazines/総監模範論文-自治体道路担当/magazine-pdf.json
+node scripts/note/magazine-to-pdf.mjs --spec content/note/技術士総監/magazines/総監記述式-R8予想問題集/magazine-pdf.json
 ```
 
 ### ケース 2: 新規マガジン（spec が無い / 構造不明）
 
-`magazine-pdf-builder` サブエージェント（Generator）に **spec 作成と変換実行** を委譲する。エージェントが対象の全 `article.md` 見出しを読んで `include`/`exclude` を設計し、`scripts/pdf-specs/{name}.json` を作成してスクリプトを実行・検証する。
+`magazine-pdf-builder` サブエージェント（Generator）に **spec 作成と変換実行** を委譲する。エージェントが対象の全 `article.md` 見出しを読んで `include`/`exclude` を設計し、`<マガジンのフォルダ>/magazine-pdf.json` を作成してスクリプトを実行・検証する。
 
 委譲時に必ず伝える social 則:
 - 「問題文＋解答」を残し CTA・採点者視点・出題予想根拠を除外
@@ -44,7 +44,7 @@ node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監記述式-R8予�
 
 ## spec スキーマ（要約）
 
-完全仕様は `scripts/magazine-to-pdf.mjs` 先頭コメント。`include[]`（残すレンジを順に連結）＋ `exclude[]`（連結後に除去）。`from`/`to` は本文（frontmatter 除去後）への正規表現。`to` 省略で EOF まで。
+完全仕様は `scripts/note/magazine-to-pdf.mjs` 先頭コメント。`include[]`（残すレンジを順に連結）＋ `exclude[]`（連結後に除去）。`from`/`to` は本文（frontmatter 除去後）への正規表現。`to` 省略で EOF まで。
 
 ```json
 {
@@ -77,7 +77,7 @@ node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監記述式-R8予�
 
 ```bash
 # 自治体道路担当マガジン(R03-R07 + R08予想)を再生成しデスクトップへ
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監模範論文-自治体道路担当.json
+node scripts/note/magazine-to-pdf.mjs --spec content/note/技術士総監/magazines/総監模範論文-自治体道路担当/magazine-pdf.json
 ```
 
 ## トラブルシューティング
@@ -90,7 +90,7 @@ node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監模範論文-自
 
 ## 参照
 
-- 汎用スクリプト: `scripts/magazine-to-pdf.mjs`（spec DSL 完全仕様）
-- spec: `scripts/pdf-specs/*.json`
+- 汎用スクリプト: `scripts/note/magazine-to-pdf.mjs`（spec DSL 完全仕様）
+- spec: `content/**/magazine-pdf*.json`
 - サブエージェント: `magazine-pdf-builder`（新規マガジンの spec 作成 → [agents-registry.md](../../knowledge/reference/agents-registry.md)）
 - 図版・画像は対象外（このスキルはテキスト本文の PDF 化のみ）

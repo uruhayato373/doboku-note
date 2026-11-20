@@ -76,7 +76,7 @@ export function noteInboundTerm(noteKey) {
 }
 
 /**
- * note の記事の本文のサイトへのリンク（文字列）に UTM を付ける。scripts/add-note-utm.mjs の実体。
+ * note の記事の本文のサイトへのリンク（文字列）に UTM を付ける。scripts/note/add-note-utm.mjs の実体。
  * - utm_* が無いリンク: source・medium（channels の note.site）・campaign・term（noteKey があれば）を付ける
  * - 既に note の UTM があり utm_term だけ無いリンク: noteKey があれば utm_term だけ足す（公開後の後付け）
  * - それ以外（他の UTM・term あり）: そのまま。utm_content（リンクの種類）には触らない
@@ -101,7 +101,7 @@ function withNoteInboundUtm(url, campaign, noteKey = null) {
 const NOTE_SITE_URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
 
 /**
- * note の記事の原文（frontmatter つき）のサイトへのリンクに UTM を付ける（withNoteInboundUtm）。scripts/add-note-utm.mjs の実体。
+ * note の記事の原文（frontmatter つき）のサイトへのリンクに UTM を付ける（withNoteInboundUtm）。scripts/note/add-note-utm.mjs の実体。
  * frontmatter は触らず、本文のリンクだけを置き換える。改行コード（CRLF / LF）や空行は一切変えない
  * （2026-11-03: 本文を組み立て直すと CRLF の記事に LF が混ざり、ファイル全体が差分になった・DN-0947）。
  * @returns {{ text: string, added: number, skipped: number }}

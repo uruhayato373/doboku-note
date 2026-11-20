@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { addCard, buildCard, filingWarnings, insertCard, resolveTier, validateNewCard } from '../scripts/todo-add.mjs';
+import { addCard, buildCard, filingWarnings, insertCard, resolveTier, validateNewCard } from '../scripts/ops/todo-add.mjs';
 import { commitFileToRemoteBranch } from '../scripts/lib/git-direct-commit.mjs';
 
 const BACKLOG = [

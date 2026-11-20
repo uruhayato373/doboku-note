@@ -1,0 +1,36 @@
+{
+  "bookId": "d-02",
+  "adoptedImage": "content/kindle/books/d-02/pop-image.json",
+  "background": "content/kindle/cover-backgrounds/a-03.png",
+  "accent": "#16365C",
+  "kicker": "技術士第一次試験",
+  "titleLines": [
+    {
+      "text": "適性科目",
+      "size": 300
+    },
+    {
+      "text": "過去問7年分完全解説",
+      "size": 135
+    }
+  ],
+  "subLines": [
+    "令和元〜7年度 105問"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "pe-first-stage",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "適性科目",
+    "badge": [
+      "R1〜R7",
+      "7年分"
+    ],
+    "redBand": "令和7年度 本試験まで収録",
+    "navyBand": "全105問 完全解説",
+    "scene": "技術者が倫理・コンプライアンスを話し合う会議室（文字のない資料）",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "片手を胸に当てて誠実さを示すポーズ"
+  }
+}
