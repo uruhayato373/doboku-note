@@ -40,7 +40,7 @@ target: kdp
    既にあれば新規提出せず親へ報告（[[kindle-dup-prevention]]）。
 2. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
 3. **記録**: 下書き保存後は script が config/products.json に draftAsin・アップロード記録を保存する（status は ready のまま、公開 ASIN と submittedDate は付けない）。出版申請後は `npm run product -- set` で status=in_review・submittedDate を記録する。
-   LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `content/kindle/strategy.md` / kindle-published README の3箇所**へ。
+   LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `content/kindle/strategy.md` / `content/kindle/published.md` の3箇所**へ。
 4. **価格ドリフトの是正**: `--sync-status` の `PRICE DRIFT` は「KDP UI で人が手動改定したのに
    リポジトリが古い」状態。**ライブを正として** `catalog.priceJpy` と `spec.price` の**両方**を
    更新する（`resolveBook` が読むのは spec 側なので、片方だけだと次の価格処理が旧値で走る）。

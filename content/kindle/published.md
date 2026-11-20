@@ -1,20 +1,20 @@
-# scripts/kindle-published/
+# 出版済みの Kindle 本（人が読む索引）
 
-KDP で**公開済み（LIVE）**の Kindle 実物アーカイブ。実際に出版した EPUB・表紙・KDP 入力メモを「版として」保全する置き場。
+KDP で公開した本の ASIN・版・配布物を人が引くための表。2026-11-20 までは `scripts/kindle-published/` にこの README と A 系の実物（EPUB・表紙）を置いていた（DN-1204 で移した）。
 
-- ビルド出力（`.tmp/`）や Downloads の受け渡しコピーとは別。ここに置くのは**公開が確定した最終物のみ**。
-- 再生成可能なビルド中間物ではないので gitignore しない（追跡する）。
-- SoT（再生成元）はあくまで各ビルド spec（`content/kindle/books/` ほか）と原稿。ここは「実際に世に出したもの」の記録。
+- 配布物（EPUB・表紙）は全冊 private R2 の `kindle/dist/` が正本で、手元では `scripts/kindle-dist/<書籍id の小文字>.(epub|jpg)`。無ければ `npm run asset-hydrate -- --group kindle-dist`。
+- 再生成元は各ビルド spec（`content/kindle/books/<id>/spec.json`）と原稿。A 系は `builder` と `buildTheme`。
+- 差し替え前の旧版（A-01 の旧 EPUB・確認用表紙・令和7年度の POP 表紙）は Drive vault の `アーカイブ/repo/scripts/kindle-published/` に退避した。
 
 ## 収録
 
-公開済みの各シリーズを下表に記録する。
+公開済みの各シリーズを下表に記録する。EPUB・表紙の列のうち A 系の名前は 2026-11-20 までのファイル名で、今は `scripts/kindle-dist/a-0x.(epub|jpg)`。
 
 **機械可読 SSOT = `config/products.json` の Kindle の書籍**（ASIN・価格・状態・版 version の真実源）。下表と `content/kindle/strategy.md` の「出版済み一覧」はここから派生させる。ASIN は Amazon 恒久 ID（アフィリリンク・公開状態照合・外部導線に使用）。
 
 ## 版管理（継続的改善）
 
-EPUB を更新して KDP に再アップしたら、正本の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。実物 EPUB もここへ上書き保存して追跡する。
+EPUB を更新して KDP に再アップしたら、正本の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。上げた EPUB と表紙は `scripts/kindle-dist/` に置き、`node scripts/asset-offload.mjs --group kindle-dist --include-untracked --commit` で R2 へ上げる。
 
 ## 書式インバリアント検査（全シリーズ共通）
 
@@ -73,9 +73,5 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 > `content/kindle/strategy.md` は人が読む索引で、**3 箇所とも同時に更新する**
 > （LIVE 化のたびに漏れやすい。2026-07-27 に C-01〜C-09 で本 README だけ記録漏れが発生した）。
 > 審査中で ASIN 未発番の本は catalog の `draftAsin` のみを持ち、この表には載せない。
-
-## cover-designs/
-
-AI生成の表紙デザイン元 PNG（Downloads から退避・7/8 生成分 8枚）。品番マッピングは付いていない生成物（採用/不採用のバリアント混在）。最終採用の表紙は上記の `kindle-cover-*.jpg`（satori 合成・1600×2560）が正。
 
 戦略・価格の真実源は `content/kindle/strategy.md`。

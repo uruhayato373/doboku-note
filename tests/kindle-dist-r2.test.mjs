@@ -23,6 +23,12 @@ test('git 追跡: scripts/kindle-dist は README だけ（EPUB・表紙の再追
   assert.deepEqual(tracked, ['scripts/kindle-dist/README.md'])
 })
 
+test('git 追跡: EPUB はリポジトリに 1 件も無い（全冊 private R2 の kindle-dist・DN-1204）', () => {
+  const epubs = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '--', '*.epub'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    .split('\n').filter(Boolean)
+  assert.deepEqual(epubs, [])
+})
+
 test('CI: quality:audit:ci の前に kindle-dist を private R2 から取り戻す', () => {
   const ci = readFileSync(join(REPO_ROOT, '.github/workflows/ci.yml'), 'utf8')
   const hydrate = ci.indexOf('asset-hydrate.mjs --group kindle-dist')

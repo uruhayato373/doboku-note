@@ -20,7 +20,7 @@
 //   R3 解答の分離 : 択一問題集では解答が改ページ境界で始まる。記述式の章は対象外。
 //
 // 使い方:
-//   node scripts/check-kindle-format.mjs                       # scripts/kindle-published/*.epub を全検査
+//   node scripts/check-kindle-format.mjs                       # scripts/kindle-dist/*.epub を全検査（手元に無ければ npm run asset-hydrate -- --group kindle-dist）
 //   node scripts/check-kindle-format.mjs .tmp/kindle-d-02/*.epub  # 指定 EPUB を検査（ビルド直後の入稿前チェック）
 //
 // 終了コード: 全 PASS=0 / 1つでも FAIL=1
@@ -28,7 +28,7 @@
 import { execSync } from 'node:child_process'
 import { readdirSync, existsSync } from 'node:fs'
 import { join, basename } from 'node:path'
-import { REPO_ROOT } from './lib/repository-paths.mjs'
+import { KINDLE_DIST_DIR } from './lib/kindle-catalog.mjs'
 
 const MIN_LINE_HEIGHT = 1.5
 
@@ -126,7 +126,7 @@ function checkEpub(epub) {
 const args = process.argv.slice(2)
 let targets = args
 if (targets.length === 0) {
-  const dir = join(REPO_ROOT, 'scripts/kindle-published')
+  const dir = KINDLE_DIST_DIR
   targets = existsSync(dir)
     ? readdirSync(dir).filter((f) => f.endsWith('.epub')).map((f) => join(dir, f))
     : []
@@ -135,9 +135,9 @@ targets = targets.filter((t) => existsSync(t))
 
 if (targets.length === 0) {
   // **検査ゼロを PASS と呼ばない**（CLAUDE.md §9）。0 冊なら「壊れた EPUB が無い」ではなく
-  // 「走査先が変わった / EPUB が追跡から外れた」を疑う。scripts/kindle-published/*.epub は
-  // git 追跡下（2026-08-18 時点 8 冊）なので CI でも 0 にはならない。
-  console.error(`✗ 検査不成立: 検査対象の EPUB が 1 冊も無い（走査先: ${args.length ? args.join(' ') : 'scripts/kindle-published/'}）`)
+  // 「走査先が変わった / R2 から取り戻していない」を疑う。CI は quality:audit の前に
+  // asset-hydrate --group kindle-dist で全冊を取り戻す（tests/kindle-dist-r2.test.mjs）。
+  console.error(`✗ 検査不成立: 検査対象の EPUB が 1 冊も無い（走査先: ${args.length ? args.join(' ') : 'scripts/kindle-dist/（npm run asset-hydrate -- --group kindle-dist で取り戻す）'}）`)
   process.exit(2)
 }
 

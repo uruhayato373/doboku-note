@@ -369,7 +369,7 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^(\\.claude/state/ocr-audit/.+|\\.claude/pdfs/.+|scripts/kindle-published/cover-designs/.+|scripts/kindle-published/KDP入力メモ_A-.+\\.txt|content/sns/_assets/character/_source/.+|generated_images/.+\\.png)$"
+        "pathRegex": "^(\\.claude/state/ocr-audit/.+|\\.claude/pdfs/.+|scripts/kindle-published/cover-designs/.+|scripts/kindle-published/KDP入力メモ_A-.+\\.txt|scripts/kindle-published/(A-01_安全管理_論点別過去問\\.epub|kindle-cover-A-01-確認用\\.jpg)|content/sns/_assets/character/_source/.+|generated_images/.+\\.png)$"
       },
       "vaultDir": "アーカイブ/repo",
       "keyFrom": "repoRelative",

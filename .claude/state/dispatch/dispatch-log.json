@@ -9162,6 +9162,19 @@
       "commit": "ddfbfb1840fe",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1204",
+      "at": "2026-11-20",
+      "task": "Kindle の出版済み成果物（scripts/kindle-published の epub・jpg）を置き場の基準どおりに移し、追跡から外す",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d1412638ec09",
+      "verification": "git ls-files scripts/kindle-published → 0 件 / node scripts/check-kindle-format.mjs → 72/72 PASS / node --test tests/kindle-dist-r2.test.mjs",
+      "note": "A 系 7 冊の EPUB・表紙を private R2 の kindle-dist へ合流（KDP の版を上げ、取り戻して sha256 一致 14/14）。差し替え前の POP 版 7・旧版 EPUB・確認用 jpg は Drive の repo-archive（3 者一致 88 件）。KDP 入力メモは .tmp 生成に変更（PR #1679）。scripts/kindle-published は無くなり、README は content/kindle/published.md へ"
     }
   ]
 }

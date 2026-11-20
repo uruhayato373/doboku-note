@@ -14,7 +14,7 @@ import {
  * 契約を固定する。pure 関数だけを対象に fixture で検証する（fs/git アクセスは対象外）。
  */
 
-test('artifactRelPaths: B-G系(サブディレクトリ持ち)は scripts/ 直下として解決する', () => {
+test('artifactRelPaths: kindle-dist の値は scripts/ 直下として解決する', () => {
   const rel = artifactRelPaths({
     id: 'e-01', epub: 'kindle-dist/e-01.epub', cover: 'kindle-dist/e-01.jpg',
     buildSpec: 'content/kindle/books/e-01/spec.json',
@@ -26,13 +26,13 @@ test('artifactRelPaths: B-G系(サブディレクトリ持ち)は scripts/ 直�
   })
 })
 
-test('artifactRelPaths: A系(裸ファイル名・buildSpec無し)は kindle-published 直下として解決する', () => {
+test('artifactRelPaths: A系(buildSpec無し)も kindle-dist に置き、buildSpec は null', () => {
   const rel = artifactRelPaths({
-    id: 'a-00', epub: 'kindle-A-00-goubon.epub', cover: 'kindle-cover-a-00.jpg', buildSpec: undefined,
+    id: 'A-00', epub: 'kindle-dist/a-00.epub', cover: 'kindle-dist/a-00.jpg', buildSpec: undefined,
   })
   assert.deepEqual(rel, {
-    epub: 'scripts/kindle-published/kindle-A-00-goubon.epub',
-    cover: 'scripts/kindle-published/kindle-cover-a-00.jpg',
+    epub: 'scripts/kindle-dist/a-00.epub',
+    cover: 'scripts/kindle-dist/a-00.jpg',
     buildSpec: null,
   })
 })
@@ -108,9 +108,9 @@ test('estimateFreshness: EPUB が git log に無い(map 不在)冊は unknown（
 })
 
 test('estimateFreshness: A系(buildSpec無し)は exam-questions.json と builder を入力とみなす', () => {
-  const books = [{ id: 'a-00', epub: 'kindle-A-00-goubon.epub', buildSpec: undefined, builder: 'scripts/build-takuitsu-reconstruct.mjs' }]
+  const books = [{ id: 'a-00', epub: 'kindle-dist/a-00.epub', buildSpec: undefined, builder: 'scripts/build-takuitsu-reconstruct.mjs' }]
   const pathDateMap = new Map([
-    ['scripts/kindle-published/kindle-A-00-goubon.epub', '2026-08-01T00:00:00+09:00'],
+    ['scripts/kindle-dist/a-00.epub', '2026-08-01T00:00:00+09:00'],
     ['src/config/civil-1-exam-questions.json', '2026-08-15T00:00:00+09:00'],
     ['scripts/build-takuitsu-reconstruct.mjs', '2026-08-01T00:00:00+09:00'],
   ])

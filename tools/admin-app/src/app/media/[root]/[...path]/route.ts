@@ -8,7 +8,7 @@ import { parseMediaPath } from '../../../../../../../scripts/lib/media-paths.mjs
 import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 
 /**
- * /media/{posts|sns|note|kindle|kindlepub|kindlepreview}/... → リポジトリ内ルートへの static serve。
+ * /media/{posts|sns|note|kindle|kindlepreview}/... → リポジトリ内ルートへの static serve。
  * tools/admin/lib/media.mjs の traversal ガード + MIME allowlist を移植。
  * cmedia（手元の素材）・vault（Drive の素材）は Range・HEAD に対応する（動画・音声のシーク用）。読み取り専用（GET・HEAD のみ）。
  * book（Drive の書籍の頁画像・切り出し図）は /media/book/<書籍ディレクトリ>/(pages|crops)/<file>。Drive の台帳に reference-book-page-image として載るものだけ（シリーズ企画の画像の確認用）。
@@ -21,9 +21,8 @@ const MEDIA_ROOTS: Record<string, string> = {
   posts: resolve(SITE_CONTENT_ROOT),
   sns: resolve(SNS_CONTENT_ROOT),
   note: resolve(NOTE_CONTENT_ROOT),
-  // Kindle 表紙（B-G系は kindle-dist、A系は kindle-published 直下）。/content/kindle の表紙サムネ用。
+  // Kindle 表紙（全冊 kindle-dist）。/content/kindle の表紙サムネ用。
   kindle: resolve(repoPath('scripts', 'kindle-dist')),
-  kindlepub: resolve(repoPath('scripts', 'kindle-published')),
   // EPUB のページ画像（node scripts/render-kindle-preview.mjs の出力）。/content/kindle/<id> の目視確認用。
   kindlepreview: resolve(repoPath('.tmp', 'kindle-preview')),
   // ココナラの商品画像（承認済み POP 画像・Drive vault から取り戻したもの）。/content/ledger/coconala/<id> の確認用。

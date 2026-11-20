@@ -27,7 +27,6 @@ import {
 // 入力（原稿ソース・spec・builder・共有レンダラ）と成果物（EPUB/表紙）の両方を含む。
 const GIT_LOG_PATHS = [
   'scripts/kindle-dist',
-  'scripts/kindle-published',
   'content/site',
   'content/note',
   'content/kindle',
