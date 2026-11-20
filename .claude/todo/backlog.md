@@ -3152,7 +3152,7 @@ Windows の PowerShell で repo 直下から順に:
 
 
 ### [DN-1204] Kindle の出版済み成果物（scripts/kindle-published の epub・jpg）を置き場の基準どおりに移し、追跡から外す
-タグ: [領域:管理] [時期:2026-12] [種類:制作] [起票:2026-11-15]
+タグ: [領域:管理] [時期:2026-12] [種類:制作] [起票:2026-11-15] [進行中]
 
 **起点**: 2026-11-15、運営者が git で追跡している大きなファイルの置き場を決めた（DN-1179・`/asset-route` の基準）。`scripts/kindle-published/` に 60 ファイル（epub 8・表紙 jpg 8・KDP 入力メモ txt 42 ほか）が追跡されている。配布 EPUB と表紙は 2026-10-12（DN-0562）に private R2 の `kindle/dist/` へ移した前例がある（asset-storage-policy.md の `kindle-dist`）。
 

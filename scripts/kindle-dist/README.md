@@ -12,13 +12,13 @@ KDP のアカウント作成数制限で提出は数日〜に分けて進める�
 `status` = `ready`（制作完了・提出待ち）/ `in_review`（KDP審査中）/ `live`（公開済）。
 提出して ASIN が出たら catalog の `asin` と `status=live` を更新する（Claude に ASIN を渡せば処理）。
 
-A シリーズ（公開済/審査中）の実物は歴史的経緯で [`../kindle-published/`](../kindle-published/) 直下にある。
+A シリーズも 2026-11-20 からここ（`a-0x.epub`・`a-0x.jpg`）に置く（DN-1204。それまでは `scripts/kindle-published/` で Git 追跡していた）。人が読む ASIN の表は [`content/kindle/published.md`](../../content/kindle/published.md)。
 
 ## 再生成（spec / theme から決定的に再現できる）
 
 EPUB は B〜G 系の `buildSpec` または A 系の `buildTheme` から再現可能。表紙は、`adoptedImage` のある本は採用済み JPEG と制作記録
 （`content/kindle/books/<id>/pop-image.json`）が正本で再生成しない。それ以外の旧本だけ `content/kindle/books/<id>/cover.json`＋`backgrounds/` から再現する。A 系は公開済み版を保護するため、ID を明示したときだけ
-`scripts/kindle-published/` の catalog 配布先へ再生成する。
+catalog の配布先（`scripts/kindle-dist/a-0x.*`）へ再生成する。
 
 ```bash
 npm run sync-kindle-dist              # ready 全冊を再ビルド → kindle-dist/ へ

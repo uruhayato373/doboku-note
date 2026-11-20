@@ -6,6 +6,7 @@ Kindle/KDP 固有の戦略と書き下ろし原稿は、このディレクトリ
 ## 配置
 
 - `strategy.md` — ラインナップ、価格、出版方針、運用チェックリスト
+- `published.md` — 出版済みの本の ASIN・版・配布物の表（人が読む索引。正本は `config/products.json`）
 - `books/{id}/` — 1 冊ぶんの制作物と入力（フォルダ名は書籍 id。A 系は大文字）
   - `front-matter.md` — EPUB に組み込む書き下ろし前付け
   - `spec.json` — ビルド定義（題名・価格・収録する原稿）。`--spec` でビルダーへ渡す

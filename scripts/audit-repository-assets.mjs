@@ -238,9 +238,9 @@ const RULES = [
   },
   {
     id: 'kindle-artifact',
-    test: (p) => /^scripts\/kindle-(dist|published|covers)\//.test(p) || /\.epub$/i.test(p),
+    test: (p) => /^scripts\/kindle-(dist|covers)\//.test(p) || /\.epub$/i.test(p),
     bucket: 'KEEP_GIT',
-    reason: 'KDP 入稿成果物。scripts/kindle-dist/ 配下は private R2 が正本で git 追跡を外した（kindle-dist group・DN-0562・2026-10-12）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない',
+    reason: 'KDP 入稿成果物。scripts/kindle-dist/ 配下（A 系を含む全冊の EPUB・表紙）は private R2 が正本で git 追跡を外した（kindle-dist group・DN-0562・2026-10-12、A 系は DN-1204・2026-11-20）。kindle-covers/ はコードと README だけ',
     regenFrom: 'content/kindle/books/**（要検証）',
     usedBy: ['scripts/kdp-publish.mjs'],
     generator: 'kindle-build',

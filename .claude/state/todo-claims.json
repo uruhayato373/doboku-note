@@ -59,6 +59,12 @@
       "owner": "codex",
       "startedAt": "2026-11-15T01:19:24.693Z",
       "branch": null
+    },
+    {
+      "id": "DN-1204",
+      "owner": "claude-code",
+      "startedAt": "2026-11-19T23:57:41.853Z",
+      "branch": "refactor/kindle-a-series-to-dist"
     }
   ]
 }

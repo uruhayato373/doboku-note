@@ -4,6 +4,7 @@
     "_doc": "廃止した置き場。ここへ新規ファイルを作ると旧構成へ逆戻りする。**ファイルを移した旧パスは scripts/lib/repository-paths.mjs の MOVED_PATHS・RESTRUCTURED_PATHS が正本**で、check-information-architecture が検査のたびにここへ足す（旧パスを移動表と JSON の 2 か所に書かない）。ここに書くのは移動表に載らないもの（docs 側の廃止・移動先のない旧ディレクトリ・data/ の旧フォルダ丸ごと）だけ。",
     "paths": [
       "scripts/kindle-published/catalog.json",
+      "scripts/kindle-published",
       "scripts/kindle-specs",
       "scripts/kindle-covers/specs",
       "scripts/kindle-covers/pop",

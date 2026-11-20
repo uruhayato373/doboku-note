@@ -3,7 +3,7 @@
   "_doc": "商品の正本（全チャネルの全商品・DN-0492）。手で書かず npm run product で読み書きする（並びは channel → id）。note-magazines.ts の生成ブロックは npm run product -- gen。説明は .claude/knowledge/reference/data-storage-decision.md「商品の正本」",
   "channels": {
     "kindle": {
-      "catalogComment": "Kindle 全書籍のマスター登録簿（書籍の行は各商品の catalog。写しのファイルは作らず scripts/lib/kindle-catalog.mjs の loadKindleCatalog で読む）。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は A系だけ git 追跡(kindle-published/)。B-F の配布物は private R2（kindle-dist は 2026-10-12 に Git から外した）. 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
+      "catalogComment": "Kindle 全書籍のマスター登録簿（書籍の行は各商品の catalog。写しのファイルは作らず scripts/lib/kindle-catalog.mjs の loadKindleCatalog で読む）。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は全冊 private R2 の kindle-dist（B 以降は 2026-10-12、A 系は 2026-11-20 に Git から外した）. 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
       "catalogSchemaVersion": 1,
       "updatedAt": "2026-09-23"
     }
@@ -1545,8 +1545,8 @@
         "publishedDate": "2026-07-11",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "goubon",
-        "epub": "kindle-A-00-goubon.epub",
-        "cover": "kindle-cover-a-00.jpg",
+        "epub": "kindle-dist/a-00.epub",
+        "cover": "kindle-dist/a-00.jpg",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1566,7 +1566,6 @@
           }
         ],
         "notes": "LIVE（2026-07-15 本棚突合で確認）。分冊 A-01〜A-06 との重複コンテンツ規約は審査を通過。",
-        "dist": "kindle-published/kindle-A-00-goubon.epub",
         "draftAsin": "A2901CR7S6QQJY",
         "uploaded": {
           "epub": {
@@ -1609,8 +1608,8 @@
         "publishedDate": "2026-07-08",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "anzen",
-        "epub": "kindle-A-01-anzen-updated.epub",
-        "cover": "kindle-cover-A-01.jpg",
+        "epub": "kindle-dist/a-01.epub",
+        "cover": "kindle-dist/a-01.jpg",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1624,7 +1623,6 @@
             "change": "尻切れ解説の恒久補完後の更新版 EPUB を再アップ"
           }
         ],
-        "dist": "kindle-published/kindle-A-01-anzen-updated.epub",
         "draftAsin": "AT465EYYW4VCN",
         "uploaded": {
           "epub": {
@@ -1666,8 +1664,8 @@
         "publishedDate": "2026-07-10",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "hoki",
-        "epub": "kindle-A-02-hoki.epub",
-        "cover": "kindle-cover-a-02.jpg",
+        "epub": "kindle-dist/a-02.epub",
+        "cover": "kindle-dist/a-02.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1676,7 +1674,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-02-hoki.epub",
         "draftAsin": "A5YT5D5ZGEA59",
         "uploaded": {
           "epub": {
@@ -1718,8 +1715,8 @@
         "publishedDate": "2026-07-10",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "sekokeikaku",
-        "epub": "kindle-A-03-sekokeikaku.epub",
-        "cover": "kindle-cover-a-03.jpg",
+        "epub": "kindle-dist/a-03.epub",
+        "cover": "kindle-dist/a-03.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1728,7 +1725,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-03-sekokeikaku.epub",
         "draftAsin": "A3TMN4ARVI63H6",
         "uploaded": {
           "epub": {
@@ -1770,8 +1766,8 @@
         "publishedDate": "2026-07-10",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "kankyo",
-        "epub": "kindle-A-04-kankyo.epub",
-        "cover": "kindle-cover-a-04.jpg",
+        "epub": "kindle-dist/a-04.epub",
+        "cover": "kindle-dist/a-04.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1780,7 +1776,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-04-kankyo.epub",
         "draftAsin": "A2LJM7G3D1YA9V",
         "uploaded": {
           "epub": {
@@ -1822,8 +1817,8 @@
         "publishedDate": "2026-07-10",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "hinshitsu",
-        "epub": "kindle-A-05-hinshitsu.epub",
-        "cover": "kindle-cover-a-05.jpg",
+        "epub": "kindle-dist/a-05.epub",
+        "cover": "kindle-dist/a-05.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1832,7 +1827,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-05-hinshitsu.epub",
         "draftAsin": "A1Q5I6TCI7EHV5",
         "uploaded": {
           "epub": {
@@ -1875,8 +1869,8 @@
         "publishedDate": "2026-07-10",
         "builder": "scripts/build-takuitsu-reconstruct.mjs",
         "buildTheme": "koutei",
-        "epub": "kindle-A-06-koutei.epub",
-        "cover": "kindle-cover-a-06.jpg",
+        "epub": "kindle-dist/a-06.epub",
+        "cover": "kindle-dist/a-06.jpg",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1885,7 +1879,6 @@
             "change": "初版公開"
           }
         ],
-        "dist": "kindle-published/kindle-A-06-koutei.epub",
         "draftAsin": "ACL3CWR633GU0",
         "uploaded": {
           "epub": {

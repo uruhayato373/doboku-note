@@ -60,20 +60,15 @@ export function loadKindleCatalogIfPresent(root = REPO_ROOT) {
 }
 
 /**
- * 純粋: book → repo 相対パス群（A系/B-G系の2系統を吸収）。
- *  - epub/cover: 値が '/' を含む（例 "kindle-dist/e-01.epub"）→ `scripts/` + 値。
- *                含まない（例 "kindle-A-00-goubon.epub"）→ `scripts/kindle-published/` + 値。
+ * 純粋: book → repo 相対パス群。
+ *  - epub/cover: 値は "kindle-dist/<id>.epub" の形 → `scripts/` + 値（全冊が private R2 の kindle-dist。A 系は 2026-11-20 に合流）。
  *  - buildSpec: そのまま（'content/kindle/books/<id>/spec.json'）。テーマ駆動の A 系は null。
  */
 export function artifactRelPaths(book) {
-  const withPrefix = (v, defaultDir) => {
-    if (!v) return null
-    if (v.includes('/')) return `scripts/${v}`
-    return `${defaultDir}/${v}`
-  }
+  const withPrefix = (v) => (v ? `scripts/${v}` : null)
   return {
-    epub: withPrefix(book.epub, 'scripts/kindle-published'),
-    cover: withPrefix(book.cover, 'scripts/kindle-published'),
+    epub: withPrefix(book.epub),
+    cover: withPrefix(book.cover),
     buildSpec: book.buildSpec || null,
   }
 }
@@ -283,6 +278,5 @@ export function coverMediaUrl(book) {
   const abs = join(REPO_ROOT, rel.cover)
   if (!existsSync(abs)) return null
   if (rel.cover.startsWith('scripts/kindle-dist/')) return `/media/kindle/${basename(rel.cover)}`
-  if (rel.cover.startsWith('scripts/kindle-published/')) return `/media/kindlepub/${basename(rel.cover)}`
   return null
 }

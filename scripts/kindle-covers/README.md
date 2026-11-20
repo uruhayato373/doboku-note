@@ -28,6 +28,6 @@ npm run kindle-pop-cover -- --adopt c-05 --candidate .tmp/kindle-pop/c-05/cand-1
 
 ## 注意
 
-- 通常の作業出力は `.tmp/` or `~/Downloads/`。入稿済み版と配布版は再現性・差し替え確認のため `scripts/kindle-published/` または `scripts/kindle-dist/` で追跡する
+- 通常の作業出力は `.tmp/` or `~/Downloads/`。入稿済み版と配布版は `scripts/kindle-dist/` に置き、private R2（kindle-dist group）へ上げて保全する（Git では追跡しない）
 - KDP 要件: 1600×2560・JPEG・RGB・白地に白枠回避の極薄エッジ入り・価格/Amazon 等の文言は入れない
 - 資格テーマ色 accent は ogp-prompts.md の資格別カラー（1級土木=`#1E73C8` 等）に合わせる
