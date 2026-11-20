@@ -3056,6 +3056,18 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1259] scripts/kindle-dist（配布物の手元の置き場）を scripts/ の外へ移すかを決める
+タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
+
+**起点**: 2026-11-20、scripts/ にあったデータ（Kindle・PDF の spec、入稿メモ、EPUB、背景）を正しい置き場へ移した（PR #1676〜#1681）。残る `scripts/kindle-dist/`（README 1 件だけ Git 追跡・中身は private R2 の kindle-dist から取り戻す配布物の置き場）は、実装の置き場 scripts/ に制作物の実体を置いている形のまま。
+
+**やること**:
+1. 配布物の手元の置き場を scripts/ の外（例: `content/kindle/dist/` か `.local/`）へ移すかを決める。読み手（asset-storage.json の kindle-dist group の pathRegex と keyFrom、ci.yml の取り戻し、kdp-publish・kdp-batch・sync-kindle-dist・check-kindle-format・check-kindle-epub-leak・build-pop-cover・管理画面の /media/kindle、manifest.json のキー 144 件）を数える。
+2. 移すなら R2 のキーは変えずに手元のパスだけ変えられるか（keyFrom）を確かめる。
+
+**完了条件**: 移すか移さないかの判断と理由が記録され、移すなら CI の取り戻しと EPUB 検査が新しい置き場で通る。
+
+
 ### [DN-1258] Kindle 表紙の制作記録の pop.reference が Git 管理外の c-05.jpg を指している件を整理する
 タグ: [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-20]
 
