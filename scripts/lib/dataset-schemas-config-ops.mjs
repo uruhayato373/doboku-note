@@ -205,6 +205,40 @@ const a8SiteFilter = z
   })
   .strict();
 
+/** A8 scout の採点係数・申請上限・blocklist・vertical の対応（config/a8-curated.json）。a8-scout-core.mjs が読む */
+export const ConfigA8Curated = z
+  .object({
+    _doc: note,
+    schemaVersion: z.literal(1),
+    weeklyApplyMax: posInt.describe('週あたりの申請の上限（A8 のスパム判定を避ける）'),
+    minScore: z.number().min(0).max(1),
+    scoreWeights: z.object({ reward: nonNeg, epc: nonNeg, confirm: nonNeg, gap: nonNeg }).strict(),
+    scoreNorm: z
+      .object({
+        rewardCapYen: posInt,
+        rewardRateCapPct: posInt,
+        epcCapYen: posInt,
+        gapBonus: z.object({ gap: nonNeg, thin: nonNeg, other: nonNeg }).strict(),
+      })
+      .strict(),
+    _blocklist_doc: note,
+    blocklistKeywords: nonEmptyStrings,
+    _offTargetNote: note,
+    offTargetKeywords: strings,
+    _vertical_map_doc: note,
+    verticalKeywords: z.record(z.string(), nonEmptyStrings),
+    _category_code_doc: note,
+    categoryCodeToVertical: z.record(z.string().regex(/^\d{2}$/), text),
+    _search_keywords_doc: note,
+    searchKeywords: nonEmptyStrings,
+    _priority_doc: note,
+    priorityBands: z.array(z.object({ minConfirmedEpc: nonNeg, priority: z.number().int() }).strict()),
+    priorityTargetBonus: z.number().int(),
+    _material_pref_doc: note,
+    materialSizePref: z.array(z.object({ width: posInt, height: posInt }).strict()),
+  })
+  .strict();
+
 /** A8.net メディア管理画面のレポート CSV 取得設定（config/a8-report-automation.json） */
 export const ConfigA8ReportAutomation = z
   .object({

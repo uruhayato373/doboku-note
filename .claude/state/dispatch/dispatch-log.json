@@ -9175,6 +9175,19 @@
       "commit": "d1412638ec09",
       "verification": "git ls-files scripts/kindle-published → 0 件 / node scripts/check-kindle-format.mjs → 72/72 PASS / node --test tests/kindle-dist-r2.test.mjs",
       "note": "A 系 7 冊の EPUB・表紙を private R2 の kindle-dist へ合流（KDP の版を上げ、取り戻して sha256 一致 14/14）。差し替え前の POP 版 7・旧版 EPUB・確認用 jpg は Drive の repo-archive（3 者一致 88 件）。KDP 入力メモは .tmp 生成に変更（PR #1679）。scripts/kindle-published は無くなり、README は content/kindle/published.md へ"
+    },
+    {
+      "id": "DN-1256",
+      "at": "2026-11-20",
+      "task": "到達しない CLI のうち判断待ちの 15 本を、消すか残すか決める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4435621e4c55",
+      "verification": null,
+      "note": "PR で 13 本を削除、9 本は使う場所の文書から案内して到達させ、baseline は DN-1251 の render-figure 5 本だけになった"
     }
   ]
 }

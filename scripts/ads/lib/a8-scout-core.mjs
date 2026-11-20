@@ -8,20 +8,16 @@
  *   - vertical 解決 (A8 ジャンル/プログラム名 → doboku career 軸)
  *   - 状態機械の遷移検証
  *
- * curated 値 (係数・上限・blocklist・vertical map) は data/a8-curated.json を読む
+ * curated 値 (係数・上限・blocklist・vertical map) は config/a8-curated.json（台帳 id: config.a8-curated）を読む
  * (ハードコードしない)。正典 = .claude/knowledge/reference/a8-affiliate-pipeline.md。
  */
 
-import { createRequire } from "node:module";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const require = createRequire(import.meta.url);
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { readDataset } from "../../lib/dataset-io.mjs";
+import { REPO_ROOT } from "../../lib/repository-paths.mjs";
 
 /** curated data をロード (テストは curated を渡して差し替え可)。 */
 export function loadCurated() {
-  return require(path.resolve(__dirname, "../data/a8-curated.json"));
+  return readDataset(REPO_ROOT, "config.a8-curated");
 }
 
 // ---------- blocklist ----------

@@ -123,6 +123,7 @@ export const WRITERS = {
 
   // ===== アフィリエイト =====
   'config.affiliate-asp': ['human'],
+  'config.a8-curated': ['human'],
   'config.a8-report-automation': ['human'],
   'config.career-funnel': ['human'],
   'config.affiliate-mats': ['human'],

@@ -27,7 +27,7 @@ notebooklm --version   # 0.3.4 以上
 notebooklm login       # 認証期限切れ時はユーザーが手動で実行（インタラクティブ OAuth）
 ```
 
-`nlm cross query` 相当のサブコマンドが現行 CLI にないため、本プロジェクトでは決定論的ラッパー `scripts/notebooklm-cross-query.mjs` を経由する。実態は `notebooklm list --json` で ID 解決 + `notebooklm ask -n <id> --json "..."` を逐次実行する形。
+`nlm cross query` 相当のサブコマンドが現行 CLI にないため、本プロジェクトでは決定論的ラッパー `scripts/notebooklm-cross-query.mjs` を経由する。実態は `notebooklm list --json` で ID 解決 + `notebooklm ask -n <id> --json "..."` を逐次実行する形。1 つのノートブックへ多数の質問を投げて回答をファイルに残すときは `scripts/notebooklm-batch-ask.mjs`（1 問ずつ間隔を空けてリトライ。並列に投げると認証失効・レート制限で大半が失敗する）を使う。
 
 ### 総監標準テキスト ノートブック（作成済み）
 

@@ -1,32 +1,10 @@
 {
   "_doc": "どこからも呼ばれない CLI の既知の一覧（check-unreachable-cli のラチェット）。消すか呼び出し元を作ったら行を消す。増やすときは呼ばれない理由を確かめてから --update-baseline",
   "unreachable": [
-    "scripts/adopt-pop-video-images.mjs",
-    "scripts/analyze-gsc-coverage.mjs",
-    "scripts/analyze-hubs.mjs",
-    "scripts/audit-svg-colors.mjs",
-    "scripts/backfill-note-hashtags.mjs",
-    "scripts/backfill-published-at.mjs",
-    "scripts/build-civil-secondary-cross-links.mjs",
-    "scripts/build-noindex-candidates.mjs",
-    "scripts/bulk-rewrite-descriptions.mjs",
-    "scripts/consolidate-reference-vault.mjs",
-    "scripts/extract-gsc-coverage-urls.mjs",
-    "scripts/find-unlinked-keywords.mjs",
-    "scripts/fix-bold-delimiter-boundary.mjs",
-    "scripts/fix-civil-long-bold-unwrap.mjs",
-    "scripts/fix-civil-simple-math-to-unicode.mjs",
-    "scripts/fix-descriptions.mjs",
-    "scripts/fix-related-keywords-position.mjs",
-    "scripts/inspect-reference-book-layout.mjs",
-    "scripts/migrate-callout-types.mjs",
-    "scripts/notebooklm-batch-ask.mjs",
     "scripts/render-figure-2c-entry-cluster.mjs",
     "scripts/render-figure-2c-essay-cluster.mjs",
     "scripts/render-figure-2c-essay-fail.mjs",
     "scripts/render-figure-civil1-essay-cluster.mjs",
-    "scripts/render-figure-soukan-analysis.mjs",
-    "scripts/update-youtube-authority-metadata.mjs",
-    "scripts/verify-html-links.mjs"
+    "scripts/render-figure-soukan-analysis.mjs"
   ]
 }

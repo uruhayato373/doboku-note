@@ -90,8 +90,6 @@ npm run check-reference-book-pages
 npm run check-reference-sources -- --deep
 npm run check-drive-vault
 npm run drive-vault-sync -- --group source-transcript --verify --cloud
-node scripts/consolidate-reference-vault.mjs --verify-moves
-node scripts/consolidate-reference-vault.mjs --verify-removals
 ```
 
 恒久ルールは [asset-storage-policy.md](../knowledge/reference/asset-storage-policy.md) と

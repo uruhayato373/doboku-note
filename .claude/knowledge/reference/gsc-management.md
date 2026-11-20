@@ -164,7 +164,7 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 - 母集合生成: `node scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
 - URL Inspection: `npm run inspect-url -- --file <list>`（2,000 URL/日/property 上限）
 - 集計→履歴: `node scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
-- 既存分析: `scripts/{analyze-gsc-coverage,analyze-hubs,build-noindex-candidates}.mjs`
+- 既存分析（手順は memory の reference_gsc_diagnosis_toolkit）: `scripts/extract-gsc-coverage-urls.mjs`（未登録の理由ごとの URL 一覧 ex0〜ex4）→ `scripts/analyze-gsc-coverage.mjs`（Inspection と検索の数字の突き合わせ）・`scripts/analyze-hubs.mjs`（hub 強化の優先度）・`scripts/build-noindex-candidates.mjs`（noindex 候補）・`scripts/verify-html-links.mjs`（本番 HTML に内部リンクが出ているか）
 
 ## データの所在
 
