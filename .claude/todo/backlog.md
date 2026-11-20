@@ -3151,16 +3151,6 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: 追跡を外したファイルの一覧と理由が commit にあり、`.claude/state/` の追跡サイズが減り、quality:audit:ci が通る。
 
 
-### [DN-1204] Kindle の出版済み成果物（scripts/kindle-published の epub・jpg）を置き場の基準どおりに移し、追跡から外す
-タグ: [領域:管理] [時期:2026-12] [種類:制作] [起票:2026-11-15] [進行中]
-
-**起点**: 2026-11-15、運営者が git で追跡している大きなファイルの置き場を決めた（DN-1179・`/asset-route` の基準）。`scripts/kindle-published/` に 60 ファイル（epub 8・表紙 jpg 8・KDP 入力メモ txt 42 ほか）が追跡されている。配布 EPUB と表紙は 2026-10-12（DN-0562）に private R2 の `kindle/dist/` へ移した前例がある（asset-storage-policy.md の `kindle-dist`）。
-
-**やること**:
-1. 参照元（`kdp-publish.mjs`・`sync-kindle-dist.mjs`・`gen-kdp-memo.mjs`・`kdp-batch.mjs`・`check-kdp-report-freshness.mjs`・`pre-commit-ci-gates.mjs`）が何を読むかを確かめ、epub と jpg を人が使う置き場（Drive vault の `Kindle/`。CI が読むものは private R2）へ移して追跡から外す。txt の KDP 入力メモと json・md は小さいので、置き場を変えるかを参照元に合わせて決める。
-2. 移した先と件数を asset-storage-policy.md の表に書き、参照元のパスを直す。
-
-**完了条件**: `git ls-files scripts/kindle-published` に epub・jpg が無く、KDP の入稿と照合のスクリプトが新しい置き場で動く。
 
 
 ### [DN-1186] 静的生成で 1 ページごとに全記事を走査している分を測り、大きければ直す
