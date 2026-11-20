@@ -1517,7 +1517,7 @@
       "work": "pe-iii-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-iii-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-iii-kakikata/youtube.longform/scene-001",
@@ -1536,7 +1536,21 @@
         "video": "pe-construction/pe-iii-kakikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-iii-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-iii-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-iii-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-01T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-20T12:51:15.722Z",
+          "digest": "0f116d276a64c921968cdc20112744e41487d825423f054242e2432a8d623f5b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-20T12:51:15.722Z",
+        "contentSha256": "ad432fbbdf99c35b3ad628a3a6ec21f91af8124aac76007e17bdda8dbfdd0325"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform",

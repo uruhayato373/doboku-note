@@ -675,7 +675,7 @@
       "work": "hakusho-kadai-erabu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/scene-001",
@@ -694,7 +694,21 @@
         "video": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform",
+      "publishAt": "2026-12-01T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-20T12:51:14.943Z",
+          "digest": "817ba31bd6d1728d219806c0906ce307e25527f907cea1cc05348066df7e4874"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-20T12:51:14.943Z",
+        "contentSha256": "d214e4d4652a8dcfe248fdbda09e76522d8fd4255738936c5e32bd62e8aa8496"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.short.point-medatsu-1",
@@ -819,7 +833,7 @@
       "work": "hakusho-yomu-fukasa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/scene-001",
@@ -838,7 +852,21 @@
         "video": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform",
+      "publishAt": "2026-12-02T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-20T12:51:17.277Z",
+          "digest": "d586f4f8cabce16573bc879305e6c78983a5a70133e6255ad747e165ecc572fa"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-20T12:51:17.277Z",
+        "contentSha256": "1053ab5afbd7c1455655df54f11af509f7b5ae480f8e5852b1fe38d3f02bd9c5"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.short.point-memo-2",
