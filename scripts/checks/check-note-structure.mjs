@@ -56,7 +56,9 @@ function norm(s) {
   // コメントとタグは、消したあとに新しくできた分も残らないよう変わらなくなるまで繰り返す
   let t = String(s);
   for (let prev = null; prev !== t;) { prev = t; t = t.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ''); }
+  // 素テキストの比較用なので、閉じていない `<` も残さない（記号は下で消すのと同じ扱い）
   return t
+    .replace(/</g, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/[#>*`_~|\-]/g, '')
