@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+/**
+ * note-price-sweep.mjs
+ * ---------------------------------------------------------------------------
+ * 1マガジン分の記事 frontmatter `price:` を一括スイープする（note 公開前の単品価格設定）。
+ * note 公開パイプライン Step1（価格スイープ）の確立済みツール。BK マガジンは梱包時 `price: 1980`
+ * で生成されるため、公開前に単品価格（既定 ¥500）へ揃える。
+ *
+ * 設計: frontmatter の price 行のみを行内置換（**CRLF 保持**）。本文・他フィールドは不変。
+ *   既定 dry（変更プレビュー）／--commit で実書き込み。書き込み後は `git add <dir>` → commit は呼び側。
+ *
+ * 使い方:
+ *   node scripts/note/note-price-sweep.mjs --dir <magazineDir>                    # dry（対象と変更件数）
+ *   node scripts/note/note-price-sweep.mjs --dir <magazineDir> --commit           # 実書き込み（既定 1980→500）
+ *   node scripts/note/note-price-sweep.mjs --dir <magazineDir> --from 1980 --to 500 --commit
+ * ---------------------------------------------------------------------------
+ */
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { setArticlePrices } from '../lib/product-registry.mjs';
+
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { listFiles } from '../lib/fs-walk.mjs';
+import { escapeRegExp } from '../lib/regexp-escape.mjs';
+const argv = process.argv.slice(2);
+const getArg = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : d; };
+const DIR = getArg('--dir');
+const FROM = getArg('--from', '1980');
+const TO = getArg('--to', '500');
+const COMMIT = argv.includes('--commit');
+if (!DIR) { console.error('--dir <magazineDir> required'); process.exit(1); }
+const abs = join(ROOT, DIR);
+if (!existsSync(abs)) { console.error('dir not found: ' + abs); process.exit(1); }
+
+// 再帰 walk（globSync は Node22+ のため使わない）。article.md と型別 article-<type>.md の両方を対象。
+const files = listFiles(abs, { match: (_path, name) => /^article(-[^/]+)?\.md$/.test(name) });
+const re = new RegExp(`^(price:[ \\t]*)${escapeRegExp(FROM)}\\b`, 'm');
+const targets = files.filter((f) => re.test(readFileSync(f, 'utf8')));
+const hit = targets.length;
+// 単品価格の正本は config/products.json の articlePrices（frontmatter の price は写し）。両方を同時に書く
+if (COMMIT && hit) setArticlePrices(targets.map((f) => ({ path: relative(ROOT, f), price: Number(TO) })));
+console.log(`[note-price-sweep] ${DIR}: ${files.length} article / price ${FROM}→${TO} 対象 ${hit} 件 ${COMMIT ? '（書込済）' : '（dry・--commit で書込）'}`);
+process.exit(0);

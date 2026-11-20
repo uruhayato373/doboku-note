@@ -5,7 +5,7 @@ description: >
   note 記事の本文末尾（有料記事は有料エリア内）に印刷用 PDF を添付するブラウザ CLI（既定 dry/probe・更新は --commit）。Use when user says "note記事にPDFを添付", "マガジンのPDFが未添付", "/note-attach-pdf".
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
+argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
 domain: product
 ---
 

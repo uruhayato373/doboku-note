@@ -68,7 +68,7 @@ const git = (a) => spawnSync('git', a, { cwd: REPO_ROOT, encoding: 'utf8' });
 const nowIso = () => new Date().toISOString();
 
 function kdpMonthsDue() {
-  const r = spawnSync(process.execPath, ['scripts/kdp-report.mjs', '--list-due'], { cwd: REPO_ROOT, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, ['scripts/kindle/kdp-report.mjs', '--list-due'], { cwd: REPO_ROOT, encoding: 'utf8' });
   if (r.status !== 0) return { months: [], problem: `kdp-report --list-due が exit ${r.status}` };
   return { months: r.stdout.split(/\s+/).filter((m) => /^\d{4}-\d{2}$/.test(m)) };
 }

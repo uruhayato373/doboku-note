@@ -86,7 +86,7 @@ note の**売り場（価格・マガジン・収録・カバー・PDF 添付・
 4. **確認**: 変更対象を親に報告、承認を得る
 5. **実行**: `note-article-price-sweep.mjs ... --price 780 --commit`
 6. **検証**: 変更後の価格を note API で確認
-   - 6b. **境界実査（--allow-boundary-risk 使用時 必須）**: **まず実査、再設定は壊れていた場合のみ**。`npm run check-note-structure` は会社 PC では Node fetch がプロキシで遮断され全件 FETCH_ERR でも exit 0＝偽 PASS になるため、`curl --ssl-no-revoke` でライブ無料本文を取り **ソースの paidBoundary 直前の末尾と末尾一致**で突合する（手順 → note-api-verification.md）。壊れていた記事だけ `node scripts/note-update-body.mjs --list <対象> --commit` で再設定する（無事な記事への本文全文再送は別の事故要因になるので回さない）。
+   - 6b. **境界実査（--allow-boundary-risk 使用時 必須）**: **まず実査、再設定は壊れていた場合のみ**。`npm run check-note-structure` は会社 PC では Node fetch がプロキシで遮断され全件 FETCH_ERR でも exit 0＝偽 PASS になるため、`curl --ssl-no-revoke` でライブ無料本文を取り **ソースの paidBoundary 直前の末尾と末尾一致**で突合する（手順 → note-api-verification.md）。壊れていた記事だけ `node scripts/note/note-update-body.mjs --list <対象> --commit` で再設定する（無事な記事への本文全文再送は別の事故要因になるので回さない）。
      - 2026-07-28 実測: 完全攻略パック 18 本を `--allow-boundary-risk` で ¥500→¥1,980 に変更したが、境界破壊は **18/18 で再現せず**（無料プレビュー末尾が全件一致）。ただし 07-24 の実損 58 本は事実なので**ガードは維持**し、実査は毎回行う。
 7. **正本の確認**: 0 で変えた正本と note のライブが一致することを `npm run verify-note-magazines` と `npm run check-products` で確かめる（`note-magazines.ts` は生成物なので Edit しない）
 
@@ -126,10 +126,10 @@ note の**売り場（価格・マガジン・収録・カバー・PDF 添付・
 
 ## 参照
 
-- `scripts/note-article-price-sweep.mjs` — 価格一括変更
-- `scripts/note-edit-magazine.mjs` — マガジン設定編集
-- `scripts/note-magazine-create.mjs` — マガジン新規作成
-- `scripts/note-magazine-add-articles.mjs` — 記事収録
+- `scripts/note/note-article-price-sweep.mjs` — 価格一括変更
+- `scripts/note/note-edit-magazine.mjs` — マガジン設定編集
+- `scripts/note/note-magazine-create.mjs` — マガジン新規作成
+- `scripts/note/note-magazine-add-articles.mjs` — 記事収録
 - `scripts/checks/verify-note-magazines.mjs` — 同期検証
 - `.claude/knowledge/reference/note-api-verification.md` — note API 仕様・真実源
 - `src/lib/note-magazines.ts` — SoT（マガジン定義）
@@ -142,7 +142,7 @@ note の**売り場（価格・マガジン・収録・カバー・PDF 添付・
 |---|---|---|
 | 届いていない記事の把握（オフライン） | `npm run check-note-delivery-due -- --json` | read-only |
 | 実査（有料エリアはログインしないと見えない） | `npm run check-note-attachments:live` | read-only・575 本で 20〜35 分（2026-09-07 実測。並行して別の Chrome を動かすと延びる） |
-| 添付の復旧 | `node scripts/note-attach-file.mjs --note <id> --file <pdf> --commit` | `--commit` gate |
+| 添付の復旧 | `node scripts/note/note-attach-file.mjs --note <id> --file <pdf> --commit` | `--commit` gate |
 
 - **`--live` は CI に載せられない**（有料エリアの添付カードは未ログイン HTML に出ない）。だから回し忘れを週次レビューの surfacer（`check-note-delivery-due`）で拾う。
 - **note 記事の本文更新は手作業でやらない**（運営者の方針・2026-08-11 明示）。note UI で人が直接編集すると添付カードが消えても記録が残らず、次の live 実査（最大14日後）まで気づけない。更新は必ずスクリプト経由にすることで、失敗も破棄も負債として記録される状態を保つ。

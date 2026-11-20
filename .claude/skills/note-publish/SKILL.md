@@ -9,7 +9,7 @@ argument-hint: "--article <article.md path> [--commit] [--schedule YYYY-MM-DDTHH
 domain: product
 ---
 
-`scripts/note-publish.mjs` を駆動し、note 有料記事を**下書き作成→公開**する。`publish-note`（browser-use=Mac・AIエージェント）の **Windows 決定的 Playwright 版**で、`note-magazine-add` と同じ「システム Chrome（`channel:'chrome'`）＋永続プロファイル（`<auth root>/profiles/playwright-note-profile`）＋proxy＋`ignoreHTTPSErrors`」で会社PCの社内プロキシ（TLS傍受）を越える。
+`scripts/note/note-publish.mjs` を駆動し、note 有料記事を**下書き作成→公開**する。`publish-note`（browser-use=Mac・AIエージェント）の **Windows 決定的 Playwright 版**で、`note-magazine-add` と同じ「システム Chrome（`channel:'chrome'`）＋永続プロファイル（`<auth root>/profiles/playwright-note-profile`）＋proxy＋`ignoreHTTPSErrors`」で会社PCの社内プロキシ（TLS傍受）を越える。
 
 ## いつ使うか / どちらを使うか
 
@@ -33,9 +33,9 @@ CI からの公開・更新（`ops-write.yml`）は廃止した。note への書
 公開できる記事を探すときは、先に `npm run note-unpublished` で未公開の記事と足りないもの（表紙の指定・hashtags・有料の価格と境界）を出す。公開状態の正本は frontmatter の `noteId`・`noteStatus`（content/registry/ は note を持たない）。日付や運営者の判断で止めている記事かは、backlog のカードで確かめる。
 
 ```
-node scripts/note-publish.mjs --article <article.md path>          # 下書き作成のみ（既定・安全）
-node scripts/note-publish.mjs --article <article.md path> --commit # 即時公開（境界検証ゲート付き）
-node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07:00 # 予約投稿（JST）
+node scripts/note/note-publish.mjs --article <article.md path>          # 下書き作成のみ（既定・安全）
+node scripts/note/note-publish.mjs --article <article.md path> --commit # 即時公開（境界検証ゲート付き）
+node scripts/note/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07:00 # 予約投稿（JST）
 ```
 
 - カバー/タグは記事と同じ年度dir の `img/cover-<type>.png` / `hashtags-<type>.txt` を自動解決（`article-II1.md` → `cover-II1.png`/`hashtags-II1.txt`。無ければ `cover.png`/`hashtags.txt`）。
@@ -47,10 +47,10 @@ node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07
 1マガジン分（`article-*.md` 全部）の公開は **`note-publish-magazine`** を使う（1記事ずつ `note-publish --commit` を直列実行・**冪等**〔frontmatter に noteUrl あればskip〕・1記事最大2回試行・失敗で停止→再実行で再開・公開順 R03→R08-yosou × II1→II2→III）。**偽成功ガード（2026-07-01）**: 即時公開分は「noteUrl が書けた」だけで OK とせず、書き戻した noteId が note API で実在するか照合し、確定 404（幻 id）なら fail 停止する（工事82-87 が fail=0 のまま未公開だった再発防止）。**連続投稿スロットル対策（DN-0118・2026-08-22 実測）**: 即時公開31本目以降で「投稿する」が完了しなくなる現象を確認（20分待機で解消）。既定で**25本(`--batch-size`)ごとに20分(`--cooldown-minutes`)自動クールダウン**する（予約投稿時は対象外）。**バッチ完了後は必ず `npm run verify-note-status`**（fm=published↔ライブ404 を検出）で全件確証してから完了報告する。公開前の単品価格揃えは **`note-price-sweep`**（frontmatter `price` を一括スイープ・既定 1980→500・CRLF保持）。
 
 ```
-node scripts/note-price-sweep.mjs --dir <magazineDir> --commit          # Step1: 価格スイープ（→ pathspec commit）
-node scripts/note-publish-magazine.mjs --dir <magazineDir> --commit     # Step2: 18記事を直列公開（→ writeback を pathspec commit）
+node scripts/note/note-price-sweep.mjs --dir <magazineDir> --commit          # Step1: 価格スイープ（→ pathspec commit）
+node scripts/note/note-publish-magazine.mjs --dir <magazineDir> --commit     # Step2: 18記事を直列公開（→ writeback を pathspec commit）
 # 明示リスト＋時間ずらし予約投稿（無料記事16本など）:
-node scripts/note-publish-magazine.mjs --list <manifest.txt> --schedule-start 2026-06-20T07:00 --interval-hours 24 --commit
+node scripts/note/note-publish-magazine.mjs --list <manifest.txt> --schedule-start 2026-06-20T07:00 --interval-hours 24 --commit
 ```
 
 無料記事（`article.md`）や対象を厳密に絞るときは `--pattern article.md` / `--list <manifest.txt>`（1行1パス・# コメント可）。**時間ずらし予約投稿**は `--schedule-start "YYYY-MM-DDTHH:MM"` ＋ `--interval-hours N`（既定24・slot i = start + i×interval・TZ非依存）。長尺（18記事≈25分）なので `run_in_background` ＋ article-1 watcher で早期検証推奨。BK マガジン公開の全体パイプライン（sweep→publish→create→cover→add→attach-pdf→SoT→verify→push）は [[project_pe_construction_bk_magazines]] が真実源。**PDF 添付（`note-attach-pdf`）は 1日100件のアップロード上限あり＝1日最大5マガジン**に注意（記事公開の画像 eyecatch は別枠）。
@@ -80,7 +80,7 @@ note の埋め込み検出は **`keyboard.type`（実入力）で起動し、syn
 
 ## 参照
 
-- `scripts/note-publish.mjs` — 本体
+- `scripts/note/note-publish.mjs` — 本体
 - `.claude/skills/publish-note/` — browser-use 版（Mac・手順の元）。本スキルはその Windows Playwright 版
 - `.claude/skills/note-magazine-add/` — 公開後のマガジン収録（別操作）
 - `.claude/knowledge/reference/note-api-verification.md` — 公開状態の実体検証

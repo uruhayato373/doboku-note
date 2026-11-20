@@ -152,7 +152,7 @@ if (short.length) {
   for (const s of short.slice(0, 30)) console.error(`  ${String(s.n).padStart(3)} タグ  ${s.rel}`);
   if (short.length > 30) console.error(`  … 他 ${short.length - 30} 件`);
   console.error('\n対処: ソースの hashtags*.txt との差分をライブへ追加する（本文・有料境界は触らない）:');
-  console.error('  node scripts/note-sync-tags.mjs --list <対象リスト> --commit');
+  console.error('  node scripts/note/note-sync-tags.mjs --list <対象リスト> --commit');
   console.error(`\n注: ソース側の不足は別ゲート（npm run check-note-hashtags）が見る。本ゲートは live 専用。`);
   console.error('  構造的にライブへ入らない記事（メンバーシップ等）は allowlist に理由つきで登録する。');
   process.exit(1);

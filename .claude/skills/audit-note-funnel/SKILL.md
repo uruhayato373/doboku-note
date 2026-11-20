@@ -61,9 +61,9 @@ npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 | `note-funnel-auditor` エージェント | 意味的監査（Evaluator） |
 | `scripts/checks/audit-note-funnel.mjs` | 機械監査（D1-D4 ソース ＋ `--live` で D5 ライブ反映） |
 | `scripts/wire-note-funnel-cta.mjs` | L3 CTA をソースへ冪等配線 |
-| `scripts/note-append-cta.mjs`（`npm run note-append-cta`） | 公開済み記事へ CTA を live 反映（D5 修復・Windows 可・通知いいえ） |
-| `scripts/note-append-list-links.mjs`（`npm run note-append-list-links`） | 公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加（D2 ライブ反映・spec JSON 駆動・insertAdjacentHTML 方式） |
-| `scripts/note-update-partial.mjs`（`npm run note-update-partial`） | 公開済み記事の語句・カード・節順を限定更新（select-all 禁止・PDF 添付不変条件・dry-run は read-only） |
+| `scripts/note/note-append-cta.mjs`（`npm run note-append-cta`） | 公開済み記事へ CTA を live 反映（D5 修復・Windows 可・通知いいえ） |
+| `scripts/note/note-append-list-links.mjs`（`npm run note-append-list-links`） | 公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加（D2 ライブ反映・spec JSON 駆動・insertAdjacentHTML 方式） |
+| `scripts/note/note-update-partial.mjs`（`npm run note-update-partial`） | 公開済み記事の語句・カード・節順を限定更新（select-all 禁止・PDF 添付不変条件・dry-run は read-only） |
 | `config/note-funnel.json` | L1/L2 レジストリ・CTA 文面の機械可読 SSOT |
 | `publish-note` スキル | 公開・更新（L2 もくじ／記事の live 反映） |
 | `verify-note-magazines` | マガジン URL/価格/公開状態の突合 |

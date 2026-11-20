@@ -1,7 +1,7 @@
 name: YouTube own-channel metrics (monthly)
 
 # 自社 YouTube の動画別の再生数・尺（台帳 youtube.own-videos）を毎月 1 日に取り、前回比が取り忘れで切れないようにする（DN-0596）。
-# 実装: scripts/youtube-own-metrics.mjs（yt-dlp のチャンネル一覧を読むだけ。動画の再生用 API と映像は使わない）。
+# 実装: scripts/youtube/youtube-own-metrics.mjs（yt-dlp のチャンネル一覧を読むだけ。動画の再生用 API と映像は使わない）。
 # exit: 0 取得成功 / 1 取得失敗 / 2 検査不成立（動画はあるのに再生数が 1 本も取れない。記録は書かない）。Issue channel: youtube-own-metrics
 # 鮮度の検査: scripts/checks/check-youtube-own-freshness.mjs（quality-audit の ops・日次の ops-audit が読む）。
 #
@@ -85,7 +85,7 @@ jobs:
           set +e
           args=""
           if [ "$DRY_RUN" = "true" ]; then args="--dry-run"; fi
-          node scripts/youtube-own-metrics.mjs $args 2>&1 | tee "$RUNNER_TEMP/yt-own.log"
+          node scripts/youtube/youtube-own-metrics.mjs $args 2>&1 | tee "$RUNNER_TEMP/yt-own.log"
           echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
 
       # 取得が失敗した run では書いたファイルが無い。ci-data は無いパスを飛ばすので「取得失敗」が「publish 失敗」に見えない

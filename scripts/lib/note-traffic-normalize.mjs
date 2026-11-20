@@ -1,7 +1,7 @@
 /**
  * note-traffic-normalize.mjs — note ダッシュボード「アクセス状況」の innerText を機械可読へ正規化する純関数群。
  *
- * 取得（Playwright）は scripts/note-traffic-fetch.mjs が担う。ここは文字列→JSON の変換だけで、
+ * 取得（Playwright）は scripts/note/note-traffic-fetch.mjs が担う。ここは文字列→JSON の変換だけで、
  * テスト（tests/note-traffic-normalize.test.mjs）が fixture（tests/fixtures/note-dashboard-*.txt）で契約を固定する。
  *
  * ダッシュボードの構造（2026-09-15 実測・Mac）:

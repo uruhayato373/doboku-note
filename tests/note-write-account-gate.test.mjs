@@ -25,8 +25,8 @@ const DISCARDED = /^\s*await assertAccountGate\(/m;
 
 for (const name of WRITERS) {
   test(`${name} はアカウント確認の結果を見て、失敗したら止まる`, () => {
-    const src = readFileSync(join(REPO_ROOT, 'scripts', name), 'utf8');
-    assert.match(src, /import \{[^}]*assertAccountGate[^}]*\} from '\.\/lib\/note-browser\.mjs'/, 'assertAccountGate を import していない');
+    const src = readFileSync(join(REPO_ROOT, 'scripts', 'note', name), 'utf8');
+    assert.match(src, /import \{[^}]*assertAccountGate[^}]*\} from '\.\.\/lib\/note-browser\.mjs'/, 'assertAccountGate を import していない');
     assert.ok(ASSIGNED_AND_CHECKED.test(src) || INLINE_CHECKED.test(src), 'assertAccountGate の結果（ok）を見ていない＝別アカウントでも先へ進む');
     assert.equal(src.match(DISCARDED), null, '結果を捨てている assertAccountGate の呼び出しがある');
   });

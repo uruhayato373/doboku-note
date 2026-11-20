@@ -6,7 +6,7 @@ metadata:
 ---
 note 記事 frontmatter の `noteStatus` が「公開済みなのに draft」のままドリフトする問題の原因と恒久対策（2026-06-21 実装）。
 
-**原因**: `scripts/note-publish.mjs` の writeBack は元々 `noteUrl`/`noteId`/`notePublishedAt` のみを書き戻し、`noteStatus` は対象外だった。さらに予約投稿は go-live が note サーバ側で後刻に起きるためローカル書戻しの機会が無い。**実シグナルは「noteUrl 非空 OR noteStatus に publish」の OR**（note-lint.mjs / scripts/checks/check-note-3set.mjs）なので、noteUrl さえ入れば機能は壊れず、noteStatus の嘘は赤くならない＝検知されず放置される（2026-06-21、建設部門 無料入口16本で実害化）。
+**原因**: `scripts/note/note-publish.mjs` の writeBack は元々 `noteUrl`/`noteId`/`notePublishedAt` のみを書き戻し、`noteStatus` は対象外だった。さらに予約投稿は go-live が note サーバ側で後刻に起きるためローカル書戻しの機会が無い。**実シグナルは「noteUrl 非空 OR noteStatus に publish」の OR**（note-lint.mjs / scripts/checks/check-note-3set.mjs）なので、noteUrl さえ入れば機能は壊れず、noteStatus の嘘は赤くならない＝検知されず放置される（2026-06-21、建設部門 無料入口16本で実害化）。
 
 **対策**:
 - writeBack に noteStatus 行追加（即時=published / 予約=reserved）。

@@ -2,7 +2,7 @@
 /**
  * check-note-sync.mjs — note の公開記事が原稿どおりに反映済みかを記事単位で判定する（読み取りだけ）。
  * ---------------------------------------------------------------------------
- * CI の note-sync-live.yml が週次で回す。反映は Mac の週次（scripts/note-sync-routine.mjs）の担当で、
+ * CI の note-sync-live.yml が週次で回す。反映は Mac の週次（scripts/note/note-sync-routine.mjs）の担当で、
  * どちらも scripts/lib/note-sync-plan.mjs（記事ごとの反映計画）と scripts/lib/note-cover-live.mjs（カバー）の同じ判定を使う。
  *
  * 見るもの:

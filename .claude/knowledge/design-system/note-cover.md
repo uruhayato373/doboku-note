@@ -124,7 +124,7 @@ npm run check-note-cover-fit      # CI/手動（0件必須）。pre-commit は -
 
 ## ライブ反映（公開後の stale カバー解消）
 
-公開済みの記事・マガジンのカバーは、土曜の Mac 収集の後段（`note-sync` 段・`scripts/note-sync-routine.mjs`）が記事単位の同期（本文・カバー・タグの未反映分を 1 記事 1 回の更新で反映）の中で差し替える。カバーの要否（カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった）は再公開台帳 `.claude/state/note-republish-hashes.json` の `coverHashes` × note の公開 API で決め、土曜の収集の `note-sync-check` 段と同じ判定。全体は [note-cover-character-v5.md](note-cover-character-v5.md)「全件生成と差し替えの境界」。下は 1 本だけ手で差し替えるとき（記録は API で確かめてから台帳へ入る）。
+公開済みの記事・マガジンのカバーは、土曜の Mac 収集の後段（`note-sync` 段・`scripts/note/note-sync-routine.mjs`）が記事単位の同期（本文・カバー・タグの未反映分を 1 記事 1 回の更新で反映）の中で差し替える。カバーの要否（カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった）は再公開台帳 `.claude/state/note-republish-hashes.json` の `coverHashes` × note の公開 API で決め、土曜の収集の `note-sync-check` 段と同じ判定。全体は [note-cover-character-v5.md](note-cover-character-v5.md)「全件生成と差し替えの境界」。下は 1 本だけ手で差し替えるとき（記録は API で確かめてから台帳へ入る）。
 
 ```bash
 # DRY（差し替え load 確認まで・保存しない）
@@ -144,7 +144,7 @@ npm run note-update-body -- --parts cover --list .tmp/list.txt --commit
 
 - **仕様 SSOT**: [`note-cover-character-v5.md`](note-cover-character-v5.md)「表示面と文言フィールド」 ／ 値: [`note-cover-tokens.json`](note-cover-tokens.json) `layout.cropSafeV4`
 - **状態**: **全量移行済み・V4 が既定**（2026-07-24〜25: パイロット 6/6 合格 → 全 715 記事＋46 マガジンを V4 化・G2 残 0 → note.com ライブ反映 702/706＋36/36 誌完了）。本ファイルの G2 記述はレガシー仕様の記録（新規に G2 を書かない）
-- 検証: `npm run check-note-cover-fit`（V4 は 590px フィットをエラー検査）／ 6 表示面プレビュー `node scripts/note-cover-gallery.mjs --crops`
+- 検証: `npm run check-note-cover-fit`（V4 は 590px フィットをエラー検査）／ 6 表示面プレビュー `node scripts/note/note-cover-gallery.mjs --crops`
 
 ## 関連
 

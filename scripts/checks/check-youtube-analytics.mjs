@@ -6,7 +6,7 @@ import { schemaOf } from '../lib/dataset-validate.mjs';
 import { freshnessDays, resolveDataset } from '../lib/datasets.mjs';
 import { youtubePublications } from '../lib/registry-youtube-view.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
-import { analyticsTargets, reportPeriod } from '../youtube-analytics.mjs';
+import { analyticsTargets, reportPeriod } from '../youtube/youtube-analytics.mjs';
 import { isCliEntry } from '../lib/cli-run.mjs';
 
 export function checkAnalyticsSnapshot(snapshot, targets, { channelId, now = Date.now(), maxAgeDays = freshnessDays('youtube.analytics', 'warnDays') }) {

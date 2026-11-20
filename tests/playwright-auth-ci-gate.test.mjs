@@ -51,8 +51,8 @@ test('CI は自動検出され、profile・state・ディレクトリ作成の�
     for (const env of [CI_ENV, { CI: 'true' }]) {
       const options = base(dir, { env });
       assert.throws(() => resolveAuthRoot(options), /AUTH_CI_NO_LOGIN/);
-      assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /AUTH_CI_NO_LOGIN/);
-      assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note-publish.mjs' }), /AUTH_CI_NO_LOGIN/);
+      assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note/note-sales-fetch.mjs' }), /AUTH_CI_NO_LOGIN/);
+      assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note/note-publish.mjs' }), /AUTH_CI_NO_LOGIN/);
       assert.throws(() => ensureAuthDirectories('note', options), /AUTH_CI_NO_LOGIN/);
     }
     // isCI の明示でも同じ（呼び出し側が env を渡し忘れても、isCI を渡せば拒否される）
@@ -70,14 +70,14 @@ test('エージェントのセッション: collectors の script は拒否・wr
   try {
     const options = base(dir, { env: AGENT_ENV });
     const profile = join(dir, 'profiles', 'playwright-note-profile');
-    assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
-    assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note-traffic-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
+    assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note/note-sales-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
+    assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note/note-traffic-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
     assert.throws(() => ensureAuthDirectories('note', { ...options, invokedScript: 'scripts/checks/check-note-attachments.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
     assert.equal(existsSync(profile), false, '拒否時はディレクトリを作らない');
     // 拒否の文言は「記録済みのデータを読む」「運営者が weekly-collect --only で取り直す」を案内する
-    assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /記録済みのデータ.*weekly-collect\.mjs --only/s);
+    assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note/note-sales-fetch.mjs' }), /記録済みのデータ.*weekly-collect\.mjs --only/s);
     // writers（運営者の依頼で行う投稿・編集）
-    assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-publish.mjs' }), profile);
+    assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/note/note-publish.mjs' }), profile);
     assert.equal(resolveProfileDir('x', { ...options, invokedScript: 'scripts/publish-x/publish-x.ts' }), join(dir, 'profiles', 'playwright-x-profile'));
     // 未登録（認証 CLI 自身・その他）
     assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/playwright-auth.mjs' }), profile);
@@ -88,7 +88,7 @@ test('エージェントのセッション: collectors の script は拒否・wr
 test('エージェントのセッションでも DOBOKU_WEEKLY_COLLECT=1（土曜の Mac 収集）なら collectors を通す', () => {
   const dir = tmp('doboku-weekly-');
   try {
-    const options = base(dir, { env: { ...AGENT_ENV, [WEEKLY_COLLECT_ENV]: '1' }, invokedScript: 'scripts/note-sales-fetch.mjs' });
+    const options = base(dir, { env: { ...AGENT_ENV, [WEEKLY_COLLECT_ENV]: '1' }, invokedScript: 'scripts/note/note-sales-fetch.mjs' });
     assert.equal(resolveProfileDir('note', options), join(dir, 'profiles', 'playwright-note-profile'));
     // 1 以外では通さない
     assert.throws(() => resolveProfileDir('note', { ...options, env: { ...AGENT_ENV, [WEEKLY_COLLECT_ENV]: '0' } }), /AUTH_AGENT_COLLECT_REFUSED/);
@@ -100,7 +100,7 @@ test('エージェントのセッションでも DOBOKU_WEEKLY_COLLECT=1（土�
 test('エージェントでもコレクタ判定は起動 script だけで決まる（人の端末は何も見ない）', () => {
   const dir = tmp('doboku-local-');
   try {
-    const local = base(dir, { invokedScript: 'scripts/note-sales-fetch.mjs' });
+    const local = base(dir, { invokedScript: 'scripts/note/note-sales-fetch.mjs' });
     assert.equal(resolveProfileDir('note', local), join(dir, 'profiles', 'playwright-note-profile'));
     assert.equal(assertLoginProfileAllowed('note', { collectors: ['scripts/a.mjs'] }, { env: {}, invokedScript: 'scripts/a.mjs' }).kind, 'local');
     assert.equal(assertLoginProfileAllowed('note', { collectors: ['scripts/a.mjs'] }, { env: AGENT_ENV, invokedScript: 'scripts/b.mjs' }).kind, 'agent-unlisted');
@@ -122,13 +122,13 @@ test('validateServiceScripts: 不正な collectors / writers を拒否する', (
   bad({ collectors: ['/abs/path.mjs'] }, /repo-relative/);
   bad({ writers: ['scripts\\w.mjs'] }, /repo-relative/);
   bad({ collectors: [''] }, /non-empty/);
-  bad({ collectors: ['scripts/note-publish.mjs'] }, /write 系動詞/);
-  bad({ collectors: ['scripts/coconala-edit.mjs'] }, /write 系動詞/);
+  bad({ collectors: ['scripts/note/note-publish.mjs'] }, /write 系動詞/);
+  bad({ collectors: ['scripts/coconala/coconala-edit.mjs'] }, /write 系動詞/);
   assert.throws(() => validateServiceScripts('svc', { collectors: [] }, { required: true }), /writers が無い/);
   // 旧版・fixture（キー自体が無い）は required でなければ通る
   assert.equal(validateServiceScripts('svc', {}), true);
-  assert.equal(looksLikeWriteScript('scripts/note-sales-fetch.mjs'), false);
-  assert.equal(looksLikeWriteScript('scripts/note-update-body.mjs'), true);
+  assert.equal(looksLikeWriteScript('scripts/note/note-sales-fetch.mjs'), false);
+  assert.equal(looksLikeWriteScript('scripts/note/note-update-body.mjs'), true);
 });
 
 test('loadAuthRegistry: version 3 は collectors / writers が必須・write 系 collectors は拒否', () => {
@@ -138,10 +138,10 @@ test('loadAuthRegistry: version 3 は collectors / writers が必須・write 系
     const svc = (extra) => ({ profileDirName: 'p', stateFileName: null, sessionMode: 'profile', ...extra });
     writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({}) } }));
     assert.throws(() => loadAuthRegistry({ cwd: dir, registryPath: path }), /AUTH_REGISTRY_INVALID_SCRIPTS/);
-    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({ collectors: ['scripts/note-publish.mjs'], writers: [] }) } }));
+    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({ collectors: ['scripts/note/note-publish.mjs'], writers: [] }) } }));
     assert.throws(() => loadAuthRegistry({ cwd: dir, registryPath: path }), /write 系動詞/);
-    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({ collectors: ['scripts/note-sales-fetch.mjs'], writers: ['scripts/note-publish.mjs'] }) } }));
-    assert.deepEqual(loadAuthRegistry({ cwd: dir, registryPath: path }).services.note.collectors, ['scripts/note-sales-fetch.mjs']);
+    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({ collectors: ['scripts/note/note-sales-fetch.mjs'], writers: ['scripts/note/note-publish.mjs'] }) } }));
+    assert.deepEqual(loadAuthRegistry({ cwd: dir, registryPath: path }).services.note.collectors, ['scripts/note/note-sales-fetch.mjs']);
     writeFileSync(path, JSON.stringify({ version: 1, services: { note: svc({}) } }));
     assert.equal(loadAuthRegistry({ cwd: dir, registryPath: path }).services.note.profileDirName, 'p');
   } finally { rmSync(dir, { recursive: true, force: true }); }
@@ -170,7 +170,7 @@ test('checkAuthScriptLists: 存在しない script と write 系の collectors �
 });
 
 test('scanWorkflowForLogin: DOBOKU_AUTH_・restore-auth-state・ci-* 復元・login script の起動を検出する', () => {
-  const ctx = { loginScripts: ['scripts/note-sales-fetch.mjs', 'scripts/publish-x/publish-x.ts'], npmNames: ['note-sales-fetch'] };
+  const ctx = { loginScripts: ['scripts/note/note-sales-fetch.mjs', 'scripts/publish-x/publish-x.ts'], npmNames: ['note-sales-fetch'] };
   const scan = (text) => scanWorkflowForLogin(text, 'w.yml', ctx);
 
   assert.deepEqual(scan('steps:\n  - run: node scripts/ci-data.mjs add\n'), []);
@@ -181,20 +181,20 @@ test('scanWorkflowForLogin: DOBOKU_AUTH_・restore-auth-state・ci-* 復元・lo
 
   assert.match(scan('  - uses: ./.github/actions/restore-auth-state\n')[0], /restore-auth-state/);
   assert.match(scan('  - run: node scripts/playwright-auth.mjs ci-plan --event schedule\n')[0], /playwright-auth\.mjs ci-/);
-  assert.match(scan('  - run: node scripts/note-sales-fetch.mjs --month 2026-10\n')[0], /note-sales-fetch\.mjs/);
+  assert.match(scan('  - run: node scripts/note/note-sales-fetch.mjs --month 2026-10\n')[0], /note-sales-fetch\.mjs/);
   assert.match(scan('  - run: npx tsx scripts/publish-x/publish-x.ts post\n')[0], /publish-x\.ts/);
   assert.match(scan('  - run: npm run note-sales-fetch -- --month 2026-10\n')[0], /npm run note-sales-fetch/);
   // 前方一致で別の npm script を誤検出しない
   assert.deepEqual(scan('  - run: npm run note-sales-fetch-check\n'), []);
   // YAML のコメント・echo の案内文は実行ではないので script の起動に数えない（DOBOKU_AUTH_ は数える）
-  assert.deepEqual(scan('  # node scripts/note-sales-fetch.mjs は Mac で回す\n  - run: echo "npm run note-sales-fetch"\n'), []);
+  assert.deepEqual(scan('  # node scripts/note/note-sales-fetch.mjs は Mac で回す\n  - run: echo "npm run note-sales-fetch"\n'), []);
   assert.equal(scan('  # DOBOKU_AUTH_ROOT は使わない\n').length, 1);
   // Windows の改行でも行番号が合う
   assert.match(scan('a: 1\r\nDOBOKU_AUTH_X: 1\r\n')[0], /^w\.yml:2 /);
 });
 
 test('npmScriptsInvokingLogin: login script を呼ぶ npm script の名前を返す', () => {
-  const names = npmScriptsInvokingLogin({ a: 'node scripts/note-sales-fetch.mjs', b: 'node scripts/other.mjs', c: 'echo hi' }, ['scripts/note-sales-fetch.mjs']);
+  const names = npmScriptsInvokingLogin({ a: 'node scripts/note/note-sales-fetch.mjs', b: 'node scripts/other.mjs', c: 'echo hi' }, ['scripts/note/note-sales-fetch.mjs']);
   assert.deepEqual(names, ['a']);
 });
 

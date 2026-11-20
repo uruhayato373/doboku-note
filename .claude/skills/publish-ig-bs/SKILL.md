@@ -14,7 +14,7 @@ Playwright で Business Suite（business.facebook.com）のコンポーザを自
 
 ## 実行する場所（2026-10-24〜）
 
-CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営者の依頼を受けたセッションが運営者の Mac の永続 profile で行う（SNS 保留中は `DOBOKU_SNS_PAUSED=1` に従う）。公式 API の `scripts/ig-graph-publish.mjs` は使わない方針（Meta の利用制限）。ログインが切れていたら、運営者が `npm run auth:login -- --service instagram` で入り直す（セッションから資格情報でログインしない）。予約スロットの実体確認（プランナー月ビュー）もローカル。
+CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営者の依頼を受けたセッションが運営者の Mac の永続 profile で行う（SNS 保留中は `DOBOKU_SNS_PAUSED=1` に従う）。公式 API の `scripts/instagram/ig-graph-publish.mjs` は使わない方針（Meta の利用制限）。ログインが切れていたら、運営者が `npm run auth:login -- --service instagram` で入り直す（セッションから資格情報でログインしない）。予約スロットの実体確認（プランナー月ビュー）もローカル。
 
 ## 既存予約・公開済み投稿を改修するとき
 

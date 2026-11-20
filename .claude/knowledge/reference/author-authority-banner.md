@@ -18,7 +18,7 @@ title: 著者オーソリティ 汎用バナー 運用ポリシー
 | `content/note/共通/著者オーソリティ/img/figure-author-authority-concrete-pop.png` | コンクリート3資格用のキャラクターPOP版（1280×1280・紫主色・3本柱の3つ目は「主任技士・診断士｜当事者性」）。記録は同階層の `pop-image-concrete.json`（2026-10-04） |
 | `scripts/render-note-author-authority.mjs` | キーアート＋コピー合成。`--variant civil\|concrete` で対象切替（`node scripts/render-note-author-authority.mjs --variant concrete` で再生成） |
 | `scripts/distribute-author-authority-banner.mjs` | 各 note 商品 article.md へ画像配布＋top/bottom 挿入（冪等）。`--exam civil\|concrete`／`--migrate` 対応 |
-| `scripts/note-swap-author-banner.mjs` | 既公開記事のライブ反映（バナー画像＋説明文2段落のみ差替。全文置換はしない） |
+| `scripts/note/note-swap-author-banner.mjs` | 既公開記事のライブ反映（バナー画像＋説明文2段落のみ差替。全文置換はしない） |
 
 > [!note] 各記事の `img/figure-author-authority*.png` は git 追跡しない（2026-09-05）
 > 原本は上表の `共通/著者オーソリティ/img/` の 2 ファイルだけを追跡し、記事ごとの複製（247 本）は `.gitignore` で除外する（cover*.png と同じ扱い。正方形再設計で 197 本が一斉差分＝約 60MB の履歴肥大になるため）。手元に無ければ `node scripts/distribute-author-authority-banner.mjs --migrate`（civil）／`--exam concrete --all` で再複製する。

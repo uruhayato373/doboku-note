@@ -12,30 +12,30 @@
       "interactiveLoginRequired": true,
       "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。売上ページは購入者一覧のパスワード再確認があり、note-reauth が資格情報ストアの ID/PW で 1 回通す。",
       "collectors": [
-        "scripts/note-sales-fetch.mjs",
-        "scripts/note-traffic-fetch.mjs",
+        "scripts/note/note-sales-fetch.mjs",
+        "scripts/note/note-traffic-fetch.mjs",
         "scripts/checks/check-note-attachments.mjs",
-        "scripts/note-account-name.mjs",
+        "scripts/note/note-account-name.mjs",
         "scripts/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/note-publish.mjs",
-        "scripts/note-publish-discover.mjs",
-        "scripts/note-update-body.mjs",
-        "scripts/note-update-partial.mjs",
-        "scripts/note-sync-tags.mjs",
-        "scripts/note-article-price-sweep.mjs",
-        "scripts/note-magazine-create.mjs",
-        "scripts/note-magazine-add-articles.mjs",
-        "scripts/note-magazine-cover.mjs",
-        "scripts/note-edit-magazine.mjs",
-        "scripts/note-attach-file.mjs",
-        "scripts/note-append-cta.mjs",
-        "scripts/note-append-list-links.mjs",
-        "scripts/note-comment-reply.mjs",
-        "scripts/note-convert-to-paid.mjs",
-        "scripts/note-swap-author-banner.mjs",
-        "scripts/note-reanchor-boundary.mjs"
+        "scripts/note/note-publish.mjs",
+        "scripts/note/note-publish-discover.mjs",
+        "scripts/note/note-update-body.mjs",
+        "scripts/note/note-update-partial.mjs",
+        "scripts/note/note-sync-tags.mjs",
+        "scripts/note/note-article-price-sweep.mjs",
+        "scripts/note/note-magazine-create.mjs",
+        "scripts/note/note-magazine-add-articles.mjs",
+        "scripts/note/note-magazine-cover.mjs",
+        "scripts/note/note-edit-magazine.mjs",
+        "scripts/note/note-attach-file.mjs",
+        "scripts/note/note-append-cta.mjs",
+        "scripts/note/note-append-list-links.mjs",
+        "scripts/note/note-comment-reply.mjs",
+        "scripts/note/note-convert-to-paid.mjs",
+        "scripts/note/note-swap-author-banner.mjs",
+        "scripts/note/note-reanchor-boundary.mjs"
       ],
       "credential": {
         "label": "note",
@@ -58,24 +58,24 @@
       "interactiveLoginRequired": true,
       "notes": "sellerName: dobokunote の本文一致 assert あり。ココナラは hosted runner からの接続を 403 で返す（2026-10-13・DN-0667）。取得は土曜の Mac 収集（weekly-collect）で行う。",
       "collectors": [
-        "scripts/coconala-orders.mjs",
-        "scripts/coconala-analytics.mjs",
-        "scripts/coconala-revenue.mjs",
+        "scripts/coconala/coconala-orders.mjs",
+        "scripts/coconala/coconala-analytics.mjs",
+        "scripts/coconala/coconala-revenue.mjs",
         "scripts/checks/check-coconala-analytics.mjs",
         "scripts/checks/check-coconala-blog.mjs",
-        "scripts/coconala-discover.mjs",
+        "scripts/coconala/coconala-discover.mjs",
         "scripts/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-pause.mjs",
-        "scripts/coconala-profile.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/coconala-delete-draft.mjs",
-        "scripts/coconala-blog-publish.mjs",
-        "scripts/coconala-blog-delete-draft.mjs",
-        "scripts/coconala-rate-buyer.mjs"
+        "scripts/coconala/coconala-publish.mjs",
+        "scripts/coconala/coconala-edit.mjs",
+        "scripts/coconala/coconala-pause.mjs",
+        "scripts/coconala/coconala-profile.mjs",
+        "scripts/coconala/coconala-thumb.mjs",
+        "scripts/coconala/coconala-delete-draft.mjs",
+        "scripts/coconala/coconala-blog-publish.mjs",
+        "scripts/coconala/coconala-blog-delete-draft.mjs",
+        "scripts/coconala/coconala-rate-buyer.mjs"
       ],
       "credential": {
         "label": "ココナラ",
@@ -98,11 +98,11 @@
       "interactiveLoginRequired": true,
       "notes": "専用 account config JSON は無し。Amazon は端末変更で再認証を求め、2 段階認証・CAPTCHA でも止まる（2026-09-21・2026-10-16 に自動ログインが止まった・DN-0480）。取得は土曜の Mac 収集（weekly-collect）で行い、切れたら人が入り直す。",
       "collectors": [
-        "scripts/kdp-report.mjs",
+        "scripts/kindle/kdp-report.mjs",
         "scripts/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/kdp-publish.mjs"
+        "scripts/kindle/kdp-publish.mjs"
       ],
       "credential": {
         "label": "Amazon KDP",
@@ -125,15 +125,15 @@
       "interactiveLoginRequired": true,
       "notes": "x.com は datacenter IP からボット確認の挑戦ページになる（2026-09-21）ため、読み取り・投稿とも運営者の Mac で行う。",
       "collectors": [
-        "scripts/x-own-metrics.mjs",
-        "scripts/x-sync-status.mjs",
+        "scripts/x/x-own-metrics.mjs",
+        "scripts/x/x-sync-status.mjs",
         "scripts/x-repost/x-repost-discover.ts"
       ],
       "writers": [
           "scripts/publish-x/publish-x.ts",
         "scripts/x-repost/x-repost-exec.ts",
-        "scripts/x-article-publish.mjs",
-        "scripts/x-thread-replies.mjs"
+        "scripts/x/x-article-publish.mjs",
+        "scripts/x/x-thread-replies.mjs"
       ],
       "credential": {
         "label": "X",

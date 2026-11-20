@@ -78,7 +78,7 @@ interface TweetBlock {
                          // X ネイティブ予約はスレッド非対応（2026-07-14 実機プローブ:
                          // tweetTextarea_1 追加で scheduleOption が aria-disabled=true）。
                          // → 即時投稿は composer で全部組んで一括投稿、予約はヘッドのみ予約し
-                         //   リプライは scripts/x-thread-replies.mjs が予約時刻経過後にぶら下げる。
+                         //   リプライは scripts/x/x-thread-replies.mjs が予約時刻経過後にぶら下げる。
 }
 
 function parseTweetMd(draftDir: string): TweetBlock[] {
@@ -551,7 +551,7 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
       console.log(`🧵 head-only: ヘッド投稿後、リプライ${tweet.threadParts.length}本を x-thread-replies へ引き継ぎます`);
     } else if (scheduledDate) {
       console.log(`🧵 スレッド ${tweet.threadParts.length} 本のリプライは X 予約非対応のためヘッドのみ予約します`);
-      console.log(`   予約時刻の経過後に: node scripts/x-thread-replies.mjs --run`);
+      console.log(`   予約時刻の経過後に: node scripts/x/x-thread-replies.mjs --run`);
     } else {
       for (let p = 0; p < tweet.threadParts.length; p++) {
         const part = tweet.threadParts[p];

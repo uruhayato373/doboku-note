@@ -362,7 +362,7 @@
     ]
   },
   "coconala": {
-    "_note": "ココナラ(coconala.com) 競合セラー一覧。scripts/coconala-research.mjs --competitors が読む。handle = coconala.com/users/{handle} の {handle}（数値ID or slug・P1 probe で確定）。exams は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。自社出品 SoT の src/lib/coconala-services.ts・投入設定 coconala-listings.json とは責務が別（あちらは自社・こちらは競合）。取得は公開ページ read-only・低頻度（数ヶ月に1度・operations.md §2.3）・外部誘導しない。生市場データは data/coconala/market-{summary,research}.json（クエリ中心）にも別途あり。分析真実源は 09_販売チャネル競合分析.md。",
+    "_note": "ココナラ(coconala.com) 競合セラー一覧。scripts/coconala/coconala-research.mjs --competitors が読む。handle = coconala.com/users/{handle} の {handle}（数値ID or slug・P1 probe で確定）。exams は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。自社出品 SoT の src/lib/coconala-services.ts・投入設定 coconala-listings.json とは責務が別（あちらは自社・こちらは競合）。取得は公開ページ read-only・低頻度（数ヶ月に1度・operations.md §2.3）・外部誘導しない。生市場データは data/coconala/market-{summary,research}.json（クエリ中心）にも別途あり。分析真実源は 09_販売チャネル競合分析.md。",
     "competitors": [
       {
         "handle": "2442601",

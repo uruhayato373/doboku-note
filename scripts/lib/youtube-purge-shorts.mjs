@@ -1,6 +1,6 @@
 // youtube-purge-shorts.mjs — チャンネルに残る古い非公開ショートを消す対象の判定（純関数）。
 // 2026-11-10: 運営者が、旧工程のショートを消してから新しい通常動画の派生として企画し直すと決めた。
-// 実際の API 呼び出しは scripts/youtube-purge-shorts.mjs。リポジトリは公開なので、非公開動画の ID・題名はログへ出さない。
+// 実際の API 呼び出しは scripts/youtube/youtube-purge-shorts.mjs。リポジトリは公開なので、非公開動画の ID・題名はログへ出さない。
 import { createHash } from 'node:crypto';
 import { durationSeconds } from './youtube-migration.mjs';
 

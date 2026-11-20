@@ -29,7 +29,7 @@ jobs:
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - name: Validate and update eleven existing YouTube schedules
         run: |
-          node scripts/youtube-reschedule-batch.mjs --plan content/sns/youtube/schedule-plans/2026-10-28-three-per-day.json --commit
+          node scripts/youtube/youtube-reschedule-batch.mjs --plan content/sns/youtube/schedule-plans/2026-10-28-three-per-day.json --commit
           npm run check-content-registry
       - name: Preserve YouTube read-back in develop
         if: always()

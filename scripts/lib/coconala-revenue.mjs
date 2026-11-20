@@ -1,6 +1,6 @@
 /**
  * coconala-revenue.mjs — ココナラ「売上管理・振込申請」（/mypage/revenue）の本文から売上履歴を読む（純関数）。
- * 読み手: scripts/coconala-revenue.mjs・tests/coconala-revenue.test.mjs。
+ * 読み手: scripts/coconala/coconala-revenue.mjs・tests/coconala-revenue.test.mjs。
  *
  * 画面の形（2026-10-11 実画面）:
  *   売上実績 → サービス → 今月の売上 / N 円 → 累積売上 / N 円 → （ブログの累積売上）

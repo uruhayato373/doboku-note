@@ -9,8 +9,8 @@
 ## 運用
 
 ```bash
-node scripts/coconala-blog-publish.mjs --post <slug>            # 下書き（既定）
-node scripts/coconala-blog-publish.mjs --post <slug> --commit   # 公開
+node scripts/coconala/coconala-blog-publish.mjs --post <slug>            # 下書き（既定）
+node scripts/coconala/coconala-blog-publish.mjs --post <slug> --commit   # 公開
 npm run check-coconala-blog                                      # ハードゲート＋ドリフト
 npm run scout-coconala-blogs                                     # 競合偵察（四半期）
 ```

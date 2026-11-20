@@ -9,13 +9,13 @@ argument-hint: "--dir <magazineDir> [--commit] [--allow-duplicate]"
 domain: product
 ---
 
-`scripts/note-magazine-create.mjs` を駆動し、note 有料マガジンを **`note掲載文.txt` 駆動**で新規作成する。`note-edit-magazine`（既存マガジンの設定編集）・`note-magazine-add`（記事の収録）と役割分離。Playwright × システム Chrome（`channel:'chrome'`＋永続プロファイル＋proxy＋ignoreHTTPSErrors、Windows可）。
+`scripts/note/note-magazine-create.mjs` を駆動し、note 有料マガジンを **`note掲載文.txt` 駆動**で新規作成する。`note-edit-magazine`（既存マガジンの設定編集）・`note-magazine-add`（記事の収録）と役割分離。Playwright × システム Chrome（`channel:'chrome'`＋永続プロファイル＋proxy＋ignoreHTTPSErrors、Windows可）。
 
 ## 使い方
 
 ```
-node scripts/note-magazine-create.mjs --dir <magazineDir>            # probe（フォーム構造ダンプ・作成しない・既定）
-node scripts/note-magazine-create.mjs --dir <magazineDir> --commit   # 実作成
+node scripts/note/note-magazine-create.mjs --dir <magazineDir>            # probe（フォーム構造ダンプ・作成しない・既定）
+node scripts/note/note-magazine-create.mjs --dir <magazineDir> --commit   # 実作成
 ```
 
 - `--dir` の `note掲載文.txt` を `scripts/lib/note-meta.mjs` の `parseNoteText` でパースし、**マガジンタイトル / 説明 / アピール / セット価格** を取得（文字数制約 30/400/250 は txt 側で担保済み）。
@@ -46,7 +46,7 @@ node scripts/note-magazine-create.mjs --dir <magazineDir> --commit   # 実作成
 
 ## 参照
 
-- `scripts/note-magazine-create.mjs` — 本体
+- `scripts/note/note-magazine-create.mjs` — 本体
 - `scripts/lib/note-meta.mjs` — `note掲載文.txt` パーサ（共有）
 - `.claude/skills/note-magazine-cover/` — マガジン見出し画像の設定（作成後の必須工程）
 - `.claude/skills/note-attach-pdf/` — 各記事末尾への印刷用 PDF 添付

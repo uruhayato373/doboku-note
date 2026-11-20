@@ -24,7 +24,7 @@
  *   禁止（価格は note 販売ページ＝src/lib/note-magazines.ts が SoT）。マーカー〜次の空行までを CTA 域とみなす。
  *
  * 真実源: .claude/knowledge/reference/content-principles.md §14-c
- * 呼出元: scripts/note-lint.mjs（pre-commit ゲート）/ /note-prepublish-review Phase 1
+ * 呼出元: scripts/note/note-lint.mjs（pre-commit ゲート）/ /note-prepublish-review Phase 1
  * 兄弟:   scripts/checks/check-note-bold-paren.mjs（同じ「1チェッカー×2呼出元」パターン）
  *
  * 終了コード: 0 = 違反なし / 1 = 違反あり / 2 = 引数エラー

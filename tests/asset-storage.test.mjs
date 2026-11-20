@@ -203,7 +203,7 @@ test('sanitizeEntry: 許可キー以外は落とす（秘密の混入経路を�
 test('sanitizeEntry: mime / generator / requiredBy も lean format では書かない', () => {
   const e = sanitizeEntry({
     group: 'note-cover-png', bucket: 'public', r2Key: 'k', sha256: 'x', bytes: 1,
-    mime: 'image/png', generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note-publish.mjs'],
+    mime: 'image/png', generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note/note-publish.mjs'],
   });
   assert.equal(e.mime, undefined);
   assert.equal(e.generator, undefined);
@@ -279,7 +279,7 @@ test('findSecrets: 正常なエントリは誤検出しない（sha256 の 64 �
     logicalPath: 'content/note/a/img/cover.png',
     group: 'note-cover-png', bucket: 'public', r2Key: 'note/covers/a/img/cover.png',
     sha256: 'a'.repeat(64), bytes: 1024, mime: 'image/png', visibility: 'public',
-    regenerable: false, generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note-publish.mjs'],
+    regenerable: false, generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note/note-publish.mjs'],
   });
   assert.deepEqual(findSecrets(m), []);
 });

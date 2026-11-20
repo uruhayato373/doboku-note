@@ -18,7 +18,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
-import { readPostedRaw, IG_DIR as DEFAULT_IG_DIR, findPackDirs } from "../ig-status.mjs";
+import { readPostedRaw, IG_DIR as DEFAULT_IG_DIR, findPackDirs } from "../instagram/ig-status.mjs";
 import { markAmbiguousClaims, dropResolvedFalseMatches } from "./ig-ambiguity.mjs";
 
 export const IG_DIR = DEFAULT_IG_DIR;

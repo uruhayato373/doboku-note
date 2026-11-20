@@ -414,7 +414,7 @@ export const CoconalaBlogCompetitors = z
 
 // ---- 自分の X 投稿 ------------------------------------------------------------------------------
 
-/** 自分の X 投稿の反応（data/x/own-posts/<日付>.json）。取得は scripts/x-own-metrics.mjs */
+/** 自分の X 投稿の反応（data/x/own-posts/<日付>.json）。取得は scripts/x/x-own-metrics.mjs */
 export const XOwnPosts = z
   .object({
     schemaVersion: z.literal(1),
@@ -491,7 +491,7 @@ export const NoteStatusSnapshot = z
 /** ココナラの市場調査の検索語の区分（coconala-research.mjs の classify の語彙と同じ） */
 const researchSegment = coconalaSegment;
 
-/** ココナラの市場調査（data/coconala/market-research.json）。取得は scripts/coconala-research.mjs（1 ページごとに書く＝途中経過のファイルも通る） */
+/** ココナラの市場調査（data/coconala/market-research.json）。取得は scripts/coconala/coconala-research.mjs（1 ページごとに書く＝途中経過のファイルも通る） */
 export const CoconalaMarketResearch = z
   .object({
     schemaVersion: z.literal(2).describe('保存形の版。2 は出品を services に URL で 1 件ずつ持つ形（1 は語ごとに出品を重ねて持つ旧形で、読み込み時に 2 へ畳む）'),
@@ -785,7 +785,7 @@ const ytVideo = z
   })
   .strict();
 
-/** 自社チャンネルの動画ごとの再生数・尺（data/youtube/own-videos/<日付>.json）。取得は scripts/youtube-own-metrics.mjs（月次） */
+/** 自社チャンネルの動画ごとの再生数・尺（data/youtube/own-videos/<日付>.json）。取得は scripts/youtube/youtube-own-metrics.mjs（月次） */
 export const YoutubeOwnVideos = z
   .object({
     schemaVersion: z.literal(1),

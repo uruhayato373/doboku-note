@@ -186,7 +186,7 @@
 
 **起点**: 2026-11-10 の口頭試験の棚卸し。note の建設部門の口頭試験教材（`content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md`・¥1,980）の販売は 10/12 の 1 件だけ。pejp の AI 模擬面接（汎用）に対し、受けた設問に沿った準備で差をつける。運営者の方針（2026-11-10）で、新しい商品は作らず既存の教材を厚くする。
 
-**2026-11-10 の試行**: 本文に PDF 添付（建設部門-口頭試験対策-想定33問.pdf・git 管理外で手元の checkout にだけある）があるため `--reattach-pdf` が要る。当日は添付のアップロードの日次上限（90 件）に他の公開で達していて、本文に触れずに止まった（DEFER）。翌日以降に `node scripts/note-update-body.mjs --article content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md --reattach-pdf --force-retry --commit` を、note のプロファイルを他の処理が使っていない時に回す。
+**2026-11-10 の試行**: 本文に PDF 添付（建設部門-口頭試験対策-想定33問.pdf・git 管理外で手元の checkout にだけある）があるため `--reattach-pdf` が要る。当日は添付のアップロードの日次上限（90 件）に他の公開で達していて、本文に触れずに止まった（DEFER）。翌日以降に `node scripts/note/note-update-body.mjs --article content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md --reattach-pdf --force-retry --commit` を、note のプロファイルを他の処理が使っていない時に回す。
 
 **担当（2026-11-10 運営者決定）**: 運営者が自分で回す。口頭試験（12 月上旬〜）の前に効かせるため、期日は 11/20。
 
@@ -458,7 +458,7 @@
 8. ~~スキル・エージェントの扱い~~ → 2026-11-17 に削除した（運営者決定で器も残さない）。`magazine-membership`（マガジン収録の検査）は会員制と無関係なので残る。
 
 **進捗（2026-11-04）**: 手順 1 は運営者が在籍会員 0 人を確認した。手順 2 は添削つきプランから 7 誌の紐づけを外した（`--unlink-all-benefit`）。通年プラン 4956c2d4f928 の編集画面は既に 404。手順 4 は「はじめに-合格ラボ」が note の仕様で下書きに戻せない（特典マガジンに入っていた記事のため）ので、非公開にするには削除しかない。22 記事の is_limited は紐づけを外しても true のまま。
-**運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、（プランの削除は note の画面で行う。操作スクリプトは 2026-11-17 に削除）、`node scripts/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
+**運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、（プランの削除は note の画面で行う。操作スクリプトは 2026-11-17 に削除）、`node scripts/note/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
 
 **進捗（2026-11-04・削除後）**: マガジン mbe07bd5cecda は 404、添削つきプランは編集画面が開けず削除済みと判断。22 記事は `circle_plans` と `belonging_magazine_keys` が空なのに `is_limited=true` のまま。公開設定に「試し読みエリアを設定」が出て、`note-update-body` は trial-guard で止まる（ライブは未変更）。隠れているのは末尾の「以上、〜でした。」だけで読者への実害は無い。記事 n6b66793ca20c は運営者が削除し（2026-11-04・404 を確認）、原稿も外した。`civil-membership-odai-lab` は published:false にした。**残り**: ①is_limited を外す方法を公開設定の画面で調べる。原稿の memberTrial と末尾の文は、外せるまで残す ②手順 7・8 ③`civil-membership-odai-lab` を商品の正本から外す（verify-note-magazines が「非公開化?」を 1 件出し続ける）。`note-membership-plan-status --delete` の会員ゲートはプラン名を読めず誤判定する（DN-0876 と同じ PR で直す）。
 
@@ -511,12 +511,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1260] scripts/checks/ への移動で残した転送 17 本を、main へ deploy したあとで消す
+### [DN-1260] scripts/checks/・チャネル別への移動で残した転送 23 本を、main へ deploy したあとで消す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
 
 **起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
 
-**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 17 本を消す。
+同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に同じ転送を残した。
+
+**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 23 本（検査 17・YouTube 6）を消す。
 
 **完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
@@ -994,7 +996,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **決めること（運営者）**: 4 冊の新しい価格。d-00 は ¥1,480 以下（または note の PDF を上げる）。分冊は d-00 との差も見る。
 
-**やること**: 表紙の審査が終わったら（`node scripts/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`content/kindle/books/d-0*/spec.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
+**やること**: 表紙の審査が終わったら（`node scripts/kindle/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`content/kindle/books/d-0*/spec.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
 
 **完了条件**: KDP の 4 冊の価格が決めた値になり、catalog と一致している（`npm run check-kindle-prices`）。
 
@@ -1003,7 +1005,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 ### [DN-1142] ココナラの商品画像の差し替えが、既存の画像を消さずに 2 枚目へ足し、ok:true を返す
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-12]
 
-2026-11-12、`node scripts/coconala-edit.mjs --service coconala-pe-oral-qa --image <png> --replace-image --commit` を実行すると、`画像差し替え: {"ok":true,"before":0,"after":1,"changed":true}` を返した。しかし公開ページでは既存の画像（df8bb1ae）が 1 枚目に残り、新しい画像（6060b8a5）は 2 枚目に足されていた。差し替える前の枚数を 0 と数えているので、既存の画像を消す段が動いていない。
+2026-11-12、`node scripts/coconala/coconala-edit.mjs --service coconala-pe-oral-qa --image <png> --replace-image --commit` を実行すると、`画像差し替え: {"ok":true,"before":0,"after":1,"changed":true}` を返した。しかし公開ページでは既存の画像（df8bb1ae）が 1 枚目に残り、新しい画像（6060b8a5）は 2 枚目に足されていた。差し替える前の枚数を 0 と数えているので、既存の画像を消す段が動いていない。
 
 - 影響: 旧価格（¥5,000）入りの画像がメイン画像のまま残り、表示の価格（¥4,000）と食い違った。1 枚目の削除は手作業で行う。
 - 完了条件: `--replace-image` の実行後に編集画面の画像が 1 枚だけで、それが新しい画像であること。差し替え後に公開ページの画像の数と先頭の画像を照合し、合わなければ exit 1 にする。
@@ -2006,7 +2008,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **起点**: 2026-10-27、主任技士添削（services/4425046・公開中）の出品文を `npm run coconala-edit -- --service coconala-cce-essay-tensaku --fields body` で直そうとしたら、dry-run が `body(内容): selector 不在(#ServiceHead)` を出した。公開中の出品の編集画面（/mypage/services/{id}）は作りが変わっていて、本文の欄は自動で付く ID の textarea（例 `v-0-1-8`）になっている。`scripts/lib/coconala-form.mjs` は旧画面の `#ServiceHead`・`#ServiceBody` などを前提にしている。今回は運営者が画面で手作業で保存した。dry-run は「OK」を返すので、本文が入らないまま `--commit` すると「更新したのに変わっていない」偽成功になる。
 
 **やること**:
-1. 今の編集画面の欄（サービスタイトル・キャッチコピー・サービス内容・購入にあたってのお願い・価格・お届け日数）を、ラベルの文言から引く形で特定する（自動の ID に頼らない）。`scripts/coconala-discover.mjs` は運営者がターミナルで回す（エージェントからは実行できない）
+1. 今の編集画面の欄（サービスタイトル・キャッチコピー・サービス内容・購入にあたってのお願い・価格・お届け日数）を、ラベルの文言から引く形で特定する（自動の ID に頼らない）。`scripts/coconala/coconala-discover.mjs` は運営者がターミナルで回す（エージェントからは実行できない）
 2. `coconala-form.mjs` を直し、欄が見つからないときは dry-run も失敗にする（いまは「selector 不在」を出しても ok を返す）
 3. 反映後は `npm run check-coconala-live` で本文の一致を確かめる手順を、`coconala-edit` の出力に出す
 
@@ -2230,7 +2232,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
 
-ココナラ DM 10051134 の購入者（予想模擬試験＋二次対策16冊セットを購入。2026-09-01 に経験記述の区切りの誤りを指摘し、修正版を送付済み）から、2026-10-12 に本番の受検報告とお礼が届き、10-13 に返信済み。合格発表は 2027-01-08（config/exam-calendar.json）。発表後に DM で結果を伺い、合格なら体験談の掲載可否（匿名可）とココナラでの評価をお願いする。不合格なら労いと翌年の案内にとどめ、売り込まない。体験談を使う場合は掲載先（ココナラ出品ページ・サイト・note）と表現を運営者が決め、合格保証の印象を与える書き方をしない。DM の本文は node scripts/coconala-dm.mjs 10051134 で取れる（出力は .tmp/ のみ・個人情報をリポジトリに入れない）。送信は運営者が行う。
+ココナラ DM 10051134 の購入者（予想模擬試験＋二次対策16冊セットを購入。2026-09-01 に経験記述の区切りの誤りを指摘し、修正版を送付済み）から、2026-10-12 に本番の受検報告とお礼が届き、10-13 に返信済み。合格発表は 2027-01-08（config/exam-calendar.json）。発表後に DM で結果を伺い、合格なら体験談の掲載可否（匿名可）とココナラでの評価をお願いする。不合格なら労いと翌年の案内にとどめ、売り込まない。体験談を使う場合は掲載先（ココナラ出品ページ・サイト・note）と表現を運営者が決め、合格保証の印象を与える書き方をしない。DM の本文は node scripts/coconala/coconala-dm.mjs 10051134 で取れる（出力は .tmp/ のみ・個人情報をリポジトリに入れない）。送信は運営者が行う。
 
 
 
@@ -2569,7 +2571,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: PR #848 で、公開中サービスの `coconala-edit.mjs` を `--commit` なしで回すと送信しない dry-run になり、画像には触らず枚数だけ読むようにした（回帰テスト `tests/coconala-submit-choice.test.mjs`）。2026-10-03 の実機確認は Mac のココナラのログインが切れていて未実施（6 分待機でタイムアウト・パスワードはエージェントが入れない）。
 
-**やること**: 運営者が Mac でココナラに再ログインしたあと、`node scripts/coconala-edit.mjs --service coconala-cce-essay-tensaku --image <main の content/coconala/assets/thumb-cce-essay-tensaku.png の絶対パス> --replace-image` を実行し、公開ページ https://coconala.com/services/4425046 の og:image（実行前 `757b3de9-9784853.png`）と比べる。
+**やること**: 運営者が Mac でココナラに再ログインしたあと、`node scripts/coconala/coconala-edit.mjs --service coconala-cce-essay-tensaku --image <main の content/coconala/assets/thumb-cce-essay-tensaku.png の絶対パス> --replace-image` を実行し、公開ページ https://coconala.com/services/4425046 の og:image（実行前 `757b3de9-9784853.png`）と比べる。
 
 **完了条件**: 上の実行が `RESULT` の `mode:"dry-run"`・exit 0 で終わり、公開ページの og:image が実行前と同じ。
 
@@ -2678,11 +2680,11 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-09-29 に note の反映を記事単位に変えた。記事ごとの反映計画（`scripts/lib/note-sync-plan.mjs`）が本文・カバー・タグの未反映分と止まっている理由を決め、土曜の収集の後段 note-sync（`note-update-body --sync`）が 1 記事 1 回の更新にまとめて反映し、`npm run check-note-sync` が判定を持つ。カバー台帳は再公開台帳へ統合した。統合時点の計画は公開 918 本のうち反映済み 410・反映待ち 505（本文 295〔配布 PDF の取り寄せ 203〕・カバー 216）・止まっている 3（中断: nded084d4f646 R06 過去問模範答案・n8d98d7fc24cc 工事21 下水処理場水槽RC・n3eb135ebdff7 序章＝DN-0271）。マガジンはカバーの新レイアウト（designVersion.magazine を上げた）で 98 誌が要登録。旧 DN-0269（原稿と公開記事のずれの解消と CI 検査）・DN-0277（【〇〇】に直した 257 本の再公開）・DN-0316（総監 2 本の冒頭 CTA 除去の反映）を統合した。
 
-**やること**: (1) 残りは `node scripts/note-sync-plan.mjs` の現在値（2026-10-24: 反映待ち 371〔部品は本文 374・カバー 15・タグ 0〕・止まっている 3）。土曜の収集の後段 note-sync（1 回 80 記事）が反映する。PDF を取り寄せられない件は DN-0567。(2) 止まっている 3 本（BK-10 鉄道 R07・R08予想の III、BK-11 トンネル R03 の III。前回の更新が途中で止まった）は管理画面 /content/note-sync で理由を見て直す。(3) 結果は管理画面の「週次の結果」と `npm run check-note-sync` で見る。
+**やること**: (1) 残りは `node scripts/note/note-sync-plan.mjs` の現在値（2026-10-24: 反映待ち 371〔部品は本文 374・カバー 15・タグ 0〕・止まっている 3）。土曜の収集の後段 note-sync（1 回 80 記事）が反映する。PDF を取り寄せられない件は DN-0567。(2) 止まっている 3 本（BK-10 鉄道 R07・R08予想の III、BK-11 トンネル R03 の III。前回の更新が途中で止まった）は管理画面 /content/note-sync で理由を見て直す。(3) 結果は管理画面の「週次の結果」と `npm run check-note-sync` で見る。
 
 **追記（2026-09-29・コンクリート主任技士の小論文 37 本）**: bea060922 で `magazines/コンクリート主任技士-実務立場別小論文集`（01〜08 の 32 本）と`-小論文-模範答案集`（5 本）の冒頭と末尾に、ココナラ添削（services/4425046）への導線を入れた。同期計画では 37 本とも反映待ち（本文）・noteId あり（2026-09-29 確認）。週次の同期のあとに公開ページで導線が出ているかを照合し、**照合できた日付を DN-0265（コンクリート主任技士のココナラ出品の継続判定）の効果判定の起点に使う**。照合の方法: 37 本とも有料記事で、末尾の導線は有料部分の区切りより後ろにある。**公開 API（`https://note.com/api/v3/notes/<noteId>`）で見えるのは冒頭の導線だけ**なので、冒頭はこの本文に `services/4425046` があるかで 37 本を照合し、末尾は `data/note/sync-log.json` の該当 run で 37 本が本文を更新済み（failed に無い）ことと、ログイン済みの編集画面で数本を目視して確かめる。照合日と件数（冒頭 n/37）をこのカードに書き、同じ日付を DN-0265 の起点に写す。
 
-**現状（2026-11-03）**: `note-sync-routine --dry-run --only content/note/1級・2級土木/` で 1級・2級土木の範囲だけで反映待ち 323（部品は本文 325・カバー 1）・止まっている 3。土曜の note-sync は 1 回 80 本まで（`--max 80`）なので、このままだと 4 週かかる。急ぐ記事だけは、運営者のターミナルで使い捨ての worktree（detached・origin/develop）を作り `node scripts/note-sync-routine.mjs --only <記事のフォルダ> --max 1` を 1 本ずつ回せば前倒しできる（2026-11-03 にキャリア記事 24 本をこの方法で反映・1 本 約 3.6 分）。空きメモリが 1,200MB を割ると子プロセスが起動を見送って失敗する（DN-0954）
+**現状（2026-11-03）**: `note-sync-routine --dry-run --only content/note/1級・2級土木/` で 1級・2級土木の範囲だけで反映待ち 323（部品は本文 325・カバー 1）・止まっている 3。土曜の note-sync は 1 回 80 本まで（`--max 80`）なので、このままだと 4 週かかる。急ぐ記事だけは、運営者のターミナルで使い捨ての worktree（detached・origin/develop）を作り `node scripts/note/note-sync-routine.mjs --only <記事のフォルダ> --max 1` を 1 本ずつ回せば前倒しできる（2026-11-03 にキャリア記事 24 本をこの方法で反映・1 本 約 3.6 分）。空きメモリが 1,200MB を割ると子プロセスが起動を見送って失敗する（DN-0954）
 
 **完了条件**: `npm run check-note-sync` が exit 0（反映待ち・止まっている記事・マガジンの要登録が 0）になったら、このカードを削除する。
 ### [DN-0439] コンテンツ台帳から、選んだ制作物の反映計画を作って一括で更新する（ずれの検知をチャネル共通の部品に）
@@ -2738,7 +2740,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-09-23 の URL 検査 batch で 17 URL が「重複（Google が旧 `/docs/` を正規に選択）」だった。#598 は note の被リンクが旧 URL を正規に選ばせる一因と見て張り替えたが、17 件のうち 7 件は note から張られていないのに同じ状態で、note の寄与は未検証。note から張られている 10 件を指す公開 note 記事は 18 本（PDF 付き 0）。
 
-**やること**: 次の URL 検査 batch 以降で 17 件の `google_canonical` を比べる。note から張られていない 7 件が新 URL へ切り替わり、張られている 10 件が旧 URL のまま残るなら、その 18 本を `node scripts/note-update-body.mjs --list <list> --commit` で再公開する（PDF 付きが無いので `--reattach-pdf` は不要）。両群とも切り替わる、または両群とも残るなら再公開しない。
+**やること**: 次の URL 検査 batch 以降で 17 件の `google_canonical` を比べる。note から張られていない 7 件が新 URL へ切り替わり、張られている 10 件が旧 URL のまま残るなら、その 18 本を `node scripts/note/note-update-body.mjs --list <list> --commit` で再公開する（PDF 付きが無いので `--reattach-pdf` は不要）。両群とも切り替わる、または両群とも残るなら再公開しない。
 
 **追記（2026-09-27）**: 旧 DN-0387 を統合。`/docs/pe-construction-r07-railway`（「技術士鉄道」）と `/docs/pe-construction-hissu-kamoku-kaitourei`（「技術士模範解答」）は 1 回の 301 で新 URL へ転送され、サイト内リンクも直した。次の GSC 集計で同じ検索語に新 URL が出るかも同じ比較で確かめる。
 
@@ -2890,7 +2892,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0272] 部分更新の `replaceTopCta`／`insertTopCta` が冒頭 CTA を見出しにし、直後の見出しをカードで割る
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:不具合] [起票:2026-09-23]
 
-**起点**: 2026-09-23 に公開 note 918 本をライブ API で走査したところ、R8予想問題（n8e92e4673a99）と総監択一式17年分分析（n3bcb87efddad）の 2 本で、冒頭 CTA の文が `h2` になり、その後ろに URL だけの段落・カードが並び、直後の見出し「R8 で何が出るのか」「はじめに」が「R」「は」の段落＋カード＋残りの段落に割れていた（目次から節が消える）。2 本とも同日に全文更新で元の構造へ戻し、API で確認済み。形から見て、`scripts/note-update-partial.mjs` の `replaceTopCta`／`insertTopCta` が「次の `h2` の直前へ caret を置いて Enter→文字入力→URL 入力」する実装で、入力が見出しブロックの中に入ったとみられる（どの実行で起きたかは未特定）。
+**起点**: 2026-09-23 に公開 note 918 本をライブ API で走査したところ、R8予想問題（n8e92e4673a99）と総監択一式17年分分析（n3bcb87efddad）の 2 本で、冒頭 CTA の文が `h2` になり、その後ろに URL だけの段落・カードが並び、直後の見出し「R8 で何が出るのか」「はじめに」が「R」「は」の段落＋カード＋残りの段落に割れていた（目次から節が消える）。2 本とも同日に全文更新で元の構造へ戻し、API で確認済み。形から見て、`scripts/note/note-update-partial.mjs` の `replaceTopCta`／`insertTopCta` が「次の `h2` の直前へ caret を置いて Enter→文字入力→URL 入力」する実装で、入力が見出しブロックの中に入ったとみられる（どの実行で起きたかは未特定）。
 
 **やること**: コードは PR #773（2026-09-30 マージ）で済んだ（冒頭 CTA を HTML 差し込み＋URL 段落の cardify に置換、保存前に対象 h2 の一致・60 字超の見出しの増加を検査、`check-note-live-headings` に割れ見出し・長い見出しの検査を追加）。残りは運営者の了承を得て 1 本で冒頭 CTA の部分更新を実行し、ライブで確かめること（手順: `npm run note-update-partial -- --spec <spec>` を dry-run → `--commit` → `node scripts/checks/check-note-live-headings.mjs <記事パスの一部>`）。
 
@@ -3035,7 +3037,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0946] coconala-delete-draft を新しい出品フォームに対応させる
 タグ: [領域:商品] [時期:2026-12] [種類:不具合] [起票:2026-11-02]
 
-**起点**: 2026-11-02 に新規の下書きを作ったとき、孤児の下書き 3 件の掃除で `node scripts/coconala-delete-draft.mjs` が「SKIP: タイトルフィールド無し」になり使えなかった（旧フォーム用の G2 判定）。画面の「下書きを削除」で手作業で消した。
+**起点**: 2026-11-02 に新規の下書きを作ったとき、孤児の下書き 3 件の掃除で `node scripts/coconala/coconala-delete-draft.mjs` が「SKIP: タイトルフィールド無し」になり使えなかった（旧フォーム用の G2 判定）。画面の「下書きを削除」で手作業で消した。
 **やること**: 新しいフォームでタイトル欄を読めるようにし、4 重のガード（カタログ在籍拒否・URL 一致・タイトル空・削除導線）を保ったまま孤児を消せるようにする。
 **完了条件**: 新しいフォームの孤児の下書きを `--commit` で削除でき、公開中の商品には触れないことをテストか dry-run で確かめている。
 
@@ -3342,7 +3344,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-1071] 音声の関門で場面の欠落と数字の誤読を見られるようにする
 タグ: [領域:SNS] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-10]
 
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。音声の一致度は読み仮名の 2-gram の Dice 係数で語順を見ず、閾値は全体で 0.85（`scripts/lib/video-publish-gate.mjs:28-41`、`config/video-auto-publish.json`）。期待側の読みも合成と同じ VOICEVOX で作る（`scripts/video-factory.mjs:228`）。`video-review` は音声を聞けず、採用記録は `continuousListening: 'not-performed'`。推測: 辞書に無い誤読は期待側にも同じ誤りが入って一致し、12 場面中 1 場面の欠落や数字 1 か所の誤読は 0.85 を下回らない。運営者の抜き打ちの試聴は記録も通知も無い。
+**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。音声の一致度は読み仮名の 2-gram の Dice 係数で語順を見ず、閾値は全体で 0.85（`scripts/lib/video-publish-gate.mjs:28-41`、`config/video-auto-publish.json`）。期待側の読みも合成と同じ VOICEVOX で作る（`scripts/youtube/video-factory.mjs:228`）。`video-review` は音声を聞けず、採用記録は `continuousListening: 'not-performed'`。推測: 辞書に無い誤読は期待側にも同じ誤りが入って一致し、12 場面中 1 場面の欠落や数字 1 か所の誤読は 0.85 を下回らない。運営者の抜き打ちの試聴は記録も通知も無い。
 
 **やること**:
 1. 場面ごとの一致度の最小値も閾値にする

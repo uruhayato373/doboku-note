@@ -273,14 +273,14 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 | 項目 | 内容 |
 |---|---|
 | 取得元 | `kdpreports.amazon.co.jp` の `/royalties`（書籍別）＋ `/pmr`（マーケットプレイス別。KENPは「N 既読 KENP」のときだけページ数、金額表示はkenpRoyalty・ページ数null） |
-| 方式 | `scripts/kdp-report.mjs`（Playwright・読み取り専用。ログインは kdp-publish と同じ `.local/playwright-kdp-profile` を共用） |
+| 方式 | `scripts/kindle/kdp-report.mjs`（Playwright・読み取り専用。ログインは kdp-publish と同じ `.local/playwright-kdp-profile` を共用） |
 | 突合 | 書籍は `config/products.json` の Kindle の書籍（channel kindle の `catalog`） の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
 | 期間 | 当月と前月のみ（KDP の日付入力は React が握り潰すためカレンダーのプリセットを使う）。それ以前の確定値は `/pmr` を目視 |
 
 **運用**: 土曜の Mac 収集（`weekly-collect` の kdp 段）が毎週、当月（推計）と確定値が入るまでの前月を取り直す（取る月は `kdp-report --list-due`。KENP は翌月15日頃に確定）。
 翌月16日より前に取った値は `estimated: true`、16日以降の取得は `estimated: false` で記録する（2026-10-11 から日付で判定）。取得できなかった項目は 0 埋めせず `null` で残す。
 手動で今すぐ取るときは、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only kdp`。セッションからは取りに行かず、`data/kdp/royalties.json` とその最終取得日を読む。
-ココナラの売上履歴（`data/coconala/revenue.json`）は土曜の Mac 収集の coconala 段が取る（CI からは 403）。note の過去月は、運営者が収集用 worktree の端末で `node scripts/note-sales-fetch.mjs --month YYYY-MM --commit`。
+ココナラの売上履歴（`data/coconala/revenue.json`）は土曜の Mac 収集の coconala 段が取る（CI からは 403）。note の過去月は、運営者が収集用 worktree の端末で `node scripts/note/note-sales-fetch.mjs --month YYYY-MM --commit`。
 取り込みは同じ bookId の行（KDP が同一タイトルを 2 行に分けて返すことがある）を `mergeKdpBookRows` で 1 行に合算する。bookId の重複は台帳の型（`kdp.royalties`）が止める。
 
 `check-kdp-report-freshness` は前月確定（23日以降）・当月推計（28日以降）の2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
@@ -306,11 +306,11 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 | `config/sales-product-map.json` | 商品名 → productId の対応表（旧 sales-recorder エージェントの表） |
 | `.claude/skills/record-sales/SKILL.md` | 記録スキル |
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
-| `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
+| `scripts/note/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
 | `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |
 | `scripts/lib/sales-mapping.mjs` | カタログ（note-magazines.ts）の解析 `catalogMagazines`（`tests/sales-mapping-catalog.test.mjs`） |
 | `scripts/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
 | `scripts/checks/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
-| `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
+| `scripts/kindle/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
 | `data/kdp/royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター |

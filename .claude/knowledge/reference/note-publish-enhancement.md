@@ -423,7 +423,7 @@ grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' content/note/magazines/総監テキ
 # → WebSearch で実在確認済みの法令番号と突合
 
 # 6. note 非互換ゲート（pipe表・太字内全角括弧・マガジンCTA形式 = markdown リンク/同一行¥）
-node scripts/note-lint.mjs content/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
+node scripts/note/note-lint.mjs content/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
 # → ✅ OK であること。commit 時に pre-commit でも自動 BLOCK（content-principles.md §14-c）。
 #   マガジン導線は markdown リンクでなく bare URL 単独行・CTA に価格(¥)を書かない。
 

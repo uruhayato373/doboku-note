@@ -26,7 +26,7 @@ const LEGACY = [
   ['scripts/backfill-mdx-dates.mjs', ['--staged'], { skipEnv: ['SKIP_MDX_DATES', 'eq1'] }],
   ['scripts/pre-commit-mdx.mjs', [], 'always'],
   ['scripts/checks/lint-ui.mjs', [], 'always'],
-  ['scripts/note-lint.mjs', [], 'always'],
+  ['scripts/note/note-lint.mjs', [], 'always'],
   ['scripts/checks/lint-ja.mjs', ['--staged'], 'always'],
   ['scripts/checks/lint-mdx-mobile.mjs', ['--baseline', '--ci', '<published staged mdx>'], { contentQuality: true }],
   ['scripts/checks/check-note-charlimits.mjs', ['--staged'], 'always'],

@@ -38,7 +38,7 @@
    - 画面右上の「投稿する」ボタンの label が **「有料エリア設定」** に変わる（= ボディ側で有料境界を設定するモードへ遷移する次画面が起動するボタン）
 3. **`#price` input は最初に value=300 が入っている**。`type` で追加すると "3001200" のように連結されるので、必ず JS で value を上書きしてから input/change イベントを dispatch する
 4. **「有料エリア設定」画面ではボディ上で有料境界（区切り線）を選択する必要がある**。本検証では当該画面まで進んでいないため自動化未確定。下記「未確定領域」を参照
-5. **予約投稿は現在は無料（誰でも可）**。2026 年時点で予約公開は note プレミアム不要（旧仕様「プレミアム加入者のみ」は撤回）。Windows Playwright 版 `scripts/note-publish.mjs` は `--schedule "YYYY-MM-DDTHH:MM"`（JST）で予約投稿に対応（時間ずらしバッチは `note-publish-magazine.mjs --schedule-start ... --interval-hours N`）。日時を UI で確定できないときは即時公開せず下書きに退避する安全弁つき。selector は本ファイル由来で初回実走の `.tmp/np-sched-*.png` で要確認。
+5. **予約投稿は現在は無料（誰でも可）**。2026 年時点で予約公開は note プレミアム不要（旧仕様「プレミアム加入者のみ」は撤回）。Windows Playwright 版 `scripts/note/note-publish.mjs` は `--schedule "YYYY-MM-DDTHH:MM"`（JST）で予約投稿に対応（時間ずらしバッチは `note-publish-magazine.mjs --schedule-start ... --interval-hours N`）。日時を UI で確定できないときは即時公開せず下書きに退避する安全弁つき。selector は本ファイル由来で初回実走の `.tmp/np-sched-*.png` で要確認。
 
 ### 自動操作 step
 

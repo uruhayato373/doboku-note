@@ -200,7 +200,7 @@ if (unmeas.length) {
 if (errs.length) console.log(`  WARN: FETCH_ERR ${errs.length} 件（ネットワーク未達・再実行かプロキシ外で確認）: ${errs.slice(0, 3).map((r) => r.noteId).join(', ')}${errs.length > 3 ? '…' : ''}`);
 
 if (bad.length) {
-  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し/切れたリンク）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
+  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し/切れたリンク）。修復: node scripts/note/note-update-body.mjs --article <path> --commit`);
   process.exit(1);
 }
 

@@ -8,7 +8,7 @@ import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
  * sns-board.ts — SNS 投稿状態板（読み取り専用）。tools/admin/lib/sot.mjs を移植。
  *
  * 読む SoT:
- *   IG posted.json                  scripts/ig-status.mjs の findPackDirs/packInfo を再利用
+ *   IG posted.json                  scripts/instagram/ig-status.mjs の findPackDirs/packInfo を再利用
  *   X draft の status.json           ツイート別 scheduled/posted/draft
  *
  * IG 集計は ig-status.mjs を dynamic import して再利用する（集計ロジックの二重化を避ける）。
@@ -69,7 +69,7 @@ export interface IgBoard {
 }
 
 export async function igBoard(): Promise<IgBoard> {
-  const url = pathToFileURL(repoPath('scripts', 'ig-status.mjs')).href;
+  const url = pathToFileURL(repoPath('scripts', 'instagram', 'ig-status.mjs')).href;
   const ig = (await import(/* turbopackIgnore: true */ url)) as IgStatusModule;
   const packs = ig.findPackDirs(ig.IG_DIR).map(ig.packInfo);
   const anyPosted = (posted: Posted) => !!posted && ig.FORMATS.some((f) => posted[f]);

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { basicMetrics, trafficSources, analyticsSnapshot, queryVideoAnalytics, retentionCurve } from '../scripts/lib/youtube-analytics-report.mjs';
-import { analyticsTargets, reportPeriod } from '../scripts/youtube-analytics.mjs';
+import { analyticsTargets, reportPeriod } from '../scripts/youtube/youtube-analytics.mjs';
 import { YoutubeAnalytics } from '../scripts/lib/dataset-schemas.mjs';
 import { resolveDataset } from '../scripts/lib/datasets.mjs';
 import { checkAnalyticsSnapshot } from '../scripts/checks/check-youtube-analytics.mjs';

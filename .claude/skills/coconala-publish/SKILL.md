@@ -16,14 +16,14 @@ domain: product
 account assert＋draft-first＋`--commit` gate）。文面・価格を SoT で直し、このスキルで反映する。
 
 ```
-node scripts/coconala-publish.mjs --service coconala-shindan             # 新規：下書き作成のみ（既定・安全）
-node scripts/coconala-publish.mjs --service coconala-tensaku-set --commit # 新規：公開
-node scripts/coconala-edit.mjs --service coconala-tensaku-set --commit    # 修正：カタログ現値をフル反映
-node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修正：価格だけ（下書きは下書き保存・公開中は送信しない dry-run）
-node scripts/coconala-edit.mjs --service <id> --image <png> --replace-image --commit  # 商品画像の差し替え
-node scripts/coconala-pause.mjs --all-paused --commit                     # 棚から下ろす（受付休止）
-node scripts/coconala-pause.mjs --resume --absence --commit               # 長期不在あけの一括復帰
-node scripts/coconala-pause.mjs --archive --all-retired --commit          # 恒久廃止を棚から消す
+node scripts/coconala/coconala-publish.mjs --service coconala-shindan             # 新規：下書き作成のみ（既定・安全）
+node scripts/coconala/coconala-publish.mjs --service coconala-tensaku-set --commit # 新規：公開
+node scripts/coconala/coconala-edit.mjs --service coconala-tensaku-set --commit    # 修正：カタログ現値をフル反映
+node scripts/coconala/coconala-edit.mjs --service coconala-shindan --fields price   # 修正：価格だけ（下書きは下書き保存・公開中は送信しない dry-run）
+node scripts/coconala/coconala-edit.mjs --service <id> --image <png> --replace-image --commit  # 商品画像の差し替え
+node scripts/coconala/coconala-pause.mjs --all-paused --commit                     # 棚から下ろす（受付休止）
+node scripts/coconala/coconala-pause.mjs --resume --absence --commit               # 長期不在あけの一括復帰
+node scripts/coconala/coconala-pause.mjs --archive --all-retired --commit          # 恒久廃止を棚から消す
 ```
 
 ## 実行する場所（2026-10-24〜）
@@ -65,7 +65,7 @@ CI からの出品・修正（`ops-write.yml`）は廃止した。出品・内�
 - **価格の直書き禁止**: 価格はカタログ（`priceYen`）が真実源。listings に価格を書かない。
 - **代筆禁止・外部誘導禁止**: 出品文面の原則は `.claude/knowledge/reference/coconala-operations.md` §5・展開キット §2-3。
 - **構成の型**: 文面を書き直すときは `.claude/knowledge/reference/note-selling-structures.md`「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案・body 1000字上限）。
-- **フォーム仕様がドリフトしたら**: `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 selector/選択肢を再取得し、listings の category/genreFacets を是正。
+- **フォーム仕様がドリフトしたら**: `node scripts/coconala/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 selector/選択肢を再取得し、listings の category/genreFacets を是正。
 
 ## 商品画像（サービスサムネ）
 
@@ -74,8 +74,8 @@ CI からの出品・修正（`ops-write.yml`）は廃止した。出品・内�
 ```
 # 画像は Codex で作る（npm run media -- plate、記事の写真は scripts/gen-article-photo.mjs）。Gemini は使わない（運営者の決定 2026-10-09）
 npm run coconala-thumb                                                                          # 承認原本をコピー／未登録は背景+文字を合成（THUMB_COPY）
-node scripts/coconala-publish.mjs --service <id> --commit --image thumb-<key>.png              # 公開と同時に画像アップロード（1商品=1実行）
-node scripts/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<key>.png --commit # 既存商品へ画像だけ更新
+node scripts/coconala/coconala-publish.mjs --service <id> --commit --image thumb-<key>.png              # 公開と同時に画像アップロード（1商品=1実行）
+node scripts/coconala/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<key>.png --commit # 既存商品へ画像だけ更新
 ```
 
 - `--image` は **bare 名でよい**（`content/coconala/assets/` に自動解決）。存在は**ブラウザ操作前に検査**（fail-fast）＝不正パスで orphan draft を残さない。
@@ -115,7 +115,7 @@ profile の真実源は `coconala-account.json` の `profile`。**自己紹介�
 
 ## 参照
 
-- スクリプト: `scripts/coconala-publish.mjs` / `scripts/coconala-edit.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
+- スクリプト: `scripts/coconala/coconala-publish.mjs` / `scripts/coconala/coconala-edit.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 投入 SoT: `config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）
 - 価格/状態 SoT: `config/products.json`（channel coconala・生成物 `src/lib/coconala-services.ts`）／ アカウント: `config/coconala-account.json`
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` ／ 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`

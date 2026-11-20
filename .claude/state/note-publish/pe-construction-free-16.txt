@@ -3,7 +3,7 @@
 # B系統「〜の論点キーワード」6本(社会資本整備/持続可能な地域づくり/インフラ維持管理・更新/
 # 防災・減災/担い手・DX/低炭素・環境保全)はhold=未収録（意図的に除外）。
 # 使い方例（1日1本 07:00 JST から予約投稿）:
-#   node scripts/note-publish-magazine.mjs --list .claude/state/note-publish/pe-construction-free-16.txt \
+#   node scripts/note/note-publish-magazine.mjs --list .claude/state/note-publish/pe-construction-free-16.txt \
 #     --schedule-start 2026-06-20T07:00 --interval-hours 24 --commit
 
 # 勉強の進め方

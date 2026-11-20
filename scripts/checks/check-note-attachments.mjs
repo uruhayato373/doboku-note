@@ -283,7 +283,7 @@ if (short.length) {
   console.error('\n✗ ライブに PDF が添付されていない（購入者が受け取れない）:');
   for (const s of short) {
     console.error(`  ${s.noteId}  live=${s.live}/期待${s.want}  ${s.title}`);
-    for (const p of s.expected) console.error(`      node scripts/note-attach-file.mjs --note ${s.noteId} --file "${p}" --commit`);
+    for (const p of s.expected) console.error(`      node scripts/note/note-attach-file.mjs --note ${s.noteId} --file "${p}" --commit`);
   }
 }
 if (fetchFailDominant(fetchFail.length, need.length)) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); __exit(1); }

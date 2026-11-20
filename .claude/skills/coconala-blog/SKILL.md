@@ -14,7 +14,7 @@ domain: product
 プラットフォーム仕様は [coconala-operations.md §9](../../knowledge/reference/coconala-operations.md)。
 このファイルには手順だけを書く（ルールを写経しない）。
 
-> **新規執筆は停止中（2026-11-18）**。執筆役と採点役は退役した（判断は policy §9）。いま行うのは、出品を休止・変更したときの公開済み記事の送客先の付け替えだけ（`node scripts/coconala-blog-publish.mjs --post <slug> --update`、確認後に `--commit`）。再開するかは DN-1247 で決め、再開するなら agents-registry.md の退役表から 2 体を戻す。以下の 1〜3 は再開したときの手順。
+> **新規執筆は停止中（2026-11-18）**。執筆役と採点役は退役した（判断は policy §9）。いま行うのは、出品を休止・変更したときの公開済み記事の送客先の付け替えだけ（`node scripts/coconala/coconala-blog-publish.mjs --post <slug> --update`、確認後に `--commit`）。再開するかは DN-1247 で決め、再開するなら agents-registry.md の退役表から 2 体を戻す。以下の 1〜3 は再開したときの手順。
 
 ## 前提（最重要）
 
@@ -52,7 +52,7 @@ policy §8 のルーブリックで平均 2.0 以上かつハードゲート全�
 ### 4. 下書き投入（既定・公開しない）
 
 ```bash
-node scripts/coconala-blog-publish.mjs --post <slug>
+node scripts/coconala/coconala-blog-publish.mjs --post <slug>
 ```
 
 このコマンドは以下を**実測**する。どれか一つでも欠ければ中断する。
@@ -73,8 +73,8 @@ node scripts/coconala-blog-publish.mjs --post <slug>
 指示に従って先に消すこと。
 
 ```bash
-node scripts/coconala-blog-delete-draft.mjs                                # 下書き一覧（dry-run）
-node scripts/coconala-blog-delete-draft.mjs --title "【第1回】" --commit    # 消す
+node scripts/coconala/coconala-blog-delete-draft.mjs                                # 下書き一覧（dry-run）
+node scripts/coconala/coconala-blog-delete-draft.mjs --title "【第1回】" --commit    # 消す
 ```
 
 公開中の記事は `.c-blogContent_statusDraft` を持たないため**構造的に削除対象にならない**。
@@ -84,7 +84,7 @@ node scripts/coconala-blog-delete-draft.mjs --title "【第1回】" --commit    
 スクリーンショット（`.tmp/coconala/blog-*.png`）と本文をユーザーに提示し、**公開の可否を確認してから**:
 
 ```bash
-node scripts/coconala-blog-publish.mjs --post <slug> --commit
+node scripts/coconala/coconala-blog-publish.mjs --post <slug> --commit
 ```
 
 公開後、スクリプトが自動で:

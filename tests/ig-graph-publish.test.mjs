@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import {
   createIgPublisher, buildCarouselPayloads, buildReelPayload, buildStoryPayload, mapGraphError, GraphApiError,
 } from '../scripts/lib/ig-graph-publish.mjs';
-import { assertLedgerNotPosted, run } from '../scripts/ig-graph-publish.mjs';
+import { assertLedgerNotPosted, run } from '../scripts/instagram/ig-graph-publish.mjs';
 
 // ─── 純関数 ─────────────────────────────────────────────
 test('buildCarouselPayloads: 2-10 枚は通り、1 枚/11 枚は拒否する', () => {

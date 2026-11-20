@@ -20,7 +20,7 @@ test('10/1（note 確定前）は note の売上・アクセス・受取額が�
 test('確定後は取得コマンドを出し、売上が確定したら受取額は土曜の収集待ちになる', () => {
   let r = byKey(monthlyReadiness({ period, today: '2026-10-02' }));
   assert.equal(r['note-sales'].state, 'todo');
-  assert.equal(r['note-sales'].command, 'node scripts/note-sales-fetch.mjs --month 2026-09 --commit');
+  assert.equal(r['note-sales'].command, 'node scripts/note/note-sales-fetch.mjs --month 2026-09 --commit');
   assert.equal(r['note-traffic'].state, 'todo');
   r = byKey(monthlyReadiness({ period, today: '2026-10-02', salesMonths: { '2026-09': { finalized: true } }, trafficFetchedAt: '2026-10-02T01:00:00Z' }));
   assert.equal(r['note-sales'].state, 'done');

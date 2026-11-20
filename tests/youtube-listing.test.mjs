@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { joinListings, lengthBuckets, median, summarize, titleSignals } from '../scripts/lib/youtube-listing.mjs';
-import { buildOwnSnapshot, formatOf, packIndex, viewsUnavailable } from '../scripts/youtube-own-metrics.mjs';
+import { buildOwnSnapshot, formatOf, packIndex, viewsUnavailable } from '../scripts/youtube/youtube-own-metrics.mjs';
 import { buildRow, computeDrift } from '../scripts/scout-youtube-competitors.mjs';
 import { YoutubeCompetitors, YoutubeOwnVideos } from '../scripts/lib/dataset-schemas.mjs';
 

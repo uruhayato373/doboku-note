@@ -11,7 +11,7 @@
 // 認証（CI 供給が正・ローカル creds 不要の恒久ルール。measurement-incidents.md 参照）:
 //   環境変数 IG_GRAPH_ACCESS_TOKEN（必須）/ IG_BUSINESS_ACCOUNT_ID（無ければ
 //   config/ig-account.json の graph.businessAccountId）/ IG_GRAPH_API_VERSION（既定 v23.0）。
-//   トークンの取得・交換は scripts/ig-graph-token.mjs（Mac ローカル補助・CI では使わない）。
+//   トークンの取得・交換は scripts/instagram/ig-graph-token.mjs（Mac ローカル補助・CI では使わない）。
 //
 // 使い方:
 //   node scripts/fetch-ig-insights.mjs                          # 既定（30日窓・過去90日以内のメディアに insights）

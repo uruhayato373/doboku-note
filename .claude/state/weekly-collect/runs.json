@@ -669,7 +669,7 @@
           "id": "note-audit",
           "title": "note の公開状態の照合（公開 API・構造・タグ・本文・カード・状態・マガジン・導線・題名と価格）",
           "status": "warn",
-          "reason": "3/9 本目（scripts/checks/check-note-live-headings.mjs）: [check-note-live-headings] ✗ live 本文に不整合 1 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し/切れたリンク）。修復: node scripts/note-update-body.mjs --article <path> --commit / 8/9 本目（scripts/checks/audit-note-funnel.mjs --live --ci）: D6(除外もれ)=除外対象記事から <!-- cta:pack-top --> ブロックを手動除去（config の topCtaExcludeDirs と実体を一致させる）",
+          "reason": "3/9 本目（scripts/checks/check-note-live-headings.mjs）: [check-note-live-headings] ✗ live 本文に不整合 1 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し/切れたリンク）。修復: node scripts/note/note-update-body.mjs --article <path> --commit / 8/9 本目（scripts/checks/audit-note-funnel.mjs --live --ci）: D6(除外もれ)=除外対象記事から <!-- cta:pack-top --> ブロックを手動除去（config の topCtaExcludeDirs と実体を一致させる）",
           "exits": [
             0,
             0,
@@ -719,7 +719,7 @@
           "id": "note-live",
           "title": "note の添付と会員限定のライブ照合",
           "status": "warn",
-          "reason": "1/2 本目（check-note-attachments:live -- --api-first）: node scripts/note-attach-file.mjs --note ndf50c0266cbe --file \"content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/上下水道部門-必須科目I-R09予想-I-模範解答.pdf\" --commit",
+          "reason": "1/2 本目（check-note-attachments:live -- --api-first）: node scripts/note/note-attach-file.mjs --note ndf50c0266cbe --file \"content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/上下水道部門-必須科目I-R09予想-I-模範解答.pdf\" --commit",
           "exits": [
             1,
             0

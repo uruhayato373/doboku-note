@@ -145,7 +145,7 @@ content/sns/x/
 
 - **書式**: `## Tweet NN: タイトル [thread]` ＋ 本文内を `--- リプライ ---` 行で区切る。1 部目＝ヘッド、2 部目以降＝リプライ。各部が独立ツイートとして 280 weighted 判定される（`check-x-length` が part 別に検査）。
 - **即時投稿**（`--immediate`）: `publish-x` が composer で全部組んで一括投稿（完全対応）。
-- **予約投稿**: `publish-x` は**ヘッドのみ**ネイティブ予約し、リプライ本文を `status.json` の `thread: { parts, replies_posted_at: null }` に記録する。予約時刻の経過後に **`node scripts/x-thread-replies.mjs --run`** を人間トリガーで実行 → ライブになったヘッドを自分のプロフィールから特定し、リプライをチェーンでぶら下げる（`--list` で pending 確認・`--dry-run` でヘッド特定まで）。リプライが数十分〜数時間遅れても自己リプライとして自然。
+- **予約投稿**: `publish-x` は**ヘッドのみ**ネイティブ予約し、リプライ本文を `status.json` の `thread: { parts, replies_posted_at: null }` に記録する。予約時刻の経過後に **`node scripts/x/x-thread-replies.mjs --run`** を人間トリガーで実行 → ライブになったヘッドを自分のプロフィールから特定し、リプライをチェーンでぶら下げる（`--list` で pending 確認・`--dry-run` でヘッド特定まで）。リプライが数十分〜数時間遅れても自己リプライとして自然。
 - cron 常駐はしない（自動化フットプリント最小化・§11.3）。予約スレッドがある週は、ヘッド配信後に 1 回 `--run` を叩く運用。
 
 ### 5.3 実績・社会的証明型の作法（売上スクショ）
@@ -309,7 +309,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 
 **SSOT**: X の投稿の状態（投稿してよいか・投稿したか）の正本はコンテンツ台帳（`content/registry/publications/x/{exam}.json`・[content-registry.md](content-registry.md)）。`content/sns/x/{draft,published}/<NNN>-*/status.json` は文面（`text`）と運用の記録（`scheduled_at` など）を持つ旧い写しで、P7 で文面を `tweets.md` へ寄せてから消す。移行のあいだ書き手は status.json も書くが、`loadLedger` は台帳の stopped・published を重ねて候補から外し、`publish-x` は投稿後に台帳へも書く（`scripts/lib/registry-x-store.mjs`）。
 
-**門番**: `npm run x-schedule-guard`（[scripts/x-schedule-guard.mjs](../../../scripts/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
+**門番**: `npm run x-schedule-guard`（[scripts/x/x-schedule-guard.mjs](../../../scripts/x/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
 
 | 検査 | 判定 | 対応する §11 / 事故 |
 |---|---|---|

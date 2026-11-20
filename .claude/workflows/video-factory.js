@@ -18,7 +18,7 @@ if (!M || !M.startsWith('/')) throw new Error('args.root にリポジトリの�
 const packs = args.packs ?? []
 if (!packs.length) throw new Error('args.packs が空')
 const ROUNDS = args.rounds ?? 2
-const CLI = `node ${M}/scripts/video-factory.mjs`
+const CLI = `node ${M}/scripts/youtube/video-factory.mjs`
 const STOCK = args.stock ? ' --stock' : ''
 
 function limiter(n) {

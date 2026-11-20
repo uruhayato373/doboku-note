@@ -81,7 +81,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
    echo "ユニーク slug: $(grep -oE '/exam/pe-comprehensive-management/keywords/[a-z0-9-]+' "$F" | sort -u | wc -l)"
    echo "UTM 欠落リンク（0 であること）: $(grep -oE '\]\(https://doboku-note\.com/(exam|practice|standards|topics)/[^)]+\)' "$F" | grep -vc 'utm_source=note')"
    # note 非互換ゲート（markdown表 / 太字内全角括弧 / マガジンCTA形式 / 3点セット / U+FFFD 等を一括検査・exit 0 必須。全 BLOCK 項目は note-lint.mjs が真実源）
-   node scripts/note-lint.mjs "$F"
+   node scripts/note/note-lint.mjs "$F"
    ```
    期待値: `note-lint: ... OK`（exit 0）。違反が出たら返却前に必ず修正（表→箇条書き、太字内全角括弧→`**A**（B）`、マガジンCTA→bare URL 単独行・価格削除、文字化け修正 等。詳細は note-lint 出力）。
 5. 各 slug が `content/site/pe-comprehensive-management/{slug}/article.mdx` で `published: true` になっているか確認（404 防止）

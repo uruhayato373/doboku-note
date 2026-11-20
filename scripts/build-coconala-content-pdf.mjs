@@ -282,7 +282,7 @@ for (const [key, prod] of Object.entries(PRODUCTS)) {
     const specPath = join(SPEC_DIR, `${sa.out}.json`);
     writeFileSync(specPath, JSON.stringify(spec, null, 2));
     try {
-      execFileSync('node', [join(ROOT, 'scripts/magazine-to-pdf.mjs'), '--spec', specPath], { env: { ...process.env, CHROME_PATH: CHROME }, stdio: 'pipe' });
+      execFileSync('node', [join(ROOT, 'scripts/note/magazine-to-pdf.mjs'), '--spec', specPath], { env: { ...process.env, CHROME_PATH: CHROME }, stdio: 'pipe' });
     } catch (e) {
       console.error(`  ✗ ${sa.out}: magazine-to-pdf 失敗\n${(e.stderr || e.stdout || e.message).toString().slice(0, 300)}`); fail++; continue;
     }

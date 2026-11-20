@@ -255,11 +255,11 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
   const files = [
     'scripts/lib/note-browser.mjs',
     'scripts/lib/coconala-session.mjs',
-    'scripts/kdp-batch.mjs',
-    'scripts/kdp-publish.mjs',
-    'scripts/kdp-report.mjs',
-    'scripts/coconala-rate-buyer.mjs',
-    'scripts/coconala-research.mjs',
+    'scripts/kindle/kdp-batch.mjs',
+    'scripts/kindle/kdp-publish.mjs',
+    'scripts/kindle/kdp-report.mjs',
+    'scripts/coconala/coconala-rate-buyer.mjs',
+    'scripts/coconala/coconala-research.mjs',
     'scripts/scout-coconala-blogs.mjs',
     'scripts/scout-coconala-competitors.mjs',
     ...[
@@ -267,7 +267,7 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
       'attach-file', 'comment-reply', 'delete-note', 'edit-magazine', 'edit-session',
       'magazine-add-articles', 'magazine-cover', 'magazine-create',
       'publish-discover', 'publish', 'sales-fetch', 'sync-tags', 'update-body',
-    ].map((name) => `scripts/note-${name}.mjs`),
+    ].map((name) => `scripts/note/note-${name}.mjs`),
   ];
   for (const file of files) {
     const source = readFileSync(join(REPO_ROOT, file), 'utf8');
@@ -310,9 +310,9 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
   const files = [
     'scripts/lib/google-console-browser.mjs',
     'scripts/checks/verify-ig-status.mjs',
-    'scripts/x-article-publish.mjs',
+    'scripts/x/x-article-publish.mjs',
     'scripts/lib/x-scheduled-queue.mjs',
-    'scripts/x-thread-replies.mjs',
+    'scripts/x/x-thread-replies.mjs',
     'scripts/scout-asp/a8-browser.ts',
     'scripts/scout-asp/login.mjs',
     'scripts/publish-ig-bs/publish-ig-bs.ts',
@@ -326,9 +326,9 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
     assert.doesNotMatch(source, /\.local\/playwright-[A-Za-z0-9_-]+-profile/, file);
   }
 
-  for (const file of ['scripts/x-schedule-guard.mjs', 'scripts/x-sync-status.mjs']) {
+  for (const file of ['scripts/x/x-schedule-guard.mjs', 'scripts/x/x-sync-status.mjs']) {
     const source = readFileSync(join(REPO_ROOT, file), 'utf8');
-    assert.match(source, /import\s+\{[^}]*readScheduledQueue[^}]*\}\s+from\s+["']\.\/lib\/x-scheduled-queue\.mjs["']/, file);
+    assert.match(source, /import\s+\{[^}]*readScheduledQueue[^}]*\}\s+from\s+["']\.\.?\/lib\/x-scheduled-queue\.mjs["']/, file);
     assert.match(source, /await readScheduledQueue\(/, file);
     assert.doesNotMatch(source, /launchPersistentContext|\.local\/playwright-[A-Za-z0-9_-]+-profile/, file);
   }

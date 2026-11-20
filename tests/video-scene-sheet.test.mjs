@@ -27,7 +27,7 @@ test('scene sheet includes a short cover and excludes stale PNG files', async ()
     mkdirSync(join(renderDir, 'preview'), { recursive: true });
     const staleSheet = join(renderDir, 'preview', 'scene-sheet-13.jpg');
     writeFileSync(staleSheet, 'previous render');
-    const output = execFileSync(process.execPath, ['scripts/video-scene-sheet.mjs', packId], { cwd: REPO_ROOT, encoding: 'utf8' });
+    const output = execFileSync(process.execPath, ['scripts/youtube/video-scene-sheet.mjs', packId], { cwd: REPO_ROOT, encoding: 'utf8' });
     assert.match(output, /場面 2\/2 件/);
     const image = output.trim().split(': ').at(-1);
     assert.equal(relative(renderDir, image).startsWith('preview/scene-sheet-'), true);

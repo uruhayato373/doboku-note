@@ -11,6 +11,6 @@ metadata:
 
 **暗記ノートの型**: `Q. …／A. …` 1 行 1 対・分野 H2・2 番目の H2 が paidBoundary（最初の分野が無料）・素材は自前の予想問題/論点集/テキスト章のみ（RCCM・主任技士は過去問復元禁止）・writer(sonnet)→note-fact-checker→是正→publish。問数の 4 箇所同期は [[reference_note_publish_price_field]]。
 
-**2026-09-17 追記**: RCCM 無料 lead-in 3 本公開（n7570e79a4d27・n67ac63e3df10・n6d9b2fbb71a3）。口頭ライン＝建設部門 口頭対策 ¥1,980（draft・SKU `pe-construction-oral-guide` published:false・guide-fact-checker 済）＋無料「筆記合格発表後」総監/建設（draft）を D 当日公開待ち。Kindle h-01（RCCM 問題III）は EPUB/表紙/kdp-memo ready・**KDP ログイン切れで下書き未提出**（`node scripts/kdp-publish.mjs --id h-01`・価格 ¥980 は C 系前例 ¥1,250 も検討）。PR スタック #511→#513→#514→#515 は CI 緑（develop の DN-0238〜0243 と衝突した RCCM 側カードを DN-0247〜0251 へ採番し直し）。
+**2026-09-17 追記**: RCCM 無料 lead-in 3 本公開（n7570e79a4d27・n67ac63e3df10・n6d9b2fbb71a3）。口頭ライン＝建設部門 口頭対策 ¥1,980（draft・SKU `pe-construction-oral-guide` published:false・guide-fact-checker 済）＋無料「筆記合格発表後」総監/建設（draft）を D 当日公開待ち。Kindle h-01（RCCM 問題III）は EPUB/表紙/kdp-memo ready・**KDP ログイン切れで下書き未提出**（`node scripts/kindle/kdp-publish.mjs --id h-01`・価格 ¥980 は C 系前例 ¥1,250 も検討）。PR スタック #511→#513→#514→#515 は CI 緑（develop の DN-0238〜0243 と衝突した RCCM 側カードを DN-0247〜0251 へ採番し直し）。
 
 **残**: W8〜W11 の特典マガジン収録（DN-0246・各公開日後）／口頭試験ライン（総監 完全版は hearing-sheet 待ち・建設部門 口頭は draft 済・筆記合格発表 D 当日に 4 本公開）／KDP h-01 下書き提出（人がログイン）／PR #511→#513→#514→#515 マージ→`/deploy`→`check-production-ssr`／EXP-009 11/1・EXP-011 12/1 判定／X 期限超過警告（9/15〜16 civil-1 5 本）は Codex 監視側で確認。

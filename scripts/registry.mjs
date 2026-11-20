@@ -279,7 +279,7 @@ function stop() {
 /**
  * 予約を外す（scheduled → uploaded_private）。YouTube 側の公開予約を外したあとに台帳を合わせる（2026-10-13・運営者が YouTube の投稿を一旦止めた）。
  * stopped は戻れない終端なので、後で予約し直せる「非公開でアップロード済み」に戻す。元の予約日時は reason に残す。
- * 公開を減らす向きの操作なので運営者だけに限らないが、理由は必須。YouTube 側の実体は scripts/youtube-unschedule.mjs が先に外して確かめる。
+ * 公開を減らす向きの操作なので運営者だけに限らないが、理由は必須。YouTube 側の実体は scripts/youtube/youtube-unschedule.mjs が先に外して確かめる。
  */
 async function unschedule() {
   const { SCHEDULE_DELIVERY_KEYS } = await import('./lib/youtube-revision-publisher.mjs');

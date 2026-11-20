@@ -1,7 +1,7 @@
 /**
  * coconala-market.mjs — ココナラの市場調査（data/coconala/market-research.json）の保存形。純関数だけ（I/O なし）。
  * ---------------------------------------------------------------------------
- * 書き手: scripts/coconala-research.mjs。読み手: report-competitor-watch・scout-coconala-competitors・
+ * 書き手: scripts/coconala/coconala-research.mjs。読み手: report-competitor-watch・scout-coconala-competitors・
  * lib/qualification-market・coconala-research の market-summary 生成。
  *
  * 版の欄は schemaVersion（旧名 version は読み込み時に schemaVersion へ揃える）。

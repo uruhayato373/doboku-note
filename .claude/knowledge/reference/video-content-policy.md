@@ -140,7 +140,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。改行は全場面で、「、」「：」「・」「〜」「／」「→」と全角空白の後ろ、「（」「「」の前を優先し、無ければ語の切れ目で行う（英数字の並び「1,500m3」は分けない）。行頭に句読点と「・」を置かない（2026-10-08 に全場面へ広げた。それまでの character・compare・sheet 以外は文字数での改行で「リ/スク」「1,500m/3」が出ていた）。語の切れ目ではどの文字サイズでも収まらない狭い枠だけ、文字数での改行に戻す（描画できていた画面を止めない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
 
-全場面の意匠確認は `node scripts/video-scene-sheet.mjs <packId>`（先に `render-longform`）で行う。render-manifest の採用PNGだけを順に並べ、表紙を含む場面数 `N/N` と各画像SHAが一致しないと停止する。確認時はコマンドが返したパス、または台帳の `scene-sheet` 素材が指すSHA付きファイルを開く。同じpreviewフォルダに残る古い `scene-sheet-13.jpg` 等をファイル名だけで選ばない。1枚目と残り全場面の意匠を確認し、10秒間隔のコンタクトシートは画面遷移用に使う。`npm run media -- preview --pub <公開ID> --commit` は全場面シートも `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
+全場面の意匠確認は `node scripts/youtube/video-scene-sheet.mjs <packId>`（先に `render-longform`）で行う。render-manifest の採用PNGだけを順に並べ、表紙を含む場面数 `N/N` と各画像SHAが一致しないと停止する。確認時はコマンドが返したパス、または台帳の `scene-sheet` 素材が指すSHA付きファイルを開く。同じpreviewフォルダに残る古い `scene-sheet-13.jpg` 等をファイル名だけで選ばない。1枚目と残り全場面の意匠を確認し、10秒間隔のコンタクトシートは画面遷移用に使う。`npm run media -- preview --pub <公開ID> --commit` は全場面シートも `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
 
 公開前の画面確認は `npm run video-preview-sheet -- --pack-dir <パック>`（先に `render-longform --skip-tts`。台帳の公開 ID から回すときは `npm run media -- preview --pub`）で行う。数値（冒頭の表紙の秒数・直前と同じ画面・20秒以上同じ画面が続く箇所）は `render-manifest.json` と PNG だけで出るので動画も ffmpeg も要らず、ffmpeg が無いと無音プレビューとコンタクトシートは作れず exit 2（検査不成立）になる。閾値は `config/video-content.json` の `visualCheck`。手で回すときは、先に全場面シートの `N/N` と1枚目の表紙・残り全画像を確認する。続いて `--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで画面遷移を確認する（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる。Mac の Homebrew 版 ffmpeg は libass を持たず `ass` フィルタが無いので、`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` を使う）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
 
@@ -331,7 +331,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 ### 定期予約・公開CI（2026-09-10）
 
-`post-youtube-scheduled.yml`（毎日20:17 JST）は **2026-10-24 に廃止した（運営者の決定・DN-0817。CI からの YouTube 投入は止まっている）**。再開するときは、新しい workflow を `config/automations.json` の台帳に載せて作る。以下は廃止前の設計の記録で、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行するものだった。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
+`post-youtube-scheduled.yml`（毎日20:17 JST）は **2026-10-24 に廃止した（運営者の決定・DN-0817。CI からの YouTube 投入は止まっている）**。再開するときは、新しい workflow を `config/automations.json` の台帳に載せて作る。以下は廃止前の設計の記録で、固定した検証済みコードの `node scripts/youtube/youtube-delivery.mjs` を実行するものだった。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
 
 対象・日次上限は `config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
 

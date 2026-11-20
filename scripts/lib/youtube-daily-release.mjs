@@ -1,6 +1,6 @@
 /**
  * youtube-daily-release.mjs — 在庫の通常動画とショートを毎日の割当の範囲で予約へ進める順番を決める（2026-11-12・運営者の決定）。
- * 判定だけを持ち、書き込みは scripts/youtube-daily-release.mjs が既存の CLI（video-factory・registry・shorts-factory）で行う。
+ * 判定だけを持ち、書き込みは scripts/youtube/youtube-daily-release.mjs が既存の CLI（video-factory・registry・shorts-factory）で行う。
  *
  * 決まり:
  * - 通常動画は 1 日 slot.maxPerDay 本まで上げる。ショートの在庫がある作品を先に出し、残りは年間計画の目標日の順

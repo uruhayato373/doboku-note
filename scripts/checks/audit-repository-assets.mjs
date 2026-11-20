@@ -185,7 +185,7 @@ const RULES = [
     bucket: 'R2_PRIVATE',
     reason: 'note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、note へ登録した版の控えとして R2 に置く。書くのは Mac の週次 note-sync-routine で CI は読み書きしないので private 一本（2026-09-05 DN-0171 で byVisibility を廃止）',
     regenFrom: 'article*.md frontmatter の cover ブロック（generate-note-covers）',
-    usedBy: ['scripts/note-sync-routine.mjs', 'scripts/note-update-body.mjs'],
+    usedBy: ['scripts/note/note-sync-routine.mjs', 'scripts/note/note-update-body.mjs'],
     generator: 'scripts/generate-note-covers.mjs',
     visibility: (p) => noteDirVisibility(p),
   },
@@ -212,8 +212,8 @@ const RULES = [
     bucket: 'DRIVE_VAULT',
     reason: 'note 添付・商品 PDF。人が note に添付するだけでサイトも CI も読まないので Google Drive vault（制作物/note配布PDF/・drive-vault.json note-delivery-pdf）。2026-09-05 に private R2 から移設。購入者限定の配布物を含むので public には置かない',
     regenFrom: 'magazine-to-pdf の spec + article.md',
-    usedBy: ['scripts/note-attach-file.mjs'],
-    generator: 'scripts/magazine-to-pdf.mjs',
+    usedBy: ['scripts/note/note-attach-file.mjs'],
+    generator: 'scripts/note/magazine-to-pdf.mjs',
     visibility: () => 'private',
   },
   {
@@ -242,7 +242,7 @@ const RULES = [
     bucket: 'KEEP_GIT',
     reason: 'KDP 入稿成果物。scripts/kindle-dist/ 配下（A 系を含む全冊の EPUB・表紙）は private R2 が正本で git 追跡を外した（kindle-dist group・DN-0562・2026-10-12、A 系は DN-1204・2026-11-20）。kindle-covers/ はコードと README だけ',
     regenFrom: 'content/kindle/books/**（要検証）',
-    usedBy: ['scripts/kdp-publish.mjs'],
+    usedBy: ['scripts/kindle/kdp-publish.mjs'],
     generator: 'kindle-build',
     visibility: () => 'private',
   },
@@ -272,7 +272,7 @@ const RULES = [
     test: (p) => /^config\/ogp\//.test(p), // path-literal-ok: git の全 blob を置き場の接頭辞で分類する規則表の 1 行（config/ogp/ 配下全体が対象で台帳の 1 id ではない）
     bucket: 'KEEP_GIT',
     reason: '資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）',
-    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', 'scripts/ogp-create'], generator: null, visibility: () => 'n/a',
+    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala/coconala-thumb.mjs', 'scripts/ogp-create'], generator: null, visibility: () => 'n/a',
   },
   {
     id: 'public-static',
