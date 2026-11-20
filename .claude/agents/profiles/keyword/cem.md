@@ -134,7 +134,7 @@ description の本文 contract として扱うのは boilerplate を除いた残
 | ツール | 役割 | 担当 |
 |---|---|---|
 | `/check-mdx <path> --rules syntax,links` | MDX 構文・参考資料リンクの死活（捏造 URL の検出を含む） | **親が先に通す**（落ちたら起動しない） |
-| `node scripts/lint-mdx-mobile.mjs <path>` | カテゴリ1（表、壊れた表 1-7 含む）・6（導入文）・8（リンク）・9（コンポーネント原則）・12（散文密度）・15（文体: 文末の単調・長文）の機械チェック。モバイル / コンテンツ原則軸の根拠 | 採点役が実行して読む |
+| `node scripts/checks/lint-mdx-mobile.mjs <path>` | カテゴリ1（表、壊れた表 1-7 含む）・6（導入文）・8（リンク）・9（コンポーネント原則）・12（散文密度）・15（文体: 文末の単調・長文）の機械チェック。モバイル / コンテンツ原則軸の根拠 | 採点役が実行して読む |
 | `/exam-backlinks` | 過去問⇔キーワード紐付け確認（関連付け軸） | 採点役が読む |
 
 ### lint カテゴリ → 採点軸の強制ルール
@@ -194,5 +194,5 @@ weighted < 2.5 → /quality-cycle --mode rewrite に渡す
 - [`.claude/knowledge/reference/content-principles.md`](../../../knowledge/reference/content-principles.md) — §1-18 コンテンツ原則
 - `.claude/skills/keyword-page/SKILL.md` — Generator 側のルール
 - `.claude/skills/review-mobile/SKILL.md` — モバイル視認性の詳細
-- `scripts/lint-mdx-mobile.mjs` — 機械チェッカー
+- `scripts/checks/lint-mdx-mobile.mjs` — 機械チェッカー
 - `src/config/pe-chapters.json` — キーワード集の章・節構造

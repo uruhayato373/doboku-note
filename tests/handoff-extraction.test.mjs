@@ -20,7 +20,7 @@ import {
 } from '../scripts/lib/handoff-extraction.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(ROOT, 'scripts/check-handoff-extraction.mjs');
+const SCRIPT = join(ROOT, 'scripts/checks/check-handoff-extraction.mjs');
 
 // DN-0230: W37 の申し送りは台帳に居場所が無いまま旧レビューごと削除された。その形を再現する。
 const OLD_REVIEW = [

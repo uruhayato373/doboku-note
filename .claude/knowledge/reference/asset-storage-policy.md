@@ -164,7 +164,7 @@ Drive のパスは参照しない＝この移動でビルドは壊れない。
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
   `npm run drive-vault-sync -- --group source-transcript --pull --commit`（詳細手順は
   `content/sources/textbook/README.md`）
-- **ローカルの読者（`scripts/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
+- **ローカルの読者（`scripts/checks/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
   残るため、この Mac 上では従来どおり動く。CI・fresh clone では実体が無い前提でコードを書く
   （現状これらのスクリプトはローカル専用運用で CI には配線されていない）
 - PDF・ページ画像も `textbook-source-pdf` / `textbook-page-image` で Drive vault に置く。文字起こしは

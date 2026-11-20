@@ -17,6 +17,6 @@ SVG の矢印マーカーは必ず **右向き三角形（+x 方向）** で定�
 
 ## 大型タイトルの不適切改行は段階フォント auto-fit で構造的に解消
 PNG/SVG の大型タイトル（過去問 cover 156px、Stories ハイライト hero 132px）で文字数超過による不適切な改行（「ここでわかるこ／と」）が頻発する課題の確定対策。文字数制限は意味が希薄化（「ここでわかること」→「わかること」）、フォント縮小は視覚バランスが崩れるジレンマを段階分けで吸収する。
-- 共通 util `scripts/lib/sns-common/fit-title.mjs`（`visualLength`: 全角=1.0/半角=0.55、`pickTitleSize`: 3階層自動選択、`classifyTitle`: OK/WARN/NOTICE/ERROR）。tokens.json に hero/heroMid/heroSm（132/100/80）＋coverTitle/Mid/Sm（120/90/72）の3階層を `_maxLen` 付きで定義。builder（highlight-stories-slides.mjs / quiz-slides.mjs）が title の visualLength で自動選択。字数判定4段階: OK(<=7) / WARN(8-11) / NOTICE(12-16) / ERROR(17+)。機械検証 `scripts/lint-stories-titles.mjs` で全 slide-data.json をスキャン。
+- 共通 util `scripts/lib/sns-common/fit-title.mjs`（`visualLength`: 全角=1.0/半角=0.55、`pickTitleSize`: 3階層自動選択、`classifyTitle`: OK/WARN/NOTICE/ERROR）。tokens.json に hero/heroMid/heroSm（132/100/80）＋coverTitle/Mid/Sm（120/90/72）の3階層を `_maxLen` 付きで定義。builder（highlight-stories-slides.mjs / quiz-slides.mjs）が title の visualLength で自動選択。字数判定4段階: OK(<=7) / WARN(8-11) / NOTICE(12-16) / ERROR(17+)。機械検証 `scripts/checks/lint-stories-titles.mjs` で全 slide-data.json をスキャン。
 - エージェント分業: Generator は推奨字数（4-7）を目指すが8-11も許容（意味が崩れない短縮を優先）。Evaluator（ig-highlight-qa / ig-carousel-qa）は lint 出力を Read して採点に引用（自己判定でなく機械結果）。ERROR のみ -2 重大減点、WARN/NOTICE は減点なし（auto-fit で折り返しは構造的に発生しない）。
 - 将来: notebook-slides.mjs / キーワードページ SVG で同課題が出たら fit-title.mjs を再利用（SVG は PNG と fit ロジックが異なるため要調整）。関連 [[project_sns_v7_pivot]]

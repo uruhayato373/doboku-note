@@ -16,7 +16,7 @@ DN-0137（旧DN-0109 Phase 4）の設計成果物。**実行はユーザーがGi
 | R2削除 (`r2-delete.yml`) | 既に良い設計: `workflow_dispatch`限定・既定dry-run・`commit=true`明示が必要・`concurrency: {group: r2-delete, cancel-in-progress: false}` | 対応不要 |
 | R2監査キー最小権限化 | `r2-sync.yml`の「main と R2 の画像差分」step は`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID || CLOUDFLARE_R2_ACCESS_KEY_ID`のフォールバック式が既にある（設計済み）が、専用の読み取り専用キー自体が未作成のため常に書き込み可能な既存キーへフォールバックしている | 最小権限化が半分で止まっている |
 | CODEOWNERS | 無し | 必須レビュー者を指定できない（ただし単独運用なら優先度低） |
-| ワークフロー衛生（SHA-pin・permissions・timeout） | `scripts/check-workflow-hygiene.mjs`が既にpre-commit/quality:auditでゲート済み | 対応不要 |
+| ワークフロー衛生（SHA-pin・permissions・timeout） | `scripts/checks/check-workflow-hygiene.mjs`が既にpre-commit/quality:auditでゲート済み | 対応不要 |
 
 ## 実行チェックリスト（優先順）
 
@@ -98,7 +98,7 @@ CI がログインして収集・投稿する仕組み（age 暗号化した sto
 
 ## 関連
 
-- `scripts/check-workflow-hygiene.mjs` — SHA-pin/permissions/timeout-minutes・develop へ rebase 無しで push する run:（2026-10-11 追加・競合で記録が落ちる）・node-version の 22 統一（2026-10-11 追加・20 と 22 の混在を止める）の機械ゲート（既に対応済み・本ドキュメントの対象外）
+- `scripts/checks/check-workflow-hygiene.mjs` — SHA-pin/permissions/timeout-minutes・develop へ rebase 無しで push する run:（2026-10-11 追加・競合で記録が落ちる）・node-version の 22 統一（2026-10-11 追加・20 と 22 の混在を止める）の機械ゲート（既に対応済み・本ドキュメントの対象外）
 - `.github/workflows/r2-delete.yml` — 既に良い設計の参考実装（workflow_dispatch限定・dry-run既定）
 - `.claude/knowledge/reference/playwright-auth-profiles.md` — ログインの役割分担（人・Mac・CI）
 - CLAUDE.md §10「重要なステップごとにチェックポイントを置く」— 複数セッション常態下でのforce-pushの危険性

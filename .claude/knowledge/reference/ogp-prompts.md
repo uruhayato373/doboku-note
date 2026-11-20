@@ -61,7 +61,7 @@ mono-tag は **資格＝色** と **コンテンツ種別＝右上バッジ** �
 ガイド（`group: guide`）は題が一本ずつ違い、`ogp.title` 未指定だと**長い説明的タイトルが小さく/多行で出てカード間でばらつく**（OGP 主題は横幅にフォントを auto-fit するため）。
 
 - **規約**: 長い題のガイドは**手動 `ogp.title` で主題を短く（≤2行・大きめフォント）**し、詳細・修飾は `ogp.subtitle` へ逃がす。短い題（例 `土工の重要ポイント`）は自動導出のままで大きく出るので可。
-- **機械ゲート**: `npm run check-ogp-title-fit`。実レンダリングと同じ `wrapTitle`＋`pickFontSize` で主題フォントを算出し、**56px 未満（長すぎて小さい）のガイドを赤落ち**で検出。`--staged` は pre-commit（編集したガイドのみ）、無印は published 全件（CI）、`--all` は全件のフォント一覧（バーンダウン）。実装は `scripts/check-ogp-title-fit.mjs`。
+- **機械ゲート**: `npm run check-ogp-title-fit`。実レンダリングと同じ `wrapTitle`＋`pickFontSize` で主題フォントを算出し、**56px 未満（長すぎて小さい）のガイドを赤落ち**で検出。`--staged` は pre-commit（編集したガイドのみ）、無印は published 全件（CI）、`--all` は全件のフォント一覧（バーンダウン）。実装は `scripts/checks/check-ogp-title-fit.mjs`。
 
 | `group` | バッジラベル | アイコン |
 |---|---|---|

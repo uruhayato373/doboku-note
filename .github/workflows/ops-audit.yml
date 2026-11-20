@@ -104,7 +104,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set +e
-          node scripts/check-workflow-health.mjs --only weekly-review-guard.yml > "$RUNNER_TEMP/guard-health.txt" 2>&1
+          node scripts/checks/check-workflow-health.mjs --only weekly-review-guard.yml > "$RUNNER_TEMP/guard-health.txt" 2>&1
           rc=$?
           set -e
           cat "$RUNNER_TEMP/guard-health.txt"

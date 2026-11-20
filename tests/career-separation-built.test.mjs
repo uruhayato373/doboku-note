@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const SRC = readFileSync('scripts/check-career-separation.mjs', 'utf8');
+const SRC = readFileSync('scripts/checks/check-career-separation.mjs', 'utf8');
 
 test('--built の走査先は現行の 4 領域で、廃止した out/docs を見ていない', () => {
   for (const area of ['exam', 'practice', 'standards', 'topics']) {
@@ -70,7 +70,7 @@ test('note CTA を描画する呼び出し側が career 判定を渡している
     /resolvePlacement\(\s*slugStr,\s*docGroup,\s*isCareerDoc\(meta\)\s*,\s*renderedNoteCards\(doc\.content\)\s*\)/.test(DOCPAGE),
     'DocPage が isCareerDoc を渡していない（career 記事に note CTA が出る）',
   );
-  const REACH = readFileSync('scripts/check-magazine-cta-reachability.ts', 'utf8');
+  const REACH = readFileSync('scripts/checks/check-magazine-cta-reachability.ts', 'utf8');
   assert.ok(
     REACH.includes('d.isCareer'),
     '到達性チェッカーが career を考慮していない（出ない CTA を「導線あり」と数える）',

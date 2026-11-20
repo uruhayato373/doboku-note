@@ -93,7 +93,7 @@ HIGH: 2 / MEDIUM: 1 / LOW: 0
 
 Step 4 の修正後、自動で以下を実行して結果を報告する。**失敗したら次に進まない**。
 
-1. **UI 変更があるなら `node scripts/lint-ui.mjs`** を走らせる（ステージ対象ではなく修正ファイルに対して）
+1. **UI 変更があるなら `node scripts/checks/lint-ui.mjs`** を走らせる（ステージ対象ではなく修正ファイルに対して）
 2. **MDX 変更があるなら `node scripts/pre-commit-mdx.mjs`** を走らせる（staged ではなく修正ファイル対象の軽量検証）
 3. **src/lib や scripts/lib の変更があるなら `npm test`** を走らせる
 4. **type-check 変更影響が疑わしければ `npm run type-check`**（.tsx / .ts 変更があれば必ず走らせる）
@@ -160,5 +160,5 @@ src/components/ui/Callout/Callout.tsx
 - `CLAUDE.md` ── 「12 原則」（§1-§4 が実装の行動原則・§5 がハーネス設計原則）
 - `.claude/knowledge/reference/content-authoring.md` ── MDX コンポーネント・frontmatter 規約
 - Claude Code 標準の `/code-review` ── コード品質レビュー（観点が重複するため、/simplify は「修正提案型」、/code-review は「批判型」と使い分け）
-- `scripts/lint-ui.mjs` ── UI 静的 lint（Step 5-1 で呼ぶ）
+- `scripts/checks/lint-ui.mjs` ── UI 静的 lint（Step 5-1 で呼ぶ）
 - `scripts/pre-commit-mdx.mjs` ── MDX pre-commit 検証（Step 5-2 で呼ぶ）

@@ -46,13 +46,13 @@
 3. 色は `svg-tokens.json` の allowlist のみ。濃色背景＋白文字・出典/図表番号の書き込みは禁止（create-svg 準拠）。
 4. **概念名タイトルを図の中に入れない**。SNS は枠レンダラー（`render-figure-sns`）が概念名をヘッダーに出し、記事は見出しが担うため、図内タイトルは SNS 出力で重複する。縦余白は「タイトル」ではなく実体（凡例・比較表・サマリー・要素拡大）で埋める。軸名・区分ラベル等の部分見出しは可。**機械検知**: check-mdx svg audit の **P11-concept-title（MEDIUM）**＝最上部中央の大見出し（font≥14・y≤26・text-anchor=middle）を概念名タイトルとして surface する。説明サブタイトル（サマリー）は font≤11 にして先頭へ繰り上げれば可。
 5. **試験頻出ポイント・引っかけ論点セクションを図の中に入れない**。これらは MDX の `<ExamPoint>` / `<Callout>` コンポーネントと、IG テキストスライド（`02-text.svg` / `03-text.svg`）が担う。figure-*.svg に「試験ポイント」「引っかけ」バーや注記ボックスを入れると IG 出力で概念図とポイントが混在し視認性が下がる。既存図でこれを含むものは次回リライト時に除去する。
-6. コミット前に `/check-mdx --rules svg` ＋ `node scripts/check-figure-canvas.mjs`（§3）。
+6. コミット前に `/check-mdx --rules svg` ＋ `node scripts/checks/check-figure-canvas.mjs`（§3）。
 
 ---
 
 ## 3. ガード — 「新規は確実にこのサイズ」
 
-**新規 `scripts/check-figure-canvas.mjs`**（pre-commit + CI）:
+**新規 `scripts/checks/check-figure-canvas.mjs`**（pre-commit + CI）:
 
 - `content/site/**/img/figure-*.svg` を走査。
 - `--wide` でないファイル → viewBox が `400 500` であること。
@@ -68,7 +68,7 @@
 
 ### 埋込寸法ガード — 「MDX の width/height は SVG の実 viewBox と一致させる」
 
-**`scripts/check-figure-embed-dims.mjs`**（pre-commit `--staged` + push 時 `quality:audit --ci`〔`ci.yml`〕全量 + `quality:audit:ci` 全量・`npm run check-figure-embed-dims`）:
+**`scripts/checks/check-figure-embed-dims.mjs`**（pre-commit `--staged` + push 時 `quality:audit --ci`〔`ci.yml`〕全量 + `quality:audit:ci` 全量・`npm run check-figure-embed-dims`）:
 
 - `content/site/**/*.mdx|*.md` 本文の `<ArticleImage src="/posts/….svg">` を走査し、参照先 SVG の `viewBox="0 0 W H"` と `width={W}` `height={H}` を突合。
 - 不一致は file・figure 名・両者の寸法を出して **exit 1**。修正は `npm run check-figure-embed-dims -- --fix`（`writeMdxFile` 経由で CRLF を保持）。
@@ -82,7 +82,7 @@
 
 ### 孤立 figure ガード — 「作った figure は必ず本文に出す」
 
-**`scripts/check-orphan-figures.mjs`**（pre-commit `--staged` + CI `quality:audit:ci` 全量・`npm run check-orphan-figures`）:
+**`scripts/checks/check-orphan-figures.mjs`**（pre-commit `--staged` + CI `quality:audit:ci` 全量・`npm run check-orphan-figures`）:
 
 - `content/site/**/img/figure-*.svg` を走査し、その figure の親（`img/` の 1 つ上）ディレクトリ直下の `*.mdx` / `*.md` 本文を読む。
 - 本文に「basename（`figure-N.svg`）」も「stem（`figure-N`、別拡張子参照を許容）」も**現れない** figure を**孤立**として **exit 1**。
@@ -138,7 +138,7 @@
 ## 7. 実装シーケンス（設計承認後）
 
 - [ ] `config/figure-canvas.json`（機械 SSOT）— 本 doc と対で作成済み
-- [ ] `scripts/check-figure-canvas.mjs` ＋ pre-commit / CI 配線（allowlist 付き）
+- [ ] `scripts/checks/check-figure-canvas.mjs` ＋ pre-commit / CI 配線（allowlist 付き）
 - [ ] create-svg SKILL.md を固定キャンバス（高さ 500 固定・2 canvas）へ改定
 - [ ] `build-svg-catalog` に canvas/fitStatus フィールド追加（※ PR#269 の所在を要確認）
 - [ ] `svg-gallery.mjs` に canvas 適合バッジ追加

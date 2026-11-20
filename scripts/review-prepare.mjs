@@ -155,10 +155,10 @@ function main() {
   let targets;
   if (args.period) targets = [args.period];
   else if (cadence === 'weekly') {
-    const due = JSON.parse(runNode(['scripts/check-weekly-review-due.mjs', '--json']).stdout || '{}').due ?? null;
-    targets = weeklyTargets({ due, latest: parseCompletionLine(runNode(['scripts/check-weekly-review.mjs', '--ref', 'origin/develop']).stdout) });
+    const due = JSON.parse(runNode(['scripts/checks/check-weekly-review-due.mjs', '--json']).stdout || '{}').due ?? null;
+    targets = weeklyTargets({ due, latest: parseCompletionLine(runNode(['scripts/checks/check-weekly-review.mjs', '--ref', 'origin/develop']).stdout) });
   } else {
-    const due = runNode(['scripts/check-monthly-review-due.mjs', '--due-key']).stdout.trim();
+    const due = runNode(['scripts/checks/check-monthly-review-due.mjs', '--due-key']).stdout.trim();
     targets = due ? [due] : [];
   }
   if (!targets.length) { console.log(`${TAG} ${cadence}: 対象なし（期限の来ているレビューが無い）`); return; }

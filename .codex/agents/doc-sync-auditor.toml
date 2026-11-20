@@ -72,7 +72,7 @@ severity 3 段階: **must-fix**（事実誤りが残り読者を誤導）／**sh
 ## 担当外
 
 - **doc の書き換え・適用** — 親 / Generator（findings を受けて適用）。
-- **壊れたパス参照の検知** — `scripts/check-doc-refs.mjs`（機械）。
-- **台帳（skills-guide / registry）更新もれの検知** — `scripts/check-doc-coupling.mjs`（機械・pre-commit）。
+- **壊れたパス参照の検知** — `scripts/checks/check-doc-refs.mjs`（機械）。
+- **台帳（skills-guide / registry）更新もれの検知** — `scripts/checks/check-doc-coupling.mjs`（機械・pre-commit）。
 - **diff 抽出・候補 doc の grep** — 親（`/doc-sync` スキル）。
 """

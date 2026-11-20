@@ -4,7 +4,7 @@ name: Production check (uptime ping + all-URL sweep)
 # - ping（1 日 3 回）: 代表 3 ページの SSR・body・GA 計装。下に経緯。Issue channel: uptime
 # - sweep（日曜・本番 deploy の成功後・手動の sweep）: sitemap 全 URL を実際に叩く。check-seo-build は out/ の検査で、
 #   Cloudflare 層（_redirects・_headers・キャッシュ・R2 の og:image）は本番でしか見えない。
-#   検査内容と exit code は scripts/check-production-sweep.mjs ヘッダ、閾値は scripts/lib/production-sweep.mjs。
+#   検査内容と exit code は scripts/checks/check-production-sweep.mjs ヘッダ、閾値は scripts/lib/production-sweep.mjs。
 #   失敗（本番異常 rc=1 / 検査不成立 rc=2）は Issue channel: production-sweep
 # 定期実行と workflow_run はデフォルトブランチ（main）の版で動く。
 #
@@ -229,7 +229,7 @@ jobs:
           set +e
           ARGS=""
           [ -n "$SAMPLE" ] && ARGS="--sample $SAMPLE"
-          node scripts/check-production-sweep.mjs $ARGS 2>&1 | tee /tmp/sweep.log
+          node scripts/checks/check-production-sweep.mjs $ARGS 2>&1 | tee /tmp/sweep.log
           rc=${PIPESTATUS[0]}
           set -e
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
@@ -254,7 +254,7 @@ jobs:
             echo '```'
             echo ""
             echo "- 再実行: \`gh workflow run uptime-ping.yml -f sweep=true\`（手元: \`npm run check-production-sweep -- --sample 50\`）"
-            echo "- 判定: \`scripts/lib/production-sweep.mjs\` / 実行: \`scripts/check-production-sweep.mjs\`"
+            echo "- 判定: \`scripts/lib/production-sweep.mjs\` / 実行: \`scripts/checks/check-production-sweep.mjs\`"
           } > /tmp/sweep-body.md
           node scripts/report-automation-failure.mjs \
             --channel production-sweep \

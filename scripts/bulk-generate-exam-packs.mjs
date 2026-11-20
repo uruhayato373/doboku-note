@@ -12,7 +12,7 @@
  *   node scripts/bulk-generate-exam-packs.mjs --year r07 --skip-lint
  *
  * pre-check:
- *   生成前に scripts/lint-exam-pack-structure.mjs を実行し、構造違反
+ *   生成前に scripts/checks/lint-exam-pack-structure.mjs を実行し、構造違反
  *   (E1: 列挙散文化 / E2: markdown 表残骸) があれば生成を中止する。
  *   緊急時のみ --skip-lint で迂回可能。
  */

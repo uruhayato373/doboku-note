@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(REPO_ROOT, 'scripts', 'check-client-chunk-size.mjs');
+const SCRIPT = join(REPO_ROOT, 'scripts', 'checks', 'check-client-chunk-size.mjs');
 
 function run(outDir, extra = []) {
   try {

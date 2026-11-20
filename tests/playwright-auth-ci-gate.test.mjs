@@ -72,7 +72,7 @@ test('エージェントのセッション: collectors の script は拒否・wr
     const profile = join(dir, 'profiles', 'playwright-note-profile');
     assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
     assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note-traffic-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
-    assert.throws(() => ensureAuthDirectories('note', { ...options, invokedScript: 'scripts/check-note-attachments.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
+    assert.throws(() => ensureAuthDirectories('note', { ...options, invokedScript: 'scripts/checks/check-note-attachments.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
     assert.equal(existsSync(profile), false, '拒否時はディレクトリを作らない');
     // 拒否の文言は「記録済みのデータを読む」「運営者が weekly-collect --only で取り直す」を案内する
     assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /記録済みのデータ.*weekly-collect\.mjs --only/s);

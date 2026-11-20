@@ -50,7 +50,7 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<
 `note-attach-file --draft-only` は保存後にエディタを再読込し、要求したPDFファイル名の添付がなければ exit 9。`--commit` は再公開後に**ライブの添付リンク数を実測**し、0 なら exit 9（「更新するを押せた＝添付できた」ではない）。両オプションは同時指定できない。横断確認は:
 
 ```bash
-node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実測
+node scripts/checks/check-note-attachments.mjs --live   # 期待本数 vs ライブ実測
 ```
 
 ディスク上に PDF がある公開記事すべてについて、note ライブの添付リンク（`api/v2/attachments/download`）本数を著者ログインで実測し、不足を exit 1 で落とす。**不足と出た記事は、スナップショットへ書く前に単独条件（再読み込み・段階スクロール・長い settle）で必ず測り直す**（2026-09-05／09-06 に、`--only` なら充足なのに全件走査だけ live=0 と報告する取りこぼしが 2 件出たため・DN-0176）。出力の「暫定不足 → 再実測で解消 / 確定不足」は、確定不足だけが本物の欠落で、解消分は全件走査の偽陰性。待ちは `NOTE_ATTACH_SETTLE_MS` / `NOTE_ATTACH_CONFIRM_SETTLE_MS` / `NOTE_ATTACH_CONFIRM_WAIT_MS` で伸ばせる（プロキシ下で有効）。**未ログインの HTML には有料エリアの添付カードが出ない**ため、この live 層は土曜の Mac 収集の後段（`weekly-collect` の note-live 段）が回す。CI は回さない（運営者の端末での取り直しは `--only note-live`）（CI 側は `npm run check-note-attachments` が「約束した PDF がディスクに在るか」だけを見る）。

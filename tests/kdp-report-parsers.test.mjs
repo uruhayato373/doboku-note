@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope, mergeKdpBookRows } from '../scripts/lib/kdp-report-parsers.mjs';
-import { assessKdpReport } from '../scripts/check-kdp-report-freshness.mjs';
+import { assessKdpReport } from '../scripts/checks/check-kdp-report-freshness.mjs';
 
 test('確定KENPの専用画面で集計と全80冊の合計を照合する', () => {
   assert.equal(parseKdpKenpTotal('既読ページ数\n6,870\n80 冊の本すべて\n日付\n80 冊の本すべて\n6,870', 80), 6870);

@@ -8,7 +8,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
-import { analyzeImage } from '../scripts/check-figure-crop-integrity.mjs';
+import { analyzeImage } from '../scripts/checks/check-figure-crop-integrity.mjs';
 
 const W = 1000;
 const H = 600;

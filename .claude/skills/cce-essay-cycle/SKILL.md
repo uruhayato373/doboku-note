@@ -20,7 +20,7 @@ domain: product
 | 出題形式・過去問の公開範囲 | `config/exam-formats.json` の `concrete-chief-engineer` |
 | 価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（`cce-*`）・`src/lib/coconala-services.ts` |
 
-年度別テーマを記事へ書くときは、手で写さず**出題履歴ブロック**（マーカー `cce-essay-history:start` ～ `end`）を置いて `node scripts/check-cce-essay.mjs --fix` で生成する。サイト MDX は `{/* cce-essay-history:start since=2012 format=table */}`、note は `<!-- cce-essay-history:start since=2020 format=list -->`（note はパイプ表非対応）。
+年度別テーマを記事へ書くときは、手で写さず**出題履歴ブロック**（マーカー `cce-essay-history:start` ～ `end`）を置いて `node scripts/checks/check-cce-essay.mjs --fix` で生成する。サイト MDX は `{/* cce-essay-history:start since=2012 format=table */}`、note は `<!-- cce-essay-history:start since=2020 format=list -->`（note はパイプ表非対応）。
 
 ## モード
 
@@ -32,7 +32,7 @@ domain: product
 
 1. 出題を 2 出典以上で確認する（JCI は問題文を公開しない。書籍・合格者記事を突合）。主担当が原文を読んでから書く（サブエージェントの要約を正本へそのまま入れない）。
 2. SSOT の `years` 先頭に追記（`options[].theme` を `themes` の id へ対応づけ、`items`・`confidence`・`sources` を必ず付ける）。新しいテーマ系統なら `themes` に追加し、商品の要否を判断する。
-3. `node scripts/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/check-cce-essay.mjs` が exit 0（立場別記事40本の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
+3. `node scripts/checks/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/checks/check-cce-essay.mjs` が exit 0（立場別記事40本の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
 4. サイトは `npm run refresh-indexes`、note は再同期（note-sync）。
 
 ### draft — 模範答案を作る

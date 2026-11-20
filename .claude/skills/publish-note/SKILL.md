@@ -260,7 +260,7 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 **公開・更新後の必須4点**（これを通すまで「完了」と言わない）:
 
 ```bash
-node scripts/check-note-structure.mjs                          # 無料プレビュー崩壊・境界・価格（FREE_PREVIEW_COLLAPSE/FULL_LOCK）
+node scripts/checks/check-note-structure.mjs                          # 無料プレビュー崩壊・境界・価格（FREE_PREVIEW_COLLAPSE/FULL_LOCK）
 npm run check-note-attachments:live -- --only <noteId,...>     # 約束した PDF が live に実在するか（要ログイン）
 npm run check-note-paid-cta                                    # 無料域に商品導線があるか
 npm run verify-note-magazines                                  # マガジン公開状態と SoT の突合

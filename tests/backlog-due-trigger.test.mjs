@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const HEALTH = join(ROOT, 'scripts/check-backlog-health.mjs');
+const HEALTH = join(ROOT, 'scripts/checks/check-backlog-health.mjs');
 const SKILL = join(ROOT, '.claude/skills/backlog-sweep/SKILL.md');
 
 /**
@@ -43,5 +43,5 @@ test('棚卸しの実施記録が state に閉じている（docs 側に台帳�
 
 test('npm run check-backlog-due が package.json に存在する', () => {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
-  assert.equal(pkg.scripts['check-backlog-due'], 'node scripts/check-backlog-health.mjs --due');
+  assert.equal(pkg.scripts['check-backlog-due'], 'node scripts/checks/check-backlog-health.mjs --due');
 });

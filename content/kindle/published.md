@@ -18,7 +18,7 @@ EPUB を更新して KDP に再アップしたら、正本の当該本の `versi
 
 ## 書式インバリアント検査（全シリーズ共通）
 
-`npm run check-kindle-format`（`scripts/check-kindle-format.mjs`）で、ビルド済み EPUB が書式ハウスルールを満たすか機械検査する（読み取り専用）。`epubcheck`（EPUB 仕様の妥当性）の上に乗る意味層で、**入稿前チェックの必須ゲート**。
+`npm run check-kindle-format`（`scripts/checks/check-kindle-format.mjs`）で、ビルド済み EPUB が書式ハウスルールを満たすか機械検査する（読み取り専用）。`epubcheck`（EPUB 仕様の妥当性）の上に乗る意味層で、**入稿前チェックの必須ゲート**。
 
 検査する UX 不変条件（CSS 文字列ではなく outcome ベース）:
 - **R1 可読性**: `style.css` の body に font-family と `line-height >= 1.5`
@@ -26,7 +26,7 @@ EPUB を更新して KDP に再アップしたら、正本の当該本の `versi
 - **R3 解答の分離**: 解答が改ページ境界で始まる（別 `*a.xhtml` spine or `.ans` に `break-before:page`）
 - **R4 選択肢の連番**: 単一項目の `<ol class="opts">` が連続しない（原稿の loose list をパーサーが各選択肢別 `<ol>` にすると番号が全て「1.」にリセットされる沈黙バグの検出。D系で実発生）
 
-A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans` の CSS 改ページ）は実装が違うが、同じ UX 不変条件で両方を検証する。ビルド直後の入稿前は `node scripts/check-kindle-format.mjs .tmp/kindle-<id>/*.epub` で個別検査できる。
+A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans` の CSS 改ページ）は実装が違うが、同じ UX 不変条件で両方を検証する。ビルド直後の入稿前は `node scripts/checks/check-kindle-format.mjs .tmp/kindle-<id>/*.epub` で個別検査できる。
 
 | 品番 | ASIN | 版 | EPUB | 表紙 | KDP メモ（2026-11-20 に追跡をやめた。A 系は Drive の `アーカイブ/repo/`、ほかは `npm run gen-kdp-memo <id>` で `.tmp/kdp-memo/` に作る） |
 |---|---|---|---|---|---|

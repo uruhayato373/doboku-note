@@ -456,7 +456,7 @@ export const XOwnPosts = z
 
 const noteStatusRow = { rel: z.string().min(1).describe('記事ファイルのリポジトリ相対パス'), noteId: z.string().describe('note の記事 id（無ければ「(空)」）'), status: z.string().describe('frontmatter の noteStatus') };
 
-/** note 記事の公開状態の要約（data/note/status.json）。取得は scripts/verify-note-status.mjs --snapshot（週次の CI） */
+/** note 記事の公開状態の要約（data/note/status.json）。取得は scripts/checks/verify-note-status.mjs --snapshot（週次の CI） */
 export const NoteStatusSnapshot = z
   .object({
     schemaVersion: z.literal(1),

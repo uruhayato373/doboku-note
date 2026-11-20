@@ -6,7 +6,7 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // UI-008: MDX の <Callout type> の typo は Callout.tsx が黙って note へ落とすため、
 // content lint（check-callout-types）が fixture の typo を実際に検出できることを固定する。
-const SCRIPT = join(ROOT, 'scripts/check-callout-types.mjs');
+const SCRIPT = join(ROOT, 'scripts/checks/check-callout-types.mjs');
 const FIXTURES = 'tests/fixtures/callout-types';
 
 function run(target) {

@@ -10,7 +10,7 @@
  * どちらも「原因」は違うが「症状」は同じ＝デリミタ行が table にならず text ノードとして
  * 生き残る。原因ごとにルールを足すのではなく、症状そのものを AST で観測する。
  *
- * scripts/check-bold-rendering.mjs と同じ設計（規則の再実装をせず remark で実パース）。
+ * scripts/checks/check-bold-rendering.mjs と同じ設計（規則の再実装をせず remark で実パース）。
  * テストから import できるよう検出ロジックだけをここに置く。
  */
 

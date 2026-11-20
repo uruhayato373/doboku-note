@@ -35,7 +35,7 @@ node scripts/analyze-gsc-coverage.mjs \
   --url-dir .tmp/gsc-urls/
 
 # 5. 補助分析（必要に応じて）
-node scripts/verify-html-links.mjs --urls .tmp/gsc-urls/ex0.txt --sample 30  # HTML 出力検証
+node scripts/checks/verify-html-links.mjs --urls .tmp/gsc-urls/ex0.txt --sample 30  # HTML 出力検証
 node scripts/build-noindex-candidates.mjs --inspection-glob ... --page-data ...  # noindex 候補
 node scripts/analyze-hubs.mjs --page-data ...  # hub 強化対象特定
 ```

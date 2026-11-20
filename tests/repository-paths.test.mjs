@@ -10,7 +10,7 @@ import {
   NOTE_CONTENT_ROOT, SNS_CONTENT_ROOT, COCONALA_BLOG_ROOT, KINDLE_CONTENT_ROOT, TEXTBOOK_SOURCES_ROOT,
   MOVED_PATHS, RESTRUCTURED_PATHS, resolveMovedPath,
 } from '../scripts/lib/repository-paths.mjs';
-import { inventory, findDualSsot } from '../scripts/audit-content-layout.mjs';
+import { inventory, findDualSsot } from '../scripts/checks/audit-content-layout.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..'); // root-ok: REPO_ROOT とは別の経路で求め、一致を検査する
 // 動的 import はパス文字列でなく file:// URL を渡す。Windows の絶対パスは `C:\...` で、

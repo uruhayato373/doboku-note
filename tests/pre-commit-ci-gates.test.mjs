@@ -18,7 +18,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'keiken-answer-split', 'unit-tests', 'content-series', 'topic-wiring', 'generated-indexes']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
-  assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
+  assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/checks/audit-katex-warnings.mjs', '--strict']);
   // SNS の検査は SNS の保留に合わせて 2026-10-25 に CI と pre-commit の速い検査から外した（再開するときに作り直す）
   // content/sns の json・md・txt は素材の参照の検査（media-references）だけ回す（下のテスト）
   assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['media-references']);
@@ -152,7 +152,7 @@ test('content/sns の文書を stage したら素材の参照（check-media-refe
   assert.ok(ids(['content/sns/x/y.md']).includes('media-references'));
   assert.ok(!ids(['content/sns/x/y.png']).includes('media-references'), '走査対象は json・md・txt だけ');
   assert.ok(!ids(['content/site/a/b/article.mdx']).includes('media-references'));
-  assert.deepEqual(GATES.find((g) => g.id === 'media-references').cmd([]), ['node', 'scripts/check-media-references.mjs']);
+  assert.deepEqual(GATES.find((g) => g.id === 'media-references').cmd([]), ['node', 'scripts/checks/check-media-references.mjs']);
 });
 
 test('runPlan: 検査を並行で回し、結果は計画の順に返す（直列だと記事 1 本の commit で所要時間が足し算になる・DN-1141）', async () => {

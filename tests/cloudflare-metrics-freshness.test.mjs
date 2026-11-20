@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { assessCloudflareFreshness } from '../scripts/check-cloudflare-metrics-freshness.mjs';
+import { assessCloudflareFreshness } from '../scripts/checks/check-cloudflare-metrics-freshness.mjs';
 
 const NOW = Date.parse('2026-09-21T00:00:00Z');
 

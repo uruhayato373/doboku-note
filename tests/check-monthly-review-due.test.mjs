@@ -8,7 +8,7 @@ import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { dueMonth, reviewedMonths } from '../scripts/check-monthly-review-due.mjs';
+import { dueMonth, reviewedMonths } from '../scripts/checks/check-monthly-review-due.mjs';
 
 // JST の日時を UTC ms で作る
 const jst = (y, m, d, h = 12) => Date.UTC(y, m - 1, d, h - 9);

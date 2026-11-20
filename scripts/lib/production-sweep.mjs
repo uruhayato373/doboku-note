@@ -1,5 +1,5 @@
 /**
- * 本番全 URL スイープの純関数群（判定ロジック）。実行は scripts/check-production-sweep.mjs。
+ * 本番全 URL スイープの純関数群（判定ロジック）。実行は scripts/checks/check-production-sweep.mjs。
  */
 
 export const REQUIRED_HEADERS = ['strict-transport-security', 'x-content-type-options', 'x-frame-options', 'referrer-policy'];

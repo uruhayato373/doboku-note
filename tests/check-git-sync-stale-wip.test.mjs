@@ -1,7 +1,7 @@
 // 2026-10-22: 作業ツリーに古い未コミットの変更が残っていたら、セッション開始時に 1 行出す
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { formatStaleWip, STALE_WIP_HOURS } from '../scripts/check-git-sync.mjs';
+import { formatStaleWip, STALE_WIP_HOURS } from '../scripts/checks/check-git-sync.mjs';
 
 const H = 3_600_000;
 const now = Date.parse('2026-10-22T12:00:00Z');

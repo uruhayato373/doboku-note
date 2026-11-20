@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { evaluateInventory } from '../scripts/check-past-exam-inventory.mjs';
+import { evaluateInventory } from '../scripts/checks/check-past-exam-inventory.mjs';
 
 const driveCfg = { groups: [
   { id: 'past-exam-source-pdf', status: 'active', match: { pathRegex: '^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$' } },

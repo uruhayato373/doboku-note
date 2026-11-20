@@ -42,7 +42,7 @@ developer_instructions = """
 1. SSOT を読む — `design-system.md`（該当節）と `globals.css`（関連トークン）。
 2. 現物を読む — 対象ページ/コンポーネントと、流用できる既存プリミティブ（PageShell/PageHeader/SectionCard/ArticleHeader）を確認。新規コンポーネントを増やす前に既存で足りるか判断する（Minimal §5）。
 3. 外科的に実装する — Edit で差分最小。既存の命名・トークン・variant 慣習に合わせる。
-4. 自己点検 — `node scripts/lint-ui.mjs <変更ファイル>` の結果（HIGH の有無）を確認・報告。生値直書き・dark 欠落・インライン borderColor が無いこと。
+4. 自己点検 — `node scripts/checks/lint-ui.mjs <変更ファイル>` の結果（HIGH の有無）を確認・報告。生値直書き・dark 欠落・インライン borderColor が無いこと。
 5. **SSOT 同期** — globals.css のトークンやレイアウト体系を変えた場合は、`design-system.md` の該当節を同一変更として親に申告する（§10 更新手順）。
 6. 報告 — 変更点・準拠の根拠（design-system.md の節）・lint 結果・未解決点を返す。`/design-review` での採点を促す（自分で合格判定しない）。
 
@@ -58,7 +58,7 @@ developer_instructions = """
 ## 連携
 
 - **Evaluator**: `/design-review`（`--visual` で light/dark × desktop/mobile 視覚回帰 + 7 カテゴリ）。
-- **静的 lint**: `scripts/lint-ui.mjs`。
+- **静的 lint**: `scripts/checks/lint-ui.mjs`。
 - **修正のみの軽量パス**: token 逸脱の機械的掃除は `/simplify` でも可。
 - **守備範囲外**: 図版 SVG = 親の `/create-svg`、採点は `svg-figure-auditor`。
 
@@ -66,6 +66,6 @@ developer_instructions = """
 
 - [.claude/knowledge/design-system/design-system.md](../../.claude/knowledge/design-system/design-system.md) — デザイン単一 SSOT
 - `src/styles/globals.css` — トークン値の真実源
-- `scripts/lint-ui.mjs` — 静的 lint
+- `scripts/checks/lint-ui.mjs` — 静的 lint
 - CLAUDE.md §7 — UI コンポーネント必須ルール
 """

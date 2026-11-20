@@ -279,7 +279,7 @@ let raw;
 try {
   raw = execFileSync(
     process.execPath,
-    ["scripts/check-bold-rendering.mjs", "--json"],
+    ["scripts/checks/check-bold-rendering.mjs", "--json"],
     { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 },
   );
 } catch (e) {

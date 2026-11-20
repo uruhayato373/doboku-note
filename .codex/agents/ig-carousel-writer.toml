@@ -55,7 +55,7 @@ developer_instructions = """
    - figure は「図で理解が進む論点」にのみ使う。既存 SVG があれば `imagePath`、新規図版が有用なら `figureSpec`（実制作は別工程）。
    - `cover.hook`（任意）は **そのキーワード固有**の問いかけ・暗記喚起にする。汎用文や他キーワードでも通用する文は書かない（カバーで「ーー {hook}」と表示される）。
    - 字数ルール（policy のスキーマ表）を守る。執筆後に各フィールドの字数を数える。
-   - **cover-title は auto-fit（v7.1）**: visualLength で coverTitle 120 / coverTitleMid 90 / coverTitleSm 72 を自動分岐。`tokens.json typography.coverTitle*._maxLen` の 4 段階を遵守（推奨 4-7 / 許容 8-11 / 警告 12-16 / エラー 17+）。執筆後に `node scripts/lint-stories-titles.mjs --dir <pack-dir>` を実行して ERROR が無いことを確認。
+   - **cover-title は auto-fit（v7.1）**: visualLength で coverTitle 120 / coverTitleMid 90 / coverTitleSm 72 を自動分岐。`tokens.json typography.coverTitle*._maxLen` の 4 段階を遵守（推奨 4-7 / 許容 8-11 / 警告 12-16 / エラー 17+）。執筆後に `node scripts/checks/lint-stories-titles.mjs --dir <pack-dir>` を実行して ERROR が無いことを確認。
 6. MDX を読む過程で気づいた doboku-note 側の問題（説明不足・事実誤認・図が欲しい箇所）は、**MDX を直接編集せず** `content/sns/instagram/_keyword-findings.md` に追記する。
 
 ### 過去問パック（exam モード）の answer スライド執筆ルール
@@ -123,7 +123,7 @@ developer_instructions = """
   - **並列列挙データ**（「（ア）」「（イ）」「（A）」「（B）」など 2 個以上の項目）→ `lists: [{ items: [...] }]` フィールドへ
   - **markdown 表**（`| col | col |` 形式）→ `table: { headers: [...], rows: [...] }` フィールドへ
   - これらを bodyLines に散文で書くと PNG 上で読みにくく、しかも lint で E1/E2 エラーになる
-- 執筆後は必ず `node scripts/lint-exam-pack-structure.mjs r07/pack-NN` を実行して構造違反 0 を確認する
+- 執筆後は必ず `node scripts/checks/lint-exam-pack-structure.mjs r07/pack-NN` を実行して構造違反 0 を確認する
 - **色・フォント・余白を本文に書かない**。デザインは `scripts/assets/design-tokens/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
 - 過去問パック（exam モード）の `cover.title` は管理名（経済性管理／人的資源管理／情報管理／安全管理／社会環境管理）のうち 1 つ。156px で 1 行に収まる長さ。
 - 過去問パックで 5管理別配色を意識する記述（`color`, `theme`, `mgmtColor` 等のキー）を slide-data.json に書かない。**5管理別配色は廃止済み**で、識別は cover-title のテキストのみ。

@@ -107,7 +107,7 @@ const firstFile = (root, dir, names) => names.map((n) => `${dir}/${n}`).find((p)
  * @param {{ snapshot: object, videoPackIds: Set<string>, rules: object, regWorks?: object[] }} ctx
  */
 export function instagramRows(root, { snapshot, videoPackIds, rules, regWorks = [] }) {
-  if (!snapshot?.live?.list) throw new Error('照合の記録に公開中の投稿の一覧（live.list）が無い。先に node scripts/verify-ig-status.mjs を手元で流す');
+  if (!snapshot?.live?.list) throw new Error('照合の記録に公開中の投稿の一覧（live.list）が無い。先に node scripts/checks/verify-ig-status.mjs を手元で流す');
   const at = snapshot.at;
   const snapRef = `${datasetPath('state.ig-reconcile', { name: 'snapshot' })}@${at}`;
   const now = Date.parse(at);

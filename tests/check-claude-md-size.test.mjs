@@ -1,5 +1,5 @@
 /**
- * scripts/check-claude-md-size.mjs のテスト。fixture を一時ディレクトリに作り --root 相当で関数を直接呼ぶ
+ * scripts/checks/check-claude-md-size.mjs のテスト。fixture を一時ディレクトリに作り --root 相当で関数を直接呼ぶ
  * （本物の CLAUDE.md / .claude/rules には触れない）。
  */
 import { test } from 'node:test';
@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
-import { checkClaudeMd, ruleHasPaths, MAX_LINES } from '../scripts/check-claude-md-size.mjs';
+import { checkClaudeMd, ruleHasPaths, MAX_LINES } from '../scripts/checks/check-claude-md-size.mjs';
 
 const fixtures = [];
 test.after(() => { for (const f of fixtures) rmSync(f, { recursive: true, force: true }); });

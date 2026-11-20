@@ -1,5 +1,5 @@
 {
-  "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラス・shadcn の Card と Badge の直接利用・手で組んだ表の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
+  "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラス・shadcn の Card と Badge の直接利用・手で組んだ表の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/checks/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
   "_updatedAt": "2026-11-06",
   "totals": {
     "rawCard": 0,

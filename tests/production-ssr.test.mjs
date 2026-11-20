@@ -7,7 +7,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classify, determineExitCode, DEFAULT_URLS, KEYWORDS } from '../scripts/check-production-ssr.mjs';
+import { classify, determineExitCode, DEFAULT_URLS, KEYWORDS } from '../scripts/checks/check-production-ssr.mjs';
 
 const OK_BODY = '<html><body><main class="flex-grow"><h1>1級土木施工管理技士</h1><p>技術士</p></main></body></html>';
 

@@ -4,7 +4,7 @@
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
-import { pendingOnly } from '../scripts/check-x-length.mjs';
+import { pendingOnly } from '../scripts/checks/check-x-length.mjs';
 
 test('posted と replaced は除き、queued・scheduled・draft・status 無しは残す', () => {
   const rows = [1, 2, 3, 4, 5, 6].map((num) => ({ num: String(num).padStart(2, '0') }));

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   auditPath, auditDualSsot, auditStalePathLiterals, listTargets, loadConfig, movedFromPaths, withMovedPaths,
-} from '../scripts/check-information-architecture.mjs';
+} from '../scripts/checks/check-information-architecture.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // JSON の旧パス＋repository-paths.mjs の移動表（検査が実際に使う設定）
@@ -130,7 +130,7 @@ test('走査対象外のパスと allowFiles は検査しない', () => {
   assert.deepEqual(auditStalePathLiterals('docs/strategy/a.md', "当時の docs/note を参照", STALE), []);
   // 旧パスを検出するため自分自身が旧パス文字列を持つファイルは allowFiles
   assert.deepEqual(
-    auditStalePathLiterals('scripts/check-information-architecture.mjs', "'docs/note'", STALE),
+    auditStalePathLiterals('scripts/checks/check-information-architecture.mjs', "'docs/note'", STALE),
     [],
   );
 });

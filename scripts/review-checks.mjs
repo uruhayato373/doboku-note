@@ -26,7 +26,7 @@ import { spawnSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHECKS_DIR, CONFIG, checksFileName } from './lib/review-wiring.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, cliRelPath } from './lib/repository-paths.mjs';
 import { commandTimeoutMs, runCheckedCommand } from './lib/check-execution.mjs';
 
 const args = process.argv.slice(2);
@@ -53,7 +53,7 @@ const verdictLine = (text) => String(text ?? '').split(/\r?\n/).map((l) => l.tri
 const checks = [];
 for (const k of c.checks ?? []) {
   const [cmd, cmdArgs] = k.command.startsWith('node:')
-    ? ['node', [`scripts/${k.command.slice(5)}.mjs`]]
+    ? ['node', [cliRelPath(k.command.slice(5))]]
     : ['npm', ['run', '-s', k.command]];
   const timeoutMs = commandTimeoutMs(k.command, TIMEOUT_MS);
   const r = await runCheckedCommand(cmd, cmdArgs, { cwd: ROOT, timeoutMs });

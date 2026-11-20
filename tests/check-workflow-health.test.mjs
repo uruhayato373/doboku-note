@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { auditRuns, healthTargets, latestRun, runListArgs } from '../scripts/check-workflow-health.mjs';
+import { auditRuns, healthTargets, latestRun, runListArgs } from '../scripts/checks/check-workflow-health.mjs';
 
 const NOW = Date.parse('2026-10-01T00:00:00Z');
 

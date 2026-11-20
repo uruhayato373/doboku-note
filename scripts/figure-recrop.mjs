@@ -75,7 +75,7 @@ const rawPng = path.join(dir, `.recrop-raw-${baseName}.png`);
 execSync(`magick "${srcPng}" -crop ${cropGeom} +repage -trim +repage "${rawPng}"`, { stdio: "pipe" });
 let cropWarnings = [];
 try {
-  const { analyzeImage } = await import("./check-figure-crop-integrity.mjs");
+  const { analyzeImage } = await import("./checks/check-figure-crop-integrity.mjs");
   const a = await analyzeImage(rawPng);
   cropWarnings = (a.violations || []).filter((v) => v.rule === "EDGE_CUT" || v.rule === "STRAY_SLIVER");
 } catch { /* 検査器が無くても recrop は続行 */ }

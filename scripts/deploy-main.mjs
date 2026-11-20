@@ -129,7 +129,7 @@ if (dryRun) {
 const commit = push(target);
 console.log(`[deploy-main] main を ${commit.slice(0, 9)} へ進めた`);
 const deployRunId = waitForDeploy(commit);
-const ssr = spawnSync(process.execPath, ['scripts/check-production-ssr.mjs'], { cwd: ROOT, stdio: 'inherit' });
+const ssr = spawnSync(process.execPath, ['scripts/checks/check-production-ssr.mjs'], { cwd: ROOT, stdio: 'inherit' });
 let stepResult = null;
 if (ssr.status === 2) {
   // 手元から本番に届かない（会社 PC のプロキシ）。デプロイ run が同じ検査を済ませていればそれを根拠にする

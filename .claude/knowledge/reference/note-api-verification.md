@@ -63,7 +63,7 @@ npm run verify-note-magazines -- --contents   # 各マガジンの収録記事�
 npm run verify-note-magazines -- --json       # スナップショットを JSON 保存
 ```
 
-- スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
+- スクリプト: `scripts/checks/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
 - **単品の価格照合（常に実行・DN-0704）**: マガジン一覧に単品は出ないので、公開中の単品（`published:true`・`retiredAt` なし）を 1 本ずつ `fetchNote` で読み、正本 `catalog.price` の先頭の ¥金額と note の `price`・`status` を照合する。`price` 欄の無い単品（精読ガイドなどの無料記事）は 0 円として照合する。判定は `scripts/lib/note-single-price.mjs` の純関数（テスト `tests/note-single-price.test.mjs`）。出力の末尾に「対象・取得・検査・一致・ズレ・取得失敗」の件数を出し、取得失敗は一致にもズレにも数えない。検査 0 件か取得失敗が `inconclusive-gate.mjs` の上限（20%）を超えたら検査不成立（exit 1）。`--contents` で収録記事の取得が不成立になって止まったときは回らない。
 - **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
 - `--json` 出力先: `data/note/magazines.json`（machine データ）。**供給は土曜の Mac の収集（weekly-collect の note-status 段・週次・公開 API）が正**（2026-10-25 に CI の note-live-audit.yml から移した・DN-0847）。
@@ -282,8 +282,8 @@ npm run note-convert-to-paid -- --article <path> --commit
 
 ```bash
 npm run check-note-price-consistency            # 全 note 記事
-node scripts/check-note-price-consistency.mjs --staged   # pre-commit（関連 staged がある時だけ）
-node scripts/check-note-price-consistency.mjs --json      # 機械可読
+node scripts/checks/check-note-price-consistency.mjs --staged   # pre-commit（関連 staged がある時だけ）
+node scripts/checks/check-note-price-consistency.mjs --json      # 機械可読
 ```
 
 **このゲートは live を検査しない。** frontmatter↔live のドリフトは curl 経路の実測（`check-note-structure`）でしか捕まらない。
@@ -427,8 +427,8 @@ note-publish / note-update-body には、SoT どおりに live が反映され�
 
 ```bash
 npm run check-note-live-headings                          # 全 published を 10 検査でスイープ（見出し/太字記号/画像過多/リンク切れ/長い見出し/切れたリンクは要再公開を除く）
-node scripts/check-note-live-headings.mjs content/note/共通  # パス絞り込み
-node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（list 生成）
+node scripts/checks/check-note-live-headings.mjs content/note/共通  # パス絞り込み
+node scripts/checks/check-note-live-headings.mjs --paths         # BAD パスのみ（list 生成）
 ```
 
 ### 本文画像・PDF 添付の修復手順

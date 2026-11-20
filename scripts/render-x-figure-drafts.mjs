@@ -4,7 +4,7 @@ import { readFileSync, mkdirSync, renameSync, rmSync, realpathSync } from 'node:
 import { resolve, join, basename, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
-import { splitTweets, tweetLength } from './check-x-length.mjs';
+import { splitTweets, tweetLength } from './checks/check-x-length.mjs';
 import { renderFigureSns } from './sns/render-figure-sns.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';

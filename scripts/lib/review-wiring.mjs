@@ -14,6 +14,7 @@ import { pendingItems } from './growth-triage.mjs';
 import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mjs';
 import { records } from './business-direction.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
+import { CLI_GROUPS } from './repository-paths.mjs';
 
 export const CONFIG = '.claude/config/review-wiring.json';
 export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'checks', 'none'];
@@ -69,11 +70,12 @@ export function readSkillWithReferences(root, skillRel) {
   return [readFileSync(p, 'utf8'), ...refs.map((f) => readFileSync(join(refDir, f), 'utf8'))].join('\n');
 }
 
-/** スキル本文が実行するコマンド（npm run の名前はそのまま、node scripts/ 直の実行は「node:」＋スクリプト名）。重複なし・並びは出現順。 */
+/** スキル本文が実行するコマンド（npm run の名前はそのまま、node scripts/ 直の実行は「node:」＋スクリプト名。CLI_GROUPS のフォルダ名は外す）。重複なし・並びは出現順。 */
 export function extractCommands(skillText) {
   const out = [];
   for (const m of String(skillText).matchAll(/npm run ([a-z0-9:_-]+)|node scripts\/([A-Za-z0-9_./-]+)\.mjs/g)) {
-    const cmd = m[1] ?? `node:${m[2]}`;
+    const group = m[2]?.split('/')[0];
+    const cmd = m[1] ?? `node:${CLI_GROUPS.includes(group) ? m[2].slice(group.length + 1) : m[2]}`;
     if (!out.includes(cmd)) out.push(cmd);
   }
   return out;

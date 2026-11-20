@@ -15,7 +15,7 @@ import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SRC = readFileSync(join(ROOT, 'scripts/check-note-live-headings.mjs'), 'utf8');
+const SRC = readFileSync(join(ROOT, 'scripts/checks/check-note-live-headings.mjs'), 'utf8');
 
 test('reserved（予約中）を live 検査の対象から外し、件数を出力している', () => {
   assert.match(SRC, /noteStatus:\\s\*reserved\\b\/m\.test\(fm\)\)\s*\{\s*reserved\+\+;\s*continue;/, 'reserved を skip する分岐が無い');

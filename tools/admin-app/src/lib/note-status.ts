@@ -74,7 +74,7 @@ export function membershipState(): MembershipState {
   try {
     const out = execFileSync(
       process.execPath,
-      [repoPath('scripts', 'check-magazine-membership.mjs'), '--json'],
+      [repoPath('scripts', 'checks', 'check-magazine-membership.mjs'), '--json'],
       { cwd: findRepoRoot(), encoding: 'utf8', timeout: 120_000, maxBuffer: 32 * 1024 * 1024 },
     );
     const d = JSON.parse(out) as Partial<MembershipState>;

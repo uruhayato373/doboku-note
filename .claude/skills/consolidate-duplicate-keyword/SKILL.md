@@ -175,7 +175,7 @@ npm run refresh-indexes
 
 ```bash
 # MDX コンパイル
-node scripts/validate-mdx.mjs content/site/pe-comprehensive-management/A/article.mdx
+node scripts/checks/validate-mdx.mjs content/site/pe-comprehensive-management/A/article.mdx
 
 # 文字化け
 grep -r "�" content/site/pe-comprehensive-management/A/

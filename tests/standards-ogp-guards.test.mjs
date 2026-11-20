@@ -21,8 +21,8 @@ import { loadManifest } from '../scripts/lib/asset-storage.mjs';
 // 検証するのではなく、実体の無い cwd（symlink ミラー）から検査器を走らせて分岐を実走させる。
 
 const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
-const CHECK_ORPHAN_OGP = join(REPO_ROOT, 'scripts', 'check-orphan-ogp.mjs');
-const CHECK_STANDARD_ARTICLES = join(REPO_ROOT, 'scripts', 'check-standard-articles.mjs');
+const CHECK_ORPHAN_OGP = join(REPO_ROOT, 'scripts', 'checks', 'check-orphan-ogp.mjs');
+const CHECK_STANDARD_ARTICLES = join(REPO_ROOT, 'scripts', 'checks', 'check-standard-articles.mjs');
 const OGP_SUPPLY_WORKFLOW = join(REPO_ROOT, '.github', 'workflows', 'ogp-supply.yml');
 
 /** 検査器は exit code そのものが結果なので、非 0 を例外にせず拾う。 */
@@ -174,7 +174,7 @@ test('章 OGP 被覆検査（15番目）が全文書で PASS し、検査件数�
 test('章 OGP 被覆検査はローカルに実体が無くても退避台帳で PASS する（台帳分岐の実走）', () => {
   // 実ファイルを消さずに台帳分岐を通すため、章 md と manifest だけを symlink した
   // 別 cwd を作って検査器を走らせる。検査器のローカル実体判定は process.cwd() 基準
-  // （scripts/check-standard-articles.mjs:690）なので、ミラー側に ogp.png を置かなければ
+  // （scripts/checks/check-standard-articles.mjs:690）なので、ミラー側に ogp.png を置かなければ
   // 344 章すべてが台帳分岐へ入る。台帳は REPO_ROOT 基準で読まれるので実物が使われる。
   const doc = chapterDocuments.find((d) => (d.manifest.chapters?.length ?? 0) > 0);
   const target = `${doc.agencyId}/${doc.documentId}`;
@@ -224,7 +224,7 @@ test('章 OGP 被覆検査はローカルに実体が無くても退避台帳で
 
 test('ogp-supply.yml の push paths が章記事の manifest とビルダを含む', () => {
   // 素のテキスト検索だとコメント行や別トリガーの記述でも当たってしまうため、
-  // devDependency の js-yaml で構造として読む（scripts/check-scheduled-exec-branch.mjs と同じ手）。
+  // devDependency の js-yaml で構造として読む（scripts/checks/check-scheduled-exec-branch.mjs と同じ手）。
   const doc = yaml.load(readFileSync(OGP_SUPPLY_WORKFLOW, 'utf8'));
   // YAML 1.1 実装では `on:` が真偽値キーになりうるので両方を見る。
   const on = doc.on ?? doc[true];

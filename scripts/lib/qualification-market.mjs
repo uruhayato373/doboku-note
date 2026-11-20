@@ -11,7 +11,7 @@
  *   - 市場の混み具合 … market-scan.json の検索語で取った data/analysis/qualification-market/*.json の最新（YouTube・note）
  *     と data/coconala/market-research.json（ココナラ）
  * 呼び出し元: scripts/report-qualification-market.mjs（npm run qualification-market）・
- * scripts/check-qualification-market.mjs（CI ゲート）・管理画面 資格一覧（展開の判断）。
+ * scripts/checks/check-qualification-market.mjs（CI ゲート）・管理画面 資格一覧（展開の判断）。
  * ---------------------------------------------------------------------------
  */
 import { freshnessDays } from './datasets.mjs';

@@ -12,9 +12,9 @@ domain: ops
 親（あなた）が**外部実体の検証**と適用を担い、**処分の判定だけ**を Evaluator サブエージェント **`doc-curator`** に委ねる。
 
 > **3 層の役割分担（混同しない）**
-> - `scripts/check-doc-lifecycle.mjs` … 棚卸し候補の機械 surfacer（鮮度・orphan・PR/commit 言及。**非ブロッキング**）
+> - `scripts/checks/check-doc-lifecycle.mjs` … 棚卸し候補の機械 surfacer（鮮度・orphan・PR/commit 言及。**非ブロッキング**）
 > - **本スキル + `doc-curator`** … 候補の処分判定（KEEP/TRIM/DELETE/CONSOLIDATE・LLM・棚卸し時に手動）
-> - `scripts/check-doc-refs.mjs` … 削除後の壊れ参照ゼロ検証（機械・pre-commit。**`docs/handoffs/**` は参照先チェック対象外**＝point-in-time 記録）
+> - `scripts/checks/check-doc-refs.mjs` … 削除後の壊れ参照ゼロ検証（機械・pre-commit。**`docs/handoffs/**` は参照先チェック対象外**＝point-in-time 記録）
 >
 > **doc-sync との違い**: `/doc-sync` は**コード変更**で doc が旧仕様化していないか（prose 陳腐化）。本スキルは **doc 自体の処分**（完了・重複・肥大）。トリガーが違う。
 
@@ -39,8 +39,8 @@ domain: ops
 ### 1. 候補を機械で surface する
 
 ```bash
-node scripts/check-doc-lifecycle.mjs            # 既定 handoffs・age>=14d or orphan
-node scripts/check-doc-lifecycle.mjs --days 21  # 鮮度閾値を変える
+node scripts/checks/check-doc-lifecycle.mjs            # 既定 handoffs・age>=14d or orphan
+node scripts/checks/check-doc-lifecycle.mjs --days 21  # 鮮度閾値を変える
 ```
 
 orphan（参照元 0）・stale-age・言及 PR/commit が出る。**これは候補リストであって判定ではない**。
@@ -119,8 +119,8 @@ git status --short            # 並行セッションの変更が手つかずか
 ## 連携
 
 - Evaluator: `doc-curator`（処分判定）
-- 機械 surfacer: `scripts/check-doc-lifecycle.mjs`（`npm run check-doc-lifecycle`）
-- 削除後の検証: `scripts/check-doc-refs.mjs` / `scripts/check-doc-coupling.mjs`（pre-commit）
-- 抽出もれガード: `scripts/check-handoff-extraction.mjs`（pre-commit）＝handoff 直下 `*.md` を前送りマーカー付きで削除するのに backlog を同梱していない／`_archive/` へ追加すると止める。本スキルの「抽出が先・削除が後」を機械で担保する最終網（回避 `SKIP_HANDOFF_EXTRACT=1`）
+- 機械 surfacer: `scripts/checks/check-doc-lifecycle.mjs`（`npm run check-doc-lifecycle`）
+- 削除後の検証: `scripts/checks/check-doc-refs.mjs` / `scripts/checks/check-doc-coupling.mjs`（pre-commit）
+- 抽出もれガード: `scripts/checks/check-handoff-extraction.mjs`（pre-commit）＝handoff 直下 `*.md` を前送りマーカー付きで削除するのに backlog を同梱していない／`_archive/` へ追加すると止める。本スキルの「抽出が先・削除が後」を機械で担保する最終網（回避 `SKIP_HANDOFF_EXTRACT=1`）
 - 別系統: `/doc-sync`（コード変更起点の prose 陳腐化）
 - ルール真実源: CLAUDE.md §8 / `.claude/knowledge/reference/information-architecture.md`「SSOT と参照規律」「handoff のライフサイクル」

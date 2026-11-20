@@ -45,7 +45,7 @@
 | Issue | `→ 振り分け: #485` | open の `automation-failure` Issue で追う障害 |
 | 実験 | `→ 振り分け: EXP-007` | experiments.json の実験の裁定・再計測 |
 
-pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
+pre-commit の `scripts/checks/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
 
 **2. 週間計画**: 振り分け後、**続けて `/plan-weekly` を実行**して翌週の `.claude/todo/weekly.md` を書き直す（週間計画の正本はこの 1 ファイル。候補は `[時期:]` が今月を含むカードで、申し送りで起票・振り分けた DN もここへ入る）。（重い戦略版の `/weekly-plan` は 2026-11-01 に退役した。）
 

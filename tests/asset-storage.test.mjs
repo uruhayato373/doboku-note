@@ -307,7 +307,7 @@ const MANIFEST_FIXTURE = {
     'content/site/civil-construction-1/guide-a/ogp.png': {
       bucket: 'public', bytes: 585025, generator: 'npm run ogp', group: 'site-ogp-png', height: 630,
       logicalPath: 'content/site/civil-construction-1/guide-a/ogp.png', mime: 'image/png',
-      r2Key: 'posts/civil-construction-1/guide-a/ogp.png', regenerable: false, requiredBy: ['scripts/check-ogp-coverage.mjs'],
+      r2Key: 'posts/civil-construction-1/guide-a/ogp.png', regenerable: false, requiredBy: ['scripts/checks/check-ogp-coverage.mjs'],
       sha256: '1'.repeat(64), srcHash: '9c8bd3ac01ed389d', verifiedAt: '2026-08-29T09:13:40.166Z', visibility: 'public', width: 1200,
     },
     'content/site/standards-articles/hokkaido/appendix/chapters/1-1/ogp.png': {

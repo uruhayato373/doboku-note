@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { assessKdpReport } from '../scripts/check-kdp-report-freshness.mjs';
+import { assessKdpReport } from '../scripts/checks/check-kdp-report-freshness.mjs';
 
 const book = (id = 'A-01') => ({ bookId: id, title: id, royalty: 100 });
 const entry = (month, { estimated = false, books = [book()], bookCount = books.length } = {}) => ({

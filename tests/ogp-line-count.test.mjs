@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseDebugWrap, hasExplicitOgp } from '../scripts/check-ogp-line-count.mjs';
+import { parseDebugWrap, hasExplicitOgp } from '../scripts/checks/check-ogp-line-count.mjs';
 
 /**
  * OGP 折返し行数の実測 surfacer の契約。

@@ -60,7 +60,7 @@ title: 計測・検証事故の記録
 - 現象: Next.jsの起動が親フォルダーの `EPERM lstat` で停止し、R2素材の取得は認証情報不足、公開画像の取得もTLSエラーまたは503で成立しなかった。
 - 原因: ワークスペース外の参照とネットワークの制約。公開配信側の障害かどうかは、この環境からの応答だけでは確定できない。
 - 検出経緯: 型検査は通ったが、実画面の起動と素材取得で停止した。また、`lint-ui` にファイルを位置引数で渡した最初の実行は対象0件だった。
-- 対策: UI規約は `node scripts/lint-ui.mjs --all` で188ファイルを検査した。部品だけの表示確認もビルドが権限で止まったため未検証とした。TLS検証や権限制御は解除しない。
+- 対策: UI規約は `node scripts/checks/lint-ui.mjs --all` で188ファイルを検査した。部品だけの表示確認もビルドが権限で止まったため未検証とした。TLS検証や権限制御は解除しない。
 - 教訓: 型検査、部品の表示、Next.jsのSSR、R2での配信は別の結果として報告する。対象0件や環境による停止を合格に含めない。
 
 ## 2026-11-06 — 台帳の手書きの「未計測」を信じ、測れている指標のために転送ページを作りかけた
@@ -441,7 +441,7 @@ title: 計測・検証事故の記録
 - **現象**: 本体 checkout（複数セッション・Codex・デスクトップアプリが同時に使う）で `git pull` / `git merge` が `error: could not write index` と `fatal: stash failed` で止まり、同日に `.git/index.lock` の残骸が 4 回残った（12:09・14:22・14:53・15:12）。autostash の設定はどこにも無い。
 - **根本原因**: 早送りできない merge は、作業ツリーを守るため内部で `git stash create` を呼び、index を書き直す（`GIT_TRACE=1` で確認）。同じ瞬間にほかのプロセス（フックの `git status`・デスクトップアプリの差分表示の `git diff`・他セッション）が index を書き直していると、Windows では置き換えがぶつかって失敗し、lock が残ることがある。残った lock があるあいだは、以後の merge がすべて同じ文言で失敗する。単独の `git stash create` は lock が無ければ成功し、同じ merge も再実行で通った＝設定ではなく競合。`timeout` で git を途中終了させた場合（12:09）も lock が残る。
 - **検出経緯**: merge の失敗を 3 回繰り返し、lock を消しても再発した。lock の作成時刻が毎回 15:12:31.017 と同じだったのは Windows のファイル作成時刻トンネリング（同名で作り直したファイルが元の作成時刻を引き継ぐ）で、新しく作られた lock だった。
-- **対策**: 全セッションで走るフック（`scripts/hooks/agent-hook.mjs`）と SessionStart の `scripts/check-git-sync.mjs` の git 呼び出しに `GIT_OPTIONAL_LOCKS=0` を付け、読み取りのついでに index を書き直さないようにした。
+- **対策**: 全セッションで走るフック（`scripts/hooks/agent-hook.mjs`）と SessionStart の `scripts/checks/check-git-sync.mjs` の git 呼び出しに `GIT_OPTIONAL_LOCKS=0` を付け、読み取りのついでに index を書き直さないようにした。
 - **恒久ルール**: (1) lock が残ったら、`git.exe` が動いていないことと lock の古さ（数分以上）を確かめてから消す。(2) 共有 checkout で merge が通らないときは、一時 worktree（`git worktree add --detach <dir> origin/develop` → `cherry-pick` → `push origin HEAD:develop`）で自分のコミットだけを載せる。(3) git を `timeout` で包まない（途中終了で lock と `tmp_obj_*` が残る）。(4) 共有の backlog を直接読み書きしてコミットすると、他セッションの未コミットの編集を巻き込む（同日 DN-0360 で発生）。コミット前に `git diff -- <file>` で自分の差分だけか確かめる。
 
 ## 2026-09-26: 資格の正本を公式照合したときの罠（手書きの写し・要約の日付化け・調査担当の引用・語の定義違い）
@@ -564,7 +564,7 @@ System.IO.IOException: No space left on device : '.../\_diag/Worker_...log'
 履歴が要る処理も shallow で成立する。
 
 機械ゲート `npm run check-workflow-clone-depth`（`quality:audit` の CI ゲート）で禁じる。
-本当に必要な workflow は `scripts/check-workflow-clone-depth.mjs` の `ALLOWLIST` へ
+本当に必要な workflow は `scripts/checks/check-workflow-clone-depth.mjs` の `ALLOWLIST` へ
 **理由を添えて**登録する（理由の無い登録はテストが落とす）。
 
 ### 適用した対策
@@ -726,7 +726,7 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 
 | 対策 | 実体 |
 |---|---|
-| 最新週ベース判定 | `scripts/check-weekly-review.mjs`: 「現存する最新レビューが先週以降か」で判定。保持方針下でも最新週は必ず 1 つ残るので誤検知しない |
+| 最新週ベース判定 | `scripts/checks/check-weekly-review.mjs`: 「現存する最新レビューが先週以降か」で判定。保持方針下でも最新週は必ず 1 つ残るので誤検知しない |
 | 判定のために CI を重くしない | 当初は `git log --diff-filter=A` で履歴判定にしたが `fetch-depth: 0` が必要になり、65,000 ファイルのこのリポジトリでは checkout が job の 5 分 timeout を超えて **cancelled**（2026-07-30 実測）。履歴も全取得も不要な最新週比較へ作り替えた |
 | 誘導の修正 | 失敗メッセージを「誰が生成しているかを先に切り分け → list-first → 不在を確認できないなら作らない」へ |
 
@@ -789,11 +789,11 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 | 取得の status を完全性で決定 | `fetch-gsc-ui-csv.mjs` / `fetch-ga4-ui-csv.mjs`（`bail()` で中断時もマーカーを complete:false で記録） |
 | due 判定に完全性を導入 | `check-gsc-ui-due.mjs`（gsc-ui 必須 / ga4-ui 任意の 2 チャネル） |
 | CSV 情報の追跡 SSOT | `scripts/lib/google-console-ssot.mjs` ＋ `normalize-google-console-csv.mjs` ＋ `.gitignore` の `!.../ssot/` 例外 |
-| SSOT 整合ゲート | `scripts/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
+| SSOT 整合ゲート | `scripts/checks/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
 | レポートの再現性 | `report-search-growth.mjs` が SSOT を優先読込（`gscUiSource` を md に明記） |
 | プロファイル解決 | `google-console-browser.mjs` の `PROFILE_ROOT_CANDIDATES`（env → `~/doboku-note` → 旧 Mac パス） |
 | GA4 設定の desired state | `config/ga4-admin-desired-state.json` ＋ `scripts/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
-| GA4 設定のドリフト検知 | `scripts/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
+| GA4 設定のドリフト検知 | `scripts/checks/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
 | 合成コマンドの修復 | `normalize` の既定を最新 run に／`search-growth:audit` を部分成功許容＋末尾に SSOT ゲート |
 
 ### 教訓
@@ -931,7 +931,7 @@ W30 週次レビューで homepage の PSI を見て「Performance 59 / LCP 10,1
 - `psi-config.json` を field-primary / lab-secondary に構造化（`judgment` セクション）
 - `performance-auditor` の判定を field-first に改訂し、`lcp_element` を消費して「何が LCP か」まで surface させる
 - `fetch-psi-data.mjs` が PSI の `audits['largest-contentful-paint-element']` を保存するよう修正（従来は破棄していたため、原因特定に Playwright での別計測が必要だった）
-- `scripts/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
+- `scripts/checks/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
 - `weekly-review` の Agent C2 を本原則に整合
 
 ### 追記 2026-08-25／判断更新 2026-09-04: field 欠測を警告として分離する（DN-0127・DN-0158）
@@ -1310,7 +1310,7 @@ Apr 5 の 144 ファイル H1 構造修正（commit [`3f97641b`](https://github.
 - Issue [#83](https://github.com/uruhayato373/doboku-note/issues/83) - Traffic-Drop 事案（close 済）
 - Issue [#130](https://github.com/uruhayato373/doboku-note/issues/130) - 対策 Umbrella
 - commit [`c6ef1148`](https://github.com/uruhayato373/doboku-note/commit/c6ef1148) - BAILOUT 修正
-- `scripts/check-data-integrity.mjs` - データ整合性検証 lib
+- `scripts/checks/check-data-integrity.mjs` - データ整合性検証 lib
 - `.github/workflows/uptime-ping.yml` - uptime 監視
 
 ---

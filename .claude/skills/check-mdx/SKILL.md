@@ -29,15 +29,15 @@ MDX 品質に関する 10 種類の検査ルールを 1 つのスキルに統合
 | Rule | 重大度 | 対象 | 検査内容 | 実装 |
 |---|---|---|---|---|
 | `syntax` | ERROR/WARN | MDX 全般 | MDX 構文（`{}` エスケープ、`<>` タグ、見出し階層、テーブル、数式、未対応記法の混入） | Claude 読解 |
-| `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `scripts/lint-frontmatter.mjs` |
+| `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `scripts/checks/lint-frontmatter.mjs` |
 | `links` | HIGH/INFO | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/`・`/category/` slug 存在＋`#anchor` 断片検証（note ドラフトも対象） | `scripts/rules/links/` |
 | `svg` | HIGH/MEDIUM/LOW | 埋込 SVG | 文字クリップ、必須属性、viewBox 幅、font-size、テキスト重なり、色トークン | `scripts/rules/svg/` |
 | `staging` | — | Obsidian ステージング | 公開準備度（5 軸 15 点評価） | Claude 読解 |
 | `explanations` | HIGH/MEDIUM | 過去問解説 | 破損解説パターン（P1-headless / P2-examPoint-empty） | `scripts/rules/explanations/` |
 | `empty-container` | HIGH | MDX 全般 | 中身が空の `<Callout>`（空白・コメントのみ）= タイトルだけの無意味な枠（E1-empty-callout）。bulk リンク削除等でコンテナの中身だけ消えて枠が残る事故の再発防止 | `scripts/rules/empty-container/` |
-| `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `scripts/lint-mdx-mobile.mjs` |
+| `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `scripts/checks/lint-mdx-mobile.mjs` |
 | `legal-citations` | LOW | 法令引用 | e-Gov 法令検索リンク化されているか（ルール 8-2） | `scripts/rules/legal-citations/` |
-| `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `scripts/lint-mdx-mobile.mjs` |
+| `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `scripts/checks/lint-mdx-mobile.mjs` |
 
 ### 全体スキーム
 
@@ -88,7 +88,7 @@ next-mdx-remote / MDX v3 のビルドエラーを未然に防ぐ。
 
 **出力**: ERROR / WARN / INFO。Claude が MDX を読んで判定。
 
-### frontmatter — zod + lint（`scripts/lint-frontmatter.mjs`）
+### frontmatter — zod + lint（`scripts/checks/lint-frontmatter.mjs`）
 
 構造（zod）+ 内容（独自 lint）の 2 層検証。
 
@@ -106,7 +106,7 @@ next-mdx-remote / MDX v3 のビルドエラーを未然に防ぐ。
 | LOW | `sections-missing` | `exams` 複数なのに `sections` 未設定 |
 | LOW | `sections-incomplete` | `sections` に未登録 exam |
 
-**実行**: `node scripts/lint-frontmatter.mjs <target>`
+**実行**: `node scripts/checks/lint-frontmatter.mjs <target>`
 
 ### links — 外部 URL + 内部リンク
 
@@ -217,7 +217,7 @@ node scripts/check-mdx/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメ
 
 **禁止アプローチ**: `sed -i '/^関連キーワード[:：]/d'` のような完全自動置換は **絶対に使わない**（データ消失リスク）。
 
-**実行**: `node scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-1"`
+**実行**: `node scripts/checks/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-1"`
 
 ### legal-citations — e-Gov 法令リンク
 
@@ -246,7 +246,7 @@ note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コ
 - フェンスコードブロック内は対象外
 - 修正は Generator 側（`<NoteLink>` への置換）が行う。Evaluator は検出のみ
 
-**実行**: `node scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-3"`
+**実行**: `node scripts/checks/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-3"`
 
 ## 出力フォーマット
 
@@ -295,7 +295,7 @@ OK: 6 files
 `scripts/pre-commit-mdx.mjs` は以下を `import` して利用:
 - `scripts/rules/explanations/detect.mjs` → `detectBrokenExplanations`（warning 表示）
 - `scripts/rules/svg/detect.mjs` → `auditSvgFile`（warning 表示）
-- `#shared/lint-frontmatter.mjs` → `lintFrontmatter`（HIGH はブロック）
+- `#shared/checks/lint-frontmatter.mjs` → `lintFrontmatter`（HIGH はブロック）
 
 ステージ済み MDX に対して自動走行。
 
@@ -322,8 +322,8 @@ OK: 6 files
 
 ## 参照
 
-- `scripts/lint-frontmatter.mjs` — frontmatter rule 実装
-- `scripts/lint-mdx-mobile.mjs` — related-keyword (8-1) / legal-citations (8-2) 検出ロジック
+- `scripts/checks/lint-frontmatter.mjs` — frontmatter rule 実装
+- `scripts/checks/lint-mdx-mobile.mjs` — related-keyword (8-1) / legal-citations (8-2) 検出ロジック
 - `scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（`--fix` 系で使用）
 - `scripts/rules/{rule}/` — rule 別スクリプト実装
 - `scripts/pre-commit-mdx.mjs` — pre-commit hook 連動

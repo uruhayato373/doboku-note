@@ -56,7 +56,7 @@ test('サイトの画面の変更は E2E を起動し、検査・運用・SNS・
   for (const f of ['src/lib/toc.ts', 'content/site/a/b/article.mdx', 'public/images/x.webp', 'package-lock.json']) {
     assert.ok(e2e(f), `E2E: ${f}`);
   }
-  for (const f of ['scripts/check-datasets.mjs', 'scripts/lib/qualification-ssot.mjs', 'tests/x.test.mjs', 'content/note/x/article.md', 'content/sns/x/tweets.md', 'package.json', '.claude/todo/backlog.md']) {
+  for (const f of ['scripts/checks/check-datasets.mjs', 'scripts/lib/qualification-ssot.mjs', 'tests/x.test.mjs', 'content/note/x/article.md', 'content/sns/x/tweets.md', 'package.json', '.claude/todo/backlog.md']) {
     assert.ok(!e2e(f), `E2E が起動する: ${f}`);
   }
 });

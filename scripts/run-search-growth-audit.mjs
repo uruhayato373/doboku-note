@@ -36,7 +36,7 @@ const STEPS = {
   "gsc-ui:fetch": "scripts/fetch-gsc-ui-csv.mjs",
   "google-console:normalize": "scripts/normalize-google-console-csv.mjs",
   "search-growth:report": "scripts/report-search-growth.mjs",
-  "check-google-ui-ssot": "scripts/check-google-ui-ssot.mjs",
+  "check-google-ui-ssot": "scripts/checks/check-google-ui-ssot.mjs",
 };
 
 function run(name, args = []) {

@@ -60,7 +60,7 @@
       "regenerable": true,
       "generator": "npm run build-standards-page-images",
       "requiredBy": [
-        "scripts/check-standards-page-images.mjs",
+        "scripts/checks/check-standards-page-images.mjs",
         "図クロップ・出典ページ照合（人）"
       ],
       "reason": "公的基準の原本 PDF を 1 ページ 1 画像＋1 テキストへ割った派生物。原本と同じ Drive に、原本 PDF と同名のフォルダで隣に置く（人が PDF とページを見比べる）。原本から決定的に再生成でき、著作権物でもないので R2 に置く理由が無い。"
@@ -180,7 +180,7 @@
       "regenerable": false,
       "generator": "npm run audit-reference-book-coverage（候補表）・Evaluator（意味判定）",
       "requiredBy": [
-        "scripts/audit-reference-book-coverage.mjs（--summary が要約を作る）",
+        "scripts/checks/audit-reference-book-coverage.mjs（--summary が要約を作る）",
         "書籍→サイト展開の Writer・QA への指示（人）"
       ],
       "reason": "書籍の節とサイトの節の候補表と意味判定。市販書籍の見出し・用語を含むので Git と公開サイトに置かず、原本と同じ書籍ディレクトリの coverage/ に置く。git には見出しを含まない要約（.claude/state/book-coverage.json）だけを置く。意味判定は作り直せないので regenerable=false。"
@@ -198,7 +198,7 @@
       "generator": "scripts/magazine-to-pdf.mjs",
       "requiredBy": [
         "scripts/note-attach-file.mjs",
-        "scripts/check-note-attachments.mjs"
+        "scripts/checks/check-note-attachments.mjs"
       ],
       "reason": "note 購入者へ配布する PDF。note へ添付するのは人が手元で実行するスクリプトで、サイトも CI も読まない。"
     },
@@ -434,7 +434,7 @@
       "regenerable": false,
       "generator": "pdf-to-mdx --scanned（経路D の機械 OCR・book_ocr_machine.py。2026-10-24 より前の分は Claude の視覚 OCR）",
       "requiredBy": [
-        "scripts/check-reference-sources.mjs"
+        "scripts/checks/check-reference-sources.mjs"
       ],
       "reason": "原本の文字起こしを参考文献 ID から解決し、同じ原本ディレクトリの ocr/ へ置く。旧 repo 論理キーも同じ物理正本へ解決する。市販書籍由来は Git と公開サイトに置かない。"
     }

@@ -160,7 +160,7 @@ export function originFindings({ figKey, origin, comment, caption, sha, ledger, 
 export function emptyAiLedger() {
   return {
     schemaVersion: 1,
-    note: 'AI 画像の実績（どの指示から作って配置したか＝promptSha・実物どおりかの判定＝verdict）。sha が今の画像と一致する記録だけが効く。手で編集しない（生成と配置は npm run gen-article-photo、判定は node scripts/check-image-origin.mjs record-ai）',
+    note: 'AI 画像の実績（どの指示から作って配置したか＝promptSha・実物どおりかの判定＝verdict）。sha が今の画像と一致する記録だけが効く。手で編集しない（生成と配置は npm run gen-article-photo、判定は node scripts/checks/check-image-origin.mjs record-ai）',
     figures: {},
   };
 }

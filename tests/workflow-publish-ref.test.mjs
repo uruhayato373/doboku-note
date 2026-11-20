@@ -11,7 +11,7 @@ import { strict as assert } from 'node:assert';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
-import { auditWorkflow, auditGitPublishOrder } from '../scripts/check-workflow-publish-ref.mjs';
+import { auditWorkflow, auditGitPublishOrder } from '../scripts/checks/check-workflow-publish-ref.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');

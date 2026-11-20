@@ -1,6 +1,6 @@
 /**
  * develop の Pre-merge check（ci.yml）の最新の結果を読む（依存ゼロ）。
- * セッション開始時（scripts/check-git-sync.mjs）と、develop への push の直前（agent-hook の check-shell-traps）が使う。
+ * セッション開始時（scripts/checks/check-git-sync.mjs）と、develop への push の直前（agent-hook の check-shell-traps）が使う。
  *
  * なぜ 2 か所か: 赤を知らせるのがセッション開始時の 1 回だけだと、長いセッションは赤い develop の上へ push し続ける
  * （2026-11-11 に別作業の赤が 4 時間以上続き、その間も push が積まれた）。判定は 1 つにして両方から呼ぶ。

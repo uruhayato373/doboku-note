@@ -29,5 +29,5 @@ test('転送と API は上限に数えない', () => {
   assert.deepEqual(auditAdminPages(l, [{ route: '/a' }, { route: '/x', redirects: true }, { route: '/api' }]).errors, []);
 });
 test('実際の台帳は全ルートと合う', () => {
-  assert.match(execFileSync('node', ['scripts/check-admin-pages.mjs'], { cwd: root, encoding: 'utf8' }), /違反 0 件/);
+  assert.match(execFileSync('node', ['scripts/checks/check-admin-pages.mjs'], { cwd: root, encoding: 'utf8' }), /違反 0 件/);
 });

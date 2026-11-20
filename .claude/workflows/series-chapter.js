@@ -124,7 +124,7 @@ ${common(it)}
 const qaPrompt = (it, w) => `${DOC} の §4「軽い QA」で、新しい記事 ${M}/${it.article} を確かめる。編集はしない。${noGit}
 - brief: ${BRIEF(it)}／事実ファイル: ${FACTS_OF(it)}（ここにある値は照合済み）／執筆担当が新しく確かめた値: ${JSON.stringify(w.factsVerified)}
 - 本との比較: ${it.brief === 'outline' ? '骨子の「本:」に挙げた項目' : `${PACKET(it)} の本の項目`}の見出しの並びと記事の H2・H3 を比べ、似ている節だけ、その項目の文字起こしを開いて読み比べる（本の項目が無ければ飛ばす）
-- 40 字一致: \`node ${M}/scripts/check-reference-sources.mjs --deep 2>&1 | grep ${it.slug}\`
+- 40 字一致: \`node ${M}/scripts/checks/check-reference-sources.mjs --deep 2>&1 | grep ${it.slug}\`
 - 要確認: ${JSON.stringify(w.needsCheck)}
 判定は直さなくてよければ PASS、直す箇所があれば FIX（重要度順に 場所 — 問題 — 直し方（正しい値と出典 URL））。返答は構造化出力だけ。`
 

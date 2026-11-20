@@ -5,11 +5,11 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { postCommitViolations } from '../scripts/check-post-commit-hook.mjs';
+import { postCommitViolations } from '../scripts/checks/check-post-commit-hook.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const runCheck = (hooksDir) =>
-  spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/check-post-commit-hook.mjs')], {
+  spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/checks/check-post-commit-hook.mjs')], {
     encoding: 'utf8',
     env: { ...process.env, DOBOKU_HOOKS_DIR: hooksDir },
   });

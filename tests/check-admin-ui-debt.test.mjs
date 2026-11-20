@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { countDebt, compare } from '../scripts/check-admin-ui-debt.mjs';
+import { countDebt, compare } from '../scripts/checks/check-admin-ui-debt.mjs';
 
 test('className の単語 "card" だけを数え、card-grid などの別クラスは数えない', () => {
   const src = [

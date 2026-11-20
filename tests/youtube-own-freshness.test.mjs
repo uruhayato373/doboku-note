@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { assessOwnFreshness } from '../scripts/check-youtube-own-freshness.mjs';
+import { assessOwnFreshness } from '../scripts/checks/check-youtube-own-freshness.mjs';
 import { freshnessDays } from '../scripts/lib/datasets.mjs';
 
 test('月次の記録は台帳の warnDays（35 日）を超えると失敗し、記録 0 件も緑にしない', () => {

@@ -68,8 +68,8 @@ captionは「短い問い→図の読み方→注意条件→次の学習先」�
 ## 検証と公開への引継ぎ
 
 ```bash
-node scripts/check-ig-cover.mjs
-node scripts/check-ig-cta.mjs
+node scripts/checks/check-ig-cover.mjs
+node scripts/checks/check-ig-cta.mjs
 ```
 
 追跡済みのパックは `node scripts/render-figure-pack.mjs --pack civil-1/keyword-packs/{slug}` で4枚PNGを再生成する。`--check` は元記事・元図のSHA-256と入力4枚だけを検証し、`--out-dir .tmp/figure-pack-preview` で出力先を指定できる。ハッシュが変わったら意味を再確認し、必要なスライドとsource.jsonを更新してから再生成する。

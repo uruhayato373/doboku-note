@@ -435,7 +435,7 @@
 2. 試験当日〜正答公開後に、公式問題 PDF と正答 PDF から既存の過去問ページと同じ手順（起稿→原典照合）で 4 ページを作り、無料演習（建設 3 科目）に追加する。あわせて水産部門の専門科目（`r08-fisheries`）を、既存の水産 16 回分と同じ形（問題と公式の正答だけ・演習には入れない）で作る。スキャンなら書き起こしと別の担当に全問照合させる（2026-11-10 追加）。
 3. 速報ページから過去問一覧・note 直前パックへの導線を置く。
 
-**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
+**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/checks/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
 
 **進捗（2026-10-02）**: 手順1を完了。解答速報ページの枠 `/exam/pe-first-stage/guide/r08-answers`（公式の問題・正答の確認先、正答訂正の注意、科目ごとの自己採点、合格発表、直前対策の導線、FAQ）を本番へ反映（PR #844）。正答の公開日は実施案内に書かれていないため断定していない。残りは試験後: 公式正答の公開を確認したらページに掲載日を追記し、令和8年度の4ページ（基礎・適性・建設・上下水道）を起稿して演習へ追加する。
 
@@ -607,7 +607,7 @@
 ### [DN-1224] 基準書・資格トップの右の欄の続きの束に cta-density の右欄検査を当てる
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-16]
 
-**起点**: DN-1218 段 3（#1620 の次の PR・78f7223e6）で基準書の章・節（standards-rail-fill）と資格トップ（category-rail-fill）の右の欄に回遊＋転職バナーの組を足したが、scripts/check-cta-density.mjs の右欄検査（affiliate-rail-adjacent・data-article-sidebar-card(s) の印）はこの 2 種に当てていない。同じ案件の繰り返し（ピクセルなしの fill 面）とバナーだけの組を許す宣言が検査側に無いため、印を付けると誤検出になる。今は構造（バナーの直後が実カード・バナーだけの組は data-article-sidebar-fill）を src/lib/rail-continuation.ts が保っているだけで、機械の検査は素通り（検査 0 件）。
+**起点**: DN-1218 段 3（#1620 の次の PR・78f7223e6）で基準書の章・節（standards-rail-fill）と資格トップ（category-rail-fill）の右の欄に回遊＋転職バナーの組を足したが、scripts/checks/check-cta-density.mjs の右欄検査（affiliate-rail-adjacent・data-article-sidebar-card(s) の印）はこの 2 種に当てていない。同じ案件の繰り返し（ピクセルなしの fill 面）とバナーだけの組を許す宣言が検査側に無いため、印を付けると誤検出になる。今は構造（バナーの直後が実カード・バナーだけの組は data-article-sidebar-fill）を src/lib/rail-continuation.ts が保っているだけで、機械の検査は素通り（検査 0 件）。
 
 **やること**: 検査に *-rail-fill 面の繰り返しとバナーだけの組を許す印を足し、基準書・資格トップの右欄にも data-article-sidebar-cards 相当の印を付けて検査対象にする。検査対象数を出力に出す。
 
@@ -854,7 +854,7 @@
 ### [DN-1181] 正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
 
-**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
+**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/checks/check-table-references.mjs と scripts/checks/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
 
 **やること**: build-gallery-comment.mjs の 2 か所を直し、直す前後で出力がどう変わるかを確かめる。正規表現の中のバックスラッシュ＋英字の書き損じ（\c・\p など意図しないエスケープ）を scripts・.claude/scripts・.claude/skills から探す検査を、決まった合格条件で書けるなら tests に足す。
 
@@ -864,7 +864,7 @@
 ### [DN-1177] 記事本文に手書きした試験日・合格率を正本と突き合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-13]
 
-**起点**: 2026-11-13 の構成・SSOT 監査。試験日の正本は `config/exam-calendar.json`、合格率は `config/exam-stats.json` だが、記事本文は手書きで、正本から値を引く MDX 部品は無い。正本の試験日から逆引きすると、本文への直書きは 1級土木が 3 記事 6 か所、2級土木が 4 記事 16 か所（技術士系は 0）。合格率の数値は 19 記事 37 か所。試験日の検査 `scripts/lib/exam-calendar-guards.mjs` は既知の誤記の形を止める方式で、正本と違う日付を一般には検出しない。合格率を本文と照らす検査は無い。`scripts/check-exam-calendar.mjs` は期待値として同じ日付をスクリプトの中にも持ち、年度の更新で JSON とスクリプトの 2 か所を直すことになる。令和9年度の日程が出たときに、古い日付の記事が残る。
+**起点**: 2026-11-13 の構成・SSOT 監査。試験日の正本は `config/exam-calendar.json`、合格率は `config/exam-stats.json` だが、記事本文は手書きで、正本から値を引く MDX 部品は無い。正本の試験日から逆引きすると、本文への直書きは 1級土木が 3 記事 6 か所、2級土木が 4 記事 16 か所（技術士系は 0）。合格率の数値は 19 記事 37 か所。試験日の検査 `scripts/lib/exam-calendar-guards.mjs` は既知の誤記の形を止める方式で、正本と違う日付を一般には検出しない。合格率を本文と照らす検査は無い。`scripts/checks/check-exam-calendar.mjs` は期待値として同じ日付をスクリプトの中にも持ち、年度の更新で JSON とスクリプトの 2 か所を直すことになる。令和9年度の日程が出たときに、古い日付の記事が残る。
 
 **やること**: 本文の試験日・合格率を拾い、資格の正本の値と違うものを一覧にする検査を足す（年度を明記した過去の値は対象外にする）。直書きが多い記事は、正本から値を出す部品にするかを決める。`check-exam-calendar.mjs` の期待値の二重持ちは、二重入力の照合として残すのか正本だけにするのかを決める。
 
@@ -1894,9 +1894,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **起点**: 2026-10-26 に DN-0832 を調べたとき、`check-reference-sources --deep` に、DN-0832 とは別の逐語一致（verbatim）の FAIL が 7 件あった（civil1-textbook を出典にする 3 記事）。DN-0832 を直しても、この 7 件があるので --deep は exit 0 にならない。この端末は Drive のマウントが無く、件数と記事名はまだ確かめていない。
 
-**やること**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` を回して 7 件の記事と一致した文を出し、記事の文を自分の言葉に書き直す（市販書籍の文を写さない）。書き直したら refresh-indexes を回す。
+**やること**: Drive をマウントした端末で `node scripts/checks/check-reference-sources.mjs --deep` を回して 7 件の記事と一致した文を出し、記事の文を自分の言葉に書き直す（市販書籍の文を写さない）。書き直したら refresh-indexes を回す。
 
-**完了条件**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` が exit 0。
+**完了条件**: Drive をマウントした端末で `node scripts/checks/check-reference-sources.mjs --deep` が exit 0。
 
 
 
@@ -2342,7 +2342,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **やること**:
 1. 競合: `competitor-scan.yml`（四半期・note/coconala/ig を自動取得）に youtube を足す。先に GitHub Actions のランナーで yt-dlp の一覧（`--flat-playlist`）が取れるかを probe で2回確かめる。動画の再生用 API（player）と映像は使わない
 2. 自社: 月次の workflow（毎月1日・JST）で `youtube-own-metrics` を回し、`ci-data add` で `data/youtube/own-videos/` へ書き戻す
-3. `scripts/check-competitor-scan-due.mjs` の youtube を `automation: 'ci'` にする。自社の月次の鮮度（台帳の `freshness.warnDays` 35）を読む検査を `quality-audit.mjs` の ops に足し、`note:` に読み手を書く
+3. `scripts/checks/check-competitor-scan-due.mjs` の youtube を `automation: 'ci'` にする。自社の月次の鮮度（台帳の `freshness.warnDays` 35）を読む検査を `quality-audit.mjs` の ops に足し、`note:` に読み手を書く
 4. 失敗は `scripts/report-automation-failure.mjs` へ（取得 0 件は exit 1・検査不成立を緑にしない）
 **罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
@@ -2773,13 +2773,13 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 **起点**: 2026-10-02、Mac の記憶が別リポジトリ `doboku-note-memory` へフック同期されたまま repo と分裂していた（DN-0233 (4)）。Windows は 09-14 に junction 済みのはずだが、同じフックや実ディレクトリが残っていないかは未確認。**着手条件**: `check-memory` を入れる PR（feature/memory-guard）が develop にマージ済み。
 
 Windows の PowerShell で repo 直下から順に:
-1. `git switch develop; git pull` で記憶の統合と `scripts/check-memory.mjs` を取り込む。
-2. `node scripts/check-memory.mjs --local` で現状を見る。exit 0 なら 6 へ。
+1. `git switch develop; git pull` で記憶の統合と `scripts/checks/check-memory.mjs` を取り込む。
+2. `node scripts/checks/check-memory.mjs --local` で現状を見る。exit 0 なら 6 へ。
 3. 「実ディレクトリ」と出たら、中身を先に救う: `$m="$env:USERPROFILE\.claude\projects\<key>\memory"`（`<key>` は repo の絶対パスの英数字以外を `-` にしたもの。例 `C--Users-<名前>-doboku-note`）。`Compare-Object (ls $m -Name) (ls .claude\memory -Name)` で `<=` 側（Windows にだけある記憶）を `.claude\memory` へコピーする。同名で中身が違うものは上書きせず別名で残し、`MEMORY.md` に 1 行ずつ足して `npm run check-memory` が通ってから develop へコミット・push する。
 4. `node scripts/setup-memory-link.mjs` を実行する（実ディレクトリは `memory.bak-*` に退避され、junction が張られる。管理者権限は不要）。
 5. 「別同期フック」と出たら、`$env:USERPROFILE\.claude\settings.json` の `hooks` から `sync-memory` を呼ぶ SessionStart/SessionEnd を消し、`$env:USERPROFILE\.claude\hooks\sync-memory.*` を `.retired-2026-10-02` 付きに改名する。dotfiles の `claude/` に同じフックがあればそちらも消す（dotfiles から張り直すと復活する）。
 6. `npm run pre-commit:install`（pre-commit に記憶のゲートが加わったため。**Mac も同じくマージ後に 1 回**）。
-7. `node scripts/check-memory.mjs --local` が exit 0、`(Get-Item $m).LinkType` が `Junction` で `Target` が repo の `.claude\memory`。
+7. `node scripts/checks/check-memory.mjs --local` が exit 0、`(Get-Item $m).LinkType` が `Junction` で `Target` が repo の `.claude\memory`。
 
 **運用の約束**: 記憶はファイルが repo 内にあるだけで、コミット・push しないと他の PC に届かない。記憶を書いた作業のコミットに `.claude/memory` を含める（記憶だけの develop push は CI を走らせない）。
 
@@ -2892,7 +2892,7 @@ Windows の PowerShell で repo 直下から順に:
 
 **起点**: 2026-09-23 に公開 note 918 本をライブ API で走査したところ、R8予想問題（n8e92e4673a99）と総監択一式17年分分析（n3bcb87efddad）の 2 本で、冒頭 CTA の文が `h2` になり、その後ろに URL だけの段落・カードが並び、直後の見出し「R8 で何が出るのか」「はじめに」が「R」「は」の段落＋カード＋残りの段落に割れていた（目次から節が消える）。2 本とも同日に全文更新で元の構造へ戻し、API で確認済み。形から見て、`scripts/note-update-partial.mjs` の `replaceTopCta`／`insertTopCta` が「次の `h2` の直前へ caret を置いて Enter→文字入力→URL 入力」する実装で、入力が見出しブロックの中に入ったとみられる（どの実行で起きたかは未特定）。
 
-**やること**: コードは PR #773（2026-09-30 マージ）で済んだ（冒頭 CTA を HTML 差し込み＋URL 段落の cardify に置換、保存前に対象 h2 の一致・60 字超の見出しの増加を検査、`check-note-live-headings` に割れ見出し・長い見出しの検査を追加）。残りは運営者の了承を得て 1 本で冒頭 CTA の部分更新を実行し、ライブで確かめること（手順: `npm run note-update-partial -- --spec <spec>` を dry-run → `--commit` → `node scripts/check-note-live-headings.mjs <記事パスの一部>`）。
+**やること**: コードは PR #773（2026-09-30 マージ）で済んだ（冒頭 CTA を HTML 差し込み＋URL 段落の cardify に置換、保存前に対象 h2 の一致・60 字超の見出しの増加を検査、`check-note-live-headings` に割れ見出し・長い見出しの検査を追加）。残りは運営者の了承を得て 1 本で冒頭 CTA の部分更新を実行し、ライブで確かめること（手順: `npm run note-update-partial -- --spec <spec>` を dry-run → `--commit` → `node scripts/checks/check-note-live-headings.mjs <記事パスの一部>`）。
 
 **完了条件**: 冒頭 CTA を差し替える部分更新を 1 本で実行し、ライブ API で CTA が引用ブロック、直後の見出しが `h2` のまま、60 字超の見出しが 0 であることを確認できる。
 
@@ -3671,7 +3671,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0426] 年度切替後、年度表現の陳腐化検査を ci:true へ上げて 0 件まで追う
 タグ: [コンテンツ品質] [時期:2027-01..2027-03] [領域:サイト] [種類:改善] [起票:2026-09-17] [期日:2027-01-31]
 
-**やった**: `scripts/check-year-staleness.mjs`（+ `scripts/lib/year-staleness.mjs`・test 9件）を新設。当年度は `exam-calendar.json` の `exams[*].year` 最大値、対象は `content/site/**` の frontmatter title/seoTitle/description（本文は過去問・白書の年度引用が桁違いに多くregexでは陳腐化と正しい年度引用を区別できないため対象外）。group（past-exam/primary/secondary）と、ディレクトリ名が特定年度を表す記事（`r05-essay-*`・`primary-r07-a` 等＝その年度自体が主題）は除外。現状 5 件 warn（すべて「令和X年度からY年度まで」型の歴史的レンジ引用で、机上では偽陽性）。`package.json`・quality-audit.mjs（`ci:false`・report）に配線済み。
+**やった**: `scripts/checks/check-year-staleness.mjs`（+ `scripts/lib/year-staleness.mjs`・test 9件）を新設。当年度は `exam-calendar.json` の `exams[*].year` 最大値、対象は `content/site/**` の frontmatter title/seoTitle/description（本文は過去問・白書の年度引用が桁違いに多くregexでは陳腐化と正しい年度引用を区別できないため対象外）。group（past-exam/primary/secondary）と、ディレクトリ名が特定年度を表す記事（`r05-essay-*`・`primary-r07-a` 等＝その年度自体が主題）は除外。現状 5 件 warn（すべて「令和X年度からY年度まで」型の歴史的レンジ引用で、机上では偽陽性）。`package.json`・quality-audit.mjs（`ci:false`・report）に配線済み。
 
 **残り**: 次の年度切替（2027年1月）の直後に quality-audit.mjs の `year-staleness` エントリを `ci:true` へ上げ、週次レビューで一覧を見ながら 2 週間以内に 0 件（または全件を年度スラッグ除外に追加）へ収束させたら `ci:false` へ戻し、このカードを削除する。
 
@@ -3809,7 +3809,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0276「次の実投稿で publish-x.ts が posted_url を書くか確認する」**
 
-**やった**: (2)(3) は実装・実データ検証済み。`scripts/check-x-posted-live.mjs`（+ `scripts/lib/x-posted-live.mjs`・test 5件）が `content/sns/x/{draft,published}/*/status.json` の `status:"posted"` を集め、`posted_url` を持つものだけ `https://publish.twitter.com/oembed?url=...`（ログイン不要）で照合する。既存 8 件（旧「19件」から実減）で実行し、live 8 / gone 0 / 取得失敗 0 を確認した。`posted_url` の無い投稿済み（162件）と本文にサイトリンクが無いもの（121件・意図的な linkless 施策を含むため gate しない）は件数のみ報告する。週次 `link-audit.yml`（金曜）に組み込み済み（PR は本カードのブランチで作成）。
+**やった**: (2)(3) は実装・実データ検証済み。`scripts/checks/check-x-posted-live.mjs`（+ `scripts/lib/x-posted-live.mjs`・test 5件）が `content/sns/x/{draft,published}/*/status.json` の `status:"posted"` を集め、`posted_url` を持つものだけ `https://publish.twitter.com/oembed?url=...`（ログイン不要）で照合する。既存 8 件（旧「19件」から実減）で実行し、live 8 / gone 0 / 取得失敗 0 を確認した。`posted_url` の無い投稿済み（162件）と本文にサイトリンクが無いもの（121件・意図的な linkless 施策を含むため gate しない）は件数のみ報告する。週次 `link-audit.yml`（金曜）に組み込み済み（PR は本カードのブランチで作成）。
 (1) `publish-x.ts` に `findLatestPostedUrl()` を追加し、即時投稿の直後に自分のプロフィールから本文一致で `/status/<ID>` を読み、`status.json` の `posted_url`（既存8件と同じキー名）へ書くようにした。取れなくても投稿は失敗にしない。
 
 **残り**: (1) は次に実際に X へ即時投稿したときにだけ検証できる（ドライランでは compose 画面を閉じる前に return するため、この経路を通らない）。次の投稿後に対象記事の `status.json` に `posted_url` が入っているか確認し、入っていれば削除する。

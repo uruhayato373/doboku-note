@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { assessAfbOutcomesFreshness } from '../scripts/check-afb-outcomes-freshness.mjs';
+import { assessAfbOutcomesFreshness } from '../scripts/checks/check-afb-outcomes-freshness.mjs';
 
 const NOW = Date.parse('2026-09-22T00:00:00Z');
 

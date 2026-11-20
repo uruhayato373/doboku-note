@@ -11,7 +11,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { magazineResolver, toItem } from '../scripts/build-note-published-index.mjs';
-import { parseSoT } from '../scripts/check-magazine-membership.mjs';
+import { parseSoT } from '../scripts/checks/check-magazine-membership.mjs';
 
 const resolve = magazineResolver({
   labels: { 'A-本体': 'a-magazine', 'B-本体': 'b-magazine' },

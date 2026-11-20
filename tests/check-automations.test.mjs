@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { checkAutomations, plistSchedule, workflowTriggers } from '../scripts/check-automations.mjs';
+import { checkAutomations, plistSchedule, workflowTriggers } from '../scripts/checks/check-automations.mjs';
 
 const plist = (inner) => `<plist><dict><key>StartCalendarInterval</key><dict>${inner}</dict></dict></plist>`;
 

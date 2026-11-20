@@ -7,7 +7,7 @@ import { mkdtempSync, writeFileSync, chmodSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { judgeScan, jobsNeverExecuted } from '../scripts/check-external-write-orphans.mjs';
+import { judgeScan, jobsNeverExecuted } from '../scripts/checks/check-external-write-orphans.mjs';
 
 test('ログ未生成は全試行の全ジョブがステップ未開始と確認できる場合だけ解消する', () => {
   const job = { id: 10, status: 'completed', conclusion: 'cancelled', steps: [] };
@@ -21,7 +21,7 @@ test('ログ未生成は全試行の全ジョブがステップ未開始と確�
   ]) assert.equal(jobsNeverExecuted(pages), false);
 });
 
-const SCRIPT = join(dirname(fileURLToPath(import.meta.url)), '..', 'scripts', 'check-external-write-orphans.mjs');
+const SCRIPT = join(dirname(fileURLToPath(import.meta.url)), '..', 'scripts', 'checks', 'check-external-write-orphans.mjs');
 
 test('judgeScan: 対象 0 件は exit 0 だが「未検査」と明示する', () => {
   const v = judgeScan({ targetRuns: 0, scanned: 0, fetchFailed: 0, findings: 0 });

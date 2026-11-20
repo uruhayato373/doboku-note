@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { lastCommitRunAt, decideIndexingRun } from '../scripts/lib/gsc-local-routine.mjs';
-import { gscLoginLine } from '../scripts/check-gsc-login.mjs';
+import { gscLoginLine } from '../scripts/checks/check-gsc-login.mjs';
 
 test('未ログインで送れなかった回は「前回の送信」に数えない', () => {
   const runs = [

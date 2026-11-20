@@ -23,17 +23,17 @@ import { isCliEntry } from './lib/cli-run.mjs';
 
 /** 順番は「早く終わる・並行セッションの安全に効く」順。timeout は旧 settings.json の値を踏襲 */
 export const CHECKS = [
-  { name: 'git-sync', script: 'scripts/check-git-sync.mjs', args: [], timeout: 30_000 },
-  { name: 'memory', script: 'scripts/check-memory.mjs', args: ['--session'], timeout: 10_000 },
-  { name: 'shared-policy', script: 'scripts/check-shared-policy.mjs', args: [], timeout: 20_000 },
-  { name: 'plan-staleness', script: 'scripts/check-plan-staleness.mjs', args: [], timeout: 10_000 },
-  { name: 'backlog-due', script: 'scripts/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },
-  { name: 'auth-freshness', script: 'scripts/check-auth-freshness.mjs', args: ['--session'], timeout: 5_000 },
-  { name: 'weekly-review-due', script: 'scripts/check-weekly-review-due.mjs', args: [], timeout: 10_000 },
-  { name: 'monthly-review-due', script: 'scripts/check-monthly-review-due.mjs', args: [], timeout: 10_000 },
-  { name: 'gsc-login', script: 'scripts/check-gsc-login.mjs', args: [], timeout: 5_000 },
+  { name: 'git-sync', script: 'scripts/checks/check-git-sync.mjs', args: [], timeout: 30_000 },
+  { name: 'memory', script: 'scripts/checks/check-memory.mjs', args: ['--session'], timeout: 10_000 },
+  { name: 'shared-policy', script: 'scripts/checks/check-shared-policy.mjs', args: [], timeout: 20_000 },
+  { name: 'plan-staleness', script: 'scripts/checks/check-plan-staleness.mjs', args: [], timeout: 10_000 },
+  { name: 'backlog-due', script: 'scripts/checks/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },
+  { name: 'auth-freshness', script: 'scripts/checks/check-auth-freshness.mjs', args: ['--session'], timeout: 5_000 },
+  { name: 'weekly-review-due', script: 'scripts/checks/check-weekly-review-due.mjs', args: [], timeout: 10_000 },
+  { name: 'monthly-review-due', script: 'scripts/checks/check-monthly-review-due.mjs', args: [], timeout: 10_000 },
+  { name: 'gsc-login', script: 'scripts/checks/check-gsc-login.mjs', args: [], timeout: 5_000 },
   { name: 'resources', script: 'scripts/local-resource-audit.mjs', args: ['--quick'], timeout: 30_000 },
-  { name: 'disk-hygiene', script: 'scripts/check-disk-hygiene.mjs', args: ['--quick'], timeout: 15_000 },
+  { name: 'disk-hygiene', script: 'scripts/checks/check-disk-hygiene.mjs', args: ['--quick'], timeout: 15_000 },
   // x-sync は Playwright で x.com を開く（1 回 9.6 秒・SessionStart 13.9 秒の 7 割）。前回の完走が 4 時間以内で
   // queued の不在が無ければ起動しない（state.x-sync-last-run・DN-0688）。ログイン済みプロファイルで開く回数を減らすのは
   // X 凍結ガードレールの観点でも良い。不在を見つけた回は TTL を使わず次のセッションでも警告を出し直す

@@ -15,7 +15,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
-import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
+import { lintFrontmatter, loadTagAllowlist } from "#shared/checks/lint-frontmatter.mjs";
 import { detectBrokenExplanations } from "./check-mdx/rules/explanations/detect.mjs";
 import { auditSvgFile } from "./check-mdx/rules/svg/detect.mjs";
 import { detectEmptyContainers } from "./check-mdx/rules/empty-container/detect.mjs";
@@ -264,7 +264,7 @@ async function main() {
       errors.push(e);
     }
 
-    // 太字の崩壊検出は scripts/check-bold-rendering.mjs（remark で実パースする
+    // 太字の崩壊検出は scripts/checks/check-bold-rendering.mjs（remark で実パースする
     // ground truth 版）へ移管した。ここにあった checkBoldEndingParen は
     // 「）」』】）」の5文字だけを見る近似ルールで、。， ％ ℃ や壊れたリンクを
     // 取りこぼす一方、実際には描画される形（cash-flow-statement:48）を

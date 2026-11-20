@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { headerComment, scriptFile, scriptsWithoutHeader, searchCommands } from '../scripts/lib/cmd-help.mjs';
-import { compareHeaderBaseline, NO_HEADER_BASELINE } from '../scripts/check-command-guidance.mjs';
+import { compareHeaderBaseline, NO_HEADER_BASELINE } from '../scripts/checks/check-command-guidance.mjs';
 
 test('冒頭コメントの基準: 基準に無いファイルの欠けは止め、冒頭コメントが付いたファイルは基準から消させる', () => {
   const base = ['scripts/old-a.mjs', 'scripts/old-b.mjs'];
@@ -18,7 +18,7 @@ test('冒頭コメントの基準: 基準に無いファイルの欠けは止め
 test('scriptFile: node / tsx / npx tsx が最初に起動するファイルを返し、ファイルを起動しない script は null', () => {
   assert.equal(scriptFile('node scripts/deploy-main.mjs'), 'scripts/deploy-main.mjs');
   assert.equal(scriptFile('node --test --test-concurrency=2 tests/a.test.mjs'), 'tests/a.test.mjs');
-  assert.equal(scriptFile('tsx scripts/build-standards-data.ts && node scripts/check-standards-data.mjs'), 'scripts/build-standards-data.ts');
+  assert.equal(scriptFile('tsx scripts/build-standards-data.ts && node scripts/checks/check-standards-data.mjs'), 'scripts/build-standards-data.ts');
   assert.equal(scriptFile('npx tsx scripts/x.mts --ci'), 'scripts/x.mts');
   assert.equal(scriptFile('node scripts/build-doc-meta-index.mjs --ci'), 'scripts/build-doc-meta-index.mjs');
   assert.equal(scriptFile('tsc --noEmit'), null);
@@ -49,11 +49,11 @@ test('headerComment: import から始まるファイルは冒頭コメントな�
 
 const FILES = {
   'scripts/deploy-main.mjs': '// develop の検査済み commit を main へ昇格する。\n// exit 0 は本番の確認まで通ったときだけ。\n',
-  'scripts/check-production-ssr.mjs': '/** 本番の SSR を確かめる。deploy:main が最後に呼ぶ。 */\n',
+  'scripts/checks/check-production-ssr.mjs': '/** 本番の SSR を確かめる。deploy:main が最後に呼ぶ。 */\n',
   'scripts/no-header.mjs': 'import a from "a";\n',
 };
 const SCRIPTS = {
-  'check-production-ssr': 'node scripts/check-production-ssr.mjs',
+  'check-production-ssr': 'node scripts/checks/check-production-ssr.mjs',
   'deploy:main': 'node scripts/deploy-main.mjs',
   'type-check': 'tsc --noEmit',
   'no-header': 'node scripts/no-header.mjs',

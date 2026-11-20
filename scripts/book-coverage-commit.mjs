@@ -65,7 +65,7 @@ function main() {
   if (!git(['status', '--porcelain', '--', ...paths]).trim()) { console.log(`[${NAME}] 変更なし: ${dir}`); return 0; }
 
   // 2. 図のサイズ上限
-  const img = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/check-image-assets.mjs'), '--ci'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  const img = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/checks/check-image-assets.mjs'), '--ci'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   const imgBad = `${img.stdout}${img.stderr}`.split('\n').filter((l) => l.includes(`${dir}/`) && /size-new|size-grown|danger|危険/.test(l));
   if (imgBad.length) {
     console.error(imgBad.join('\n'));

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { inspectAuthFreshness, run } from '../scripts/check-auth-freshness.mjs';
+import { inspectAuthFreshness, run } from '../scripts/checks/check-auth-freshness.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('鮮度は印あり・古い・新しい・欠測を区別し、対象0件もPASSにしない', () => {

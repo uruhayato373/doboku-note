@@ -67,7 +67,7 @@ export const GATES = [
     id: 'katex-warnings',
     match: (f) => /^content\/site\/.+\.mdx$/.test(f),
     // 1 ファイル 1 秒弱。staged の MDX だけを渡す
-    cmd: (files) => ['node', 'scripts/audit-katex-warnings.mjs', '--strict', ...files],
+    cmd: (files) => ['node', 'scripts/checks/audit-katex-warnings.mjs', '--strict', ...files],
   },
   {
     id: 'note-paid-cta',
@@ -79,7 +79,7 @@ export const GATES = [
     id: 'search-improvements',
     // 検索改善の実験とカードの結び付き（実験台帳・backlog・dispatch-log・検索キーワード戦略の設定）。全量で 1 秒
     match: (f) => [datasetPath('business.experiments'), datasetPath('config.search-strategy'), datasetPath('state.dispatch-log'), '.claude/todo/backlog.md'].includes(f),
-    cmd: () => ['node', 'scripts/check-search-improvements.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-search-improvements.mjs'],
   },
   {
     id: 'products',
@@ -89,7 +89,7 @@ export const GATES = [
       /^content\/note\/.+\/(article(-[^/]+)?\.md|note掲載文\.txt)$/.test(f) ||
       ['src/lib/note-magazines.ts', 'src/lib/coconala-services.ts'].includes(f),
     // ファイル指定が無いので全量（手元 7 秒）
-    cmd: () => ['node', 'scripts/check-products.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-products.mjs'],
   },
   {
     id: 'affiliate-placements',
@@ -105,21 +105,21 @@ export const GATES = [
         'src/config/affiliate-creatives.ts',
       ].includes(f) || /^content\/site\/.+\.mdx$/.test(f),
     // ファイル指定が無いので全量（手元 1 秒・MDX 1,350 件の走査込み）。MDX は手書きの <CareerAffiliate> がルールに覆われているかを見る
-    cmd: () => ['node', 'scripts/check-affiliate-placements.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-affiliate-placements.mjs'],
   },
   {
     id: 'image-assets',
     // 記事の画像（図の SVG・写真）のサイズ上限と危険なファイル名。2026-10-09 に書籍の網羅の展開で、10KB を超えた図 2 枚が CI で初めて落ち develop を赤くした
     match: (f) => /^content\/site\/.+\/img\/[^/]+\.(svg|png|jpe?g|webp)$/i.test(f),
     // 全量（手元 1 秒）。新規の超過と増えた超過だけを止める（既存は baseline）
-    cmd: () => ['node', 'scripts/check-image-assets.mjs', '--ci'],
+    cmd: () => ['node', 'scripts/checks/check-image-assets.mjs', '--ci'],
   },
   {
     id: 'keiken-answer-split',
     // 1級・2級の経験記述の解答欄の割り振り。2026-10-09 に書籍の網羅の展開で足した 1 文が CI で初めて落ち develop を赤くした（DN-0615）
     match: (f) => /^content\/(site\/civil-construction-[12]\/.+\.mdx|note\/.+\/article(-[^/]+)?\.md|kindle\/.+\.md)$/.test(f),
     // 全量（手元 3 秒）
-    cmd: () => ['node', 'scripts/check-keiken-answer-split.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-keiken-answer-split.mjs'],
   },
   {
     id: 'unit-tests',
@@ -134,25 +134,25 @@ export const GATES = [
     id: 'media-references',
     // content/sns の文書（json・md・txt）が指す .tmp/media/ の素材が Drive の台帳にあるか。CI にだけあり、pop-image.json の参照の欠けで赤くなった。全量で手元 1 秒前後
     match: (f) => /^content\/sns\/.+\.(json|md|txt)$/.test(f),
-    cmd: () => ['node', 'scripts/check-media-references.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-media-references.mjs'],
   },
   {
     id: 'admin-pages',
     // 管理画面のページを足す・消すときの台帳との照合。全量で 0.2 秒
     match: (f) => /^tools\/admin-app\/src\/app\/.*\/(page\.tsx|route\.ts)$/.test(f) || f === datasetPath('config.admin-pages'),
-    cmd: () => ['node', 'scripts/check-admin-pages.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-admin-pages.mjs'],
   },
   {
     id: 'agent-config',
     // .claude/config/ の JSON の型。基準値に項目を足して型を直し忘れると CI で初めて落ちた（2026-11-06・PR #1424）。全量で 0.3 秒
     match: (f) => /^\.claude\/config\/[^/]+\.json$/.test(f) || f === 'scripts/lib/dataset-schemas-agent-config.mjs',
-    cmd: () => ['node', 'scripts/check-agent-config.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-agent-config.mjs'],
   },
   {
     id: 'knip-ratchet',
     // 使われていないファイル・export の増加。2026-10-10 に .claude/workflows/ の 2 本が CI で初めて落ちた（#953）。手元 4 秒
     match: (f) => CODE_FILE.test(f),
-    cmd: () => ['node', 'scripts/check-knip-ratchet.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-knip-ratchet.mjs'],
   },
   // ---- 2026-10-20 に足した台帳・配線の整合（DN-0790）。09-14〜10-20 に develop の CI を赤くした回数（失敗した実行の数）を
   // 添える。どれも全量で手元 1 秒前後なので、ファイル指定なしで回す。
@@ -160,49 +160,49 @@ export const GATES = [
     id: 'content-series',
     // シリーズ企画の台帳と骨子・記事の実在（8 回）
     match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f) || f.startsWith('content/sources/series/') || /^content\/site\/.+\.mdx$/.test(f),
-    cmd: () => ['node', 'scripts/check-content-series.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-content-series.mjs'],
   },
   {
     id: 'competitor-positions',
     // 資格ごとの競合の立ち位置（台帳と、その読み元）
     match: (f) => ['config.competitor-positions', 'config.competitors', 'config.market-scan', 'config.channel-annual-plan'].map((id) => datasetPath(id)).includes(f),
-    cmd: () => ['node', 'scripts/check-competitor-positions.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-competitor-positions.mjs'],
   },
   {
     id: 'qualification-market',
     // 展開の判断材料（市場スキャン・競合・売上と受注の資格への分類）（8 回）
     match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f),
-    cmd: () => ['node', 'scripts/check-qualification-market.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-qualification-market.mjs'],
   },
   {
     id: 'topic-wiring',
     // 横断トピックの記事の配線（7 回）
     match: (f) => /^content\/site\/.+\.mdx$/.test(f) || f === 'src/config/topics.json',
-    cmd: () => ['node', 'scripts/check-topic-wiring.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-topic-wiring.mjs'],
   },
   {
     id: 'review-wiring',
     // 週次・月次レビューのスキルが実行するコマンドと配線の正本（6 回）
     match: (f) => f === '.claude/config/review-wiring.json' || /^\.claude\/skills\/(weekly|monthly)-review\//.test(f) || f === 'package.json',
-    cmd: () => ['node', 'scripts/check-review-wiring.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-review-wiring.mjs'],
   },
   {
     id: 'gate-parity',
     // check-* の npm script が quality-audit か pre-commit のどちらかに結ばれているか（5 回）
     match: (f) => ['package.json', 'scripts/quality-audit.mjs', 'scripts/lib/pre-commit-steps.mjs', '.claude/config/gate-parity-baseline.json'].includes(f),
-    cmd: () => ['node', 'scripts/check-gate-parity.mjs', '--ci'],
+    cmd: () => ['node', 'scripts/checks/check-gate-parity.mjs', '--ci'],
   },
   {
     id: 'domains',
     // 領域の正本と、スキル・エージェントの domain・文書の割り当て・管理画面の画面（4 回）
     match: (f) => [datasetPath('config.domains'), datasetPath('config.annual-roadmap')].includes(f) || /^\.claude\/(skills\/.+\/SKILL|agents\/[^/]+|knowledge\/reference\/[^/]+)\.md$/.test(f) || /^docs\/.+\.md$/.test(f) || /^tools\/admin-app\/src\/app\/.+\/page\.tsx$/.test(f),
-    cmd: () => ['node', 'scripts/check-domains.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-domains.mjs'],
   },
   {
     id: 'orphan-ogp',
     // 公的基準の章を消したのに OGP の退避台帳に残る（34 回・10/16 の章の削除 1 件で 30 回）。全量で手元 1 秒弱
     match: (f) => f.startsWith('content/site/standards-articles/') || f === datasetPath('config.asset-storage'),
-    cmd: () => ['node', 'scripts/check-orphan-ogp.mjs'],
+    cmd: () => ['node', 'scripts/checks/check-orphan-ogp.mjs'],
   },
   {
     id: 'generated-indexes',

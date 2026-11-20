@@ -13,7 +13,7 @@ paths:
 ## UI コンポーネント（CLAUDE.md §7 の詳細）
 
 - デザイントークンを使う（`rounded-card-*` / `shadow-card-*`）。`dark:border-*` を必ず書く。インライン `borderColor` 禁止。色は `brand` / `ink-strong` / `ink-body` / `ink-muted` / `positive` / `warn` / `danger`（真実源: `src/styles/globals.css` の `--color-*`）
-- トークン体系は二系統: editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic。レイアウト体系（PageShell/PageHeader/MetaCard）・記事 prose・禁止パターンは [design-system.md](../knowledge/design-system/design-system.md)。自己点検は `node scripts/lint-ui.mjs`、合否は `/design-review`（`page-design-builder` は自分で合格と言わない）
+- トークン体系は二系統: editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic。レイアウト体系（PageShell/PageHeader/MetaCard）・記事 prose・禁止パターンは [design-system.md](../knowledge/design-system/design-system.md)。自己点検は `node scripts/checks/lint-ui.mjs`、合否は `/design-review`（`page-design-builder` は自分で合格と言わない）
 - `next/font` は render-blocking、`next/dynamic` を RSC に使うと LCP 悪化。metadata の title template は自動付与（個別に suffix を含めると重複）。計測ピクセル `<img>` は `suppressHydrationWarning` 必須。Tailwind の `content` に無いファイルのクラスは生成されない
 - **この Next.js は学習データと違う**。書く前に `node_modules/next/dist/docs/` の該当ガイドを読む（CLAUDE.md 末尾ブロック）
 
@@ -28,6 +28,7 @@ paths:
 - 資格の名前（正式名・短い名前・ごく短い名前）・まとまり（groups）・並び順は `qualification-registry.json` だけが持つ。設定に名前を写さず `qualification:`（資格 id か group id）で指し、コードは `scripts/lib/qualification-names.mjs`（サイトは `src/lib/qualification-names.ts`）の `qualificationLabel`／`qualificationShortLabel`／`qualificationBadgeLabel`／`orderedQualifications` で引く。読み手が多いサイトの JSON（categories・home-exam-cards・tags）は `npm run sync-qualification-names` が名前を書く（categories と home-exam-cards は並び順 `order` も registry の位置から書く。registry に無い実務・資料のカテゴリだけ手で書いた order）。試験区分は `exam-formats.json`（`scripts/lib/exam-stages.mjs`）。画面ごとに件数順・ファイル順で並べない（`npm run check-qualification-ssot` が写し・直書きを止める）
 - ルーティング・パース・リトライ・ステータス処理はコードで決める（サブエージェントに委ねない）。同じ判定を複数箇所に実装しない＝lib に集約する（例: 予定の集約は `scripts/lib/schedule-events.mjs` が唯一の実装、ASP のサイト帰属判定は `scripts/lib/asp-site-guard.mjs`）
 - スクリプトの共通部品を各自で書き直さない: リポジトリのルートとチャネルの置き場は `scripts/lib/repository-paths.mjs`（`REPO_ROOT`・`SITE_CONTENT_ROOT` など。`import.meta.url`・`__dirname`・`process.cwd()` から計算しない。cwd から決めると npm run 以外から実行したとき別の場所を読む）、再帰の走査は `scripts/lib/fs-walk.mjs` の `listFiles`、引数は `scripts/lib/cli-args.mjs` の `parseCliArgs`、content/site の MDX の列挙は `scripts/lib/mdx-files.mjs` の `listSiteMdx`（img/ と隠しディレクトリを飛ばす）、note API の取得は `scripts/lib/note-api.mjs` の `curlJson`（`{ json, error }`・再試行つき）。`'content/site'` のような cwd 相対のパスも書かず、置き場の定数から組み立てる（表示・保存はリポジトリ相対に戻す）。`tests/script-helpers-ratchet.test.mjs` が各自の定義（ルートの計算・walk・parseArgs・curlJson・MDX の列挙）を止める。テストが一時ディレクトリを cwd にして走らせるなど cwd が設計どおりの行だけ行末に `// root-ok: 理由`
+- CLI の置き場は用途で分ける: 検査（`check-`・`lint-`・`verify-`・`audit-`・`validate-` で始まるもの）は `scripts/checks/`。フォルダの一覧は `scripts/lib/repository-paths.mjs` の `CLI_GROUPS` だけが持ち、名前から場所を引くときは `cliRelPath(name)` を使う（`scripts/${name}.mjs` と組み立てない）
 - 新しい script を足したら、起動するファイルの冒頭コメントに用途と罠を書き（`npm run cmd -- <語>` がそこから引く。一覧の文書は持たない・冒頭コメントが無いと `npm run check-command-guidance` が止める）、`quality-audit.mjs` に登録するか「誰が読むか」を決める（`npm run check-command-guidance` が案内の実在を検査し、`agent-hook.mjs check-doc-sync` が新規追加時に配線と `/doc-sync` を促す）
 
 ## ドキュメント同期プロトコル（CLAUDE.md §8）

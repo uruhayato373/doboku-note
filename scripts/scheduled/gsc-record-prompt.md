@@ -24,7 +24,7 @@
 ## Phase 0: 準備とゲート（全てコマンドで決める）
 
 1. `TZ=Asia/Tokyo date +%F` で `TODAY` を決める
-2. **ゲートは 1 コマンドで取る**: `node scripts/check-gsc-auto-review.mjs --json`。出力の `gates` をそのまま使い、自分で日付を数え直さない:
+2. **ゲートは 1 コマンドで取る**: `node scripts/checks/check-gsc-auto-review.mjs --json`。出力の `gates` をそのまま使い、自分で日付を数え直さない:
    - `gates.gscDataStale === true` → Phase 1 を中止し、最終報告の先頭を `【要確認】fetch-metrics 停止の疑い: 最新 GSC データが {gates.daysSinceGscQuery} 日前` にする。Phase 2 の判定へは進む
    - `gates.weeklyAlreadyLogged === true` → Phase 1 をスキップ
    - `gates.monthlyAlreadyLogged === true` → Phase 2 をスキップ

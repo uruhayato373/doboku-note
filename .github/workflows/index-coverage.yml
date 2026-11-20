@@ -242,7 +242,7 @@ jobs:
       - name: Gate - coverage thresholds
         id: coverage_gate
         if: steps.plan.outputs.action != 'skip' && steps.inspect.outputs.partial != 'true'
-        run: node scripts/check-coverage-thresholds.mjs
+        run: node scripts/checks/check-coverage-thresholds.mjs
 
       - name: Report - coverage threshold failure
         if: failure() && (steps.coverage_gate.outcome == 'failure' || steps.completeness_gate.outcome == 'failure')
@@ -258,11 +258,11 @@ jobs:
             fi
             echo ""
             echo '```'
-            node scripts/check-coverage-thresholds.mjs 2>&1 || true
+            node scripts/checks/check-coverage-thresholds.mjs 2>&1 || true
             echo '```'
             echo ""
             echo "- しきい値の真実源: \`.claude/knowledge/reference/gsc-management.md\` の「閾値」節"
-            echo "- 判定ロジック: \`scripts/check-coverage-thresholds.mjs\`"
+            echo "- 判定ロジック: \`scripts/checks/check-coverage-thresholds.mjs\`"
             echo "- 再実行: \`gh workflow run index-coverage.yml\`"
           } > /tmp/coverage-body.md
           node scripts/report-automation-failure.mjs \

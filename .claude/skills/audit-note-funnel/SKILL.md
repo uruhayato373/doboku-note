@@ -59,7 +59,7 @@ npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 | 関連 | 役割 |
 |---|---|
 | `note-funnel-auditor` エージェント | 意味的監査（Evaluator） |
-| `scripts/audit-note-funnel.mjs` | 機械監査（D1-D4 ソース ＋ `--live` で D5 ライブ反映） |
+| `scripts/checks/audit-note-funnel.mjs` | 機械監査（D1-D4 ソース ＋ `--live` で D5 ライブ反映） |
 | `scripts/wire-note-funnel-cta.mjs` | L3 CTA をソースへ冪等配線 |
 | `scripts/note-append-cta.mjs`（`npm run note-append-cta`） | 公開済み記事へ CTA を live 反映（D5 修復・Windows 可・通知いいえ） |
 | `scripts/note-append-list-links.mjs`（`npm run note-append-list-links`） | 公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加（D2 ライブ反映・spec JSON 駆動・insertAdjacentHTML 方式） |

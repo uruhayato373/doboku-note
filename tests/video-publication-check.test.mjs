@@ -24,9 +24,10 @@ function runCheck({ state, record, args = [] }) {
   const root = mkdtempSync(join(tmpdir(), 'vp-'));
   try {
     mkdirSync(join(root, 'scripts', 'lib'), { recursive: true });
+    mkdirSync(join(root, 'scripts', 'checks'), { recursive: true });
     mkdirSync(join(root, '.claude', 'config'), { recursive: true });
     mkdirSync(join(root, '.claude', 'state'), { recursive: true });
-    cpSync(join(ROOT, 'scripts', 'check-video-publication.mjs'), join(root, 'scripts', 'check-video-publication.mjs'));
+    cpSync(join(ROOT, 'scripts', 'checks', 'check-video-publication.mjs'), join(root, 'scripts', 'checks', 'check-video-publication.mjs'));
     // datasets.mjs＝記録の置き場と鮮度の台帳（依存ゼロ・2026-10-10 から台帳で引く）
     for (const lib of ['video-content-check.mjs', 'longform-pop-images.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'video-compilation.mjs', 'datasets.mjs', 'dataset-writers.mjs', 'regexp-escape.mjs', 'repository-paths.mjs']) {
       cpSync(join(ROOT, 'scripts', 'lib', lib), join(root, 'scripts', 'lib', lib));
@@ -46,7 +47,7 @@ function runCheck({ state, record, args = [] }) {
     let status = 0;
     let stdout = '';
     try {
-      stdout = execFileSync(process.execPath, [join(root, 'scripts', 'check-video-publication.mjs'), '--json', ...args], {
+      stdout = execFileSync(process.execPath, [join(root, 'scripts', 'checks', 'check-video-publication.mjs'), '--json', ...args], {
         encoding: 'utf8',
       });
     } catch (e) {

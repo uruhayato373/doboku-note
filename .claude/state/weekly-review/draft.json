@@ -54,7 +54,7 @@
     },
     {
       "id": "experiments",
-      "command": "node scripts/check-experiment-due.mjs --json",
+      "command": "node scripts/checks/check-experiment-due.mjs --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 65,
@@ -81,7 +81,7 @@
     },
     {
       "id": "backlogHealth",
-      "command": "node scripts/check-backlog-health.mjs",
+      "command": "node scripts/checks/check-backlog-health.mjs",
       "rc": 0,
       "status": "pass",
       "durationMs": 7886,

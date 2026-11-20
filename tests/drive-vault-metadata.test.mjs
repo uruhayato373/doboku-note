@@ -11,7 +11,7 @@ test('metadata-only validates the real ledger without inspecting a mounted vault
   try {
     // This resolves as a mount, but contains none of the ledger's assets.
     writeFileSync(join(vault, 'README.md'), 'fixture');
-    const result = spawnSync(process.execPath, ['scripts/check-drive-vault.mjs', '--metadata-only', '--json'], {
+    const result = spawnSync(process.execPath, ['scripts/checks/check-drive-vault.mjs', '--metadata-only', '--json'], {
       cwd: REPO_ROOT, encoding: 'utf8', timeout: 15000,
       env: { ...process.env, DOBOKU_DRIVE_VAULT: vault },
     });

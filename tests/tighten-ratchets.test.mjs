@@ -20,6 +20,6 @@ test('pre-commit に組み込まれ、コードが staged のときだけ回る'
 });
 
 test('check-datasets は .claude/state の直書きが減っても止めない', () => {
-  const src = readFileSync('scripts/check-datasets.mjs', 'utf8');
+  const src = readFileSync('scripts/checks/check-datasets.mjs', 'utf8');
   assert.doesNotMatch(src, /errors\.push\([^\n]*件に減った/);
 });

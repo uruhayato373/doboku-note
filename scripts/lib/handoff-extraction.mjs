@@ -1,5 +1,5 @@
 // 前送り（次に誰かがやること）を書いた文書を削除・確定するときの判定部品。
-// 呼び出し元は scripts/check-handoff-extraction.mjs（pre-commit）だけ。git I/O はここに置かない（純関数＝テスト可能）。
+// 呼び出し元は scripts/checks/check-handoff-extraction.mjs（pre-commit）だけ。git I/O はここに置かない（純関数＝テスト可能）。
 //
 // 対象は 2 種類:
 //   - handoff（docs/handoffs/*.md）: 本文全体の前送りマーカーを拾い、backlog 同梱を「抽出の強制注意」とする（2026-07-14）

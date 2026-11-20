@@ -204,7 +204,7 @@ note 導線の機械監査は CI と土曜の収集が分担する。`quality-au
 
 ```
 1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
-2. node scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
+2. node scripts/checks/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
                                                   HIGH/MEDIUM ゼロまで修正→再実行ループ
 3. keyword-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
 4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る
@@ -259,7 +259,7 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 ### origin との遅れを先に解消する（§1）
 
-複数セッション・worktree が常態で、CI が deploy のたびに `develop` → `main` を自動マージするため、ローカルが数十コミット遅れるのは高頻度。2026-06-11 に 43 コミット遅れの古いツリーで作業し、既存作業を重複・劣化させた。SessionStart フック `scripts/check-git-sync.mjs` が開幕で警告する。遅れていれば同期してから着手し、古いベース上のコミットを push しない。破壊的な reset・同期はユーザー確認後、独自コミットは退避ブランチで保全する。
+複数セッション・worktree が常態で、CI が deploy のたびに `develop` → `main` を自動マージするため、ローカルが数十コミット遅れるのは高頻度。2026-06-11 に 43 コミット遅れの古いツリーで作業し、既存作業を重複・劣化させた。SessionStart フック `scripts/checks/check-git-sync.mjs` が開幕で警告する。遅れていれば同期してから着手し、古いベース上のコミットを push しない。破壊的な reset・同期はユーザー確認後、独自コミットは退避ブランチで保全する。
 
 同じフックは、作業ツリーの未コミットの変更が 6 時間以上（いちばん新しい変更の時刻で判定）残っていれば 1 行出す。2026-10-22 に主ツリーへ別セッションの作業（32 ファイル）が 12 時間残り、develop を進められなかった。破棄は auto mode に止められるので、持ち主のセッションに積ませる。持ち主がいなければ、並行セッションがいないこと（`ListAgents`）を確かめてから、その場で `git switch -c` してコミットし PR にして develop へ戻る（並行セッションがいれば `git worktree add` で別ツリーへ移す）。拾った作業は `npm run quality:audit:ci` と全テストを回してから push する（[他人の未コミット作業](../../memory/feedback_commit_others_wip_run_ci_gate.md)）。
 

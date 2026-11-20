@@ -13,7 +13,7 @@ note 記事（docs/note/**/{記事dir}/）1本の完成物:
 
 - **Why:** 2026-06-03 の2級土木集客クラスター第1バッチで完了条件を article.md 本文だけに置き、カバー・タグの生成を漏らした（frontmatter に `cover:` を書いて「カバー済」と錯覚）。仕組み化すべき類（[[feedback_prevention_over_patching]]）。
 - **How to apply:** 新規作成時は着手前に3点をその記事の成果物として宣言。検証＝U+FFFD 0・全LF・note-lint OK（太字内全角括弧は **A**（B） 形式）・カバー目視（溢れ無）・有効アイコン名（pen/clock/doc/edit/calendar/chart/check/target/book/layers/bulb/flag/yen/map）。真実源は各集客クラスター SSOT の「note記事の完了定義(DoD)」節。X は別系統で1-3タグ（[[feedback_x_hashtag_count]]）。
-- **機械ゲート化済み（2026-06-12）**: `scripts/check-note-3set.mjs` が「公開状態（frontmatter `noteUrl` 非空 OR `noteStatus` に publish）の article.md は `img/cover.png`＋`hashtags.txt` 必須／下書きは対象外」を検査（2026-09-29 からカバーは検査しない＝手元の PNG は Git 管理外で checkout ごとに有無が違い、note 上の状態は CI の check-note-cover-live が見る）。`scripts/note-lint.mjs`（pre-commit・既定=公開状態のみ）と `/note-prepublish-review` Phase 1 4e（`--require`=無条件）の2モード。真実源 content-principles.md §14-d。発覚契機＝公開済194本中2本が hashtags.txt 欠落で公開されていた（2026-06-12）。
+- **機械ゲート化済み（2026-06-12）**: `scripts/checks/check-note-3set.mjs` が「公開状態（frontmatter `noteUrl` 非空 OR `noteStatus` に publish）の article.md は `img/cover.png`＋`hashtags.txt` 必須／下書きは対象外」を検査（2026-09-29 からカバーは検査しない＝手元の PNG は Git 管理外で checkout ごとに有無が違い、note 上の状態は CI の check-note-cover-live が見る）。`scripts/note-lint.mjs`（pre-commit・既定=公開状態のみ）と `/note-prepublish-review` Phase 1 4e（`--require`=無条件）の2モード。真実源 content-principles.md §14-d。発覚契機＝公開済194本中2本が hashtags.txt 欠落で公開されていた（2026-06-12）。
 
 ## 公開前は代理指標でなく実不変条件を検証
 2026-06-03 の総監依存3記事整備で、図版を `ls img/ | wc -l`（ファイル個数）で「揃っている」と誤判定し、本文 `![](img/figure-X.png)` の参照名と実ファイル名のズレ・欠落（roi-curve/keishin-chain 未作成・independence 名前不一致）を見落とした（png/svg ペアを2で割れば気づけた）。さらにファクトチェック（Phase2）を「ハードゲート通過=公開可」と等値して任意扱いにし、実害（R7合格者615→584、年収700-900→600-850、回収年数の基準不統一、図↔本文のケース番号ズレ）を放置しかけた。
@@ -26,4 +26,4 @@ note 記事（docs/note/**/{記事dir}/）1本の完成物:
 
 ## 「ライブ反映済み」判定は冒頭だけでなく末尾・画像数・見出しまで
 note の要再公開を「ライブに反映済み」として再公開台帳へ記録するとき、新文言がライブにあるかだけでなく**末尾ブロック・画像数・見出し構成**まで照合する。2026-09-23、ペルソナ選択ガイドを冒頭の新文言だけ確認して記録したら末尾の著者紹介と注意書きが欠けたままだった（週次検査の拡張で後に発覚）。台帳が in-sync になると要再公開から消え誰も気づかない。
-- 記録前に `node scripts/check-note-live-headings.mjs <パス>`（見出し・画像・太字記号）と、原稿の各段落がライブ本文に含まれるかの全段落照合。取得できない（is_limited）記事は記録しない。関連: [[reference_note_update_body_gotchas]] [[reference_note_publish_price_field]]
+- 記録前に `node scripts/checks/check-note-live-headings.mjs <パス>`（見出し・画像・太字記号）と、原稿の各段落がライブ本文に含まれるかの全段落照合。取得できない（is_limited）記事は記録しない。関連: [[reference_note_update_body_gotchas]] [[reference_note_publish_price_field]]

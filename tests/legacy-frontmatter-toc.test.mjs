@@ -12,7 +12,7 @@ import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const LINT = join(REPO_ROOT, 'scripts/lint-mdx-mobile.mjs');
+const LINT = join(REPO_ROOT, 'scripts/checks/lint-mdx-mobile.mjs');
 const MIGRATE = join(REPO_ROOT, 'scripts/migrate-civil-frontmatter.mjs');
 
 function fixture(frontmatter) {

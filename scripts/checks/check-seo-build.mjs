@@ -1,0 +1,449 @@
+#!/usr/bin/env node
+
+/**
+ * check-seo-build — build 済み out/ の全 HTML を構造化パーサで検査する SEO ゲート。
+ *
+ * next build（output: export）が生成した out/ を対象に、sitemap 掲載 URL の母集合を正として:
+ *   - sitemap 掲載 URL の HTML 欠落 / noindex 混入 / redirect 混入 / 404 混入
+ *   - 各 indexable ページの title / description / self canonical / self og:url / robots /
+ *     JSON-LD parse・可視整合・@type 別必須/推奨キー / SSR（main・H1・本文）
+ *   - 内部リンク切れ / noncanonical link / orphan / 到達不能（home からの BFS）
+ * を検査する。
+ *
+ * ゲート（error → exit 1・baseline で隠さない）:
+ *   sitemap HTML 欠落・noindex/redirect/404 混入・canonical/og:url 不一致・
+ *   title/description 欠落・JSON-LD parse error・JSON-LD 必須キー欠落（Google の必須欄。
+ *   表は scripts/lib/jsonld-required-props.mjs）・SSR 破壊・broken internal link・
+ *   検査 URL 数が sitemap 母集合の 90% 未満（母集合不足を成功扱いにしない）。
+ * 参考（warn・非ゲート）: description 160 字超・JSON-LD 欠落/見出し乖離/推奨キー欠落・
+ *   noncanonical link・orphan・到達不能。
+ *
+ * --summary-out <file>: 1 回分の結果（検査数・error・warn の型別件数）を JSON で書く。CI が build 後に渡し、
+ *   publish ジョブが data/analysis/seo-build-summary.json の履歴へ足す（record-seo-build-summary.mjs・DN-0676）。
+ *
+ * Usage: node scripts/checks/check-seo-build.mjs [--json] [--ci] [--out <dir>] [--summary-out <file>]
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  extractSeo,
+  runIndexablePageChecks,
+  isNoindex,
+  normalizeUrlForCompare,
+  selfUrl,
+} from '../lib/seo-checks.mjs';
+import { validateJsonLd, JSONLD_RULE_TYPES } from '../lib/jsonld-required-props.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { listFiles } from '../lib/fs-walk.mjs';
+
+const argv = process.argv.slice(2);
+const jsonOut = argv.includes('--json');
+function getArg(name, def) {
+  const i = argv.indexOf(name);
+  return i >= 0 && argv[i + 1] ? argv[i + 1] : def;
+}
+const OUT = path.resolve(ROOT, getArg('--out', 'out'));
+const SITEMAP = path.join(OUT, 'sitemap.xml');
+const REDIRECTS = path.join(ROOT, 'public', '_redirects');
+
+/** 検査母集合ガードの下限比率（sitemap 母集合の 90%）。 */
+const COVERAGE_MIN_RATIO = 0.9;
+
+const findings = []; // { level, code, page, message }
+function add(level, code, page, message) {
+  findings.push({ level, code, page, message });
+}
+
+function die(msg) {
+  console.error(`check-seo-build: ${msg}`);
+  process.exit(2);
+}
+
+if (!fs.existsSync(OUT)) die(`out ディレクトリが無い: ${OUT}（先に npm run build）`);
+if (!fs.existsSync(SITEMAP)) die(`sitemap.xml が無い: ${SITEMAP}`);
+
+// ---- URL <-> ファイルパス ----
+function urlPathToFile(urlPath) {
+  if (urlPath === '/') return path.join(OUT, 'index.html');
+  return path.join(OUT, `${urlPath.replace(/^\//, '')}.html`);
+}
+function fileToUrlPath(relFromOut) {
+  const p = relFromOut.replace(/\\/g, '/');
+  if (p === 'index.html') return '/';
+  return `/${p.replace(/\.html$/, '')}`;
+}
+
+// ---- 全 HTML ルート集合（404/_not-found/_ 配下・非ルートは除外） ----
+const EXCLUDE_FILES = new Set(['404.html', '_not-found.html']);
+function walkHtml(dir) {
+  return listFiles(dir, { ext: '.html', skipDir: (_p, name) => name === 'pagefind' || name === 'content' })
+    .map((p) => path.relative(dir, p).split(path.sep).join('/'))
+    .filter((rel) => !(EXCLUDE_FILES.has(rel) || rel.startsWith('_') || rel.includes('/_')));
+}
+const allHtmlRel = walkHtml(OUT);
+const routeSet = new Set(allHtmlRel.map(fileToUrlPath));
+
+// ---- sitemap 母集合 ----
+function parseSitemapPaths() {
+  const xml = fs.readFileSync(SITEMAP, 'utf8');
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const paths = new Set();
+  for (const loc of locs) {
+    const m = loc.match(/^https?:\/\/[^/]+(\/.*)?$/);
+    let p = m && m[1] ? m[1] : '/';
+    p = p.replace(/\/$/, '') || '/';
+    paths.add(p);
+  }
+  return paths;
+}
+const sitemapPaths = parseSitemapPaths();
+
+// ---- redirect ソース（301/302 の from パス） ----
+function parseRedirectSources() {
+  const map = new Map(); // from -> to
+  if (!fs.existsSync(REDIRECTS)) return map;
+  for (const rawLine of fs.readFileSync(REDIRECTS, 'utf8').split('\n')) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const parts = line.split(/\s+/);
+    if (parts.length < 2) continue;
+    map.set(parts[0], parts[1]);
+  }
+  return map;
+}
+const redirectSources = parseRedirectSources();
+
+// ---- 404 ページ判定（誤って sitemap に混入した場合の検出用） ----
+function looksLike404(seo) {
+  return Boolean(seo.title && /ページが見つかりません/.test(seo.title));
+}
+
+// ---- 逆方向ゲート: ビルドされたのに sitemap に無いページ ----
+// 既存の検査は「sitemap 掲載 URL の母集合を正として」HTML 側を見る**片方向**。
+// それだけだと「載せた URL が壊れていない」ことしか言えず、
+// **ビルドされたのに sitemap から漏れたページ**は誰にも気づかれずに落ちる。
+// /docs/（全体の 98%）は generate-sitemap.mjs が MDX ソースから列挙しており
+// 実ビルドとは独立に決まるため、ここが構造的なドリフト点になる。
+// 2026-08-06 実測: 正当な除外は /search のみ（他 2 件は walkHtml が既に除外済み）。
+const SITEMAP_OPTIONAL = new Set([
+  '/search', // 検索 UI。クエリ依存で単体の検索価値が無いため意図的に非掲載
+]);
+// パターンでの意図的な非掲載。**generate-sitemap.mjs の除外条件と同じ式を書く**（片方だけ変えると
+// ここが偽赤になる・2026-09-17 の part-N 133 件で実測）。現在は該当なし（part-N は 2026-09-24 に sitemap へ復帰）。
+const SITEMAP_OPTIONAL_PATTERNS = [];
+const sitemapOptional = (r) => SITEMAP_OPTIONAL.has(r) || SITEMAP_OPTIONAL_PATTERNS.some((re) => re.test(r));
+{
+  const candidates = [...routeSet].filter(
+    (r) => !sitemapPaths.has(r) && !sitemapOptional(r) && !redirectSources.has(r),
+  );
+  let missing = 0;
+  for (const route of candidates) {
+    const file = urlPathToFile(route);
+    // noindex / 404 ページは sitemap に載せない方が正しいので除外する。
+    try {
+      const seo = extractSeo(fs.readFileSync(file, 'utf8'));
+      if (isNoindex(seo) || looksLike404(seo)) continue;
+    } catch {
+      // parse できない HTML はそれ自体が異常。下の欠落として報告する。
+    }
+    missing++;
+    add(
+      'error',
+      'sitemap_page_missing',
+      route,
+      `ビルドされているが sitemap に無い（意図的な非掲載なら check-seo-build の SITEMAP_OPTIONAL に追加する）`,
+    );
+  }
+  // §9: 検査ゼロを PASS と呼ばない。母集合と該当数を必ず出す。
+  console.log(
+    `[sitemap 被覆] HTML ルート ${routeSet.size} 件を検査 → 未掲載 ${missing} 件`
+      + `（除外: optional ${SITEMAP_OPTIONAL.size}＋pattern ${[...routeSet].filter((r) => SITEMAP_OPTIONAL_PATTERNS.some((re) => re.test(r))).length} / redirect ${redirectSources.size} / noindex・404 は個別判定）`,
+  );
+}
+
+// ---- landmark: <main> はページに 1 つ ----
+// HTML 仕様上 main landmark は 1 文書 1 つ。入れ子になるとスクリーンリーダーの landmark
+// 移動が 2 つに割れ、SSR 検査の `<main` 数え上げも狂う。
+// 2026-08-30 に実際に踏んだ: PageShell の variant='article' は「内側の TwoColumnShell が
+// <main> を出す」前提で <div> を返す設計だが、standards の 4 ページが variant='default'
+// （自分で <main> を出す形）と併用しており、全 standards ページで入れ子になっていた。
+// smoke.spec の toHaveCount(1) は代表 5 ページしか見ないので通り抜けた。ここは
+// sitemap 母集合ではなくビルドされた全 HTML ルートを見る（noindex ページでも不正は不正）。
+{
+  let landmarkChecked = 0;
+  let landmarkBad = 0;
+  for (const rel of allHtmlRel) {
+    let html;
+    try {
+      html = fs.readFileSync(path.join(OUT, rel), 'utf8');
+    } catch {
+      continue;
+    }
+    landmarkChecked += 1;
+    // 実出力は常に class 付き（`<main class="flex-grow">`）なので開きタグの前方一致で数える。
+    // `<main>` の完全一致は構造的に必ず 0 になる（deploy skill の偽赤メモと同じ理由）。
+    const mains = (html.match(/<main[\s>]/g) ?? []).length;
+    if (mains === 1) continue;
+    landmarkBad += 1;
+    const urlPath = fileToUrlPath(rel);
+    if (mains === 0) {
+      add('error', 'landmark_no_main', urlPath, '<main> が 0 件（SSR 破壊の疑い）');
+    } else {
+      add('error', 'landmark_nested_main', urlPath, `<main> が ${mains} 件（1 文書 1 main。PageShell の variant と TwoColumnShell の as が二重に landmark を出していないか）`);
+    }
+  }
+  // §9: 検査ゼロを PASS と呼ばない。
+  if (landmarkChecked === 0) {
+    add('error', 'landmark_not_inspected', '-', 'HTML ルートを 1 件も読めず landmark 検査が成立していない');
+  }
+  console.log(`[landmark] HTML ルート ${landmarkChecked} 件の <main> を検査 → 不正 ${landmarkBad} 件`);
+}
+
+// ---- JSON-LD の @type 別 必須/推奨キー（DN-0241） ----
+// parse 失敗は runIndexablePageChecks の jsonld_parse_error が報告するのでここでは数えるだけ。
+const jsonLdStats = {
+  blocks: 0,
+  parseFailed: 0,
+  nodes: 0,
+  validated: 0,
+  byType: {}, // 検査した @type -> ノード数
+  outOfScope: {}, // 表に無い @type -> ノード数
+};
+function checkJsonLdRequiredProps(seo, urlPath) {
+  for (const raw of seo.jsonLd || []) {
+    jsonLdStats.blocks += 1;
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      jsonLdStats.parseFailed += 1;
+      continue;
+    }
+    const r = validateJsonLd(parsed);
+    jsonLdStats.nodes += r.nodes;
+    jsonLdStats.validated += r.validated;
+    for (const t of r.validatedTypes) jsonLdStats.byType[t] = (jsonLdStats.byType[t] || 0) + 1;
+    for (const t of r.outOfScopeTypes) jsonLdStats.outOfScope[t] = (jsonLdStats.outOfScope[t] || 0) + 1;
+    for (const e of r.errors) {
+      add('error', 'jsonld_required_missing', urlPath, `${e.type}: 必須キー欠落 ${e.missing.join(', ')}`);
+    }
+    for (const w of r.warnings) {
+      add('warn', 'jsonld_recommended_missing', urlPath, `${w.type}: 推奨キー欠落 ${w.missing.join(', ')}`);
+    }
+  }
+}
+
+// ---- 全 sitemap ページを解析（link graph でも再利用） ----
+const pages = new Map(); // urlPath -> seo
+let checked = 0;
+for (const urlPath of sitemapPaths) {
+  const file = urlPathToFile(urlPath);
+  if (!fs.existsSync(file)) {
+    add('error', 'sitemap_html_missing', urlPath, `sitemap 掲載 URL の HTML が無い: ${file}`);
+    continue;
+  }
+  let seo;
+  try {
+    seo = extractSeo(fs.readFileSync(file, 'utf8'));
+  } catch (e) {
+    add('error', 'html_parse_error', urlPath, `HTML parse 失敗: ${e.message}`);
+    continue;
+  }
+  pages.set(urlPath, seo);
+  checked++;
+
+  // sitemap 混入検査
+  if (looksLike404(seo)) {
+    add('error', 'sitemap_404', urlPath, 'sitemap に 404 相当ページが混入');
+  }
+  if (isNoindex(seo)) {
+    add('error', 'sitemap_noindex', urlPath, `sitemap 掲載 URL が noindex: "${seo.robots}"`);
+  }
+  if (seo.metaRefresh && /url=/i.test(seo.metaRefresh)) {
+    add('error', 'sitemap_redirect', urlPath, `sitemap 掲載 URL が meta refresh redirect: "${seo.metaRefresh}"`);
+  }
+
+  // indexable ページ標準検査
+  for (const f of runIndexablePageChecks(seo, urlPath, { expectIndexable: true })) {
+    add(f.level, f.code, urlPath, f.message);
+  }
+  checkJsonLdRequiredProps(seo, urlPath);
+}
+
+// §9: 検査ゼロを PASS と呼ばない。全ページ共通の WebSite（layout.tsx）が必ず表に一致するので、
+// ページを検査したのに 1 ノードも判定できていなければ抽出か表が壊れている。
+if (checked > 0 && jsonLdStats.validated === 0) {
+  add('error', 'jsonld_required_not_inspected', null, `JSON-LD ${jsonLdStats.blocks} ブロックのうち判定対象 @type（${JSONLD_RULE_TYPES.join('/')}）が 0 ノード`);
+}
+{
+  const fmt = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(', ') || 'なし';
+  console.log(
+    `[JSON-LD 必須キー] ${checked} ページ・${jsonLdStats.blocks} ブロック（parse 失敗 ${jsonLdStats.parseFailed}）・${jsonLdStats.nodes} ノード → 判定 ${jsonLdStats.validated} ノード（${fmt(jsonLdStats.byType)}）`
+      + ` / 対象外 ${jsonLdStats.nodes - jsonLdStats.validated} ノード（${fmt(jsonLdStats.outOfScope)}）`
+      + ` → 必須欠落 ${findings.filter((f) => f.code === 'jsonld_required_missing').length} 件`,
+  );
+}
+
+// ---- 母集合ガード ----
+const expected = sitemapPaths.size;
+const coverageRatio = expected > 0 ? checked / expected : 0;
+if (coverageRatio < COVERAGE_MIN_RATIO) {
+  add(
+    'error',
+    'coverage_below_threshold',
+    null,
+    `検査 URL 数 ${checked} が sitemap 母集合 ${expected} の ${(COVERAGE_MIN_RATIO * 100).toFixed(0)}% 未満`,
+  );
+}
+
+// ---- 内部リンクグラフ ----
+// path -> canonical path（比較用正規化済み）
+const canonicalPathByRoute = new Map();
+for (const [urlPath, seo] of pages) {
+  if (seo.canonical) {
+    const norm = normalizeUrlForCompare(seo.canonical);
+    // self 期待の正規化と同じ土俵に載せるため path 部分を抽出
+    const m = norm && norm.match(/^https?:\/\/[^/]+(\/.*)?$/);
+    canonicalPathByRoute.set(urlPath, m && m[1] ? m[1] : '/');
+  }
+}
+
+/** page link（拡張子なしのルート的パス）だけを対象にする。 */
+function isPageLink(p) {
+  const last = p.split('/').pop() || '';
+  return !last.includes('.');
+}
+
+const inbound = new Map(); // path -> inbound count（sitemap ページ間）
+const graph = new Map(); // path -> Set<path>（到達可能ページのみ）
+for (const p of sitemapPaths) inbound.set(p, 0);
+
+for (const [fromPath, seo] of pages) {
+  const outSet = new Set();
+  for (const link of seo.internalLinks) {
+    if (!isPageLink(link)) continue;
+    const target = link === '' ? '/' : link;
+    if (redirectSources.has(target)) {
+      add('warn', 'noncanonical_link_redirect', fromPath, `redirect ソースへの内部リンク: ${target} → ${redirectSources.get(target)}`);
+      continue;
+    }
+    if (!routeSet.has(target)) {
+      add('error', 'broken_internal_link', fromPath, `存在しないページへの内部リンク: ${target}`);
+      continue;
+    }
+    // noncanonical: リンク先ページの canonical が link path と異なる
+    const canon = canonicalPathByRoute.get(target);
+    if (canon && normalizeUrlForCompare(selfUrl(canon)) !== normalizeUrlForCompare(selfUrl(target))) {
+      add('warn', 'noncanonical_link', fromPath, `noncanonical URL への内部リンク: ${target}（canonical=${canon}）`);
+    }
+    if (inbound.has(target) && target !== fromPath) {
+      inbound.set(target, inbound.get(target) + 1);
+    }
+    outSet.add(target);
+  }
+  graph.set(fromPath, outSet);
+}
+
+// orphan（sitemap ページのうち被リンク 0・home 自身は除外）
+const orphans = [];
+for (const [p, count] of inbound) {
+  if (p === '/') continue;
+  if (count === 0) orphans.push(p);
+}
+for (const p of orphans) add('warn', 'orphan_page', p, 'サイト内被リンク 0（orphan）');
+
+// 到達不能（home からの BFS で辿れない sitemap ページ）
+const reachable = new Set();
+const queue = ['/'];
+while (queue.length) {
+  const cur = queue.shift();
+  if (reachable.has(cur)) continue;
+  reachable.add(cur);
+  const outs = graph.get(cur);
+  if (outs) for (const t of outs) if (!reachable.has(t)) queue.push(t);
+}
+const unreachable = [];
+for (const p of sitemapPaths) {
+  if (!reachable.has(p)) unreachable.push(p);
+}
+for (const p of unreachable) add('warn', 'unreachable_page', p, 'home から内部リンクで到達不能');
+
+// ---- 集計・出力 ----
+const errors = findings.filter((f) => f.level === 'error');
+const warns = findings.filter((f) => f.level === 'warn');
+const byCode = {};
+for (const f of findings) byCode[f.code] = (byCode[f.code] || 0) + 1;
+
+const summary = {
+  generated_at: new Date().toISOString(),
+  out_dir: path.relative(ROOT, OUT) || 'out',
+  sitemap_urls: expected,
+  html_routes: routeSet.size,
+  checked,
+  coverage_ratio: Number(coverageRatio.toFixed(4)),
+  errors: errors.length,
+  warnings: warns.length,
+  by_code: byCode,
+  jsonld: {
+    blocks: jsonLdStats.blocks,
+    nodes: jsonLdStats.nodes,
+    validated: jsonLdStats.validated,
+    by_type: jsonLdStats.byType,
+    out_of_scope: jsonLdStats.outOfScope,
+  },
+};
+
+const summaryOut = getArg('--summary-out', null);
+if (summaryOut) {
+  const countBy = (list) => {
+    const o = {};
+    for (const f of list) o[f.code] = (o[f.code] || 0) + 1;
+    return o;
+  };
+  fs.mkdirSync(path.dirname(path.resolve(summaryOut)), { recursive: true });
+  fs.writeFileSync(
+    summaryOut,
+    `${JSON.stringify({
+      generatedAt: summary.generated_at,
+      sitemapUrls: expected,
+      checked,
+      errors: errors.length,
+      warnings: warns.length,
+      errorsByCode: countBy(errors),
+      warningsByCode: countBy(warns),
+    }, null, 2)}\n`,
+  );
+}
+
+if (jsonOut) {
+  console.log(JSON.stringify({ summary, findings }, null, 2));
+} else {
+  console.log('\n🔎 build 後 SEO スキャン（out/）');
+  console.log(`   sitemap 母集合: ${expected}`);
+  console.log(`   HTML ルート数: ${routeSet.size}`);
+  console.log(`   検査 URL 数: ${checked}（母集合比 ${(coverageRatio * 100).toFixed(1)}%）`);
+  console.log(`   error: ${errors.length} / warn: ${warns.length}\n`);
+
+  if (errors.length) {
+    console.log('❌ error（ゲート違反）:');
+    const shown = errors.slice(0, 60);
+    for (const f of shown) {
+      console.log(`   [${f.code}] ${f.page ?? '(global)'} — ${f.message}`);
+    }
+    if (errors.length > shown.length) console.log(`   … 他 ${errors.length - shown.length} 件`);
+    console.log('');
+  } else {
+    console.log('✅ error なし\n');
+  }
+
+  if (warns.length) {
+    const warnByCode = {};
+    for (const f of warns) warnByCode[f.code] = (warnByCode[f.code] || 0) + 1;
+    console.log('⚠️  warn（参考・非ゲート）:');
+    for (const [code, n] of Object.entries(warnByCode)) console.log(`   ${code}: ${n}`);
+    console.log('');
+  }
+}
+
+process.exit(errors.length > 0 ? 1 : 0);
