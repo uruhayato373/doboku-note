@@ -511,6 +511,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1261] X の月次計画の slot 欄が check-x-campaign-plan（A/B/C）と channel-plan-audit（12/1 以降は枠 id）で食い違う
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-21] [期日:2026-11-30]
+
+**起点**: 2026-11-21、DN-1194 の調査で見つけた。`scripts/checks/check-x-campaign-plan.mjs` は月次計画（content/sns/x/campaigns/*.json・schemaVersion 2）の各投稿の `slot` が A/B/C でないとエラーにする。一方 `scripts/lib/channel-plan-audit.mjs`（check-channel-plan と x-schedule-guard が使う）は 12/1 以降の投稿の `slot` を年間計画（config/channel-annual-plan.json）の枠 id として照合し、結ばれていない予約を BLOCK する。同じ欄に両方は書けないので、12 月の計画（総監・建設部門の口頭試験の枠）を書くとどちらかが落ちる（実際に書いて確かめてはいない）。
+
+**やること**: 時間帯（A/B/C）と年間の枠 id を別の欄に分ける（例: `slot` は時間帯のまま、枠は `plan` 欄）か、どちらかの読み方をそろえる。両方の検査とテストを直し、既存の 11 月の計画が通ることを確かめる。
+
+**完了条件**: 12 月の計画の雛形（口頭試験の枠に結んだ投稿 1 本）で `npm run check-x-campaign-plan`・`npm run check-channel-plan`・`npm run x-schedule-guard` がすべて通る。
+
+
 ### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
 
