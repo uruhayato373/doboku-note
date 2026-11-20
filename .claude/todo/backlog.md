@@ -3056,6 +3056,18 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1258] Kindle 表紙の制作記録の pop.reference が Git 管理外の c-05.jpg を指している件を整理する
+タグ: [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-20]
+
+**起点**: 2026-11-20、表紙の仕様を `content/kindle/books/<id>/cover.json` へ移したとき。28 冊の `pop.reference` と `cover-records/c-series-r08.pop-image.json` の `reference` が、Git 管理外の `scripts/kindle-dist/c-05.jpg`（private R2 の kindle-dist）を指している。取り戻せば実在するが、参照画像の中身が作り直しで変わると制作記録の意味が変わる。
+
+**やること**:
+1. `reference` が「生成のときに見せた画像」の記録として要るかを決める。
+2. 要るなら、参照に使った版を sha256 つきで固定する（例: 制作記録に sha256 を書く・Drive の repo-archive に版を残す）。要らないなら欄の意味を README に書く。
+
+**完了条件**: `pop.reference` の指す先と、その版がいつのものかが記録から分かる。
+
+
 ### [DN-1257] Kindle の題名と価格の正本を products.json と spec.json のどちらかに決める
 タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
 
