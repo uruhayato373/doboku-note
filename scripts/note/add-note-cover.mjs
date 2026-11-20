@@ -46,7 +46,8 @@ if (!specsPath) {
 }
 
 function yamlEscape(s) {
-  return String(s).replace(/"/g, '\\"');
+  // YAML のダブルクォート文字列: バックスラッシュを先に、次に " を逃がす
+  return String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }
 
 // cover オブジェクト → CRLF YAML 文字列（インデント2スペース）

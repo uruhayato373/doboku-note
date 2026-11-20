@@ -36,6 +36,7 @@ import { datasetPath } from "../lib/datasets.mjs";
 import { jstClock } from "../lib/jst-date.mjs";
 import { isQueueable, readXPublication, recordX } from "../lib/registry-x-store.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from '../lib/repository-paths.mjs';
+import { stripHtmlComments } from "../lib/strip-markup.mjs";
 import { parseCliArgs } from "../lib/cli-args.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
@@ -101,15 +102,14 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
     const isThread = /\[thread\]/i.test(headMatch[2]!);
 
     // ヘッダ行を除いた残り。HTML コメント（投稿予定注記等）・末尾 "---" は除去
-    const rawBody = block
+    const rawBody = stripHtmlComments(block
       // `\r?\n` が要る（2026-08-25）: JS の `.` は `\r` も行終端として除外するので、
       // CRLF の tweets.md では `.+\n` が「`.+` が `\r` 手前で止まり次が `\n` でない」でマッチせず、
       // **見出し行が本文に残る**。40〜50 字ぶん水増しされ全ツイートが 280 字ガードに
       // 引っかかって 1 本も予約できない（draft 090 で 19 本中 17 本が停止）。
       // 文字数ガードが fail-closed で止めたので誤投稿にはならないが、原因が
       // 「本文が長い」に見えるため気づきにくい。
-      .replace(/^## Tweet \d+:.*\r?\n/, "")
-      .replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/^## Tweet \d+:.*\r?\n/, ""))
       .replace(/\n---\s*$/, "")
       .replace(/^\n+/, "")
       .trim();
