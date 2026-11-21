@@ -800,27 +800,27 @@
     },
     {
       "destination": "note",
+      "productId": "article:cce-reiwa-civil-contractor-environment",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
+      "productId": "article:cce-reiwa-civil-contractor-productivity",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
       "productId": "article:ce-r8-mc-40",
       "type": "article",
       "destinationIds": [
         "n4563f6588ee0"
       ],
-      "count": 1,
-      "amountYen": 1480
-    },
-    {
-      "destination": "note",
-      "productId": "article:unknown-20261115-0",
-      "type": "article",
-      "destinationIds": [],
-      "count": 1,
-      "amountYen": 1480
-    },
-    {
-      "destination": "note",
-      "productId": "article:unknown-20261115-1",
-      "type": "article",
-      "destinationIds": [],
       "count": 1,
       "amountYen": 1480
     },
