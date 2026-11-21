@@ -49,12 +49,24 @@ export default function TopicsPage() {
       items: small.flatMap((f) => f.topics.map((topic) => ({ topic, facet: f.facet, eyebrow: small.length > 1 ? f.label : undefined }))),
     }] : []),
   ];
-  const { popular, categories } = indexRailData();
+  const railData = indexRailData();
 
   return (
     <PageShell variant="default">
-      {/* 右の欄（PC ≥993px）: AdSense → よく読まれている記事 → 資格・分野から探す（IndexRail・/search と同じ並び） */}
-      <TwoColumnShell as="div" aside={<IndexRail ad={<AdSlot slot="rail" />} popular={popular} categories={categories} label="topics" />}>
+      {/* 右の欄（PC ≥993px）。並びは IndexRail（/search と同じ）。転職のピクセルは末尾の topic-end が持つ（同じ案件） */}
+      <TwoColumnShell
+        as="div"
+        stretchAside
+        aside={(
+          <IndexRail
+            ad={<AdSlot slot="rail" />}
+            ad2={<AdSlot slot="rail" />}
+            career={{ page: { pageKind: 'topic' }, slot: 'topic-rail', pageSlots: ['topic-end', 'topic-rail'] }}
+            data={railData}
+            label="topics"
+          />
+        )}
+      >
         <PageHeader
           variant="inline"
           titleSize="lg"

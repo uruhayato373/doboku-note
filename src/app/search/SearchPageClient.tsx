@@ -72,7 +72,7 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
 
   return (
     <SearchRailAdContext.Provider value={showRailAd}>
-    <TwoColumnShell as="div" aside={aside}>
+    <TwoColumnShell as="div" stretchAside aside={aside}>
       {header}
       {/* 検索ボックス */}
       <div className="mb-4">
@@ -137,7 +137,7 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
 export function SearchPageFallback({ examCards, otherCategories, popular, header, aside }: Omit<SearchPageClientProps, "images">) {
   const noop = () => {};
   return (
-    <TwoColumnShell as="div" aside={aside}>
+    <TwoColumnShell as="div" stretchAside aside={aside}>
       {header}
       <div className="mb-4">
         <SearchBox value="" onChange={noop} placeholder="キーワードを入力して検索..." onSearch={noop} />

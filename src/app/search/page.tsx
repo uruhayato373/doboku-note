@@ -27,7 +27,8 @@ export default function SearchPage() {
   // 資格に紐づかない残りカテゴリ（civil-practice 等）はシンプルカードで併記。
   // よく読まれている記事 = GA4 上位（データ無しは graceful 非表示）。href まで server で解決する
   // （client 側で content-routes を読むと doc-meta-index が /search のチャンクへ入る・DN-0684）。
-  const { exams: examCards, others: otherCategories, popular, categories } = indexRailData();
+  const railData = indexRailData();
+  const { exams: examCards, others: otherCategories, popular } = railData;
   const images = Object.fromEntries(getAllDocsMeta().filter(d => d.published !== false && (d.group === "guide" || d.category === "civil-practice")).map(d => [getPublicDocPath(d.slug), getCardImage(d)]));
 
   const header = (
@@ -42,7 +43,15 @@ export default function SearchPage() {
   );
   // 右の欄（PC ≥993px）。広告は検索語があり結果があるときだけ（SearchRailAd）。
   // 中身はサーバーで組む（client で組むと RailStack の下の部品が /search のチャンクへ入る・DN-0684）。
-  const aside = <IndexRail ad={<SearchRailAd />} popular={popular} categories={categories} label="search" />;
+  const aside = (
+    <IndexRail
+      ad={<SearchRailAd />}
+      ad2={<SearchRailAd />}
+      career={{ page: { pageKind: "search" }, slot: "search-rail", pageSlots: ["search-rail"] }}
+      data={railData}
+      label="search"
+    />
+  );
 
   return (
     <PageShell variant="default">

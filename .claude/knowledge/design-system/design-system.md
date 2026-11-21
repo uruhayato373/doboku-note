@@ -272,7 +272,7 @@
 - `/category/[slug]`
 - `/standards` とその下層（トップ＝テーマ・実務記事・比較／データ利用、地域以下＝`StandardsNavigation`）
 
-- `/search` と `/topics`（2026-11-21 運営者依頼で追加）。並びは一覧ページ共通の `IndexRail`（`layout/IndexRail.tsx`）: AdSense → よく読まれている記事 → 資格・分野から探す。
+- `/search` と `/topics`（2026-11-21 運営者依頼で追加）。並びは一覧ページ共通の `IndexRail`（`layout/IndexRail.tsx`）: AdSense → よく読まれている記事 → 転職バナー → 新着の記事 → AdSense（2 枚目）→ 運営者 → 資格・分野から探す。広告（AdSense・転職）どうしは隣り合わせない。転職の面は `topic-rail`・`search-rail`（ピクセルはページで描く面のうち優先順の最も高い 1 面・`pixelFor`）。下に空きが残れば記事と同じく AdSense だけを散らす（`withRailAdSense`・`stretchAside`）。
   - `/search`: 広告は検索語があり結果が 1 件以上のときだけ（`SearchRailAd`）。右の欄はサーバーで組み、広告の有無だけを検索の状態から決める（client で組むと /search のチャンクが膨らむ・DN-0684）。PC では本文の「よく読まれている記事」を隠す。絞り込みは本文に残す（右の欄は 993px 未満で消える）
   - `/topics`: 広告は常時（22 テーマの入口が常にある）。本文は区分へ飛ぶリンク＋2 列のタイル。テーマが 2 枚以下の区分は末尾の 1 区画にまとめ、タイルの eyebrow に元の区分名を出す（区分の定義は変えない）
 
