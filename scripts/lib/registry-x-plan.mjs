@@ -64,6 +64,10 @@ export function approvedRow(r, at = new Date().toISOString(), plan) {
 /**
  * publish-x の関門: この行を、この日時で予約・投稿してよいか（理由を返す。null なら可）。
  * 承認のハッシュが今の本文と予定日時に一致し、指定の日時が台帳の publishAt と同じ分であること。
+ * @param {string} root
+ * @param {any} pub 台帳の行
+ * @param {{ scheduledAt?: string | null, reg?: any }} [opts] scheduledAt は予約する日時（即時投稿は null）
+ * @returns {string | null}
  */
 export function xApprovalBlock(root, pub, { scheduledAt = null, reg = loadRegistry(root) } = {}) {
   if (pub.status !== 'approved') return null; // scheduled（予約済み）・published などの扱いは呼び手が決める
