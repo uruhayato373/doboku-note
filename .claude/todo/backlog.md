@@ -3094,6 +3094,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1264] 12/1 以降に出し切った X の下書き 5 フォルダ（112・113・117・118・120）を消し、retire-x で台帳を片付ける
+タグ: [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-21]
+
+**起点**: 2026-11-21、DN-0612 P7 で古い X の下書き 43 フォルダを消した。11/30 まで予約が残る 5 フォルダ（112-pe-first-stage-final-2026-11・113-concrete-chief-final-2026-11・117-pe-oral-w1-2026-11・118-pe-oral-rest-2026-11・120-pe-oral-coconala-w2-2026-11）は残した。
+
+**やること**: 12/1 以降、5 フォルダの予約が全部出たら (1) `npm run x-own-metrics` のあと `npm run registry -- reconcile-x --commit` で投稿済みへ照合する (2) 照合できずに scheduled のまま残る行があれば運営者に `npm run registry -- stop --pub <ID> --reason unverified-legacy` を頼む (3) 5 フォルダを `git rm -r` し、`npm run registry -- retire-x --commit` で台帳を片付ける（draft の行は消え、published の行は copy を外して残る） (4) `.claude/state/sns/x-card-render.json` に消したフォルダの項目があれば外す。
+
+**完了条件**: `npm run registry -- retire-x` が「下書きフォルダの無い X の作品 0 件」、`node scripts/checks/check-content-registry.mjs --base origin/develop` が FAIL 0、`node scripts/checks/check-gate-coverage.mjs` が通る（check-x-utm の下限 10 を割らないこと。残る tweets.md は 10）。
+
+
 ### [DN-1263] 管理画面の X の月次計画の画面（/sns/x/plans）を実際に開いて表示を確かめる
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-21]
 
