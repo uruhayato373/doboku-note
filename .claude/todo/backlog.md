@@ -3145,6 +3145,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1279] 管理画面 Kindle の relatedDocs（関連文書）が常に空で、どこにも描画されていない
+タグ: [領域:管理] [種類:改善] [起票:2026-11-21]
+
+tools/admin-app/src/lib/kindle.ts:198 の relatedDocs は loadProjectEntries() を channel に kindle を含む docs で絞るが、frontmatter に channel を持つ docs は 0 本（全件 cross）なので常に空配列。しかも relatedDocs を読む画面コンポーネントが無い（grep で kindle.ts 以外に参照 0）。Kindle の関連文書を出したいなら content/kindle/strategy.md などを明示で結ぶ形に直す、要らないならフィールドと KindleRelatedDoc 型を消す。完了条件: どちらかに決めて kindle.ts から常に空の計算が無くなる。（2026-11-21 docs 配線点検 A 段で発見）
+
+
 ### [DN-1277] docs の棚卸しの残り（GSC/GA4 実装指示書・計測基盤ロードマップ・SEO×note 連携・動画 QA ログ・採点ルーブリックの議論項目）を抽出してから縮める
 タグ: [領域:管理] [種類:改善] [起票:2026-11-21]
 
