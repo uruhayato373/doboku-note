@@ -2308,6 +2308,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 **上下水道部門の業務経歴票（旧 DN-0745）の残り**: 記事（n6cd69bf307ba）は公開済みで、もくじ（n1f06f66b158e）と口頭試験の記事（n3013d48a2864）の原稿へのリンクは 2026-11-10 までに入った。週次の note 同期のあと、`npm run check-note-sync` で 2 本のライブにリンクが出ていることを確かめる。
 
+**handoff から移した残り（2026-11-21・`docs/handoffs/2026-10-15-pe-municipal-oral-publish.md` を削除）**: note 同期のあと `npm run verify-note-magazines` で有料追記を確かめる。全部門共通の口頭試験対策の印刷用 PDF（`content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/magazine-pdf.json` の out が「想定24問」のまま。本文は 32 問）を作り直すか決め、作り直すなら表記を 32 問にする。建設の無料記事のリンクの配線は DN-1274、コンピテンシー文言の裏取りは DN-1275。
+
 
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
