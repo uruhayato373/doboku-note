@@ -3988,6 +3988,12 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-1282] MDX の <CareerAffiliate program="career"> 213 か所に残る描画されない属性（service・category・description・points・cta・約 1,400 行）を消すか決める
+タグ: [領域:アフィリエイト] [種類:意思決定] [起票:2026-11-22]
+
+program を指定すると文言と遷移先は配置ルール（config/affiliate-placements.json の inlineCard・src/components/ui/CareerAffiliate/CareerAffiliate.tsx の ruled?.x ?? x）が決め、MDX に書いた service・category・description・points・cta は出ていない（2026-11-22 の点検。214 呼び出し中 213 が該当）。消せば記事が約 1,400 行軽くなり、書き手が効かない文言を直す無駄も無くなる。一方、記事ごとの文言を活かす方針に戻すなら配置ルール側を変える判断になる。属性を必須にしている検査（scripts/checks/check-affiliate-placements.mjs ほか）があるかを先に確かめる。
+
+
 ### [DN-1278] docs の点検で出た、運営者の判断が要る 5 件を決める
 タグ: [領域:戦略] [種類:意思決定] [起票:2026-11-21]
 
