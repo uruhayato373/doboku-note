@@ -7,15 +7,15 @@
       "status": "partial",
       "provisional": true,
       "amountBasis": "price",
-      "fetchedAt": "2026-11-14T01:01:07.328Z",
-      "dashboardCount": 19,
-      "recordedCount": 19
+      "fetchedAt": "2026-11-21T00:42:01.939Z",
+      "dashboardCount": 32,
+      "recordedCount": 32
     },
     "amazon": {
       "status": "partial",
       "provisional": true,
       "amountBasis": "royalty",
-      "fetchedAt": "2026-11-14T00:50:42.243Z",
+      "fetchedAt": "2026-11-21T00:39:50.786Z",
       "note": "件数は KDP レポートに無い（推計ロイヤリティの円だけ）。行の無い doboku-note の本は計測済み・0 円",
       "reason": "月末より前の取得（残りの日の販売が入っていない）"
     },
@@ -23,22 +23,22 @@
       "status": "partial",
       "provisional": true,
       "amountBasis": "net",
-      "fetchedAt": "2026-11-14T01:14:32.329Z",
+      "fetchedAt": "2026-11-21T00:50:41.052Z",
       "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
     },
     "a8": {
       "status": "partial",
       "provisional": true,
       "amountBasis": "approved",
-      "fetchedAt": "2026-11-14T00:36:43.464Z",
+      "fetchedAt": "2026-11-21T00:34:06.902Z",
       "note": "案件別の単月レポート。count は発生件数（キャンセルを含む）、amountYen は確定報酬。発生 0 の案件は行が無い＝計測済み・0 件",
-      "otherPrograms": 82
+      "otherPrograms": 84
     },
     "moshimo": {
       "status": "partial",
       "provisional": true,
       "amountBasis": "approved",
-      "fetchedAt": "2026-11-14T01:08:43.023Z",
+      "fetchedAt": "2026-11-21T00:36:51.889Z",
       "note": "画面で観測した案件だけを収録。行のない案件は未計測。承認は後日の取得で変わり得る"
     }
   },
@@ -51,8 +51,30 @@
         "B0HB37CTYN"
       ],
       "count": null,
-      "amountYen": 3162,
+      "amountYen": 4211,
       "kenpYen": 15
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-04",
+      "bookId": "c-04",
+      "destinationIds": [
+        "B0HB3KWZBD"
+      ],
+      "count": null,
+      "amountYen": 3269,
+      "kenpYen": 122
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-i",
+      "bookId": "c-I",
+      "destinationIds": [
+        "B0HBR2F6KZ"
+      ],
+      "count": null,
+      "amountYen": 3219,
+      "kenpYen": 72
     },
     {
       "destination": "amazon",
@@ -64,28 +86,6 @@
       "count": null,
       "amountYen": 2219,
       "kenpYen": 121
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-04",
-      "bookId": "c-04",
-      "destinationIds": [
-        "B0HB3KWZBD"
-      ],
-      "count": null,
-      "amountYen": 2217,
-      "kenpYen": 119
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-i",
-      "bookId": "c-I",
-      "destinationIds": [
-        "B0HBR2F6KZ"
-      ],
-      "count": null,
-      "amountYen": 2160,
-      "kenpYen": 62
     },
     {
       "destination": "amazon",
@@ -106,8 +106,19 @@
         "B0H3GX3HNW"
       ],
       "count": null,
-      "amountYen": 1378,
-      "kenpYen": 1378
+      "amountYen": 1524,
+      "kenpYen": 1524
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-02",
+      "bookId": "c-02",
+      "destinationIds": [
+        "B0HB3JF9QZ"
+      ],
+      "count": null,
+      "amountYen": 1267,
+      "kenpYen": 218
     },
     {
       "destination": "amazon",
@@ -139,8 +150,19 @@
         "B0HGXLGJ5Y"
       ],
       "count": null,
-      "amountYen": 857,
-      "kenpYen": 63
+      "amountYen": 893,
+      "kenpYen": 99
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-01",
+      "bookId": "d-01",
+      "destinationIds": [
+        "B0H8JHYGH9"
+      ],
+      "count": null,
+      "amountYen": 788,
+      "kenpYen": 788
     },
     {
       "destination": "amazon",
@@ -155,25 +177,14 @@
     },
     {
       "destination": "amazon",
-      "productId": "kindle-d-01",
-      "bookId": "d-01",
+      "productId": "kindle-d-02",
+      "bookId": "d-02",
       "destinationIds": [
-        "B0H8JHYGH9"
+        "B0H8L2WXBY"
       ],
       "count": null,
-      "amountYen": 426,
-      "kenpYen": 426
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-02",
-      "bookId": "c-02",
-      "destinationIds": [
-        "B0HB3JF9QZ"
-      ],
-      "count": null,
-      "amountYen": 218,
-      "kenpYen": 218
+      "amountYen": 187,
+      "kenpYen": 187
     },
     {
       "destination": "amazon",
@@ -188,14 +199,14 @@
     },
     {
       "destination": "amazon",
-      "productId": "kindle-d-02",
-      "bookId": "d-02",
+      "productId": "kindle-c-10",
+      "bookId": "c-10",
       "destinationIds": [
-        "B0H8L2WXBY"
+        "B0HBQSYKZ6"
       ],
       "count": null,
-      "amountYen": 91,
-      "kenpYen": 91
+      "amountYen": 54,
+      "kenpYen": 54
     },
     {
       "destination": "amazon",
@@ -210,6 +221,17 @@
     },
     {
       "destination": "amazon",
+      "productId": "kindle-d-03",
+      "bookId": "d-03",
+      "destinationIds": [
+        "B0H955Y4FJ"
+      ],
+      "count": null,
+      "amountYen": 39,
+      "kenpYen": 39
+    },
+    {
+      "destination": "amazon",
       "productId": "kindle-c-01",
       "bookId": "c-01",
       "destinationIds": [
@@ -218,6 +240,17 @@
       "count": null,
       "amountYen": 22,
       "kenpYen": 22
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-g-01",
+      "bookId": "g-01",
+      "destinationIds": [
+        "B0HGXCGGS2"
+      ],
+      "count": null,
+      "amountYen": 13,
+      "kenpYen": 13
     },
     {
       "destination": "amazon",
@@ -232,14 +265,14 @@
     },
     {
       "destination": "amazon",
-      "productId": "kindle-g-01",
-      "bookId": "g-01",
+      "productId": "kindle-b-reiwa",
+      "bookId": "b-reiwa",
       "destinationIds": [
-        "B0HGXCGGS2"
+        "B0H94Y52ZL"
       ],
       "count": null,
-      "amountYen": 9,
-      "kenpYen": 9
+      "amountYen": 7,
+      "kenpYen": 7
     },
     {
       "destination": "amazon",
@@ -251,17 +284,6 @@
       "count": null,
       "amountYen": 6,
       "kenpYen": 6
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-d-03",
-      "bookId": "d-03",
-      "destinationIds": [
-        "B0H955Y4FJ"
-      ],
-      "count": null,
-      "amountYen": 2,
-      "kenpYen": 2
     },
     {
       "destination": "amazon",
@@ -342,32 +364,10 @@
     },
     {
       "destination": "amazon",
-      "productId": "kindle-b-reiwa",
-      "bookId": "b-reiwa",
-      "destinationIds": [
-        "B0H94Y52ZL"
-      ],
-      "count": null,
-      "amountYen": 0,
-      "kenpYen": 0
-    },
-    {
-      "destination": "amazon",
       "productId": "kindle-c-08",
       "bookId": "c-08",
       "destinationIds": [
         "B0HB3H3N7Y"
-      ],
-      "count": null,
-      "amountYen": 0,
-      "kenpYen": 0
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-10",
-      "bookId": "c-10",
-      "destinationIds": [
-        "B0HBQSYKZ6"
       ],
       "count": null,
       "amountYen": 0,
@@ -584,6 +584,18 @@
     },
     {
       "destination": "moshimo",
+      "productId": "buildjob",
+      "destinationIds": [
+        "6353"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 10
+    },
+    {
+      "destination": "moshimo",
       "productId": "constwork",
       "destinationIds": [
         "6154"
@@ -592,7 +604,7 @@
       "amountYen": 0,
       "grossYen": 0,
       "approvedCount": 0,
-      "clicks": 1
+      "clicks": 8
     },
     {
       "destination": "moshimo",
@@ -604,7 +616,43 @@
       "amountYen": 0,
       "grossYen": 0,
       "approvedCount": 0,
-      "clicks": 1
+      "clicks": 2
+    },
+    {
+      "destination": "moshimo",
+      "productId": "myvision-agent",
+      "destinationIds": [
+        "7797"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 2
+    },
+    {
+      "destination": "moshimo",
+      "productId": "newma",
+      "destinationIds": [
+        "7487"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 2
+    },
+    {
+      "destination": "moshimo",
+      "productId": "samurai-job",
+      "destinationIds": [
+        "2228"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 2
     },
     {
       "destination": "note",
@@ -623,8 +671,36 @@
       "destinationIds": [
         "n5bc0bcde96ac"
       ],
+      "count": 4,
+      "amountYen": 7920
+    },
+    {
+      "destination": "note",
+      "productId": "bk-steel-concrete-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 5960
+    },
+    {
+      "destination": "note",
+      "productId": "pe1-chokuzen-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "mfa3fcffdd85d"
+      ],
       "count": 3,
       "amountYen": 5940
+    },
+    {
+      "destination": "note",
+      "productId": "cce-reiwa-civil-contractor-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "m1b555fe40131"
+      ],
+      "count": 2,
+      "amountYen": 4960
     },
     {
       "destination": "note",
@@ -632,6 +708,16 @@
       "type": "magazine",
       "destinationIds": [
         "m8cc3e86d9862"
+      ],
+      "count": 1,
+      "amountYen": 3980
+    },
+    {
+      "destination": "note",
+      "productId": "cce-goukaku-civil-contractor-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "ma8f11487f4cc"
       ],
       "count": 1,
       "amountYen": 3980
@@ -646,11 +732,21 @@
     },
     {
       "destination": "note",
-      "productId": "bk-steel-concrete-secondary-magazine",
+      "productId": "surveyor-gogo-pack",
       "type": "magazine",
-      "destinationIds": [],
+      "destinationIds": [
+        "m4e12a51c1834"
+      ],
       "count": 1,
-      "amountYen": 2980
+      "amountYen": 3480
+    },
+    {
+      "destination": "note",
+      "productId": "article:cce-reiwa-civil-contractor-workforce",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 2960
     },
     {
       "destination": "note",
@@ -674,20 +770,20 @@
     },
     {
       "destination": "note",
+      "productId": "ce-marugoto-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "m348b2a4b8362"
+      ],
+      "count": 1,
+      "amountYen": 2380
+    },
+    {
+      "destination": "note",
       "productId": "essay-maintenance-contractor-magazine",
       "type": "magazine",
       "destinationIds": [
         "mabf26d2c72fb"
-      ],
-      "count": 1,
-      "amountYen": 1980
-    },
-    {
-      "destination": "note",
-      "productId": "pe1-chokuzen-pack",
-      "type": "magazine",
-      "destinationIds": [
-        "mfa3fcffdd85d"
       ],
       "count": 1,
       "amountYen": 1980
@@ -704,14 +800,6 @@
     },
     {
       "destination": "note",
-      "productId": "article:cce-reiwa-civil-contractor-workforce",
-      "type": "article",
-      "destinationIds": [],
-      "count": 1,
-      "amountYen": 1480
-    },
-    {
-      "destination": "note",
       "productId": "article:ce-r8-mc-40",
       "type": "article",
       "destinationIds": [
@@ -719,6 +807,32 @@
       ],
       "count": 1,
       "amountYen": 1480
+    },
+    {
+      "destination": "note",
+      "productId": "article:unknown-20261115-0",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
+      "productId": "article:unknown-20261115-1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
+      "productId": "article:tankan-takuitsu-heisei-pdf",
+      "type": "article",
+      "destinationIds": [
+        "na3ad4130a85f"
+      ],
+      "count": 1,
+      "amountYen": 980
     },
     {
       "destination": "note",
@@ -757,7 +871,7 @@
   ],
   "excluded": {
     "amazon": {
-      "rows": 33,
+      "rows": 35,
       "royaltyYen": 0,
       "reason": "書籍 ID が付かない行（stats47 など同じ KDP 口座のほかの本。doboku-note の ASIN に当たらない）"
     }

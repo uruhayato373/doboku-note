@@ -12,32 +12,31 @@
       "recordedCount": 22
     },
     "amazon": {
-      "status": "partial",
-      "provisional": true,
+      "status": "measured",
+      "provisional": false,
       "amountBasis": "royalty",
-      "fetchedAt": "2026-10-24T05:17:11.732Z",
-      "note": "件数は KDP レポートに無い（推計ロイヤリティの円だけ）。行の無い doboku-note の本は計測済み・0 円",
-      "reason": "月末より前の取得（残りの日の販売が入っていない）"
+      "fetchedAt": "2026-11-21T00:38:37.845Z",
+      "note": "件数は KDP レポートに無い（推計ロイヤリティの円だけ）。行の無い doboku-note の本は計測済み・0 円"
     },
     "coconala": {
       "status": "measured",
       "provisional": false,
       "amountBasis": "net",
-      "fetchedAt": "2026-11-14T01:14:32.329Z",
+      "fetchedAt": "2026-11-21T00:50:41.052Z",
       "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
     },
     "a8": {
-      "status": "partial",
-      "provisional": true,
+      "status": "measured",
+      "provisional": false,
       "amountBasis": "approved",
-      "fetchedAt": "2026-10-31T00:33:42.333Z",
+      "fetchedAt": "2026-11-21T00:31:40.058Z",
       "note": "案件別の単月レポート。count は発生件数（キャンセルを含む）、amountYen は確定報酬。発生 0 の案件は行が無い＝計測済み・0 件"
     },
     "moshimo": {
       "status": "partial",
       "provisional": true,
       "amountBasis": "approved",
-      "fetchedAt": "2026-11-14T01:08:42.995Z",
+      "fetchedAt": "2026-11-21T00:36:42.860Z",
       "note": "画面で観測した案件だけを収録。行のない案件は未計測。承認は後日の取得で変わり得る"
     }
   },
@@ -60,6 +59,17 @@
     },
     {
       "destination": "amazon",
+      "productId": "kindle-c-04",
+      "bookId": "c-04",
+      "destinationIds": [
+        "B0HB3KWZBD"
+      ],
+      "count": null,
+      "amountYen": 2099,
+      "kenpYen": 1
+    },
+    {
+      "destination": "amazon",
       "productId": "kindle-j-01",
       "bookId": "j-01",
       "destinationIds": [
@@ -77,19 +87,8 @@
         "B0HBR2F6KZ"
       ],
       "count": null,
-      "amountYen": 1122,
-      "kenpYen": 73
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-04",
-      "bookId": "c-04",
-      "destinationIds": [
-        "B0HB3KWZBD"
-      ],
-      "count": null,
-      "amountYen": 1049,
-      "kenpYen": 0
+      "amountYen": 1127,
+      "kenpYen": 78
     },
     {
       "destination": "amazon",
@@ -115,25 +114,36 @@
     },
     {
       "destination": "amazon",
+      "productId": "kindle-j-03",
+      "bookId": "j-03",
+      "destinationIds": [
+        "B0H943XQF6"
+      ],
+      "count": null,
+      "amountYen": 630,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-e-02",
+      "bookId": "e-02",
+      "destinationIds": [
+        "B0H3GX3HNW"
+      ],
+      "count": null,
+      "amountYen": 540,
+      "kenpYen": 540
+    },
+    {
+      "destination": "amazon",
       "productId": "kindle-d-01",
       "bookId": "d-01",
       "destinationIds": [
         "B0H8JHYGH9"
       ],
       "count": null,
-      "amountYen": 332,
-      "kenpYen": 332
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-e-01",
-      "bookId": "e-01",
-      "destinationIds": [
-        "B0H8ZZMM7R"
-      ],
-      "count": null,
-      "amountYen": 245,
-      "kenpYen": 245
+      "amountYen": 419,
+      "kenpYen": 419
     },
     {
       "destination": "amazon",
@@ -143,19 +153,19 @@
         "B0H8L2WXBY"
       ],
       "count": null,
-      "amountYen": 217,
-      "kenpYen": 217
+      "amountYen": 379,
+      "kenpYen": 379
     },
     {
       "destination": "amazon",
-      "productId": "kindle-d-03",
-      "bookId": "d-03",
+      "productId": "kindle-e-01",
+      "bookId": "e-01",
       "destinationIds": [
-        "B0H955Y4FJ"
+        "B0H8ZZMM7R"
       ],
       "count": null,
-      "amountYen": 213,
-      "kenpYen": 213
+      "amountYen": 343,
+      "kenpYen": 343
     },
     {
       "destination": "amazon",
@@ -165,8 +175,19 @@
         "B0HGXLGJ5Y"
       ],
       "count": null,
-      "amountYen": 201,
-      "kenpYen": 201
+      "amountYen": 276,
+      "kenpYen": 276
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-03",
+      "bookId": "d-03",
+      "destinationIds": [
+        "B0H955Y4FJ"
+      ],
+      "count": null,
+      "amountYen": 228,
+      "kenpYen": 228
     },
     {
       "destination": "amazon",
@@ -176,8 +197,8 @@
         "B0HB3CL6C7"
       ],
       "count": null,
-      "amountYen": 119,
-      "kenpYen": 119
+      "amountYen": 135,
+      "kenpYen": 135
     },
     {
       "destination": "amazon",
@@ -187,30 +208,8 @@
         "B0HB3374VL"
       ],
       "count": null,
-      "amountYen": 108,
-      "kenpYen": 108
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-06",
-      "bookId": "c-06",
-      "destinationIds": [
-        "B0HB37CTYN"
-      ],
-      "count": null,
-      "amountYen": 95,
-      "kenpYen": 95
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-c-10",
-      "bookId": "c-10",
-      "destinationIds": [
-        "B0HBQSYKZ6"
-      ],
-      "count": null,
-      "amountYen": 94,
-      "kenpYen": 94
+      "amountYen": 134,
+      "kenpYen": 134
     },
     {
       "destination": "amazon",
@@ -220,8 +219,19 @@
         "B0HB34VG8C"
       ],
       "count": null,
-      "amountYen": 93,
-      "kenpYen": 93
+      "amountYen": 132,
+      "kenpYen": 132
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-06",
+      "bookId": "c-06",
+      "destinationIds": [
+        "B0HB37CTYN"
+      ],
+      "count": null,
+      "amountYen": 111,
+      "kenpYen": 111
     },
     {
       "destination": "amazon",
@@ -231,8 +241,30 @@
         "B0HGXCGGS2"
       ],
       "count": null,
-      "amountYen": 93,
-      "kenpYen": 93
+      "amountYen": 111,
+      "kenpYen": 111
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-10",
+      "bookId": "c-10",
+      "destinationIds": [
+        "B0HBQSYKZ6"
+      ],
+      "count": null,
+      "amountYen": 100,
+      "kenpYen": 100
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-00",
+      "bookId": "A-00",
+      "destinationIds": [
+        "B0H8HW139T"
+      ],
+      "count": null,
+      "amountYen": 12,
+      "kenpYen": 12
     },
     {
       "destination": "amazon",
@@ -242,8 +274,8 @@
         "B0HB3BLV94"
       ],
       "count": null,
-      "amountYen": 10,
-      "kenpYen": 10
+      "amountYen": 11,
+      "kenpYen": 11
     },
     {
       "destination": "amazon",
@@ -253,8 +285,8 @@
         "B0HB3H3N7Y"
       ],
       "count": null,
-      "amountYen": 10,
-      "kenpYen": 10
+      "amountYen": 11,
+      "kenpYen": 11
     },
     {
       "destination": "amazon",
@@ -264,8 +296,8 @@
         "B0HB3JF9QZ"
       ],
       "count": null,
-      "amountYen": 9,
-      "kenpYen": 9
+      "amountYen": 10,
+      "kenpYen": 10
     },
     {
       "destination": "amazon",
@@ -288,28 +320,6 @@
       "count": null,
       "amountYen": 6,
       "kenpYen": 6
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-e-02",
-      "bookId": "e-02",
-      "destinationIds": [
-        "B0H3GX3HNW"
-      ],
-      "count": null,
-      "amountYen": 5,
-      "kenpYen": 5
-    },
-    {
-      "destination": "amazon",
-      "productId": "kindle-a-00",
-      "bookId": "A-00",
-      "destinationIds": [
-        "B0H8HW139T"
-      ],
-      "count": null,
-      "amountYen": 0,
-      "kenpYen": 0
     },
     {
       "destination": "amazon",
@@ -577,10 +587,10 @@
     },
     {
       "destination": "amazon",
-      "productId": "kindle-j-03",
-      "bookId": "j-03",
+      "productId": "kindle-i-01",
+      "bookId": "i-01",
       "destinationIds": [
-        "B0H943XQF6"
+        "B0HPZNQRT1"
       ],
       "count": null,
       "amountYen": 0,
@@ -767,7 +777,7 @@
   ],
   "excluded": {
     "amazon": {
-      "rows": 31,
+      "rows": 35,
       "royaltyYen": 0,
       "reason": "書籍 ID が付かない行（stats47 など同じ KDP 口座のほかの本。doboku-note の ASIN に当たらない）"
     }
