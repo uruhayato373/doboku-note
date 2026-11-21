@@ -266,13 +266,15 @@
 
 ### 3.4 右サイドバー
 
-右サイドバーを置くのは以下の**4 系統のみ**:
+右サイドバーを置くのは以下の**5 系統のみ**:
 
 - `/docs/[slug]`（記事 = `ArticleSidebar`）
 - `/category/[slug]`
 - `/standards` とその下層（トップ＝テーマ・実務記事・比較／データ利用、地域以下＝`StandardsNavigation`）
 
-- `/search`（2026-11-21 運営者依頼で追加）。上から AdSense（検索語があり結果が 1 件以上のときだけ・`SearchRailAd`）→ よく読まれている記事 → 試験から探す。右の欄はサーバーで組み、広告の有無だけを検索の状態から決める（client で組むと /search のチャンクが膨らむ・DN-0684）。PC では本文の「よく読まれている記事」を隠す。絞り込みは本文に残す（右の欄は 993px 未満で消える）
+- `/search` と `/topics`（2026-11-21 運営者依頼で追加）。並びは一覧ページ共通の `IndexRail`（`layout/IndexRail.tsx`）: AdSense → よく読まれている記事 → 資格・分野から探す。
+  - `/search`: 広告は検索語があり結果が 1 件以上のときだけ（`SearchRailAd`）。右の欄はサーバーで組み、広告の有無だけを検索の状態から決める（client で組むと /search のチャンクが膨らむ・DN-0684）。PC では本文の「よく読まれている記事」を隠す。絞り込みは本文に残す（右の欄は 993px 未満で消える）
+  - `/topics`: 広告は常時（22 テーマの入口が常にある）。本文は区分へ飛ぶリンク＋2 列のタイル。テーマが 2 枚以下の区分は末尾の 1 区画にまとめ、タイルの eyebrow に元の区分名を出す（区分の定義は変えない）
 
 以下には**追加しない**: `/links`・`/about`・`/privacy`・`/terms`・`/tools`。
 理由 — links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
@@ -381,7 +383,7 @@ CLAUDE.md §7 と一致:
 - `rounded-{lg,xl,2xl} + shadow-*` の直書き → `rounded-card-*` / `shadow-card-*`。
 - インライン `style={{ borderColor }}` → Tailwind `dark:border-*`。
 - 下層ページにトップ級の大型 Hero を増やす → `PageHeader`。
-- `/search` `/links` `/about` 等へ右サイドバーを追加 → §3.4 の限定に従う。
+- `/links` `/about` 等へ右サイドバーを追加 → §3.4 の限定に従う。
 - 外枠幅をページごとにバラつかせる（`max-w-5xl` 等の混在）→ `max-w-[1280px]` + content rail。
 
 ### MDX コンテンツ

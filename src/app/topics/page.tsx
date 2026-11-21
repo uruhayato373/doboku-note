@@ -3,9 +3,11 @@ import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import TopicIcon from '@/components/topics/TopicIcon';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
-import SectionBlock from '@/components/layout/SectionBlock';
+import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import IndexRail, { indexRailData } from '@/components/layout/IndexRail';
+import AdSlot from '@/components/ads/AdSlot';
 import { buildPageMetadata } from '@/lib/metadata';
-import { getTopicDocs, getTopicStandards, getTopicsByFacet } from '@/lib/topics';
+import { getTopicDocs, getTopicStandards, getTopicsByFacet, type Topic } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { topicPath } from '@/lib/route-paths';
 
@@ -15,43 +17,70 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/topics',
 });
 
+/** テーマがこの数以下の区分は、末尾の 1 区画にまとめて見せる（区分の定義 content-taxonomy.json は変えない） */
+const SMALL_FACET_MAX = 2;
+
+function TopicTile({ topic, facet, eyebrow }: { topic: Topic; facet: string; eyebrow?: string | undefined }) {
+  return (
+    <LinkTile
+      href={topicPath(topic.slug)}
+      size="lg"
+      serif
+      icon={<TopicIcon slug={topic.slug} className="" />}
+      eyebrow={eyebrow}
+      title={topic.label}
+      description={topic.description}
+      meta={`記事 ${getTopicDocs(topic).length} / 基準資料 ${getTopicStandards(topic).length}`}
+      headingLevel="h3"
+      data={{ 'data-cta': 'nav', 'data-cta-label': `topics-index:${facet}` }}
+    />
+  );
+}
+
 export default function TopicsPage() {
+  const facets = getTopicsByFacet().filter((f) => f.topics.length > 0);
+  const large = facets.filter((f) => f.topics.length > SMALL_FACET_MAX);
+  const small = facets.filter((f) => f.topics.length <= SMALL_FACET_MAX);
+  const sections = [
+    ...large.map((f) => ({ id: f.facet, label: f.label, items: f.topics.map((topic) => ({ topic, facet: f.facet, eyebrow: undefined as string | undefined })) })),
+    ...(small.length > 0 ? [{
+      id: 'others',
+      label: small.length > 1 ? 'そのほかのテーマ' : small[0]!.label,
+      items: small.flatMap((f) => f.topics.map((topic) => ({ topic, facet: f.facet, eyebrow: small.length > 1 ? f.label : undefined }))),
+    }] : []),
+  ];
+  const { popular, categories } = indexRailData();
+
   return (
     <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        label="TOPICS"
-        title="土木技術のテーマ別索引"
-        lead="資格名や資料名ではなく、現場で調べたい技術テーマから試験対策・実務ノート・公的基準を横断できます。"
-      />
-      {getTopicsByFacet().map(({ facet, label, topics }, index) => (
-      <SectionBlock key={facet} divider={index === 0 ? 'none' : 'top'} ariaLabel={label}>
-        <h2 className="mb-6 font-serif text-2xl font-bold text-(--ink)">{label}</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-cta="nav" data-cta-label={`topics-index:${facet}`}>
-          {topics.map((topic) => {
-            const docs = getTopicDocs(topic);
-            const standards = getTopicStandards(topic);
-            return (
-              <LinkTile
-                key={topic.slug}
-                href={topicPath(topic.slug)}
-                size="lg"
-                serif
-                icon={<TopicIcon slug={topic.slug} className="" />}
-                title={topic.label}
-                description={topic.description}
-                meta={`記事 ${docs.length} / 基準資料 ${standards.length}`}
-                headingLevel="h3"
-              />
-            );
-          })}
-        </div>
-      </SectionBlock>
-      ))}
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール）。ほかの区画と同じ左端にそろえる（2026-10-31 まで中央に細く出ていた） */}
-      <SectionBlock divider="top" ariaLabel="転職の相談先">
+      {/* 右の欄（PC ≥993px）: AdSense → よく読まれている記事 → 資格・分野から探す（IndexRail・/search と同じ並び） */}
+      <TwoColumnShell as="div" aside={<IndexRail ad={<AdSlot slot="rail" />} popular={popular} categories={categories} label="topics" />}>
+        <PageHeader
+          variant="inline"
+          titleSize="lg"
+          breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Topics' }]}
+          title="土木技術のテーマ別索引"
+          lead="資格名や資料名ではなく、現場で調べたい技術テーマから試験対策・実務ノート・公的基準を横断できます。"
+          className="mb-6"
+        />
+        <nav aria-label="テーマの区分" className="mb-8 flex flex-wrap gap-3">
+          {sections.map((s) => (
+            <a key={s.id} href={`#topics-${s.id}`} className="focus-ring rounded-card-inline border border-(--rule-soft) dark:border-(--rule-soft) px-4 py-3 text-sm text-(--ink)">
+              {s.label} <span className="text-(--ink-muted)">{s.items.length}</span>
+            </a>
+          ))}
+        </nav>
+        {sections.map((s) => (
+          <section key={s.id} id={`topics-${s.id}`} aria-label={s.label} className="mb-10 scroll-mt-24">
+            <h2 className="mb-4 font-serif text-xl font-bold text-(--ink)">{s.label}</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {s.items.map(({ topic, facet, eyebrow }) => <TopicTile key={topic.slug} topic={topic} facet={facet} eyebrow={eyebrow} />)}
+            </div>
+          </section>
+        ))}
+        {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
         <AffiliateSlot page={{ pageKind: 'topic' }} slot="topic-end" alignStart />
-      </SectionBlock>
+      </TwoColumnShell>
     </PageShell>
   );
 }
