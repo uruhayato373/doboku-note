@@ -2064,7 +2064,7 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 **やること**:
 1. 投稿日時を決める（技術士の筆記合格発表・口頭試験の時期と重ねるか。x-post-policy.md §11.2.1 の時間帯スロット・1 日 3 本・60 分以上の間隔）
 2. `x-post-qa` で 5 軸の採点と §11 の凍結回避の確認を通す
-3. `status.json` に `scheduled_at` を書き、`npm run x-schedule-guard -- --queue` を緑にしてから予約する
+3. `npm run x-schedule-guard -- --queue` を緑にしてから予約する。予約は新しい流れで行う（2026-11-21・下書きの `status.json` は無い）: `npm run registry -- import-x --folder <フォルダ> --commit` → 月次計画（`content/sns/x/campaigns/`）に date・time・slot・frame → 運営者が `npm run registry -- approve-x-plan --plan <月次計画> --expect <digest>` → `publish-x` → `x-sync-status` → 日時を過ぎたら `npm run registry -- reconcile-x --commit`
 4. 投稿後は `npm run x-own-metrics` で反応を見る。建設部門の投稿は過去の中央値が 0 なので、総監・一次のタグとの比較も見る
 
 **完了条件**: 8 本が予約か投稿され、コンテンツ台帳に記録されている。
@@ -2870,6 +2870,8 @@ Windows の PowerShell で repo 直下から順に:
 **手順・停止条件**: [実装計画](../plans/DN-0220-diagram-rollout.md)。
 
 **X の下書きの仕分け（2026-11-21・DN-1194・運営者の判断）**: 側圧の訂正（096）は 11 月中に予約して出す。土木施工実務の図解（102・7 本）は実務の X の枠が年間計画に無いため見送り（cancelled）。総監（098・103・34 本）と建設部門（099・5 本）は `<!-- x-stock: DN-0220 -->` の印でストックに置いた。12 月の枠は口頭試験向けだけなので、図解を載せる枠はここで決める。
+
+**予約の流れ（2026-11-21 から）**: 096 は 11/28 07:40 で予約済み（X のキューで確認・台帳 scheduled）。このカードの「予約する」は次に読み替える: `npm run registry -- import-x --folder <フォルダ> --commit` → 月次計画（`content/sns/x/campaigns/`）に date・time・slot・frame → 運営者が `npm run registry -- approve-x-plan --plan <月次計画> --expect <digest>` → `publish-x` → `x-sync-status` → 日時を過ぎたら `npm run registry -- reconcile-x --commit`。
 
 ### [DN-0186] Windows端末のR2・Google Drive接続を整え、クラウド実体監査を成立させる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [検証:resources:cloud] [起票:2026-09-10]
