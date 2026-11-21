@@ -511,6 +511,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1265] X の自分の投稿の取得（x-own-metrics）と reconcile-x を土曜の収集に入れる
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-21]
+
+**起点**: 2026-11-21、DN-0612 P7。X の自分の投稿の一覧（data/x/own-posts）は `npm run x-own-metrics` を手で打ったときだけ更新され、9/8〜11/20 の投稿数と反応が取れていなかった。台帳の「予約の日時を過ぎた行」を投稿済みへ結ぶ `npm run registry -- reconcile-x --commit` も手動で、11/21 時点で期限超過・公開未確認が 3 行残っている（097-civil2-final#7・106-civil2-lastweek#2 は下書きごと消した。112-pe-first-stage-final#21 は 11/21 12:25 の予約）。
+
+**やること**: 土曜の収集（`scripts/lib/weekly-collect-plan.mjs`）に、x-own-metrics と、そのあとの `registry -- reconcile-x --commit` を入れる。X のログインを使うので、ほかの X の収集と同じ段・同じ直列の順に置く。収集の結果の commit に台帳（content/registry/publications/x/）が入ることを確かめる。
+
+**完了条件**: 土曜の収集の記録に x-own-metrics と reconcile-x の実行と件数（取得した投稿数・照合の対象・結べた数）が残り、`node scripts/x/x-sync-status.mjs` の「期限超過・公開未確認」が、収集の翌日に前週の予約ぶん 0 件になる。
+
+
 ### [DN-1262] note の売上の取り込みで、公開中の記事が商品 ID を持たない（article:unknown-…）まま記録される
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
 
