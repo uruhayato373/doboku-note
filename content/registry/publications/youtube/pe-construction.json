@@ -844,10 +844,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-ippanron-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1",
       "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/video",
+        "cover": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cover",
+        "contact-sheet": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/contact-sheet",
+        "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/subtitles"
+      },
+      "publishAt": "2026-11-23T08:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T13:02:47.739Z",
+          "digest": "1837edaa52b64412063a74ed7583d4c1c168af4a5fab9389a9999ab33d9a1cbb"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T13:02:47.739Z",
+        "contentSha256": "a8cb1c1636afddbbdbc50ee8e9a85c423aeb540bb90bc92b67f9dfc32466c330"
+      },
+      "times": {
+        "rendered": "2026-11-21T13:02:47.927Z"
+      }
     },
     {
       "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2",
