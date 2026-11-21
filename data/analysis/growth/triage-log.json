@@ -697,6 +697,169 @@
       "action": "backlog",
       "at": "2026-11-07T23:33:42.396Z",
       "ref": "DN-1048"
+    },
+    {
+      "id": "OPP-06f268d461",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-37c15daeb0",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-404ef7f215",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-497218663e",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち（目安 worse）",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-4dcc698adc",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-8917c5b288",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-9532e1b6ef",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-ba3632c4e5",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "11/30 と合格発表の後に Brevo の件数を読む（要人手）",
+      "until": "2026-12-02"
+    },
+    {
+      "id": "OPP-d75bce3403",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-e340c70939",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "実験の close は運営者の判断。承認待ち（目安 no-effect）",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-f8ef67e9fb",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "defer",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "要人手 2 件（report-career-funnel の再実行・A8 の月次成果は要ログイン。a8 段は failed・DN-1266）",
+      "until": "2026-11-28"
+    },
+    {
+      "id": "OPP-0694ea3680",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "reject",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "試験日 10/25 の当日ページの季節の減衰。固定 URL で翌年へ持ち越す既存カードが扱う"
+    },
+    {
+      "id": "OPP-ff05bcc774",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "reject",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "試験後の季節の減衰。改稿や noindex の起票はしない"
+    },
+    {
+      "id": "OPP-92a81ae5df",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "reject",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "試験後の季節の減衰。改稿や noindex の起票はしない"
+    },
+    {
+      "id": "OPP-b5118986af",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "reject",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "試験後の季節の減衰。改稿や noindex の起票はしない"
+    },
+    {
+      "id": "OPP-06b447126e",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "reject",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "試験後の季節の減衰。改稿や noindex の起票はしない"
+    },
+    {
+      "id": "OPP-3612c246ab",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "reject",
+      "at": "2026-11-21T04:40:08.320Z",
+      "reason": "流入が季節で落ちた後の率で件数が小さく判断できない。翌年の試験期に再び出れば扱う"
+    },
+    {
+      "id": "OPP-40eb9c315c",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "bundle",
+      "at": "2026-11-21T04:40:08.320Z",
+      "ref": "DN-1270"
+    },
+    {
+      "id": "OPP-2261b1b670",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "action": "bundle",
+      "at": "2026-11-21T04:40:08.320Z",
+      "ref": "DN-0706"
     }
   ]
 }

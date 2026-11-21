@@ -1,0 +1,41 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-15"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-11-21T04-37-25-164Z-1f753bfa-2df8-4050-9df1-42eb255ec4f5.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "W46 窓（11/9〜11/15）。Google クリック 1,052（基線週平均比 -51.7%、前週比 +7.9%）、自然検索 3,541（前週比 +16.9%）。減衰の主因は 2級土木 二次の当日ページ（r08-secondary-answers 4455→25）など試験後の季節の減衰で、因果は未確認。上昇は主任技士・技術士一次側。note CTA 152（前週比 +9.4%）、note 販売 15 件 ¥32,400（部分・前週比 件数 +36.4%）、資格別は総監 1 件 ¥1,980・建設部門 2 件 ¥2,760・1級土木と RCCM は 0 件（いずれも部分）。ココナラ 0 件。演習開始 261（前週比 +91.9%）。11 月の受取額は途中で ¥81,881（note ¥59,132 推計・ココナラ ¥0・KDP ¥22,749 推計、11/21 取得）で、10 月の確定 ¥67,991 を超えたが目標 ¥100,000 には届かない。11/21 の土曜の収集は a8（検算 rawFile null・最後の ok 10/31）と gsc（実検査 0・最後の ok 11/14）が failed で、この 2 段の 11/21 の値は未取得（欠測は 0 と読まない。DN-1266・DN-1267）。Instagram の指標は取得しない決定のため欠測のまま。",
+  "decision": "重点 4 資格と、サイトと note 教材の品質優先を維持する。運営者の居ない実行のため方針の変更はしない。試験後の季節の減衰は即 noindex や改稿の起票をしない。実験の close 11 件・判断待ち DN-0305・DN-0844・期日切れ 4 件の期日の再設定は見送り・承認待ちとした。欠測（a8・gsc の 11/21 の値）があるため provisional とする。",
+  "nextAction": "(1) 11/28 の土曜の収集を全段 rc=0 にする（DN-0819・DN-1266・DN-1267）。(2) 10 月の受取額が収集だけで記録されたかを記録の中身で確かめる（DN-1089）。(3) 期日切れ 4 件（DN-1082・DN-0999・DN-0477・DN-1127）を優先して着手する。(4) 期限の来た実験の判定を運営者に諮る。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-020",
+    "EXP-021",
+    "EXP-030",
+    "EXP-031",
+    "EXP-032",
+    "EXP-033",
+    "EXP-035",
+    "EXP-036",
+    "EXP-037",
+    "EXP-052",
+    "EXP-053",
+    "EXP-054",
+    "EXP-055",
+    "EXP-063"
+  ],
+  "nextReviewDate": "2026-12-02",
+  "schemaVersion": 1,
+  "createdAt": "2026-11-21T04:37:45.265Z",
+  "strategyHash": "ebc307915d12c3ec63d43da443722b860373134b2782463741d8814350cf18d4"
+}
