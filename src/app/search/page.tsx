@@ -4,7 +4,11 @@ import { getCardImage } from "@/lib/site-thumbnail";
 import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
-import { getAllCategories } from "@/lib/categories";
+import { getAllCategories, getCategoryHubPath } from "@/lib/categories";
+import RailStack from "@/components/ui/RailStack/RailStack";
+import MetaCard from "@/components/ui/MetaCard/MetaCard";
+import LinkRow, { LinkRowList, RankMarker } from "@/components/ui/LinkRow/LinkRow";
+import SearchRailAd from "@/components/search/SearchRailAd";
 import { getAllDocsMeta } from "@/lib/docs";
 import { getPopularDocs, type PopularDoc } from "@/lib/popular";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -41,18 +45,48 @@ export default function SearchPage() {
     title: p.doc.shortTitle || p.doc.title,
   }));
 
+  const header = (
+    <PageHeader
+      variant="inline"
+      titleSize="lg"
+      breadcrumb={[{ label: "Home", href: "/" }, { label: "Search" }]}
+      title="記事検索"
+      lead="キーワードを入力して記事・キーワードページを探す"
+      className="mb-6"
+    />
+  );
+  // 右の欄（PC ≥993px）: AdSense（結果があるときだけ・SearchRailAd）→ よく読まれている記事 → 試験から探す。
+  // 中身はサーバーで組む（client で組むと RailStack の下の部品と doc-meta-index が /search のチャンクへ入る・DN-0684）。
+  const aside = (
+    <RailStack
+      items={[
+        { kind: 'adsense', node: <SearchRailAd /> },
+        { kind: 'nav', node: popular.length > 0 && (
+          <MetaCard as="div" padding="compact" trackNav="search-rail-popular" title="よく読まれている記事">
+            <LinkRowList as="ol">
+              {popular.map((item) => (
+                <LinkRow key={item.href} href={item.href} title={item.title} marker={<RankMarker rank={item.rank} />} serif tone="ink" />
+              ))}
+            </LinkRowList>
+          </MetaCard>
+        ) },
+        { kind: 'nav', node: (
+          <MetaCard as="div" padding="compact" trackNav="search-rail-exams" title="試験から探す">
+            <LinkRowList>
+              {[...examCards, ...otherCategories].map((c) => (
+                <LinkRow key={c.slug} href={getCategoryHubPath(c.slug)} title={c.label} serif tone="ink" />
+              ))}
+            </LinkRowList>
+          </MetaCard>
+        ) },
+      ]}
+    />
+  );
+
   return (
-    <PageShell variant="content" rail="860">
-      <PageHeader
-        variant="inline"
-        titleSize="lg"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Search" }]}
-        title="記事検索"
-        lead="キーワードを入力して記事・キーワードページを探す"
-        className="mb-6"
-      />
-      <Suspense fallback={<SearchPageFallback examCards={examCards} otherCategories={otherCategories} popular={popular} />}>
-        <SearchPageClient images={images} examCards={examCards} otherCategories={otherCategories} popular={popular} />
+    <PageShell variant="default">
+      <Suspense fallback={<SearchPageFallback examCards={examCards} otherCategories={otherCategories} popular={popular} header={header} aside={aside} />}>
+        <SearchPageClient images={images} examCards={examCards} otherCategories={otherCategories} popular={popular} header={header} aside={aside} />
       </Suspense>
     </PageShell>
   );

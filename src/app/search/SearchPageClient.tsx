@@ -2,7 +2,9 @@
 
 import type { CardImage } from "@/lib/site-thumbnail";
 
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
+import TwoColumnShell from "@/components/layout/TwoColumnShell";
+import { SearchRailAdContext } from "@/components/search/SearchRailAd";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useSearch } from "@/hooks/useSearch";
 import { SearchBox } from "@/components/search/SearchBox";
@@ -18,9 +20,13 @@ interface SearchPageClientProps {
   examCards: ExamData[];
   otherCategories: CategoryDef[];
   popular: PopularLink[];
+  /** ページの見出し（本文の列の先頭に置く） */
+  header: ReactNode;
+  /** 右の欄（PC ≥993px）。サーバーで RailStack を組んで渡す */
+  aside: ReactNode;
 }
 
-export default function SearchPageClient({ images, examCards, otherCategories, popular }: SearchPageClientProps) {
+export default function SearchPageClient({ images, examCards, otherCategories, popular, header, aside }: SearchPageClientProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -61,8 +67,13 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
     navigate({ q, category: newCategory, page: 1 });
   };
 
+  // 右の欄の広告は、検索語があり結果が 1 件以上のときだけ（SearchRailAd）
+  const showRailAd = !!q && !isLoading && results.query === q && results.total > 0;
+
   return (
-    <>
+    <SearchRailAdContext.Provider value={showRailAd}>
+    <TwoColumnShell as="div" aside={aside}>
+      {header}
       {/* 検索ボックス */}
       <div className="mb-4">
         <SearchBox
@@ -113,7 +124,8 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
       ) : (
         <SearchZeroState examCards={examCards} otherCategories={otherCategories} popular={popular} />
       )}
-    </>
+    </TwoColumnShell>
+    </SearchRailAdContext.Provider>
   );
 }
 
@@ -122,10 +134,11 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
  * 旧 fallback は「Loading…」1 行で、解決後に資格カード・人気記事のゼロステートへ置き換わって
  * ページ全体が押し下げられていた（PSI desktop CLS 0.730 を毎日再現）。
  */
-export function SearchPageFallback({ examCards, otherCategories, popular }: Omit<SearchPageClientProps, "images">) {
+export function SearchPageFallback({ examCards, otherCategories, popular, header, aside }: Omit<SearchPageClientProps, "images">) {
   const noop = () => {};
   return (
-    <>
+    <TwoColumnShell as="div" aside={aside}>
+      {header}
       <div className="mb-4">
         <SearchBox value="" onChange={noop} placeholder="キーワードを入力して検索..." onSearch={noop} />
       </div>
@@ -133,6 +146,6 @@ export function SearchPageFallback({ examCards, otherCategories, popular }: Omit
         <SearchFilters category="" onCategoryChange={noop} hasQuery={false} onReset={noop} />
       </div>
       <SearchZeroState examCards={examCards} otherCategories={otherCategories} popular={popular} />
-    </>
+    </TwoColumnShell>
   );
 }
