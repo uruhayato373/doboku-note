@@ -3145,6 +3145,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1281] チップ形のリンク 7 実装・文字リンク・検索の選択状態のボタン・トップの独自ボタンを原子にそろえるか決める（見た目が変わる）
+タグ: [領域:サイト] [種類:改善] [起票:2026-11-22]
+
+2026-11-22 のアトミックデザインの点検で、色や大きさをそろえる判断が要るので直さなかったもの。(1) チップ形のリンクが QuestionJumpNav・ExamQuestionNav・PillarExamQuestions・KeywordSections の KeywordChip・ExamMatrix の ExamChipLink・SectionKeywords・CurriculumSections で 7 通り（角丸・枠・地・文字色・タップ領域が少しずつ違う。KeywordChip と SectionKeywords は約 32px で 44px に届かない可能性）。(2) text-(--accent) hover:underline の文字リンクが 8 か所あり、原子が無い。(3) search/SearchFilters.tsx・SearchPagination.tsx の選択状態のボタンと NavLinkCard の丸が cn() で組んだ主ボタン形で atoms ラチェットを素通りする。(4) home/Hero.tsx の bg-warn・白地のボタンが ButtonLink を使っていない。そろえるなら /design-review --visual で確かめる。
+
+
 ### [DN-1280] src/components の区画の組み立て（MetaCard＋LinkRowList＋LinkRow 約 14 か所・MetaCard＋2 列の LinkTile 約 5 か所）を共通の生体にするか決める
 タグ: [領域:サイト] [種類:改善] [起票:2026-11-22]
 
