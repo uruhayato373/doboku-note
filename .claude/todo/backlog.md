@@ -3143,6 +3143,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1277] docs の棚卸しの残り（GSC/GA4 実装指示書・計測基盤ロードマップ・SEO×note 連携・動画 QA ログ・採点ルーブリックの議論項目）を抽出してから縮める
+タグ: [領域:管理] [種類:改善] [起票:2026-11-21]
+
+2026-11-21 の doc-curator の判定で、抽出が先に要ると分かったもの。(1) docs/operations/gsc-ga4-playwright-automation-spec.md: §2・§5.4・§7・§10 冒頭の warning・§10.1・運用時プロンプト 2 本を残して trim。§7 は scripts/lib/search-growth-classifier.mjs（8 分類・CANONICAL_ELSEWHERE）とずれているので合わせる。google-search-growth/references/recovery.md:62 の「§7」は誤参照。(2) docs/operations/計測基盤強化ロードマップ.md: #5・#8・#14 は別の記録で足りる。#7・#12 の実測値は転記先が無い。(3) docs/operations/06_seo-note-synergy-strategy.md: C1（〜2026-06-30）の効果判定の記録がどこにも無い。新規 guide 6 本と CTR 改善 7 ページの GSC を現在値で一度確認して結果を 1 行追記し、Red Line #4 の運用解釈・確定方針・重要所見だけ残す（content-taxonomy.md:153 ほか 3 件が参照）。(4) docs/reviews/critical/ の 2026-10-17・10-20・10-21（2 本）・10-22: 未抽出の教訓（語中分断の防止、縦横比差 0.5% 超を拒否する full-frame-v1、機械照合は全編視聴の証拠ではない、停止済み 52 本を再利用しない理由、code-extensibility-debt の「やらないこと」の表）を video-content-policy.md ほかへ移してから削除。10-18・10-19 は DN-0600 が閉じるまで残す。(5) docs/editorial/02_採点ルーブリック方針.md: 盲点 1〜3 と議論項目 0〜7 は 6 軸化が前提で未決。採点軸にしないなら 3 行に縮める（scripts/content/gemini-scoring-trial.mjs:57 が 02 を読むので入力が変わる点に注意）。
+
+
 ### [DN-1272] X の競合の再スキャンを回す（期限超過・W46 時点で 93 日）
 タグ: [SNS・マーケ] [領域:戦略] [種類:改善] [起票:2026-11-21]
 
