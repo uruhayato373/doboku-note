@@ -105,7 +105,7 @@
           "why": "1級二次と 2級二次の直前"
         }
       ],
-      "planRule": "YouTube の枠と同じ時期に同じ商品へ送る。年間で決めるのは型・本数・販売の上限・時期まで。本文と日時は content/sns/x/campaigns の月次計画で決め、各投稿の slot に枠の id を書く。予約の上限（1 日の本数・間隔・重複）は x-post-policy §11 が優先する。本文は投稿の 2 週間前までに書く",
+      "planRule": "YouTube の枠と同じ時期に同じ商品へ送る。年間で決めるのは型・本数・販売の上限・時期まで。本文と日時は content/sns/x/campaigns の月次計画で決め、各投稿の frame に枠の id を書く（slot は時間帯 A/B/C）。予約の上限（1 日の本数・間隔・重複）は x-post-policy §11 が優先する。本文は投稿の 2 週間前までに書く",
       "metrics": {
         "primary": [
           "xUsers",

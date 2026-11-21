@@ -82,7 +82,7 @@ export function xPostsOf(channel, campaigns) {
   return campaigns.flatMap((c) => (c.posts ?? [])
     .filter((p) => p.date >= channel.enforceFrom)
     .map((p) => ({
-      label: `${c.file ?? c.month} ${p.date} ${p.time ?? ''}`.trim(), day: p.date, slot: p.slot, exam: p.exam, type: p.type,
+      label: `${c.file ?? c.month} ${p.date} ${p.time ?? ''}`.trim(), day: p.date, slot: p.frame, exam: p.exam, type: p.type,
       sale: SALES_FUNNELS.has(p.funnel), fits: (f) => f.types?.includes(p.type) ?? false,
     })));
 }
@@ -109,7 +109,7 @@ export function auditChannel(channel, posts, context, examMatches) {
  * @param tweets [{ draft, n, scheduled_at, status }]。n は status.json の投稿番号
  */
 export function tweetsOutsidePlan(channel, campaigns, tweets) {
-  const planned = new Set(campaigns.flatMap((c) => (c.posts ?? []).filter((p) => p.slot).map((p) => `${p.draft}#${p.tweet}`)));
+  const planned = new Set(campaigns.flatMap((c) => (c.posts ?? []).filter((p) => p.frame).map((p) => `${p.draft}#${p.tweet}`)));
   return tweets
     .filter((t) => ['scheduled', 'queued'].includes(t.status) && t.scheduled_at && jstDayOf(t.scheduled_at) >= channel.enforceFrom)
     .filter((t) => !planned.has(`${t.draft}#${t.n}`))

@@ -108,9 +108,9 @@ for (const [slot, items] of Object.entries(bySlot)) {
 }
 
 // 1.5 年間の枠 --------------------------------------------------------------
-// 枠の検査の対象の予約は、slot を持つ月次計画の行に結ばれていなければならない（config/channel-annual-plan.json）
+// 枠の検査の対象の予約は、frame（年間の枠 id）を持つ月次計画の行に結ばれていなければならない（config/channel-annual-plan.json）
 for (const line of tweetsOutsidePlan(loadChannelPlan(ROOT).channels.x, loadXCampaigns(ROOT), active)) {
-  blocks.push(`計画にない投稿 ${line}: 月次計画の行に slot を書く`);
+  blocks.push(`計画にない投稿 ${line}: 月次計画の行に frame を書く`);
 }
 
 // 2. near-duplicate ---------------------------------------------------------

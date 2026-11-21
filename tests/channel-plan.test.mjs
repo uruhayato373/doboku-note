@@ -22,7 +22,7 @@ const context = {
   exists: () => true, hasTarget: () => true,
 };
 const same = (a, b) => a === b;
-const post = (over = {}) => ({ date: '2027-01-05', time: '20:00', slot: 's1', exam: 'civil-construction-1', type: '過去問1問1答', funnel: 'linkless', draft: 'd', tweet: 1, ...over });
+const post = (over = {}) => ({ date: '2027-01-05', time: '20:00', slot: 'C', frame: 's1', exam: 'civil-construction-1', type: '過去問1問1答', funnel: 'linkless', draft: 'd', tweet: 1, ...over });
 const audit = (posts, c = channel(), ctx = context) => auditChannel(c, xPostsOf(c, [{ file: 'f', posts }]), ctx, same);
 
 test('正しい投稿は通り、実際に照合した本数を返す', () => {
@@ -33,11 +33,11 @@ test('正しい投稿は通り、実際に照合した本数を返す', () => {
   assert.equal(a.sales.s1, 1);
 });
 test('枠の検査を始める前の投稿は数えない', () => {
-  assert.equal(audit([post({ date: '2026-12-31', slot: undefined })]).targets, 0);
+  assert.equal(audit([post({ date: '2026-12-31', frame: undefined })]).targets, 0);
 });
 test('計画にない投稿・時期の外・型の外・資格違いを止める', () => {
-  assert.match(audit([post({ slot: undefined })]).errors[0], /枠に入っていない/);
-  assert.match(audit([post({ slot: 'none' })]).errors[0], /枠が無い/);
+  assert.match(audit([post({ frame: undefined })]).errors[0], /枠に入っていない/);
+  assert.match(audit([post({ frame: 'none' })]).errors[0], /枠が無い/);
   assert.match(audit([post({ date: '2027-03-02' })]).errors[0], /枠の時期の外/);
   assert.match(audit([post({ type: '自由な型' })]).errors[0], /枠の型に無い/);
   assert.match(audit([post({ exam: 'rccm' })]).errors[0], /枠と資格が違う/);
@@ -66,7 +66,7 @@ test('X の予約は枠のある計画の行に結ばれていなければ止ま
   const c = channel();
   const tweet = (over = {}) => ({ draft: 'd', n: '1', status: 'queued', scheduled_at: '2027-01-05T20:00:00.000+09:00', ...over });
   assert.deepEqual(tweetsOutsidePlan(c, [{ posts: [post()] }], [tweet()]), []);
-  assert.equal(tweetsOutsidePlan(c, [{ posts: [post({ slot: undefined })] }], [tweet()]).length, 1);
+  assert.equal(tweetsOutsidePlan(c, [{ posts: [post({ frame: undefined })] }], [tweet()]).length, 1);
   assert.equal(tweetsOutsidePlan(c, [], [tweet()]).length, 1);
   assert.deepEqual(tweetsOutsidePlan(c, [], [tweet({ scheduled_at: '2026-12-05T20:00:00.000+09:00' })]), []);
   assert.deepEqual(tweetsOutsidePlan(c, [], [tweet({ status: 'posted' })]), []);
