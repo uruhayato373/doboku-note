@@ -35,7 +35,7 @@ export function buildArticleSidebarCards({
       case 'author': return { kind: 'author', node: <AuthorSidebarCard /> };
       case 'hub': return { kind: 'note', node: <HubCtaBanner cta={sidebarMokuji!} placement="article-sidebar" /> };
       case 'product': return { kind: 'note', node: <SidebarProduct category={category!} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} /> };
-      case 'questions': return { kind: 'questions', node: <ExamQuestionNav headings={headings} variant="sidebar" /> };
+      case 'questions': return { kind: 'questions', node: <ExamQuestionNav headings={headings} /> };
       case 'category': return { kind: categoryKinds[card.index!] ?? 'nav', node: navigation[card.index!]! };
       case 'pillar': return { kind: 'nav', node: <PillarNavCard variant="sidebar" currentSection={sectionStr} /> };
       case 'tools': return { kind: 'nav', node: <RelatedTools category={category!} slug={slugStr} compact /> };

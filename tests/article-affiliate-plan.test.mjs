@@ -47,18 +47,18 @@ test('17カテゴリ × 全group × career の面→案件と承認画像（総�
  assert.equal(before['article-banner'],undefined);
 });
 
-test('B/B2 × 375/768/993/1024/1440: 二社目が未表示なら別画像面が所有し、各案件は1発',()=>{
+test('375/768/993/1024/1440: 幅に出る素材だけから各案件を1発にする',()=>{
  const candidates=[
-  {program:B,slot:'article-mid',src:'b-text'}, {program:C,slot:'article-mid',src:'c-text',secondary:true},
+  {program:B,slot:'article-mid',src:'b-text'},
   {program:B,slot:'article-banner',src:'b-wide',viewport:'pc'}, {program:B,slot:'article-banner',src:'b-small',viewport:'mobile'},
   {program:C,slot:'article-banner-2',src:'c-wide',viewport:'pc'}, {program:C,slot:'article-banner-2',src:'c-small',viewport:'mobile'},
   {program:R,slot:'article-rail',src:'r-rail',viewport:'pc'}, {program:B,slot:'article-banner-end',src:'b-end'},
  ];
- for(const variant of ['B','B2']) for(const width of [375,768,993,1024,1440]) {
-  const p=chooseArticlePixels(candidates,vocab,{desktop:width>=993,wide:width>=1024,variant});
+ for(const width of [375,768,993,1024,1440]) {
+  const p=chooseArticlePixels(candidates,vocab,{desktop:width>=993});
   assert.equal(new Set(p.map(p=>p.program)).size,p.length);
   assert.equal(p.find(p=>p.program===B).src,'b-text');
-  assert.equal(p.find(p=>p.program===C).src,variant==='B2'&&width>=1024?'c-text':width>=993?'c-wide':'c-small');
+  assert.equal(p.find(p=>p.program===C).src,width>=993?'c-wide':'c-small');
   assert.equal(p.some(p=>p.program===R),width>=993);
  }
 });
@@ -142,7 +142,7 @@ test('17カテゴリの実配置は案件列が尽きたら右欄を終了し、
 });
 
 
-test('現行の画像面だけで各幅・案のピクセルを1案件1発にし、スマホ専用面をPCの撮影期待から除く', async () => {
+test('現行の画像面だけで各幅のピクセルを1案件1発にし、スマホ専用面をPCの撮影期待から除く', async () => {
  const { resolvePlacements } = await loadTsModule('src/lib/affiliate-placement.ts');
  const { articleImagePlacements, articlePixelCandidates } = await loadTsModule('src/lib/article-affiliate-plan.ts');
  for (const category of Object.keys(expected)) {
@@ -151,8 +151,8 @@ test('現行の画像面だけで各幅・案のピクセルを1案件1発にし
   const images = articleImagePlacements(p,['article-banner','article-banner-2','article-banner-3'],6);
   const candidates = articlePixelCandidates(p,['article-mid','article-inline'],images);
   assert.ok(candidates.every(c => !['article-mid','article-inline'].includes(c.slot)));
-  for (const width of [375,768,993,1024,1440]) for (const variant of ['B','B2']) {
-   const owners = chooseArticlePixels(candidates,vocab,{desktop:width>=993,wide:width>=1024,variant});
+  for (const width of [375,768,993,1024,1440]) {
+   const owners = chooseArticlePixels(candidates,vocab,{desktop:width>=993});
    const visible = images.filter(i=>i.creatives[width>=993?'pc':'mobile']);
    assert.deepEqual(new Set(owners.map(p=>p.program)),new Set(visible.map(i=>i.placement.program)));
    assert.equal(owners.length,new Set(owners.map(p=>p.program)).size);

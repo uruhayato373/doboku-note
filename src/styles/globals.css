@@ -247,33 +247,12 @@
   }
 }
 
-@utility hero-overlay {
-  background: linear-gradient(
-    to bottom,
-    var(--hero-overlay-top),
-    var(--hero-overlay-mid),
-    var(--hero-overlay-bottom)
-  );
-}
-
 @utility hero-ink {
   color: var(--hero-ink);
 }
 
 @utility hero-ink-soft {
   color: var(--hero-ink-soft);
-}
-
-@utility hero-rule {
-  background: var(--hero-rule);
-}
-
-@utility hero-shadow-soft {
-  text-shadow: var(--hero-shadow-soft);
-}
-
-@utility hero-shadow-strong {
-  text-shadow: var(--hero-shadow-strong);
 }
 
 @utility prose-blog {
@@ -792,22 +771,6 @@
   }
 }
 
-@utility font-serif-book {
-  /* ===== フォントファミリー切替（opt-in）=====
-     2026-04-22 Claude Design ハンドオフ追加。body に以下のクラスを付けると切替可能。
-     2026-04-26 #84 LCP 改善で Source Serif 4 / Noto Serif JP を削除。OS 標準の serif/mincho に集約。
-     デフォルトは Sans（Inter + Noto Sans JP）。UI 露出は別 PR で検討。 */
-  &body {
-    font-family: Georgia, 'Times New Roman', 'Yu Mincho', serif;
-  }
-}
-
-@utility font-mincho {
-  &body {
-    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', YuMincho, Georgia, serif;
-  }
-}
-
 @utility table-scroll {
   /* ===== 表: editorial — soft border + accent thead ===== */
   /* 多列表（ふるい分け 9 列等）はモバイル 375px で画面外へはみ出し右端が読めない。
@@ -976,12 +939,6 @@
     /* 写真上のHero専用トークン。背景画像差し替え時の調整点をここに限定する。 */
     --hero-ink: #0f172a;
     --hero-ink-soft: #334155;
-    --hero-rule: rgb(100 116 139 / 0.6);
-    --hero-overlay-top: rgb(255 255 255 / 0.55);
-    --hero-overlay-mid: rgb(255 255 255 / 0.10);
-    --hero-overlay-bottom: rgb(255 255 255 / 0.35);
-    --hero-shadow-soft: 0 1px 8px rgb(255 255 255 / 0.6);
-    --hero-shadow-strong: 0 2px 14px rgb(255 255 255 / 0.6);
 
     /* Callout palette (12 kinds × bg / border / foreground) */
     --ct-note-bg: #eff6ff;     --ct-note-bd: #3b82f6;     --ct-note-fg: #1d4ed8;

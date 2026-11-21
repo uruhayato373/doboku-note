@@ -5,8 +5,6 @@ import type { TocHeading } from '@/lib/toc';
 interface ExamQuestionNavProps {
   /** extractHeadings の結果。`## 問題 No.N` 見出しから設問グリッドを生成する。 */
   readonly headings: TocHeading[];
-  /** サイドバー（300px・コンパクト）か、モバイル本文中（広め）か。 */
-  readonly variant?: 'sidebar' | 'mobile';
 }
 
 /** 見出しテキストから設問番号を取り出す。"問題 No.1" / "No.1" / "問1" / "第1問" 等に対応。 */
@@ -18,7 +16,7 @@ interface ExamQuestionNavProps {
  * 非表示にしているが、代わりに番号グリッドのジャンプ UI を提供する。各ボタンは該当設問見出しの
  * アンカー（generateHeadingId 由来の `#問題-noN`）へスクロールする。
  */
-export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQuestionNavProps) {
+export default function ExamQuestionNav({ headings }: ExamQuestionNavProps) {
   const questions = headings
     .map((h) => ({ no: parseQuestionNo(h.text), id: h.id }))
     .filter((q): q is { no: number; id: string } => q.no !== null);
@@ -41,14 +39,6 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
       ))}
     </div>
   );
-
-  if (variant === 'mobile') {
-    return (
-      <MetaCard trackNav="exam-question-nav" title={title}>
-        {grid}
-      </MetaCard>
-    );
-  }
 
   return (
     <MetaCard as="div" padding="compact" title={title}>

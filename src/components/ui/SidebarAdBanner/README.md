@@ -2,7 +2,7 @@
 
 アフィリエイトの表示枠。名前は旧・記事右サイドバー用の名残で、記事サイドバーの広告は 2026-09-26 に撤去済み。いまは記事末（`ArticleFooter`・`article-end`）とカテゴリ hub（`CategoryPage`・`category-sidebar` / `category-mobile`）で使う。
 
-登録済み案件は `CareerAffiliateExperiment` に渡し、小型カードで表示する（EXP-043 で B を採用。実行中の EXP-048 は訪問者ごとに B＝1 枚／B2＝PC で 2 枚並べを固定する）。計測ピクセルは案が決まってから出す。未登録のリンクには従来のバナー表示を使う。実験の判断と計測は `docs/marketing/転職アフィリエイト訴求設計.md` §7。
+登録済み案件は `CareerAffiliateExperiment` に渡し、小型カードで表示する（EXP-043 で B を採用。EXP-048 の 2 枚並べは 2026-11-15 に打ち切り）。計測ピクセルは案が決まってから出す。未登録のリンクには従来のバナー表示を使う。実験の判断と計測は `docs/marketing/転職アフィリエイト訴求設計.md` §7。
 
 `ResponsiveAffiliateBanner` は面の `sizes` と提携台帳から画像を選ぶ共通部品。基準書・カテゴリ・トップ・ツール・トピック・法令で使用する。使用可能な素材がないときは小型カードへ戻し、pairs/splits の実験面は従来の出し分けを保つ。画像を出すときは内部で `forceImage` を指定する。
 

@@ -5,7 +5,7 @@ import { classifyDoc } from '@/lib/doc-classifier';
 import type { DocMeta } from '@/lib/docs';
 import { compareExamYearDesc, examYearLabel } from '@/lib/exam-year.mjs';
 
-export type ExamYear = {
+type ExamYear = {
   yearCode: string;                   // "r07", "h26"
   label: string;                      // "令和7年度"
   col1: { slug: string } | undefined; // 択一式 or 問題A

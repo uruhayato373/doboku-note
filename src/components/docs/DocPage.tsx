@@ -261,7 +261,7 @@ export async function renderDocPage(slugStr: string) {
   const midSlots = midKinds.map(kind => () => {
     if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
     if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
-    return <MidArticleCta mode="career" card={careerMidCard!} secondary={careerPlacements['article-mid']?.secondary} managedPixels />;
+    return <MidArticleCta mode="career" card={careerMidCard!} managedPixels />;
   });
   // 多列データ表（ふるい分け 9 列・圧縮試験 5 列等）はモバイル 375px で画面外へはみ出し、
   // 右端の列が読めない（2026-07-14 実機確認）。SVG/画像化は「9 列を 375px に収める」制約が
