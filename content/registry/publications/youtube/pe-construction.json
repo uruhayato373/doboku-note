@@ -1492,7 +1492,7 @@
       "work": "pe-ii2-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-ii2-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-ii2-kakikata/youtube.longform/scene-001",
@@ -1524,6 +1524,9 @@
         "by": "policy",
         "at": "2026-11-21T12:51:16.795Z",
         "contentSha256": "36e4019b3cc3be059e908a3fbc0789efd30feb36809001f16d20caccf3ec0e34"
+      },
+      "times": {
+        "rendered": "2026-11-21T12:56:01.851Z"
       }
     },
     {
@@ -1912,7 +1915,7 @@
       "work": "pe-river-coast-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1944,6 +1947,9 @@
         "by": "policy",
         "at": "2026-11-21T12:51:19.617Z",
         "contentSha256": "1c0ca51a473d7f6b8a927a5a04f204abaf339afeb7dcd0e549ea5af6baa0d604"
+      },
+      "times": {
+        "rendered": "2026-11-21T12:56:21.673Z"
       }
     },
     {
