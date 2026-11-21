@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 export default async function DocsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; category?: string; documentType?: string; channel?: string; retention?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; documentType?: string; retention?: string }>;
 }) {
   const p = await searchParams;
   return (
@@ -15,7 +15,6 @@ export default async function DocsPage({
       query={p.q ?? ''}
       category={p.category ?? ''}
       documentType={p.documentType ?? ''}
-      channel={p.channel ?? ''}
       retention={p.retention ?? ''}
     />
   );

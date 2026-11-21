@@ -63,14 +63,25 @@ export type { DocumentHeading };
 
 const toPosix = (value: string) => value.split(sep).join('/');
 
+/**
+ * 一覧の要約・検索用の平文。語中の `-` `_` は残す（`DN-0622`・`channel-annual-plan` で当てるため）。
+ * 記号として立つ `-` `_`（箇条書き・区切り線・強調）だけを空白にする。
+ */
 export function plainText(markdown: string): string {
   return markdown
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/!\[[^\]]*]\([^)]*\)/g, ' ')
     .replace(/\[([^\]]+)]\([^)]*\)/g, '$1')
-    .replace(/[#>*_`|~-]/g, ' ')
+    .replace(/[#>*`|~]/g, ' ')
+    .replace(/(?<![\p{L}\p{N}])[-_]+|[-_]+(?![\p{L}\p{N}])/gu, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/** 検索語を空白で区切り、すべてを含むときだけ一致（AND）。空の検索語は全件一致。 */
+export function matchesQuery(searchText: string, query: string): boolean {
+  const terms = query.trim().toLocaleLowerCase('ja').split(/\s+/).filter(Boolean);
+  return terms.every((t) => searchText.includes(t));
 }
 
 const stripExt = (rel: string) => rel.replace(/\.(md|json)$/, '');

@@ -112,7 +112,7 @@ export function adminUrlFor(fromFile: string, url: string, kind: 'link' | 'image
   if (target === '.' || target.startsWith('..')) return null; // リポジトリの外
 
   if (kind === 'image') {
-    return target.startsWith(`${DOCS_PREFIX}/`) ? `/media/docs/${target.slice(DOCS_PREFIX.length + 1)}` : undefined;
+    return target.startsWith('docs/') ? `/media/${target}` : undefined;
   }
 
   const root = ROOTS.find((r) => target === r.filePrefix || target.startsWith(`${r.filePrefix}/`));
@@ -127,8 +127,6 @@ export function adminUrlFor(fromFile: string, url: string, kind: 'link' | 'image
   if (root.id === 'content') return `/content/content~${slug}${hash}`;
   return `${root.routeBase}/${slug}${hash}`;
 }
-
-const DOCS_PREFIX = 'docs';
 
 /** filePrefix から DocumentSource を引く。/content の URL 解決用。 */
 export function sourceByPrefix(d: RootDescriptor, prefix: string): DocumentSource | null {
