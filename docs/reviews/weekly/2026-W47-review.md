@@ -307,6 +307,7 @@ Call log:
 - overall B2（DN-0343 が閉じた）・overall A1（DN-0932）・construction X2・T1（DN-0992）→ 振り分け: 定常（次の結びのカードは月次レビュー 2026-11 で決める。サブイシューの方針は運営者の判断）
 
 ## 課題・ブロッカー
+- 完了ゲート `check-weekly-review --week 2026-W47` は未完 1 件で終わった（2 回実行）。`check-backlog-verify` で `[検証:]` の 2 本（site-visual-review・quality:audit:ci）が exit 2 の検査不成立になった（0〜2 ms で停止。worktree で起動できない・ロック等の可能性があり原因は未確認）。このレビューは「完了」ではない
 
 1. 土曜の収集が全段 rc=0 に届かない。a8（検算で rawFile null・最後の ok 10/31）と gsc（実検査 0・最後の ok 11/14）が failed。11/21 の A8 と GSC の値は未取得（DN-1266・DN-1267・DN-0819）
 2. 今週の計画 8 件のうち DN-0500・0706・1089・0360 は完了記録なし。DN-0500 は 11/22 当日に要る
