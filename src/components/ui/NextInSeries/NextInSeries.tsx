@@ -1,7 +1,7 @@
 import type { DocMeta } from '@/lib/docs';
 import { resolveGroupSeriesNav, resolveSeriesNav, type SeriesGroupOf } from '@/lib/next-in-series';
 import { findYearSiblings } from '@/lib/exam-year-nav.mjs';
-import PrevNextNav from '@/components/ui/TextbookNav/PrevNextNav';
+import PrevNextNav from '@/components/ui/PrevNextNav/PrevNextNav';
 import { getCardImage } from '@/lib/site-thumbnail';
 
 /**

@@ -160,6 +160,7 @@
 ### 3.1 共通プリミティブ
 
 **部品の層（2026-11-17 アトミックデザインの棚卸しで統一）**: 同じ見た目・判定は 1 か所だけに書き、複製は検査が止める。
+層の向きは下から上だけ: `src/lib` は `src/components` を import しない（MDX の部品の登録表 `src/lib/component-loader` だけ例外）、汎用部品 `src/components/ui` は機能別のディレクトリ（`docs`・`laws`・`category`・`standards`・`home`・`search`・`topics`）を import しない。記事ページ専用の部品は `src/components/docs` に置く（`tests/layer-direction-ratchet.test.mjs`）。
 
 | 層 | 部品 | 再発止め |
 |---|---|---|
@@ -168,6 +169,7 @@
 | 生体 | 区画の `MetaCard`（`title`・`lead`・`eyebrow`・`titleAside`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages`、右の欄の入れ物 `RailStack`（§3.4） | `tests/section-card-ratchet.test.mjs`・`tests/rail-ratchet.test.mjs` |
 | テンプレート | `PageShell`・`PageHeader`・`TwoColumnShell`、ツールのページ `ToolPageShell` | — |
 | lib | 年度コード `src/lib/exam-year.mjs`、記事の種類のラベル `src/lib/doc-kind.ts` | `tests/dedupe-ratchet.test.mjs` |
+| lib（判定） | 過去問の年度×区分 `src/lib/exam-year-grid.ts`、設問番号 `src/lib/exam-question-number.ts`、総監の同じセクションのキーワード `src/lib/pe-section-keywords.ts`、パンくずの先頭の段 `src/lib/category-breadcrumb.ts`（2026-11-22 の点検で部品から移した） | — |
 
 商品の導線（note・アフィリエイト・ココナラ）の部品の統合は、A/B 実験 EXP-053 の判定の後に DN-0976 で行う（それまでラチェットの許可リストに理由つきで載せる）。
 

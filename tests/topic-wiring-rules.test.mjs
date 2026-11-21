@@ -167,7 +167,7 @@ test('実データ: テーマは軸と状態を持ち、主題タグはどれか
 });
 
 test('記事末の配線: 法令 → テーマ → 関連記事の順に、先に出した記事を後ろから外す', () => {
-  const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
+  const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.ok(footer.includes('<TopicHubLinks links={topicLinks} />'), '記事末に「この記事のテーマ」が無い');
   assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />'), '根拠法令のカードに同じ法令の記事・関わるテーマ・法令ページが渡っていない');
   assert.ok(footer.includes('exclude={shownSlugs}'), '関連記事が先のカードの記事を外していない');
@@ -224,7 +224,7 @@ test('法令ページ（/laws/）: 領域・カテゴリ・URL・ページのル
   assert.ok(read('src/lib/content-routes.ts').includes('path: `/laws/${localSlug}`'), '法令ページの URL が /laws/<id> になっていない');
   assert.ok(read('src/app/laws/[slug]/page.tsx').includes("route.area === 'laws'"), '法令ページのルートが無い');
   assert.ok(read('src/app/laws/page.tsx').includes('LawDirectory'), '/laws の一覧に法令と分野の対応が無い');
-  const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
+  const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.ok(footer.includes('{lawPage && <LawPageSections data={lawPage} />}'), '法令ページの末尾の自動の節が無い');
   assert.ok(footer.includes('pageLinks={lawPageLinks}'), '記事末の根拠法令から法令ページへつないでいない');
   assert.ok(read('scripts/build/generate-sitemap.mjs').includes("/^\\/laws\\/[^/]+$/"), 'サイトマップが法令ページの優先度を持たない');

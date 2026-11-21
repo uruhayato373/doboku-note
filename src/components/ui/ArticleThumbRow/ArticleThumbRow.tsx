@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
-import { RankMarker } from '@/components/ui/LinkRow/LinkRow';
+import RankMarker from '@/components/ui/RankMarker/RankMarker';
 import type { CardImage } from '@/lib/site-thumbnail';
 
 type Variant = 'card' | 'rail' | 'feed';

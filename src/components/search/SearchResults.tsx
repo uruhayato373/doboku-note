@@ -1,6 +1,6 @@
 "use client";
 
-import ArticleThumbRow from "@/components/ui/RelatedArticles/ArticleThumbRow";
+import ArticleThumbRow from "@/components/ui/ArticleThumbRow/ArticleThumbRow";
 import { getCategoryLabel } from "@/lib/categories";
 import { docKindLabelFromPath } from "@/lib/doc-kind";
 import { type SearchResult } from "@/lib/search/search-client";

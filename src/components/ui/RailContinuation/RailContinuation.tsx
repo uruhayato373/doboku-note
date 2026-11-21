@@ -1,6 +1,6 @@
 import type { RailGroup } from '@/lib/rail-continuation';
 import RailArticleList from '@/components/ui/RelatedArticles/RailArticleList';
-import { ArticleBanner } from '@/components/docs/ArticleAffiliateBanners';
+import { ArticleBanner } from '@/components/ui/ArticleAffiliateBanners/ArticleAffiliateBanners';
 import AdSlot from '@/components/ads/AdSlot';
 
 /**

@@ -2,7 +2,7 @@ import { articleSidebarPlan, type ArticleSidebarInput } from '@/lib/article-side
 import type { RailGroup } from '@/lib/article-sidebar-continuation';
 import RailStack, { type RailItem } from '@/components/ui/RailStack/RailStack';
 import type { RailKind } from '@/lib/rail-kinds.mjs';
-import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/docs/ArticleAffiliateBanners';
+import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/ui/ArticleAffiliateBanners/ArticleAffiliateBanners';
 import type { ResolvedPlacements } from '@/lib/affiliate-placement';
 import AuthorProfile from '@/components/ui/AuthorProfile/AuthorProfile';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';

@@ -1,4 +1,4 @@
-import ArticleThumbRow from "@/components/ui/RelatedArticles/ArticleThumbRow";
+import ArticleThumbRow from "@/components/ui/ArticleThumbRow/ArticleThumbRow";
 import { Hash } from "lucide-react";
 import Arrow from '@/components/ui/Arrow/Arrow';
 import Pill from '@/components/ui/Pill/Pill';

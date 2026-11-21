@@ -1,5 +1,5 @@
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import { getCardImage } from '@/lib/site-thumbnail';
 import { DEFAULT_OG_IMAGE } from '@/lib/metadata';

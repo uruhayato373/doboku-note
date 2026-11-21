@@ -1,6 +1,6 @@
 import Arrow from '@/components/ui/Arrow/Arrow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
 import { getCardImage } from '@/lib/site-thumbnail';

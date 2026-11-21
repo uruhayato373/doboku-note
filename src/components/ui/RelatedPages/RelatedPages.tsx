@@ -1,4 +1,4 @@
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { findDocByPublicPath } from '@/lib/content-routes';
 import { getCardImage } from '@/lib/site-thumbnail';

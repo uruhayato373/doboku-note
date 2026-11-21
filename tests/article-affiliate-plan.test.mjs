@@ -171,7 +171,7 @@ test('旧手書きカードは空HTML。末尾と本文は共通外枠、横長�
    import React from 'react';
    import {renderToStaticMarkup as render} from 'react-dom/server';
    import CareerAffiliate from './src/components/ui/CareerAffiliate/CareerAffiliate';
-   import {ArticleBanner} from './src/components/docs/ArticleAffiliateBanners';
+   import {ArticleBanner} from './src/components/ui/ArticleAffiliateBanners/ArticleAffiliateBanners';
    import {resolvePlacements} from './src/lib/affiliate-placement';
    const p=resolvePlacements({pageKind:'doc',category:'civil-practice'},${now});
    const senior=resolvePlacements({pageKind:'doc',category:'pe-comprehensive-management'},${now});

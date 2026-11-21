@@ -2,7 +2,7 @@ import { ButtonLink } from '@/components/ui/Button/Button';
 import Arrow from '@/components/ui/Arrow/Arrow';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import { getCategoryJumps } from './CategoryJumpNav';
+import { getCategoryJumps } from '@/lib/category-jumps';
 import { getRelatedTools } from '@/lib/tools';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { getPublicDocPath } from '@/lib/content-routes';

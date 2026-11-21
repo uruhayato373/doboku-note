@@ -11,7 +11,7 @@ import { SearchFilters } from "@/components/search/SearchFilters";
 import { SearchPagination } from "@/components/search/SearchPagination";
 import { SearchZeroState, type PopularLink } from "@/components/search/SearchZeroState";
 import { getAllCategories, type CategoryDef } from "@/lib/categories";
-import { type ExamData } from "@/components/home/ExamCards";
+import { type ExamData } from "@/lib/home-exam-cards";
 
 interface SearchPageClientProps {
   images: Record<string, CardImage>;

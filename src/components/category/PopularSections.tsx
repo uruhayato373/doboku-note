@@ -1,5 +1,6 @@
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import LinkRow, { LinkRowList, RankMarker } from '@/components/ui/LinkRow/LinkRow';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import RankMarker from '@/components/ui/RankMarker/RankMarker';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
 import { OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';

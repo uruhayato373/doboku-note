@@ -173,7 +173,7 @@ test('MDX コンポーネントは本体・loader 登録・使用の 3 点がそ
 });
 
 test('キャリア記事の記事末 affiliate が内部次行動へ置き換わっている', () => {
-  const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
+  const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.ok(footer.includes('const isCareer = isCareerDoc(meta)'), 'ArticleFooter が career を判定していない');
   // 2026-10-07 から記事末に出すかは配置ルール（config/affiliate-placements.json の article-end）が決める。
   // 記事末のルールは全部キャリア記事を除外していること。2026-10-21 に記事末を全部閉じた（DN-0779）ので、

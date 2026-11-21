@@ -1,7 +1,9 @@
-import LinkRow, { LinkRowList, RankMarker } from '@/components/ui/LinkRow/LinkRow';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import RankMarker from '@/components/ui/RankMarker/RankMarker';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 // バレル @/components/home を通すと LatestArticles 等まで client バンドルへ入る。実体を直接 import する。
-import { ExamCard, type ExamData } from "@/components/home/ExamCards";
+import { ExamCard } from "@/components/home/ExamCards";
+import type { ExamData } from "@/lib/home-exam-cards";
 import { type CategoryDef } from "@/lib/categories";
 import { getCategoryHubPath } from '@/lib/categories';
 
