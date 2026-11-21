@@ -1,15 +1,10 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-20T04:18:30.679Z",
+  "checkedAt": "2026-11-21T04:16:51.349Z",
   "channel": "youtube",
-  "targets": 78,
-  "checked": 78,
-  "observed": 78,
-  "advanced": [
-    "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform",
-    "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1",
-    "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
-    "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2"
-  ],
+  "targets": 82,
+  "checked": 82,
+  "observed": 82,
+  "advanced": [],
   "findings": []
 }
