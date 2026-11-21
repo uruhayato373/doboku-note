@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { CHEVRON_PATH } from '@/components/ui/DisclosureChevron';
 
 interface CardRailProps {
   /** レールに並べるカード群（各子要素が .card-rail > * のスナップ対象になる）。 */
@@ -9,7 +10,7 @@ interface CardRailProps {
   readonly ariaLabel?: string | undefined;
 }
 
-/** 矢印アイコン（細線シェブロン・path の真実源は DisclosureChevron.tsx）。 */
+/** 矢印アイコン（細線シェブロン・path は DisclosureChevron.tsx の CHEVRON_PATH）。 */
 function ArrowIcon({ mirrored = false }: { mirrored?: boolean }) {
   return (
     <svg
@@ -25,7 +26,7 @@ function ArrowIcon({ mirrored = false }: { mirrored?: boolean }) {
       // Tailwind の transform 系は本 build で信頼できないためインライン style で反転
       style={mirrored ? { transform: 'scaleX(-1)' } : undefined}
     >
-      <path d="M6 3.5 10.5 8 6 12.5" />
+      <path d={CHEVRON_PATH} />
     </svg>
   );
 }

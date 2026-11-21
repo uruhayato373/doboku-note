@@ -6,7 +6,7 @@ import { isCareerDoc } from './doc-classifier';
 import type { planArticleCtas } from './article-cta-plan';
 import { sidebarProduct } from './sidebar-discovery';
 import { categoryNavPlan } from './category-nav-plan';
-import { parseQuestionNo } from './exam-question-number';
+import { questionHeadings } from './exam-question-number';
 import { getRelatedTools } from './tools';
 import { railGroupCountFromFree } from './rail-continuation';
 
@@ -25,7 +25,7 @@ export function articleSidebarPlan(p: ArticleSidebarInput) {
  else if (p.category && current && sidebarProduct(p.category, current, p.content)) cards.push({ kind: 'product' });
  const cluster = ['pastExam','primary','secondary'].includes(p.docGroup) ? p.docGroup === 'primary' || p.hasCategoryNavCard || p.showPillarNav : true;
  if (cluster) {
-  if (p.docGroup === 'primary' && p.headings.some(h => parseQuestionNo(h.text) !== null)) cards.push({ kind: 'questions' });
+  if (p.docGroup === 'primary' && questionHeadings(p.headings).length > 0) cards.push({ kind: 'questions' });
   if (p.hasCategoryNavCard && p.category) categoryNavPlan({ variant: 'sidebar', category: p.category, currentSlug: p.slugStr, docGroup: p.docGroup, categoryArticles: p.categoryArticles }).forEach((_, index) => cards.push({ kind: 'category', index }));
   if (p.showPillarNav) cards.push({ kind: 'pillar' });
   if (p.category && p.docGroup !== 'career' && getRelatedTools(p.category, p.slugStr).length) cards.push({ kind: 'tools' });

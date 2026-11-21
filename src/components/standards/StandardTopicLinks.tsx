@@ -1,15 +1,13 @@
 import Link from 'next/link';
 import type { Topic } from '@/lib/topics';
 import { topicPath } from '@/lib/route-paths';
+import StandardAside from './StandardAside';
 
 export default function StandardTopicLinks({ topics }: { topics: Topic[] }) {
   if (topics.length === 0) return null;
 
   return (
-    <aside className="mt-8 border-y border-(--rule-soft) py-5" aria-labelledby="standard-related-topics">
-      <h2 id="standard-related-topics" className="text-lg font-bold text-(--ink)">
-        関連テーマ
-      </h2>
+    <StandardAside id="standard-related-topics" title="関連テーマ">
       <div className="mt-3 flex flex-wrap gap-2">
         {topics.map((topic) => (
           <Link
@@ -21,6 +19,6 @@ export default function StandardTopicLinks({ topics }: { topics: Topic[] }) {
           </Link>
         ))}
       </div>
-    </aside>
+    </StandardAside>
   );
 }

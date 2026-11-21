@@ -1,4 +1,4 @@
-import { parseQuestionNo } from '@/lib/exam-question-number';
+import { questionHeadings } from '@/lib/exam-question-number';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import type { TocHeading } from '@/lib/toc';
 
@@ -6,8 +6,6 @@ interface ExamQuestionNavProps {
   /** extractHeadings の結果。`## 問題 No.N` 見出しから設問グリッドを生成する。 */
   readonly headings: TocHeading[];
 }
-
-/** 見出しテキストから設問番号を取り出す。"問題 No.1" / "No.1" / "問1" / "第1問" 等に対応。 */
 
 /**
  * ExamQuestionNav — 過去問（primary/一次）ページの設問グリッドナビ。
@@ -17,9 +15,7 @@ interface ExamQuestionNavProps {
  * アンカー（generateHeadingId 由来の `#問題-noN`）へスクロールする。
  */
 export default function ExamQuestionNav({ headings }: ExamQuestionNavProps) {
-  const questions = headings
-    .map((h) => ({ no: parseQuestionNo(h.text), id: h.id }))
-    .filter((q): q is { no: number; id: string } => q.no !== null);
+  const questions = questionHeadings(headings);
 
   if (questions.length === 0) return null;
 

@@ -21,11 +21,11 @@ import {
   PeConstructionView,
 } from '@/components/category/CategoryViews';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
-import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
+import AuthorProfile from '@/components/ui/AuthorProfile/AuthorProfile';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { buildLearningCatalog } from '@/lib/learning-catalog';
-import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
+import { categoryBreadcrumbHead } from '@/lib/category-breadcrumb';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
@@ -131,7 +131,7 @@ export default async function CategoryPage({
           : [{ kind: 'nav' as const, node: <CategoryStudyNav category={slug} /> }]),
         { kind: 'note', node: slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" /> },
         { kind: 'note', node: hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" /> },
-        { kind: 'author', node: <AuthorSidebarCard /> },
+        { kind: 'author', node: <AuthorProfile variant="sidebar" /> },
         { kind: 'career', node: sidebarAd && (
           <ProgramSplitBanner
             alternate={sidebarAd.alternate}
@@ -161,9 +161,8 @@ export default async function CategoryPage({
               <Breadcrumb
                 className="mb-2"
                 items={[
-                  { label: 'ホーム', href: '/' },
-                  // 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219）
-                  ...(getCategoryArea(slug) === 'exam' ? [{ label: getAreaLabel('exam'), href: getAreaHubPath('exam') }] : []),
+                  // 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は 2 段（src/lib/category-breadcrumb.ts）
+                  ...categoryBreadcrumbHead(slug),
                   { label: cat.label },
                 ]}
               />
