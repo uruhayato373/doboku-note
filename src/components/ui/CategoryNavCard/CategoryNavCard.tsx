@@ -12,7 +12,7 @@ import { DiscoveryNav } from '@/components/ui/SidebarDiscovery';
 import type { DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { resolveNavTitle } from '@/lib/doc-title';
-import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
+import { buildPastExamNavData } from '@/lib/past-exam-nav';
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
