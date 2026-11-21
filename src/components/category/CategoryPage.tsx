@@ -13,8 +13,7 @@ import { getPopularDocs } from '@/lib/popular';
 import { categorySidebarContinuation } from '@/lib/category-sidebar-continuation';
 import RailStack from '@/components/ui/RailStack/RailStack';
 import {
-  CivilConstruction1View,
-  CivilConstruction2View,
+  CivilConstructionView,
   ConcreteView,
   PracticeView,
   PeFirstStageView,
@@ -203,9 +202,9 @@ export default async function CategoryPage({
           ) : groups ? (
             <div className="space-y-16">
               {view === 'civil-1' ? (
-                <CivilConstruction1View groups={groups} mobileCareerAds={viewCareerAds} />
+                <CivilConstructionView category="civil-construction-1" groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'civil-2' ? (
-                <CivilConstruction2View groups={groups} mobileCareerAds={viewCareerAds} />
+                <CivilConstructionView category="civil-construction-2" groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'pe-first-stage' ? (
                 <PeFirstStageView groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'pe-comprehensive' ? (

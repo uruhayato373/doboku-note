@@ -3,7 +3,7 @@ import { classifyDoc, type DocGroupKey } from './doc-classifier';
 import { DISCOVERY_CATEGORIES, discoveryGroups } from './sidebar-discovery';
 import { resolveCurriculum } from './category-curriculum';
 import { isCivilConstructionCategory } from './qualification-names';
-import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
+import { buildPastExamNavData } from './past-exam-nav';
 import peChapters from '@/config/pe-chapters.json';
 import { peKeywordPageExists } from './pe-keyword-nav';
 export interface CategoryNavCardProps {
