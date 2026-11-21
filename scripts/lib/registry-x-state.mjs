@@ -1,6 +1,7 @@
 /**
  * registry-x-state.mjs — X の下書きフォルダ（content/sns/x/{draft,published}/**）の投稿を、コンテンツ台帳の作品・公開の行に変換する
- * （DN-0612・content-registry.md「X」）。書き込みはしない（npm run registry -- import-x が書く）。
+ * （DN-0612・content-registry.md「X」）。書き込みはしない。
+ * 全フォルダを作り直す xRows は旧い取り込み（2026-11-21 まで）。今の取り込みは registry-x-ops.mjs の xFolderRows（1 フォルダ・新しい行だけ）。
  *
  * - 作品 = 下書きフォルダ。ID は先頭の NNN- を外し、日付（-2026）を外し、末尾の「-数字」は前の語にくっつける（規則に合う形を機械で付ける）。
  *   日本語だけで ASCII が残らないフォルダは x{NNN}-{残り}。元のフォルダ名は legacyKey（作品）に残す。

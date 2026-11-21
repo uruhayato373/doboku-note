@@ -252,6 +252,30 @@
       }
     },
     {
+      "id": "pe-merit-series",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/114-pe-merit-series",
+      "legacyKey": "114-pe-merit-series"
+    },
+    {
+      "id": "pe-oral-coconala-w2-nov",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/120-pe-oral-coconala-w2-2026-11",
+      "legacyKey": "120-pe-oral-coconala-w2-2026-11"
+    },
+    {
+      "id": "pe-oral-rest-nov",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/118-pe-oral-rest-2026-11",
+      "legacyKey": "118-pe-oral-rest-2026-11"
+    },
+    {
+      "id": "pe-oral-w1-nov",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/117-pe-oral-w1-2026-11",
+      "legacyKey": "117-pe-oral-w1-2026-11"
+    },
+    {
       "id": "pe-river-coast-shutsudai-yomikata",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata",

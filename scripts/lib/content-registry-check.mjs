@@ -206,7 +206,9 @@ export function checkRegistry(root, opts = {}) {
       if (now !== p.approval.contentSha256) {
         const published = p.status === 'published';
         const privateWithoutSchedule = p.channel === 'youtube' && p.status === 'uploaded_private' && !p.publishAt;
-        issues.push(issue(privateWithoutSchedule ? 'INFO' : published ? 'WARN' : 'FAIL', 'R07', p.id,
+        // X は文面を直すたびにこの検査（YouTube の公開ワークフローでも走る）を止めない。止める役は publish-x の承認の関門（DN-0612 P7）
+        const xChannel = p.channel === 'x';
+        issues.push(issue(privateWithoutSchedule ? 'INFO' : (published || xChannel) ? 'WARN' : 'FAIL', 'R07', p.id,
           privateWithoutSchedule ? '予約なしの非公開。旧承認は現在の中身に一致しないため、再予約前に承認し直す' :
             published ? '承認した中身から変わった（要同期）' : '承認した後に中身（文面・素材・予定）が変わった。承認し直す'));
       }
