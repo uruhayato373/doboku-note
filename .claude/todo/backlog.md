@@ -531,14 +531,6 @@
 **完了条件**: 公開中の記事の売上が unknown で記録されないことをテストで確かめる。次の土曜の収集で sales.json に article:unknown- が増えない。
 
 
-### [DN-1261] X の月次計画の slot 欄が check-x-campaign-plan（A/B/C）と channel-plan-audit（12/1 以降は枠 id）で食い違う
-タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-21] [期日:2026-11-30]
-
-**起点**: 2026-11-21、DN-1194 の調査で見つけた。`scripts/checks/check-x-campaign-plan.mjs` は月次計画（content/sns/x/campaigns/*.json・schemaVersion 2）の各投稿の `slot` が A/B/C でないとエラーにする。一方 `scripts/lib/channel-plan-audit.mjs`（check-channel-plan と x-schedule-guard が使う）は 12/1 以降の投稿の `slot` を年間計画（config/channel-annual-plan.json）の枠 id として照合し、結ばれていない予約を BLOCK する。同じ欄に両方は書けないので、12 月の計画（総監・建設部門の口頭試験の枠）を書くとどちらかが落ちる（実際に書いて確かめてはいない）。
-
-**やること**: 時間帯（A/B/C）と年間の枠 id を別の欄に分ける（例: `slot` は時間帯のまま、枠は `plan` 欄）か、どちらかの読み方をそろえる。両方の検査とテストを直し、既存の 11 月の計画が通ることを確かめる。
-
-**完了条件**: 12 月の計画の雛形（口頭試験の枠に結んだ投稿 1 本）で `npm run check-x-campaign-plan`・`npm run check-channel-plan`・`npm run x-schedule-guard` がすべて通る。
 
 
 ### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
@@ -798,16 +790,6 @@
 **完了条件**: `tests/weekly-collect-plan.test.mjs` か新しいテストで、2 段のうち 1 段の記録だけが検査で落ちる状況を作り、もう 1 段の記録は commit され、落ちた段は failed と理由が残ることを確かめる。
 
 
-### [DN-1194] 日時未定の X の下書き 11 件（71 本）に、X の月次計画で日時を付けるか見送るかを決める
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-14]
-
-**起点**: 週次レビュー（2026-11-09〜2026-11-15）。`npm run -s x-queue-surfacer` が判定不能 11 件・71 本を出した（096-civil1-pressure-correction・097-civil1-diagram-reuse・098〜103・108・109・114）。見出しの書式の誤りではなく、日時を書いていないストックの下書き（例: 114 は「日時未定」、098 は Tweet 01〜19 に日付なし）。X は 11/12 に再開し、12/1 から月次計画（`content/sns/x/campaigns`）の枠で投稿を決める（`config/channel-annual-plan.json` の x.enforceFrom）。期間を過ぎた 095（技術士一次・21 本）は 2026-11-15 に運営者の判断で全部見送った（status.json に cancelled）。
-
-**やること**:
-1. 11 件を 12 月以降の X の月次計画に載せる候補として仕分ける（載せる分は campaigns の枠と slot を書いて日時を入れる。使わない分は status.json に cancelled を書く）。
-2. 日時を書かないストックを surfacer が「判定不能（要対応）」と出さないよう、ストックであることを下書きに書く形を決めて surfacer に読ませる（いまは 1 件も日付が読めないと undated＝要対応に入る）。
-
-**完了条件**: `npm run -s x-queue-surfacer` の判定不能が 0 件で、11 件それぞれが月次計画に載るか cancelled になっている。
 
 
 
@@ -2330,6 +2312,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 1. 固定投稿3件とXの `status.json`・`posted.json` を読む残りのコード（`rg "status\.json|posted\.json" scripts tools`）を台帳の入口へ差し替え、写しを削除する。`information-architecture.json` の denyPatterns と RESTRUCTURED_PATHS で復活を止める
 2. Drive の旧日付フォルダは参照 0 を `rg` で確かめ、運営者の了承を得てからマウント上でゴミ箱へ移す
 **完了条件**: `find content/sns -name status.json -o -name posted.json` が 0 件。check-information-architecture・check-content-registry・test が緑。Drive に日付フォルダの採用カバーが残らない。
+
+**進み（2026-11-21・DN-0612 P7）**: X の分は済んだ。下書きの `status.json` は全部消え（PR #1695・#1697）、読み手は台帳の入口（`loadXPosts`）へ切り替わった。残りは Instagram の固定投稿 3 件の `status.json`（`content/sns/instagram/profile-pinned/{pe-first-stage-route,start-guide,concrete-route}/`）と、Drive の旧日付フォルダの採用表紙。
 
 ### [DN-0628] iOS 択一アプリ（土木施工管理技士 1級＋2級と、技術士アプリへの総監追加）を App Store で公開する
 タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
