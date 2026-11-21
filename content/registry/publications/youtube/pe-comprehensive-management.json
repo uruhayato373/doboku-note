@@ -840,7 +840,7 @@
       "work": "hakusho-tsunagu-jitsuen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-001",
@@ -875,7 +875,42 @@
         "contentSha256": "fc92c4ab9c60304cdea0c1b8957aae95e105c41c600b8e68985f22bed1790f62"
       },
       "times": {
-        "rendered": "2026-11-21T12:56:05.530Z"
+        "rendered": "2026-11-21T12:56:05.530Z",
+        "uploaded": "2026-11-21T12:59:52.416Z",
+        "scheduled": "2026-11-21T13:00:01.398Z"
+      },
+      "delivery": {
+        "inputSha256": "f98cdac8916df3e7fc25f7bef8cb7516608ac3dc3c9b2d1b6a41b54ecd33686b",
+        "marker": "dn-single-7447d53493f3d92db794cb59b44d7fdae06fe7b3",
+        "uploadRequestedAt": "2026-11-21T12:59:09.723Z",
+        "videoId": "v4uJmsMI4Zk",
+        "processedAt": "2026-11-21T12:59:51.623Z",
+        "thumbnailRequestedAt": "2026-11-21T12:59:52.460Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/default.jpg?sqp=CKSphtgG&rs=AOn4CLA847UqdhpS4MiQhUYMVftiXwy-2g",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/mqdefault.jpg?sqp=CKSphtgG&rs=AOn4CLDN4GipLEYoOHtwSfohOrK6jgRNHA",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/hqdefault.jpg?sqp=CKSphtgG&rs=AOn4CLCLKpU61d5o38wda7VFhxRRDrrJHA",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/sddefault.jpg?sqp=CKSphtgG&rs=AOn4CLBJJ_LPEgDkyW_4TLHzB560kTya3A",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/maxresdefault.jpg?sqp=CKSphtgG&rs=AOn4CLDSkENWsN2-g4Sa23JoW6gY-OUz3w",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/fhddefault.jpg?sqp=CKSphtgG&rs=AOn4CLBvZGlp9W3izSQiAakBkUa-W7P0MA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-21T12:59:56.574Z",
+        "scheduleRequestedAt": "2026-11-21T12:59:57.765Z",
+        "scheduleAt": "2026-12-03T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-21T13:00:01.398Z"
+      },
+      "platform": {
+        "id": "v4uJmsMI4Zk",
+        "url": "https://www.youtube.com/watch?v=v4uJmsMI4Zk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-21T12:59:56.574Z"
       }
     },
     {
