@@ -90041,6 +90041,18 @@
       "regenerable": true,
       "group": "kindle-dist",
       "verifiedAt": "2026-11-20T00:01:48.405Z"
+    },
+    "content/note/管工事/R8予想-1級第二次/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/管工事/R8予想-1級第二次/img/cover.png",
+      "sha256": "d31487b5150d8dfb90f62cb4230837ba7555402112f20e951f4e38aa640d8b09",
+      "bytes": 426253,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-11-21T03:34:43.609Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

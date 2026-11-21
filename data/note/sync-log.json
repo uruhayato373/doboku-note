@@ -1,6 +1,525 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-21T02:05:29.977Z",
+      "finishedAt": "2026-11-21T03:34:43.704Z",
+      "plan": {
+        "synced": 564,
+        "ready": 503,
+        "blocked": 11,
+        "blockers": {
+          "aborted": 10,
+          "boundary": 1
+        }
+      },
+      "articles": {
+        "selected": 80,
+        "attempted": 80,
+        "updated": [
+          {
+            "path": "content/note/管工事/R8予想-1級第二次/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/管工事/施工記述-機器別模範解答バンク/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R03/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R04/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R05/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R06/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-14T08:26:12.129Z",
       "finishedAt": "2026-11-14T10:18:21.507Z",
       "plan": {
@@ -5423,37 +5942,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:25:08.159Z",
-      "finishedAt": "2026-11-03T09:26:05.072Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/転職相談の前に緊急度を確かめる-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/転職相談の前に緊急度を確かめる-無料/article.md",
             "parts": [
               "body"
             ]

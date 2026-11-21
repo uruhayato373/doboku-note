@@ -1,11 +1,6 @@
 {
   "aborted": [
     {
-      "noteId": "na4eeb78b55b0",
-      "reason": "attachment-daily-limit",
-      "at": "2026-10-17T19:36:12"
-    },
-    {
       "noteId": "nd88d5ec77f2d",
       "reason": "更新フローが false を返した（保存せず中断）",
       "at": "2026-10-24T07:59:28"
