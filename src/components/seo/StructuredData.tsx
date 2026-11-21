@@ -4,7 +4,7 @@ import { inlinePlainText } from "@/lib/inline-links";
 import { AUTHOR } from "@/config/author";
 import { CONTACT_EMAIL, SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryBySlug, getCategoryHubPath, getCategoryLabel } from '@/lib/categories';
-import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
+import { categoryBreadcrumbHead } from '@/lib/category-breadcrumb';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import { qualificationLabel } from "@/lib/qualification-names";
@@ -31,23 +31,13 @@ function generateBreadcrumbSchema(
 ) {
   const category = meta.category;
 
-  const items: object[] = [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "ホーム",
-      item: baseUrl,
-    },
-  ];
-
-  if (category && getCategoryArea(category) === "exam") {
-    items.push({
-      "@type": "ListItem",
-      position: items.length + 1,
-      name: getAreaLabel("exam"),
-      item: `${baseUrl}${getAreaHubPath("exam")}`,
-    });
-  }
+  // 先頭の段（ホームと、資格試験なら領域の入口）は記事の見出しのパンくずと同じ規則（src/lib/category-breadcrumb.ts）
+  const items: object[] = categoryBreadcrumbHead(category).map((crumb, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: crumb.label,
+    item: crumb.href === "/" ? baseUrl : `${baseUrl}${crumb.href}`,
+  }));
 
   if (category) {
     items.push({

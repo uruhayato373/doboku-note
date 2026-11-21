@@ -4,7 +4,7 @@ import RailStack, { type RailItem } from '@/components/ui/RailStack/RailStack';
 import type { RailKind } from '@/lib/rail-kinds.mjs';
 import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/docs/ArticleAffiliateBanners';
 import type { ResolvedPlacements } from '@/lib/affiliate-placement';
-import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
+import AuthorProfile from '@/components/ui/AuthorProfile/AuthorProfile';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import { categoryNavCards, categoryNavKinds } from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -32,7 +32,7 @@ export function buildArticleSidebarCards({
   const categoryKinds = category ? categoryNavKinds({ variant: 'sidebar', category, currentSlug: slugStr, docGroup, categoryArticles }) : [];
   return articleSidebarPlan(p).map((card): RailItem => {
     switch (card.kind) {
-      case 'author': return { kind: 'author', node: <AuthorSidebarCard /> };
+      case 'author': return { kind: 'author', node: <AuthorProfile variant="sidebar" /> };
       case 'hub': return { kind: 'note', node: <HubCtaBanner cta={sidebarMokuji!} placement="article-sidebar" /> };
       case 'product': return { kind: 'note', node: <SidebarProduct category={category!} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} /> };
       case 'questions': return { kind: 'questions', node: <ExamQuestionNav headings={headings} /> };

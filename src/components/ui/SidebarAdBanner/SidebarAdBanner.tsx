@@ -1,4 +1,4 @@
-import { AffiliatePrBadge, AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL } from "@/components/ui/AffiliateParts";
+import { AffiliatePrBadge, AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, TrackingPixel } from "@/components/ui/AffiliateParts";
 import { programAssetForHref } from "@/config/affiliate-creatives";
 import CareerAffiliateExperiment from "@/components/ui/CareerAffiliate/CareerAffiliateExperiment";
 
@@ -78,17 +78,7 @@ export default function SidebarAdBanner({
           />
         </a>
       </div>
-      {pixelSrc && (
-        <img
-          src={pixelSrc}
-          width={1}
-          height={1}
-          alt=""
-          aria-hidden
-          style={{ position: "absolute", left: "-9999px" }}
-          suppressHydrationWarning
-        />
-      )}
+      <TrackingPixel src={pixelSrc} />
     </div>
   );
 }

@@ -13,7 +13,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb/Breadcrumb';
 import { generateHeadingId } from '@/lib/toc';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { getCategoryHubPath } from '@/lib/categories';
-import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
+import { categoryBreadcrumbHead } from '@/lib/category-breadcrumb';
 
 interface ArticleHeaderProps {
   title: string;
@@ -44,12 +44,11 @@ export default function ArticleHeader({
   return (
     <header>
       {category && categoryLabel && (
-        // ホーム › 資格試験 › 資格 › 記事型（構造化データの BreadcrumbList と同じ段・DN-1219）。実務・法令は資格ページが領域の入口を兼ねる
+        // ホーム › 資格試験 › 資格 › 記事型（先頭の段の規則は src/lib/category-breadcrumb.ts・構造化データと共用）
         <Breadcrumb
           className="mb-6"
           items={[
-            { label: 'ホーム', href: '/' },
-            ...(getCategoryArea(category) === 'exam' ? [{ label: getAreaLabel('exam'), href: getAreaHubPath('exam') }] : []),
+            ...categoryBreadcrumbHead(category),
             { label: categoryLabel, href: getCategoryHubPath(category) },
             ...(groupLabel ? [{ label: groupLabel, href: groupHref ?? undefined }] : []),
           ]}
