@@ -69,6 +69,11 @@ test('R03: 予約以上の公開を消す・改名するのを止める（改名
   const oldIg = { ...old, id: 'civil-construction-2/keiken-daizai-erabi/instagram.carousel', channel: 'instagram', format: 'carousel', account: 'instagram:main' };
   assert.ok(!codes(r([pub()], [{ ...oldIg, status: 'stopped', stopReason: 'gone' }])).includes('R03'));
   assert.ok(codes(r([pub()], [oldIg])).includes('R03'));
+  // X も止めた行は台帳から撤去できる。予約中・投稿済みは消せない
+  const oldX = { ...old, id: 'civil-construction-2/keiken-daizai-erabi/x.post.t01', channel: 'x', format: 'post', variant: 't01', account: 'x:main' };
+  assert.ok(!codes(r([pub()], [{ ...oldX, status: 'stopped', stopReason: 'unverified-legacy' }])).includes('R03'));
+  assert.ok(codes(r([pub()], [oldX])).includes('R03'));
+  assert.ok(codes(r([pub()], [{ ...oldX, status: 'published' }])).includes('R03'));
 });
 
 test('R04: 公開の作品・素材の参照が無ければ止める', () => {
@@ -78,6 +83,15 @@ test('R04: 公開の作品・素材の参照が無ければ止める', () => {
   const retiredPub = pub({ id: 'civil-construction-2/retired-short/youtube.short', work: 'retired-short', format: 'short', status: 'stopped', stopReason: 'gone' });
   assert.ok(!codes(run({ works: [retiredWork], publications: [retiredPub] })).includes('R04'));
   assert.ok(codes(run({ works: [retiredWork], publications: [{ ...retiredPub, status: 'scheduled' }] })).includes('R04'));
+  // 下書きを消した X の作品は、投稿済みで文面の場所（copy）を持たない行だけなら定義フォルダが無くてよい
+  const xWork = work({ id: 'removed-thread', kind: 'x-thread', definition: 'content/sns/x/draft/removed-thread' });
+  const xPub = { id: 'civil-construction-2/removed-thread/x.post.t01', work: 'removed-thread', account: 'x:main', format: 'post', variant: 't01', status: 'published', exam: 'civil-construction-2', channel: 'x', file: 'p.json',
+    approval: { by: 'user', contentSha256: null, grandfathered: true }, platform: { id: '1', url: 'https://x.com/a/status/1', privacy: 'public', evidence: { kind: 'own-posts', ref: 'x' } } };
+  const r04 = (publications) => run({ works: [xWork], publications, c: cfg }).issues.filter((i) => i.code === 'R04' && i.severity === 'FAIL' && i.id === 'removed-thread');
+  assert.equal(r04([xPub]).length, 0);
+  assert.equal(r04([{ ...xPub, copy: 'content/sns/x/draft/removed-thread/tweets.md#tweet/1' }]).length, 1);
+  assert.equal(r04([xPub, { ...xPub, id: 'civil-construction-2/removed-thread/x.post.t02', variant: 't02', status: 'draft', approval: undefined, platform: undefined }]).length, 1);
+  assert.equal(r04([]).length, 1);
 });
 
 test('R06: 置き場の名前の sha8 が違えば止め、Drive 台帳に無ければ WARN', () => {

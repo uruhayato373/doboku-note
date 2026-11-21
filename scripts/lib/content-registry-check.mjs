@@ -114,8 +114,8 @@ export function checkRegistry(root, opts = {}) {
     if (before === null) issues.push(issue('INFO', 'R03', null, `base ${opts.base} を読めない（削除と遷移を比較していない）`));
     else {
       for (const old of before) {
-        // Instagram は削除済みの旧公開をアクティブ台帳から撤去する。予約中は引き続き保護する。
-        if (old.channel === 'instagram' && old.status === 'stopped') continue;
+        // Instagram・X は止めた旧公開をアクティブ台帳から撤去する。予約中・投稿済みは引き続き保護する。
+        if (['instagram', 'x'].includes(old.channel) && old.status === 'stopped') continue;
         const rank = cfg.status.values.indexOf(old.status);
         if (rank < cfg.status.values.indexOf('scheduled') || old.status === 'failed') continue;
         if (!pubById.has(old.id) && !reg.publications.some((p) => p.renamedTo === old.id)) {
@@ -141,7 +141,9 @@ export function checkRegistry(root, opts = {}) {
   for (const w of reg.works) {
     const linked = reg.publications.filter((p) => p.exam === w.exam && p.work === w.id);
     const retiredShort = w.kind === 'legacy-short' && linked.length > 0 && linked.every((p) => p.status === 'stopped');
-    if (!retiredShort && !existsSync(join(root, w.definition))) issues.push(issue('FAIL', 'R04', w.id, `作品の定義フォルダが無い: ${w.definition}`));
+    // 下書きフォルダを消した X の作品は、投稿した事実（ID・URL・日付）だけを残す。文面の場所（copy）を持つ行があれば定義フォルダが要る
+    const retiredXThread = w.kind === 'x-thread' && linked.length > 0 && linked.every((p) => p.status === 'published' && !p.copy);
+    if (!retiredShort && !retiredXThread && !existsSync(join(root, w.definition))) issues.push(issue('FAIL', 'R04', w.id, `作品の定義フォルダが無い: ${w.definition}`));
   }
   for (const p of reg.publications) {
     const w = workById.get(p.work);

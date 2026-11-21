@@ -16,7 +16,7 @@
  *   npm run registry -- import-x --folder <下書きフォルダ> [--exam <資格>] [--slot <年間の枠>] [--commit]  # X の 1 フォルダの、台帳に無い投稿の行だけを draft で足す
  *   npm run registry -- approve-x-plan --plan <月次計画> [--expect <digest>]  # X の月次計画の投稿をまとめて承認（--expect は運営者だけ・なしは一覧と digest）
  *   npm run registry -- reconcile-x [--commit]            # 予約の日時を過ぎた X の行を自分の投稿の一覧（data/x/own-posts）と照合して published に
- *   npm run registry -- migrate-x [--commit]              # 一回きり: 残す下書きの状態を status.json から台帳へ移す（DN-0612 P7）
+ *   npm run registry -- retire-x [--commit]               # 下書きフォルダを消した X の作品の行を片付ける（止めた行・下書きを消す。投稿済みは文面の場所を外して残す）
  *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--copy <同作品内のJSON#fragment>] [--refresh-draft] [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
  *   npm run registry -- record-youtube-revision-qa --pub <改訂公開ID> --avg <0〜3> --blocks <件数> [--commit]
  *   npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload|schedule|verify [--commit --expect <digest>] # 既定はローカル検査のみ
@@ -44,12 +44,12 @@
  *
  * npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload — 個別改訂版。upload/schedule/verify、既定は外部通信なし。--commit --expect <digest>でのみ実行。結果不明は再送せずverify、承認・日時・Shorts関連先条件と停止後の扱いはcontent-registry.md参照。制作担当が実行前に結果を読む
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { loadRegistry, loadRegistryConfig, publicationStage, resolveCopy } from '../lib/content-registry.mjs';
-import { upsertMedia, upsertPublications, upsertWorks } from '../lib/content-registry-write.mjs';
+import { removePublications, removeWorks, upsertMedia, upsertPublications, upsertWorks } from '../lib/content-registry-write.mjs';
 import { applyVideoRows, loadVideoState, planVideoRows, videoPackRows } from '../lib/registry-video-state.mjs';
 import { discoverVideoPacks } from '../lib/content-registry-check.mjs';
 import { readLatest } from '../lib/dataset-io.mjs';
@@ -573,18 +573,23 @@ async function approveXPlan() {
   console.log(`承認した: ${r.toWrite.length} 本（計画 ${r.plan}）`);
 }
 
-/** 一回きり: 残す下書きの状態を status.json から台帳へ移す（DN-0612 P7・古い下書きを消す PR で消す） */
-async function migrateX() {
-  const { planXMigration } = await import('../lib/registry-x-migrate.mjs');
+/** 下書きフォルダを消した X の作品の、台帳の行を片付ける（止めた行・下書きを消し、投稿済みは文面の場所を外して残す） */
+async function retireX() {
+  const { xRetirePlan } = await import('../lib/registry-x-ops.mjs');
   const reg = loadRegistry(ROOT);
-  const { works, publications, report } = planXMigration(ROOT, { reg });
-  console.log(`残す下書き ${report.folders} 個・本文の一致 ${report.textChecked} 本（全部一致）`);
-  console.log(`  作る作品 ${works.length}・作る公開 ${Object.entries(report.created).map(([k, v]) => `${k} ${v}`).join(' / ') || '0'}`);
-  console.log(`  既にある行: 文面の場所を tweets.md へ ${report.copyMoved}・訂正の記録 ${report.correction}`);
+  const r = xRetirePlan(reg, (definition) => existsSync(join(ROOT, definition)));
+  console.log(`下書きフォルダの無い X の作品 ${r.works} 件 → 消す公開 ${r.removePublications.length}・文面の場所を外す投稿済み ${r.strip.length}・消す作品 ${r.removeWorks.length}・片付けられない ${r.blockers.length}`);
+  for (const b of r.blockers) console.log(`  ✗ ${b}`);
+  if (r.blockers.length) throw new Error('予約に入れた行・これからの承認済みが残っている（先に reconcile-x で照合するか、運営者が stop で止める）');
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
-  const group = (rows) => rows.reduce((m, { exam, row }) => m.set(exam, [...(m.get(exam) ?? []), row]), new Map());
-  for (const [exam, ws] of group(works)) upsertWorks(ROOT, exam, ws);
-  for (const [exam, ps] of group(publications)) upsertPublications(ROOT, 'x', exam, ps);
+  const group = (rows, pick) => rows.reduce((m, x) => m.set(x.exam, [...(m.get(x.exam) ?? []), pick(x)]), new Map());
+  for (const [exam, rows] of group(r.strip, (x) => x.row)) {
+    // upsert は欄を足す向きにしか働かないので、行ごと消してから copy の無い行を書く
+    removePublications(ROOT, 'x', exam, rows.map((row) => row.id));
+    upsertPublications(ROOT, 'x', exam, rows);
+  }
+  for (const [exam, ids] of group(r.removePublications, (x) => x.id)) removePublications(ROOT, 'x', exam, ids);
+  for (const [exam, ids] of group(r.removeWorks, (x) => x.id)) removeWorks(ROOT, exam, ids);
   console.log('書いた');
 }
 
@@ -675,9 +680,9 @@ async function replaceYoutubeCover() {
   console.log(JSON.stringify(await applyCoverReplace(ROOT, plan, google.youtube({ version: 'v3', auth, retry: false })), null, 2));
 }
 
-const commands = { 'replace-youtube-cover': replaceYoutubeCover, list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'reconcile-x': reconcileX, 'approve-x-plan': approveXPlan, 'migrate-x': migrateX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'auto-approve-short': autoApproveShort, 'reanchor-render': reanchorRender, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
+const commands = { 'replace-youtube-cover': replaceYoutubeCover, list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'reconcile-x': reconcileX, 'approve-x-plan': approveXPlan, 'retire-x': retireX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'auto-approve-short': autoApproveShort, 'reanchor-render': reanchorRender, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|reconcile-x|approve-x-plan|migrate-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule|prepare-short|auto-approve-short|reanchor-render|record-related|stage-youtube …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|reconcile-x|approve-x-plan|retire-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule|prepare-short|auto-approve-short|reanchor-render|record-related|stage-youtube …');
   process.exit(2);
 }
 await commands[command]();
