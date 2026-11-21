@@ -3,7 +3,8 @@ import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 import { defaultSchema, type Schema } from 'hast-util-sanitize';
 import { visit } from 'unist-util-visit';
-import type { Root, RootContent, Blockquote, Paragraph, Text, Table } from 'mdast';
+import type { Root, RootContent, Blockquote, Paragraph, Text, Table, Link, Image } from 'mdast';
+import { adminUrlFor } from './document-roots';
 
 /**
  * markdown.ts — admin 内で .md を HTML にする**唯一のパイプライン**。
@@ -150,6 +151,29 @@ function tableWrapPlugin() {
 }
 
 /**
+ * 本文の相対リンク・画像を管理画面の URL へ書き換える（宛先の判定は document-roots.ts の adminUrlFor だけ）。
+ * `[x](./02_xx.md)` をそのまま描くと `/docs/strategy/02_xx.md` へ飛んで 404 になる。
+ * 管理画面で開けない宛先（config/*.json・.mdx・ディレクトリなど）はリンクを外して文字だけ残す。
+ */
+function repoLinkPlugin(options: { file: string }) {
+  return (tree: Root) => {
+    visit(tree, ['link', 'image'], (node, index, parent) => {
+      const n = node as Link | Image;
+      const next = adminUrlFor(options.file, n.url, n.type === 'image' ? 'image' : 'link');
+      if (next === undefined) return;
+      if (next !== null) {
+        n.url = next;
+        return;
+      }
+      if (n.type === 'link' && parent && typeof index === 'number') {
+        (parent.children as RootContent[]).splice(index, 1, ...(n.children as RootContent[]));
+        return index;
+      }
+    });
+  };
+}
+
+/**
  * defaultSchema（GitHub 相当）に、callout / table-wrap の div だけを狭く追加した sanitize schema。
  * `div` 以外のタグ・`class`/`data-callout` 以外の属性は一切広げない。
  */
@@ -179,8 +203,10 @@ const sanitizeSchema: Schema = {
   },
 };
 
-const processor = () =>
-  remark().use(remarkGfm).use(calloutPlugin).use(tableWrapPlugin).use(remarkHtml, { sanitize: sanitizeSchema });
+const processor = (file?: string) => {
+  const base = remark().use(remarkGfm).use(calloutPlugin).use(tableWrapPlugin);
+  return (file ? base.use(repoLinkPlugin, { file }) : base).use(remarkHtml, { sanitize: sanitizeSchema });
+};
 
 /** HTML だけが要る呼び出し側（TODO カード本文など）向け。 */
 export function renderMarkdown(markdown: string): string {
@@ -188,17 +214,17 @@ export function renderMarkdown(markdown: string): string {
 }
 
 /**
- * HTML と見出し目次を同時に返す。
+ * HTML と見出し目次を同時に返す。`file`（リポジトリ相対の文書パス）を渡すと本文の相対リンク・画像を書き換える。
  *
  * sanitize が属性を落とすため id は AST では埋め込めない。代わりに **collectHeadings が
  * 返した順序**で出力 HTML の `<h2>`/`<h3>` に順番に id を差し込む（抽出元は AST 1 つ）。
  * 見出し抽出は callout/table 変換より前の生の parse 結果から行う（見出しノードの形は
  * どちらの変換にも影響されないため、二重変換を避けて素の tree から拾う）。
  */
-export function renderDocument(markdown: string): { html: string; headings: DocumentHeading[] } {
+export function renderDocument(markdown: string, file?: string): { html: string; headings: DocumentHeading[] } {
   const tree = remark().use(remarkGfm).parse(markdown) as Root;
   const headings = collectHeadings(tree);
-  let html = String(processor().processSync(markdown));
+  let html = String(processor(file).processSync(markdown));
 
   let i = 0;
   html = html.replace(/<(h2|h3)>/g, (match, tag: string) => {

@@ -5,10 +5,10 @@ import { repoPath } from '@/lib/repo-root';
 import { servePlan } from '../../../../../../../scripts/lib/media-serve.mjs';
 import { driveGroupFor, loadDriveConfig, loadDriveManifest, resolveVaultRoot, vaultAbsFor, vaultRelFor } from '../../../../../../../scripts/lib/drive-vault.mjs';
 import { parseMediaPath } from '../../../../../../../scripts/lib/media-paths.mjs';
-import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
+import { DOCS_ROOT, NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 
 /**
- * /media/{posts|sns|note|kindle|kindlepreview}/... → リポジトリ内ルートへの static serve。
+ * /media/{posts|sns|note|kindle|kindlepreview|docs}/... → リポジトリ内ルートへの static serve。
  * tools/admin/lib/media.mjs の traversal ガード + MIME allowlist を移植。
  * cmedia（手元の素材）・vault（Drive の素材）は Range・HEAD に対応する（動画・音声のシーク用）。読み取り専用（GET・HEAD のみ）。
  * book（Drive の書籍の頁画像・切り出し図）は /media/book/<書籍ディレクトリ>/(pages|crops)/<file>。Drive の台帳に reference-book-page-image として載るものだけ（シリーズ企画の画像の確認用）。
@@ -29,6 +29,8 @@ const MEDIA_ROOTS: Record<string, string> = {
   coconala: resolve(repoPath('content', 'coconala', 'assets')),
   // コンテンツ台帳の素材（手元）。.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}
   cmedia: resolve(repoPath('.tmp', 'media')),
+  // docs/ 本文の画像（docs/design/images/*.png など）。markdown.ts が本文の相対画像を /media/docs/... へ書き換える。
+  docs: resolve(DOCS_ROOT),
 };
 
 /** Drive vault の素材（実体が手元に落ちているものだけ配信する）。マウント先は応答に出さない。 */

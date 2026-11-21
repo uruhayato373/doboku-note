@@ -196,7 +196,7 @@ export function loadDocument(source: DocumentSource, slugParts: string[]): Loade
   // 本文先頭の `# タイトル` は落とす。詳細画面がページ見出し（h1）としてタイトルを出すので、
   // そのまま描くと **1 ページに h1 が 2 つ**並んで見出し階層が壊れる（2026-08-18 に admin e2e が検出）。
   const body = parsed.content.replace(/^\s*#\s+.+\r?\n/, '');
-  const { html, headings } = renderDocument(body);
+  const { html, headings } = renderDocument(body, file);
   return {
     title: String(parsed.data.title ?? heading ?? stripExt(rel)),
     file,
