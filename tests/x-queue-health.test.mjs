@@ -6,7 +6,7 @@ const now = Date.parse('2026-09-14T21:00:00+09:00');
 function input() {
   const rows = Array.from({ length: 10 }, (_, i) => ({ text: `本文${i}`, scheduledAt: `2026-09-${15 + i}T07:10:00+09:00` }));
   return { now, account: 'doboku373', snapshot: { account: 'doboku373', complete: true, checkedAt: new Date(now).toISOString(), rows },
-    tweets: rows.map((r, i) => ({ ref: `draft/${i}`, text: r.text, scheduled_at: r.scheduledAt, status: 'queued' })) };
+    tweets: rows.map((r, i) => ({ ref: `draft/${i}`, text: r.text, scheduled_at: r.scheduledAt, phase: 'queued' })) };
 }
 test('実予約の連続7日を確認。終了予定日だけではPASSにしない', () => {
   const data = input();
@@ -22,9 +22,9 @@ test('台帳がqueuedでも実予約の時刻変更を検出', () => {
 });
 test('今日の朝に投稿済みで空でも翌日から判定、7日先の未投入は通知', () => {
   const data = input();
-  data.tweets.push({ ref: 'today', text: '公開未確認', status: 'queued', scheduled_at: '2026-09-14T07:00:00+09:00' });
+  data.tweets.push({ ref: 'today', text: '公開未確認', phase: 'queued', scheduled_at: '2026-09-14T07:00:00+09:00' });
   assert.equal(assessQueueHealth(data).status, 'PASS');
-  data.tweets.push({ ref: 'new', text: '未投入原稿', status: 'scheduled', scheduled_at: '2026-09-20T12:00:00+09:00' });
+  data.tweets.push({ ref: 'new', text: '未投入原稿', phase: 'planned', scheduled_at: '2026-09-20T12:00:00+09:00' });
   assert(assessQueueHealth(data).issues.some(i => i.code === 'unsubmitted_plan'));
 });
 test('最後の1件が遠くても途中の空白を見逃さない。予約終了は7日前に通知', () => {
@@ -45,26 +45,4 @@ test('予約ゼロ・同分重複・日3件超を検出', () => {
   const data = input(); data.snapshot.rows.push(...Array.from({ length: 3 }, () => ({ ...data.snapshot.rows[0] })));
   const codes = assessQueueHealth(data).issues.map(i => i.code);
   assert(codes.includes('duplicate_time')); assert(codes.includes('daily_limit'));
-});
-test('Article公開の猶予1時間後に遅延、公開後の告知未予約を検出', () => {
-  const data = input();
-  const article = { ref: 'Article-1', status: 'drafted', scheduled_at: '2026-09-14T20:30:00+09:00', teaser_scheduled_at: '2026-09-15T07:10:00+09:00' };
-  data.articles = [article];
-  assert.equal(assessQueueHealth(data).status, 'PASS');
-  article.scheduled_at = '2026-09-14T19:00:00+09:00';
-  assert(assessQueueHealth(data).issues.some(i => i.code === 'article_overdue'));
-  Object.assign(article, { status: 'published', article_url: 'https://x.com/i/article/1', published_at: article.scheduled_at });
-  assert(assessQueueHealth(data).issues.some(i => i.code === 'teaser_missing'));
-  article.teaser = data.tweets[0];
-  assert.equal(assessQueueHealth(data).status, 'PASS');
-});
-test('Article告知は予約時刻超過だけで公開扱いにしない', () => {
-  const data = input();
-  data.articles = [{ ref: 'Article-1', status: 'published', article_url: 'https://x.com/i/article/1', published_at: '2026-09-13T19:00:00+09:00', scheduled_at: '2026-09-13T19:00:00+09:00', teaser_scheduled_at: '2026-09-14T07:00:00+09:00', teaser: { status: 'queued' } }];
-  assert(assessQueueHealth(data).issues.some(i => i.code === 'teaser_publication_unconfirmed'));
-});
-test('告知を見送って cancelled にした Article は、告知の公開確認を求めない', () => {
-  const data = input();
-  data.articles = [{ ref: 'Article-1', status: 'published', article_url: 'https://x.com/i/article/1', published_at: '2026-09-13T19:00:00+09:00', scheduled_at: '2026-09-13T19:00:00+09:00', teaser_scheduled_at: '2026-09-14T07:00:00+09:00', teaser: { status: 'cancelled' } }];
-  assert(!assessQueueHealth(data).issues.some(i => i.code === 'teaser_publication_unconfirmed'));
 });

@@ -67,26 +67,26 @@ export function parseStockMarker(raw) {
 }
 
 /**
- * status.json の中身から投入状況を集計する。
- * `lastScheduled` は queued の最終日時。連続した予約の充足は保証しない。
- * @param {unknown} data パース済み status.json（壊れていれば null を渡す）
+ * 台帳の X の投稿（loadXPosts の行）から投入状況を集計する。
+ * 予約に入っている（phase が submitted・queued）ものを queued に数える。planned（承認済み・未投入）は数えない。
+ * `lastScheduled` は予約に入っているものの最終日時。連続した予約の充足は保証しない。
+ * @param {{ phase: string, publishAt?: string|null }[]} posts 1 つの下書きフォルダ分の行
  */
-export function summarizeStatus(data) {
+export function summarizeStatus(posts) {
   let queued = 0;
   let posted = 0;
-  // retired＝replaced（予約を別の原稿へ差し替えた）・cancelled（取り下げた）。投稿しないことが決まっているので「未投入」に数えない
+  // retired＝stopped（予約を別の原稿へ差し替えた・取り下げた）。投稿しないことが決まっているので「未投入」に数えない
   // （2026-10-12: 2級の締切告知で既存の予約 2 本の本文を差し替えたら、surfacer が 1 本未投入の OVERDUE を出した）。
   let retired = 0;
   let lastScheduled = null;
-  const tweets = data && typeof data === "object" ? data.tweets : null;
-  for (const t of Object.values(tweets || {})) {
+  for (const t of Array.isArray(posts) ? posts : []) {
     if (!t || typeof t !== "object") continue;
-    if (t.status === "posted") posted++;
-    else if (t.status === "replaced" || t.status === "cancelled") retired++;
-    else if (t.status === "queued" && !t.manual_only && Number.isFinite(Date.parse(t.scheduled_at))) queued++;
-    if (t.status === "queued" && !t.manual_only && t.scheduled_at) {
-      const d = new Date(t.scheduled_at);
-      if (!Number.isNaN(d.getTime()) && (!lastScheduled || d > lastScheduled)) lastScheduled = d;
+    if (t.phase === "posted") posted++;
+    else if (t.phase === "retired") retired++;
+    else if ((t.phase === "queued" || t.phase === "submitted") && Number.isFinite(Date.parse(t.publishAt))) {
+      queued++;
+      const d = new Date(t.publishAt);
+      if (!lastScheduled || d > lastScheduled) lastScheduled = d;
     }
   }
   return { queued, posted, retired, lastScheduled };

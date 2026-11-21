@@ -12,9 +12,10 @@ import { join } from 'node:path';
 import {
   STAGES, STAGE_LABELS, emptyCounts, tally,
   videoStatusToStage, siteDocToStage, noteToStage, coconalaStatusToStage,
-  kindleStatusToStage, xTweetStatusToStage,
+  kindleStatusToStage,
   igPackToStage,
 } from '../scripts/lib/content-lifecycle.mjs';
+import { publicationStage } from '../scripts/lib/content-registry.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 import { loadKindleCatalog } from '../scripts/lib/kindle-catalog.mjs';
 
@@ -71,11 +72,11 @@ test('実カタログのネイティブ値を全て写像できる（coconala / 
   }
 });
 
-test('実 state のネイティブ値を全て写像できる（x drafts）', () => {
-  for (const s of ['queued', 'scheduled', 'posted', 'replaced']) {
-    assert.ok(xTweetStatusToStage(s) !== null, `未写像の x status: ${s}`);
+test('台帳の状態を全て写像できる（x）', () => {
+  for (const s of ['draft', 'approved', 'scheduled', 'published', 'stopped']) {
+    assert.ok(publicationStage(s) !== null, `未写像の x status: ${s}`);
   }
-  assert.equal(xTweetStatusToStage('draft-like'), null);
+  assert.equal(publicationStage('draft-like'), null);
 });
 
 test('site / note / ig: 実体ベースの写像', () => {

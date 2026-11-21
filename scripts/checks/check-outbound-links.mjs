@@ -9,8 +9,8 @@
  *   ファネルの途中が黙って切れる。
  *
  * 対象: content/{site,note,sns,coconala} の `note.com/{user}/n/{key}` と `/m/{magazine}`。
- * X（content/sns/x）だけは予約の台帳 status.json の、まだ投稿していない原稿（queued・scheduled など）の本文だけを見る。
- *   投稿済み（posted）・差し替え済み（replaced）・取り下げ（cancelled）は直せない過去の記録で、tweets.md と計画（campaigns）は
+ * X（content/sns/x）だけはコンテンツ台帳（loadXPosts）の、まだ投稿していない原稿（planned・submitted・queued など）の本文だけを見る。
+ *   投稿済み（posted）・停止（retired＝差し替え済み・取り下げ）は直せない過去の記録で、tweets.md と計画（campaigns）は
  *   予定日が台帳の日程変更とずれる。2026-10-12 に、計画の日付では過去でも 10/15 に予約中の投稿が削除済みのマガジンを
  *   指していた（090#27）。予約中の投稿は台帳の本文で必ず見る。
  * 取得は scripts/lib/note-api.mjs（唯一の入口。URL・エンドポイントの罠はそちらに集約）。
@@ -30,7 +30,8 @@ import { readFileSync, writeSync } from 'node:fs';
 import { join, sep } from 'node:path';
 import { fetchNote, fetchMagazine } from '../lib/note-api.mjs';
 import { extractNoteRefs } from '../lib/note-refs.mjs';
-import { liveSourceOf } from '../lib/outbound-sources.mjs';
+import { liveSourceOf, liveXSources } from '../lib/outbound-sources.mjs';
+import { loadXPosts } from '../lib/registry-x-store.mjs';
 import { fetchFailDominant } from '../lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
@@ -62,6 +63,16 @@ for (const s of SCOPES) {
     const rel = toPosix(abs.slice(ROOT.length + 1));
     const src = liveSourceOf(rel, readFileSync(abs, 'utf8'));
     for (const { kind, id } of extractNoteRefs(src)) {
+      const key = `${kind}:${id}`;
+      if (!refs.has(key)) refs.set(key, new Set());
+      refs.get(key).add(rel);
+    }
+  }
+}
+
+if (!SCOPE || SCOPE === 'sns') {
+  for (const { rel, text } of liveXSources(loadXPosts(ROOT))) {
+    for (const { kind, id } of extractNoteRefs(text)) {
       const key = `${kind}:${id}`;
       if (!refs.has(key)) refs.set(key, new Set());
       refs.get(key).add(rel);

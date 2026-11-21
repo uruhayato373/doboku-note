@@ -14,7 +14,7 @@
  * 読むソース（6 系統・sourceId。実際の読み取りは collectScheduleEvents が行う）:
  *   - exam-calendar   … config/exam-calendar.json（試験日）
  *   - x-campaign      … content/sns/x/campaigns/*.json（X 計画枠）
- *   - x-status        … content/sns/x/draft/*\/status.json（X 実予約・実投稿）
+ *   - x-status        … コンテンツ台帳 content/registry/publications/x/（X 実予約・実投稿。loadXPosts 経由）
  *   - ig-status       … content/sns/instagram/**\/status.json（IG 実予約・実投稿）
  *   - youtube-schedule… コンテンツ台帳（content/registry・kind legacy-short の旧 Shorts の公開。youtube-schedule.json は凍結した旧台帳）
  *   - backlog         … .claude/todo/backlog.md の `[期日:]`（タスク期日）
@@ -44,6 +44,8 @@ import { parseBacklog } from './backlog-lib.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
 import { youtubePublications } from './registry-youtube-view.mjs';
 import { loadVideoState } from './registry-video-state.mjs';
+import { loadXPosts } from './registry-x-store.mjs';
+import { parseTweetBlocks } from './x-tweets-md.mjs';
 import { KINDLE_CATALOG_SOURCE, loadKindleCatalog } from './kindle-catalog.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
@@ -198,52 +200,36 @@ export function mapXCampaign(json, relPath) {
 }
 
 /**
- * x/draft/<name>/status.json の tweets{} → ScheduleEvent[]（実予約・実投稿）。
+ * 台帳の X の投稿（loadXPosts の行）→ ScheduleEvent[]（実予約・実投稿）。
+ * 投稿済みは publishedAt（無ければ publishAt）、それ以外は publishAt から日時を取る。停止（retired）の行は予定に出さない。
+ * @param {{ folder: string, key: string, phase: string, publishAt?: string|null, publishedAt?: string|null }[]} posts
+ * @param {(folder: string, key: string) => string} titleOf 見出し（tweets.md の ## Tweet N: の後ろ）
+ * @param {string} relPath sourcePath に載せる台帳のパス
  * @returns {{events: ScheduleEvent[], dateless: number}}
  */
-export function mapXDraftStatus(draftName, json, relPath, nowMs) {
+export function mapXPosts(posts, titleOf, relPath, nowMs) {
   const events = [];
   let dateless = 0;
-  for (const [tweetNo, t] of Object.entries(json?.tweets ?? {})) {
-    const ref = `${draftName}#${tweetNo}`;
-    const label = t?.title || ref;
-    if (t?.posted_at) {
-      const dt = jstDayTime(t.posted_at);
-      if (!dt) { dateless += 1; continue; }
-      events.push({
-        id: `x-status:${ref}`,
-        date: dt.date,
-        time: dt.time,
-        channel: 'x',
-        kind: 'post',
-        status: 'posted',
-        label,
-        detail: null,
-        sourceId: 'x-status',
-        sourcePath: relPath,
-        ref,
-      });
-      continue;
-    }
-    if (t?.scheduled_at) {
-      const dt = jstDayTime(t.scheduled_at);
-      if (!dt) { dateless += 1; continue; }
-      events.push({
-        id: `x-status:${ref}`,
-        date: dt.date,
-        time: dt.time,
-        channel: 'x',
-        kind: 'post',
-        status: isPastJst(dt.date, dt.time, nowMs) ? 'overdue' : 'reserved',
-        label,
-        detail: null,
-        sourceId: 'x-status',
-        sourcePath: relPath,
-        ref,
-      });
-      continue;
-    }
-    dateless += 1;
+  for (const p of posts) {
+    if (p.phase === 'retired') continue;
+    const ref = `${p.folder}#${p.key}`;
+    const label = titleOf(p.folder, p.key) || ref;
+    const posted = p.phase === 'posted';
+    const dt = jstDayTime(posted ? (p.publishedAt ?? p.publishAt) : p.publishAt);
+    if (!dt) { dateless += 1; continue; }
+    events.push({
+      id: `x-status:${ref}`,
+      date: dt.date,
+      time: dt.time,
+      channel: 'x',
+      kind: 'post',
+      status: posted ? 'posted' : isPastJst(dt.date, dt.time, nowMs) ? 'overdue' : 'reserved',
+      label,
+      detail: null,
+      sourceId: 'x-status',
+      sourcePath: relPath,
+      ref,
+    });
   }
   return { events, dateless };
 }
@@ -648,30 +634,25 @@ function readXCampaigns(rootDir) {
 }
 
 function readXStatus(rootDir, nowMs) {
-  const dirRel = 'content/sns/x/draft';
-  const dirAbs = join(rootDir, dirRel);
+  const dirRel = datasetDir('registry.x');
   const events = [];
   const errors = [];
   let dateless = 0;
   let ok = true;
   try {
-    // draft 直下1階層のみ（*/status.json）。_archive-old-account/ は旧凍結アカウントの
-    // アーカイブで、status.json がさらに1階層下にあるため自然に対象外になる（意図的）。
-    const entries = readdirSync(dirAbs, { withFileTypes: true });
-    for (const entry of entries) {
-      if (!entry.isDirectory()) continue;
-      const statusAbs = join(dirAbs, entry.name, 'status.json');
-      if (!existsSync(statusAbs)) continue;
-      const relPath = `${dirRel}/${entry.name}/status.json`;
-      try {
-        const json = readJsonFile(statusAbs);
-        const mapped = mapXDraftStatus(entry.name, json, relPath, nowMs);
-        events.push(...mapped.events);
-        dateless += mapped.dateless;
-      } catch (err) {
-        errors.push({ path: relPath, message: String(err?.message ?? err) });
+    // 退避アカウントの行（legacyKey が draft/_archive-… のように _ で始まる階層）は対象外（従来の走査と同じ範囲）。
+    const posts = loadXPosts(rootDir).filter((p) => p.folder && !/\/_/.test(p.row.legacyKey ?? ''));
+    const titles = new Map();
+    const titleOf = (folder, key) => {
+      if (!titles.has(folder)) {
+        const f = join(rootDir, 'content/sns/x/draft', folder, 'tweets.md');
+        titles.set(folder, new Map(existsSync(f) ? parseTweetBlocks(readFileSync(f, 'utf8')).map((b) => [b.key, b.title]) : []));
       }
-    }
+      return titles.get(folder).get(key) ?? '';
+    };
+    const mapped = mapXPosts(posts, titleOf, dirRel, nowMs);
+    events.push(...mapped.events);
+    dateless += mapped.dateless;
   } catch (err) {
     ok = false;
     errors.push({ path: dirRel, message: String(err?.message ?? err) });

@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import {
@@ -12,16 +12,16 @@ import {
   noteToStage,
   coconalaStatusToStage,
   kindleStatusToStage,
-  xTweetStatusToStage,
   igPackToStage,
 } from '../../../../scripts/lib/content-lifecycle.mjs';
 import {
   loadConfig as loadVideoConfig,
   loadPackSummaries,
 } from '../../../../scripts/lib/video-content-check.mjs';
-import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 
 import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
+import { loadXPosts } from '../../../../scripts/lib/registry-x-store.mjs';
+import { publicationStage } from '../../../../scripts/lib/content-registry.mjs';
 import { articlesIndex, magazines, noteArticleCounts } from './content';
 import { loadKindleView } from './kindle';
 import { KINDLE_CATALOG_SOURCE } from '../../../../scripts/lib/kindle-catalog.mjs';
@@ -219,20 +219,12 @@ async function kindleLifecycle(): Promise<ChannelLifecycle> {
 
 function xLifecycle(): ChannelLifecycle {
   const href = '/sns#x';
-  const source = 'content/sns/x/draft/**/status.json（tweets[].status）';
+  const source = 'コンテンツ台帳の X の status（loadXPosts）';
   try {
-    const dir = join(SNS_CONTENT_ROOT as string, 'x', 'draft');
-    if (!existsSync(dir)) return failed('x', 'X 投稿', href, source, 'draft ディレクトリが無い');
+    const posts = loadXPosts(findRepoRoot()) as { status: string }[];
+    if (posts.length === 0) return failed('x', 'X 投稿', href, source, '台帳に X の投稿が 1 件も無い');
     const counts = emptyCounts();
-    let files = 0;
-    for (const name of readdirSync(dir)) {
-      const f = join(dir, name, 'status.json');
-      if (!existsSync(f) || !statSync(join(dir, name)).isDirectory()) continue;
-      files += 1;
-      const j = JSON.parse(readFileSync(f, 'utf8')) as { tweets?: Record<string, { status?: string }> };
-      for (const t of Object.values(j.tweets ?? {})) tally(counts, xTweetStatusToStage(t.status ?? ''));
-    }
-    if (files === 0) return failed('x', 'X 投稿', href, source, 'status.json を 1 件も読めていない');
+    for (const p of posts) tally(counts, publicationStage(p.status));
     return done('x', 'X 投稿', href, source, counts);
   } catch (e) {
     return failed('x', 'X 投稿', href, source, (e as Error).message);

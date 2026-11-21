@@ -2,7 +2,7 @@
  * content-lifecycle.mjs — 全チャネル共通の「コンテンツ ライフサイクル ステージ」語彙と写像。
  *
  * 目的: チャネルごとに別々の状態語彙（video の statusEnum 11 値、coconala の listed/paused、
- *   kindle の live/in_review、X の queued/scheduled/posted …）を、**企画 → 下書き → 公開**の
+ *   kindle の live/in_review、X の台帳の scheduled/published …）を、**企画 → 下書き → 公開**の
  *   共通の物差しへ写像して横断で数えられるようにする。
  *
  * 設計の芯（.claude/knowledge/reference/content-lifecycle.md が人間向け真実源）:
@@ -150,23 +150,6 @@ export function kindleStatusToStage(status) {
     case 'live':
       return 'published';
     case 'unpublished':
-      return 'retired';
-    default:
-      return null;
-  }
-}
-
-/** X 投稿（content/sns/x/draft 配下 status.json の tweets[].status） */
-export function xTweetStatusToStage(status) {
-  switch (status) {
-    case 'queued':
-      return 'draft';
-    case 'scheduled':
-      return 'scheduled';
-    case 'posted':
-      return 'published';
-    case 'replaced':
-    case 'cancelled':
       return 'retired';
     default:
       return null;

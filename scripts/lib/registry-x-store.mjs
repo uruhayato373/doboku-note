@@ -1,8 +1,7 @@
 /**
  * registry-x-store.mjs — X の書き手（publish-x・x-sync-status）がコンテンツ台帳を読み書きする唯一の入口（DN-0612）。
- * 正本は台帳（content/registry/publications/x/{exam}.json）。下書きフォルダの status.json は文面と運用の記録（予約の履歴など）を持つ
- * 旧い写しで、P7 で文面を tweets.md へ寄せてから消す。移行のあいだ書き手は status.json も今までどおり書いてよいが、
- * 「投稿してよいか・投稿したか」の判断は台帳を読み、状態が変わったら台帳にも書く。
+ * 正本は台帳（content/registry/publications/x/{exam}.json）。文面は下書きフォルダの tweets.md（copy: tweets.md#tweet/N）。
+ * 下書きの status.json は 2026-11-21 に撤去した（DN-0612 P7）。読み手は loadXPosts を通す。
  */
 import { canTransition, loadRegistry, loadRegistryConfig, resolveCopy } from './content-registry.mjs';
 import { X_ROOT } from './registry-x-state.mjs';
@@ -40,7 +39,7 @@ export function xPhase(pub) {
 /**
  * 台帳の X の投稿を、読み手が使う形で全部返す（X の状態の正本は台帳・DN-0612 P7）。
  * 文面は copy（tweets.md#tweet/N）から解決する。文面を持たない行（投稿した事実だけ残した行）は text が null。
- * @returns {{ id, exam, work, folder, key, title, text, thread, status, stopReason, phase, publishAt, queuedAt, publishedAt, platform, planSlot, approval, row }[]}
+ * @returns {{ id, exam, work, folder, key, text, thread, status, stopReason, phase, publishAt, queuedAt, publishedAt, platform, planSlot, approval, row }[]}
  */
 export function loadXPosts(root, { reg = loadRegistry(root) } = {}) {
   const out = [];
@@ -80,12 +79,12 @@ export async function recordX(root, folder, key, event, data = {}) {
     if (!data.id || !data.evidence) throw new Error('published には id と evidence が要る');
     const fromUnverified = row.status === 'stopped' && row.stopReason === 'unverified-legacy';
     if (!fromUnverified && !can('published')) throw new Error(`${row.status} → published は遷移に無い（${row.id}）`);
-    Object.assign(row, { status: 'published', approval: grand, platform: { id: String(data.id), url: data.url ?? `https://x.com/${X_HANDLE}/status/${data.id}`, privacy: 'public', evidence: data.evidence } });
+    Object.assign(row, { status: 'published', approval: grand, platform: { id: String(data.id), url: data.url ?? `https://x.com/${X_HANDLE}/status/${data.id}`, privacy: 'public', publishedAt: new Date().toISOString(), evidence: data.evidence } });
     delete row.stopReason; delete row.reason;
   } else if (event === 'scheduled') {
     if (!data.publishAt) throw new Error('scheduled には publishAt が要る');
     if (!can('scheduled')) throw new Error(`${row.status} → scheduled は遷移に無い（${row.id}）`);
-    Object.assign(row, { status: 'scheduled', publishAt: data.publishAt, approval: grand });
+    Object.assign(row, { status: 'scheduled', publishAt: data.publishAt, approval: grand, times: { ...(row.times ?? {}), scheduled: new Date().toISOString() } });
   } else {
     throw new Error(`知らない event: ${event}`);
   }

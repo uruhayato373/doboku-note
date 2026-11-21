@@ -9,7 +9,7 @@
  * 原稿を書き換えても note 上の本文は変わらない。再公開は `note-update-body`（ops-write）で別に行い、
  * 未反映の記事は `check-note-republish` が「要再公開」として出す。
  *
- * content/sns は既定の対象にしない。X の status.json は投稿承認の hash を持ち、本文を変えると予約が止まる。
+ * content/sns は既定の対象にしない。X の台帳（content/registry/publications/x）は投稿承認の hash を持ち、本文を変えると予約が止まる。
  *
  * CLI:
  *   node scripts/maint/fix-legacy-site-links.mjs                    # content/note を dry-run
