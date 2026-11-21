@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 2,
+  "month": "2026-11",
+  "timezone": "Asia/Tokyo",
+  "status": "plan",
+  "coverage": {
+    "from": "2026-11-28",
+    "to": "2026-11-28",
+    "perDay": 1
+  },
+  "strategy": {
+    "cadence": "1 本だけ。2026-11-pe1-concrete.json（11/28 は 12:35・20:15）と合わせて 1 日 3 本以内・朝の A 枠",
+    "note": "9/3 の投稿（2095356106256105570・090-civil-2026-09-a#8）で、コンクリートの側圧の説明が逆になっていた（スランプが小さく打上がり速度が遅いほど大きい、と書いた）。元の投稿は 11/21 時点でも出ているので、引用つきで訂正する。運営者の判断（2026-11-21・DN-1194）"
+  },
+  "posts": [
+    {
+      "date": "2026-11-28",
+      "time": "07:40",
+      "slot": "A",
+      "exam": "civil-1",
+      "type": "訂正",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "topic": "コンクリートの側圧の訂正（スランプが大きい・打上がり速度が速い・温度が低いほど大きい）",
+      "draft": "096-civil1-pressure-correction",
+      "tweet": 1
+    }
+  ]
+}

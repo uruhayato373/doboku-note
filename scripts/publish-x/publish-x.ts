@@ -33,6 +33,7 @@ import { resolveProfileDir } from "../lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../lib/playwright-launch.mjs";
 import { datasetPath } from "../lib/datasets.mjs";
 import { isQueueable, readXPublication, recordX } from "../lib/registry-x-store.mjs";
+import { xApprovalBlock } from "../lib/registry-x-plan.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from '../lib/repository-paths.mjs';
 import { stripHtmlComments } from "../lib/strip-markup.mjs";
 import { parseCliArgs } from "../lib/cli-args.mjs";
@@ -222,8 +223,9 @@ function registryBlockReason(job: PostJob): string | null {
     if (pub.stopReason === "unverified-legacy" && ALLOW_UNVERIFIED) return null;
     return `${label} は台帳で stopped${pub.stopReason ? `（${pub.stopReason}）` : ""}${pub.stopReason === "unverified-legacy" ? "。投稿するなら --allow-unverified を明示" : ""}`;
   }
-  if (!isQueueable(pub)) return `${label} は台帳で ${pub.status}（approved・scheduled ではない）`;
-  return null;
+  if (!isQueueable(pub)) return `${label} は台帳で ${pub.status}（承認されていない。月次計画を approve-x-plan で承認する）`;
+  // 承認のハッシュが今の本文と予定日時に一致し、指定の日時が承認した日時と同じこと（DN-0612 P7）
+  return xApprovalBlock(PROJECT_ROOT, pub, { scheduledAt: job.scheduledDate ? job.scheduledDate.toISOString() : null });
 }
 
 // ─── 引数パース ────────────────────────────────────────

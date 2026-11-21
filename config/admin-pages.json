@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_doc": "管理画面の全画面の台帳。1 画面 1 問いにする。新しい画面を足すときは、既存の画面で答えられないかを確かめ、問いをここへ書く。limit は画面の上限で、上げるなら理由を changes に残す。検査は npm run check-admin-pages",
-  "limit": 69,
+  "limit": 71,
   "changes": [
     {
       "date": "2026-11-06",
@@ -10,6 +10,10 @@
     {
       "date": "2026-11-15",
       "note": "基準書の全章・節の枠数と可視表示を確認するページ別の広告を追加（DN-1214）。"
+    },
+    {
+      "date": "2026-11-21",
+      "note": "X の月次計画の承認前の確認画面（/sns/x/plans）を追加したので上限を 69 から 71 へ上げた。"
     }
   ],
   "pages": {
@@ -280,6 +284,14 @@
     "/sns": {
       "kind": "page",
       "question": "SNS 素材・投稿・派生物の状態は何か。"
+    },
+    "/sns/x/plans": {
+      "kind": "page",
+      "question": "X の月次計画のうち、承認を待つものはどれか。"
+    },
+    "/sns/x/plans/[plan]": {
+      "kind": "detail",
+      "question": "この月の X の投稿を、承認してよいか。"
     },
     "/sns/youtube/longform": {
       "kind": "page",

@@ -176,6 +176,7 @@ export default async function SnsBoardPage({ searchParams }: { searchParams: Pro
         <span className="small muted ml-auto">
           <Link href="/gallery/sns?ch=instagram">Instagram 画像・動画</Link>
           <Link href="/gallery/sns?ch=x" className="ml-3">X 画像</Link>
+          <Link href="/sns/x/plans" className="ml-3">X の月次計画</Link>
           <Link href="/content/video" className="ml-3">動画パック</Link>
           <Link href={roadmapHref()} className="ml-3">年間ロードマップ</Link>
           <Link href={longformPlanHref()} className="ml-3">通常動画</Link>
