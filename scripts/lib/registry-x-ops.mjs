@@ -62,6 +62,44 @@ export function xFolderRows(root, folder, { reg, rules, exam: examArg, slot } = 
   return { exam, work: known ? null : { id: workId, kind: 'x-thread', definition: dir, legacyKey: name }, publications, skipped };
 }
 
+/**
+ * 下書きフォルダを消した X の作品の、台帳の行の片付けを計算する（retire-x）。
+ * 対象は定義フォルダ（definition）が無くなった x-thread の作品。
+ *   - 止めた行（stopped）・下書き（draft）・予約の日時を過ぎた承認済み（approved）は消す
+ *   - 投稿済み（published）は文面の場所（copy）を外して残す（ID・URL・日付だけ）
+ *   - 公開の行が 1 つも残らない作品は作品の行も消す
+ * 予約に入れた行（scheduled）と、これからの日時の承認済みは片付けない（blockers。先に止めるか reconcile-x で照合する）。
+ * @param {{ works: object[], publications: object[] }} reg
+ * @param {(definition: string) => boolean} folderExists
+ * @returns {{ works: number, removeWorks: {exam, id}[], removePublications: {exam, id}[], strip: {exam, row}[], blockers: string[] }}
+ */
+export function xRetirePlan(reg, folderExists, now = new Date()) {
+  const out = { works: 0, removeWorks: [], removePublications: [], strip: [], blockers: [] };
+  for (const w of reg.works) {
+    if (w.kind !== 'x-thread' || folderExists(w.definition)) continue;
+    const pubs = reg.publications.filter((p) => p.channel === 'x' && p.exam === w.exam && p.work === w.id);
+    if (pubs.length && pubs.every((p) => p.status === 'published' && !p.copy)) continue; // 片付け済み
+    out.works += 1;
+    let kept = 0;
+    for (const p of pubs) {
+      const future = p.publishAt && Date.parse(p.publishAt) >= now.getTime();
+      if (p.status === 'scheduled' || (p.status === 'approved' && future)) { out.blockers.push(`${p.id}（${p.status}・${p.publishAt ?? '日時なし'}）`); kept += 1; continue; }
+      if (p.status === 'published') {
+        kept += 1;
+        if (p.copy) {
+          const row = Object.fromEntries(Object.entries(p).filter(([k]) => !['file', 'exam', 'channel', 'copy'].includes(k)));
+          out.strip.push({ exam: p.exam, row });
+        }
+        continue;
+      }
+      if (['stopped', 'draft', 'approved'].includes(p.status)) { out.removePublications.push({ exam: p.exam, id: p.id }); continue; }
+      out.blockers.push(`${p.id}（${p.status}）`); kept += 1;
+    }
+    if (kept === 0) out.removeWorks.push({ exam: w.exam, id: w.id });
+  }
+  return out;
+}
+
 /** 照合に使う本文（URL・#タグ・空白を落とす。own-posts は t.co の短縮 URL になるため） */
 export const normXText = (s) => String(s ?? '').replace(/https?:\/\/\S+/g, '').replace(/[#＃]\S+/g, '').replace(/\s+/g, '').trim();
 

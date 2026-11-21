@@ -37,6 +37,30 @@ export function upsertPublications(root, channel, exam, rows) {
   return writeDataset(root, id, { schemaVersion: 1, channel, exam, publications: merge(cur?.publications ?? [], rows) }, { values });
 }
 
+/** 作品の行を id で消す（消した数を返す）。公開の行が 1 つも残らない作品だけに使う */
+export function removeWorks(root, exam, ids) {
+  const values = { name: `${exam}.json` };
+  const cur = readDatasetIf(root, 'registry.works', { values });
+  const drop = new Set(ids);
+  const works = (cur?.works ?? []).filter((r) => !drop.has(r.id));
+  const removed = (cur?.works ?? []).length - works.length;
+  if (removed) writeDataset(root, 'registry.works', { schemaVersion: 1, exam, works }, { values });
+  return removed;
+}
+
+/** 公開の行を id で消す（消した数を返す）。予約以上の行を消してよいかは呼ぶ側と検査（R03）が決める */
+export function removePublications(root, channel, exam, ids) {
+  const id = CHANNEL_DATASET[channel];
+  if (!id) throw new Error(`台帳に無いチャネル: ${channel}`);
+  const values = { name: `${exam}.json` };
+  const cur = readDatasetIf(root, id, { values });
+  const drop = new Set(ids);
+  const publications = (cur?.publications ?? []).filter((r) => !drop.has(r.id));
+  const removed = (cur?.publications ?? []).length - publications.length;
+  if (removed) writeDataset(root, id, { schemaVersion: 1, channel, exam, publications }, { values });
+  return removed;
+}
+
 export function upsertMedia(root, scope, rows) {
   const values = { name: `${scope}.json` };
   const cur = readDatasetIf(root, 'registry.media', { values });

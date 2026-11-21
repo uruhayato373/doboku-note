@@ -13,7 +13,7 @@ import { tmpdir } from 'node:os';
 import { parseTweetBlocks } from '../scripts/lib/x-tweets-md.mjs';
 import { resolveCopy } from '../scripts/lib/content-registry.mjs';
 import { xPhase } from '../scripts/lib/registry-x-store.mjs';
-import { reconcileXPosts, xFolderRows, xFolderRef } from '../scripts/lib/registry-x-ops.mjs';
+import { reconcileXPosts, xFolderRows, xFolderRef, xRetirePlan } from '../scripts/lib/registry-x-ops.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { loadRegistryConfig } from '../scripts/lib/content-registry.mjs';
 
@@ -147,4 +147,44 @@ test('reconcileXPosts: 既に台帳で使った投稿 ID は二重に結ばな�
     { id: 'b', status: 'scheduled', text, publishAt: '2026-11-20T07:40:00.000+09:00' },
   ], own, now);
   assert.equal(r.matched.length, 0);
+});
+
+test('xRetirePlan: 下書きフォルダの無い作品は、止めた行・下書きを消し、投稿済みは文面の場所を外して残す', () => {
+  const now = new Date('2026-11-21T00:00:00Z');
+  const w = (id, definition) => ({ id, kind: 'x-thread', definition, exam: 'civil-construction-1' });
+  const p = (work, n, over) => ({ id: `civil-construction-1/${work}/x.post.t0${n}`, work, exam: 'civil-construction-1', channel: 'x', file: 'f.json', copy: `content/sns/x/draft/${work}/tweets.md#tweet/${n}`, ...over });
+  const reg = {
+    works: [w('gone-mixed', 'content/sns/x/draft/gone-mixed'), w('gone-empty', 'content/sns/x/draft/gone-empty'), w('alive', 'content/sns/x/draft/alive'), w('gone-done', 'content/sns/x/draft/gone-done'),
+      { id: 'pack', kind: 'video-pack', definition: 'content/sns/video-packs/none', exam: 'civil-construction-1' }],
+    publications: [
+      p('gone-mixed', 1, { status: 'published', platform: { id: '1' } }),
+      p('gone-mixed', 2, { status: 'stopped', stopReason: 'gone' }),
+      p('gone-mixed', 3, { status: 'draft' }),
+      p('gone-mixed', 4, { status: 'approved', publishAt: '2026-10-01T07:00:00+09:00' }),
+      p('gone-empty', 1, { status: 'stopped', stopReason: 'unverified-legacy' }),
+      p('alive', 1, { status: 'draft' }),
+      { ...p('gone-done', 1, { status: 'published', platform: { id: '2' } }), copy: undefined },
+    ],
+  };
+  const r = xRetirePlan(reg, (d) => d.endsWith('/alive'), now);
+  assert.equal(r.works, 2); // 生きているフォルダ・片付け済み・X 以外の作品は数えない
+  assert.deepEqual(r.removePublications.map((x) => x.id.split('.').pop()), ['t02', 't03', 't04', 't01']);
+  assert.deepEqual(r.strip.map((x) => [x.row.id, 'copy' in x.row, 'exam' in x.row]), [['civil-construction-1/gone-mixed/x.post.t01', false, false]]);
+  assert.deepEqual(r.removeWorks, [{ exam: 'civil-construction-1', id: 'gone-empty' }]);
+  assert.deepEqual(r.blockers, []);
+});
+
+test('xRetirePlan: 予約に入れた行と、これからの承認済みは片付けない', () => {
+  const now = new Date('2026-11-21T00:00:00Z');
+  const reg = {
+    works: [{ id: 'gone', kind: 'x-thread', definition: 'content/sns/x/draft/gone', exam: 'account' }],
+    publications: [
+      { id: 'account/gone/x.post.t01', work: 'gone', exam: 'account', channel: 'x', status: 'scheduled', publishAt: '2026-10-26T19:20:00+09:00' },
+      { id: 'account/gone/x.post.t02', work: 'gone', exam: 'account', channel: 'x', status: 'approved', publishAt: '2026-11-28T07:40:00+09:00' },
+      { id: 'account/gone/x.post.t03', work: 'gone', exam: 'account', channel: 'x', status: 'stopped', stopReason: 'gone' },
+    ],
+  };
+  const r = xRetirePlan(reg, () => false, now);
+  assert.equal(r.blockers.length, 2);
+  assert.deepEqual(r.removeWorks, []);
 });
