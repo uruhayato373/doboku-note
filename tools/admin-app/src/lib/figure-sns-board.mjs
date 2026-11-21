@@ -5,6 +5,7 @@ import { globSync } from 'glob';
 import { validateFigurePack, FIGURE_SLIDES } from '../../../../scripts/build/render-figure-pack.mjs';
 import { validateXFigureDraft } from '../../../../scripts/build/render-x-figure-drafts.mjs';
 import { normalizePosted } from '../../../../scripts/instagram/ig-status.mjs';
+import { loadXPosts } from '../../../../scripts/lib/registry-x-store.mjs';
 
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
 const hash = path => createHash('sha256').update(readFileSync(path)).digest('hex');
@@ -21,22 +22,24 @@ export function figureSnsBoard(root) {
   /** @type {Map<string, XFigure[]>} */
   const xByFigure = new Map();
   const xRoot = join(root, 'content/sns/x/draft');
+  const xPosts = loadXPosts(root);
+  const xPhase = (draft, tweet) => xPosts.find(p => p.folder === draft && p.key === String(Number(tweet)))?.status;
   if (existsSync(xRoot)) for (const draft of readdirSync(xRoot).sort()) {
     if (!/^\d{3}-[a-z0-9-]+-diagrams$/.test(draft)) continue;
     const dir = join(xRoot, draft), path = join(dir, 'images.json');
     if (!existsSync(path)) continue;
     try {
-      const items = json(path), states = json(join(dir, 'status.json')).tweets;
+      const items = json(path);
       if (!Array.isArray(items)) throw new Error('images.jsonが配列ではありません');
       for (const item of items) {
         if (!item.figure?.path) throw new Error('元図の参照がありません');
         let issue = '';
         // 同じバッチで一部だけ投稿済みでも、残る下書きを個別に検査する。
-        if (states?.[item.tweet]?.status === 'draft') {
+        if (xPhase(draft, item.tweet) === 'draft') {
           try { validateXFigureDraft(draft, root, { onlyTweet: item.tweet }); } catch (error) { issue = message(error); }
         }
         const list = xByFigure.get(item.figure.path) ?? [];
-        list.push({ draft, tweet: item.tweet, file: item.file, status: states?.[item.tweet]?.status ?? 'unknown', article: item.article, figure: item.figure, issue });
+        list.push({ draft, tweet: item.tweet, file: item.file, status: xPhase(draft, item.tweet) ?? 'unknown', article: item.article, figure: item.figure, issue });
         xByFigure.set(item.figure.path, list);
       }
     } catch (error) { errors.push(`X ${draft}: ${message(error)}`); }

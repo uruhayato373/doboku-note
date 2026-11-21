@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
+import { writeXRegistry } from './helpers/x-registry-fixture.mjs';
 import { figureSnsBoard } from '../tools/admin-app/src/lib/figure-sns-board.mjs';
 
 function fixture() {
@@ -24,11 +25,11 @@ function fixture() {
   }
   const file = 'img/tweet-01-example.png'; assets.push(`${x}/${file}`);
   write(`${x}/images.json`, [{ tweet: '1', concept: 'なぜ？', needs: 'なぜ？', file, article: source.article, figure: source.figure }]);
-  write(`${x}/tweets.md`, '## Tweet 01: 学習\n\n図を読んで学ぶ。\n');
-  write(`${x}/status.json`, { tweets: { '1': { status: 'draft', text: '図を読んで学ぶ。', image: file } } });
+  const xState = rows => writeXRegistry(root, rows.map(r => ({ folder: '001-example-diagrams', title: '学習', text: '図を読んで学ぶ。', ...r })));
+  xState([{ key: 1, status: 'draft' }]);
   for (const path of assets) { write(path, `画像-${path}`); entries[path] = ref(path); }
   const manifest = '.claude/state/assets/drive-manifest.json'; write(manifest, { entries });
-  return { root, write, article, dir, x, assets, entries, manifest, cleanup: () => rmSync(root, { recursive: true, force: true }) };
+  return { root, write, xState, article, dir, x, assets, entries, manifest, cleanup: () => rmSync(root, { recursive: true, force: true }) };
 }
 
 test('既存入力を結合し、投稿状態を書き換えず準備済にする', () => {
@@ -37,8 +38,8 @@ test('既存入力を結合し、投稿状態を書き換えず準備済にす�
     assert.equal(b.rows[0].readiness, 'ready'); assert.equal(b.rows[0].archivedCount, 5);
     assert.equal(b.rows[0].igStatus, 'draft'); assert.equal(b.rows[0].x[0].status, 'draft');
     f.write(`${f.dir}/posted.json`, { carousel: { at: '2026-10-07', url: 'https://example.org/post' } });
-    f.write(`${f.x}/status.json`, { tweets: { '1': { status: 'posted' } } });
-    const row = figureSnsBoard(f.root).rows[0]; assert.equal(row.igStatus, 'posted'); assert.equal(row.x[0].status, 'posted');
+    f.xState([{ key: 1, status: 'published' }]);
+    const row = figureSnsBoard(f.root).rows[0]; assert.equal(row.igStatus, 'posted'); assert.equal(row.x[0].status, 'published');
   } finally { f.cleanup(); }
 });
 
@@ -50,7 +51,7 @@ test('同じXバッチの別の投稿が公開済みでも下書きを検査で�
   const f = fixture(); try {
     const items = JSON.parse(readFileSync(join(f.root, `${f.x}/images.json`), 'utf8'));
     f.write(`${f.x}/images.json`, [...items, { ...items[0], tweet: '2', figure: { path: 'content/site/other/img/figure-other.svg' } }]);
-    f.write(`${f.x}/status.json`, { tweets: { '1': { status: 'draft', text: '図を読んで学ぶ。', image: items[0].file }, '2': { status: 'posted' } } });
+    f.xState([{ key: 1, status: 'draft' }, { key: 2, status: 'published' }]);
     assert.equal(figureSnsBoard(f.root).rows[0].readiness, 'ready');
   } finally { f.cleanup(); }
 });

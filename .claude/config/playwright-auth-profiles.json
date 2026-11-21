@@ -131,9 +131,7 @@
       ],
       "writers": [
           "scripts/publish-x/publish-x.ts",
-        "scripts/x-repost/x-repost-exec.ts",
-        "scripts/x/x-article-publish.mjs",
-        "scripts/x/x-thread-replies.mjs"
+        "scripts/x-repost/x-repost-exec.ts"
       ],
       "credential": {
         "label": "X",

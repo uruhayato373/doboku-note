@@ -8,10 +8,10 @@
  *       次バッチの投入忘れ＝予約キューの穴を防ぐための週次 surfacer。
  *
  * 設計:
- *   - オフライン（status.json + tweets.md のみ・Playwright/外部 API 不要）。
+ *   - オフライン（コンテンツ台帳 + tweets.md のみ・Playwright/外部 API 不要）。
  *     → 週次レビューのクラウドルーチン（ローカル creds 無し）でもそのまま動く。
- *   - 投入状態は status.json の SSOT で判定する（x-sync-status が実査して queued にする）。
- *     scheduled は日時設定済みでも未投入。queued だけが予約投入済み。
+ *   - 投入状態は台帳の SSOT で判定する（x-sync-status が実査して反映する）。
+ *     approved（planned）は日時設定済みでも未投入。scheduled（予約に入れた）だけが予約投入済み。
  *   - go-live 日は tweets.md ヘッダ "— M/D 残りN日" の最小日付から読む。
  *   - 本スクリプトは surface のみ（投入はローカルの publish-x で人手）。
  *
@@ -25,7 +25,8 @@
 import fs from "fs";
 import path from "path";
 import { DAY_MS, parseDatesFromRaw, parseStockMarker, summarizeStatus } from "../lib/x-queue-lib.mjs";
-import { SNS_CONTENT_ROOT } from "../lib/repository-paths.mjs";
+import { REPO_ROOT, SNS_CONTENT_ROOT } from "../lib/repository-paths.mjs";
+import { loadXPosts } from "../lib/registry-x-store.mjs";
 
 const DRAFT_DIR = path.join(SNS_CONTENT_ROOT, "x/draft");
 const argv = process.argv.slice(2);
@@ -44,17 +45,17 @@ function parseDatesFromMd(mdPath) {
   return { ...parseDatesFromRaw(raw, NOW), stock: parseStockMarker(raw) };
 }
 
-// status.json から投入状況を読む（I/O だけ・集計は summarizeStatus）
-function countQueued(statusPath) {
-  if (!fs.existsSync(statusPath)) return { exists: false, queued: 0, posted: 0, retired: 0, lastScheduled: null };
-  let data;
-  try {
-    data = JSON.parse(fs.readFileSync(statusPath, "utf-8"));
-  } catch {
-    // 壊れた status.json を「予約ゼロ」と静かに扱うと未投入が過大に出る。broken を立てて区別する。
-    return { exists: true, queued: 0, posted: 0, retired: 0, lastScheduled: null, broken: true };
-  }
-  return { exists: true, ...summarizeStatus(data) };
+// 台帳から投入状況を読む（下書きフォルダ → 行。集計は summarizeStatus）
+const postsByFolder = new Map();
+for (const p of loadXPosts(REPO_ROOT)) {
+  if (!p.folder) continue;
+  if (!postsByFolder.has(p.folder)) postsByFolder.set(p.folder, []);
+  postsByFolder.get(p.folder).push(p);
+}
+function countQueued(name) {
+  const posts = postsByFolder.get(name);
+  if (!posts) return { exists: false, queued: 0, posted: 0, retired: 0, lastScheduled: null };
+  return { exists: true, ...summarizeStatus(posts) };
 }
 
 const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
@@ -74,7 +75,7 @@ if (fs.existsSync(DRAFT_DIR)) {
     if (count === 0) continue;
     const start = dates.length ? new Date(Math.min(...dates.map((d) => d.getTime()))) : null;
     const end = dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
-    const { exists, queued, posted, retired, lastScheduled } = countQueued(path.join(dir, "status.json"));
+    const { exists, queued, posted, retired, lastScheduled } = countQueued(name);
 
     const unqueued = Math.max(0, count - queued - posted - retired);
     const state = unqueued <= 0 ? "fully-queued" : queued + posted > 0 ? "partial" : "未投入";

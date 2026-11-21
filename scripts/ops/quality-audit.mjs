@@ -183,7 +183,7 @@ export const CHECKS = [
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査は、SNS の保留に合わせて 2026-10-25 に CI から外した
   //（video-content・content-registry・registry-due・instagram-reels・video-publication・x-length・x-utm・
-  // x-campaign-plan・x-review・x-card-render・x-posted-live・sns-landing-cta。youtube-cover-handoff は 2026-11-13 に欠けを 0 にして ci へ戻した・DN-1038）。スクリプトは手元の道具として残す。
+  // x-campaign-plan・x-card-render・x-posted-live・sns-landing-cta。youtube-cover-handoff は 2026-11-13 に欠けを 0 にして ci へ戻した・DN-1038）。スクリプトは手元の道具として残す。
   // SNS を再開するときに必要なものを作り直す（運営者の判断）。
   // 2026-10-31: 予約済み動画の商品・無料記事への導線漏れを実際に起こしたため、この1ゲートだけ復帰。
   // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰

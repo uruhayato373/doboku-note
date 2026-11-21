@@ -4,7 +4,7 @@ import { jstDayTime } from '../scripts/lib/jst-date.mjs';
 import {
   mapExamCalendar,
   mapXCampaign,
-  mapXDraftStatus,
+  mapXPosts,
   mapIgStatus,
   mapYoutubeSchedule,
   mapBacklogDue,
@@ -95,28 +95,36 @@ test('mapXCampaign: posts[] を plan-slot イベントへ写像する', () => {
   assert.match(ev.label, /civil-1/);
 });
 
-// --- mapXDraftStatus -------------------------------------------------------------
+// --- mapXPosts -------------------------------------------------------------------
 
-test('mapXDraftStatus: posted_at(Z) を持つ tweet は posted・日付が Z 変換で正しくずれる', () => {
-  const json = { tweets: { 1: { title: 'T1', posted_at: '2026-06-21T22:50:00.000Z' } } };
-  const { events, dateless } = mapXDraftStatus('060-x', json, 'p', Date.parse('2026-08-26T00:00:00Z'));
+const noTitle = () => '';
+
+test('mapXPosts: 投稿済みは publishedAt(Z) で posted・日付が Z 変換で正しくずれる', () => {
+  const posts = [{ folder: '060-x', key: '1', phase: 'posted', publishedAt: '2026-06-21T22:50:00.000Z' }];
+  const { events, dateless } = mapXPosts(posts, () => 'T1', 'p', Date.parse('2026-08-26T00:00:00Z'));
   assert.equal(events.length, 1);
   assert.equal(events[0].status, 'posted');
   assert.equal(events[0].date, '2026-06-22');
+  assert.equal(events[0].label, 'T1');
+  assert.equal(events[0].sourceId, 'x-status');
+  assert.equal(events[0].ref, '060-x#1');
   assert.equal(dateless, 0);
 });
 
-test('mapXDraftStatus: scheduled_at が未来なら reserved、過去なら overdue', () => {
+test('mapXPosts: publishAt が未来なら reserved、過去なら overdue', () => {
   const now = Date.parse('2026-08-26T09:00:00+09:00');
-  const future = { tweets: { 1: { title: 'F', scheduled_at: '2026-12-01T07:00:00+09:00' } } };
-  const past = { tweets: { 1: { title: 'P', scheduled_at: '2026-01-01T07:00:00+09:00' } } };
-  assert.equal(mapXDraftStatus('d', future, 'p', now).events[0].status, 'reserved');
-  assert.equal(mapXDraftStatus('d', past, 'p', now).events[0].status, 'overdue');
+  const future = [{ folder: 'd', key: '1', phase: 'queued', publishAt: '2026-12-01T07:00:00+09:00' }];
+  const past = [{ folder: 'd', key: '1', phase: 'submitted', publishAt: '2026-01-01T07:00:00+09:00' }];
+  assert.equal(mapXPosts(future, noTitle, 'p', now).events[0].status, 'reserved');
+  assert.equal(mapXPosts(past, noTitle, 'p', now).events[0].status, 'overdue');
 });
 
-test('mapXDraftStatus: posted_at も scheduled_at も無い tweet は除外し dateless に計上する', () => {
-  const json = { tweets: { 1: { title: 'draft only' } } };
-  const { events, dateless } = mapXDraftStatus('d', json, 'p', Date.now());
+test('mapXPosts: 日時が無い行は除外し dateless に計上、停止した行は予定に出さない', () => {
+  const posts = [
+    { folder: 'd', key: '1', phase: 'draft' },
+    { folder: 'd', key: '2', phase: 'retired', publishAt: '2026-01-01T07:00:00+09:00' },
+  ];
+  const { events, dateless } = mapXPosts(posts, noTitle, 'p', Date.now());
   assert.equal(events.length, 0);
   assert.equal(dateless, 1);
 });

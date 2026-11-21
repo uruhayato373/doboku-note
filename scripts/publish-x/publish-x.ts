@@ -19,7 +19,6 @@
  *   [<date>...]   予約日時 JST (YYYY-MM-DDTHH:MM)。対象ツイート数と一致させる
  *   --tweet N     特定ツイートのみ投稿（1-based。省略時は全ツイート）
  *   --immediate   予約ではなく即時投稿（--tweet と組み合わせ推奨）
- *   --head-only   即時スレッドのヘッドだけ投稿し、リプライを x-thread-replies に引き継ぐ
  *   --dry-run     実投稿せずセレクタ検出まで確認（初回・セレクタ変更後は必須）
  *   --allow-unverified  台帳が stopped(unverified-legacy) の行を明示して投稿（他の stopped・published・draft は常に中止）
  *
@@ -33,7 +32,6 @@ import * as fs from "fs";
 import { resolveProfileDir } from "../lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../lib/playwright-launch.mjs";
 import { datasetPath } from "../lib/datasets.mjs";
-import { jstClock } from "../lib/jst-date.mjs";
 import { isQueueable, readXPublication, recordX } from "../lib/registry-x-store.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from '../lib/repository-paths.mjs';
 import { stripHtmlComments } from "../lib/strip-markup.mjs";
@@ -52,7 +50,6 @@ const EXPECTED_HANDLE = ACCOUNT_CONFIG.handle;
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 
 let IS_DRY_RUN = false;
-let HEAD_ONLY = false;
 let ALLOW_UNVERIFIED = false; // 台帳が stopped(unverified-legacy) の行を明示して投稿する
 
 // ─── screenshot ────────────────────────────────────────
@@ -178,82 +175,7 @@ function resolveDraftDir(draftArg: string): string {
   throw new Error(`draft が見つかりません: ${draftArg}\n利用可能: ${entries.join(", ")}`);
 }
 
-// ─── status.json 更新 ─────────────────────────────────
-interface TweetStatus {
-  title: string;
-  status: "pending" | "scheduled" | "posted";
-  scheduled_at?: string | null;
-  posted_at?: string | null;
-  text?: string | undefined; // x-schedule-guard の near-dup 判定用（ビルダー生成分に存在）
-  posted_url?: string | null; // 投稿済みの実 URL（DN-0276・週次 CI の oEmbed 照合に使う。取れなければ null）
-  thread?: {
-    parts: string[];               // ヘッドにぶら下げるリプライ本文（順番どおり）
-    replies_posted_at: string | null; // null = 未投稿（x-thread-replies.mjs の対象）
-  };
-}
-
-interface StatusJson {
-  updated_at: string;
-  tweets: Record<string, TweetStatus>;
-}
-
-async function updateStatus(
-  draftDir: string,
-  tweets: TweetBlock[],
-  tweetNum: number,
-  scheduledDate: Date | null,
-  postedUrl?: string | null
-): Promise<void> {
-  const statusPath = path.join(draftDir, "status.json");
-
-  // 既存 status を読むか、全件 pending で初期化
-  let data: StatusJson;
-  if (fs.existsSync(statusPath)) {
-    data = JSON.parse(fs.readFileSync(statusPath, "utf-8")) as StatusJson;
-  } else {
-    const entries: Record<string, TweetStatus> = {};
-    for (const t of tweets) {
-      entries[String(t.number)] = { title: t.title, status: "pending", scheduled_at: null, posted_at: null };
-    }
-    data = { updated_at: "", tweets: entries };
-  }
-
-  const nowJst = jstClock().toISOString().replace("Z", "+09:00");
-  const key = String(tweetNum);
-  const tb = tweets.find((t) => t.number === tweetNum);
-
-  if (scheduledDate) {
-    const scheduledJst = jstClock(scheduledDate)
-      .toISOString()
-      .replace("Z", "+09:00");
-    data.tweets[key] = {
-      ...data.tweets[key]!, status: "scheduled", scheduled_at: scheduledJst, posted_at: null, text: tb?.text,
-    };
-  } else {
-    data.tweets[key] = {
-      ...data.tweets[key]!,
-      status: "posted",
-      posted_at: nowJst,
-      text: tb?.text,
-      posted_url: postedUrl ?? null,
-    };
-  }
-
-  // スレッド記録: 予約＝リプライ未投稿（x-thread-replies.mjs が拾う）/ 即時＝一括投稿済み
-  if (tb && tb.threadParts.length > 0) {
-    data.tweets[key]!.thread = {
-      parts: tb.threadParts,
-      replies_posted_at: scheduledDate || HEAD_ONLY ? null : nowJst,
-    };
-  }
-
-  data.updated_at = nowJst;
-  fs.writeFileSync(statusPath, JSON.stringify(data, null, 2) + "\n", "utf-8");
-  console.log(`📝 status.json 更新: Tweet ${tweetNum} → ${scheduledDate ? "scheduled" : "posted"}`);
-  if (!IS_DRY_RUN) await recordToRegistry(draftDir, key, scheduledDate, postedUrl);
-}
-
-// 台帳（正本）にも書く。台帳に行が無ければ警告だけ（status.json は書いた後なので今までどおり）。dry-run では呼ばない。
+// 台帳（X の状態の正本・DN-0612 P7）に書く。dry-run では呼ばない。
 // 失敗・URL 不明のときは process.exitCode = 1 にして人の確認を促す（台帳を approved/scheduled のまま黙って残さない）。
 async function recordToRegistry(
   draftDir: string,
@@ -263,10 +185,6 @@ async function recordToRegistry(
 ): Promise<void> {
   const folder = path.basename(draftDir);
   try {
-    if (!readXPublication(PROJECT_ROOT, folder, key)) {
-      console.warn(`⚠️ 台帳に行が無いため台帳は更新しません: draft/${folder}#${key}`);
-      return;
-    }
     if (scheduledDate) {
       await recordX(PROJECT_ROOT, folder, key, "scheduled", { publishAt: scheduledDate.toISOString() });
     } else {
@@ -282,7 +200,7 @@ async function recordToRegistry(
     }
     console.log(`📒 台帳更新: draft/${folder}#${key} → ${scheduledDate ? "scheduled" : "published"}`);
   } catch (e) {
-    console.error(`❌ 台帳の更新に失敗（status.json は更新済み）: ${(e as Error).message}`);
+    console.error(`❌ 台帳の更新に失敗（X 側は予約・投稿済み。registry show で行を確かめて直す）: ${(e as Error).message}`);
     process.exitCode = 1;
   }
 }
@@ -298,10 +216,7 @@ function registryBlockReason(job: PostJob): string | null {
     return `台帳を読めない（判定不能のため中止）: ${(e as Error).message}`;
   }
   const label = `draft/${folder}#${key}`;
-  if (!pub) {
-    console.warn(`⚠️ 台帳に行が無い: ${label}（台帳の確認なしで続行）`);
-    return null;
-  }
+  if (!pub) return `${label} は台帳に行が無い（先に npm run registry -- import-x --folder ${folder} --commit）`;
   if (pub.status === "published") return `${label} は台帳で published（投稿済み）`;
   if (pub.status === "stopped") {
     if (pub.stopReason === "unverified-legacy" && ALLOW_UNVERIFIED) return null;
@@ -331,7 +246,6 @@ function parseArgs(): PostJob[] {
       "dry-run": { type: "boolean" },
       immediate: { type: "boolean" },
       "allow-unverified": { type: "boolean" },
-      "head-only": { type: "boolean" },
       tweet: { type: "integer" },
       tweets: { type: "string" },
     },
@@ -348,7 +262,6 @@ function parseArgs(): PostJob[] {
     console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
   }
   if (parsed.allowUnverified) ALLOW_UNVERIFIED = true;
-  if (parsed.headOnly) HEAD_ONLY = true;
   if (parsed.tweets !== null) {
     const m = parsed.tweets.match(/^(\d+)-(\d+)$/);
     if (!m) throw new Error(`--tweets は N-M 形式で指定: ${parsed.tweets}`);
@@ -414,7 +327,7 @@ async function ensureLogin(page: Page): Promise<void> {
 
 // 投稿直後、自分のプロフィールの最新投稿から /status/<ID> を読む（DN-0276）。
 // 本文の先頭が一致したときだけ URL を返す（別ツイート・広告等の誤取得を避ける）。
-// 取れなくても投稿自体は失敗にしない（呼び出し側で null を status.json に書く）。
+// 取れなくても投稿自体は失敗にしない（呼び出し側が台帳を変えずに人の確認を促す）。
 async function findLatestPostedUrl(page: Page, tweetText: string): Promise<string | null> {
   try {
     await page.goto(`https://x.com/${EXPECTED_HANDLE}`, { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -544,15 +457,10 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
 
   // ─── スレッド組成（[thread] 時）───
   // X ネイティブ予約はスレッド非対応（2026-07-14 プローブ: textarea_1 追加で scheduleOption が
-  // aria-disabled）。予約時はヘッドのみ予約し、リプライは x-thread-replies.mjs に委ねる。
+  // aria-disabled）。スレッドの予約は main で止める（後からリプライをつなぐ x-thread-replies は 2026-11-21 に撤去）。
   // 即時投稿時のみ composer で全部組んで一括投稿する（プローブで textarea_1 追加成功を確認済み）。
   if (tweet.threadParts.length > 0) {
-    if (HEAD_ONLY) {
-      console.log(`🧵 head-only: ヘッド投稿後、リプライ${tweet.threadParts.length}本を x-thread-replies へ引き継ぎます`);
-    } else if (scheduledDate) {
-      console.log(`🧵 スレッド ${tweet.threadParts.length} 本のリプライは X 予約非対応のためヘッドのみ予約します`);
-      console.log(`   予約時刻の経過後に: node scripts/x/x-thread-replies.mjs --run`);
-    } else {
+    if (!scheduledDate) {
       for (let p = 0; p < tweet.threadParts.length; p++) {
         const part = tweet.threadParts[p];
         // trusted click 必須（DOM .click() では React onClick 不発 = textarea_1 が出ない。プローブ実証）
@@ -848,6 +756,9 @@ async function main() {
 
   if (!IS_DRY_RUN) {
     const blocks = jobs.map(registryBlockReason).filter((r): r is string => r !== null);
+    for (const j of jobs) {
+      if (j.scheduledDate && j.tweet.threadParts.length > 0) blocks.push(`Tweet ${j.tweet.number} はスレッド。X の予約はスレッドに対応しないので、即時投稿（--immediate）で出す`);
+    }
     if (blocks.length > 0) {
       for (const r of blocks) console.error(`❌ 中止: ${r}`);
       process.exit(1);
@@ -888,13 +799,7 @@ async function main() {
         const postedUrl = jobs[i]!.scheduledDate
           ? null
           : await findLatestPostedUrl(page, jobs[i]!.tweet.text);
-        await updateStatus(
-          jobs[i]!.draftDir,
-          jobs[i]!.allTweets,
-          jobs[i]!.tweet.number,
-          jobs[i]!.scheduledDate,
-          postedUrl
-        );
+        await recordToRegistry(jobs[i]!.draftDir, String(jobs[i]!.tweet.number), jobs[i]!.scheduledDate, postedUrl);
       }
       if (i < jobs.length - 1) await page.waitForTimeout(2000);
     }

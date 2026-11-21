@@ -21,7 +21,7 @@
  *   node scripts/checks/check-x-length.mjs --draft 004      # 単一
  *   node scripts/checks/check-x-length.mjs --over           # 違反のみ表示
  *   node scripts/checks/check-x-length.mjs --json           # JSON 出力
- *   node scripts/checks/check-x-length.mjs --pending-only   # 投稿済み（status.json の posted/replaced）を除く＝旧 CI ゲート（quality-audit x-length。SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）
+ *   node scripts/checks/check-x-length.mjs --pending-only   # 投稿済み（台帳の phase が posted・retired）を除く＝旧 CI ゲート（quality-audit x-length。SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）
  *
  * Exit code: 違反があれば 1
  */
@@ -29,7 +29,9 @@
 import { readFileSync, readdirSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { stripTweetMemos } from "../lib/x-tweets-md.mjs";
+import { parseTweetBlocks } from "../lib/x-tweets-md.mjs";
+import { loadXPosts } from "../lib/registry-x-store.mjs";
+import { REPO_ROOT } from "../lib/repository-paths.mjs";
 import { isCliEntry } from '../lib/cli-run.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DRAFTS_DIR = join(__dirname, "../../content/sns/x/draft");
@@ -66,57 +68,38 @@ export function tweetLength(text) {
 }
 
 export function splitTweets(md) {
-  // 制作メモ（HTML コメント）は投稿されないので文字数に数えない。2026-08-18 実測で
-  // 除去しないと 145 件が水増しされ、うち 15 件が偽の 280 字超になっていた。
-  const blocks = stripTweetMemos(md).split(/^## Tweet /m).filter((_, i) => i > 0);
+  // ブロックの切り出し（制作メモの除去・[thread] の分割）は parseTweetBlocks が唯一の実装。
+  // [thread]: 本文と "--- リプライ ---" の各部が独立ツイート → 個別判定（policy §5.2.1）。非 thread のリプライ注記は投稿対象外。
   const rows = [];
-  for (let i = 0; i < blocks.length; i++) {
-    const b = blocks[i];
-    const lines = b.split("\n");
-    const header = lines[0].trim();
-    const numMatch = header.match(/^(\d+)/);
-    const num = numMatch ? parseInt(numMatch[1], 10) : i + 1;
-    const longform = /\[longform\]/i.test(header);
-    const thread = /\[thread\]/i.test(header);
-    // Body = block 内、`---` 区切り線で終端
-    const rawBody = lines
-      .slice(1)
-      .join("\n")
-      .replace(/\n---\s*\n[\s\S]*$/m, "")
-      .trim();
-    if (thread) {
-      // [thread]: "--- リプライ ---" 区切りの各部が独立ツイート → 個別判定（policy §5.2.1）
-      const parts = rawBody.split(/^--- リプライ ---$/m).map((p) => p.trim()).filter(Boolean);
-      parts.forEach((part, pi) => {
-        rows.push({ num, header: `${header} [part ${pi + 1}/${parts.length}]`, body: part, longform });
-      });
-    } else {
-      // 非 thread: リプライ注記（レガシー）は投稿対象外 → 除外（publish-x のパースと一致）
-      const body = rawBody.replace(/\n--- リプライ ---[\s\S]*/, "").trim();
-      rows.push({ num, header, body, longform });
-    }
+  for (const b of parseTweetBlocks(md)) {
+    const num = Number(b.key);
+    const longform = /\[longform\]/i.test(b.title);
+    const parts = [b.text, ...b.threadParts].filter(Boolean);
+    const header = `${String(num).padStart(2, "0")}: ${b.title}`;
+    parts.forEach((part, pi) => {
+      rows.push({ num, header: b.threadParts.length ? `${header} [part ${pi + 1}/${parts.length}]` : header, body: part, longform });
+    });
   }
   return rows;
 }
 
-// 投稿済み・差し替え済みの投稿は X 上で確定しているので、原稿を直しても意味がない（CI の対象外）。
-const SETTLED = new Set(["posted", "replaced"]);
+// 投稿済み・停止（差し替え済み・取り下げ）の投稿は X 上で確定しているので、原稿を直しても意味がない（CI の対象外）。
+const SETTLED = new Set(["posted", "retired"]);
 
-/** status.json から「投稿番号 → status」を読む（無ければ空）。 */
-function statusOf(folder) {
-  const p = join(DRAFTS_DIR, folder, "status.json");
-  if (!existsSync(p)) return {};
-  try {
-    const tweets = JSON.parse(readFileSync(p, "utf8")).tweets || {};
-    return Object.fromEntries(Object.entries(tweets).map(([k, v]) => [String(Number(k)), v?.status]));
-  } catch {
-    return {};
+/** 台帳から「下書きフォルダ → { 投稿番号 → phase }」を読む（無ければ空）。 */
+function phasesByFolder() {
+  const out = new Map();
+  for (const p of loadXPosts(REPO_ROOT)) {
+    if (!p.folder) continue;
+    if (!out.has(p.folder)) out.set(p.folder, {});
+    out.get(p.folder)[String(Number(p.key))] = p.phase;
   }
+  return out;
 }
 
-/** 投稿済み（posted / replaced）を除く。--pending-only（CI）の対象選別。 */
-export function pendingOnly(rows, statusByNum) {
-  return rows.filter((r) => !SETTLED.has(statusByNum[String(Number(r.num))]));
+/** 投稿済み・停止（phase が posted・retired）を除く。--pending-only（CI）の対象選別。 */
+export function pendingOnly(rows, phaseByNum) {
+  return rows.filter((r) => !SETTLED.has(phaseByNum[String(Number(r.num))]));
 }
 
 function checkDraft(folder) {
@@ -161,11 +144,12 @@ function main() {
     folders = listDrafts();
   }
 
+  const phases = pending ? phasesByFolder() : new Map();
   const all = [];
   let settled = 0;
   for (const f of folders) {
     const rows = checkDraft(f) || [];
-    const kept = pending ? pendingOnly(rows, statusOf(f)) : rows;
+    const kept = pending ? pendingOnly(rows, phases.get(f) ?? {}) : rows;
     settled += rows.length - kept.length;
     all.push(...kept);
   }

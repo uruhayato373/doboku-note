@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -9,40 +9,24 @@ import {
   hasSiteLink,
   classifyOembedResponse,
 } from '../scripts/lib/x-posted-live.mjs';
+import { writeXRegistry } from './helpers/x-registry-fixture.mjs';
 
 function makeRepo() {
   const root = mkdtempSync(join(tmpdir(), 'x-posted-live-'));
-  mkdirSync(join(root, 'content/sns/x/draft/001-sample'), { recursive: true });
-  mkdirSync(join(root, 'content/sns/x/published/002-sample'), { recursive: true });
-  writeFileSync(
-    join(root, 'content/sns/x/draft/001-sample/status.json'),
-    JSON.stringify({
-      updated_at: '2026-09-01T00:00:00Z',
-      tweets: {
-        1: { title: 'A', status: 'posted', posted_url: 'https://x.com/doboku373/status/1', text: 'サイトリンクあり https://doboku-note.com/exam/civil-construction-1' },
-        2: { title: 'B', status: 'posted', text: '本文だけ・URL無し' }, // posted_url が無い
-        3: { title: 'C', status: 'scheduled', scheduled_at: '2026-10-01T00:00:00+09:00', text: '未投稿' },
-      },
-    }),
-  );
-  writeFileSync(
-    join(root, 'content/sns/x/published/002-sample/status.json'),
-    JSON.stringify({
-      updated_at: '2026-09-01T00:00:00Z',
-      tweets: {
-        1: { title: 'D', status: 'posted', posted_url: 'https://x.com/doboku373/status/2', text: 'linkless 施策（意図的にサイトリンク無し）#土木' },
-      },
-    }),
-  );
+  writeXRegistry(root, [
+    { folder: '001-sample', key: 1, status: 'published', url: 'https://x.com/doboku373/status/1', text: 'サイトリンクあり https://doboku-note.com/exam/civil-construction-1' },
+    { folder: '001-sample', key: 2, status: 'published', text: '本文だけ・URL無し' }, // platform.url が無い
+    { folder: '001-sample', key: 3, status: 'approved', publishAt: '2026-10-01T00:00:00+09:00', text: '未投稿' },
+    { folder: '002-sample', key: 1, base: 'published', status: 'published', url: 'https://x.com/doboku373/status/2', text: 'linkless 施策（意図的にサイトリンク無し）#土木' },
+  ]);
   return root;
 }
 
-test('collectPostedTweets: status:posted だけを両ディレクトリから集める', () => {
+test('collectPostedTweets: published の行だけを draft・published 両方から集める', () => {
   const root = makeRepo();
   try {
     const tweets = collectPostedTweets(root);
-    assert.equal(tweets.length, 3); // scheduled の1件は含まない
-    assert.ok(tweets.every((t) => t.status === 'posted'));
+    assert.equal(tweets.length, 3); // approved の1件は含まない
     assert.ok(tweets.some((t) => t.ref === 'content/sns/x/draft/001-sample/1'));
     assert.ok(tweets.some((t) => t.ref === 'content/sns/x/published/002-sample/1'));
   } finally {
@@ -63,13 +47,10 @@ test('collectPostedTweets: posted_url の有無をそのまま反映する', () 
   }
 });
 
-test('collectPostedTweets: status.json が無い/壊れているディレクトリは静かに無視する', () => {
+test('collectPostedTweets: 台帳が無ければ空（落ちない）', () => {
   const root = mkdtempSync(join(tmpdir(), 'x-posted-live-empty-'));
   try {
-    mkdirSync(join(root, 'content/sns/x/draft/no-status'), { recursive: true });
-    writeFileSync(join(root, 'content/sns/x/draft/no-status/status.json'), '{not json');
-    const tweets = collectPostedTweets(root);
-    assert.deepEqual(tweets, []);
+    assert.deepEqual(collectPostedTweets(root), []);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

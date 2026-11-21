@@ -64,12 +64,12 @@ test('枠の参照切れを止め、保留と未採用の型は判断待ちに�
 });
 test('X の予約は枠のある計画の行に結ばれていなければ止まる', () => {
   const c = channel();
-  const tweet = (over = {}) => ({ draft: 'd', n: '1', status: 'queued', scheduled_at: '2027-01-05T20:00:00.000+09:00', ...over });
+  const tweet = (over = {}) => ({ folder: 'd', key: '1', phase: 'queued', publishAt: '2027-01-05T20:00:00.000+09:00', ...over });
   assert.deepEqual(tweetsOutsidePlan(c, [{ posts: [post()] }], [tweet()]), []);
   assert.equal(tweetsOutsidePlan(c, [{ posts: [post({ frame: undefined })] }], [tweet()]).length, 1);
   assert.equal(tweetsOutsidePlan(c, [], [tweet()]).length, 1);
-  assert.deepEqual(tweetsOutsidePlan(c, [], [tweet({ scheduled_at: '2026-12-05T20:00:00.000+09:00' })]), []);
-  assert.deepEqual(tweetsOutsidePlan(c, [], [tweet({ status: 'posted' })]), []);
+  assert.deepEqual(tweetsOutsidePlan(c, [], [tweet({ publishAt: '2026-12-05T20:00:00.000+09:00' })]), []);
+  assert.deepEqual(tweetsOutsidePlan(c, [], [tweet({ phase: 'posted' })]), []);
 });
 test('Instagram は枠に結ばれた作品だけ予約でき、固定投稿は枠の外', () => {
   const c = channel();

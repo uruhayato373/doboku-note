@@ -40,7 +40,7 @@ const X_COLUMNS: DataTableColumn[] = [
   { key: 'name', label: 'ドラフト' },
   { key: 'counts', label: '投稿 / 予約投入済 / 未投入計画 / 下書', sortable: false },
   { key: 'total', label: 'tweet数', num: true },
-  { key: 'updatedAt', label: '更新' },
+  { key: 'updatedAt', label: '最終予定・投稿' },
 ];
 
 const DERIVATIVE_COLUMNS: DataTableColumn[] = [
