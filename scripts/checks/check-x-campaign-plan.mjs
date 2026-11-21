@@ -118,6 +118,9 @@ for (const file of files) {
     examCounts[post.exam] = (examCounts[post.exam] ?? 0) + 1;
     if (post.slot) slotCounts[post.slot] = (slotCounts[post.slot] ?? 0) + 1;
 
+    // frame は年間の枠 id。照合は channel-plan-audit だけが行う（ここでは型だけ）
+    if (post.frame !== undefined && (typeof post.frame !== "string" || !post.frame)) errors.push(`${label}: frame は空でない文字列`);
+
     if (v >= 2) {
       if (!post.time || !/^\d{2}:\d{2}$/.test(post.time)) errors.push(`${label}: time (HH:MM) が無い`);
       if (!SLOTS.includes(post.slot)) errors.push(`${label}: slot は A/B/C のいずれか（実際: ${post.slot}）`);
