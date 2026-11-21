@@ -3094,6 +3094,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1263] 管理画面の X の月次計画の画面（/sns/x/plans）を実際に開いて表示を確かめる
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-21]
+
+**起点**: 2026-11-21 の PR #1696（X の月次計画ごとの承認）で、管理画面に /sns/x/plans と /sns/x/plans/[plan] を足した。型の検査・lint-ui・check-admin-pages・データの読み込み（listXPlanFiles・loadXPlan を tsx で実行）は確かめたが、画面の表示は確かめていない。worktree では Turbopack が node_modules の symlink を拒んで npm run admin が起動せず、元の checkout は別セッションの未コミットの変更があって古い develop のまま。
+
+**やること**: 元の checkout を最新の develop にしたあと、npm run admin で http://127.0.0.1:3021/sns/x/plans と /sns/x/plans/2026-11-civil1-correction.json を開き、計画の一覧・投稿の表・承認コマンド（digest つき）が出ることを確かめる。崩れていれば直す。
+
+**完了条件**: 2 つの画面が HTTP 200 で開き、計画名と digest が表示される。
+
+
 ### [DN-1259] scripts/kindle-dist（配布物の手元の置き場）を scripts/ の外へ移すかを決める
 タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
 
