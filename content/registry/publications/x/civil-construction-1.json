@@ -2299,14 +2299,18 @@
       "variant": "t01",
       "legacyKey": "draft/096-civil1-pressure-correction#1",
       "copy": "content/sns/x/draft/096-civil1-pressure-correction/tweets.md#tweet/1",
-      "status": "approved",
+      "status": "scheduled",
       "reason": "訂正: 2095356106256105570",
-      "publishAt": "2026-11-28T07:40:00+09:00",
+      "publishAt": "2026-11-27T22:40:00.000Z",
       "approval": {
         "by": "user",
         "at": "2026-11-21T03:30:00.731Z",
         "contentSha256": "eff9e832112e57cccba37d975f43316ce97fc691fccbf4f927986eac2f1bed9e",
         "scope": "x-plan:2026-11-civil1-correction.json"
+      },
+      "times": {
+        "scheduled": "2026-11-21T03:38:18.552Z",
+        "queueVerified": "2026-11-21T03:38:25.475Z"
       }
     },
     {

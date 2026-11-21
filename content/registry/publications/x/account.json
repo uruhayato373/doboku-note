@@ -12,12 +12,13 @@
       "legacyKey": "draft/094-career-longform-pilot#1",
       "copy": "content/sns/x/draft/094-career-longform-pilot/status.json#tweets/1",
       "publishAt": "2026-10-26T19:20:00+09:00",
-      "status": "scheduled",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
-      }
+      },
+      "stopReason": "unverified-legacy"
     },
     {
       "id": "account/career-longform-pilot/x.post.t02",
@@ -28,12 +29,13 @@
       "legacyKey": "draft/094-career-longform-pilot#2",
       "copy": "content/sns/x/draft/094-career-longform-pilot/status.json#tweets/2",
       "publishAt": "2026-10-27T07:40:00+09:00",
-      "status": "scheduled",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
-      }
+      },
+      "stopReason": "unverified-legacy"
     },
     {
       "id": "account/career-longform-pilot/x.post.t03",
@@ -70,12 +72,13 @@
       "legacyKey": "draft/094-career-longform-pilot#5",
       "copy": "content/sns/x/draft/094-career-longform-pilot/status.json#tweets/5",
       "publishAt": "2026-10-28T19:35:00+09:00",
-      "status": "scheduled",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
-      }
+      },
+      "stopReason": "unverified-legacy"
     },
     {
       "id": "account/career-longform-pilot/x.post.t06",
@@ -86,12 +89,13 @@
       "legacyKey": "draft/094-career-longform-pilot#6",
       "copy": "content/sns/x/draft/094-career-longform-pilot/status.json#tweets/6",
       "publishAt": "2026-10-29T07:15:00+09:00",
-      "status": "scheduled",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
-      }
+      },
+      "stopReason": "unverified-legacy"
     },
     {
       "id": "account/career-longform-pilot/x.post.t07",
