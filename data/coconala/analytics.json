@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-11-14T01:12:47.181Z",
-  "fetchedOnJst": "2026-11-14",
+  "fetchedAt": "2026-11-21T00:49:56.248Z",
+  "fetchedOnJst": "2026-11-21",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,24 +11,24 @@
   ],
   "period": {
     "services": {
-      "from": "2026-10-15",
-      "to": "2026-11-13",
+      "from": "2026-10-22",
+      "to": "2026-11-20",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-10-16",
-      "to": "2026-11-14",
+      "from": "2026-10-23",
+      "to": "2026-11-21",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 706,
+    "views": 770,
     "orders": 0,
     "salesYen": 0,
-    "favorites": 0,
+    "favorites": 2,
     "masked": [
       "impressions"
     ]
@@ -38,10 +38,10 @@
       "serviceId": "coconala-tensaku-4theme",
       "numericId": "4418735",
       "catalogStatus": "listed",
-      "title": "1級・2級土木の経験記述を元発注者が添削します",
+      "title": "1級・2級土木の二次答案を月3回添削します",
       "ok": true,
       "impressions": null,
-      "views": 45,
+      "views": 63,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -55,7 +55,7 @@
       "title": "技術士口頭試験｜経歴をコンピテンシーで整理します",
       "ok": true,
       "impressions": null,
-      "views": 29,
+      "views": 64,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -69,9 +69,9 @@
       "title": "コンクリート主任技士の小論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 152,
+      "views": 161,
       "orders": 0,
-      "favorites": 0,
+      "favorites": 1,
       "masked": [
         "impressions"
       ]
@@ -83,9 +83,9 @@
       "title": "コンクリート主任技士の小論文1本を診断します",
       "ok": true,
       "impressions": null,
-      "views": 31,
+      "views": 52,
       "orders": 0,
-      "favorites": 0,
+      "favorites": 1,
       "masked": [
         "impressions"
       ]
@@ -97,7 +97,7 @@
       "title": "技術士の業務内容の詳細720字を添削します",
       "ok": true,
       "impressions": null,
-      "views": 0,
+      "views": 19,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -111,7 +111,7 @@
       "title": "技術士 建設部門の論文を元発注者が添削します",
       "ok": true,
       "impressions": null,
-      "views": 0,
+      "views": 17,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -125,7 +125,7 @@
       "title": "技術士 総監の記述式論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 0,
+      "views": 20,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -139,7 +139,7 @@
       "title": "技術士 上下水道部門の論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 1,
+      "views": 20,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -341,105 +341,105 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 16
+      "views": 15
     },
     {
       "title": "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 14
+      "views": 11
     },
     {
       "title": "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 13
+      "views": 14
     },
     {
       "title": "経験記述の技術的課題「珍しい工事」でなくていい理由",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 7
+      "views": 10
     },
     {
       "title": "経験記述の工程管理、遅延要因から評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 16
+      "views": 17
     },
     {
       "title": "2級 二次 予想模試の使い方｜丸付けで終わらせない3段階",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 15
+      "views": 16
     },
     {
       "title": "1級土木二次 直前2週間の過ごし方｜経験記述と学科記述",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 11
+      "views": 13
     },
     {
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 10
+      "views": 9
     },
     {
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 7
+      "views": 6
     },
     {
       "title": "経験記述の直しは効く順番から｜添削で最初に見る4点",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 8
+      "views": 11
     },
     {
       "title": "2級の経験記述はどこまで書けば通る？1級との基準の違い",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-24",
-      "views": 15
+      "views": 14
     },
     {
       "title": "2級土木 二次 予想模試の見本｜設問1問と復習の進め方",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-23",
-      "views": 17
+      "views": 13
     },
     {
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 14
+      "views": 13
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-13",
-      "views": 9
+      "views": 10
     },
     {
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-12",
-      "views": 9
+      "views": 12
     }
   ],
   "scan": {
