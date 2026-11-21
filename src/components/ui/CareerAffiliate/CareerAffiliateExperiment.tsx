@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { ArrowRight } from "lucide-react";
-import type { CareerArticleEndCard, SidebarAdCreative } from "@/config/affiliate-creatives";
+import type { CareerArticleEndCard } from "@/config/affiliate-creatives";
 import { AFFILIATE_EXPERIMENT_ACTIVE, AFFILIATE_EXPERIMENT_ID, AFFILIATE_VARIANTS, assignAffiliateVariant } from "@/lib/affiliate-experiment.mjs";
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
 
@@ -62,26 +62,6 @@ const HEADLINES: Record<string, string> = {
   constwork: "施工管理の経験、条件で選び直そう。",
 };
 
-/** 2 枚並べを出す幅（PC）。スマホ・タブレットは縦に積むと 1 画面の大半を占めるので 1 枚（訴求設計 §12.2） */
-const TWO_UP_QUERY = "(min-width: 1024px)";
-const subscribeWide = (cb: () => void) => {
-  const mq = window.matchMedia(TWO_UP_QUERY);
-  mq.addEventListener("change", cb);
-  return () => mq.removeEventListener("change", cb);
-};
-const wideSnapshot = () => window.matchMedia(TWO_UP_QUERY).matches;
-const wideServerSnapshot = () => false;
-
-/** 2 枚並べの 2 枚目（配置ルールの pairs で決まった案件） */
-export type SecondaryCard = {
-  readonly card: CareerArticleEndCard;
-  readonly program: string;
-  readonly textHref?: string | undefined;
-  readonly textPixelSrc?: string | undefined;
-  /** 2 枚目の案件の計測ピクセル（バナー素材）。2 枚目が出るときだけ、その案件の 1 発として出す */
-  readonly pixelSrc: string;
-};
-
 function SmallCard({ card, program, trackLabel, placement, textHref, assigned }: {
   readonly card: CareerArticleEndCard;
   readonly program: string;
@@ -125,44 +105,26 @@ function SmallCard({ card, program, trackLabel, placement, textHref, assigned }:
 }
 
 /**
- * 転職の小型カード（EXP-043 で B を採用）。EXP-048: B＝1 枚、B2＝PC（幅 1024px 以上）で同じ枠に 2 社を横に並べる。
- * 2 枚目は組（secondary）がある面だけ。スマホ・タブレット・組の無い面では B2 も 1 枚で、2 枚目のピクセルも出さない。
- * 幅 36rem 以上の枠は横一列、狭い枠（スマホ・2 枚並べの各カード）は縦に積む（container query）。
+ * 転職の小型カード（EXP-043 で B を採用。EXP-048 の 2 枚並べ B2 は 2026-11-15 に打ち切り、描画の経路を外した）。
+ * 幅 36rem 以上の枠は横一列、狭い枠（スマホ）は縦に積む（container query）。
  * 公表実績の行は <p> にしない（記事本文の .prose-blog p + p が余白 1.5em を足す）。
  * 計測は data-cta-exposure="heading" が 50% 見えた時点。SSR では 1 枚を描き、案の確定前は数えない。
  * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）はテキスト素材のリンクとピクセル。
  */
-export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, textHref, textPixelSrc, pixelSrc, secondary, managedPixels = false }: {
+export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, textHref, textPixelSrc, pixelSrc, managedPixels = false }: {
   readonly managedPixels?: boolean | undefined;
   readonly card: CareerArticleEndCard;
   readonly program: string;
   readonly trackLabel: string;
   readonly placement: string;
-  /** 互換のため受け取る（バナーの案 C は 2026-10-31 に廃止） */
-  readonly banner?: SidebarAdCreative | undefined;
   readonly textHref?: string | undefined;
   readonly textPixelSrc?: string | undefined;
   /** 1 ページ 1 ピクセルの発火源のときだけ渡す（banner のピクセル） */
   readonly pixelSrc?: string | undefined;
-  /** 2 枚並べの 2 枚目（組があるときだけ） */
-  readonly secondary?: SecondaryCard | undefined;
 }) {
   const assigned = useAffiliateVariant();
-  const wide = useSyncExternalStore(subscribeWide, wideSnapshot, wideServerSnapshot);
   const pixel = !managedPixels && <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} textPixelSrc={textPixelSrc} />;
   const first = <SmallCard card={card} program={program} trackLabel={trackLabel} placement={placement} textHref={textHref} assigned={assigned} />;
-  if (assigned === "B2" && wide && secondary) {
-    return (
-      <>
-        <div className="grid grid-cols-2 items-stretch gap-3">
-          {first}
-          <SmallCard card={secondary.card} program={secondary.program} trackLabel={secondary.card.service} placement={placement} textHref={secondary.textHref} assigned={assigned} />
-        </div>
-        {pixel}
-        {!managedPixels && <TrackingPixel src={pixelForVariant({ src: secondary.pixelSrc, textHref: secondary.textHref, textPixelSrc: secondary.textPixelSrc })} />}
-      </>
-    );
-  }
   return (
     <>
       {first}

@@ -5,7 +5,6 @@ import Pill from '@/components/ui/Pill/Pill';
 
 interface MetaRowProps {
   tags?: string[] | undefined;
-  readMinutes?: number | undefined;
   publishedAt?: string | undefined;
   updatedAt?: string | undefined;
   /**
@@ -15,17 +14,14 @@ interface MetaRowProps {
   variant?: "footer" | "byline" | undefined;
 }
 
-const formatDate = (iso?: string): string | null => formatDotDate(iso);
-
 export default function MetaRow({
   tags,
-  readMinutes,
   publishedAt,
   updatedAt,
   variant = "footer",
 }: MetaRowProps) {
-  const updated = formatDate(updatedAt);
-  const published = formatDate(publishedAt);
+  const updated = formatDotDate(updatedAt);
+  const published = formatDotDate(publishedAt);
   const dateLabel = updated || published;
   const datePrefix = updated ? "更新" : "公開";
 
@@ -34,13 +30,11 @@ export default function MetaRow({
   // byline モードはタグを表示しない
   const showTags = variant === "footer" && visibleTags.length > 0;
 
-  if (!showTags && !readMinutes && !dateLabel) return null;
+  if (!showTags && !dateLabel) return null;
 
   if (variant === "byline") {
     return (
       <div className="mt-3 mb-8 pb-4 border-b border-(--rule-soft) flex items-center gap-3 flex-wrap font-mono text-[11px] text-(--ink-muted) tabular-nums">
-        {readMinutes && <span>読了 約 {readMinutes} 分</span>}
-        {dateLabel && readMinutes && <span aria-hidden>·</span>}
         {dateLabel && <span>{datePrefix} {dateLabel}</span>}
       </div>
     );
@@ -62,8 +56,6 @@ export default function MetaRow({
         </div>
       )}
       <div className="ml-auto flex items-center gap-3 font-mono text-[11px] text-(--ink-muted) tabular-nums">
-        {readMinutes && <span>読了 約 {readMinutes} 分</span>}
-        {dateLabel && readMinutes && <span aria-hidden>·</span>}
         {dateLabel && <span>{datePrefix} {dateLabel}</span>}
       </div>
     </div>

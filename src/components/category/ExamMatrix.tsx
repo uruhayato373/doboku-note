@@ -27,7 +27,7 @@ export type ExamMatrixRow = { key: string; label: string; labelTitle?: string | 
  * dense は 1 行に多数（建設部門は 7 年度）並ぶ面用。**縦の余白 py-2 は詰めない**＝タップ標的の高さを
  * 保ったまま横だけを詰める（文字を mono・tabular にして年度が縦に揃うようにもする）。
  */
-export function ExamChipLink({
+function ExamChipLink({
   href,
   dense = false,
   children,

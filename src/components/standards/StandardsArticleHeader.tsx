@@ -9,7 +9,6 @@ type StandardsArticleHeaderProps = {
   breadcrumb: StandardsCrumb[];
   label: string;
   title: string;
-  lead?: string;
   meta?: string | readonly string[];
 };
 
@@ -22,7 +21,6 @@ export default function StandardsArticleHeader({
   breadcrumb,
   label,
   title,
-  lead,
   meta,
 }: StandardsArticleHeaderProps) {
   return (
@@ -38,13 +36,8 @@ export default function StandardsArticleHeader({
       >
         {title}
       </h1>
-      {lead && (
-        <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.85] text-(--ink-body)">
-          {lead}
-        </p>
-      )}
       {meta && (
-        <div className={`${lead ? 'mt-3' : 'mt-2'} text-balance text-[13px] leading-6 text-(--ink-muted)`}>
+        <div className="mt-2 text-balance text-[13px] leading-6 text-(--ink-muted)">
           {typeof meta === 'string' ? meta : (
             <div className="flex flex-wrap gap-x-3">
               {meta.map(item => <span key={item} className="whitespace-nowrap">{item}</span>)}

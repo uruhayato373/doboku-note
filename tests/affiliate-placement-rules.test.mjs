@@ -212,7 +212,7 @@ test('今のルールは同じ面・重なる期間・交わる対象の組を�
 });
 
 
-test('2026-11-15に旧カードと2枚並べを履歴を残して閉じ、EXP-055の資格トップは維持する', async () => {
+test('2026-11-15に旧カードと2枚並べを履歴を残して閉じ（2枚目の描画の経路は外した）、EXP-055の資格トップは維持する', async () => {
  const { resolvePlacements } = await load();
  const config = JSON.parse(readFileSync(new URL('../config/affiliate-placements.json',import.meta.url)));
  const boundary = Date.parse('2026-11-15T00:00:00+09:00');
@@ -224,7 +224,6 @@ test('2026-11-15に旧カードと2枚並べを履歴を残して閉じ、EXP-05
   }
  }
  for (const p of config.pairs) assert.ok(p.period.until);
- assert.equal(resolvePlacements({pageKind:'doc',category:'civil-construction-1'},boundary-1)['article-mid'].secondary.program,'constwork');
  const category = resolvePlacements({pageKind:'category',category:'pe-construction'},boundary);
  for (const slot of ['category-sidebar','category-mobile']) assert.equal(category[slot].alternate.experiment,'EXP-055');
 });

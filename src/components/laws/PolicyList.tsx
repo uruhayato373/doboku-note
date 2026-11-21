@@ -2,7 +2,7 @@
  * 国の計画・施策・審議会の一覧（制度の地図）。法令ページとテーマのページで共通に使う。
  * 中身は config/policy-registry.json（一次資料で確かめた日を checkedAt に持つ）。根拠法は法令ページか e-Gov へ。
  * 計測: data-cta="nav"（label policy-map）。公式資料への外部リンクは数えない。
- * 件数の多いテーマ（自治体の土木職 40 件など）は、新しい順に initial 件を見せ、残りは折りたたむ（初期 HTML には全件を出す）。
+ * 件数の多いテーマ（自治体の土木職 40 件など）は、新しい順に 6 件を見せ、残りは折りたたむ（初期 HTML には全件を出す）。
  */
 import Link from 'next/link';
 import Pill from '@/components/ui/Pill/Pill';
@@ -11,11 +11,13 @@ import type { LawLink, Policy } from '@/lib/law-wiring';
 
 const KIND_LABEL: Record<Policy['kind'], string> = { council: '審議会', plan: '計画', policy: '施策・制度' };
 
+const INITIAL = 6;
+
 type Row = Policy & { laws: LawLink[] };
 
-export default function PolicyList({ policies, initial = 6 }: { policies: readonly Row[]; initial?: number }) {
-  const head = policies.slice(0, initial);
-  const rest = policies.slice(initial);
+export default function PolicyList({ policies }: { policies: readonly Row[] }) {
+  const head = policies.slice(0, INITIAL);
+  const rest = policies.slice(INITIAL);
   return (
     <div data-cta="nav" data-cta-label="policy-map">
       <PolicyItems policies={head} />

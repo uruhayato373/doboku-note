@@ -22,8 +22,6 @@ interface LatestArticlesProps {
   articles: LatestArticle[];
 }
 
-const formatDate = (iso?: string): string | null => formatDotDate(iso);
-
 export default function LatestArticles({ articles }: LatestArticlesProps) {
   if (!articles || articles.length === 0) return null;
   return (
@@ -36,7 +34,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
         {articles.map((a) => {
-          const date = formatDate(a.date);
+          const date = formatDotDate(a.date);
           return (
             <ArticleThumbRow
               key={a.slug}

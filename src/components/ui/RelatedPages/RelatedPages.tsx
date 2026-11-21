@@ -4,7 +4,7 @@ import { findDocByPublicPath } from '@/lib/content-routes';
 import { getCardImage } from '@/lib/site-thumbnail';
 import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
-export interface RelatedPageLink {
+interface RelatedPageLink {
   readonly href: string;
   readonly title: string;
   readonly description?: string;
