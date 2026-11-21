@@ -1605,22 +1605,41 @@
       }
     },
     "2026-10": {
-      "fetchedAt": "2026-10-24T05:17:11.732Z",
+      "fetchedAt": "2026-11-21T00:38:37.845Z",
       "range": {
         "start": "2026-10-01",
-        "end": "2026-10-24"
+        "end": "2026-10-31"
       },
-      "estimated": true,
+      "estimated": false,
       "total": {
-        "bookCount": 80,
-        "ebook": 5831,
+        "bookCount": 85,
+        "ebook": 7510,
         "print": 0,
-        "kenp": 1932,
-        "royalty": 7763
+        "kenp": 3045,
+        "royalty": 10555
       },
-      "kenpPagesRead": 5913,
-      "marketplaces": null,
+      "kenpPagesRead": 8700,
+      "marketplaces": [
+        {
+          "marketplace": "日本",
+          "currency": "JPY",
+          "ebook": 7510,
+          "paperback": 0,
+          "hardcover": 0,
+          "kenpPages": null,
+          "kenpRoyalty": 3045,
+          "royalty": 10555
+        }
+      ],
       "books": [
+        {
+          "bookId": "c-04",
+          "title": "技術士 建設部門 土質及び基礎 二次 模範解答集: 過去問 R03-R08 全18記事",
+          "ebook": 2098,
+          "print": 0,
+          "kenp": 1,
+          "royalty": 2099
+        },
         {
           "bookId": "j-01",
           "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集: 令和3〜7年度 年度別5回分の模範答案と書き方",
@@ -1631,23 +1650,15 @@
         },
         {
           "bookId": "c-I",
-          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R07 全5記事",
+          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R08 全6記事",
           "ebook": 1049,
           "print": 0,
-          "kenp": 73,
-          "royalty": 1122
+          "kenp": 78,
+          "royalty": 1127
         },
         {
           "bookId": "c-07",
-          "title": "技術士 建設部門 建設環境 二次 模範解答集: 過去問 R03-R07 全15記事",
-          "ebook": 1049,
-          "print": 0,
-          "kenp": 0,
-          "royalty": 1049
-        },
-        {
-          "bookId": "c-04",
-          "title": "技術士 建設部門 土質及び基礎 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "title": "技術士 建設部門 建設環境 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 1049,
           "print": 0,
           "kenp": 0,
@@ -1662,116 +1673,140 @@
           "royalty": 794
         },
         {
+          "bookId": "j-03",
+          "title": "2級土木施工管理技士 第2次検定 学科記述 テーマ別出る順＋直前暗記ノート: 令和3〜7年度の頻出論点と解答の型・穴埋め頻出語句",
+          "ebook": 630,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 630
+        },
+        {
+          "bookId": "e-02",
+          "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和8年度 全年度】: 平成26〜令和8年度 全1263問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 540,
+          "royalty": 540
+        },
+        {
           "bookId": "d-01",
           "title": "技術士第一次試験 基礎科目 過去問7年分完全解説: 令和元〜7年度 210問",
           "ebook": 0,
           "print": 0,
-          "kenp": 332,
-          "royalty": 332
-        },
-        {
-          "bookId": "e-01",
-          "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】: 令和3〜7年度 前期・後期 全630問",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 245,
-          "royalty": 245
+          "kenp": 419,
+          "royalty": 419
         },
         {
           "bookId": "d-02",
           "title": "技術士第一次試験 適性科目 過去問7年分完全解説: 令和元〜7年度 105問",
           "ebook": 0,
           "print": 0,
-          "kenp": 217,
-          "royalty": 217
+          "kenp": 379,
+          "royalty": 379
         },
         {
-          "bookId": "d-03",
-          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
+          "bookId": "e-01",
+          "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】: 令和3〜7年度 前期・後期 全630問",
           "ebook": 0,
           "print": 0,
-          "kenp": 213,
-          "royalty": 213
+          "kenp": 343,
+          "royalty": 343
         },
         {
           "bookId": "g-02",
           "title": "コンクリート主任技士 体系解説＋過去問解説303問: 平成26〜令和5年度 四肢択一を8分野別に収録",
           "ebook": 0,
           "print": 0,
-          "kenp": 201,
-          "royalty": 201
+          "kenp": 276,
+          "royalty": 276
+        },
+        {
+          "bookId": "d-03",
+          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 228,
+          "royalty": 228
         },
         {
           "bookId": "c-05",
-          "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 119,
-          "royalty": 119
+          "kenp": 135,
+          "royalty": 135
         },
         {
           "bookId": "c-01",
-          "title": "技術士 建設部門 道路 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "title": "技術士 建設部門 道路 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 108,
-          "royalty": 108
+          "kenp": 134,
+          "royalty": 134
         },
         {
-          "bookId": "c-06",
-          "title": "技術士 建設部門 施工計画 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "bookId": "c-09",
+          "title": "技術士 建設部門 電力土木 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 95,
-          "royalty": 95
-        },
-        {
-          "bookId": "c-10",
-          "title": "技術士 建設部門 鉄道 二次 模範解答集: 過去問 R03-R07 全15記事",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 94,
-          "royalty": 94
+          "kenp": 132,
+          "royalty": 132
         },
         {
           "bookId": "g-01",
           "title": "コンクリート診断士 体系解説＋四肢択一演習98問: 変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
           "ebook": 0,
           "print": 0,
-          "kenp": 93,
-          "royalty": 93
+          "kenp": 111,
+          "royalty": 111
         },
         {
-          "bookId": "c-09",
-          "title": "技術士 建設部門 電力土木 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "bookId": "c-06",
+          "title": "技術士 建設部門 施工計画 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 93,
-          "royalty": 93
+          "kenp": 111,
+          "royalty": 111
+        },
+        {
+          "bookId": "c-10",
+          "title": "技術士 建設部門 鉄道 二次 模範解答集: 過去問 R03-R08 全18記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 100,
+          "royalty": 100
+        },
+        {
+          "bookId": "A-00",
+          "title": "1級土木施工管理技士 一次検定 全6科目 論点別過去問 完全版: 平成26〜令和8年度 13年分・全440問を6科目39論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 12,
+          "royalty": 12
         },
         {
           "bookId": "c-08",
-          "title": "技術士 建設部門 港湾及び空港 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "title": "技術士 建設部門 港湾及び空港 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 10,
-          "royalty": 10
+          "kenp": 11,
+          "royalty": 11
         },
         {
           "bookId": "c-03",
-          "title": "技術士 建設部門 都市計画 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "title": "技術士 建設部門 都市計画 二次 模範解答集: 過去問 R03-R08 全18記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 11,
+          "royalty": 11
+        },
+        {
+          "bookId": "c-02",
+          "title": "技術士 建設部門 河川砂防 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
           "kenp": 10,
           "royalty": 10
-        },
-        {
-          "bookId": "c-02",
-          "title": "技術士 建設部門 河川砂防 二次 模範解答集: 過去問 R03-R07 全15記事",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 9,
-          "royalty": 9
         },
         {
           "bookId": "f-12",
@@ -1788,14 +1823,6 @@
           "print": 0,
           "kenp": 6,
           "royalty": 6
-        },
-        {
-          "bookId": "e-02",
-          "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和7年度 全年度】: 平成26〜令和7年度 全1162問",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 5,
-          "royalty": 5
         },
         {
           "bookId": "A-01",
@@ -1830,14 +1857,6 @@
           "royalty": 0
         },
         {
-          "bookId": "A-00",
-          "title": "1級土木施工管理技士 一次検定 全6科目 論点別過去問 完全版: 平成26〜令和7年度 12年分・全422問を6科目39論点に再構成",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 0,
-          "royalty": 0
-        },
-        {
           "bookId": "A-05",
           "title": "1級土木施工管理技士 一次検定 品質管理 論点別過去問: 平成26〜令和7年度 12年分・65問を5論点に再構成",
           "ebook": 0,
@@ -1854,8 +1873,16 @@
           "royalty": 0
         },
         {
-          "bookId": "j-03",
-          "title": "2級土木施工管理技士 第2次検定 学科記述 テーマ別出る順＋直前暗記ノート: 令和3〜7年度の頻出論点と解答の型・穴埋め頻出語句",
+          "bookId": "i-01",
+          "title": "1級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集: 令和3〜7年度 年度別5回分の模範答案と書き方",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "47都市の食卓は似てきたのか — 家計調査で読む19年の変化",
           "ebook": 0,
           "print": 0,
           "kenp": 0,
@@ -1991,6 +2018,14 @@
         },
         {
           "bookId": null,
+          "title": "関東 移住の県選びデータブック: 物価・仕事・住まい・子育て・医療・安全を1都6県で比べる",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
           "title": "関東データブック — 統計で読む県の横顔",
           "ebook": 0,
           "print": 0,
@@ -1999,7 +2034,7 @@
         },
         {
           "bookId": "c-11",
-          "title": "技術士 建設部門 トンネル 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "title": "技術士 建設部門 トンネル 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
           "kenp": 0,
@@ -2199,6 +2234,14 @@
         },
         {
           "bookId": null,
+          "title": "住む県の選び方 — 統計で比べる5つの条件",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
           "title": "消費量日本一の食卓 — 家計調査で読む47都道府県の食",
           "ebook": 0,
           "print": 0,
@@ -2216,6 +2259,14 @@
         {
           "bookId": null,
           "title": "人口減少と世帯の地図 — 未婚・単身・東京集中",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "東北 移住の県選びデータブック: 物価・仕事・住まい・子育て・医療・安全を6県で比べる",
           "ebook": 0,
           "print": 0,
           "kenp": 0,
@@ -2255,39 +2306,55 @@
         }
       ],
       "scope": {
-        "accountBookCount": 80,
-        "accountRows": 79,
-        "externalRows": 31,
-        "expectedDobokuBooks": 33,
-        "matchedDobokuBooks": 33,
+        "accountBookCount": 85,
+        "accountRows": 84,
+        "externalRows": 35,
+        "expectedDobokuBooks": 27,
+        "matchedDobokuBooks": 27,
         "missingDobokuBookIds": [],
-        "dobokuRoyalty": 5873
+        "dobokuRoyalty": 10541
       }
     },
     "2026-11": {
-      "fetchedAt": "2026-11-14T00:50:42.243Z",
+      "fetchedAt": "2026-11-21T00:39:50.786Z",
       "range": {
         "start": "2026-11-01",
-        "end": "2026-11-14"
+        "end": "2026-11-21"
       },
       "estimated": true,
       "total": {
-        "bookCount": 83,
-        "ebook": 15060,
+        "bookCount": 85,
+        "ebook": 19256,
         "print": 0,
-        "kenp": 2740,
-        "royalty": 17800
+        "kenp": 3494,
+        "royalty": 22750
       },
-      "kenpPagesRead": 7828,
+      "kenpPagesRead": 9980,
       "marketplaces": null,
       "books": [
         {
           "bookId": "c-06",
           "title": "技術士 建設部門 施工計画 二次 模範解答集: 過去問 R03-R08 全18記事",
-          "ebook": 3147,
+          "ebook": 4196,
           "print": 0,
           "kenp": 15,
-          "royalty": 3162
+          "royalty": 4211
+        },
+        {
+          "bookId": "c-04",
+          "title": "技術士 建設部門 土質及び基礎 二次 模範解答集: 過去問 R03-R08 全18記事",
+          "ebook": 3147,
+          "print": 0,
+          "kenp": 122,
+          "royalty": 3269
+        },
+        {
+          "bookId": "c-I",
+          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R08 全6記事",
+          "ebook": 3147,
+          "print": 0,
+          "kenp": 72,
+          "royalty": 3219
         },
         {
           "bookId": "c-05",
@@ -2296,22 +2363,6 @@
           "print": 0,
           "kenp": 121,
           "royalty": 2219
-        },
-        {
-          "bookId": "c-04",
-          "title": "技術士 建設部門 土質及び基礎 二次 模範解答集: 過去問 R03-R08 全18記事",
-          "ebook": 2098,
-          "print": 0,
-          "kenp": 119,
-          "royalty": 2217
-        },
-        {
-          "bookId": "c-I",
-          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R08 全6記事",
-          "ebook": 2098,
-          "print": 0,
-          "kenp": 62,
-          "royalty": 2160
         },
         {
           "bookId": "c-03",
@@ -2326,8 +2377,16 @@
           "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和8年度 全年度】: 平成26〜令和8年度 全1263問",
           "ebook": 0,
           "print": 0,
-          "kenp": 1378,
-          "royalty": 1378
+          "kenp": 1524,
+          "royalty": 1524
+        },
+        {
+          "bookId": "c-02",
+          "title": "技術士 建設部門 河川砂防 二次 模範解答集: 過去問 R03-R08 全18記事",
+          "ebook": 1049,
+          "print": 0,
+          "kenp": 218,
+          "royalty": 1267
         },
         {
           "bookId": "c-09",
@@ -2350,8 +2409,16 @@
           "title": "コンクリート主任技士 体系解説＋過去問解説303問: 平成26〜令和5年度 四肢択一を8分野別に収録",
           "ebook": 794,
           "print": 0,
-          "kenp": 63,
-          "royalty": 857
+          "kenp": 99,
+          "royalty": 893
+        },
+        {
+          "bookId": "d-01",
+          "title": "技術士第一次試験 基礎科目 過去問7年分完全解説: 令和元〜7年度 210問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 788,
+          "royalty": 788
         },
         {
           "bookId": "f-11",
@@ -2362,20 +2429,12 @@
           "royalty": 629
         },
         {
-          "bookId": "d-01",
-          "title": "技術士第一次試験 基礎科目 過去問7年分完全解説: 令和元〜7年度 210問",
+          "bookId": "d-02",
+          "title": "技術士第一次試験 適性科目 過去問7年分完全解説: 令和元〜7年度 105問",
           "ebook": 0,
           "print": 0,
-          "kenp": 426,
-          "royalty": 426
-        },
-        {
-          "bookId": "c-02",
-          "title": "技術士 建設部門 河川砂防 二次 模範解答集: 過去問 R03-R08 全18記事",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 218,
-          "royalty": 218
+          "kenp": 187,
+          "royalty": 187
         },
         {
           "bookId": "A-02",
@@ -2386,12 +2445,12 @@
           "royalty": 134
         },
         {
-          "bookId": "d-02",
-          "title": "技術士第一次試験 適性科目 過去問7年分完全解説: 令和元〜7年度 105問",
+          "bookId": "c-10",
+          "title": "技術士 建設部門 鉄道 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 91,
-          "royalty": 91
+          "kenp": 54,
+          "royalty": 54
         },
         {
           "bookId": "c-07",
@@ -2402,12 +2461,28 @@
           "royalty": 50
         },
         {
+          "bookId": "d-03",
+          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 39,
+          "royalty": 39
+        },
+        {
           "bookId": "c-01",
           "title": "技術士 建設部門 道路 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
           "kenp": 22,
           "royalty": 22
+        },
+        {
+          "bookId": "g-01",
+          "title": "コンクリート診断士 体系解説＋四肢択一演習98問: 変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 13,
+          "royalty": 13
         },
         {
           "bookId": "f-02",
@@ -2418,12 +2493,12 @@
           "royalty": 12
         },
         {
-          "bookId": "g-01",
-          "title": "コンクリート診断士 体系解説＋四肢択一演習98問: 変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
+          "bookId": "b-reiwa",
+          "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】: 令和元〜令和7年度 280問",
           "ebook": 0,
           "print": 0,
-          "kenp": 9,
-          "royalty": 9
+          "kenp": 7,
+          "royalty": 7
         },
         {
           "bookId": "e-01",
@@ -2432,14 +2507,6 @@
           "print": 0,
           "kenp": 6,
           "royalty": 6
-        },
-        {
-          "bookId": "d-03",
-          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 2,
-          "royalty": 2
         },
         {
           "bookId": "A-00",
@@ -2651,6 +2718,14 @@
         },
         {
           "bookId": null,
+          "title": "関東 移住の県選びデータブック: 物価・仕事・住まい・子育て・医療・安全を1都6県で比べる",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
           "title": "関東データブック — 統計で読む県の横顔",
           "ebook": 0,
           "print": 0,
@@ -2660,14 +2735,6 @@
         {
           "bookId": "c-08",
           "title": "技術士 建設部門 港湾及び空港 二次 模範解答集: 過去問 R03-R08 全18記事",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 0,
-          "royalty": 0
-        },
-        {
-          "bookId": "c-10",
-          "title": "技術士 建設部門 鉄道 二次 模範解答集: 過去問 R03-R08 全18記事",
           "ebook": 0,
           "print": 0,
           "kenp": 0,
@@ -2794,14 +2861,6 @@
           "royalty": 0
         },
         {
-          "bookId": "b-reiwa",
-          "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】: 令和元〜令和7年度 280問",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 0,
-          "royalty": 0
-        },
-        {
           "bookId": "d-00",
           "title": "技術士第一次試験 基礎・適性・専門（建設部門）過去問7年分完全解説【合本】: 令和元〜7年度 基礎210問＋適性105問＋専門245問 計560問",
           "ebook": 0,
@@ -2907,6 +2966,14 @@
         },
         {
           "bookId": null,
+          "title": "東北 移住の県選びデータブック: 物価・仕事・住まい・子育て・医療・安全を6県で比べる",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
           "title": "年収が高い県は、暮らしも豊かなのか: 家賃と物価を引いて読み直す47都道府県の家計",
           "ebook": 0,
           "print": 0,
@@ -2939,15 +3006,15 @@
         }
       ],
       "scope": {
-        "accountBookCount": 83,
-        "accountRows": 82,
-        "externalRows": 33,
+        "accountBookCount": 85,
+        "accountRows": 84,
+        "externalRows": 35,
         "expectedDobokuBooks": 28,
         "matchedDobokuBooks": 28,
         "missingDobokuBookIds": [],
-        "dobokuRoyalty": 17157
+        "dobokuRoyalty": 22108
       }
     }
   },
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-21"
 }

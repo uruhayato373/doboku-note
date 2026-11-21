@@ -1,23 +1,67 @@
 {
   "schemaVersion": 1,
   "month": "2026-11",
-  "fetchedAt": "2026-11-14T01:08:43.023Z",
+  "fetchedAt": "2026-11-21T00:36:51.889Z",
   "source": {
     "site": "doboku-note",
     "siteId": "672381",
-    "url": "https://af.moshimo.com/af/shop/report/kpi/promotion?from_date=2026%2F11%2F01&to_date=2026%2F11%2F14&terminal_type=0&order=result_price_d&shop_site_id=672381"
+    "url": "https://af.moshimo.com/af/shop/report/kpi/promotion?from_date=2026%2F11%2F01&to_date=2026%2F11%2F21&terminal_type=0&order=result_price_d&shop_site_id=672381"
   },
   "period": {
     "from": "2026-11-01",
-    "to": "2026-11-14"
+    "to": "2026-11-21"
   },
-  "observedRows": 2,
+  "observedRows": 6,
   "records": [
+    {
+      "programId": "2228",
+      "programName": "グローバル・外資系・ハイクラスの転職支援サービス【Samurai Job】無料会員登録",
+      "impressions": 1106,
+      "clicks": 2,
+      "clickRevenueYen": 0,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0
+    },
+    {
+      "programId": "7797",
+      "programName": "MyVisionエージェント｜ハイクラス転職エージェントの無料キャリア面談",
+      "impressions": 1178,
+      "clicks": 2,
+      "clickRevenueYen": 0,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0
+    },
+    {
+      "programId": "7487",
+      "programName": "NewMA｜DX・戦略・AIコンサル転職支援サービスの新規会員登録",
+      "impressions": 884,
+      "clicks": 2,
+      "clickRevenueYen": 0,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0
+    },
+    {
+      "programId": "6353",
+      "programName": "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+      "impressions": 27706,
+      "clicks": 10,
+      "clickRevenueYen": 0,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0
+    },
     {
       "programId": "4183",
       "programName": "建築転職｜建築系技術者に特化した転職エージェントの求職者面談",
-      "impressions": 194,
-      "clicks": 1,
+      "impressions": 247,
+      "clicks": 2,
       "clickRevenueYen": 0,
       "conversions": 0,
       "grossRevenueYen": 0,
@@ -27,8 +71,8 @@
     {
       "programId": "6154",
       "programName": "コンストワーク｜施工管理の転職サポート無料会員登録",
-      "impressions": 3519,
-      "clicks": 1,
+      "impressions": 20353,
+      "clicks": 8,
       "clickRevenueYen": 0,
       "conversions": 0,
       "grossRevenueYen": 0,
