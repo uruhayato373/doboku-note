@@ -3145,6 +3145,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1280] src/components の区画の組み立て（MetaCard＋LinkRowList＋LinkRow 約 14 か所・MetaCard＋2 列の LinkTile 約 5 か所）を共通の生体にするか決める
+タグ: [領域:サイト] [種類:改善] [起票:2026-11-22]
+
+2026-11-22 のアトミックデザインの点検（#1701〜#1704）で、マークアップが変わるので入れなかったもの。(1) MetaCard padding=compact trackNav の中に LinkRowList と LinkRow を並べる組み立てが RelatedTools・CategoryStudyNav・ConcreteEngineerResources・PillarNavCard（sidebar）・LawStandards・StandardsNavigation の AgencyNav・StandardsExplore ほか約 14 か所、MetaCard＋grid grid-cols-1 gap-2 sm:grid-cols-2＋LinkTile が NextStepNav・CareerNextStepNav・ExamStepBridge・QualificationBridge・RelatedPages ほか約 5 か所。CategoryNavCard の内部の LinkListCard を独立させる案（約 −80 行）。(2) PillarNavCard のスマホ側（PillarNavCard.tsx:51-77）は LinkTile current の手書き（li に枠を付けて link-primitives ラチェットを逃れている）。(3) 著者の AuthorCard（記事末）と AuthorProfile は note のボタンとアバターを別々に持つ。(4) DN-0976 の本文の古い点: 存在しない SpokeNavCard への言及と、knip の件数（今は未使用 export 6・型 13）。置き換えるなら変更前後の描画の比較で差分を 1 件ずつ読む。
+
+
 ### [DN-1279] 管理画面 Kindle の relatedDocs（関連文書）が常に空で、どこにも描画されていない
 タグ: [領域:管理] [種類:改善] [起票:2026-11-21]
 
