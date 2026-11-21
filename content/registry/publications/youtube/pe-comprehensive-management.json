@@ -798,7 +798,7 @@
       "work": "hakusho-shisaku-kaiketsu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/scene-001",
@@ -833,7 +833,42 @@
         "contentSha256": "e58ebedc62a973516af3c4383ab92ec4b82e6819c65158a508e88104a4a2d82f"
       },
       "times": {
-        "rendered": "2026-11-21T12:56:12.118Z"
+        "rendered": "2026-11-21T12:56:12.118Z",
+        "uploaded": "2026-11-21T13:01:27.678Z",
+        "scheduled": "2026-11-21T13:01:37.744Z"
+      },
+      "delivery": {
+        "inputSha256": "8fcfb5e18277e248e19445c2e139e9db6469d62ebefefa30b9625b072ee0637f",
+        "marker": "dn-single-10b3ff26f7f5b6dd8302450ed3e44e52cc29f66e",
+        "uploadRequestedAt": "2026-11-21T13:00:44.232Z",
+        "videoId": "X9fk1055gLg",
+        "processedAt": "2026-11-21T13:01:26.839Z",
+        "thumbnailRequestedAt": "2026-11-21T13:01:27.713Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/X9fk1055gLg/default.jpg?sqp=CNCrhtgG&rs=AOn4CLCatLfMycyMaQsCeBalY9bD9MVEDw",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/mqdefault.jpg?sqp=CNCrhtgG&rs=AOn4CLCQ1iw4D566PlDGQZXGcLlM_cfUVQ",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/hqdefault.jpg?sqp=CNCrhtgG&rs=AOn4CLDnSLPZi_2Py2Hqu5eMQP5CpbXxlg",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/sddefault.jpg?sqp=CNCrhtgG&rs=AOn4CLAJJ3c_SZwY8H_IbKTu-CkzzOLnIg",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/maxresdefault.jpg?sqp=CNCrhtgG&rs=AOn4CLDYojtMvE_lDPDeUArG8BAaHPZ5Kg",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/fhddefault.jpg?sqp=CNCrhtgG&rs=AOn4CLBsihiY6-EHfpNc4bIQp0pTrqtDBg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-21T13:01:31.407Z",
+        "scheduleRequestedAt": "2026-11-21T13:01:33.320Z",
+        "scheduleAt": "2026-12-04T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-21T13:01:37.744Z"
+      },
+      "platform": {
+        "id": "X9fk1055gLg",
+        "url": "https://www.youtube.com/watch?v=X9fk1055gLg",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-21T13:01:31.407Z"
       }
     },
     {
