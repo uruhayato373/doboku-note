@@ -189,8 +189,8 @@ function buildPrompt(card: TodoCard): string {
  * このタスクを参照している恒久文書（`docs/**` の `DN-####`）。
  *
  * docs → TODO の片方向だけだと「この戦略はどのタスクで動くのか」は追えても、
- * 「このタスクは何を根拠に立っているのか」が追えない。**往復できることが要件**で、
- * e2e（docs-todo.spec.ts「文書 → TODO → 文書 を往復できる」）が固定している。
+ * 「このタスクは何を根拠に立っているのか」が追えない。**往復できることが要件**。
+ * この往復を固定する自動テストは今は無い（以前の e2e は撤去済み）。
  */
 function DocRefs({ refs }: { refs?: { slug: string; title: string }[] }) {
   if (!refs?.length) return null;
