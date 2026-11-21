@@ -2299,8 +2299,15 @@
       "variant": "t01",
       "legacyKey": "draft/096-civil1-pressure-correction#1",
       "copy": "content/sns/x/draft/096-civil1-pressure-correction/tweets.md#tweet/1",
-      "status": "draft",
-      "reason": "訂正: 2095356106256105570"
+      "status": "approved",
+      "reason": "訂正: 2095356106256105570",
+      "publishAt": "2026-11-28T07:40:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-11-21T03:30:00.731Z",
+        "contentSha256": "eff9e832112e57cccba37d975f43316ce97fc691fccbf4f927986eac2f1bed9e",
+        "scope": "x-plan:2026-11-civil1-correction.json"
+      }
     },
     {
       "id": "civil-construction-1/civil1-prestress-diagrams/x.post.t01",
