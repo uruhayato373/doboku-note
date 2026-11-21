@@ -511,6 +511,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1262] note の売上の取り込みで、公開中の記事が商品 ID を持たない（article:unknown-…）まま記録される
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
+
+**起点**: 2026-11-21 の土曜の収集で、11/15 に売れたコンクリート主任技士の小論文 2 件（ゼネコン土木施工の生産性向上・DX と環境負荷低減）が article:unknown-20261115-0/1 のまま data/note/sales.json に入り、sales-attribution の実データのテストが CI で落ちた（PR #1695 の CI が赤）。記事の utmCampaign（cce-reiwa-civil-contractor-productivity・-environment）から手で直した（77247505c）。同じ手直しは 11/14 にも 2 件（93290b877・11/5 と 11/13 の売上）あり、今回で 3 回目。
+
+**やること**: note の売上を取り込む処理（note-sales の段・record-sales）が、題名から記事の productId を引けない理由を確かめる（note-published.json に該当の記事と utmCampaign はある）。引けない売上は unknown で書かず、その段を理由つきで止めるか、題名と utmCampaign の対応で引けるようにする。
+
+**完了条件**: 公開中の記事の売上が unknown で記録されないことをテストで確かめる。次の土曜の収集で sales.json に article:unknown- が増えない。
+
+
 ### [DN-1261] X の月次計画の slot 欄が check-x-campaign-plan（A/B/C）と channel-plan-audit（12/1 以降は枠 id）で食い違う
 タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-21] [期日:2026-11-30]
 
