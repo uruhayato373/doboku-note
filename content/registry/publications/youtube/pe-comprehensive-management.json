@@ -775,7 +775,7 @@
       "work": "hakusho-shisaku-kaiketsu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/scene-001",
@@ -794,7 +794,21 @@
         "video": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform",
+      "publishAt": "2026-12-04T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:18.674Z",
+          "digest": "18fb95e6561c43911ad6966c47d9fc3bb3f060a530797eff37552a10d89b3a73"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:18.674Z",
+        "contentSha256": "e58ebedc62a973516af3c4383ab92ec4b82e6819c65158a508e88104a4a2d82f"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.short.point-hoshin-2",
@@ -823,7 +837,7 @@
       "work": "hakusho-tsunagu-jitsuen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-001",
@@ -842,7 +856,21 @@
         "video": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform",
+      "publishAt": "2026-12-03T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:17.779Z",
+          "digest": "98e75f99d80832012631de21b875517f12e1c365ba3d2dfcaa4d06a69a700b96"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:17.779Z",
+        "contentSha256": "fc92c4ab9c60304cdea0c1b8957aae95e105c41c600b8e68985f22bed1790f62"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.short.point-mittsu-toi-2",

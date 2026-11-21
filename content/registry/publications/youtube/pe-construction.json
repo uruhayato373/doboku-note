@@ -1492,7 +1492,7 @@
       "work": "pe-ii2-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-ii2-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-ii2-kakikata/youtube.longform/scene-001",
@@ -1510,7 +1510,21 @@
         "video": "pe-construction/pe-ii2-kakikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-ii2-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-ii2-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-ii2-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-03T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:16.795Z",
+          "digest": "b5cf3c46cb7f459d6a5ff409ffc1476e32727e32fcab608e109dfe240a619b3b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:16.795Z",
+        "contentSha256": "36e4019b3cc3be059e908a3fbc0789efd30feb36809001f16d20caccf3ec0e34"
+      }
     },
     {
       "id": "pe-construction/pe-iii-kakikata/youtube.longform",
@@ -1898,7 +1912,7 @@
       "work": "pe-river-coast-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1916,7 +1930,21 @@
         "video": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-12-04T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:19.617Z",
+          "digest": "c7787c56e500fa2ea30125ef521d9a0311c532b50cf3defc02869066dd68024c"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:19.617Z",
+        "contentSha256": "1c0ca51a473d7f6b8a927a5a04f204abaf339afeb7dcd0e549ea5af6baa0d604"
+      }
     },
     {
       "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
