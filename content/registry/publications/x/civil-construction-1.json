@@ -1578,7 +1578,7 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/101-civil-textbook-diagrams#1",
-      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/status.json#tweets/1",
+      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/tweets.md#tweet/1",
       "status": "draft"
     },
     {
@@ -1588,7 +1588,7 @@
       "format": "post",
       "variant": "t02",
       "legacyKey": "draft/101-civil-textbook-diagrams#2",
-      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/status.json#tweets/2",
+      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/tweets.md#tweet/2",
       "status": "draft"
     },
     {
@@ -1598,7 +1598,7 @@
       "format": "post",
       "variant": "t03",
       "legacyKey": "draft/101-civil-textbook-diagrams#3",
-      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/status.json#tweets/3",
+      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/tweets.md#tweet/3",
       "status": "draft"
     },
     {
@@ -1608,7 +1608,7 @@
       "format": "post",
       "variant": "t04",
       "legacyKey": "draft/101-civil-textbook-diagrams#4",
-      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/status.json#tweets/4",
+      "copy": "content/sns/x/draft/101-civil-textbook-diagrams/tweets.md#tweet/4",
       "status": "draft"
     },
     {
@@ -2043,7 +2043,7 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/109-civil1-construction-diagrams#1",
-      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/status.json#tweets/1",
+      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/tweets.md#tweet/1",
       "status": "draft"
     },
     {
@@ -2053,7 +2053,7 @@
       "format": "post",
       "variant": "t02",
       "legacyKey": "draft/109-civil1-construction-diagrams#2",
-      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/status.json#tweets/2",
+      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/tweets.md#tweet/2",
       "status": "draft"
     },
     {
@@ -2063,7 +2063,7 @@
       "format": "post",
       "variant": "t03",
       "legacyKey": "draft/109-civil1-construction-diagrams#3",
-      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/status.json#tweets/3",
+      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/tweets.md#tweet/3",
       "status": "draft"
     },
     {
@@ -2073,7 +2073,7 @@
       "format": "post",
       "variant": "t04",
       "legacyKey": "draft/109-civil1-construction-diagrams#4",
-      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/status.json#tweets/4",
+      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/tweets.md#tweet/4",
       "status": "draft"
     },
     {
@@ -2083,7 +2083,7 @@
       "format": "post",
       "variant": "t05",
       "legacyKey": "draft/109-civil1-construction-diagrams#5",
-      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/status.json#tweets/5",
+      "copy": "content/sns/x/draft/109-civil1-construction-diagrams/tweets.md#tweet/5",
       "status": "draft"
     },
     {
@@ -2093,7 +2093,7 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/097-civil1-diagram-reuse#1",
-      "copy": "content/sns/x/draft/097-civil1-diagram-reuse/status.json#tweets/1",
+      "copy": "content/sns/x/draft/097-civil1-diagram-reuse/tweets.md#tweet/1",
       "status": "draft"
     },
     {
@@ -2103,7 +2103,7 @@
       "format": "post",
       "variant": "t02",
       "legacyKey": "draft/097-civil1-diagram-reuse#2",
-      "copy": "content/sns/x/draft/097-civil1-diagram-reuse/status.json#tweets/2",
+      "copy": "content/sns/x/draft/097-civil1-diagram-reuse/tweets.md#tweet/2",
       "status": "draft"
     },
     {
@@ -2113,7 +2113,7 @@
       "format": "post",
       "variant": "t03",
       "legacyKey": "draft/097-civil1-diagram-reuse#3",
-      "copy": "content/sns/x/draft/097-civil1-diagram-reuse/status.json#tweets/3",
+      "copy": "content/sns/x/draft/097-civil1-diagram-reuse/tweets.md#tweet/3",
       "status": "draft"
     },
     {
@@ -2298,8 +2298,9 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/096-civil1-pressure-correction#1",
-      "copy": "content/sns/x/draft/096-civil1-pressure-correction/status.json#tweets/1",
-      "status": "draft"
+      "copy": "content/sns/x/draft/096-civil1-pressure-correction/tweets.md#tweet/1",
+      "status": "draft",
+      "reason": "訂正: 2095356106256105570"
     },
     {
       "id": "civil-construction-1/civil1-prestress-diagrams/x.post.t01",
@@ -2308,7 +2309,7 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/108-civil1-prestress-diagrams#1",
-      "copy": "content/sns/x/draft/108-civil1-prestress-diagrams/status.json#tweets/1",
+      "copy": "content/sns/x/draft/108-civil1-prestress-diagrams/tweets.md#tweet/1",
       "status": "draft"
     },
     {
