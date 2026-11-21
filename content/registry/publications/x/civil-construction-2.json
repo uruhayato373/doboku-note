@@ -12,11 +12,21 @@
       "legacyKey": "draft/096-character-2026-10-a#1",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/1",
       "publishAt": "2026-10-20T12:10:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2112380786766905591",
+        "url": "https://x.com/doboku373/status/2112380786766905591",
+        "privacy": "public",
+        "publishedAt": "2026-10-20T03:10:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2112380786766905591"
+        }
       }
     },
     {
@@ -28,11 +38,21 @@
       "legacyKey": "draft/096-character-2026-10-a#2",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/2",
       "publishAt": "2026-10-26T12:22:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2114558133196439710",
+        "url": "https://x.com/doboku373/status/2114558133196439710",
+        "privacy": "public",
+        "publishedAt": "2026-10-26T03:22:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2114558133196439710"
+        }
       }
     },
     {
@@ -44,11 +64,21 @@
       "legacyKey": "draft/096-character-2026-10-a#3",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/3",
       "publishAt": "2026-10-21T07:22:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2112670696664883213",
+        "url": "https://x.com/doboku373/status/2112670696664883213",
+        "privacy": "public",
+        "publishedAt": "2026-10-20T22:22:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2112670696664883213"
+        }
       }
     },
     {
@@ -60,11 +90,21 @@
       "legacyKey": "draft/096-character-2026-10-a#4",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/4",
       "publishAt": "2026-10-10T08:00:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2108693994582737398",
+        "url": "https://x.com/doboku373/status/2108693994582737398",
+        "privacy": "public",
+        "publishedAt": "2026-10-09T23:00:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2108693994582737398"
+        }
       }
     },
     {
@@ -76,11 +116,21 @@
       "legacyKey": "draft/096-character-2026-10-a#5",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/5",
       "publishAt": "2026-10-21T12:23:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2112746445560590656",
+        "url": "https://x.com/doboku373/status/2112746445560590656",
+        "privacy": "public",
+        "publishedAt": "2026-10-21T03:23:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2112746445560590656"
+        }
       }
     },
     {
@@ -105,7 +155,7 @@
       "legacyKey": "draft/096-character-2026-10-a#7",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/7",
       "publishAt": "2026-10-10T12:30:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -113,6 +163,16 @@
       },
       "media": {
         "cover": "civil-construction-2/character-10-a/x.post.t07/cover"
+      },
+      "platform": {
+        "id": "2108761943507194251",
+        "url": "https://x.com/doboku373/status/2108761943507194251",
+        "privacy": "public",
+        "publishedAt": "2026-10-10T03:30:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2108761943507194251"
+        }
       }
     },
     {
@@ -124,11 +184,21 @@
       "legacyKey": "draft/096-character-2026-10-a#8",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/8",
       "publishAt": "2026-10-28T12:14:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2115280895834042736",
+        "url": "https://x.com/doboku373/status/2115280895834042736",
+        "privacy": "public",
+        "publishedAt": "2026-10-28T03:14:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2115280895834042736"
+        }
       }
     },
     {
@@ -140,11 +210,21 @@
       "legacyKey": "draft/096-character-2026-10-a#9",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/9",
       "publishAt": "2026-10-11T08:17:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109060659006595270",
+        "url": "https://x.com/doboku373/status/2109060659006595270",
+        "privacy": "public",
+        "publishedAt": "2026-10-10T23:17:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109060659006595270"
+        }
       }
     },
     {
@@ -156,11 +236,21 @@
       "legacyKey": "draft/096-character-2026-10-a#10",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/10",
       "publishAt": "2026-10-11T12:43:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109127600169738542",
+        "url": "https://x.com/doboku373/status/2109127600169738542",
+        "privacy": "public",
+        "publishedAt": "2026-10-11T03:43:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109127600169738542"
+        }
       }
     },
     {
@@ -172,11 +262,21 @@
       "legacyKey": "draft/096-character-2026-10-a#11",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/11",
       "publishAt": "2026-10-22T07:39:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2113037362619891995",
+        "url": "https://x.com/doboku373/status/2113037362619891995",
+        "privacy": "public",
+        "publishedAt": "2026-10-21T22:39:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2113037362619891995"
+        }
       }
     },
     {
@@ -201,11 +301,21 @@
       "legacyKey": "draft/096-character-2026-10-a#13",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/13",
       "publishAt": "2026-10-12T07:19:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109408450618761406",
+        "url": "https://x.com/doboku373/status/2109408450618761406",
+        "privacy": "public",
+        "publishedAt": "2026-10-11T22:19:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109408450618761406"
+        }
       }
     },
     {
@@ -217,11 +327,21 @@
       "legacyKey": "draft/096-character-2026-10-a#14",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/14",
       "publishAt": "2026-10-22T12:36:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2113112105075532248",
+        "url": "https://x.com/doboku373/status/2113112105075532248",
+        "privacy": "public",
+        "publishedAt": "2026-10-22T03:36:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2113112105075532248"
+        }
       }
     },
     {
@@ -233,11 +353,21 @@
       "legacyKey": "draft/096-character-2026-10-a#15",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/15",
       "publishAt": "2026-10-12T12:16:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109483193170628871",
+        "url": "https://x.com/doboku373/status/2109483193170628871",
+        "privacy": "public",
+        "publishedAt": "2026-10-12T03:16:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109483193170628871"
+        }
       }
     },
     {
@@ -249,11 +379,21 @@
       "legacyKey": "draft/096-character-2026-10-a#16",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/16",
       "publishAt": "2026-10-13T07:36:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109775116720848921",
+        "url": "https://x.com/doboku373/status/2109775116720848921",
+        "privacy": "public",
+        "publishedAt": "2026-10-12T22:36:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109775116720848921"
+        }
       }
     },
     {
@@ -265,11 +405,21 @@
       "legacyKey": "draft/096-character-2026-10-a#17",
       "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/17",
       "publishAt": "2026-10-30T12:31:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2116009949880864798",
+        "url": "https://x.com/doboku373/status/2116009949880864798",
+        "privacy": "public",
+        "publishedAt": "2026-10-30T03:31:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2116009949880864798"
+        }
       }
     },
     {
@@ -489,11 +639,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#1",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/1",
       "publishAt": "2026-10-13T12:19:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109846336090812789",
+        "url": "https://x.com/doboku373/status/2109846336090812789",
+        "privacy": "public",
+        "publishedAt": "2026-10-13T03:19:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109846336090812789"
+        }
       }
     },
     {
@@ -505,11 +665,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#2",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/2",
       "publishAt": "2026-10-09T20:51:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2108525633898946729",
+        "url": "https://x.com/doboku373/status/2108525633898946729",
+        "privacy": "public",
+        "publishedAt": "2026-10-09T11:51:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2108525633898946729"
+        }
       }
     },
     {
@@ -521,11 +691,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#3",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/3",
       "publishAt": "2026-10-14T07:53:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2110141782789087482",
+        "url": "https://x.com/doboku373/status/2110141782789087482",
+        "privacy": "public",
+        "publishedAt": "2026-10-13T22:53:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2110141782789087482"
+        }
       }
     },
     {
@@ -537,11 +717,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#4",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/4",
       "publishAt": "2026-10-10T19:35:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2108868895574745273",
+        "url": "https://x.com/doboku373/status/2108868895574745273",
+        "privacy": "public",
+        "publishedAt": "2026-10-10T10:35:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2108868895574745273"
+        }
       }
     },
     {
@@ -553,11 +743,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#5",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/5",
       "publishAt": "2026-10-14T12:32:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2110211995567788221",
+        "url": "https://x.com/doboku373/status/2110211995567788221",
+        "privacy": "public",
+        "publishedAt": "2026-10-14T03:32:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2110211995567788221"
+        }
       }
     },
     {
@@ -598,11 +798,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#8",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/8",
       "publishAt": "2026-10-11T19:54:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109236064783060995",
+        "url": "https://x.com/doboku373/status/2109236064783060995",
+        "privacy": "public",
+        "publishedAt": "2026-10-11T10:54:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109236064783060995"
+        }
       }
     },
     {
@@ -614,11 +824,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#9",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/9",
       "publishAt": "2026-10-15T08:10:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2110508448710267373",
+        "url": "https://x.com/doboku373/status/2110508448710267373",
+        "privacy": "public",
+        "publishedAt": "2026-10-14T23:10:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2110508448710267373"
+        }
       }
     },
     {
@@ -630,11 +850,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#10",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/10",
       "publishAt": "2026-10-12T20:13:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109603234193318000",
+        "url": "https://x.com/doboku373/status/2109603234193318000",
+        "privacy": "public",
+        "publishedAt": "2026-10-12T11:13:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109603234193318000"
+        }
       }
     },
     {
@@ -646,11 +876,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#11",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/11",
       "publishAt": "2026-10-15T12:45:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2110577654990770437",
+        "url": "https://x.com/doboku373/status/2110577654990770437",
+        "privacy": "public",
+        "publishedAt": "2026-10-15T03:45:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2110577654990770437"
+        }
       }
     },
     {
@@ -662,11 +902,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#12",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/12",
       "publishAt": "2026-10-13T20:32:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2109970403796091367",
+        "url": "https://x.com/doboku373/status/2109970403796091367",
+        "privacy": "public",
+        "publishedAt": "2026-10-13T11:32:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2109970403796091367"
+        }
       }
     },
     {
@@ -678,11 +928,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#13",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/13",
       "publishAt": "2026-10-23T12:54:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2113479022705283564",
+        "url": "https://x.com/doboku373/status/2113479022705283564",
+        "privacy": "public",
+        "publishedAt": "2026-10-23T03:54:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2113479022705283564"
+        }
       }
     },
     {
@@ -694,11 +954,21 @@
       "legacyKey": "draft/097-civil2-final-2026-10#14",
       "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/14",
       "publishAt": "2026-10-24T19:48:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2113945597220995330",
+        "url": "https://x.com/doboku373/status/2113945597220995330",
+        "privacy": "public",
+        "publishedAt": "2026-10-24T10:48:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2113945597220995330"
+        }
       }
     },
     {
@@ -873,11 +1143,21 @@
       "legacyKey": "draft/106-civil2-lastweek-2026-10#1",
       "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/1",
       "publishAt": "2026-10-16T20:06:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2111051024094138461",
+        "url": "https://x.com/doboku373/status/2111051024094138461",
+        "privacy": "public",
+        "publishedAt": "2026-10-16T11:06:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2111051024094138461"
+        }
       }
     },
     {
@@ -905,11 +1185,21 @@
       "legacyKey": "draft/106-civil2-lastweek-2026-10#3",
       "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/3",
       "publishAt": "2026-10-18T19:47:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2111771018238836755",
+        "url": "https://x.com/doboku373/status/2111771018238836755",
+        "privacy": "public",
+        "publishedAt": "2026-10-18T10:47:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2111771018238836755"
+        }
       }
     },
     {
@@ -921,11 +1211,21 @@
       "legacyKey": "draft/106-civil2-lastweek-2026-10#4",
       "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/4",
       "publishAt": "2026-10-19T21:02:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2112152281017954674",
+        "url": "https://x.com/doboku373/status/2112152281017954674",
+        "privacy": "public",
+        "publishedAt": "2026-10-19T12:02:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2112152281017954674"
+        }
       }
     },
     {
@@ -937,11 +1237,21 @@
       "legacyKey": "draft/106-civil2-lastweek-2026-10#5",
       "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/5",
       "publishAt": "2026-10-20T20:38:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2112508628746080314",
+        "url": "https://x.com/doboku373/status/2112508628746080314",
+        "privacy": "public",
+        "publishedAt": "2026-10-20T11:38:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2112508628746080314"
+        }
       }
     },
     {
@@ -953,11 +1263,21 @@
       "legacyKey": "draft/106-civil2-lastweek-2026-10#6",
       "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/6",
       "publishAt": "2026-10-21T19:41:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2112856672003899854",
+        "url": "https://x.com/doboku373/status/2112856672003899854",
+        "privacy": "public",
+        "publishedAt": "2026-10-21T10:41:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2112856672003899854"
+        }
       }
     },
     {
@@ -969,11 +1289,21 @@
       "legacyKey": "draft/106-civil2-lastweek-2026-10#7",
       "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/7",
       "publishAt": "2026-10-22T20:19:00.000+09:00",
-      "status": "approved",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2113228622974652867",
+        "url": "https://x.com/doboku373/status/2113228622974652867",
+        "privacy": "public",
+        "publishedAt": "2026-10-22T11:19:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2113228622974652867"
+        }
       }
     },
     {

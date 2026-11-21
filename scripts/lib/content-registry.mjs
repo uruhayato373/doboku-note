@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { datasetDir } from './datasets.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { videoStatusToStage } from './content-lifecycle.mjs';
+import { parseTweetBlocks } from './x-tweets-md.mjs';
 
 export const CHANNEL_DATASET = {
   youtube: 'registry.youtube',
@@ -167,6 +168,13 @@ export function resolveCopy(root, copy) {
   const [path, key = ''] = copy.split('#');
   const abs = join(root, path);
   if (!existsSync(abs)) return null;
+  // X の 1 投稿は tweets.md の「## Tweet NN」を `tweets.md#tweet/N` で指す（DN-0612 P7・本文の作り方は parseTweetBlocks）
+  const tweet = /^tweet\/(\d+)$/.exec(key);
+  if (path.endsWith('.md') && tweet) {
+    const b = parseTweetBlocks(readFileSync(abs, 'utf8')).find((x) => x.key === String(Number(tweet[1])));
+    if (!b) return null;
+    return b.threadParts.length ? { text: b.text, thread: b.threadParts } : { text: b.text };
+  }
   if (!path.endsWith('.json')) return { text: readFileSync(abs, 'utf8') };
   let node = JSON.parse(readFileSync(abs, 'utf8'));
   for (const seg of key.split('/').filter(Boolean)) {
