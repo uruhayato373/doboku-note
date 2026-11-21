@@ -20,7 +20,7 @@ Playwright（永続プロファイル）で X のコンポーザを自動操作�
 >
 > **現行フロー（2026-07-07 再開）**: 予約は再開したが、凍結実因（連続・重複）を機械的に潰すため **必ず以下のガード付きフローを通す**（真実源 `x-post-policy.md` §11.5）:
 > 1. `x-post-writer` で下書き（文面ユニーク・URL 分散・同一 URL ≤2）
-> 2. `npm run registry -- import-x --folder <フォルダ> --commit` で台帳に draft で足し、月次計画に日時と `frame` を書いて承認（台帳 approved）→ `npm run x-schedule-guard`（近似重複<0.62・同時刻衝突・**1 日上限 3 本**）を**緑**に。X の状態の正本は台帳（下書きの status.json は 2026-11-21 に撤去）
+> 2. `npm run registry -- import-x --folder <フォルダ> --commit` で台帳に draft で足し、月次計画に日時と `frame` を書き、運営者が `npm run registry -- approve-x-plan --plan <月次計画> --expect <digest>` で承認（台帳 approved・一覧は管理画面 `/sns/x/plans`）→ `npm run x-schedule-guard`（近似重複<0.62・同時刻衝突・**1 日上限 3 本**）を**緑**に。X の状態の正本は台帳（下書きの status.json は 2026-11-21 に撤去）
 > 3. `--dry-run` でセレクタ/認証を検証（下記）
 > 4. `npm run x-schedule-guard --queue`（実キュー二重チェック）緑 → `--dry-run` を外して本番
 > 5. `npm run x-sync-status` でキューの実在を確認＝偽成功検証（§9・台帳に `times.queueVerified`）。予約日時の後に `npm run registry -- reconcile-x --commit` で投稿済みに

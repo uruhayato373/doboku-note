@@ -74,7 +74,9 @@ export async function recordX(root, folder, key, event, data = {}) {
   const cfg = loadRegistryConfig(root);
   const row = Object.fromEntries(Object.entries(cur).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
   const can = (to) => row.status === to || canTransition(cfg, row.status, to, 'x');
-  const grand = row.approval ?? { by: 'user', contentSha256: null, grandfathered: true };
+  // 承認は運営者が月次計画で書く（approve-x-plan）。ここで補わない（DN-0612 P7）
+  const grand = row.approval;
+  if (!grand) throw new Error(`承認の無い X の投稿は記録しない: ${row.id}（先に approve-x-plan）`);
   if (event === 'published') {
     if (!data.id || !data.evidence) throw new Error('published には id と evidence が要る');
     const fromUnverified = row.status === 'stopped' && row.stopReason === 'unverified-legacy';
