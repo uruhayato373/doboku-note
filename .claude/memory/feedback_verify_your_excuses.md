@@ -72,3 +72,7 @@ metadata:
 ## この Mac（メモリ 8GB）で重い検査を重ねない（2026-11-14）
 土曜の収集の最中に `quality:audit:ci` を重ね、午後には管理画面の tsc を重複して走らせた。11:15 にメモリ不足の強制終了（JetsamEvent）、11:59 と 15:16 に正常終了の記録が無い再起動（15:16 は forceReset）が起き、収集の後段が途中で消えた。時刻は 2 回とも私の重い検査と一致する（因果は未確定）。
 - **How to apply:** 重い検査（`quality:audit:ci`・tsc・テスト全件・build）は同時に 1 本まで。土曜 9:30 からの収集の最中は回さない（`~/Library/Logs/doboku-note/weekly-review.lock/pid` のプロセスが生きているかで確かめる）。時間切れで background に回ったコマンドを、終わる前に打ち直さない。
+
+## 手元で落ちた検査を「環境のせい」と言う前にエラー本文を読む（2026-11-22）
+PR #1701 で `tests/admin-type-check.test.mjs`（管理画面の tsc）が手元で落ち、「worktree に管理画面の依存が無いから」と決めて変更前の側でも落ちることだけ確かめて先へ進んだ。実際は手元ではメモリ不足（2GB の上限で OOM）で落ちていて、その陰に自分の変更による型エラー（`affiliate-pages.ts` が引数を減らした関数を古い引数で呼んでいた）があり、CI の test と audit を赤にした。変更前でも落ちることは「自分の変更が無関係」の証拠にならない（同じ失敗が別の原因を隠す）。
+- **How to apply:** 手元で落ちた検査は、変更前との比較の前にエラー本文を読む。管理画面の tsc は `NODE_OPTIONS=--max-old-space-size=5120 npx tsc --noEmit -p tools/admin-app` で直接流せば手元でも完走する。関数の引数を変えたら `git grep` を `src` だけでなく `tools/` `scripts/` `tests/` まで当てる。

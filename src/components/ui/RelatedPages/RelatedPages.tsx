@@ -1,10 +1,10 @@
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { findDocByPublicPath } from '@/lib/content-routes';
 import { getCardImage } from '@/lib/site-thumbnail';
 import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
-export interface RelatedPageLink {
+interface RelatedPageLink {
   readonly href: string;
   readonly title: string;
   readonly description?: string;

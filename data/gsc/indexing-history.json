@@ -2617,6 +2617,82 @@
         "/exam/pe-construction/past-exams/r08-road-ii-1-3",
         "/exam/pe-construction/past-exams/r08-steel-concrete-iii-1"
       ]
+    },
+    {
+      "runId": "2026-11-20T22-41-15Z",
+      "collectedAt": "2026-11-20T22:41:15.099Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/secondary/earthwork-basics",
+        "/exam/surveyor/guide/assistant-keisan",
+        "/laws/coast-act",
+        "/exam/pe-construction/past-exams/r07-required-i-2",
+        "/exam/pe-construction/past-exams/r07-steel-concrete-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-3",
+        "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-4",
+        "/exam/pe-construction/past-exams/r08-construction-planning-iii-1",
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-1",
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-2"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/secondary/earthwork-basics",
+        "/exam/surveyor/guide/assistant-keisan",
+        "/laws/coast-act",
+        "/exam/pe-construction/past-exams/r07-required-i-2",
+        "/exam/pe-construction/past-exams/r07-steel-concrete-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-3",
+        "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-4",
+        "/exam/pe-construction/past-exams/r08-construction-planning-iii-1",
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-1",
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-2"
+      ]
+    },
+    {
+      "runId": "2026-11-21T22-40-11Z",
+      "collectedAt": "2026-11-21T22:40:11.067Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-4",
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-geotechnical-iii-2",
+        "/exam/pe-construction/past-exams/r08-river-coast-ii-1-1",
+        "/exam/pe-construction/past-exams/r08-river-coast-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-road-ii-1-1",
+        "/exam/pe-construction/past-exams/r08-road-ii-1-2",
+        "/exam/pe-construction/past-exams/r08-road-ii-2-1",
+        "/exam/pe-construction/past-exams/r08-road-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-road-iii-1"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-4",
+        "/exam/pe-construction/past-exams/r08-geotechnical-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-geotechnical-iii-2",
+        "/exam/pe-construction/past-exams/r08-river-coast-ii-1-1",
+        "/exam/pe-construction/past-exams/r08-river-coast-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-road-ii-1-1",
+        "/exam/pe-construction/past-exams/r08-road-ii-1-2",
+        "/exam/pe-construction/past-exams/r08-road-ii-2-1",
+        "/exam/pe-construction/past-exams/r08-road-ii-2-2",
+        "/exam/pe-construction/past-exams/r08-road-iii-1"
+      ]
     }
   ]
 }

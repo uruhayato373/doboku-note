@@ -31,8 +31,6 @@ interface MetaCardProps {
   titleAside?: ReactNode;
   /** 見出しの左のアイコン（accent のタイルに入れる） */
   icon?: ReactNode;
-  /** 見出しの段 */
-  headingLevel?: 2 | 3;
   /** 見出しを明朝にする（固定ページ・基準書の区画） */
   serifTitle?: boolean;
   /**
@@ -52,8 +50,6 @@ interface MetaCardProps {
    * デリゲートリスナーが配下リンクのクリックを internal_nav_click として拾う。
    */
   trackNav?: string | undefined;
-  /** root に付けるそのほかの属性（data-article-sidebar-card など） */
-  data?: Readonly<Record<`data-${string}`, string | undefined>>;
   children?: ReactNode;
 }
 
@@ -63,13 +59,12 @@ const PADDINGS: Record<NonNullable<MetaCardProps['padding']>, string> = {
   none: '',
 };
 
-function CardHeader({ title, lead, eyebrow, titleAside, icon, headingLevel = 2, serifTitle = false, compact }: Pick<MetaCardProps, 'title' | 'lead' | 'eyebrow' | 'titleAside' | 'icon' | 'headingLevel' | 'serifTitle'> & { compact: boolean }) {
-  const Heading = headingLevel === 3 ? 'h3' : 'h2';
+function CardHeader({ title, lead, eyebrow, titleAside, icon, serifTitle = false, compact }: Pick<MetaCardProps, 'title' | 'lead' | 'eyebrow' | 'titleAside' | 'icon' | 'serifTitle'> & { compact: boolean }) {
   const text = (
     <div className="min-w-0 flex-1">
       {eyebrow && <Eyebrow variant="plain" tone="accent" className="mb-1.5">{eyebrow}</Eyebrow>}
       <div className="flex items-baseline justify-between gap-3">
-        <Heading className={`text-lg font-bold leading-tight text-(--ink)${serifTitle ? ' font-serif' : ''}`}>{title}</Heading>
+        <h2 className={`text-lg font-bold leading-tight text-(--ink)${serifTitle ? ' font-serif' : ''}`}>{title}</h2>
         {titleAside && <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{titleAside}</span>}
       </div>
       {lead && <p className="mt-1 text-sm text-(--ink-muted)">{lead}</p>}
@@ -93,20 +88,18 @@ export default function MetaCard({
   eyebrow,
   titleAside,
   icon,
-  headingLevel = 2,
   serifTitle = false,
   padding = 'default',
   interactive = false,
   className = '',
   trackNav,
-  data,
   children,
 }: MetaCardProps) {
   const finalClassName = ['card-surface-section', interactive ? 'card-interactive hover:shadow-card-hover' : '', PADDINGS[padding], className].filter(Boolean).join(' ');
   const trackAttrs = trackNav ? { 'data-cta': 'nav', 'data-cta-label': trackNav } : {};
   return (
-    <Tag aria-label={ariaLabel} className={finalClassName} {...trackAttrs} {...data}>
-      {title && <CardHeader title={title} lead={lead} eyebrow={eyebrow} titleAside={titleAside} icon={icon} headingLevel={headingLevel} serifTitle={serifTitle} compact={padding === 'compact'} />}
+    <Tag aria-label={ariaLabel} className={finalClassName} {...trackAttrs}>
+      {title && <CardHeader title={title} lead={lead} eyebrow={eyebrow} titleAside={titleAside} icon={icon} serifTitle={serifTitle} compact={padding === 'compact'} />}
       {children}
     </Tag>
   );

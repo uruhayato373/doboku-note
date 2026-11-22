@@ -14,16 +14,10 @@
 import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
+import type { ArticleLaw } from '@/lib/article-laws';
 import type { WiredDoc } from '@/lib/article-end-wiring';
 import type { LawTopicLink } from '@/lib/law-wiring';
 import { topicPath } from '@/lib/route-paths';
-
-export interface ArticleLaw {
-  readonly lawId: string;
-  readonly title: string;
-  readonly url: string;
-  readonly articles: readonly { readonly article: string; readonly label: string; readonly url: string }[];
-}
 
 export default function ArticleLaws({ laws, siblings, lawTopics, pageLinks }: {
   laws: readonly ArticleLaw[];

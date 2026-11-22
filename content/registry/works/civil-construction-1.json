@@ -178,18 +178,6 @@
       "legacyKey": "108-civil1-prestress-diagrams"
     },
     {
-      "id": "civil1-secondary-keiken-w1",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/068-civil1-secondary-keiken-w1",
-      "legacyKey": "068-civil1-secondary-keiken-w1"
-    },
-    {
-      "id": "civil1-shiken-campaign",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-old-account/044-civil1-shiken-campaign",
-      "legacyKey": "044-civil1-shiken-campaign"
-    },
-    {
       "id": "owner-career-before-moving",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/owner-career-before-moving",
@@ -272,12 +260,6 @@
         "by": "Claude Code video-content-qa",
         "inputSha256": "b328632fac18ebe4f561ce40199bed9d61867e0932d252a5944c2963b4e52407"
       }
-    },
-    {
-      "id": "x042-civil1-r06",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-old-account/042-civil1-r06頻出",
-      "legacyKey": "042-civil1-r06頻出"
     }
   ]
 }

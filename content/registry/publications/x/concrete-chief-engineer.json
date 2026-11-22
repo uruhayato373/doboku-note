@@ -10,7 +10,6 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/086-concrete-chief-2026-08-boost#1",
-      "copy": "content/sns/x/draft/086-concrete-chief-2026-08-boost/status.json#tweets/1",
       "publishAt": "2026-08-19T12:20:00.000+09:00",
       "status": "published",
       "approval": {
@@ -35,7 +34,6 @@
       "format": "post",
       "variant": "t02",
       "legacyKey": "draft/086-concrete-chief-2026-08-boost#2",
-      "copy": "content/sns/x/draft/086-concrete-chief-2026-08-boost/status.json#tweets/2",
       "publishAt": "2026-08-21T21:00:00.000+09:00",
       "status": "published",
       "approval": {
@@ -60,7 +58,6 @@
       "format": "post",
       "variant": "t03",
       "legacyKey": "draft/086-concrete-chief-2026-08-boost#3",
-      "copy": "content/sns/x/draft/086-concrete-chief-2026-08-boost/status.json#tweets/3",
       "publishAt": "2026-08-22T12:15:00.000+09:00",
       "status": "published",
       "approval": {
@@ -85,7 +82,6 @@
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/089-concrete-chief-2026-08-late#1",
-      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/1",
       "publishAt": "2026-08-23T12:35:00.000+09:00",
       "status": "published",
       "approval": {
@@ -110,7 +106,6 @@
       "format": "post",
       "variant": "t02",
       "legacyKey": "draft/089-concrete-chief-2026-08-late#2",
-      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/2",
       "publishAt": "2026-08-27T07:30:00.000+09:00",
       "status": "published",
       "approval": {
@@ -135,7 +130,6 @@
       "format": "post",
       "variant": "t03",
       "legacyKey": "draft/089-concrete-chief-2026-08-late#3",
-      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/3",
       "publishAt": "2026-08-27T12:25:00.000+09:00",
       "status": "published",
       "approval": {
@@ -160,7 +154,6 @@
       "format": "post",
       "variant": "t04",
       "legacyKey": "draft/089-concrete-chief-2026-08-late#4",
-      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/4",
       "publishAt": "2026-08-31T07:20:00.000+09:00",
       "status": "published",
       "approval": {
@@ -185,7 +178,6 @@
       "format": "post",
       "variant": "t05",
       "legacyKey": "draft/089-concrete-chief-2026-08-late#5",
-      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/5",
       "publishAt": "2026-08-31T12:20:00.000+09:00",
       "status": "published",
       "approval": {
@@ -204,19 +196,644 @@
       }
     },
     {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t01",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#1",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/1",
+      "status": "published",
+      "publishAt": "2026-11-02T12:20:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2117094345014706309",
+        "url": "https://x.com/doboku373/status/2117094345014706309",
+        "privacy": "public",
+        "publishedAt": "2026-11-02T03:20:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2117094345014706309"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t02",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#2",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/2",
+      "status": "published",
+      "publishAt": "2026-11-04T12:35:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2117822896127000952",
+        "url": "https://x.com/doboku373/status/2117822896127000952",
+        "privacy": "public",
+        "publishedAt": "2026-11-04T03:35:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2117822896127000952"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t03",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#3",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/3",
+      "status": "published",
+      "publishAt": "2026-11-06T08:20:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2118483498495295801",
+        "url": "https://x.com/doboku373/status/2118483498495295801",
+        "privacy": "public",
+        "publishedAt": "2026-11-05T23:20:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2118483498495295801"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t04",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#4",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/4",
+      "status": "published",
+      "publishAt": "2026-11-08T12:40:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2119273705511727412",
+        "url": "https://x.com/doboku373/status/2119273705511727412",
+        "privacy": "public",
+        "publishedAt": "2026-11-08T03:40:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2119273705511727412"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t05",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#5",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/5",
+      "status": "published",
+      "publishAt": "2026-11-10T07:55:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2119926758430720069",
+        "url": "https://x.com/doboku373/status/2119926758430720069",
+        "privacy": "public",
+        "publishedAt": "2026-11-09T22:55:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2119926758430720069"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t06",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#6",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/6",
+      "status": "published",
+      "publishAt": "2026-11-12T07:40:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2120647759388893563",
+        "url": "https://x.com/doboku373/status/2120647759388893563",
+        "privacy": "public",
+        "publishedAt": "2026-11-11T22:40:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2120647759388893563"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t07",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#7",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/7",
+      "status": "published",
+      "publishAt": "2026-11-13T12:45:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2121086903042617713",
+        "url": "https://x.com/doboku373/status/2121086903042617713",
+        "privacy": "public",
+        "publishedAt": "2026-11-13T03:45:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2121086903042617713"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t08",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#8",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/8",
+      "status": "published",
+      "publishAt": "2026-11-15T07:15:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2121728631412232368",
+        "url": "https://x.com/doboku373/status/2121728631412232368",
+        "privacy": "public",
+        "publishedAt": "2026-11-14T22:15:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2121728631412232368"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t09",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#9",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/9",
+      "status": "published",
+      "publishAt": "2026-11-17T08:05:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2122465990571417928",
+        "url": "https://x.com/doboku373/status/2122465990571417928",
+        "privacy": "public",
+        "publishedAt": "2026-11-16T23:05:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2122465990571417928"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t10",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#10",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/10",
+      "status": "published",
+      "publishAt": "2026-11-18T20:10:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2123010830660972882",
+        "url": "https://x.com/doboku373/status/2123010830660972882",
+        "privacy": "public",
+        "publishedAt": "2026-11-18T11:10:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2123010830660972882"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t11",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#11",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/11",
+      "status": "published",
+      "publishAt": "2026-11-19T08:25:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2123195799047675940",
+        "url": "https://x.com/doboku373/status/2123195799047675940",
+        "privacy": "public",
+        "publishedAt": "2026-11-18T23:25:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2123195799047675940"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t12",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#12",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/12",
+      "status": "published",
+      "publishAt": "2026-11-20T12:40:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2123622359823241578",
+        "url": "https://x.com/doboku373/status/2123622359823241578",
+        "privacy": "public",
+        "publishedAt": "2026-11-20T03:40:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2123622359823241578"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t13",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t13",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#13",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/13",
+      "status": "scheduled",
+      "publishAt": "2026-11-21T20:35:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t14",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t14",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#14",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/14",
+      "status": "scheduled",
+      "publishAt": "2026-11-22T12:50:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t15",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t15",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#15",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/15",
+      "status": "scheduled",
+      "publishAt": "2026-11-23T12:30:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t16",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t16",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#16",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/16",
+      "status": "scheduled",
+      "publishAt": "2026-11-23T20:25:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t17",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t17",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#17",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/17",
+      "status": "scheduled",
+      "publishAt": "2026-11-24T07:50:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t18",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t18",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#18",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/18",
+      "status": "scheduled",
+      "publishAt": "2026-11-24T12:15:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t19",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t19",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#19",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/19",
+      "status": "scheduled",
+      "publishAt": "2026-11-25T08:30:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t20",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t20",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#20",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/20",
+      "status": "scheduled",
+      "publishAt": "2026-11-25T19:40:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t21",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t21",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#21",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/21",
+      "status": "scheduled",
+      "publishAt": "2026-11-26T12:45:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t22",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t22",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#22",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/22",
+      "status": "scheduled",
+      "publishAt": "2026-11-26T20:50:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t23",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t23",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#23",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/23",
+      "status": "scheduled",
+      "publishAt": "2026-11-27T07:25:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t24",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t24",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#24",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/24",
+      "status": "scheduled",
+      "publishAt": "2026-11-27T12:20:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t25",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t25",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#25",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/25",
+      "status": "scheduled",
+      "publishAt": "2026-11-28T12:35:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t26",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t26",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#26",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/26",
+      "status": "scheduled",
+      "publishAt": "2026-11-28T20:15:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t27",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t27",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#27",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/27",
+      "status": "scheduled",
+      "publishAt": "2026-11-29T07:20:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-final-nov/x.post.t28",
+      "work": "concrete-chief-final-nov",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t28",
+      "legacyKey": "draft/113-concrete-chief-final-2026-11#28",
+      "copy": "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#tweet/28",
+      "status": "scheduled",
+      "publishAt": "2026-11-29T19:45:00.000+09:00",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "queueVerified": "2026-11-21T03:37:09.445Z"
+      }
+    },
+    {
       "id": "concrete-chief-engineer/concrete-chief-persona-needs/x.post.t01",
       "work": "concrete-chief-persona-needs",
       "account": "x:main",
       "format": "post",
       "variant": "t01",
       "legacyKey": "draft/110-concrete-chief-persona-needs#1",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/1",
       "publishAt": "2026-11-01T11:15:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2116851495119233467",
+        "url": "https://x.com/doboku373/status/2116851495119233467",
+        "privacy": "public",
+        "publishedAt": "2026-11-01T11:15:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2116851495119233467"
+        }
       }
     },
     {
@@ -226,13 +843,22 @@
       "format": "post",
       "variant": "t02",
       "legacyKey": "draft/110-concrete-chief-persona-needs#2",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/2",
       "publishAt": "2026-11-03T11:30:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2117580048031260725",
+        "url": "https://x.com/doboku373/status/2117580048031260725",
+        "privacy": "public",
+        "publishedAt": "2026-11-03T11:30:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2117580048031260725"
+        }
       }
     },
     {
@@ -242,13 +868,22 @@
       "format": "post",
       "variant": "t03",
       "legacyKey": "draft/110-concrete-chief-persona-needs#3",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/3",
       "publishAt": "2026-11-05T10:45:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2118293496830550465",
+        "url": "https://x.com/doboku373/status/2118293496830550465",
+        "privacy": "public",
+        "publishedAt": "2026-11-05T10:45:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2118293496830550465"
+        }
       }
     },
     {
@@ -258,13 +893,22 @@
       "format": "post",
       "variant": "t04",
       "legacyKey": "draft/110-concrete-chief-persona-needs#4",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/4",
       "publishAt": "2026-11-07T11:05:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2119023306107920801",
+        "url": "https://x.com/doboku373/status/2119023306107920801",
+        "privacy": "public",
+        "publishedAt": "2026-11-07T11:05:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2119023306107920801"
+        }
       }
     },
     {
@@ -274,13 +918,22 @@
       "format": "post",
       "variant": "t05",
       "legacyKey": "draft/110-concrete-chief-persona-needs#5",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/5",
       "publishAt": "2026-11-09T11:40:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2119756889336484338",
+        "url": "https://x.com/doboku373/status/2119756889336484338",
+        "privacy": "public",
+        "publishedAt": "2026-11-09T11:40:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2119756889336484338"
+        }
       }
     },
     {
@@ -290,13 +943,22 @@
       "format": "post",
       "variant": "t06",
       "legacyKey": "draft/110-concrete-chief-persona-needs#6",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/6",
       "publishAt": "2026-11-11T10:35:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2120465307211063753",
+        "url": "https://x.com/doboku373/status/2120465307211063753",
+        "privacy": "public",
+        "publishedAt": "2026-11-11T10:35:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2120465307211063753"
+        }
       }
     },
     {
@@ -306,13 +968,22 @@
       "format": "post",
       "variant": "t07",
       "legacyKey": "draft/110-concrete-chief-persona-needs#7",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/7",
       "publishAt": "2026-11-14T12:00:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2121573879923507641",
+        "url": "https://x.com/doboku373/status/2121573879923507641",
+        "privacy": "public",
+        "publishedAt": "2026-11-14T12:00:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2121573879923507641"
+        }
       }
     },
     {
@@ -322,13 +993,22 @@
       "format": "post",
       "variant": "t08",
       "legacyKey": "draft/110-concrete-chief-persona-needs#8",
-      "copy": "content/sns/x/draft/110-concrete-chief-persona-needs/status.json#tweets/8",
       "publishAt": "2026-11-16T10:40:00.000Z",
-      "status": "scheduled",
+      "status": "published",
       "approval": {
         "by": "user",
         "contentSha256": null,
         "grandfathered": true
+      },
+      "platform": {
+        "id": "2122278504687382724",
+        "url": "https://x.com/doboku373/status/2122278504687382724",
+        "privacy": "public",
+        "publishedAt": "2026-11-16T10:40:00.000Z",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts#2122278504687382724"
+        }
       }
     }
   ]

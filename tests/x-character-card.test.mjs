@@ -6,13 +6,13 @@ import { join, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { Buffer } from 'node:buffer';
 import sharp from 'sharp';
-import { readTweetBlocks } from '../scripts/lib/x-review.mjs';
+import { parseTweetBlocks } from '../scripts/lib/x-tweets-md.mjs';
 import { cardSpecHash, validateCharacterCard, validateAdoptedCardLedger } from '../scripts/lib/x-character-spec.mjs';
 import { renderXCharacterCard } from '../scripts/lib/x-character-card.mjs';
 const spec={headline:['課題と対策を','つなげて書く'],points:['条件から課題を整理する','課題に対応した行動を書く'],character:{pose:'pointing',frame:'bust'},alt:'課題と対策の関係',sourcePaths:['example.mdx']};
 test('numbered post parsing preserves gaps, removes internal comments and separators',()=>{
  const md='# header\r\n<!-- internal -->\r\n## Tweet 01: 9/11 07:15 civil-1 / hint / linkless\r\n\r\n本文A\r\n<!-- private note -->\r\n\r\n---\r\n\r\n## Tweet 03: 9/11 19:40 civil-1 / magazine / note\r\n\r\n本文B\r\nhttps://note.com/test?a=1&b=2\r\n';
- const result=readTweetBlocks(md);assert.deepEqual(Object.keys(result),['1','3']);assert.equal(result['1'].text,'本文A');assert.equal(result['3'].text,'本文B\r\nhttps://note.com/test?a=1&b=2');
+ const result=Object.fromEntries(parseTweetBlocks(md).map(b=>[b.key,b]));assert.deepEqual(Object.keys(result),['1','3']);assert.equal(result['1'].text,'本文A');assert.equal(result['3'].text,'本文B\r\nhttps://note.com/test?a=1&b=2');
 });
 test('reject overlong, missing and multiline authored copy instead of silently clipping',()=>{
  assert.equal(validateCharacterCard(spec),spec);

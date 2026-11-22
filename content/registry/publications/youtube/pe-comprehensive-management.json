@@ -261,10 +261,39 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-tenken-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-tenken-2",
       "relatedTo": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2/video",
+        "cover": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2/subtitles"
+      },
+      "publishAt": "2026-11-22T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T13:00:31.639Z",
+          "digest": "7abf7247156e7a81f5cc849c008b7eee6f4e0c287d7bfcef266957a79511eb75"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T13:00:31.639Z",
+        "contentSha256": "d6d633bbc78f3b70a415fc25fe53af0ea601406bc7b166a3c36c210fffe1a287"
+      },
+      "times": {
+        "rendered": "2026-11-21T13:00:31.827Z"
+      },
+      "delivery": {
+        "inputSha256": "697befc07628b53d1579c6ae514e7b319fea07a475b7e5699dbc0399760eadc2",
+        "marker": "dn-single-50a54ade2fffbf818a1291e85918a2d285337bb9",
+        "uploadRequestedAt": "2026-11-21T13:02:18.557Z",
+        "videoId": "CnBFpn7o-R8"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
@@ -675,7 +704,7 @@
       "work": "hakusho-kadai-erabu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/scene-001",
@@ -694,7 +723,59 @@
         "video": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform",
+      "publishAt": "2026-12-01T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-20T12:51:14.943Z",
+          "digest": "817ba31bd6d1728d219806c0906ce307e25527f907cea1cc05348066df7e4874"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-20T12:51:14.943Z",
+        "contentSha256": "d214e4d4652a8dcfe248fdbda09e76522d8fd4255738936c5e32bd62e8aa8496"
+      },
+      "times": {
+        "rendered": "2026-11-20T12:56:35.958Z",
+        "uploaded": "2026-11-20T12:58:54.277Z",
+        "scheduled": "2026-11-20T12:59:04.731Z"
+      },
+      "delivery": {
+        "inputSha256": "7bbfabad935f17a918a0b26971871c0c080b2d1b227aa2d5aa072160122d67b4",
+        "marker": "dn-single-23dc747d4599874dd79a345094660719624299ab",
+        "uploadRequestedAt": "2026-11-20T12:58:08.303Z",
+        "videoId": "dQV7Arl6naI",
+        "processedAt": "2026-11-20T12:58:52.886Z",
+        "thumbnailRequestedAt": "2026-11-20T12:58:54.315Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/default.jpg?sqp=CKSGgdgG&rs=AOn4CLDJee6yOwjgeuh3ixYgk_jwLvdDHw",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/mqdefault.jpg?sqp=CKSGgdgG&rs=AOn4CLA8pLetm2pxSW91ALdxdQRnrcmwuw",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/hqdefault.jpg?sqp=CKSGgdgG&rs=AOn4CLCUiac408TNAr61SEzHqfWsGebcJQ",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/sddefault.jpg?sqp=CKSGgdgG&rs=AOn4CLDa_ozpWF9q_J0Bj7fH6iCnb4Khfw",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/maxresdefault.jpg?sqp=CKSGgdgG&rs=AOn4CLB23usA5UTZOnKSADTJVOS6tp9_Vg",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/fhddefault.jpg?sqp=CKSGgdgG&rs=AOn4CLD6UnyvGSCIaTVBYCorzMYp3hVV0g"
+        ],
+        "thumbnailAcceptedAt": "2026-11-20T12:58:58.534Z",
+        "scheduleRequestedAt": "2026-11-20T12:59:00.255Z",
+        "scheduleAt": "2026-12-01T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-20T12:59:04.731Z"
+      },
+      "platform": {
+        "id": "dQV7Arl6naI",
+        "url": "https://www.youtube.com/watch?v=dQV7Arl6naI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-20T12:58:58.534Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.short.point-medatsu-1",
@@ -723,7 +804,7 @@
       "work": "hakusho-shisaku-kaiketsu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/scene-001",
@@ -742,7 +823,59 @@
         "video": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform",
+      "publishAt": "2026-12-04T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:18.674Z",
+          "digest": "18fb95e6561c43911ad6966c47d9fc3bb3f060a530797eff37552a10d89b3a73"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:18.674Z",
+        "contentSha256": "e58ebedc62a973516af3c4383ab92ec4b82e6819c65158a508e88104a4a2d82f"
+      },
+      "times": {
+        "rendered": "2026-11-21T12:56:12.118Z",
+        "uploaded": "2026-11-21T13:01:27.678Z",
+        "scheduled": "2026-11-21T13:01:37.744Z"
+      },
+      "delivery": {
+        "inputSha256": "8fcfb5e18277e248e19445c2e139e9db6469d62ebefefa30b9625b072ee0637f",
+        "marker": "dn-single-10b3ff26f7f5b6dd8302450ed3e44e52cc29f66e",
+        "uploadRequestedAt": "2026-11-21T13:00:44.232Z",
+        "videoId": "X9fk1055gLg",
+        "processedAt": "2026-11-21T13:01:26.839Z",
+        "thumbnailRequestedAt": "2026-11-21T13:01:27.713Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/X9fk1055gLg/default.jpg?sqp=CNCrhtgG&rs=AOn4CLCatLfMycyMaQsCeBalY9bD9MVEDw",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/mqdefault.jpg?sqp=CNCrhtgG&rs=AOn4CLCQ1iw4D566PlDGQZXGcLlM_cfUVQ",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/hqdefault.jpg?sqp=CNCrhtgG&rs=AOn4CLDnSLPZi_2Py2Hqu5eMQP5CpbXxlg",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/sddefault.jpg?sqp=CNCrhtgG&rs=AOn4CLAJJ3c_SZwY8H_IbKTu-CkzzOLnIg",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/maxresdefault.jpg?sqp=CNCrhtgG&rs=AOn4CLDYojtMvE_lDPDeUArG8BAaHPZ5Kg",
+          "https://i9.ytimg.com/vi/X9fk1055gLg/fhddefault.jpg?sqp=CNCrhtgG&rs=AOn4CLBsihiY6-EHfpNc4bIQp0pTrqtDBg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-21T13:01:31.407Z",
+        "scheduleRequestedAt": "2026-11-21T13:01:33.320Z",
+        "scheduleAt": "2026-12-04T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-21T13:01:37.744Z"
+      },
+      "platform": {
+        "id": "X9fk1055gLg",
+        "url": "https://www.youtube.com/watch?v=X9fk1055gLg",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-21T13:01:31.407Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.short.point-hoshin-2",
@@ -771,7 +904,7 @@
       "work": "hakusho-tsunagu-jitsuen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-001",
@@ -790,7 +923,59 @@
         "video": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform",
+      "publishAt": "2026-12-03T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:17.779Z",
+          "digest": "98e75f99d80832012631de21b875517f12e1c365ba3d2dfcaa4d06a69a700b96"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:17.779Z",
+        "contentSha256": "fc92c4ab9c60304cdea0c1b8957aae95e105c41c600b8e68985f22bed1790f62"
+      },
+      "times": {
+        "rendered": "2026-11-21T12:56:05.530Z",
+        "uploaded": "2026-11-21T12:59:52.416Z",
+        "scheduled": "2026-11-21T13:00:01.398Z"
+      },
+      "delivery": {
+        "inputSha256": "f98cdac8916df3e7fc25f7bef8cb7516608ac3dc3c9b2d1b6a41b54ecd33686b",
+        "marker": "dn-single-7447d53493f3d92db794cb59b44d7fdae06fe7b3",
+        "uploadRequestedAt": "2026-11-21T12:59:09.723Z",
+        "videoId": "v4uJmsMI4Zk",
+        "processedAt": "2026-11-21T12:59:51.623Z",
+        "thumbnailRequestedAt": "2026-11-21T12:59:52.460Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/default.jpg?sqp=CKSphtgG&rs=AOn4CLA847UqdhpS4MiQhUYMVftiXwy-2g",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/mqdefault.jpg?sqp=CKSphtgG&rs=AOn4CLDN4GipLEYoOHtwSfohOrK6jgRNHA",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/hqdefault.jpg?sqp=CKSphtgG&rs=AOn4CLCLKpU61d5o38wda7VFhxRRDrrJHA",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/sddefault.jpg?sqp=CKSphtgG&rs=AOn4CLBJJ_LPEgDkyW_4TLHzB560kTya3A",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/maxresdefault.jpg?sqp=CKSphtgG&rs=AOn4CLDSkENWsN2-g4Sa23JoW6gY-OUz3w",
+          "https://i9.ytimg.com/vi/v4uJmsMI4Zk/fhddefault.jpg?sqp=CKSphtgG&rs=AOn4CLBvZGlp9W3izSQiAakBkUa-W7P0MA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-21T12:59:56.574Z",
+        "scheduleRequestedAt": "2026-11-21T12:59:57.765Z",
+        "scheduleAt": "2026-12-03T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-21T13:00:01.398Z"
+      },
+      "platform": {
+        "id": "v4uJmsMI4Zk",
+        "url": "https://www.youtube.com/watch?v=v4uJmsMI4Zk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-21T12:59:56.574Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.short.point-mittsu-toi-2",
@@ -819,7 +1004,7 @@
       "work": "hakusho-yomu-fukasa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/scene-001",
@@ -838,7 +1023,59 @@
         "video": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform",
+      "publishAt": "2026-12-02T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-20T12:51:17.277Z",
+          "digest": "d586f4f8cabce16573bc879305e6c78983a5a70133e6255ad747e165ecc572fa"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-20T12:51:17.277Z",
+        "contentSha256": "1053ab5afbd7c1455655df54f11af509f7b5ae480f8e5852b1fe38d3f02bd9c5"
+      },
+      "times": {
+        "rendered": "2026-11-20T12:56:56.744Z",
+        "uploaded": "2026-11-20T13:04:46.964Z",
+        "scheduled": "2026-11-20T13:04:58.242Z"
+      },
+      "delivery": {
+        "inputSha256": "6b35d1e268b9c090a53315556a383e9d31ce287b3a9f9febc673fb63d562083b",
+        "marker": "dn-single-67ec01f38350ae540e73ee8dbae5442000f25e34",
+        "uploadRequestedAt": "2026-11-20T13:03:55.021Z",
+        "videoId": "txaSAd9OEgc",
+        "processedAt": "2026-11-20T13:04:45.624Z",
+        "thumbnailRequestedAt": "2026-11-20T13:04:46.993Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/default.jpg?sqp=CNCIgdgG&rs=AOn4CLBvoST_ZUspNtGCc_3kpgwV817Zbg",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/mqdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLDjyPE0jQg4ctuDlmshu-wkJ1iyGA",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/hqdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLBBmqXaH9EHOnfkNJcqi4sCZAqHJA",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/sddefault.jpg?sqp=CNCIgdgG&rs=AOn4CLChVrLW4a6infqKkmPntZ4mfVNkVQ",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/maxresdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLC7lRJqrdIOiEutTZ7dSMSvrUNU3g",
+          "https://i9.ytimg.com/vi/txaSAd9OEgc/fhddefault.jpg?sqp=CNCIgdgG&rs=AOn4CLCJick1OzO9lS-gDn-0imh8OimiAA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-20T13:04:51.673Z",
+        "scheduleRequestedAt": "2026-11-20T13:04:53.554Z",
+        "scheduleAt": "2026-12-02T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-20T13:04:58.242Z"
+      },
+      "platform": {
+        "id": "txaSAd9OEgc",
+        "url": "https://www.youtube.com/watch?v=txaSAd9OEgc",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-20T13:04:51.673Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.short.point-memo-2",

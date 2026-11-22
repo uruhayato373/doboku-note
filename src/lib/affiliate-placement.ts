@@ -8,24 +8,15 @@
  */
 import placementsConfig from '../../config/affiliate-placements.json';
 import ctaPlacements from '../../config/cta-placements.json';
-import { choosePixelCarrier, resolvePair, resolveSlots, resolveSplit } from './affiliate-placement-core.mjs';
+import { choosePixelCarrier, resolveSlots, resolveSplit } from './affiliate-placement-core.mjs';
 import { PROGRAM_ASSETS, type CareerArticleEndCard, type SidebarAdCreative } from '@/config/affiliate-creatives';
 import type { CareerNeed } from '@/config/career-pathways';
 
-type PlacementPageKind = 'doc' | 'category' | 'tool' | 'standards' | 'standards-list' | 'topic' | 'laws-list' | 'home';
+type PlacementPageKind = 'doc' | 'category' | 'tool' | 'standards' | 'standards-list' | 'topic' | 'laws-list' | 'home' | 'search';
 export type PlacementPage = {
   readonly pageKind: PlacementPageKind;
   readonly category?: string | null;
   readonly isCareerDoc?: boolean;
-};
-/** 2 枚並べの 2 枚目（PC で 1 枚目の横に出す・config/affiliate-placements.json の pairs） */
-export type ResolvedSecondary = {
-  readonly pairId: string;
-  readonly program: string;
-  readonly banner: SidebarAdCreative;
-  readonly card: (slug?: string, need?: CareerNeed | null) => CareerArticleEndCard;
-  readonly textHref?: string | undefined;
-  readonly textPixelSrc?: string | undefined;
 };
 /** 出し分け（EXP-055）の代わりの案件。訪問者の約半分に primary の代わりに出す（config/affiliate-placements.json の splits） */
 export type ResolvedAlternate = {
@@ -48,8 +39,6 @@ export type ResolvedPlacement = {
   readonly textHref?: string | undefined;
   /** textHref と同じ素材の計測ピクセル（PROGRAM_ASSETS の textPixelSrc） */
   readonly textPixelSrc?: string | undefined;
-  /** 2 枚並べの 2 枚目（本文中・本文中間で、組があるときだけ） */
-  readonly secondary?: ResolvedSecondary | undefined;
   /** 出し分けの代わりの案件（資格トップ・記事末などで、組があるときだけ） */
   readonly alternate?: ResolvedAlternate | undefined;
 };
@@ -57,7 +46,6 @@ export type ResolvedPlacements = Readonly<Partial<Record<string, ResolvedPlaceme
 
 type Rule = (typeof placementsConfig)['rules'][number];
 const RULES = placementsConfig.rules as readonly Rule[];
-const PAIRS = ((placementsConfig as { pairs?: unknown[] }).pairs ?? []) as never[];
 const SPLITS = ((placementsConfig as { splits?: unknown[] }).splits ?? []) as never[];
 const VOCAB = ctaPlacements.affiliate as Record<string, { pixelPriority: number | null }>;
 
@@ -68,9 +56,6 @@ export function resolvePlacements(page: PlacementPage, now: number = Date.now())
   for (const [slot, rule] of Object.entries(slots)) {
     const asset = PROGRAM_ASSETS[rule.program];
     if (!asset) throw new Error(`配置ルール ${rule.id} の案件 ${rule.program} の素材が PROGRAM_ASSETS に無い`);
-    const pair = resolvePair(PAIRS, rule as never, page, now) as { id: string; secondary: string } | null;
-    const second = pair ? PROGRAM_ASSETS[pair.secondary] : undefined;
-    if (pair && !second) throw new Error(`2 枚並べ ${pair.id} の案件 ${pair.secondary} の素材が PROGRAM_ASSETS に無い`);
     const split = resolveSplit(SPLITS, rule as never, page, now) as { id: string; alternate: string; experiment: string } | null;
     const alt = split ? PROGRAM_ASSETS[split.alternate] : undefined;
     if (split && !alt) throw new Error(`出し分け ${split.id} の案件 ${split.alternate} の素材が PROGRAM_ASSETS に無い`);
@@ -78,9 +63,6 @@ export function resolvePlacements(page: PlacementPage, now: number = Date.now())
     out[slot] = {
       ...(split && alt
         ? { alternate: { splitId: split.id, experiment: split.experiment, program: split.alternate, banner: alt.banner, trackLabel: endLabel(alt.trackLabel), card: alt.card } }
-        : {}),
-      ...(pair && second
-        ? { secondary: { pairId: pair.id, program: pair.secondary, banner: second.banner, card: second.card, textHref: second.textHref, textPixelSrc: second.textPixelSrc } }
         : {}),
       ruleId: rule.id,
       slot,

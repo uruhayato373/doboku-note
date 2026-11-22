@@ -1,44 +1,27 @@
 /**
  * X 投稿済みの生存確認（DN-0276）。
  *
- * content/sns/x/{draft,published}/*\/status.json の status:"posted" を集め、
- * posted_url を持つものだけをログイン不要の公開 API
+ * コンテンツ台帳（content/registry/publications/x/）の published の行を集め、
+ * platform.url（posted_url）を持つものだけをログイン不要の公開 API
  * `https://publish.twitter.com/oembed?url=<url>` で照合する。存在すれば 200 + JSON、
  * 削除・凍結・非公開なら 404（HTML）が返る（2026-09-26 実機確認）。
  *
  * curl 経由（fetch は会社 PC のプロキシで全滅する。note-live-check.mjs と同じ理由）。
  */
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { siteLinkRegex } from './site-links.mjs';
+import { loadXPosts } from './registry-x-store.mjs';
 
-const BASES = ['content/sns/x/draft', 'content/sns/x/published'];
-
-/** 全 status.json から status:"posted" の tweet を集め、ref（"090-.../3"）を付ける。 */
+/** 台帳の published の行（phase: posted）を集める。ref は "content/sns/x/draft/090-.../3"、posted_url は platform.url、text は文面（無ければ null）。 */
 export function collectPostedTweets(root = process.cwd()) {
-  const out = [];
-  for (const base of BASES) {
-    const dir = join(root, base);
-    if (!existsSync(dir)) continue;
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      if (!entry.isDirectory() || entry.name.startsWith('_') || entry.name.startsWith('.')) continue;
-      const statusPath = join(dir, entry.name, 'status.json');
-      if (!existsSync(statusPath)) continue;
-      let data;
-      try {
-        data = JSON.parse(readFileSync(statusPath, 'utf8'));
-      } catch {
-        continue;
-      }
-      if (!data.tweets || typeof data.tweets !== 'object') continue;
-      for (const [key, tweet] of Object.entries(data.tweets)) {
-        if (tweet.status !== 'posted') continue;
-        out.push({ ...tweet, ref: `${base}/${entry.name}/${key}`, statusPath });
-      }
-    }
-  }
-  return out;
+  return loadXPosts(root)
+    .filter((p) => p.phase === 'posted')
+    .map((p) => ({
+      id: p.id,
+      ref: `content/sns/x/${String(p.row.legacyKey ?? p.id).replace('#', '/')}`,
+      text: p.text,
+      posted_url: p.platform?.url ?? null,
+    }));
 }
 
 /** 本文にサイトへのリンク（doboku-note.com、旧 /docs 含む）があるか。 */

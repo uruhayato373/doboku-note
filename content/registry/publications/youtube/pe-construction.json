@@ -844,10 +844,39 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-ippanron-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1",
       "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/video",
+        "cover": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cover",
+        "contact-sheet": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/contact-sheet",
+        "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/subtitles"
+      },
+      "publishAt": "2026-11-23T08:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T13:02:47.739Z",
+          "digest": "1837edaa52b64412063a74ed7583d4c1c168af4a5fab9389a9999ab33d9a1cbb"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T13:02:47.739Z",
+        "contentSha256": "a8cb1c1636afddbbdbc50ee8e9a85c423aeb540bb90bc92b67f9dfc32466c330"
+      },
+      "times": {
+        "rendered": "2026-11-21T13:02:47.927Z"
+      },
+      "delivery": {
+        "inputSha256": "e5266698c198f046687e47164aa031719e3b0f0d35446e956e9d4199645ab408",
+        "marker": "dn-single-2414635211b9e9a551c5a1553d215b8d7bca1e36",
+        "uploadRequestedAt": "2026-11-21T13:04:08.885Z",
+        "videoId": "ggOr74pTYpc"
+      }
     },
     {
       "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2",
@@ -1492,7 +1521,7 @@
       "work": "pe-ii2-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-ii2-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-ii2-kakikata/youtube.longform/scene-001",
@@ -1510,14 +1539,66 @@
         "video": "pe-construction/pe-ii2-kakikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-ii2-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-ii2-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-ii2-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-03T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:16.795Z",
+          "digest": "b5cf3c46cb7f459d6a5ff409ffc1476e32727e32fcab608e109dfe240a619b3b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:16.795Z",
+        "contentSha256": "36e4019b3cc3be059e908a3fbc0789efd30feb36809001f16d20caccf3ec0e34"
+      },
+      "times": {
+        "rendered": "2026-11-21T12:56:01.851Z",
+        "uploaded": "2026-11-21T12:58:08.652Z",
+        "scheduled": "2026-11-21T12:58:16.801Z"
+      },
+      "delivery": {
+        "inputSha256": "4e9047bb9f2c3c58566799eaf95af5a836e628a8cb81218f398c3bbd1f7aea49",
+        "marker": "dn-single-dc2639750f6c452ceb516458b5e71ce7b9f46f69",
+        "uploadRequestedAt": "2026-11-21T12:57:23.265Z",
+        "videoId": "XYu8FAp6xQs",
+        "processedAt": "2026-11-21T12:58:07.814Z",
+        "thumbnailRequestedAt": "2026-11-21T12:58:08.708Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/XYu8FAp6xQs/default.jpg?sqp=CKSphtgG&rs=AOn4CLCloXyX0c74wEzoUaSg3CcAGgroOg",
+          "https://i9.ytimg.com/vi/XYu8FAp6xQs/mqdefault.jpg?sqp=CKSphtgG&rs=AOn4CLBEr0Th7G6irhN3c7bqEmw8gYRV4w",
+          "https://i9.ytimg.com/vi/XYu8FAp6xQs/hqdefault.jpg?sqp=CKSphtgG&rs=AOn4CLDCYOphF-a5bu4P4qTy215ILX_oUA",
+          "https://i9.ytimg.com/vi/XYu8FAp6xQs/sddefault.jpg?sqp=CKSphtgG&rs=AOn4CLBXJ5fKAIl-Si0eth1qauD5pgTDkg",
+          "https://i9.ytimg.com/vi/XYu8FAp6xQs/maxresdefault.jpg?sqp=CKSphtgG&rs=AOn4CLCuWLd2cFIgN9_GmL3sSOhTvw_Ciw",
+          "https://i9.ytimg.com/vi/XYu8FAp6xQs/fhddefault.jpg?sqp=CKSphtgG&rs=AOn4CLBKSjjEsNYMG3LUgUZGQNVq2xagYQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-21T12:58:11.754Z",
+        "scheduleRequestedAt": "2026-11-21T12:58:13.326Z",
+        "scheduleAt": "2026-12-03T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-21T12:58:16.801Z"
+      },
+      "platform": {
+        "id": "XYu8FAp6xQs",
+        "url": "https://www.youtube.com/watch?v=XYu8FAp6xQs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-ii2-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-21T12:58:11.754Z"
+      }
     },
     {
       "id": "pe-construction/pe-iii-kakikata/youtube.longform",
       "work": "pe-iii-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-iii-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-iii-kakikata/youtube.longform/scene-001",
@@ -1536,7 +1617,59 @@
         "video": "pe-construction/pe-iii-kakikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-iii-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-iii-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-iii-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-01T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-20T12:51:15.722Z",
+          "digest": "0f116d276a64c921968cdc20112744e41487d825423f054242e2432a8d623f5b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-20T12:51:15.722Z",
+        "contentSha256": "ad432fbbdf99c35b3ad628a3a6ec21f91af8124aac76007e17bdda8dbfdd0325"
+      },
+      "times": {
+        "rendered": "2026-11-20T12:56:42.540Z",
+        "uploaded": "2026-11-20T13:01:10.628Z",
+        "scheduled": "2026-11-20T13:01:21.627Z"
+      },
+      "delivery": {
+        "inputSha256": "697c010572441674fd87e0f3e8aaddc534fc460b1be7b995575e0fb0ae0ded3d",
+        "marker": "dn-single-4371d9480b14ff6495125ea7f25e677958e6f98d",
+        "uploadRequestedAt": "2026-11-20T13:00:15.987Z",
+        "videoId": "B38s_RKLIGc",
+        "processedAt": "2026-11-20T13:01:08.496Z",
+        "thumbnailRequestedAt": "2026-11-20T13:01:10.682Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/B38s_RKLIGc/default.jpg?sqp=CNCIgdgG&rs=AOn4CLB9ds4DkSfl1n-BjkqrHmNQfd3kzw",
+          "https://i9.ytimg.com/vi/B38s_RKLIGc/mqdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLCQCFhX1jASID3E8IuTNCkn8PnWOA",
+          "https://i9.ytimg.com/vi/B38s_RKLIGc/hqdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLDas4imZ1gWZKaDG2mD7vRcesSODQ",
+          "https://i9.ytimg.com/vi/B38s_RKLIGc/sddefault.jpg?sqp=CNCIgdgG&rs=AOn4CLA3iDPH-9tK78zL7admDfie9oxklQ",
+          "https://i9.ytimg.com/vi/B38s_RKLIGc/maxresdefault.jpg?sqp=CNCIgdgG&rs=AOn4CLDZ1ukxh5I_PsuhG7-t29ilGs00Tg",
+          "https://i9.ytimg.com/vi/B38s_RKLIGc/fhddefault.jpg?sqp=CNCIgdgG&rs=AOn4CLBB37O6tzaxckPRApNtRUzZdA-y7w"
+        ],
+        "thumbnailAcceptedAt": "2026-11-20T13:01:15.114Z",
+        "scheduleRequestedAt": "2026-11-20T13:01:17.128Z",
+        "scheduleAt": "2026-12-01T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-20T13:01:21.627Z"
+      },
+      "platform": {
+        "id": "B38s_RKLIGc",
+        "url": "https://www.youtube.com/watch?v=B38s_RKLIGc",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-iii-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-20T13:01:15.114Z"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
@@ -1846,7 +1979,7 @@
       "work": "pe-river-coast-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1864,7 +1997,24 @@
         "video": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-12-04T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-21T12:51:19.617Z",
+          "digest": "c7787c56e500fa2ea30125ef521d9a0311c532b50cf3defc02869066dd68024c"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-21T12:51:19.617Z",
+        "contentSha256": "1c0ca51a473d7f6b8a927a5a04f204abaf339afeb7dcd0e549ea5af6baa0d604"
+      },
+      "times": {
+        "rendered": "2026-11-21T12:56:21.673Z"
+      }
     },
     {
       "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",

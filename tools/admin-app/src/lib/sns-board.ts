@@ -1,27 +1,21 @@
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { repoPath } from './repo-root';
 import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { loadXPosts } from '../../../../scripts/lib/registry-x-store.mjs';
+import { parseTweetBlocks } from '../../../../scripts/lib/x-tweets-md.mjs';
 
 /**
  * sns-board.ts — SNS 投稿状態板（読み取り専用）。tools/admin/lib/sot.mjs を移植。
  *
  * 読む SoT:
  *   IG posted.json                  scripts/instagram/ig-status.mjs の findPackDirs/packInfo を再利用
- *   X draft の status.json           ツイート別 scheduled/posted/draft
+ *   X のコンテンツ台帳（loadXPosts）   ツイート別 scheduled/queued/posted/draft/stopped
  *
  * IG 集計は ig-status.mjs を dynamic import して再利用する（集計ロジックの二重化を避ける）。
  * turbopackIgnore で Turbopack のバンドル対象から外し、Node ランタイムの ESM ローダで実体を読む。
  */
-
-function readJson<T>(abs: string): T | null {
-  try {
-    return JSON.parse(readFileSync(abs, 'utf8')) as T;
-  } catch {
-    return null;
-  }
-}
 
 const FMT_LETTER: Record<string, string> = { carousel: 'C', reels: 'R', stories: 'S' };
 
@@ -119,32 +113,52 @@ export interface XBoard {
   totals: Record<string, number>;
 }
 
+// 台帳の phase → 板の語彙（planned＝承認済みで予約に未投入 → scheduled、submitted・queued → queued、retired → stopped）
+const BOARD_STATUS: Record<string, string> = { draft: 'draft', planned: 'scheduled', submitted: 'queued', queued: 'queued', posted: 'posted', retired: 'stopped' };
+
+interface XPostRow {
+  folder: string | null;
+  key: string | null;
+  phase: string;
+  publishAt: string | null;
+  publishedAt: string | null;
+  row: { legacyKey?: string };
+}
+
 export function xBoard(): XBoard {
   const draftDir = join(SNS_CONTENT_ROOT, 'x', 'draft');
+  const byFolder = new Map<string, XPostRow[]>();
+  // 退避アカウントの行（legacyKey が draft/_archive-… のように _ で始まる階層）は板に出さない
+  for (const p of loadXPosts(repoPath()) as XPostRow[]) {
+    if (!p.folder || !p.key || /\/_/.test(p.row.legacyKey ?? '')) continue;
+    if (!byFolder.has(p.folder)) byFolder.set(p.folder, []);
+    byFolder.get(p.folder)!.push(p);
+  }
   const drafts: XDraft[] = [];
-  if (!existsSync(draftDir)) return { drafts, totals: {} };
-  for (const name of readdirSync(draftDir).sort()) {
-    const dir = join(draftDir, name);
-    if (!statSync(dir).isDirectory()) continue;
-    const status = readJson<{ tweets?: Record<string, { title?: string; status?: string; scheduled_at?: string; posted_at?: string }>; updated_at?: string }>(
-      join(dir, 'status.json'),
+  for (const name of [...byFolder.keys()].sort()) {
+    const mdPath = join(draftDir, name, 'tweets.md');
+    const titles = new Map<string, string>(
+      existsSync(mdPath) ? (parseTweetBlocks(readFileSync(mdPath, 'utf8')) as { key: string; title: string }[]).map((b) => [b.key, b.title]) : [],
     );
-    const tweets: XTweet[] = Object.entries(status?.tweets ?? {}).map(([no, t]) => ({
-      no,
-      title: t.title ?? '',
-      status: t.status ?? 'draft',
-      scheduledAt: t.scheduled_at ?? null,
-      postedAt: t.posted_at ?? null,
-    }));
+    const tweets: XTweet[] = byFolder.get(name)!
+      .sort((a, b) => Number(a.key) - Number(b.key))
+      .map((t) => ({
+        no: t.key!,
+        title: titles.get(t.key!) ?? '',
+        status: BOARD_STATUS[t.phase] ?? t.phase,
+        scheduledAt: t.publishAt,
+        postedAt: t.publishedAt,
+      }));
     const counts: Record<string, number> = { draft: 0, scheduled: 0, queued: 0, posted: 0, other: 0 };
     for (const t of tweets) {
       if (t.status in counts) counts[t.status]!++;
       else counts.other!++;
     }
+    const last = tweets.map((t) => t.postedAt ?? t.scheduledAt).filter(Boolean).sort().at(-1) ?? null;
     drafts.push({
       name,
       rel: `x/draft/${name}`,
-      updatedAt: status?.updated_at ?? null,
+      updatedAt: last,
       counts,
       total: tweets.length,
       tweets,

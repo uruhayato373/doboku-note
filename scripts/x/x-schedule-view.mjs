@@ -2,7 +2,7 @@
 /**
  * x-schedule-view.mjs
  *
- * content/sns/x/ 配下の全 status.json を読んで投稿スケジュールを俯瞰する。
+ * コンテンツ台帳（content/registry/publications/x/）の全 X 投稿を読んで投稿スケジュールを俯瞰する。
  * Playwright 不要・瞬時実行。
  *
  * Usage:
@@ -13,6 +13,8 @@
 import fs from "fs";
 import path from "path";
 import { REPO_ROOT as ROOT } from "../lib/repository-paths.mjs";
+import { loadXPosts } from "../lib/registry-x-store.mjs";
+import { parseTweetBlocks } from "../lib/x-tweets-md.mjs";
 
 const ALL = process.argv.includes("--all");
 const NOW = new Date();
@@ -21,30 +23,24 @@ const JST = t => new Date(t).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo",
 const dateKey = t => new Date(t).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo",
   year: "numeric", month: "2-digit", day: "2-digit" });
 
-// 全 status.json を読む
-const bases = ["content/sns/x/draft", "content/sns/x/published"];
-const all = [];
-for (const base of bases) {
-  const baseDir = path.join(ROOT, base);
-  if (!fs.existsSync(baseDir)) continue;
-  for (const name of fs.readdirSync(baseDir)) {
-    if (name.startsWith("_")) continue; // _archive 等（旧アカウント退避）は除外
-    const f = path.join(baseDir, name, "status.json");
-    if (!fs.existsSync(f)) continue;
-    try {
-      const raw = JSON.parse(fs.readFileSync(f, "utf-8"));
-      const tweets = raw.tweets
-        ? (typeof raw.tweets === "object" && !Array.isArray(raw.tweets)
-            ? Object.values(raw.tweets) : raw.tweets)
-        : [];
-      tweets.forEach(t => all.push({ draft: name, ...t }));
-    } catch { /* skip */ }
+// 台帳の全 X 投稿を読む（見出しは tweets.md から）
+const titlesByFolder = new Map();
+const titleOf = (folder, key) => {
+  if (!titlesByFolder.has(folder)) {
+    const f = path.join(ROOT, "content/sns/x/draft", folder, "tweets.md");
+    const m = new Map();
+    if (fs.existsSync(f)) for (const b of parseTweetBlocks(fs.readFileSync(f, "utf-8"))) m.set(b.key, b.title);
+    titlesByFolder.set(folder, m);
   }
-}
+  return titlesByFolder.get(folder).get(key) ?? "";
+};
+const all = loadXPosts(ROOT).map(p => ({
+  phase: p.phase, scheduled_at: p.publishAt, title: p.folder ? titleOf(p.folder, p.key) : "",
+}));
 
-// scheduled は計画。予約件数と空き日の判定には queued のみ使う。
-const posted   = all.filter(t => t.status === "posted");
-const scheduled = all.filter(t => t.status === "queued" && !t.manual_only && t.scheduled_at);
+// planned は計画。予約件数と空き日の判定には予約に入っているもの（submitted・queued）のみ使う。
+const posted   = all.filter(t => t.phase === "posted");
+const scheduled = all.filter(t => ["submitted", "queued"].includes(t.phase) && t.scheduled_at);
 const future   = scheduled.filter(t => new Date(t.scheduled_at) >= NOW)
                           .sort((a, b) => new Date(a.scheduled_at) - new Date(b.scheduled_at));
 const WINDOW   = ALL ? Infinity : 7 * 24 * 3600 * 1000;
@@ -58,7 +54,7 @@ for (const t of view) {
 }
 
 console.log(`\n📅 X 投稿スケジュール — ${NOW.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`);
-console.log(`   投稿済: ${posted.length}件  未来の予約記録: ${future.length}件  未投入計画: ${all.filter(t => t.status === "scheduled").length}件  表示範囲: ${ALL ? "全期間" : "今後7日"}\n`);
+console.log(`   投稿済: ${posted.length}件  未来の予約記録: ${future.length}件  未投入計画: ${all.filter(t => t.phase === "planned").length}件  表示範囲: ${ALL ? "全期間" : "今後7日"}\n`);
 
 for (const [day, items] of Object.entries(byDay).sort()) {
   const isToday = day === dateKey(NOW.toISOString());

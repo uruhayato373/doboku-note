@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // X 投稿済みの生存確認（DN-0276）。
 //
-// content/sns/x/{draft,published}/*/status.json の status:"posted" を集め、
-// posted_url を持つものだけを oEmbed（ログイン不要）で照合する。
+// コンテンツ台帳（content/registry/publications/x/）の published の行を集め、
+// platform.url（posted_url）を持つものだけを oEmbed（ログイン不要）で照合する。
 // 404 は削除・凍結・非公開の疑い、posted_url が無い投稿済みは「照合の手がかりが無い」件数として
 // 別に出す（検査ゼロを PASS と呼ばない＝CLAUDE.md §9）。本文にサイトへのリンクが無い投稿は
 // 意図的な linkless 施策もあるため warn 情報として出すのみ（gate しない）。
@@ -17,7 +17,7 @@
 //   1 = 404 検出、または取得失敗率 20% 超（判定材料不足）
 //   2 = 投稿済みエントリを1件も検査できない（入力不備）
 //
-// npm run check-x-posted-live — 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
+// npm run check-x-posted-live — 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url（台帳の platform.url）は publish-x.ts が投稿時に書く
 import { writeFileSync, mkdirSync, renameSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -34,14 +34,14 @@ const OUT_PATH =
 function main() {
   const tweets = collectPostedTweets();
   if (tweets.length === 0) {
-    console.error('[check-x-posted-live] 投稿済みエントリを1件も検査できません（status.json が無いか status:"posted" が0件）');
+    console.error('[check-x-posted-live] 投稿済みエントリを1件も検査できません（台帳に published の行が0件）');
     process.exitCode = 2;
     return;
   }
 
   const withUrl = tweets.filter((t) => t.posted_url);
   const withoutUrl = tweets.filter((t) => !t.posted_url);
-  const noSiteLink = tweets.filter((t) => !hasSiteLink(t.text));
+  const noSiteLink = tweets.filter((t) => t.text !== null && !hasSiteLink(t.text)); // 文面の無い行は判定できないので数えない
 
   const results = [];
   for (const t of withUrl) {

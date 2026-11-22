@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-11-22T00:28:16.248Z",
+  "zone": {
+    "name": "doboku-note.com",
+    "plan": "Free Website"
+  },
+  "window": {
+    "since": "2026-11-15",
+    "until": "2026-11-21"
+  },
+  "daily": [
+    {
+      "date": "2026-11-15",
+      "requests": 604849,
+      "pageViews": 160481,
+      "uniques": 6024,
+      "bytes": 11494797220,
+      "cachedRequests": 206656,
+      "threats": 325,
+      "status": {
+        "2xx": 507831,
+        "3xx": 81725,
+        "4xx": 14520,
+        "5xx": 773
+      },
+      "jp": {
+        "requests": 517685,
+        "bytes": 6171789294
+      },
+      "other": {
+        "requests": 87164,
+        "bytes": 5323007926
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 77127
+        },
+        {
+          "country": "SG",
+          "requests": 3618
+        },
+        {
+          "country": "NL",
+          "requests": 2560
+        },
+        {
+          "country": "ZA",
+          "requests": 383
+        },
+        {
+          "country": "IN",
+          "requests": 359
+        }
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "requests": 420206,
+      "pageViews": 88145,
+      "uniques": 7807,
+      "bytes": 10584951062,
+      "cachedRequests": 161514,
+      "threats": 306,
+      "status": {
+        "2xx": 359874,
+        "3xx": 55819,
+        "4xx": 3596,
+        "5xx": 917
+      },
+      "jp": {
+        "requests": 340742,
+        "bytes": 6169147629
+      },
+      "other": {
+        "requests": 79464,
+        "bytes": 4415803433
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 64058
+        },
+        {
+          "country": "SG",
+          "requests": 8870
+        },
+        {
+          "country": "IN",
+          "requests": 1206
+        },
+        {
+          "country": "HK",
+          "requests": 1040
+        },
+        {
+          "country": "BE",
+          "requests": 508
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "requests": 456557,
+      "pageViews": 111530,
+      "uniques": 7167,
+      "bytes": 8778928261,
+      "cachedRequests": 141705,
+      "threats": 381,
+      "status": {
+        "2xx": 365170,
+        "3xx": 86452,
+        "4xx": 3676,
+        "5xx": 1259
+      },
+      "jp": {
+        "requests": 354470,
+        "bytes": 3818423404
+      },
+      "other": {
+        "requests": 102087,
+        "bytes": 4960504857
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 93608
+        },
+        {
+          "country": "SG",
+          "requests": 2113
+        },
+        {
+          "country": "PL",
+          "requests": 1410
+        },
+        {
+          "country": "BE",
+          "requests": 801
+        },
+        {
+          "country": "NL",
+          "requests": 788
+        }
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "requests": 380465,
+      "pageViews": 92735,
+      "uniques": 7404,
+      "bytes": 5412260741,
+      "cachedRequests": 103583,
+      "threats": 511,
+      "status": {
+        "2xx": 293654,
+        "3xx": 81474,
+        "4xx": 4194,
+        "5xx": 1143
+      },
+      "jp": {
+        "requests": 302733,
+        "bytes": 2998997906
+      },
+      "other": {
+        "requests": 77732,
+        "bytes": 2413262835
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 68713
+        },
+        {
+          "country": "SG",
+          "requests": 2716
+        },
+        {
+          "country": "HK",
+          "requests": 1432
+        },
+        {
+          "country": "NL",
+          "requests": 705
+        },
+        {
+          "country": "BR",
+          "requests": 491
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "requests": 370423,
+      "pageViews": 99194,
+      "uniques": 6403,
+      "bytes": 6943521869,
+      "cachedRequests": 90197,
+      "threats": 107,
+      "status": {
+        "2xx": 298827,
+        "3xx": 68453,
+        "4xx": 2186,
+        "5xx": 957
+      },
+      "jp": {
+        "requests": 284872,
+        "bytes": 3090081680
+      },
+      "other": {
+        "requests": 85551,
+        "bytes": 3853440189
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 75637
+        },
+        {
+          "country": "FR",
+          "requests": 3793
+        },
+        {
+          "country": "BE",
+          "requests": 1431
+        },
+        {
+          "country": "SG",
+          "requests": 1161
+        },
+        {
+          "country": "NL",
+          "requests": 612
+        }
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "requests": 347742,
+      "pageViews": 91029,
+      "uniques": 6573,
+      "bytes": 4946263431,
+      "cachedRequests": 81975,
+      "threats": 83,
+      "status": {
+        "2xx": 273861,
+        "3xx": 70025,
+        "4xx": 2785,
+        "5xx": 1071
+      },
+      "jp": {
+        "requests": 273003,
+        "bytes": 2765722376
+      },
+      "other": {
+        "requests": 74739,
+        "bytes": 2180541055
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 66628
+        },
+        {
+          "country": "SG",
+          "requests": 2641
+        },
+        {
+          "country": "NL",
+          "requests": 717
+        },
+        {
+          "country": "BE",
+          "requests": 641
+        },
+        {
+          "country": "BR",
+          "requests": 558
+        }
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "requests": 499896,
+      "pageViews": 143526,
+      "uniques": 6184,
+      "bytes": 5065553330,
+      "cachedRequests": 73973,
+      "threats": 51,
+      "status": {
+        "2xx": 362803,
+        "3xx": 133609,
+        "4xx": 1815,
+        "5xx": 1669
+      },
+      "jp": {
+        "requests": 432513,
+        "bytes": 3833967371
+      },
+      "other": {
+        "requests": 67383,
+        "bytes": 1231585959
+      },
+      "topOther": [
+        {
+          "country": "US",
+          "requests": 59661
+        },
+        {
+          "country": "SG",
+          "requests": 2363
+        },
+        {
+          "country": "BE",
+          "requests": 1262
+        },
+        {
+          "country": "BR",
+          "requests": 595
+        },
+        {
+          "country": "HK",
+          "requests": 576
+        }
+      ]
+    }
+  ],
+  "topPaths": {
+    "unavailable": "unknown field \"requests\""
+  },
+  "botSignals": {
+    "firewallEvents": {
+      "unavailable": "zone 'c352dca063518281714acdae0daee88e' does not have access to the path. Refer to this page for more details about acce"
+    },
+    "botScoreBuckets": {
+      "unavailable": "plan"
+    }
+  },
+  "accountUsage": {
+    "window": {
+      "since": "2026-10-23",
+      "until": "2026-11-21"
+    },
+    "pricingAsOf": "2026-10",
+    "buckets": {
+      "doboku-note": {
+        "objects": 16152,
+        "gb": 1.99,
+        "classA": 17064,
+        "classB": 563079,
+        "free": 0,
+        "unknown": 0,
+        "topOperations": {
+          "GetObject": 317225,
+          "HeadObject": 245854,
+          "PutObject": 16563,
+          "ListObjects": 501
+        }
+      },
+      "doboku-note-archive": {
+        "objects": 4416,
+        "gb": 8.63,
+        "classA": 2942,
+        "classB": 328717,
+        "free": 66,
+        "unknown": 0,
+        "topOperations": {
+          "GetObject": 326553,
+          "PutObject": 2876,
+          "HeadObject": 2164,
+          "DeleteObject": 66,
+          "ListObjects": 42
+        }
+      },
+      "stats47-private": {
+        "objects": 35366,
+        "gb": 7.96,
+        "classA": 29939,
+        "classB": 100265,
+        "free": 25,
+        "unknown": 0,
+        "topOperations": {
+          "GetObject": 97728,
+          "PutObject": 29698,
+          "HeadObject": 2537,
+          "ListObjects": 241,
+          "DeleteObject": 25
+        }
+      },
+      "stats47-cache": {
+        "objects": 0,
+        "gb": 0,
+        "classA": 0,
+        "classB": 0,
+        "free": 0,
+        "unknown": 0,
+        "topOperations": {}
+      },
+      "stats47": {
+        "objects": 127843,
+        "gb": 40.42,
+        "classA": 489434,
+        "classB": 27750811,
+        "free": 36909,
+        "unknown": 80,
+        "topOperations": {
+          "GetObject": 26677795,
+          "HeadObject": 1072633,
+          "PutObject": 481408,
+          "DeleteObject": 36909,
+          "ListObjects": 8026
+        }
+      },
+      "(none)": {
+        "objects": 0,
+        "gb": 0,
+        "classA": 6,
+        "classB": 0,
+        "free": 0,
+        "unknown": 0,
+        "topOperations": {
+          "ListBuckets": 6
+        }
+      }
+    },
+    "workers": {
+      "stats47": {
+        "requests": 3016950,
+        "cpuMs": 1612627126
+      },
+      "__unknown__": {
+        "requests": 6410,
+        "cpuMs": 5134
+      }
+    },
+    "totals": {
+      "r2Gb": 59,
+      "r2ClassA": 539385,
+      "r2ClassB": 28742872,
+      "workersRequests": 3023360,
+      "workersCpuMs": 1612632260
+    },
+    "estimateUsd": {
+      "r2Storage": 0.74,
+      "r2ClassA": 0,
+      "r2ClassB": 6.75,
+      "workersBase": 5,
+      "workersRequests": 0,
+      "workersCpu": 31.65,
+      "total": 44.14
+    }
+  },
+  "fieldsUnavailable": [],
+  "counts": {
+    "daysReturned": 7,
+    "countriesSeen": 11
+  },
+  "anomaly": {
+    "flagged": false,
+    "reason": null,
+    "yesterdayJp": 432513,
+    "median6Jp": 321737.5,
+    "otherOverJp": false
+  }
+}

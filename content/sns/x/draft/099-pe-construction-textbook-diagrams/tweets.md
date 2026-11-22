@@ -1,5 +1,7 @@
 # 教材から展開した図解
 
+<!-- x-stock: DN-0220 -->
+
 画像再生成: node scripts/build/render-x-figure-drafts.mjs --draft 099-pe-construction-textbook-diagrams
 
 公開前に元記事の本番反映を確認する。

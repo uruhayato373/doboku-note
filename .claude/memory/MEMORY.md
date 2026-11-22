@@ -102,6 +102,7 @@
 - [チャネル年間計画](project_channel_annual_plan.md) — 枠と型の台帳を一本化・保留の解除は別判断
 - [X返信の運用](project_x_reply_trial.md) — 人が承認・毎朝の承認リスト・11/17スパム判定タグ後は1日5件・10〜25分で毎回変える
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
+- [Xの状態は台帳](project_x_state_in_registry.md) — status.jsonは無い・承認は月次計画ごと・ログイン処理と承認/停止はエージェント不可
 - [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
 - [note記事同期](project_note_article_sync.md) — 記事単位同期・ライブ照合

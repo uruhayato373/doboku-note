@@ -1,6 +1,6 @@
 import type { DocMeta } from '@/lib/docs';
 import { findYearSiblings } from '@/lib/exam-year-nav.mjs';
-import PrevNextNav from './PrevNextNav';
+import PrevNextNav from '@/components/ui/PrevNextNav/PrevNextNav';
 
 interface ExamYearNavProps {
   currentSlug: string;

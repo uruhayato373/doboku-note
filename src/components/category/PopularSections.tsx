@@ -1,5 +1,6 @@
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import LinkRow, { LinkRowList, RankMarker } from '@/components/ui/LinkRow/LinkRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
+import { getCardImage } from '@/lib/site-thumbnail';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
 import { OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -40,19 +41,21 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
   const label = windowLabel();
   return (
+    // 順位つきのサムネイルの行（2026-11-22・以前は文字の行で、右の欄の下の続きに同じ人気順をサムネイルで重ねていた）
     <MetaCard as="div" padding="compact" trackNav="popular-ranking" title="人気記事" titleAside={label}>
-      <LinkRowList as="ol">
+      <ol className="space-y-3">
         {items.map((item) => (
-          <LinkRow
-            key={item.doc.slug}
-            href={getPublicDocPath(item.doc.slug)}
-            title={item.doc.shortTitle || item.doc.title}
-            marker={<RankMarker rank={item.rank} />}
-            serif
-            tone="ink"
-          />
+          <li key={item.doc.slug}>
+            <ArticleThumbRow
+              variant="rail"
+              rank={item.rank}
+              href={getPublicDocPath(item.doc.slug)}
+              title={item.doc.shortTitle || item.doc.title}
+              image={getCardImage(item.doc)}
+            />
+          </li>
         ))}
-      </LinkRowList>
+      </ol>
     </MetaCard>
   );
 }

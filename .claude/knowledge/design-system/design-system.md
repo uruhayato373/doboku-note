@@ -26,11 +26,11 @@
 
 ## 1. 設計の前提（doboku-note 固有）
 
-`/links` は薄いページ見出し→ページ内目次→全公開資格のカード一覧。選択による表示切り替えをせず、スマホでもスクロールだけで主要な入口を見渡せるようにする。各カードは無料学習・note目次（未整備なら主教材）・Kindleの主教材・受付中の添削相談を並べ、残りの個別教材は小さな開閉一覧へ置く。資格はトップと共通の公開一覧、商品は台帳の公開・受付状態を使い、取り下げ・休止・準備中を除外する。価格改定に追随する表示を持たず、金額・割引率を含む説明文は載せない。全リンクをサーバー描画する。大型プロフィール、装飾画像、操作の説明、重複する宣伝文は置かない。
+`/links` は薄いページ見出し→ページ内目次→全公開資格のカード一覧。選択による表示切り替えをせず、スマホでもスクロールだけで主要な入口を見渡せるようにする。各カードは無料学習・note目次（未整備なら主教材）・Kindleの主教材・受付中の添削相談を並べ、残りの個別教材は小さな開閉一覧へ置く。主力の note の行（主力教材、無ければ目次）だけに note の完成画像のサムネイル（`learning-catalog` の `leadImage`）を行のリンクの中に添え、リンクは増やさない。ページ内目次は件数つきのボタン。カードは CSS の段組み（`columns`）で列ごとに上へ詰める（grid は行の高さに引っ張られ短いカードの下が空いた。並びは列の上から下で、スマホの順は優先順のまま）。資格はトップと共通の公開一覧、商品は台帳の公開・受付状態を使い、取り下げ・休止・準備中を除外する。価格改定に追随する表示を持たず、金額・割引率を含む説明文は載せない。全リンクをサーバー描画する。大型プロフィール、装飾画像、操作の説明、重複する宣伝文は置かない。
 
 記事カードの画像は資格一覧・関連記事・新着・テーマ入口・検索で共通の選択処理を使う。承認済みのページ別画像に資格色のHTML下帯を添え、未設定・取得失敗時は記事のOGPへ戻す。見せ方の分類は [画像運用設計](../../../docs/operations/画像運用設計.md) を参照する。
 
-転職広告の意匠はEXP-043（2026-10-24の運営者指示・EXP-038のA/Bを打ち切った後継）でB/Cを比較する。`CareerAffiliateExperiment`のBは左4pxの線・見出し1行・要約1行・ボタンの小型カード、Cは支給の300×250バナー（縮小のみ・切り抜きと重ね書きなし・PRはバナーの外）とボタンで、どちらも幅36rem以上の枠では横一列、狭い枠では縦に積む（container query）。ボタンの紺・白はテーマ共通の`--color-affiliate-panel` / `--color-affiliate-on-panel`、角丸・影は既存トークン。広告カードを検討するときはスマホ（812px）とPC（800px）の1画面に占める高さを測る（EXP-019のBはスマホで101%を占めた）。既存の案件・面・noteの順序を維持し、案は訪問者単位で固定する。本文カード・記事末・資格トップ・公的基準・ツール等の既存広告面が対象。末尾のnoteとの並置は目的別見出しを付け、PCは横、スマホは縦。案ごとの見出し領域（Bは見出し、Cはバナー）で表示を測り、SSRの仮のBは実験表示に数えない。
+転職広告の意匠はEXP-043（2026-10-24の運営者指示・EXP-038のA/Bを打ち切った後継）でB/Cを比較し、2026-10-31にBを採用した（Cの説明は当時の記録）。`CareerAffiliateExperiment`のBは左4pxの線・見出し1行・要約1行・ボタンの小型カード、Cは支給の300×250バナー（縮小のみ・切り抜きと重ね書きなし・PRはバナーの外）とボタンで、どちらも幅36rem以上の枠では横一列、狭い枠では縦に積む（container query）。ボタンの紺・白はテーマ共通の`--color-affiliate-panel` / `--color-affiliate-on-panel`、角丸・影は既存トークン。広告カードを検討するときはスマホ（812px）とPC（800px）の1画面に占める高さを測る（EXP-019のBはスマホで101%を占めた）。既存の案件・面・noteの順序を維持し、案は訪問者単位で固定する。本文カード・記事末・資格トップ・公的基準・ツール等の既存広告面が対象。末尾のnoteとの並置は目的別見出しを付け、PCは横、スマホは縦。案ごとの見出し領域（Bは見出し、Cはバナー）で表示を測り、SSRの仮のBは実験表示に数えない。
 
 トップのヒーローはdoboku先生のイラストと「doboku-note」「土木・建設資格の学習ノート」、資格選択・検索の2導線で構成する。表示高さはスマホ280px・PC320px。資格入口は画像・試験日・説明を重ねず、資格色の左線・資格名・矢印のみ。スマホ2列・PC3列、最小高さ88px・76pxで、資格の正本から名称と順序を解決する。検索ゼロステートも同じ資格カードを使う。
 
@@ -160,14 +160,16 @@
 ### 3.1 共通プリミティブ
 
 **部品の層（2026-11-17 アトミックデザインの棚卸しで統一）**: 同じ見た目・判定は 1 か所だけに書き、複製は検査が止める。
+層の向きは下から上だけ: `src/lib` は `src/components` を import しない（MDX の部品の登録表 `src/lib/component-loader` だけ例外）、汎用部品 `src/components/ui` は機能別のディレクトリ（`docs`・`laws`・`category`・`standards`・`home`・`search`・`topics`）を import しない。記事ページ専用の部品は `src/components/docs` に置く（`tests/layer-direction-ratchet.test.mjs`）。
 
 | 層 | 部品 | 再発止め |
 |---|---|---|
 | 原子 | `Button`・`ButtonLink`（`variant`: primary／secondary／soft／text・`download`）、`Eyebrow`・`EYEBROW`・`eyebrowClass`（label／mono／plain・`tone`）、`Pill`（accent／tag／outline）、`Arrow`、`Breadcrumb`。既存の専用品 `MagazineBadge`・`AffiliatePrBadge`・`RankMarker` | `tests/atoms-ratchet.test.mjs` |
 | 分子 | 内部リンクの 4 部品（下の表）、ツールの `ToolField`・`ToolResultValue`・`ToolStatus`・`ToolNotice`・`ToolSources`（`src/components/tools/ToolParts.tsx`） | `tests/link-primitives-ratchet.test.mjs`・`tests/tool-parts-ratchet.test.mjs` |
-| 生体 | 区画の `MetaCard`（`title`・`lead`・`eyebrow`・`titleAside`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages`、右の欄の入れ物 `RailStack`（§3.4） | `tests/section-card-ratchet.test.mjs`・`tests/rail-ratchet.test.mjs` |
+| 生体 | 区画の `MetaCard`（`title`・`lead`・`eyebrow`・`titleAside`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages`、右の欄の入れ物 `RailStack`（§3.4）、区画の切れ目の広告 `SectionAdBreak`（資格トップの本文。PC は AdSense の記事内広告・スマホは 1 つ目が転職・2 つ目以降が AdSense） | `tests/section-card-ratchet.test.mjs`・`tests/rail-ratchet.test.mjs` |
 | テンプレート | `PageShell`・`PageHeader`・`TwoColumnShell`、ツールのページ `ToolPageShell` | — |
 | lib | 年度コード `src/lib/exam-year.mjs`、記事の種類のラベル `src/lib/doc-kind.ts` | `tests/dedupe-ratchet.test.mjs` |
+| lib（判定） | 過去問の年度×区分 `src/lib/exam-year-grid.ts`、設問番号 `src/lib/exam-question-number.ts`、総監の同じセクションのキーワード `src/lib/pe-section-keywords.ts`、パンくずの先頭の段 `src/lib/category-breadcrumb.ts`（2026-11-22 の点検で部品から移した） | — |
 
 商品の導線（note・アフィリエイト・ココナラ）の部品の統合は、A/B 実験 EXP-053 の判定の後に DN-0976 で行う（それまでラチェットの許可リストに理由つきで載せる）。
 
@@ -182,7 +184,7 @@
 
 前後ナビ（`PrevNextNav`／見出しの無い所は `PrevNextPair`）は部品を持たず、画像ありは `ArticleCard`、文字だけは `LinkTile` を左右に並べる。ツールの末尾の関連ページは `RelatedPages`（server で行き先の画像を引き、client のツールへ ReactNode で渡す）。1 実装のまま使う固有の形（チップ・表・資格の入口・矢印の行 `MetaListItem`・MDX の `SeeAlso`・商品の導線）は、ラチェットの許可リストに理由つきで載せる。
 
-記事（`DocPage`）の目次は本文上部にH2だけを表示する。PCは開いたカード、モバイルは畳んだ`Disclosure`で、計測ラベルは両方`article-toc`。右欄は目次を除いた上詰めの束と、本文の長さから0〜6組を見積もる追加回遊で構成する。追加の組はバナー→幅96pxのサムネイル一覧の順に、残りの高さへ均等配分する。右欄全体で記事・案件を再掲せず、候補切れは回遊のみ／広告のみを許す。固定・欄内スクロールは持たない。
+記事（`DocPage`）の目次は本文上部にH2だけを表示する。PCは開いたカード、モバイルは畳んだ`Disclosure`で、計測ラベルは両方`article-toc`。右欄は目次を除いた上詰めの束と、本文の長さから0〜6組を見積もる追加回遊で構成する。追加の組はバナー→幅96pxのサムネイル一覧の順に上詰めで並べ、その下の空きの AdSense も上詰めにする。右欄全体で記事・案件を再掲せず、候補切れは回遊のみ／広告のみを許す。固定・欄内スクロールは持たない。
 
 | コンポーネント | 役割 | 主な API |
 |---|---|---|
@@ -266,14 +268,18 @@
 
 ### 3.4 右サイドバー
 
-右サイドバーを置くのは以下の**3 系統のみ**:
+右サイドバーを置くのは以下の**5 系統のみ**:
 
 - `/docs/[slug]`（記事 = `ArticleSidebar`）
 - `/category/[slug]`
 - `/standards` とその下層（トップ＝テーマ・実務記事・比較／データ利用、地域以下＝`StandardsNavigation`）
 
-以下には**追加しない**: `/links`・`/search`・`/about`・`/privacy`・`/terms`・`/tools`。
-理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
+- `/search` と `/topics`（2026-11-21 運営者依頼で追加）。並びは一覧ページ共通の `IndexRail`（`layout/IndexRail.tsx`）: AdSense → よく読まれている記事 → 転職バナー → 新着の記事 → AdSense（2 枚目）→ 運営者 → 資格・分野から探す。広告（AdSense・転職）どうしは隣り合わせない。転職の面は `topic-rail`・`search-rail`（ピクセルはページで描く面のうち優先順の最も高い 1 面・`pixelFor`）。下に空きが残れば記事と同じく AdSense だけを散らす（`withRailAdSense`・`stretchAside`）。
+  - `/search`: 広告は検索語があり結果が 1 件以上のときだけ（`SearchRailAd`）。右の欄はサーバーで組み、広告の有無だけを検索の状態から決める（client で組むと /search のチャンクが膨らむ・DN-0684）。PC では本文の「よく読まれている記事」を隠す。絞り込みは本文に残す（右の欄は 993px 未満で消える）
+  - `/topics`: 広告は常時（22 テーマの入口が常にある）。本文は区分へ飛ぶリンク＋2 列のタイル。テーマが 2 枚以下の区分は末尾の 1 区画にまとめ、タイルの eyebrow に元の区分名を出す（区分の定義は変えない）
+
+以下には**追加しない**: `/links`・`/about`・`/privacy`・`/terms`・`/tools`。
+理由 — links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
 
 **右の欄の部品（2026-11-17 共通化）**: 右の欄の中身は `RailStack`（`ui/RailStack/RailStack.tsx`）だけが描く。記事（`ArticleSidebar`）・資格トップ（`CategoryPage`）・基準書（`StandardsNavigation`・`/standards` トップ）は並べるもの（`items`＝種類と中身）と下に続く組（`groups`）を渡すだけで、入れ物の div を手書きしない。並べる 1 つ 1 つは台帳 `src/lib/rail-kinds.mjs` の種類（nav・thumbs・tree・years・questions・author・bridge・note・career・adsense）を持ち、`data-rail-kind` の div で包まれる（中身が空なら畳む）。カードの外枠と題名は `MetaCard`（`padding="compact"`・`title`・`titleAside`・`eyebrow`）、文字の一覧は `LinkRow`（現在地は `current`）で、目次ツリー・年度の表・設問のチップも外枠は `MetaCard`。広告と note の画像の CTA だけが固有の形で、中身と配置の正本は `site-cta-surfaces.json` とアフィリエイトの配置ルール。コードは `tests/rail-ratchet.test.mjs`、ビルド後の HTML は `check-cta-density` の `rail-without-stack`・`rail-kind-unknown` が止める。
 
@@ -281,7 +287,8 @@
 
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-11-16 改訂・DN-1218）:
 1. **上の束（上詰め）**: note もくじタイル（`HubCtaBanner`・1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ）→ 運営者プロフィール → 設問ナビ・カテゴリナビ・ピラーナビ。目次は本文の上（`TableOfContents`）。
-2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）＋転職バナーの組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ上詰め（組の間 24px）で並べ、2 組目の転職バナーは AdSense の枠に替える（1 組だけなら後ろに AdSense。`withRailAdSense`）。カードの無い組（バナーだけ）は作らない（上詰めで広告が続くため）。上詰めの組の下に残る本文の横の空きには AdSense だけを均等に散らし、空きの高さ 2,500px ごとに 1 枠（最大 3 枠）出す。枠数は描画した高さで決める（globals.css の `rail-lower-ads` のコンテナクエリ。字数の見積もりは表の多い章で外れた）。2026-11-16 運営者判断: 残りの高さへの均等割りは組の間に約 500px の余白が出た。手元・プレビュー（localhost・pages.dev）の AdSense の枠は広告を要求せず、破線の目印にユニット名を出す（`AdSlot`）。
+2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）の組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ上詰め（組の間 24px）で並べ、1 組目から 1 組おきにカードの上へ AdSense の枠を置く（`withRailAdSense`）。カードの無い組は作らない（上詰めで広告が続くため）。上詰めの組の下に残る本文の横の空きには縦長の AdSense（300×600・`<AdSlot tall>`）だけを、組の直後から 1,000px 間隔で入る数だけ（最大 40 枠）並べる（2026-11-22 運営者判断: 250px の枠を 1,200px 間隔で並べると枠ごとに約 950px の空白が付いた箱に見えた。右の欄に追従〔sticky〕は使わない）。
+   **右の欄の転職バナーは上の束の先頭から 2 つまで**（`RAIL_AFFILIATE_MAX`・記事・基準書・資格トップ共通・2026-11-22 運営者判断）。下に続く組には置かない（転職バナーは 28 日で表示 24,450・クリック 24＝0.10%、基準書・キーワードはクリック 0。GA4 2026-10-18〜11-14）。枠数は描画した高さで決める（globals.css の `rail-lower-ads` のコンテナクエリ。字数の見積もりは表の多い章で外れた）。2026-11-16 運営者判断: 残りの高さへの均等割りは組の間に約 500px の余白が出た。手元・プレビュー（localhost・pages.dev）の AdSense の枠は広告を要求せず、破線の目印にユニット名を出す（`AdSlot`）。
 
 > **右の欄に sticky・欄内スクロール（`max-h`＋`overflow`）は使わない**（2026-11-15 運営者指示・全ページ共通。「広告が追いかけてくる」体験と、sticky の下に置いた要素が届かなくなる過去事故を避ける）。同じ「上の束＋下に続く束」を基準書の章・節（`standardsSidebarContinuation`）と資格トップ（`categorySidebarContinuation`）にも使い、組の数・カードの選び方・AdSense の組（`withRailAdSense`）は `src/lib/rail-continuation.ts` に集約する。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
 
@@ -291,7 +298,7 @@
 - マーカー契約: `data-standards-list` = `major`（トップのよく使う文書）/ `agencies`（発行機関）/ `documents`（機関ページの文書）/ `chapters`（文書ページの章）、出典は `data-standards-attribution`。回遊計測は `data-cta="nav"` の label `standards-agency` / `standards-document` / `standards-chapter` / `standards-tree` / `standards-section-nav`。
 - ゲート: `npm run check-standards-density`。最初のリスト／本文までの説明文 60 字以内・トップの発行機関リンク 11 以上かつ主要文書 3 以上・出典はちょうど 1 つで見える文字 160 字以内・転職カード 0。
 
-**PC 右サイドバー（`/standards` 下層）**: 地域→文書→編・章・節の目次のうち現在地に必要な階層を表示し、固定（sticky）・欄内スクロールは使わない。章・節ページは上の束（転職バナー 3 面・目次・回遊・資格の橋渡し）の下に「下に続く束」（同じ文書の前後の章・近い実務/試験対策の記事・同じ資格の人気/新着と転職バナー。面 `standards-rail-fill`）を本文の長さに応じて並べる。著者カードは置かない。モバイルでは同一リンク群を `<details>` に畳み、右サイドバーが消える幅でも階層移動を維持する（モバイルの「資料内を移動」の中に広告は出さない）。
+**PC 右サイドバー（`/standards` 下層）**: 地域→文書→編・章・節の目次のうち現在地に必要な階層を表示し、固定（sticky）・欄内スクロールは使わない。章・節ページは上の束（転職バナー 2 面・目次・回遊・資格の橋渡し）の下に「下に続く束」（同じ文書の前後の章・近い実務/試験対策の記事・同じ資格の人気/新着。1 組おきに AdSense・転職バナーは置かない）を本文の長さに応じて並べる。著者カードは置かない。モバイルでは同一リンク群を `<details>` に畳み、右サイドバーが消える幅でも階層移動を維持する（モバイルの「資料内を移動」の中に広告は出さない）。
 
 **基準類の機関・文書一覧**: `TwoColumnShell` の本文をトップと同じ白い面にまとめ、`PageHeader variant="inline"` と読むための一覧を内包する。機関ページの文書は `StandardDocumentCard variant="row"` でカードの入れ子を避ける。文書の先頭は文書名・版・章数・ページ数、続いて章選択。原本SHA-256・分冊構成・同一原本の情報は末尾の `StandardsAttribution` の開閉欄へ置き、判読注記は本文の入口に残す。モバイルの詳細ナビは一覧の後ろに置き、上位階層へのリンクは冒頭のパンくずで提供する。
 
@@ -379,7 +386,7 @@ CLAUDE.md §7 と一致:
 - `rounded-{lg,xl,2xl} + shadow-*` の直書き → `rounded-card-*` / `shadow-card-*`。
 - インライン `style={{ borderColor }}` → Tailwind `dark:border-*`。
 - 下層ページにトップ級の大型 Hero を増やす → `PageHeader`。
-- `/search` `/links` `/about` 等へ右サイドバーを追加 → §3.4 の限定に従う。
+- `/links` `/about` 等へ右サイドバーを追加 → §3.4 の限定に従う。
 - 外枠幅をページごとにバラつかせる（`max-w-5xl` 等の混在）→ `max-w-[1280px]` + content rail。
 
 ### MDX コンテンツ
@@ -397,7 +404,9 @@ CLAUDE.md §7 と一致:
 
 読書体験を壊さないための収益要素（第三者広告＝転職アフィリ／自社 note CTA）の上限。第三者広告と自社 note CTA を区別する。
 
-**一覧のインフィード広告（2026-11-16）**: 記事の一覧（資格トップのサムネイルの行・カリキュラムの文字の行・検索結果）には AdSense のインフィード広告を 1 項目（`<AdSlot as="li" slot="inFeedThumb|inFeedText">`）として挟む。10 項目ごとに 1 枠・1 つの一覧で最大 2 枠・先頭と末尾に置かない・1 ページ 3 枠まで（検索結果は 5 件目の後に 1 枠）。折りたたみ（閉じた `Disclosure`）の中の一覧には置かない。判定は `src/lib/feed-ads.ts`（`withFeedAds`）と `src/lib/feed-ads-budget.ts`（ページの残り枠）だけ。**機械**＝`check-cta-density` の `feed-ad-total`・`feed-ad-adjacent`、描画は `inspectFeedAdsInPage`（site-visual-review の `feed-ad`・`e2e/cta.spec.ts`）。
+**本文の AdSense（2026-11-22・全ページ共通）**: 転職の本文の枠（最大 3）の後から本文の終わりまで、記事・基準書は 1,500 字ごと（転職の枠から 800 字以上離す・1 行を 40 字に切り上げて数える・最大 30 枠）、過去問（設問が続く記事）は設問の見出しの直前に 3 問ごと（直前の転職・広告・CTA から 3 問以上あける。1 問が長い二次の記述は 1,500 字を超えた設問の前にも・最大 30 枠）に記事内広告（`inArticle`）を置く。値の唯一の置き場は `src/lib/body-ad-rules.mjs`（記事は `article-inline-slots.mjs`、基準書は `standards-inline-slots.mjs` が読む）。以前は記事が最大 2 枠・基準書が 5,000 字ごとで、本文の下半分に何も無い区間が PC で最大 16,700px・スマホで最大 2.9 万 px あった。**機械**＝`e2e/ad-coverage.spec.ts`（代表ページの本文で広告も導線も無い区間の上限）。
+
+**一覧のインフィード広告（2026-11-16）**: 記事の一覧（資格トップのサムネイルの行・カリキュラムの文字の行・検索結果）には AdSense のインフィード広告を 1 項目（`<AdSlot as="li" slot="inFeedThumb|inFeedText">`）として挟む。10 項目ごとに 1 枠・1 つの一覧で最大 2 枠・先頭と末尾に置かない・1 ページ 3 枠まで（検索結果は 5 件目の後に 1 枠。PC は右の欄にも 1 枠・§3.4）。折りたたみ（閉じた `Disclosure`）の中の一覧には置かない。判定は `src/lib/feed-ads.ts`（`withFeedAds`）と `src/lib/feed-ads-budget.ts`（ページの残り枠）だけ。**機械**＝`check-cta-density` の `feed-ad-total`・`feed-ad-adjacent`、描画は `inspectFeedAdsInPage`（site-visual-review の `feed-ad`・`e2e/cta.spec.ts`）。
 
 **縦に続く導線の幅（2026-11-16）**: 本文の列で縦に続けて置く商品導線（転職の横長バナー・note のカード・ココナラ・AdSense の枠）は、置かれた列の幅いっぱいの同じ幅にそろえ（テーマのページだけ区画の左寄せで最大 760px）、導線の上に見出しの文字を付けない（PR・広告の表記はカードの中）。幅の正本は `src/lib/cta-stack.ts` の `CTA_STACK_CLASS`、当てた箱に `data-cta-stack`。比べるのは同じ置き場（折りたたみの中・記事カードの中・外）どうし。300px の中央寄せ・2 列の片側に置くと記事末がばらばらに見えた（67 種類 × 2 幅のうち 43 で不一致）。**機械**＝`scripts/lib/cta-stack-inspect.mjs`（site-visual-review の `cta-width`・`e2e/cta.spec.ts` の 7 ページ）。
 

@@ -11,6 +11,7 @@ import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
 import { todayJst } from '../../../../../../scripts/lib/jst-date.mjs';
 import { reviewWeekLabel } from '../../../../../../scripts/lib/review-week.mjs';
 import { readWeeklyDraft, reviewChecks, weeklyLaunchd } from '../../../../../../scripts/lib/review-automation.mjs';
+import { documentLink } from '../../../../../../scripts/lib/page-documents.mjs';
 import { jstDateTime } from '@/lib/format';
 import { GAP_LABEL } from '@/lib/kpi-tree';
 import { StatusBadge, type Tone, DataTable, DetailSheet, DetailText, PanelCard, StatCard, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
@@ -284,6 +285,8 @@ export type Automation = {
   draft: ReturnType<typeof readWeeklyDraft>;
   launchd: ReturnType<typeof weeklyLaunchd>;
   checks: ReturnType<typeof reviewChecks>;
+  /** この回のレビュー本文（docs/reviews/<cadence>/<key>-review.md）の文書ビューア URL。ファイルが無ければ null */
+  reportHref: string | null;
 } | null;
 export type RunOption = { key: string; label: string; verdict: Run['verdict'] };
 export type ReviewData = {
@@ -378,8 +381,10 @@ export function loadReview(cadenceId: 'weekly' | 'monthly', runKey?: string): Re
 function loadAutomation(root: string, cadenceId: 'weekly' | 'monthly', key: string): Automation {
   if (!key) return null;
   const reportPath = join(root, 'docs', 'reviews', cadenceId, `${key}-review.md`);
-  const reportText = existsSync(reportPath) ? readFileSync(reportPath, 'utf8') : '';
+  const hasReport = existsSync(reportPath);
+  const reportText = hasReport ? readFileSync(reportPath, 'utf8') : '';
   return {
+    reportHref: hasReport ? documentLink(`docs/reviews/${cadenceId}/${key}-review.md`).href : null,
     draft: cadenceId === 'weekly' ? readWeeklyDraft(root, key) : null,
     launchd: cadenceId === 'weekly' ? weeklyLaunchd(root) : null,
     checks: reviewChecks(root, cadenceId, key, reportText),
@@ -427,6 +432,11 @@ export function ReviewBody({ d, cadenceId, tab, base }: { d: ReviewData; cadence
   return (
     <Stack gap="lg">
       <RunPicker base={base} options={d.options} selected={d.selected.key} />
+      {d.automation?.reportHref && (
+        <p className="m-0 text-sm">
+          <Link href={d.automation.reportHref}>この回のレビュー本文を読む</Link>
+        </p>
+      )}
       <FilterBar className="mb-3!">
         {REVIEW_TABS.map((x) => (
           <FilterChip key={x.id} active={x.id === current} href={href(x.id)}>

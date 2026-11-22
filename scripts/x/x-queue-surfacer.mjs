@@ -8,10 +8,10 @@
  *       次バッチの投入忘れ＝予約キューの穴を防ぐための週次 surfacer。
  *
  * 設計:
- *   - オフライン（status.json + tweets.md のみ・Playwright/外部 API 不要）。
+ *   - オフライン（コンテンツ台帳 + tweets.md のみ・Playwright/外部 API 不要）。
  *     → 週次レビューのクラウドルーチン（ローカル creds 無し）でもそのまま動く。
- *   - 投入状態は status.json の SSOT で判定する（x-sync-status が実査して queued にする）。
- *     scheduled は日時設定済みでも未投入。queued だけが予約投入済み。
+ *   - 投入状態は台帳の SSOT で判定する（x-sync-status が実査して反映する）。
+ *     approved（planned）は日時設定済みでも未投入。scheduled（予約に入れた）だけが予約投入済み。
  *   - go-live 日は tweets.md ヘッダ "— M/D 残りN日" の最小日付から読む。
  *   - 本スクリプトは surface のみ（投入はローカルの publish-x で人手）。
  *
@@ -24,8 +24,9 @@
  */
 import fs from "fs";
 import path from "path";
-import { DAY_MS, parseDatesFromRaw, summarizeStatus } from "../lib/x-queue-lib.mjs";
-import { SNS_CONTENT_ROOT } from "../lib/repository-paths.mjs";
+import { DAY_MS, parseDatesFromRaw, parseStockMarker, summarizeStatus } from "../lib/x-queue-lib.mjs";
+import { REPO_ROOT, SNS_CONTENT_ROOT } from "../lib/repository-paths.mjs";
+import { loadXPosts } from "../lib/registry-x-store.mjs";
 
 const DRAFT_DIR = path.join(SNS_CONTENT_ROOT, "x/draft");
 const argv = process.argv.slice(2);
@@ -40,20 +41,21 @@ const NOW = new Date();
 
 // 日付書式・投入集計の実装は lib へ（テストで固定するため。tests/x-queue-surfacer.test.mjs）
 function parseDatesFromMd(mdPath) {
-  return parseDatesFromRaw(fs.readFileSync(mdPath, "utf-8"), NOW);
+  const raw = fs.readFileSync(mdPath, "utf-8");
+  return { ...parseDatesFromRaw(raw, NOW), stock: parseStockMarker(raw) };
 }
 
-// status.json から投入状況を読む（I/O だけ・集計は summarizeStatus）
-function countQueued(statusPath) {
-  if (!fs.existsSync(statusPath)) return { exists: false, queued: 0, posted: 0, retired: 0, lastScheduled: null };
-  let data;
-  try {
-    data = JSON.parse(fs.readFileSync(statusPath, "utf-8"));
-  } catch {
-    // 壊れた status.json を「予約ゼロ」と静かに扱うと未投入が過大に出る。broken を立てて区別する。
-    return { exists: true, queued: 0, posted: 0, retired: 0, lastScheduled: null, broken: true };
-  }
-  return { exists: true, ...summarizeStatus(data) };
+// 台帳から投入状況を読む（下書きフォルダ → 行。集計は summarizeStatus）
+const postsByFolder = new Map();
+for (const p of loadXPosts(REPO_ROOT)) {
+  if (!p.folder) continue;
+  if (!postsByFolder.has(p.folder)) postsByFolder.set(p.folder, []);
+  postsByFolder.get(p.folder).push(p);
+}
+function countQueued(name) {
+  const posts = postsByFolder.get(name);
+  if (!posts) return { exists: false, queued: 0, posted: 0, retired: 0, lastScheduled: null };
+  return { exists: true, ...summarizeStatus(posts) };
 }
 
 const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
@@ -69,11 +71,11 @@ if (fs.existsSync(DRAFT_DIR)) {
     const mdPath = path.join(dir, "tweets.md");
     if (!fs.statSync(dir).isDirectory() || !fs.existsSync(mdPath)) continue;
 
-    const { count, dates } = parseDatesFromMd(mdPath);
+    const { count, dates, stock } = parseDatesFromMd(mdPath);
     if (count === 0) continue;
     const start = dates.length ? new Date(Math.min(...dates.map((d) => d.getTime()))) : null;
     const end = dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
-    const { exists, queued, posted, retired, lastScheduled } = countQueued(path.join(dir, "status.json"));
+    const { exists, queued, posted, retired, lastScheduled } = countQueued(name);
 
     const unqueued = Math.max(0, count - queued - posted - retired);
     const state = unqueued <= 0 ? "fully-queued" : queued + posted > 0 ? "partial" : "未投入";
@@ -81,7 +83,7 @@ if (fs.existsSync(DRAFT_DIR)) {
     // queued の最終日時だけを表示する。途中の空白は due と日別ビューで確認。
     if (lastScheduled && (!lastQueuedAt || lastScheduled > lastQueuedAt)) lastQueuedAt = lastScheduled;
 
-    drafts.push({ name, count, queued, posted, unqueued, state, start, end });
+    drafts.push({ name, count, queued, posted, unqueued, state, start, end, stock });
   }
 }
 
@@ -99,8 +101,11 @@ const due = drafts
 // 日付が 1 件も読めなかった pack。**due にも「該当なし」にも入れず、判定不能として別に出す**
 // （検査ゼロを PASS と呼ばない）。未投入が残っているものだけ人間向けに出す
 // ＝投入済みの undated（日付を書かない速報系など）を毎週のノイズにしない。
+// ストックの印（x-stock）がある undated は要対応にせず、載せる先ごとに数えて出す。
+// 日付が 1 件でも読める下書きは印があっても due 判定する（印で投入忘れを隠さない）。
 const undated = drafts.filter((d) => !d.start);
-const undatedActionable = undated.filter((d) => d.unqueued > 0);
+const undatedActionable = undated.filter((d) => d.unqueued > 0 && !d.stock);
+const stock = undated.filter((d) => d.unqueued > 0 && d.stock);
 
 if (JSON_OUT) {
   console.log(
@@ -117,7 +122,8 @@ if (JSON_OUT) {
           days_to_go_live: d.daysToGoLive,
           overdue: d.overdue,
         })),
-        undated: undated.map((d) => ({ draft: d.name, tweets: d.count, unqueued: d.unqueued })),
+        undated: undated.map((d) => ({ draft: d.name, tweets: d.count, unqueued: d.unqueued, stock: d.stock })),
+        stock: stock.map((d) => ({ draft: d.name, target: d.stock, unqueued: d.unqueued })),
         all: drafts.map((d) => ({ draft: d.name, state: d.state, unqueued: d.unqueued })),
       },
       null,
@@ -141,6 +147,14 @@ if (undatedActionable.length > 0) {
   for (const d of undatedActionable) {
     lines.push(`   - ${d.name}（未投入 ${d.unqueued}/${d.count}）— 見出しの日付書式を確認する`);
   }
+  lines.push("");
+}
+
+if (stock.length > 0) {
+  const byTarget = new Map();
+  for (const d of stock) byTarget.set(d.stock, (byTarget.get(d.stock) ?? 0) + d.unqueued);
+  const parts = [...byTarget].map(([t, n]) => `${t} ${n} 本`).join("・");
+  lines.push(`📦 ストック: ${stock.length} 件 ${stock.reduce((a, d) => a + d.unqueued, 0)} 本（日時未定・載せる先: ${parts}）`);
   lines.push("");
 }
 

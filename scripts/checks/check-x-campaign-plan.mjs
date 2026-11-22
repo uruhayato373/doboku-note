@@ -118,6 +118,9 @@ for (const file of files) {
     examCounts[post.exam] = (examCounts[post.exam] ?? 0) + 1;
     if (post.slot) slotCounts[post.slot] = (slotCounts[post.slot] ?? 0) + 1;
 
+    // frame は年間の枠 id。照合は channel-plan-audit だけが行う（ここでは型だけ）
+    if (post.frame !== undefined && (typeof post.frame !== "string" || !post.frame)) errors.push(`${label}: frame は空でない文字列`);
+
     if (v >= 2) {
       if (!post.time || !/^\d{2}:\d{2}$/.test(post.time)) errors.push(`${label}: time (HH:MM) が無い`);
       if (!SLOTS.includes(post.slot)) errors.push(`${label}: slot は A/B/C のいずれか（実際: ${post.slot}）`);
@@ -140,23 +143,12 @@ for (const file of files) {
 
     if (post.funnel === "site" && post.target) {
       const url = new URL(post.target);
-      // 既存キューのURLを改善済みと偽らず、そのまま表示する。例外は台帳との一致で限定。
-      let retainedQueued = false;
-      if(post.retained === true && /^\d{3}-[\w-]+$/.test(post.draft ?? '') && Number.isInteger(post.tweet)) {
-        const statusFile=join('content/sns/x/draft',post.draft,'status.json');
-        if(existsSync(statusFile)) {
-          const t=JSON.parse(readFileSync(statusFile,'utf8')).tweets?.[String(post.tweet)];
-          retainedQueued=['queued','posted'].includes(t?.status)&&t.scheduled_at?.slice(0,16)===`${post.date}T${post.time}`&&t.text?.match(/https?:\/\/[^\s]+/)?.[0]===post.target;
-        }
-      }
       const slug = url.pathname.replace(/^\/docs\//, "");
       const staticPage = join("src/app", url.pathname.replace(/^\//, ""), "page.tsx");
       if (!docs.has(slug) && !publicPaths.has(url.pathname) && !existsSync(staticPage)) errors.push(`${label}: サイトパスが存在しない ${url.pathname}`);
       for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
-        if (!url.searchParams.get(key)) {
-          if(retainedQueued)retainedWarnings.push(`${label}: 既存キューの ${key} 欠落を保持（新規原稿には適用不可）`);
-          else errors.push(`${label}: ${key}がない`);
-        }
+        // 日付が今日より前の投稿は X 上で確定済みで直せない。UTM の欠落は WARN（上のカタログ照合の過去日と同じ扱い）
+        if (!url.searchParams.get(key)) (post.date < TODAY ? retainedWarnings : errors).push(`${label}: ${key}がない${post.date < TODAY ? "（投稿済みのため修正不能）" : ""}`);
       }
     }
     if (post.funnel === "note" && post.target) {
@@ -203,7 +195,7 @@ for (const file of files) {
   const daysInMonth = new Date(y, mo, 0).getDate();
   // 月の途中から本数を増やす「増強計画」を検査できるようにする（2026-08 は 8/1-15 が 1日1本の
   // v1 計画で、8/16 以降に +2本/日 を重ねた）。coverage があればその範囲だけを対象にする。
-  // ※ 別ファイルの計画との時刻衝突までは見ない。それは x-schedule-guard（全 status.json 横断・
+  // ※ 別ファイルの計画との時刻衝突までは見ない。それは x-schedule-guard（台帳の全 X 投稿を横断・
   //    同一分の衝突を BLOCK）が予約直前に見る担当。
   const cov = plan.coverage;
   const covDays = [];

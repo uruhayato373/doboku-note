@@ -18,6 +18,9 @@ interface DisclosureChevronProps {
  * 色は `currentColor` を継承（使用側の text-* で決める）。lucide 系の細線規約に合わせる。
  * MDX 記事内 details（prose）の CSS `::before` も同一 path をマスクで使う（path の真実源はここ）。
  */
+/** 細線シェブロン（右向き）の path。横スクロールのレールの矢印（CardRail）も使う */
+export const CHEVRON_PATH = "M6 3.5 10.5 8 6 12.5";
+
 export default function DisclosureChevron({ className }: DisclosureChevronProps) {
   return (
     <span
@@ -35,7 +38,7 @@ export default function DisclosureChevron({ className }: DisclosureChevronProps)
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M6 3.5 10.5 8 6 12.5" />
+        <path d={CHEVRON_PATH} />
       </svg>
     </span>
   );

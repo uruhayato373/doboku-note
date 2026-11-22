@@ -36,34 +36,10 @@
       }
     },
     {
-      "id": "pe-construction-bk-i",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-old-account/051-pe-construction-bk-i",
-      "legacyKey": "051-pe-construction-bk-i"
-    },
-    {
       "id": "pe-construction-countdown-w1",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/060-pe-construction-countdown-w1",
       "legacyKey": "060-pe-construction-countdown-w1"
-    },
-    {
-      "id": "pe-construction-countdown-w2",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/062-pe-construction-countdown-w2",
-      "legacyKey": "062-pe-construction-countdown-w2"
-    },
-    {
-      "id": "pe-construction-countdown-w3",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-2026-pe-countdown/064-pe-construction-countdown-w3",
-      "legacyKey": "064-pe-construction-countdown-w3"
-    },
-    {
-      "id": "pe-construction-countdown-w4",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-2026-pe-countdown/066-pe-construction-countdown-w4",
-      "legacyKey": "066-pe-construction-countdown-w4"
     },
     {
       "id": "pe-construction-finalpush-wa",
@@ -250,6 +226,30 @@
         "at": "2026-11-04",
         "by": "Claude Code video-content-qa"
       }
+    },
+    {
+      "id": "pe-merit-series",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/114-pe-merit-series",
+      "legacyKey": "114-pe-merit-series"
+    },
+    {
+      "id": "pe-oral-coconala-w2-nov",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/120-pe-oral-coconala-w2-2026-11",
+      "legacyKey": "120-pe-oral-coconala-w2-2026-11"
+    },
+    {
+      "id": "pe-oral-rest-nov",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/118-pe-oral-rest-2026-11",
+      "legacyKey": "118-pe-oral-rest-2026-11"
+    },
+    {
+      "id": "pe-oral-w1-nov",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/117-pe-oral-w1-2026-11",
+      "legacyKey": "117-pe-oral-w1-2026-11"
     },
     {
       "id": "pe-river-coast-shutsudai-yomikata",

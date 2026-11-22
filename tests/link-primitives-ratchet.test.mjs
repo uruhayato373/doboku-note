@@ -17,35 +17,26 @@ const NOT_CARD = /inline-flex|rounded-full|\bdownload\b|href=\{?["'`]#|href=\{`#
 // 部品そのものと、1 実装のまま使う固有の部品（理由つき）
 const ALLOW = new Map([
   ['src/components/ui/ArticleCard/ArticleCard.tsx', '共通部品（上に画像のカード）'],
-  ['src/components/ui/RelatedArticles/ArticleThumbRow.tsx', '共通部品（左に画像の行）'],
+  ['src/components/ui/ArticleThumbRow/ArticleThumbRow.tsx', '共通部品（左に画像の行）'],
   ['src/components/ui/LinkTile/LinkTile.tsx', '共通部品（枠つきタイル）'],
-  ['src/components/ui/LinkRow/LinkRow.tsx', '共通部品（区切り線の行）'],
-  ['src/components/ui/NavLinkCard/NavLinkCard.tsx', 'MDX の SeeAlso・SpokeNavCard の単独のリンクカード（既存の共通部品）'],
-  ['src/components/ui/MetaListItem/MetaListItem.tsx', '矢印つきの文字の行（過去問での出題・根拠法令。既存の共通部品）'],
+  ['src/components/ui/NavLinkCard/NavLinkCard.tsx', 'MDX の SeeAlso だけが使う本文のリンクカード（既存の共通部品）'],
   ['src/components/home/ExamCards.tsx', '資格の入口（資格ごとの色の縦線を持つ固有の形）'],
   ['src/components/ui/PersonaSelector/PersonaSelector.tsx', 'MDX の立場の選択（ボタンとリンクの混在）'],
   ['src/components/category/KeywordSections.tsx', '左に太い色線の導入の行とキーワードのチップ'],
-  ['src/components/category/ExamMatrix.tsx', '年度×区分の表とチップ'],
   ['src/components/category/CategoryJumpNav.tsx', 'ページ内のジャンプのチップ'],
-  ['src/components/category/CategoryViews.tsx', 'カテゴリのチップ（タイルは LinkTile）'],
-  ['src/components/standards/StandardSectionIndex.tsx', '節と条の入れ子の目次'],
-  ['src/app/links/page.tsx', '外部の商品リンクが主の一覧'],
   // 商品・外部の導線（note・アフィリエイト・ココナラ）。幅と配置は CTA の規則（CTA_STACK_CLASS・check-cta-density）が見る
   ['src/components/ui/CareerAffiliate/CareerAffiliate.tsx', '転職の広告'],
   ['src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx', '転職の広告'],
   ['src/components/ui/HubCtaBanner/HubCtaBanner.tsx', 'note の導線'],
-  ['src/components/ui/LinkCard/LinkCardClient.tsx', 'MDX の外部リンクカード'],
+  ['src/components/ui/LinkCard/LinkCard.tsx', 'MDX の外部リンクカード'],
   ['src/components/ui/MagazineInlineCard/MagazineInlineCard.tsx', 'note のマガジンの導線'],
   ['src/components/ui/MagazineTopBanner/MagazineTopBanner.tsx', 'note のマガジンの導線'],
   ['src/components/ui/NoteImageCta/NoteImageCta.tsx', 'note の導線'],
   ['src/components/ui/NoteLink/NoteLink.tsx', 'note の導線'],
   ['src/components/ui/OffsiteCta/OffsiteCta.tsx', '外部の商品の導線'],
-  ['src/components/home/PremiumNoteHero.tsx', 'note の導線'],
   ['src/app/tools/kakomon-quiz/KakomonQuizClient.tsx', '演習の後の note の導線（計測つき）'],
   ['src/app/tools/kakomon-quiz/QuizNoteProducts.tsx', 'note の商品'],
   ['src/app/tools/keiken-charcount/page.tsx', 'note の商品'],
-  ['src/components/ui/QuestionJumpNav.tsx', '設問番号のジャンプ'],
-  ['src/components/ui/ExamQuestionNav/ExamQuestionNav.tsx', '設問番号のジャンプ'],
 ]);
 
 // className={CARD}・`${CARD} …` のように同じファイルの定数で書いた枠も見る（旧 PrevNextNav の CARD・基準書の rowLink）

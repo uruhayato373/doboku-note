@@ -310,9 +310,7 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
   const files = [
     'scripts/lib/google-console-browser.mjs',
     'scripts/checks/verify-ig-status.mjs',
-    'scripts/x/x-article-publish.mjs',
     'scripts/lib/x-scheduled-queue.mjs',
-    'scripts/x/x-thread-replies.mjs',
     'scripts/scout-asp/a8-browser.ts',
     'scripts/scout-asp/login.mjs',
     'scripts/publish-ig-bs/publish-ig-bs.ts',

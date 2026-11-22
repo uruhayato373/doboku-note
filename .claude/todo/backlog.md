@@ -65,6 +65,26 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1267] 土曜の収集の gsc 段が 2 秒で終わり実検査 0 で failed になる（最後の ok は 11/14）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。11-21 の土曜の収集の gsc 段が約 2 秒で終わり、検算 gsc-ui-run が「run=なし unit 0（実検査 0）」で failed。最後に ok だったのは 11-14。11-21 の GSC の値は未取得。実際に取得を始めていない可能性が高い（未確認）。検査ゼロを PASS と読まずに failed で止まったのは正しい動き。
+
+やること: gsc 段が取得を始めなかった理由（入口の判定・ロック・対象月の判定など）を runs.json とスクリプトの出力から特定して直す。
+
+完了条件: 次の土曜の収集で gsc 段が実検査 1 件以上で ok になる。「実検査 0 で 2 秒で終わる」ケースが原因つきで説明できている。
+
+
+### [DN-1266] 土曜の収集の a8 段が検算（a8-ui-run）で落ちる（rawFile が null・最後の ok は 10/31）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。11-21 の土曜の収集で a8 段が failed。取得コマンドの exit は 4 回とも 0 だが、検算 check-a8-ui-run が「result-detail: rawFile が実在しない（null）」で落ちる。最後に ok だったのは 10-31（11-14 は warn）。このため 11-21 の A8 の値は未取得。ログインは有効（auth-freshness OK 5/5）なので原因はログイン以外。DN-1190（収集のログイン以外の失敗）と同じ系統だが原因が別のため別カードにする。
+
+やること: a8 段の取得が rawFile を書かない理由（取得は成功扱いだが生ファイルが無い）を、runs.json と a8-ui の出力で特定して直す。検算の失敗は取得の失敗として読む。
+
+完了条件: 次の土曜の収集で a8 段が ok になり、check-a8-ui-run が rawFile の実在まで検査して通る。11-21 分の A8 の月次成果が取り直されている。
+
+
 ### [DN-1243] 親の通常動画が非公開アップロードに進むと、ショートが「在庫に進んでいない」違反に戻り CI が赤になる
 タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-18]
 
@@ -511,6 +531,70 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1275] 技術士の改訂コンピテンシーの文言を一次資料で照合し、口頭試験対策 3 本とそろえる
+タグ: [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-11-21]
+
+「社会、経済及び環境」「文化的価値の尊重」などの文言が公式で未裏取りのまま（建設の口頭試験対策 article.md:83、建設部門-口頭試験対策/article.md:249、上下水道部門-口頭試験対策/article.md:61,263）。文部科学省・日本技術士会の一次資料で照合する。起点: 2026-11-21 の docs 棚卸しで handoff から抽出。
+
+
+### [DN-1274] 建設部門の口頭試験・自治体職員向け無料記事（nd74226a91a18）のリンクを、建設部門もくじ・L1・口頭試験対策 2 本へ入れる
+タグ: [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-11-21]
+
+2026-10-28 に公開した無料記事が、建設部門のもくじ・L1・口頭試験対策のどこからも張られていない（content/ 配下で noteId が出るのは記事自身だけ。上下水道版 n3013d48a2864 は配線済み）。URL 単独行で入れ、npm run check-note-funnel で確かめる。起点: 2026-11-21 の docs 棚卸しで handoff（2026-10-15-pe-municipal-oral-publish）から抽出。
+
+
+### [DN-1273] quality-audit の report 区分の FAIL（Issue #1475・11/09〜）の中身を読み、直すか個別に起票する
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。Issue #1475（quality-audit の report 区分に FAIL・2026-11-09〜）が開いたまま。W46 では external-links が FAIL で DN-1193 に振ったが、その後も Issue が閉じていない。
+
+やること: report 区分の最新の FAIL の中身を読み、直すか、検査ごとに個別のカードを起票する。「以前から」で素通りさせない。
+
+完了条件: report 区分の FAIL が 0 件になり #1475 が自動クローズされる。または FAIL ごとにカード番号が決まっている。
+
+
+### [DN-1271] 週次の点検 egov-drift の差分の条を確かめ、教材の該当箇所を直す（11/21 赤）
+タグ: [コンテンツ品質] [領域:教材] [時期:2026-11] [種類:改善] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。週次の点検 quality:audit:weekly の egov-drift が 11-21 に赤。W46 では緑に戻っていた（DN-1047 の対応後）ため、新しい法令の改正が出た可能性がある。
+
+やること: egov-drift が示す差分の法令と条を e-Gov で確かめ、教材（content/site・content/note）の該当箇所のうち、条の範囲を確かめたものだけ直す。
+
+完了条件: check の egov-drift が緑になる。直した箇所の一覧と根拠の条が記録されている。
+
+
+### [DN-1268] 土曜の収集の note-live 段で note-attach-file.mjs が exit 1 になる（上下水道 必須科目 I R09 予想の PDF 添付・2 回続けて warn）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。土曜の収集の note-live 段で note-attach-file.mjs が exit 1（上下水道部門 必須科目 I R09 予想の PDF を --commit で添付する呼び出し）。11-14・11-21 と 2 回続けて warn。所要は 2829 秒。
+
+やること: 添付が失敗する理由（対象記事の状態・PDF の取り寄せ・note の画面の変化）を特定し、直すか、添付の対象から外す根拠を残す。
+
+完了条件: 次の土曜の収集で note-live 段が warn の原因（この添付）なしで通る。
+
+
+### [DN-1265] X の自分の投稿の取得（x-own-metrics）と reconcile-x を土曜の収集に入れる
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-21]
+
+**起点**: 2026-11-21、DN-0612 P7。X の自分の投稿の一覧（data/x/own-posts）は `npm run x-own-metrics` を手で打ったときだけ更新され、9/8〜11/20 の投稿数と反応が取れていなかった。台帳の「予約の日時を過ぎた行」を投稿済みへ結ぶ `npm run registry -- reconcile-x --commit` も手動で、11/21 時点で期限超過・公開未確認が 3 行残っている（097-civil2-final#7・106-civil2-lastweek#2 は下書きごと消した。112-pe-first-stage-final#21 は 11/21 12:25 の予約）。
+
+**やること**: 土曜の収集（`scripts/lib/weekly-collect-plan.mjs`）に、x-own-metrics と、そのあとの `registry -- reconcile-x --commit` を入れる。X のログインを使うので、ほかの X の収集と同じ段・同じ直列の順に置く。収集の結果の commit に台帳（content/registry/publications/x/）が入ることを確かめる。
+
+**完了条件**: 土曜の収集の記録に x-own-metrics と reconcile-x の実行と件数（取得した投稿数・照合の対象・結べた数）が残り、`node scripts/x/x-sync-status.mjs` の「期限超過・公開未確認」が、収集の翌日に前週の予約ぶん 0 件になる。
+
+
+### [DN-1262] note の売上の取り込みで、公開中の記事が商品 ID を持たない（article:unknown-…）まま記録される
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
+
+**起点**: 2026-11-21 の土曜の収集で、11/15 に売れたコンクリート主任技士の小論文 2 件（ゼネコン土木施工の生産性向上・DX と環境負荷低減）が article:unknown-20261115-0/1 のまま data/note/sales.json に入り、sales-attribution の実データのテストが CI で落ちた（PR #1695 の CI が赤）。記事の utmCampaign（cce-reiwa-civil-contractor-productivity・-environment）から手で直した（77247505c）。同じ手直しは 11/14 にも 2 件（93290b877・11/5 と 11/13 の売上）あり、今回で 3 回目。
+
+**やること**: note の売上を取り込む処理（note-sales の段・record-sales）が、題名から記事の productId を引けない理由を確かめる（note-published.json に該当の記事と utmCampaign はある）。引けない売上は unknown で書かず、その段を理由つきで止めるか、題名と utmCampaign の対応で引けるようにする。
+
+**完了条件**: 公開中の記事の売上が unknown で記録されないことをテストで確かめる。次の土曜の収集で sales.json に article:unknown- が増えない。
+
+
+
+
 ### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
 
@@ -519,6 +603,8 @@
 同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に、用途のフォルダ（storage・build・reports・fetch）へ分けたときも 17 本に、残りの CLI（ops・local・maint）を分けたときも 6 本に同じ転送を残した。Mac の launchd（gsc-indexing-daily.sh）は元の checkout の古い版のまま origin/develop の worktree で `scripts/gsc-local-routine.mjs` を呼ぶので、これにも転送を置いた（元の checkout を新しい版にしたあとで消す）。
 
 **やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 57 本（main のワークフロー用 56・launchd 用 1）を消す。
+
+**進み（2026-11-20）**: main へ deploy（11db54460）したあと、main のワークフロー用の 56 本を消した（`check-main-workflow-paths` は転送なしで通過）。launchd の 3 本を見直し、旧パスに頼るのは gsc-indexing-daily.sh が呼ぶ `scripts/gsc-local-routine.mjs` だけと確かめた（土曜の収集は origin/develop の weekly-review.sh を取り出して動き、disk-hygiene は元の checkout の中で完結する）。残りはこの 1 本で、元の checkout を新しい版にしてから消す。
 
 **完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
@@ -766,16 +852,6 @@
 **完了条件**: `tests/weekly-collect-plan.test.mjs` か新しいテストで、2 段のうち 1 段の記録だけが検査で落ちる状況を作り、もう 1 段の記録は commit され、落ちた段は failed と理由が残ることを確かめる。
 
 
-### [DN-1194] 日時未定の X の下書き 11 件（71 本）に、X の月次計画で日時を付けるか見送るかを決める
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-14]
-
-**起点**: 週次レビュー（2026-11-09〜2026-11-15）。`npm run -s x-queue-surfacer` が判定不能 11 件・71 本を出した（096-civil1-pressure-correction・097-civil1-diagram-reuse・098〜103・108・109・114）。見出しの書式の誤りではなく、日時を書いていないストックの下書き（例: 114 は「日時未定」、098 は Tweet 01〜19 に日付なし）。X は 11/12 に再開し、12/1 から月次計画（`content/sns/x/campaigns`）の枠で投稿を決める（`config/channel-annual-plan.json` の x.enforceFrom）。期間を過ぎた 095（技術士一次・21 本）は 2026-11-15 に運営者の判断で全部見送った（status.json に cancelled）。
-
-**やること**:
-1. 11 件を 12 月以降の X の月次計画に載せる候補として仕分ける（載せる分は campaigns の枠と slot を書いて日時を入れる。使わない分は status.json に cancelled を書く）。
-2. 日時を書かないストックを surfacer が「判定不能（要対応）」と出さないよう、ストックであることを下書きに書く形を決めて surfacer に読ませる（いまは 1 件も日付が読めないと undated＝要対応に入る）。
-
-**完了条件**: `npm run -s x-queue-surfacer` の判定不能が 0 件で、11 件それぞれが月次計画に載るか cancelled になっている。
 
 
 
@@ -793,6 +869,8 @@
 **進み（2026-11-15）**: 11/15 07:40 の回は rc=0 で記録を develop へ push した（commit の失敗は 11/14 の 1 回だけ）。button-not-found は 5 件 → 21 件に増えた（h21-secondary・水産部門の選択科目・道路構造の基準ほか）。残りはやること 1 の再発防止と 2 の切り分け。Issue #1445 は 11/15 の成功の後も開いたまま（自動で閉じる配線を確かめる）。
 
 やること 1（commit の前の索引の作り直し）は #1607 で develop へ入れた（2026-11-15）。残りはやること 2 の button-not-found の切り分け。
+
+**進み（2026-11-20）**: やること 2 の原因は画面の変更でも登録済みでもなく、検査の待ち方だった。判定文言だけで到達とみなし、直前の URL の結果と開いたままの読み込みダイアログの画面で、描かれる前のボタンを 1 回だけ探していた（受理と失敗が URL の種類に関係なく交互に出る・11/20 の page.html）。到達の条件に対象 URL の表示とダイアログの消失を足し、ボタンを最大 20 秒待つようにした（#1689）。前回失敗した 4 URL の dry-run は 4 件とも判定を読めた。残りは 11/21・11/22 朝の回の button-not-found が 0 件近くになるかの確認と、Issue #1445 の自動クローズ。
 
 **完了条件**: 朝の回が 2 日続けて rc=0 で終わり、`data/gsc/indexing-requests.json` の記録が develop に入り、Issue #1445 が自動で閉じる。
 
@@ -1859,6 +1937,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 **残り**: 28 日後（2026-12-02 以降・ただし 11/23 以降は主商品が過去問 PDF に替わり画像が出ないので、11/22 までの面の表示あたりクリックで）に、冒頭・資格トップの一次ページの CTA クリック率を以前（0.11〜0.24%）と比べて記録する。
 
+**束ねた計測（2026-11-21・週次レビュー 2026-W47）**: OPP-2261b1b670（/exam/pe-first-stage/primary/r05-construction の CTA クリック率 0%・サイト平均 0.77%）を束ねる。対象は技術士一次の過去問ページ（r05 建設）の冒頭 CTA で、比べる対象に加える。
+
 **完了条件**: 画像が本番で表示され、比べた記録がある。このカードを削除する。
 
 
@@ -2030,7 +2110,7 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 **やること**:
 1. 投稿日時を決める（技術士の筆記合格発表・口頭試験の時期と重ねるか。x-post-policy.md §11.2.1 の時間帯スロット・1 日 3 本・60 分以上の間隔）
 2. `x-post-qa` で 5 軸の採点と §11 の凍結回避の確認を通す
-3. `status.json` に `scheduled_at` を書き、`npm run x-schedule-guard -- --queue` を緑にしてから予約する
+3. `npm run x-schedule-guard -- --queue` を緑にしてから予約する。予約は新しい流れで行う（2026-11-21・下書きの `status.json` は無い）: `npm run registry -- import-x --folder <フォルダ> --commit` → 月次計画（`content/sns/x/campaigns/`）に date・time・slot・frame → 運営者が `npm run registry -- approve-x-plan --plan <月次計画> --expect <digest>` → `publish-x` → `x-sync-status` → 日時を過ぎたら `npm run registry -- reconcile-x --commit`
 4. 投稿後は `npm run x-own-metrics` で反応を見る。建設部門の投稿は過去の中央値が 0 なので、総監・一次のタグとの比較も見る
 
 **完了条件**: 8 本が予約か投稿され、コンテンツ台帳に記録されている。
@@ -2228,6 +2308,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 **上下水道部門の業務経歴票（旧 DN-0745）の残り**: 記事（n6cd69bf307ba）は公開済みで、もくじ（n1f06f66b158e）と口頭試験の記事（n3013d48a2864）の原稿へのリンクは 2026-11-10 までに入った。週次の note 同期のあと、`npm run check-note-sync` で 2 本のライブにリンクが出ていることを確かめる。
 
+**handoff から移した残り（2026-11-21・`docs/handoffs/2026-10-15-pe-municipal-oral-publish.md` を削除）**: note 同期のあと `npm run verify-note-magazines` で有料追記を確かめる。全部門共通の口頭試験対策の印刷用 PDF（`content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/magazine-pdf.json` の out が「想定24問」のまま。本文は 32 問）を作り直すか決め、作り直すなら表記を 32 問にする。建設の無料記事のリンクの配線は DN-1274、コンピテンシー文言の裏取りは DN-1275。
+
 
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
@@ -2296,6 +2378,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 1. 固定投稿3件とXの `status.json`・`posted.json` を読む残りのコード（`rg "status\.json|posted\.json" scripts tools`）を台帳の入口へ差し替え、写しを削除する。`information-architecture.json` の denyPatterns と RESTRUCTURED_PATHS で復活を止める
 2. Drive の旧日付フォルダは参照 0 を `rg` で確かめ、運営者の了承を得てからマウント上でゴミ箱へ移す
 **完了条件**: `find content/sns -name status.json -o -name posted.json` が 0 件。check-information-architecture・check-content-registry・test が緑。Drive に日付フォルダの採用カバーが残らない。
+
+**進み（2026-11-21・DN-0612 P7）**: X の分は済んだ。下書きの `status.json` は全部消え（PR #1695・#1697）、読み手は台帳の入口（`loadXPosts`）へ切り替わった。残りは Instagram の固定投稿 3 件の `status.json`（`content/sns/instagram/profile-pinned/{pe-first-stage-route,start-guide,concrete-route}/`）と、Drive の旧日付フォルダの採用表紙。
 
 ### [DN-0628] iOS 択一アプリ（土木施工管理技士 1級＋2級と、技術士アプリへの総監追加）を App Store で公開する
 タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
@@ -2835,6 +2919,10 @@ Windows の PowerShell で repo 直下から順に:
 
 **手順・停止条件**: [実装計画](../plans/DN-0220-diagram-rollout.md)。
 
+**X の下書きの仕分け（2026-11-21・DN-1194・運営者の判断）**: 側圧の訂正（096）は 11 月中に予約して出す。土木施工実務の図解（102・7 本）は実務の X の枠が年間計画に無いため見送り（cancelled）。総監（098・103・34 本）と建設部門（099・5 本）は `<!-- x-stock: DN-0220 -->` の印でストックに置いた。12 月の枠は口頭試験向けだけなので、図解を載せる枠はここで決める。
+
+**予約の流れ（2026-11-21 から）**: 096 は 11/28 07:40 で予約済み（X のキューで確認・台帳 scheduled）。このカードの「予約する」は次に読み替える: `npm run registry -- import-x --folder <フォルダ> --commit` → 月次計画（`content/sns/x/campaigns/`）に date・time・slot・frame → 運営者が `npm run registry -- approve-x-plan --plan <月次計画> --expect <digest>` → `publish-x` → `x-sync-status` → 日時を過ぎたら `npm run registry -- reconcile-x --commit`。
+
 ### [DN-0186] Windows端末のR2・Google Drive接続を整え、クラウド実体監査を成立させる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [検証:resources:cloud] [起票:2026-09-10]
 
@@ -3021,17 +3109,6 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: 新しいチャネルや商品を足しても TS を文字列で読むコードが増えない。ココナラの解析が 1 か所になっている。
 
 
-### [DN-1042] X の台帳で公開を確認できない過去の投稿 138 件を照合する
-タグ: [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-07]
-
-**起点**: 2026-11-07 の `x-sync-status` で、期限を過ぎて公開を確認できない投稿が 138 件出た（2026-09-15〜11-07）。X の通知で公開を確かめた 11/6 19:40 と 11/7 08:15 も含まれるので、多くは公開済みで台帳の状態だけが `queued` のまま残っていると考えられる。投稿の一覧と台帳の照合はまだしていない。
-
-**やること**:
-1. 自分の投稿の一覧と台帳を照合し、公開された投稿を `posted` と `posted_url` つきへ直す
-2. 公開されなかった投稿があれば、件数と理由を残す
-3. `x-sync-status` が公開済みを拾えない原因を確かめる
-
-**完了条件**: 期限超過の件数が公開の実体で説明でき、`x-sync-status` の「期限超過・公開未確認」が今週分だけになる。
 
 
 ### [DN-0946] coconala-delete-draft を新しい出品フォームに対応させる
@@ -3067,6 +3144,92 @@ Windows の PowerShell で repo 直下から順に:
 
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-1284] 資格トップのココナラの月額添削のカードを、完成画像の CTA にするか決める（今は文字だけ）
+タグ: [領域:商品] [種類:改善] [起票:2026-11-22]
+
+2026-11-22 の資格トップの点検で、本文の上の方のココナラの案内（OffsiteCta・label offsite-coconala-tensaku-4theme＝土木 二次 月額の添削）だけが文字のカードで、note・転職は画像の CTA だと分かった（運営者の指摘「PR に画像がない」）。表示はサイト全体で 209・クリック 2（GA4 2026-10-23〜11-19）。リポジトリにこの出品の画像は無い（content/coconala/assets は空。承認済みの POP 画像は Drive vault）。画像にするなら /create-pop-image で月額添削の画像を作り、OffsiteCta が画像を出せるようにする（note の NoteImageCta と同じく伸長・クロップしない）。売上の規模が小さいので、作るかは運営者が決める。
+
+
+### [DN-1283] GA4 の取得に「着地ページ × 流入元」を足すか決める（トップなど面ごとの流入元が記録に無い）
+タグ: [領域:サイト] [種類:改善] [起票:2026-11-22]
+
+2026-11-22 のトップの改善（#1705）で、トップに着地した人がどこから来たか（自然検索・direct・SNS・note からの戻り）が記録に無いと分かった。今の GA4 の取得の種類（scripts/lib/metric-reports.mjs・dataset-schemas-search.mjs の Ga4Sections）は page・channel・sourceMedium-sns などで、landingPage × sessionDefaultChannelGroup が無い。足すなら取得の種類・型・CI の取得（fetch-metrics）を変える。トップはサイトのセッションの 1.65% なので、トップのためだけなら作らない（計測の仕組みの前に規模を見る）。記事ページの着地 × 流入元も要るかで判断する。
+
+
+### [DN-1281] チップ形のリンク 7 実装・文字リンク・検索の選択状態のボタン・トップの独自ボタンを原子にそろえるか決める（見た目が変わる）
+タグ: [領域:サイト] [種類:改善] [起票:2026-11-22]
+
+2026-11-22 のアトミックデザインの点検で、色や大きさをそろえる判断が要るので直さなかったもの。(1) チップ形のリンクが QuestionJumpNav・ExamQuestionNav・PillarExamQuestions・KeywordSections の KeywordChip・ExamMatrix の ExamChipLink・SectionKeywords・CurriculumSections で 7 通り（角丸・枠・地・文字色・タップ領域が少しずつ違う。KeywordChip と SectionKeywords は約 32px で 44px に届かない可能性）。(2) text-(--accent) hover:underline の文字リンクが 8 か所あり、原子が無い。(3) search/SearchFilters.tsx・SearchPagination.tsx の選択状態のボタンと NavLinkCard の丸が cn() で組んだ主ボタン形で atoms ラチェットを素通りする。(4) home/Hero.tsx の bg-warn・白地のボタンが ButtonLink を使っていない。そろえるなら /design-review --visual で確かめる。
+
+
+### [DN-1280] src/components の区画の組み立て（MetaCard＋LinkRowList＋LinkRow 約 14 か所・MetaCard＋2 列の LinkTile 約 5 か所）を共通の生体にするか決める
+タグ: [領域:サイト] [種類:改善] [起票:2026-11-22]
+
+2026-11-22 のアトミックデザインの点検（#1701〜#1704）で、マークアップが変わるので入れなかったもの。(1) MetaCard padding=compact trackNav の中に LinkRowList と LinkRow を並べる組み立てが RelatedTools・CategoryStudyNav・ConcreteEngineerResources・PillarNavCard（sidebar）・LawStandards・StandardsNavigation の AgencyNav・StandardsExplore ほか約 14 か所、MetaCard＋grid grid-cols-1 gap-2 sm:grid-cols-2＋LinkTile が NextStepNav・CareerNextStepNav・ExamStepBridge・QualificationBridge・RelatedPages ほか約 5 か所。CategoryNavCard の内部の LinkListCard を独立させる案（約 −80 行）。(2) PillarNavCard のスマホ側（PillarNavCard.tsx:51-77）は LinkTile current の手書き（li に枠を付けて link-primitives ラチェットを逃れている）。(3) 著者の AuthorCard（記事末）と AuthorProfile は note のボタンとアバターを別々に持つ。(4) DN-0976 の本文の古い点: 存在しない SpokeNavCard への言及と、knip の件数（今は未使用 export 6・型 13）。置き換えるなら変更前後の描画の比較で差分を 1 件ずつ読む。
+
+
+### [DN-1279] 管理画面 Kindle の relatedDocs（関連文書）が常に空で、どこにも描画されていない
+タグ: [領域:管理] [種類:改善] [起票:2026-11-21]
+
+tools/admin-app/src/lib/kindle.ts:198 の relatedDocs は loadProjectEntries() を channel に kindle を含む docs で絞るが、frontmatter に channel を持つ docs は 0 本（全件 cross）なので常に空配列。しかも relatedDocs を読む画面コンポーネントが無い（grep で kindle.ts 以外に参照 0）。Kindle の関連文書を出したいなら content/kindle/strategy.md などを明示で結ぶ形に直す、要らないならフィールドと KindleRelatedDoc 型を消す。完了条件: どちらかに決めて kindle.ts から常に空の計算が無くなる。（2026-11-21 docs 配線点検 A 段で発見）
+
+
+### [DN-1277] docs の棚卸しの残り（GSC/GA4 実装指示書・計測基盤ロードマップ・SEO×note 連携・動画 QA ログ・採点ルーブリックの議論項目）を抽出してから縮める
+タグ: [領域:管理] [種類:改善] [起票:2026-11-21]
+
+2026-11-21 の doc-curator の判定で、抽出が先に要ると分かったもの。(1) docs/operations/gsc-ga4-playwright-automation-spec.md: §2・§5.4・§7・§10 冒頭の warning・§10.1・運用時プロンプト 2 本を残して trim。§7 は scripts/lib/search-growth-classifier.mjs（8 分類・CANONICAL_ELSEWHERE）とずれているので合わせる。google-search-growth/references/recovery.md:62 の「§7」は誤参照。(2) docs/operations/計測基盤強化ロードマップ.md: #5・#8・#14 は別の記録で足りる。#7・#12 の実測値は転記先が無い。(3) docs/operations/06_seo-note-synergy-strategy.md: C1（〜2026-06-30）の効果判定の記録がどこにも無い。新規 guide 6 本と CTR 改善 7 ページの GSC を現在値で一度確認して結果を 1 行追記し、Red Line #4 の運用解釈・確定方針・重要所見だけ残す（content-taxonomy.md:153 ほか 3 件が参照）。(4) docs/reviews/critical/ の 2026-10-17・10-20・10-21（2 本）・10-22: 未抽出の教訓（語中分断の防止、縦横比差 0.5% 超を拒否する full-frame-v1、機械照合は全編視聴の証拠ではない、停止済み 52 本を再利用しない理由、code-extensibility-debt の「やらないこと」の表）を video-content-policy.md ほかへ移してから削除。10-18・10-19 は DN-0600 が閉じるまで残す。(5) docs/editorial/02_採点ルーブリック方針.md: 盲点 1〜3 と議論項目 0〜7 は 6 軸化が前提で未決。採点軸にしないなら 3 行に縮める（scripts/content/gemini-scoring-trial.mjs:57 が 02 を読むので入力が変わる点に注意）。
+
+
+### [DN-1272] X の競合の再スキャンを回す（期限超過・W46 時点で 93 日）
+タグ: [SNS・マーケ] [領域:戦略] [種類:改善] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。週次の点検の competitor-scan-due が赤。X の競合の再スキャンが期限超過（W46 時点で前回 8-13・93 日）。W46 の申し送りから持ち越し。
+
+やること: /competitor-review の X を回して競合を取り直し、差分案を承認の後に台帳へ反映する。ログインが要る取得は運営者の手番と書く。
+
+完了条件: 点検の competitor-scan-due が緑になり、X の競合の取得日が更新されている。
+
+
+### [DN-1270] /practice/formwork-removal-timing に収益導線を 1 つ足す（28 日で流入 544 人・導線なし）
+タグ: [収益化] [領域:サイト] [種類:改善] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。計測ダイジェスト 2026-W46 の OPP-40eb9c315c。/practice/formwork-removal-timing は 28 日で流入 544 人なのに収益導線が無い（note・アフィリ・ココナラのいずれも無い）。
+
+やること: ページの現物と既存の CTA の部品を確かめ、読者の悩みに合う導線を 1 つ足す（資格の入口・note の商品・アフィリのどれが合うかを選ぶ）。内容は content-site のルールと商品の正本 config/products.json に従う。
+
+完了条件: 導線が本番で表示され、28 日後に表示あたりのクリックを記録して比べた記録がある。
+
+
+### [DN-1269] 土曜の収集の note-audit 段の skipped の理由「27 日たっていない」の日数を確かめる
+タグ: [インフラ・計測] [領域:管理] [種類:不具合] [起票:2026-11-21]
+
+起点: 週次レビュー（2026-11-16〜2026-11-22）。土曜の収集の note-audit 段が 11-21 に skipped。理由が「前回（11-14）から 27 日たっていない」と出るが、11-14 から 11-21 は 7 日。日数の計算か文言の誤りの可能性がある（月 1 回の基準日の根拠は未確認）。
+
+やること: skipped の判定の日数の計算と文言を確かめ、誤りなら直す。月 1 回の基準日が意図どおりかも確かめる。
+
+完了条件: skipped の理由の日数が実際の経過日数と一致する。または、27 日の根拠が文書に書かれている。
+
+
+### [DN-1264] 12/1 以降に出し切った X の下書き 5 フォルダ（112・113・117・118・120）を消し、retire-x で台帳を片付ける
+タグ: [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-21]
+
+**起点**: 2026-11-21、DN-0612 P7 で古い X の下書き 43 フォルダを消した。11/30 まで予約が残る 5 フォルダ（112-pe-first-stage-final-2026-11・113-concrete-chief-final-2026-11・117-pe-oral-w1-2026-11・118-pe-oral-rest-2026-11・120-pe-oral-coconala-w2-2026-11）は残した。
+
+**やること**: 12/1 以降、5 フォルダの予約が全部出たら (1) `npm run x-own-metrics` のあと `npm run registry -- reconcile-x --commit` で投稿済みへ照合する (2) 照合できずに scheduled のまま残る行があれば運営者に `npm run registry -- stop --pub <ID> --reason unverified-legacy` を頼む (3) 5 フォルダを `git rm -r` し、`npm run registry -- retire-x --commit` で台帳を片付ける（draft の行は消え、published の行は copy を外して残る） (4) `.claude/state/sns/x-card-render.json` に消したフォルダの項目があれば外す。
+
+**完了条件**: `npm run registry -- retire-x` が「下書きフォルダの無い X の作品 0 件」、`node scripts/checks/check-content-registry.mjs --base origin/develop` が FAIL 0、`node scripts/checks/check-gate-coverage.mjs` が通る（check-x-utm の下限 10 を割らないこと。残る tweets.md は 10）。
+
+
+### [DN-1263] 管理画面の X の月次計画の画面（/sns/x/plans）を実際に開いて表示を確かめる
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-21]
+
+**起点**: 2026-11-21 の PR #1696（X の月次計画ごとの承認）で、管理画面に /sns/x/plans と /sns/x/plans/[plan] を足した。型の検査・lint-ui・check-admin-pages・データの読み込み（listXPlanFiles・loadXPlan を tsx で実行）は確かめたが、画面の表示は確かめていない。worktree では Turbopack が node_modules の symlink を拒んで npm run admin が起動せず、元の checkout は別セッションの未コミットの変更があって古い develop のまま。
+
+**やること**: 元の checkout を最新の develop にしたあと、npm run admin で http://127.0.0.1:3021/sns/x/plans と /sns/x/plans/2026-11-civil1-correction.json を開き、計画の一覧・投稿の表・承認コマンド（digest つき）が出ることを確かめる。崩れていれば直す。
+
+**完了条件**: 2 つの画面が HTTP 200 で開き、計画名と digest が表示される。
+
 
 ### [DN-1259] scripts/kindle-dist（配布物の手元の置き場）を scripts/ の外へ移すかを決める
 タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
@@ -3836,6 +3999,24 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-1282] MDX の <CareerAffiliate program="career"> 213 か所に残る描画されない属性（service・category・description・points・cta・約 1,400 行）を消すか決める
+タグ: [領域:アフィリエイト] [種類:意思決定] [起票:2026-11-22]
+
+program を指定すると文言と遷移先は配置ルール（config/affiliate-placements.json の inlineCard・src/components/ui/CareerAffiliate/CareerAffiliate.tsx の ruled?.x ?? x）が決め、MDX に書いた service・category・description・points・cta は出ていない（2026-11-22 の点検。214 呼び出し中 213 が該当）。消せば記事が約 1,400 行軽くなり、書き手が効かない文言を直す無駄も無くなる。一方、記事ごとの文言を活かす方針に戻すなら配置ルール側を変える判断になる。属性を必須にしている検査（scripts/checks/check-affiliate-placements.mjs ほか）があるかを先に確かめる。
+
+
+### [DN-1278] docs の点検で出た、運営者の判断が要る 5 件を決める
+タグ: [領域:戦略] [種類:意思決定] [起票:2026-11-21]
+
+2026-11-21 の docs の冗長・整合の点検で、直さずに残したもの。(1) CLAUDE.md:3,7 が重点資格を 1級土木と総監だけ、収益モデルを「note + YouTube + PWA」と書く（config/business-direction.json は 4 資格、docs/strategy/22 は note 本店・KDP・ココナラ）。CLAUDE.md は上限まで残り 33 bytes。(2) docs/marketing/05・07・08・09 の本体と a 系（競合分析）が市場・競合・ポジショニングを二重に持つ。本体 §2 を結論と参照に縮めるか、07b・07c の所見を抽出して消すか。(3) docs/reviews/2026-07-stp-analysis.md と 動画コンテンツ運用設計_批判的レビュー.md を消してよいか（結論が 01・06 に抽出済みかは未確認）。(4) docs/editorial/02 の 5 軸・合格ライン（エージェントが毎回読む規約）を .claude/knowledge へ移すか。(5) docs の番号づけ（欠番・枝番・領域をまたぐ同番号）と冒頭の更新日の書式をそろえるか。
+
+
+### [DN-1276] quality-cycle の無人リライト（auto-approve・Diff 閾値・Impact スコア）を再開するか決める
+タグ: [領域:サイト] [種類:意思決定] [起票:2026-11-21]
+
+docs/editorial/03_リライト方法論方針.md の「自動化を再開するときに決めること」5 論点（Impact スコアの重み・強制セット・Diff 計測単位・失敗時の挙動・commit 粒度）は 2026-05 から全件未決で、実装も無い。2026-11-21 の docs 棚卸しで本文から外した（git 履歴 a40a995d25 時点の 212〜253 行）。再開するなら履歴から戻して決める。あわせて .claude/skills/quality-cycle/templates/cem.md:76 の scripts-cem 参照（存在しないディレクトリ）を直す。
+
 
 ### [DN-1247] ココナラブログの新規執筆を再開するか決める
 タグ: [領域:商品] [時期:2027-07] [種類:意思決定] [起票:2026-11-18]

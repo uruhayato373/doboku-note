@@ -7,6 +7,7 @@ import { parseArgs } from 'node:util';
 import { splitTweets, tweetLength } from '../checks/check-x-length.mjs';
 import { renderFigureSns } from '../sns/render-figure-sns.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { loadXPosts } from '../lib/registry-x-store.mjs';
 import { isCliEntry } from '../lib/cli-run.mjs';
 export function validateXFigureDraft(draft,root=ROOT,{onlyTweet}={}) {
   if(!/^\d{3}-[a-z0-9-]+$/.test(draft))throw Error('draftは番号付き下書き名で指定');
@@ -17,13 +18,13 @@ export function validateXFigureDraft(draft,root=ROOT,{onlyTweet}={}) {
   const files=new Set(),tweets=new Set();
   const bodies=splitTweets(readFileSync(join(dir,'tweets.md'),'utf8'));
   if(new Set(bodies.map(t=>t.num)).size!==bodies.length)throw Error('本文の投稿番号が重複しています');
-  const states=JSON.parse(readFileSync(join(dir,'status.json'),'utf8')).tweets;
+  const posts=loadXPosts(root).filter(p=>p.folder===draft);
   for(const item of items){
     if(!/^img\/tweet-\d{2}-[a-z0-9-]+\.png$/.test(item.file)||files.has(item.file)||tweets.has(item.tweet))throw Error('画像名または投稿番号が不正・重複');
     files.add(item.file);tweets.add(item.tweet);
-    if(states?.[item.tweet]?.status!=='draft'||states[item.tweet].image!==item.file)throw Error('対象が下書きでない、または画像参照が不一致');
+    if(posts.find(p=>p.key===String(Number(item.tweet)))?.status!=='draft')throw Error('対象が台帳で下書きでない');
     const body=bodies.find(t=>String(t.num)===String(item.tweet))?.body;
-    if(!body || states[item.tweet].text?.trim()!==body || tweetLength(body)>280)throw Error('本文とstatusが不一致、または280文字を超過');
+    if(!body || tweetLength(body)>280)throw Error('本文が無い、または280文字を超過');
     if(!item.needs?.trim()||!item.concept?.trim()||[...item.concept].length>44)throw Error('疑問と44文字以内の見出しが必要');
     const match=item.article?.path?.match(/^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/);
     if(!match||!item.figure?.path?.startsWith(`content/site/${match[1]}/${match[2]}/img/`)||!/^figure-[a-zA-Z0-9_-]+\.svg$/.test(basename(item.figure.path)))throw Error('元記事・元図の対応が不正');

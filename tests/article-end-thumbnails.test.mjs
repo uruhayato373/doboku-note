@@ -83,7 +83,7 @@ test('この記事のテーマ: テーマへのリンクは文字・記事のリ
 });
 
 test('前後ナビ: image を渡すと左右 2 枚のサムネイルカード・渡さなければ文字のまま（教科書の章・過去問の年度）', () => {
-  const html = render(`${HEAD} import PrevNextNav from './src/components/ui/TextbookNav/PrevNextNav';
+  const html = render(`${HEAD} import PrevNextNav from './src/components/ui/PrevNextNav/PrevNextNav';
     const image={src:'https://storage.doboku-note.com/posts/x/ogp.png',band:null};
     const props={heading:'見出し',track:'series-nav',prevLabel:'前の記事',nextLabel:'次に読む'};
     process.stdout.write(renderToStaticMarkup(<PrevNextNav {...props} prev={{slug:'a',title:'前',image}} next={{slug:'b',title:'次',image}}/>)+'|||'+renderToStaticMarkup(<PrevNextNav {...props} track="textbook-nav" prev={{slug:'a',title:'前'}} next={null}/>));`);

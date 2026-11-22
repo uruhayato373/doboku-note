@@ -46,7 +46,7 @@ test('立場 key は GA4 ラベルとして固定（変えると過去データ�
 });
 
 test('実務記事の記事末と共通仕様書の章末に置かれている', () => {
-  const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
+  const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.match(footer, /shouldShowQualificationBridge\(category, slugStr\)/);
   assert.match(footer, /placement="practice-footer"/);
   const chapter = read('src/app/standards/[agency]/[document]/chapters/[chapter]/page.tsx');
@@ -67,6 +67,6 @@ test('自治体の土木担当シリーズ（地方公共団体）では施工�
   assert.deepEqual(resolveQualificationBridge().map((o) => o.key), ['orderer', 'contractor', 'qualification-map']);
   assert.deepEqual(resolveQualificationBridge('municipal').map((o) => o.key), ['orderer', 'public-pe', 'qualification-map']);
   assert.equal(MUNICIPAL_HUB.href, '/topics/municipal-civil-engineers');
-  const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
+  const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.ok(footer.includes("audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined}"), '記事末が立場を橋渡しカードへ渡していない');
 });

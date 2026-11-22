@@ -4,7 +4,7 @@
  */
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc } from '@/lib/doc-classifier';
-import PrevNextNav from './PrevNextNav';
+import PrevNextNav from '@/components/ui/PrevNextNav/PrevNextNav';
 
 interface TextbookNavProps {
   currentSlug: string;

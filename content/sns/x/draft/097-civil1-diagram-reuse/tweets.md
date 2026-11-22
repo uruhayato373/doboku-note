@@ -1,5 +1,7 @@
 # 1級土木の図解3テーマ
 
+<!-- x-stock: x-c1-restart-2027 -->
+
 ## Tweet 01: 骨材の含水状態と配合
 
 <!-- 画像: img/tweet-01-aggregate-moisture.png。render.mjsで再生成。 -->

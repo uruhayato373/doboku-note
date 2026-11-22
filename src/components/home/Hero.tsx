@@ -20,7 +20,7 @@ export default function Hero() {
       <div className={`relative z-10 ${WIDE_CONTAINER} pt-10 sm:pt-[75px]`}>
         <h1 className="hero-ink font-serif text-[32px] font-black leading-tight tracking-tight sm:text-[56px]">doboku-note</h1>
         <p className="hero-ink-soft mt-3 text-[12px] sm:text-[17px]">土木・建設資格の学習ノート</p>
-        <div className="mt-6 flex max-w-[215px] flex-wrap gap-2 sm:max-w-none sm:gap-3">
+        <div className="mt-6 flex max-w-[215px] flex-wrap gap-2 sm:max-w-none sm:gap-3" data-cta="nav" data-cta-label="home-hero">
           <a href="#exams" className="hero-ink focus-ring inline-flex min-h-11 items-center gap-2 rounded-card-content bg-warn px-4 py-3 text-[12px] font-bold shadow-card-content transition-[filter] hover:brightness-105 sm:px-5 sm:text-[14px]">
             資格を選んで学ぶ
             <Arrow />

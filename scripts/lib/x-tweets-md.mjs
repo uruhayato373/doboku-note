@@ -23,6 +23,8 @@
  * ---------------------------------------------------------------------------
  */
 
+import { stripHtmlComments } from './strip-markup.mjs';
+
 /** コメント部分の中身だけ落として改行は残す（行番号を保つため）。 */
 const blankKeepingLines = (m) => m.replace(/[^\r\n]/g, '');
 
@@ -48,4 +50,36 @@ export function blankTweetMemos(text) {
   return String(text ?? '')
     .replace(/<!--[\s\S]*?-->/g, blankKeepingLines)
     .replace(/^[ \t]*<!--[\s\S]*$/m, blankKeepingLines);
+}
+
+/**
+ * tweets.md を「## Tweet NN: 見出し」ごとのブロックに分ける（投稿する本文の正本・DN-0612 P7）。
+ * 本文の作り方は publish-x.ts の parseTweetMd と同じ: 見出し行を落とし、HTML コメントと末尾の `---` を除き、
+ * 見出しに [thread] があれば `--- リプライ ---` で 2 本目以降を分ける。無ければリプライ部を捨てる。
+ * 最初の見出しより前（題・x-stock の印）は捨てる。
+ * @param {string} raw tweets.md 全体
+ * @returns {{ key: string, title: string, text: string, threadParts: string[] }[]} key は "1"…（先頭の 0 を落とす）
+ */
+export function parseTweetBlocks(raw) {
+  const out = [];
+  for (const block of String(raw ?? '').split(/^(?=## Tweet \d+:)/m)) {
+    const head = block.match(/^## Tweet (\d+):\s*(.+)/);
+    if (!head) continue;
+    const isThread = /\[thread\]/i.test(head[2]);
+    const body = stripHtmlComments(block.replace(/^## Tweet \d+:.*\r?\n/, ''))
+      .replace(/\n---\s*$/, '')
+      .replace(/^\n+/, '')
+      .trim();
+    let text = body;
+    let threadParts = [];
+    if (isThread) {
+      const parts = body.split(/^--- リプライ ---$/m).map((p) => p.trim()).filter(Boolean);
+      text = parts[0] ?? '';
+      threadParts = parts.slice(1);
+    } else {
+      text = body.replace(/\n--- リプライ ---[\s\S]*/, '').trim();
+    }
+    out.push({ key: String(Number(head[1])), title: head[2].trim(), text, threadParts });
+  }
+  return out;
 }

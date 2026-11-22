@@ -1,3 +1,5 @@
+import { posix } from 'node:path';
+import { documentLink } from '../../../../scripts/lib/page-documents.mjs';
 import {
   CONTENT_ROOT, DOCS_ROOT, KNOWLEDGE_ROOT, PLANS_ROOT, SHARED_POLICY_ROOT,
 } from '../../../../scripts/lib/repository-paths.mjs';
@@ -86,6 +88,45 @@ export const rootById = (id: string) => ROOTS.find((r) => r.id === id);
  * channel-registry.ts の唯一の mapping を通す（DN-0103 Phase 01・ラベルの二重定義を避ける）。
  */
 export const contentChannelLabel = contentSegmentLabel;
+
+/**
+ * 文書本文の相対リンク・画像の宛先を管理画面の URL へ引く**唯一の判定**（markdown.ts が使う）。
+ *
+ * - `fromFile` はリポジトリ相対の文書パス（`docs/strategy/README.md`）。`url` は本文に書かれた値
+ * - 戻り値: `undefined` = 書き換え対象外（外部 URL・絶対パス・`#見出し` だけ）／`null` = 管理画面で
+ *   開けない宛先（`config/*.json`・`.mdx`・`src/*`・ディレクトリなど。呼び出し側はリンクを外す）／
+ *   文字列 = 書き換え後の URL（`#見出し` は残す）
+ * - docs 宛は page-documents.mjs の documentLink と同じ URL、content 宛は `/content/content~<相対パス>`
+ *   （content/[...path]/page.tsx の形）。content のディレクトリは一覧が開けるのでリンクする
+ * - 画像は docs 配下だけ `/media/docs/<docs からの相対パス>` へ（media route の MEDIA_ROOTS.docs）
+ */
+export function adminUrlFor(fromFile: string, url: string, kind: 'link' | 'image' = 'link'): string | null | undefined {
+  if (!url || url.startsWith('#') || url.startsWith('/') || /^[a-z][a-z0-9+.-]*:/i.test(url)) return undefined;
+  const hashAt = url.indexOf('#');
+  const hash = hashAt >= 0 ? url.slice(hashAt) : '';
+  let pathPart = (hashAt >= 0 ? url.slice(0, hashAt) : url).split('?')[0]!;
+  try { pathPart = decodeURIComponent(pathPart); } catch { /* 不正な %エスケープは原文のまま扱う */ }
+  if (!pathPart) return undefined;
+
+  const target = posix.normalize(posix.join(posix.dirname(fromFile), pathPart)).replace(/\/+$/, '');
+  if (target === '.' || target.startsWith('..')) return null; // リポジトリの外
+
+  if (kind === 'image') {
+    return target.startsWith('docs/') ? `/media/${target}` : undefined;
+  }
+
+  const root = ROOTS.find((r) => target === r.filePrefix || target.startsWith(`${r.filePrefix}/`));
+  if (!root) return null;
+  const rel = target.slice(root.filePrefix.length + 1);
+  const ext = posix.extname(target);
+  if (!rel) return root.id === 'content' ? null : `${root.routeBase}${hash}`;
+  if (!ext) return root.id === 'content' ? `/content/content~${rel}${hash}` : null;
+  if (!root.allowedExtensions.has(ext)) return null;
+  const slug = rel.slice(0, -ext.length);
+  if (root.id === 'docs') return `${documentLink(target).href}${hash}`;
+  if (root.id === 'content') return `/content/content~${slug}${hash}`;
+  return `${root.routeBase}/${slug}${hash}`;
+}
 
 /** filePrefix から DocumentSource を引く。/content の URL 解決用。 */
 export function sourceByPrefix(d: RootDescriptor, prefix: string): DocumentSource | null {

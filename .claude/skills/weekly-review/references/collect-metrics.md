@@ -146,7 +146,7 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
 - `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
   - 入力: 最新 `ga4.page`（流入）+ `ga4.cta-clicks`（クリック, あれば）
   - 現行の正規URLと旧URLは別行で照合する。`coverage` のGA4入力数・照合数・対象外数を確認し、入力0または照合0は集計不成立とする。
-  - note配置は描画と共通の判定を使う。参照: `src/lib/magazine-placement.ts` / `src/components/docs/DocPage.tsx` / `src/components/ui/ArticleFooter/ArticleFooter.tsx`。
+  - note配置は描画と共通の判定を使う。参照: `src/lib/magazine-placement.ts` / `src/components/docs/DocPage.tsx` / `src/components/docs/ArticleFooter.tsx`。
   - 出力: `data/analysis/monetization/coverage-latest.md`（+ coverage-*.json）
 - 併せて最新 `ga4.key-events-by-page`（`npm run ci-data -- latest ga4.key-events-by-page` が「ファイル#枠」を返す。pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4.cta-clicks` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4.cta-clicks-by-label`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
 - いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、

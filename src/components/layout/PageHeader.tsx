@@ -13,8 +13,6 @@ import type { ReactNode } from 'react';
 import Breadcrumb, { type Crumb } from '@/components/ui/Breadcrumb/Breadcrumb';
 import SectionBlock from './SectionBlock';
 
-export type { Crumb };
-
 type BandWidth = 'wide' | '860' | '780' | '760';
 
 interface PageHeaderProps {
@@ -28,8 +26,6 @@ interface PageHeaderProps {
   lead?: ReactNode;
   /** 更新日・件数等のメタ情報 */
   meta?: ReactNode;
-  /** ボタン/リンク行 */
-  actions?: ReactNode;
   variant?: 'band' | 'inline';
   /** band の内側コンテナ幅。既定 'wide' */
   width?: BandWidth;
@@ -48,7 +44,6 @@ function HeaderStack({
   titleSize = 'default',
   lead,
   meta,
-  actions,
 }: Omit<PageHeaderProps, 'variant' | 'width' | 'className'>) {
   return (
     <>
@@ -70,7 +65,6 @@ function HeaderStack({
         </p>
       )}
       {meta && <div className="mt-3 font-mono text-[11px] text-(--ink-muted)">{meta}</div>}
-      {actions && <div className="mt-4 flex flex-wrap items-center gap-3">{actions}</div>}
     </>
   );
 }

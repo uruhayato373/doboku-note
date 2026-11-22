@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { getCategoryHubPath } from '@/lib/categories';
+import type { ExamData } from '@/lib/home-exam-cards';
 import { WIDE_CONTAINER } from '@/components/layout/container';
 
-
-export interface ExamData {
-  slug: string;
-  label: string;
-  variant: "civil" | "pe";
-}
 
 interface ExamCardsProps {
   exams: ExamData[];
@@ -59,7 +54,7 @@ export default function ExamCards({ exams }: ExamCardsProps) {
           </Link>
         </h2>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5" data-cta="nav" data-cta-label="home-exams">
         {exams.map((e) => (
           <ExamCard key={e.slug} e={e} />
         ))}

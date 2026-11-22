@@ -40,7 +40,7 @@ const X_COLUMNS: DataTableColumn[] = [
   { key: 'name', label: 'ドラフト' },
   { key: 'counts', label: '投稿 / 予約投入済 / 未投入計画 / 下書', sortable: false },
   { key: 'total', label: 'tweet数', num: true },
-  { key: 'updatedAt', label: '更新' },
+  { key: 'updatedAt', label: '最終予定・投稿' },
 ];
 
 const DERIVATIVE_COLUMNS: DataTableColumn[] = [
@@ -176,6 +176,7 @@ export default async function SnsBoardPage({ searchParams }: { searchParams: Pro
         <span className="small muted ml-auto">
           <Link href="/gallery/sns?ch=instagram">Instagram 画像・動画</Link>
           <Link href="/gallery/sns?ch=x" className="ml-3">X 画像</Link>
+          <Link href="/sns/x/plans" className="ml-3">X の月次計画</Link>
           <Link href="/content/video" className="ml-3">動画パック</Link>
           <Link href={roadmapHref()} className="ml-3">年間ロードマップ</Link>
           <Link href={longformPlanHref()} className="ml-3">通常動画</Link>

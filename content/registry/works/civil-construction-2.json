@@ -45,12 +45,6 @@
       "legacyKey": "088-civil2-2026-08-late"
     },
     {
-      "id": "civil2-coconala10",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/107-civil2-coconala-2026-10",
-      "legacyKey": "107-civil2-coconala-2026-10"
-    },
-    {
       "id": "civil2-final10",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/097-civil2-final-2026-10",
@@ -73,12 +67,6 @@
       "kind": "x-thread",
       "definition": "content/sns/x/draft/105-civil2-pinned-2026-10",
       "legacyKey": "105-civil2-pinned-2026-10"
-    },
-    {
-      "id": "civil2-shiken-campaign",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign",
-      "legacyKey": "045-civil2-shiken-campaign"
     },
     {
       "id": "gakka-2kyu-doko",
@@ -160,12 +148,6 @@
         "by": "Claude Code video-content-qa",
         "inputSha256": "1cc3fecced8cc3296409b2efa1601bd0a1b6bfdcd0031cf47626cec78b42017a"
       }
-    },
-    {
-      "id": "x043-civil2-r05z",
-      "kind": "x-thread",
-      "definition": "content/sns/x/draft/_archive-old-account/043-civil2-r05z頻出",
-      "legacyKey": "043-civil2-r05z頻出"
     }
   ]
 }

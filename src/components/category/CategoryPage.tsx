@@ -13,8 +13,7 @@ import { getPopularDocs } from '@/lib/popular';
 import { categorySidebarContinuation } from '@/lib/category-sidebar-continuation';
 import RailStack from '@/components/ui/RailStack/RailStack';
 import {
-  CivilConstruction1View,
-  CivilConstruction2View,
+  CivilConstructionView,
   ConcreteView,
   PracticeView,
   PeFirstStageView,
@@ -22,11 +21,11 @@ import {
   PeConstructionView,
 } from '@/components/category/CategoryViews';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
-import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
+import AuthorProfile from '@/components/ui/AuthorProfile/AuthorProfile';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { buildLearningCatalog } from '@/lib/learning-catalog';
-import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
+import { categoryBreadcrumbHead } from '@/lib/category-breadcrumb';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
@@ -38,6 +37,7 @@ import CategoryTopics from '@/components/category/CategoryTopics';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import { ConcreteEngineerStudy, ConcreteEngineerProduct, ConcreteEngineerRelated } from '@/components/category/ConcreteEngineerResources';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import SectionAdBreak from '@/components/ui/SectionAdBreak/SectionAdBreak';
 
 // グループ化レイアウトは categories.json の layout.view を持つカテゴリだけ（持たないものはフラットグリッド・DN-0793）
 
@@ -93,16 +93,19 @@ export default async function CategoryPage({
   const mobileAdsAfterNote = !hubCtaMobile && !productFirstOnMobile;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
+  const mobileSplit = mobileAd ? (
+    <ProgramSplitBanner
+      alternate={mobileAd.alternate}
+      placement="category-mobile"
+      primary={
+        <ResponsiveAffiliateBanner placement={mobileAd} withPixel={false} only="mobile" />
+      }
+    />
+  ) : null;
   const mobileCareerAds = mobileAd
     ? [
         <div key={mobileAd.ruleId} data-cta-stack className={`zenn-desktop:hidden my-10 ${CTA_STACK_CLASS}`}>
-          <ProgramSplitBanner
-            alternate={mobileAd.alternate}
-            placement="category-mobile"
-            primary={
-              <ResponsiveAffiliateBanner placement={mobileAd} withPixel={false} only="mobile" />
-            }
-          />
+          {mobileSplit}
         </div>,
       ]
     : [];
@@ -114,9 +117,17 @@ export default async function CategoryPage({
   // 2026-10-31: 本番の配置の撮影で、総監・建設部門・1 級・2 級は転職広告（385〜640px）が note もくじ（1,300〜1,600px）より上、
   // 他の資格は note のバナーと転職広告が 10px ほどで接していた。学習のページは note を主導線にする方針（affiliate-operations.md §6）
   // に合わせて note を先に出し、運営者プロフィールを挟んで転職広告を置く。
-  const viewCareerAds = mobileAdsAfterNote ? [] : mobileCareerAds;
+  // 本文の区画の切れ目（SectionAdBreak）。PC は AdSense、スマホは 1 つ目が転職バナー・2 つ目以降が AdSense。
+  // note が一覧の下にある資格（mobileAdsAfterNote）は、スマホでは切れ目に広告を出さない（転職は最下部へ回す）。
+  const mobileAffiliate = mobileSplit && !mobileAdsAfterNote ? (
+    <div data-cta-stack className={CTA_STACK_CLASS}>{mobileSplit}</div>
+  ) : null;
+  const sectionBreaks = [
+    <SectionAdBreak key="section-break-1" mobile={mobileAffiliate} />,
+    <SectionAdBreak key="section-break-2" mobileAd={!mobileAdsAfterNote} />,
+  ];
   // 上の束の下に、人気・新着の記事と転職バナーの組を並べる（記事数が少ない資格は 0 組。DN-1218 段 3）。
-  const railGroups = categorySidebarContinuation(docs, popularDocs, sidebarAd);
+  const railGroups = categorySidebarContinuation(docs, popularDocs);
   const categorySidebar = (
     <RailStack
       groups={railGroups}
@@ -132,7 +143,7 @@ export default async function CategoryPage({
           : [{ kind: 'nav' as const, node: <CategoryStudyNav category={slug} /> }]),
         { kind: 'note', node: slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" /> },
         { kind: 'note', node: hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" /> },
-        { kind: 'author', node: <AuthorSidebarCard /> },
+        { kind: 'author', node: <AuthorProfile variant="sidebar" /> },
         { kind: 'career', node: sidebarAd && (
           <ProgramSplitBanner
             alternate={sidebarAd.alternate}
@@ -162,9 +173,8 @@ export default async function CategoryPage({
               <Breadcrumb
                 className="mb-2"
                 items={[
-                  { label: 'ホーム', href: '/' },
-                  // 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219）
-                  ...(getCategoryArea(slug) === 'exam' ? [{ label: getAreaLabel('exam'), href: getAreaHubPath('exam') }] : []),
+                  // 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は 2 段（src/lib/category-breadcrumb.ts）
+                  ...categoryBreadcrumbHead(slug),
                   { label: cat.label },
                 ]}
               />
@@ -203,26 +213,26 @@ export default async function CategoryPage({
           ) : groups ? (
             <div className="space-y-16">
               {view === 'civil-1' ? (
-                <CivilConstruction1View groups={groups} mobileCareerAds={viewCareerAds} />
+                <CivilConstructionView category="civil-construction-1" groups={groups} sectionBreaks={sectionBreaks} />
               ) : view === 'civil-2' ? (
-                <CivilConstruction2View groups={groups} mobileCareerAds={viewCareerAds} />
+                <CivilConstructionView category="civil-construction-2" groups={groups} sectionBreaks={sectionBreaks} />
               ) : view === 'pe-first-stage' ? (
-                <PeFirstStageView groups={groups} mobileCareerAds={viewCareerAds} />
+                <PeFirstStageView groups={groups} sectionBreaks={sectionBreaks} />
               ) : view === 'pe-comprehensive' ? (
-                <PeComprehensiveView groups={groups} mobileCareerAds={viewCareerAds} />
+                <PeComprehensiveView groups={groups} sectionBreaks={sectionBreaks} />
               ) : view === 'pe-construction' ? (
-                <PeConstructionView groups={groups} mobileCareerAds={viewCareerAds} />
+                <PeConstructionView groups={groups} sectionBreaks={sectionBreaks} />
               ) : view === 'concrete' ? (
-                <ConcreteView groups={groups} mobileCareerAds={viewCareerAds} />
+                <ConcreteView groups={groups} sectionBreaks={sectionBreaks} />
               ) : view === 'practice' ? (
-                <PracticeView groups={groups} mobileCareerAds={viewCareerAds} />
+                <PracticeView groups={groups} sectionBreaks={sectionBreaks} />
               ) : (
                 <>
                   {groups.map(group => (
                     <DocSection key={group.title} group={group} />
                   ))}
-                  {/* 専用ビューの無い資格（建築など）もモバイルの転職枠を出す（2026-10-07・EXP-018） */}
-                  {viewCareerAds}
+                  {/* 専用ビューの無い資格（建築など）も区画の切れ目を出す（スマホは転職枠・2026-10-07・EXP-018／PC は AdSense） */}
+                  {sectionBreaks[0]}
                 </>
               )}
             </div>
@@ -234,7 +244,7 @@ export default async function CategoryPage({
                   <DocCard key={doc.slug} doc={doc} />
                 ))}
               </div>
-              {viewCareerAds}
+              {sectionBreaks[0]}
             </>
           )}
             {popularDocs.length > 0 && (

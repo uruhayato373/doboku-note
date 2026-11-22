@@ -26,8 +26,8 @@ interface AuthorProfileProps {
   readonly variant?: Variant;
   /** note CTA ボタンを出すか（既定 true）。直下に別の note CTA がある面では false。 */
   readonly showNoteCta?: boolean;
-  /** 見出しラベル（既定「運営者」）。 */
-  readonly eyebrow?: string;
+  /** wide を短く出す（経歴の全文と保有資格の一覧の代わりに、肩書きの一文と資格の数・/about への案内）。トップで使う */
+  readonly summary?: boolean;
 }
 
 function Avatar() {
@@ -106,7 +106,7 @@ function SocialLinks({ center = false }: { center?: boolean }) {
 export default function AuthorProfile({
   variant = "sidebar",
   showNoteCta = true,
-  eyebrow = "運営者",
+  summary = false,
 }: AuthorProfileProps) {
   if (variant === "wide") {
     return (
@@ -117,7 +117,7 @@ export default function AuthorProfile({
         <span aria-hidden className="block h-[3px] w-full bg-(--accent) opacity-70" />
         <div className="p-6 sm:p-8">
           <div className="mb-5 font-mono text-[10px] tracking-[0.2em] text-(--ink-muted)">
-            {eyebrow}
+            運営者
           </div>
           <div className="flex flex-col items-start gap-6 sm:flex-row">
             <Link href="/about" className="mx-auto shrink-0 sm:mx-0">
@@ -130,10 +130,19 @@ export default function AuthorProfile({
               >
                 {AUTHOR.name}
               </Link>
-              <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">{AUTHOR.bio}</p>
-              <div className="mt-5">
-                <Qualifications columns={2} />
-              </div>
+              {summary ? (
+                <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">
+                  {AUTHOR.tagline} 保有資格 {AUTHOR.qualifications.length} 種。
+                  <Link href="/about" className="ml-1 font-bold text-(--accent) hover:underline">経歴と保有資格を見る</Link>
+                </p>
+              ) : (
+                <>
+                  <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">{AUTHOR.bio}</p>
+                  <div className="mt-5">
+                    <Qualifications columns={2} />
+                  </div>
+                </>
+              )}
               {showNoteCta && (
                 <div className="mt-5 max-w-xs">
                   <NoteCta />
@@ -157,7 +166,7 @@ export default function AuthorProfile({
   return (
     <MetaCard as="aside" padding="compact" ariaLabel="運営者プロフィール">
         <div className="mb-3 font-mono text-[10px] tracking-[0.2em] text-(--ink-muted)">
-          {eyebrow}
+          運営者
         </div>
         <div className="flex flex-col items-center text-center">
           <Link href="/about" className="shrink-0">

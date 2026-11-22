@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import peChaptersData from '@/config/pe-chapters.json';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { peKeywordSlug, peSectionKeywords } from '@/lib/pe-section-keywords';
 
 interface SectionKeywordsProps {
   currentSlug: string;
@@ -10,23 +9,15 @@ interface SectionKeywordsProps {
 }
 
 /**
- * 同セクション内のキーワードリンク一覧。
- * pe-chapters.json のデータを使って自動生成。
+ * 同セクション内のキーワードリンク一覧（スマホの記事末。右の欄は CategoryNavCard の SectionCard）。
+ * 解決は src/lib/pe-section-keywords.ts（ページの無い slug は除く）。
  */
 export default function SectionKeywords({ currentSlug, section }: SectionKeywordsProps) {
-  const chapterId = section.split('.')[0];
-  const chapter = peChaptersData.chapters.find(c => c.id === chapterId);
-  if (!chapter) return null;
-
-  const sec = chapter.sections.find(s => s.id === section);
-  if (!sec || !sec.keywords) return null;
-
-  // 現在のページを除外し、ページが実在するキーワードだけをリンク対象にする
-  // （pe-chapters.json の phantom slug への内部リンク切れを防ぐ）。
-  const currentSlugSuffix = currentSlug.replace('pe-comprehensive-management-', '');
-  const others = sec.keywords.filter(
-    k => k.slug !== currentSlugSuffix && peKeywordPageExists(k.slug),
-  );
+  const resolved = peSectionKeywords(section, currentSlug);
+  if (!resolved) return null;
+  const { chapter, section: sec, currentSuffix } = resolved;
+  // 現在のページを除外する
+  const others = resolved.keywords.filter(k => k.slug !== currentSuffix);
   if (others.length === 0) return null;
 
   return (
@@ -35,7 +26,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
         {others.map(kw => (
           <Link
             key={kw.slug}
-            href={getPublicDocPath(`pe-comprehensive-management-${kw.slug}`)}
+            href={getPublicDocPath(peKeywordSlug(kw.slug))}
             className="text-sm px-3 py-1.5 rounded-full border border-(--rule-soft) bg-(--bg) text-(--ink-body) hover:border-(--accent) hover:text-(--accent) transition-colors"
           >
             {kw.title}

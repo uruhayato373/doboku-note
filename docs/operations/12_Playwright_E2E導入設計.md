@@ -15,38 +15,7 @@
 
 全記事の完全網羅、デザインのピクセル一致、note.com上の購入操作は初版の対象外とする。
 
-## 2. 現状
-
-### 既にあるもの
-
-- Next.js 16／React 19
-- 本番ビルド時は `output: 'export'`
-- `@playwright/test` がdevDependencyに存在
-- Node標準テスト：`npm test`
-- 型検査：`npm run type-check`
-- lint：`npm run lint`
-- ビルド：`npm run build`
-- リンク、SEO、CTA、noteファネル等の決定的検査
-- 本番監視：`.github/workflows/uptime-ping.yml`
-
-### 実装済み
-
-- `playwright.config.ts`
-- `e2e/smoke.spec.ts`
-- `e2e/navigation.spec.ts`
-- `e2e/cta.spec.ts`
-- `e2e/mobile.spec.ts`
-- `e2e/a11y.spec.ts`（axe・WCAG 2.1 A/AA。代表 8 ページ×light/dark×desktop/mobile。critical 0＋serious は `e2e/a11y-baseline.json` のラチェット。`test:e2e:a11y` / 基準更新 `test:e2e:a11y:baseline`）
-- `e2e/fixtures.ts`（ブラウザエラー監視）
-- `test:e2e`／`test:e2e:ui`／`test:e2e:headed`／`test:e2e:report`／`test:e2e:a11y`
-- `.github/workflows/e2e.yml`
-- 失敗時のtrace／screenshot／HTML report保存
-
-モバイル専用の `mobile.spec.ts` は `playwright.config.ts` のdesktop側 `testIgnore` で対象外とし、モバイル側で全件実行する。a11yは両projectで実行し、専用メニュー等で変わるDOMも検査する。基準は両方ともcritical 0・serious 0を維持する。
-
-CIはJSONレポートを出力し、`npm run check-e2e-execution -- --report .tmp/e2e-report.json` で対象数・実行数・スキップ・未実行・失敗を検査する。対象0、結果なし、適用対象のスキップ、失敗、集計との件数不一致はexit 1。テスト収集だけで成功とはしない。両projectのa11y範囲とモバイル専用検査の配分は `tests/e2e-execution.test.mjs` が実際のPlaywright収集で確認する。
-
-E2Eは既存検査を置き換えず、ブラウザ操作が必要な部分だけを補完する。
+現状のスペックと設定は `e2e/`・`playwright.config.ts`・`.github/workflows/e2e.yml` が正本で、ここには写さない。本書はコードに書けない境界と条件だけを持つ（節番号は初版のまま）。
 
 ## 3. テスト境界
 
@@ -74,76 +43,6 @@ E2Eは既存検査を置き換えず、ブラウザ操作が必要な部分だ�
 
 これらは既存スクリプト、手動確認、外部サービス固有の運用へ残す。
 
-## 4. 初版テストスイート
-
-### A. `e2e/smoke.spec.ts`
-
-代表ページの描画を確認する。
-
-| 対象 | 代表パス |
-|---|---|
-| トップ | `/` |
-| 1級カテゴリ | `/category/civil-construction-1` |
-| 2級カテゴリ | `/category/civil-construction-2` |
-| 総監カテゴリ | `/category/pe-comprehensive-management` |
-| 総監代表記事 | `/docs/pe-comprehensive-management-keyword-2026` |
-| 404 | `/__e2e_not_found__` |
-
-各200ページで確認するもの。
-
-- `main` が1つ以上存在する
-- ページ固有の見出しまたは主要語が見える
-- `body` が空でない
-- `pageerror` が発生しない
-- console errorを収集し、既知の許容対象以外は失敗させる
-
-404はステータスと、利用者が戻れるリンクまたは案内を確認する。開発サーバーと静的出力でステータス挙動が違う場合は、本文の404表示を必須、HTTPステータスは環境別に判定する。
-
-### B. `e2e/navigation.spec.ts`
-
-ユーザーの主要回遊を確認する。
-
-```text
-トップ
-  → 1級土木カテゴリ
-  → 代表記事
-
-トップ
-  → 2級土木カテゴリ
-  → 代表記事
-
-トップ
-  → 技術士総監カテゴリ
-  → 代表記事
-```
-
-テキストが変わりやすい場合は、完全一致のコピーではなく、リンクの `href`、見出しrole、カテゴリslugを使用する。CSSクラスやDOM階層へ強く依存しない。
-
-### C. `e2e/cta.spec.ts`
-
-収益導線を確認する。
-
-- 代表記事を開く
-- visibleなnote CTAを特定する
-- `href` が空でないことを確認する
-- `https://note.com/dobokunote/` 配下であることを確認する
-- 商品別に期待するnote記事またはマガジンIDを確認する
-- UTMが仕様上必須の配置では `utm_source`、`utm_medium`、`utm_campaign` を確認する
-- 外部遷移自体は行わない
-
-CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magazines.ts`や配置ロジックから安全に参照できる場合は再利用する。ブラウザ側specから内部モジュールを読み込むことで結合が複雑になる場合は、初版は代表3件だけの明示的fixtureにする。
-
-### D. `e2e/mobile.spec.ts`
-
-モバイル代表幅1種類で確認する。
-
-- viewportはPlaywrightの標準的なiPhone相当を1つだけ採用
-- トップ、カテゴリ、記事の3種類を確認
-- `document.documentElement.scrollWidth <= clientWidth + 1` を原則とする
-- 意図的な横スクロールコンテナはページ全体のoverflow違反に含めない
-- モバイルメニューがある場合は開閉できる
-- 表はページ全体を押し広げず、専用コンテナ内でスクロールできる
-
 ## 5. locator設計
 
 優先順位は次の通り。
@@ -155,46 +54,6 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 5. 最終手段として`data-testid`
 
 見た目のクラス名、`nth()`、深いCSSセレクタは避ける。テストのためだけの`data-testid`追加は、既存のrole／label／hrefでは一意に取れない場合だけ許可する。
-
-## 6. Playwright設定
-
-初版の推奨設定。
-
-- `testDir: './e2e'`
-- `baseURL: 'http://127.0.0.1:3020'`
-- ローカルは既存サーバーを再利用
-- CIは`npm run dev`を`webServer`で起動
-- browserはChromiumのみ
-- projectはdesktop Chromiumとmobile Chromiumの2つ
-- retryはCIのみ1回
-- workerはCIで2以下、ローカルはPlaywright既定
-- screenshotは失敗時のみ
-- traceは最初のretry時に保存
-- videoは初版では無効
-- HTML reporterをCI artifactへ保存
-
-初版ではWebKit／Firefoxを追加しない。主要導線が安定し、ブラウザ固有不具合が観測された時点で追加する。
-
-### 開発サーバーと静的出力
-
-初版は高速なPRゲートとして`next dev`へE2Eを実行する。`npm run build`は別ゲートで必ず通す。
-
-本番の静的export固有の障害まで検出したい場合はPhase 2で、`out/`をローカルHTTPサーバーから配信する`test:e2e:export`を追加する。初版で独自静的サーバーまで作らない。
-
-## 7. package.json追加案
-
-```json
-{
-  "scripts": {
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:headed": "playwright test --headed",
-    "test:e2e:report": "playwright show-report"
-  }
-}
-```
-
-`test`は既存Nodeテストの意味を変えない。E2Eを`npm test`へ混ぜない。
 
 ## 8. CI設計
 
@@ -240,8 +99,3 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 - 計測停止が発生した：同意状態を含むGAイベント発火テストを別suiteで検討
 
 テスト数をKPIにしない。過去に実際に壊れた、または壊れると収益・利用者影響が大きい経路を優先する。
-
-## 12. ビジュアルリグレッション（2026-11-06 に廃止）
-
-画面を変えるたびに基準画像の更新が要り、開発の途中では負担のほうが大きいので `e2e/visual.spec.ts` と基準画像を消した。開発が落ち着いたら戻すかを判断する。夜間の E2E は毎日回し、`e2e/a11y.spec.ts` だけは週 1 回（月曜の JST 03:00）にした。
-

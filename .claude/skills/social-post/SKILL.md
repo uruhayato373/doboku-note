@@ -254,7 +254,6 @@ https://doboku-note.com/exam/pe-comprehensive-management/keywords/{slug}
   - サイト URL の直後に `5管理の論点まとめ → https://note.com/dobokunote/m/m607bf095b02a` を追加
   - X の URL は t.co 短縮で 23 文字固定カウントのため、2本目 URL の文字数圧迫は最小
   - 文字数カウントは URL 2 本ぶんを正確に反映する（各 URL = 23 文字として計算）
-  - CTA テキスト（「5管理の論点まとめ」部分）は A/B テストで差し替え可能 → `content/sns/x/magazine-ab-test.md` 参照
 - **禁止**:
   - 正答番号を投稿テキストに含めない
   - 問題文の全文を貼らない

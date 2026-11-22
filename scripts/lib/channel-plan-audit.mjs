@@ -82,7 +82,7 @@ export function xPostsOf(channel, campaigns) {
   return campaigns.flatMap((c) => (c.posts ?? [])
     .filter((p) => p.date >= channel.enforceFrom)
     .map((p) => ({
-      label: `${c.file ?? c.month} ${p.date} ${p.time ?? ''}`.trim(), day: p.date, slot: p.slot, exam: p.exam, type: p.type,
+      label: `${c.file ?? c.month} ${p.date} ${p.time ?? ''}`.trim(), day: p.date, slot: p.frame, exam: p.exam, type: p.type,
       sale: SALES_FUNNELS.has(p.funnel), fits: (f) => f.types?.includes(p.type) ?? false,
     })));
 }
@@ -106,14 +106,14 @@ export function auditChannel(channel, posts, context, examMatches) {
 
 /**
  * X の予約のうち、枠の検査の対象なのに枠のある計画の行に結ばれていないものを返す。
- * @param tweets [{ draft, n, scheduled_at, status }]。n は status.json の投稿番号
+ * @param posts loadXPosts の行 [{ folder, key, publishAt, phase }]。予約の対象は phase が planned・submitted・queued のもの
  */
-export function tweetsOutsidePlan(channel, campaigns, tweets) {
-  const planned = new Set(campaigns.flatMap((c) => (c.posts ?? []).filter((p) => p.slot).map((p) => `${p.draft}#${p.tweet}`)));
-  return tweets
-    .filter((t) => ['scheduled', 'queued'].includes(t.status) && t.scheduled_at && jstDayOf(t.scheduled_at) >= channel.enforceFrom)
-    .filter((t) => !planned.has(`${t.draft}#${t.n}`))
-    .map((t) => `${t.draft}#${t.n}（${t.scheduled_at.slice(0, 16)}）`);
+export function tweetsOutsidePlan(channel, campaigns, posts) {
+  const planned = new Set(campaigns.flatMap((c) => (c.posts ?? []).filter((p) => p.frame).map((p) => `${p.draft}#${p.tweet}`)));
+  return posts
+    .filter((t) => ['planned', 'submitted', 'queued'].includes(t.phase) && t.publishAt && jstDayOf(t.publishAt) >= channel.enforceFrom)
+    .filter((t) => !planned.has(`${t.folder}#${t.key}`))
+    .map((t) => `${t.folder}#${t.key}（${t.publishAt.slice(0, 16)}）`);
 }
 
 /** Instagram の 1 本の予約の関門。枠の検査の対象なら、枠・型・時期を確かめる */

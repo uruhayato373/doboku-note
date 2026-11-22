@@ -4,7 +4,8 @@ import { isTweetInQueue } from './x-scheduled-queue.mjs';
 const DAY = 86400000;
 
 /** 実予約だけで翌日から7日間を検査。公開完了の判定はしない。 */
-export function assessQueueHealth({ snapshot, tweets, articles = [], account, now = Date.now() }) {
+/** tweets は loadXPosts の行から作った { ref, text, scheduled_at（=publishAt）, phase } */
+export function assessQueueHealth({ snapshot, tweets, account, now = Date.now() }) {
   if (!snapshot?.complete || snapshot.account !== account || !Array.isArray(snapshot.rows)) {
     throw new Error('完全な対象アカウントの実予約一覧が必要です');
   }
@@ -15,12 +16,13 @@ export function assessQueueHealth({ snapshot, tweets, articles = [], account, no
   const issues = [];
   const horizon = now + 7 * DAY;
   for (const tweet of tweets) {
-    if (!['queued', 'scheduled'].includes(tweet.status) || tweet.manual_only) continue;
+    if (!['queued', 'submitted', 'planned'].includes(tweet.phase)) continue;
     const at = Date.parse(tweet.scheduled_at);
     if (!Number.isFinite(at) || !tweet.text) throw new Error(`台帳の日時または本文が不正です: ${tweet.ref}`);
     if (at <= now) continue; // キュー不在を公開完了とも失敗ともみなさない
-    if ((tweet.status === 'queued' || at <= horizon) && !isTweetInQueue(tweet, rows)) {
-      issues.push({ code: tweet.status === 'queued' ? 'missing_reservation' : 'unsubmitted_plan', ref: tweet.ref, at: tweet.scheduled_at });
+    const reserved = tweet.phase !== 'planned'; // 予約に入れたはずのもの（承認済みで未投入の planned は計画）
+    if ((reserved || at <= horizon) && !isTweetInQueue(tweet, rows)) {
+      issues.push({ code: reserved ? 'missing_reservation' : 'unsubmitted_plan', ref: tweet.ref, at: tweet.scheduled_at });
     }
   }
   const counts = new Map();
@@ -39,19 +41,6 @@ export function assessQueueHealth({ snapshot, tweets, articles = [], account, no
   for (const [minute, count] of times) if (count > 1) issues.push({ code: 'duplicate_time', at: new Date(minute * 60000).toISOString(), count });
   const last = rows.length ? Math.max(...rows.map(row => Date.parse(row.scheduledAt))) : null;
   if (last === null || last <= horizon) issues.push({ code: 'queue_ending', at: last === null ? null : new Date(last).toISOString() });
-  for (const article of articles) {
-    const at = Date.parse(article.scheduled_at);
-    const teaserAt = Date.parse(article.teaser_scheduled_at);
-    if (!Number.isFinite(at) || !Number.isFinite(teaserAt)) throw new Error(`Articleの日時が不正です: ${article.ref}`);
-    if (at > now - 3600000) continue; // 公開処理の猶予1時間
-    if (article.status !== 'published' || !article.article_url || !article.published_at) {
-      issues.push({ code: 'article_overdue', ref: article.ref, at: article.scheduled_at });
-    } else if (teaserAt > now && (!article.teaser || !isTweetInQueue(article.teaser, rows))) {
-      issues.push({ code: 'teaser_missing', ref: article.ref, at: article.teaser_scheduled_at });
-    } else if (teaserAt <= now && !['posted', 'cancelled'].includes(article.teaser?.status)) {
-      issues.push({ code: 'teaser_publication_unconfirmed', ref: article.ref, at: article.teaser_scheduled_at });
-    }
-  }
   return { status: issues.length ? 'ACTION_REQUIRED' : 'PASS', account, checkedAt: snapshot.checkedAt,
     futureReservations: rows.length, lastReservedAt: last === null ? null : new Date(last).toISOString(),
     coverageFrom: jstDay(now + DAY), coverageTo: jstDay(now + 7 * DAY), issues };

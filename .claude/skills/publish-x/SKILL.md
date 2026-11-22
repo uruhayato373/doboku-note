@@ -20,10 +20,10 @@ Playwright（永続プロファイル）で X のコンポーザを自動操作�
 >
 > **現行フロー（2026-07-07 再開）**: 予約は再開したが、凍結実因（連続・重複）を機械的に潰すため **必ず以下のガード付きフローを通す**（真実源 `x-post-policy.md` §11.5）:
 > 1. `x-post-writer` で下書き（文面ユニーク・URL 分散・同一 URL ≤2）
-> 2. status.json に `scheduled_at` → `npm run x-schedule-guard`（近似重複<0.62・同時刻衝突・**1 日上限 3 本**）を**緑**に
+> 2. `npm run registry -- import-x --folder <フォルダ> --commit` で台帳に draft で足し、月次計画に日時と `frame` を書き、運営者が `npm run registry -- approve-x-plan --plan <月次計画> --expect <digest>` で承認（台帳 approved・一覧は管理画面 `/sns/x/plans`）→ `npm run x-schedule-guard`（近似重複<0.62・同時刻衝突・**1 日上限 3 本**）を**緑**に。X の状態の正本は台帳（下書きの status.json は 2026-11-21 に撤去）
 > 3. `--dry-run` でセレクタ/認証を検証（下記）
 > 4. `npm run x-schedule-guard --queue`（実キュー二重チェック）緑 → `--dry-run` を外して本番
-> 5. `npm run x-sync-status` で queued 実在を確認＝偽成功検証（§9）
+> 5. `npm run x-sync-status` でキューの実在を確認＝偽成功検証（§9・台帳に `times.queueVerified`）。予約日時の後に `npm run registry -- reconcile-x --commit` で投稿済みに
 >
 > **ガードが赤なら予約しない**（280超・404 と同格のブロッキング）。一括で数十本を積まず **1 週間分ずつ**（§11.2/§11.5）。自動フォロー/いいね/リプライは使わない（§11.3）。
 
@@ -65,8 +65,8 @@ npx tsx scripts/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08:00 --dry-run
 **X ネイティブ予約はスレッド非対応**（実機プローブ 2026-07-14: composer に `tweetTextarea_1` を追加すると `scheduleOption` が `aria-disabled=true`）。本スクリプトは次の分業で対応する（真実源 `x-post-policy.md` §5.2.1）:
 
 - **書式**: `## Tweet NN: タイトル [thread]`、本文内を `--- リプライ ---` 行で区切る（1部目=ヘッド、以降=リプライ）。各部が独立に 280 weighted 判定される（`check-x-length` が part 別検査）。マーカーなしブロックの `--- リプライ ---` 以降は従来どおり投稿対象外（レガシー注記互換）。
-- **即時投稿**（`--immediate`）: composer で全部組んで一括投稿（`addButton` trusted click。画像プレビュー後の透明オーバーレイ時だけ Playwright `force` click → `tweetTextarea_1..N` 入力・各部の空読み戻し検証つき）。現行 UI で追加 textarea が生成されない場合は、`--head-only` でヘッドだけ即時投稿→`node scripts/x/x-thread-replies.mjs --run`で自己リプライをチェーンする。
-- **予約投稿**: **ヘッドのみ**ネイティブ予約し、リプライ本文を status.json の `thread: {parts, replies_posted_at: null}` に記録。予約時刻経過後に `node scripts/x/x-thread-replies.mjs --run --draft <NNN>` で対象を限定し、ライブのヘッドを特定してリプライをチェーン投稿する（`--list`=pending 確認 / `--dry-run`=ヘッド特定まで）。cron 常駐はしない（§11.3 自動化フットプリント最小化）。
+- **即時投稿**（`--immediate`）: composer で全部組んで一括投稿（`addButton` trusted click。画像プレビュー後の透明オーバーレイ時だけ Playwright `force` click → `tweetTextarea_1..N` 入力・各部の空読み戻し検証つき）。
+- **予約投稿**: スレッドの予約は止まる（X の予約はスレッド非対応。後からリプライをつなぐ `x-thread-replies` は 2026-11-21 に撤去）。スレッドは `--immediate` で出す。
 
 ## ⚠️ 重要: 「予約投稿完了」ログを信用せず予約キューを実体検証（2026-05-29）
 
@@ -132,7 +132,6 @@ npx tsx scripts/publish-x/publish-x.ts 004 \
 | `[<date>...]` | - | 予約日時 JST (`YYYY-MM-DDTHH:MM`)。ツイート数と一致させる |
 | `--tweet N` | - | 特定ツイートのみ投稿（1-based、省略時は全ツイート） |
 | `--immediate` | - | 予約ではなく即時投稿。**1 回 1 本だけ**（`--tweet N` と組み合わせる）。予約の日時も `--immediate` も無いときは止まる（10 月 27 日、日時なしで 22 本が即時投稿に落ちた事故の再発防止・`scripts/lib/x-post-mode.mjs`） |
-| `--head-only` | - | `[thread]` のヘッドだけ即時投稿し、リプライを pending として status.json へ残す。続けて `x-thread-replies --run` を実行 |
 | `--dry-run` | - | 実投稿せず予約モード到達まで確認 |
 
 ## tweets.md の形式

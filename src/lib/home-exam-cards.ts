@@ -1,7 +1,12 @@
 import { type CategoryDef } from "@/lib/categories";
 import categoriesData from "@/config/categories.json";
 import homeExamCardsData from "@/config/home-exam-cards.json";
-import type { ExamData } from "@/components/home";
+
+export interface ExamData {
+  slug: string;
+  label: string;
+  variant: "civil" | "pe";
+}
 
 // トップの資格カードは「どの資格を・どの順に・どの名前で出すか」だけを持つ（slug / order / label。
 // 画面に出すのは名前だけ。説明文・試験日・件数は持たない。試験日の正本は config/exam-calendar.json）。

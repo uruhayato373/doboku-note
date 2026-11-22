@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useId, useRef, useState, type ComponentProps } from 'react';
+import { useId, useRef, type ComponentProps } from 'react';
+import { useHorizontalOverflow } from './useHorizontalOverflow';
 
 /**
  * 章・節ページの表（原本と照合して組み直した規格表）。横にはみ出すときだけ、スクロール領域を
@@ -11,17 +12,7 @@ import { useEffect, useId, useRef, useState, type ComponentProps } from 'react';
 export default function StandardScrollTable(props: ComponentProps<'table'>) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const hintId = useId();
-  const [overflow, setOverflow] = useState(false);
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-    const measure = () => setOverflow(wrapper.scrollWidth > wrapper.clientWidth + 1);
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(wrapper);
-    return () => observer.disconnect();
-  }, []);
+  const overflow = useHorizontalOverflow(wrapperRef);
 
   return (
     <>

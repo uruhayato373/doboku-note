@@ -4,25 +4,17 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { cn } from "@/lib/cn";
 
 interface SearchBoxProps {
-  className?: string;
   placeholder?: string;
   value?: string;
   onChange?: (query: string) => void;
   onSearch?: (query: string) => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  compact?: boolean;
 }
 
 export function SearchBox({
-  className,
   placeholder = "記事を検索...",
   value,
   onChange,
   onSearch,
-  onFocus,
-  onBlur,
-  compact = false,
 }: SearchBoxProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -110,16 +102,11 @@ export function SearchBox({
   }, []);
 
   return (
-    <div className={cn("relative", className)}>
+    <div className="relative">
       <div className="relative">
-        <div
-          className={cn(
-            "absolute inset-y-0 left-0 flex items-center pointer-events-none",
-            compact ? "pl-2" : "pl-3"
-          )}
-        >
+        <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-3">
           <svg
-            className={cn("text-(--ink-muted)", compact ? "h-4 w-4" : "h-5 w-5")}
+            className="text-(--ink-muted) h-5 w-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -140,17 +127,15 @@ export function SearchBox({
           onChange={(e) => handleInputChange(e.target.value)}
           onKeyDown={handleKeyDown}
           onFocus={() => {
-            onFocus?.();
             if (inputValue.trim()) setShowSuggestions(true);
           }}
-          onBlur={onBlur}
           placeholder={placeholder}
           className={cn(
             "block w-full bg-(--paper) text-(--ink) border border-(--rule-soft) rounded-card-content",
             "focus-ring focus:border-(--accent)",
             "placeholder:text-(--ink-muted)",
             "transition-colors duration-200",
-            compact ? "pl-8 pr-8 py-2 text-sm" : "pl-10 pr-10 py-2"
+            "pl-10 pr-10 py-2"
           )}
         />
 
@@ -159,17 +144,11 @@ export function SearchBox({
             type="button"
             onClick={handleClear}
             aria-label="検索語を消去"
-            className={cn(
-              "focus-ring absolute inset-y-0 right-0 flex items-center rounded-card-inline",
-              compact ? "pr-2" : "pr-3"
-            )}
+            className="focus-ring absolute inset-y-0 right-0 flex items-center rounded-card-inline pr-3"
           >
             <svg
               aria-hidden="true"
-              className={cn(
-                "text-(--ink-muted) hover:text-(--ink) transition-colors",
-                compact ? "h-4 w-4" : "h-5 w-5"
-              )}
+              className="text-(--ink-muted) hover:text-(--ink) transition-colors h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

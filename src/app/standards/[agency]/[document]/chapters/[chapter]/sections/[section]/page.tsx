@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { PrevNextPair } from '@/components/ui/TextbookNav/PrevNextNav';
+import { PrevNextPair } from '@/components/ui/PrevNextNav/PrevNextNav';
 import remarkGfm from 'remark-gfm';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
@@ -125,6 +125,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
     // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
     table: StandardScrollTable,
     StandardsInlineBanner: ({ slot }: { slot: string }) => <StandardsInlineBanner slot={slot} inlineSlots={inlineSlots} />,
+    StandardsInlineAd: () => <AdSlot slot="inArticle" className={`${CTA_STACK_CLASS} my-8`} />,
   };
 
   return (

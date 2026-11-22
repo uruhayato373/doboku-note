@@ -114,8 +114,8 @@ export function checkRegistry(root, opts = {}) {
     if (before === null) issues.push(issue('INFO', 'R03', null, `base ${opts.base} を読めない（削除と遷移を比較していない）`));
     else {
       for (const old of before) {
-        // Instagram は削除済みの旧公開をアクティブ台帳から撤去する。予約中は引き続き保護する。
-        if (old.channel === 'instagram' && old.status === 'stopped') continue;
+        // Instagram・X は止めた旧公開をアクティブ台帳から撤去する。予約中・投稿済みは引き続き保護する。
+        if (['instagram', 'x'].includes(old.channel) && old.status === 'stopped') continue;
         const rank = cfg.status.values.indexOf(old.status);
         if (rank < cfg.status.values.indexOf('scheduled') || old.status === 'failed') continue;
         if (!pubById.has(old.id) && !reg.publications.some((p) => p.renamedTo === old.id)) {
@@ -141,7 +141,9 @@ export function checkRegistry(root, opts = {}) {
   for (const w of reg.works) {
     const linked = reg.publications.filter((p) => p.exam === w.exam && p.work === w.id);
     const retiredShort = w.kind === 'legacy-short' && linked.length > 0 && linked.every((p) => p.status === 'stopped');
-    if (!retiredShort && !existsSync(join(root, w.definition))) issues.push(issue('FAIL', 'R04', w.id, `作品の定義フォルダが無い: ${w.definition}`));
+    // 下書きフォルダを消した X の作品は、投稿した事実（ID・URL・日付）だけを残す。文面の場所（copy）を持つ行があれば定義フォルダが要る
+    const retiredXThread = w.kind === 'x-thread' && linked.length > 0 && linked.every((p) => p.status === 'published' && !p.copy);
+    if (!retiredShort && !retiredXThread && !existsSync(join(root, w.definition))) issues.push(issue('FAIL', 'R04', w.id, `作品の定義フォルダが無い: ${w.definition}`));
   }
   for (const p of reg.publications) {
     const w = workById.get(p.work);
@@ -206,7 +208,9 @@ export function checkRegistry(root, opts = {}) {
       if (now !== p.approval.contentSha256) {
         const published = p.status === 'published';
         const privateWithoutSchedule = p.channel === 'youtube' && p.status === 'uploaded_private' && !p.publishAt;
-        issues.push(issue(privateWithoutSchedule ? 'INFO' : published ? 'WARN' : 'FAIL', 'R07', p.id,
+        // X は文面を直すたびにこの検査（YouTube の公開ワークフローでも走る）を止めない。止める役は publish-x の承認の関門（DN-0612 P7）
+        const xChannel = p.channel === 'x';
+        issues.push(issue(privateWithoutSchedule ? 'INFO' : (published || xChannel) ? 'WARN' : 'FAIL', 'R07', p.id,
           privateWithoutSchedule ? '予約なしの非公開。旧承認は現在の中身に一致しないため、再予約前に承認し直す' :
             published ? '承認した中身から変わった（要同期）' : '承認した後に中身（文面・素材・予定）が変わった。承認し直す'));
       }

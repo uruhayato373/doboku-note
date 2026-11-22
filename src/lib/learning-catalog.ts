@@ -13,6 +13,7 @@ import { qualificationShortLabel } from './qualification-names';
 import { mokujiFor } from './note-mokuji';
 import { withNoteUtm } from './note-utm';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
+import { noteCtaImage, noteCtaQualificationTile } from './note-cta-images';
 
 export type LearningProduct = {
   id: string;
@@ -32,6 +33,8 @@ export type LearningQualification = {
   featured: LearningProduct | null;
   materials: LearningProduct[];
   support: LearningProduct[];
+  /** カードの主力の note の行（主力教材、無ければ教材の目次）に添える完成画像。target は付ける行（商品 id か 'mokuji'） */
+  leadImage: { target: string; src: string; width: number; height: number; alt: string } | null;
 };
 
 type ProductRecord = {
@@ -64,6 +67,7 @@ export function buildLearningCatalog(): LearningQualification[] {
       id: exam.slug,
       label: exam.label,
       shortLabel: qualificationShortLabel(qualification),
+      qualification,
       siteHref: getCategoryHubPath(exam.slug),
       noteIndex: index ? {
         title: index.title,
@@ -121,7 +125,7 @@ export function buildLearningCatalog(): LearningQualification[] {
     }
   }
 
-  const cards = qualifications.map(({ scope: _scope, ...exam }) => {
+  const cards = qualifications.map(({ scope: _scope, qualification, ...exam }) => {
     // 先頭の教材は台帳（config/site-cta-surfaces.json・DN-1223）: 試験の前後の季節の商品、単品・パックへ案内する資格はその商品。
     // もくじへ寄せる資格の季節外は先頭を決めず、もくじ（全教材の目次）を先に見せる。
     const lead = categoryLeadMagazineId(exam.id);
@@ -131,7 +135,12 @@ export function buildLearningCatalog(): LearningQualification[] {
     const book = exam.materials.find((product) => product.channel === 'kindle');
     const preview = [first, book, ...notes, ...exam.materials].filter((product): product is LearningProduct => !!product);
     const featured = lead ? exam.materials.find((product) => product.id === lead) ?? null : null;
-    return { ...exam, featured, materials: [...new Map(preview.map((product) => [product.id, product])).values()] };
+    // 主力の行の画像: 主力教材は商品の完成画像（無ければ資格の画像）、もくじは資格の画像。どちらも無ければ先頭の note 教材
+    const tile = noteCtaQualificationTile(qualification);
+    const leadTarget = featured ?? (exam.noteIndex ? null : notes[0] ?? null);
+    const image = leadTarget ? noteCtaImage(leadTarget.id, 'tile', 'lead') ?? tile : exam.noteIndex ? tile : undefined;
+    const leadImage = image ? { target: leadTarget?.id ?? 'mokuji', src: image.src, width: image.width, height: image.height, alt: image.alt } : null;
+    return { ...exam, featured, leadImage, materials: [...new Map(preview.map((product) => [product.id, product])).values()] };
   });
   const rank = (id: string) => { const i = LINKS_PRIORITY.indexOf(id); return i === -1 ? LINKS_PRIORITY.length : i; };
   // 優先の資格を先頭へ。それ以外は資格の台帳の順（buildExamCards の順）のまま後ろに続く（sort は安定）

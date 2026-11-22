@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { DataTable, DetailList, DetailSheet, DetailText, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { loadKnowledge } from '@/lib/knowledge';
+import { matchesQuery } from '@/lib/document-store';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,14 +16,14 @@ type Props = { searchParams: Promise<{ q?: string; category?: string }> };
 
 export default async function KnowledgePage({ searchParams }: Props) {
   const params = await searchParams;
-  const query = (params.q ?? '').trim().toLocaleLowerCase('ja');
+  const query = params.q ?? '';
   const selectedCategory = params.category ?? '';
   const all = loadKnowledge();
   const categories = [...new Set(all.map((item) => item.category))].sort();
   const items = all.filter(
     (item) =>
       (!selectedCategory || item.category === selectedCategory) &&
-      (!query || item.searchText.includes(query)),
+      matchesQuery(item.searchText, query),
   );
 
   const rows: DataTableRow[] = items.map((item) => {

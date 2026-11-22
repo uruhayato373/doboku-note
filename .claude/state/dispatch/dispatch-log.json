@@ -9188,6 +9188,49 @@
       "commit": "4435621e4c55",
       "verification": null,
       "note": "PR で 13 本を削除、9 本は使う場所の文書から案内して到達させ、baseline は DN-1251 の render-figure 5 本だけになった"
+    },
+    {
+      "id": "DN-1261",
+      "at": "2026-11-21",
+      "task": "X の月次計画の slot 欄が check-x-campaign-plan（A/B/C）と channel-plan-audit（12/1 以降は枠 id）で食い違う",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-x-campaign-plan"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5e55a0ea8044",
+      "verification": "node scripts/checks/check-x-campaign-plan.mjs（11 ファイル・320 件 OK）と node scripts/checks/check-channel-plan.mjs（exit 0）を 2026-11-21 に実行",
+      "note": "PR #1692 で月次計画の slot（時間帯 A/B/C）と frame（年間の枠 id）を分けた。check-x-campaign-plan と check-channel-plan の両方が通る"
+    },
+    {
+      "id": "DN-1194",
+      "at": "2026-11-21",
+      "task": "日時未定の X の下書き 11 件（71 本）に、X の月次計画で日時を付けるか見送るかを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5e55a0ea8044",
+      "verification": "node scripts/x/x-queue-surfacer.mjs: ストック 9 件 63 本・投入待ちなし・判定不能 0 件（2026-11-21）",
+      "note": "11 件を仕分けた: 096 は 11/28 07:40 で予約（X のキューで確認）、102 は見送って削除、残り 9 件 63 本は x-stock の印でストック（載せる先は DN-0220・DN-0887・年間の枠）。surfacer はストックを判定不能に数えない"
+    },
+    {
+      "id": "DN-1042",
+      "at": "2026-11-21",
+      "task": "X の台帳で公開を確認できない過去の投稿 138 件を照合する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f6e8feb49f67",
+      "verification": "台帳の scheduled・approved で予約の日時を過ぎた行は 1 行（pe1-final-nov t21・2026-11-21 12:25 の当日分）。registry -- reconcile-x の対象 1 件（2026-11-21）",
+      "note": "reconcile-x（PR #1693）で自分の投稿の一覧と結べた行を published にした（X の published は 266 行）。結べなかった過去の行は stopped(unverified-legacy) とし、下書きの削除とあわせて台帳から撤去した（PR #1697・止めた行 539 と日時を過ぎた承認済み 2 行。公開されたかは確かめられていない）。x-sync-status が公開済みを拾えなかったのは、キューから消えただけでは投稿済みにしない作りのため。照合は reconcile-x が受け持つ。土曜の収集へ入れるのは DN-1265"
     }
   ]
 }

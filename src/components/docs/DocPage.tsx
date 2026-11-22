@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { getDoc, getAllDocsMeta, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import PageShell from '@/components/layout/PageShell';
-import QuestionJumpNav from '@/components/ui/QuestionJumpNav';
+import QuestionJumpNav from '@/components/docs/QuestionJumpNav';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryHubPath, getCategoryLabel } from '@/lib/categories';
-import { getCategoryJumps } from '@/components/category/CategoryJumpNav';
+import { getCategoryJumps } from '@/lib/category-jumps';
 import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
 import { NOT_FOUND_TITLE, normalizeMetaDescription } from '@/lib/metadata';
@@ -33,18 +33,19 @@ import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
 import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
-import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
-import TableOfContents from '@/components/ui/TableOfContents';
-import ArticleSidebar, { buildArticleSidebarCards } from '@/components/ui/ArticleSidebar/ArticleSidebar';
+import ArticleFooter from '@/components/docs/ArticleFooter';
+import TableOfContents from '@/components/docs/TableOfContents';
+import ArticleSidebar, { buildArticleSidebarCards } from '@/components/docs/ArticleSidebar';
 import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { lawsOfArticle } from '@/lib/article-laws';
 import type { Pluggable } from 'unified';
 import { articleSidebarContinuation } from '@/lib/article-sidebar-continuation';
+import { RAIL_AFFILIATE_MAX } from '@/lib/rail-continuation';
 import { articleSidebarInput } from '@/lib/article-sidebar-plan';
 import { planArticleCtas } from '@/lib/article-cta-plan';
 import { remarkArticleBanners } from '@/lib/article-inline-slots.mjs';
-import { ArticleBanner, articleImagePlacements, articlePixelCandidates } from './ArticleAffiliateBanners';
+import { ArticleBanner, articleImagePlacements, articlePixelCandidates } from '@/components/ui/ArticleAffiliateBanners/ArticleAffiliateBanners';
 import ArticleAffiliatePixels from './ArticleAffiliatePixels';
 import AdSlot from '@/components/ads/AdSlot';
 import { CTA_STACK_CLASS } from '@/lib/cta-stack';
@@ -261,7 +262,7 @@ export async function renderDocPage(slugStr: string) {
   const midSlots = midKinds.map(kind => () => {
     if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
     if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
-    return <MidArticleCta mode="career" card={careerMidCard!} secondary={careerPlacements['article-mid']?.secondary} managedPixels />;
+    return <MidArticleCta mode="career" card={careerMidCard!} managedPixels />;
   });
   // 多列データ表（ふるい分け 9 列・圧縮試験 5 列等）はモバイル 375px で画面外へはみ出し、
   // 右端の列が読めない（2026-07-14 実機確認）。SVG/画像化は「9 列を 375px に収める」制約が
@@ -301,8 +302,8 @@ export async function renderDocPage(slugStr: string) {
 
   const sidebarInput = articleSidebarInput(doc.meta, articlePlan, categoryArticles);
   const sidebarCards = buildArticleSidebarCards(sidebarInput);
-  const sidebarGroups = articleSidebarContinuation(sidebarInput, doc.meta, relatedArticles, body.length, careerPlacements);
-  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length, sidebarGroups.filter(group => group.banner).map(group => group.slot));
+  const sidebarGroups = articleSidebarContinuation(sidebarInput, doc.meta, relatedArticles, body.length);
+  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), Math.min(sidebarCards.length, RAIL_AFFILIATE_MAX));
   const pixels = articlePixelCandidates(careerPlacements, renderedCareerSlots, images);
 
   return (

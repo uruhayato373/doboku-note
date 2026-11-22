@@ -21,7 +21,7 @@ const RULES = [
       ['src/components/ui/Button/Button.tsx', '部品'],
       ['src/components/ui/AuthorProfile/AuthorProfile.tsx', NOTE_CTA],
       ['src/components/ui/AuthorCard/AuthorCard.tsx', NOTE_CTA],
-      ['src/components/category/CategoryViews.tsx', '技術士一次の入口の番号の丸（ボタンではない）'],
+      ['src/components/category/CategoryViews.tsx', 'キーワード索引へのタイル（LinkTile の icon）の四角（ボタンではない）'],
     ]),
   },
   {

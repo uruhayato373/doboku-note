@@ -1,11 +1,10 @@
-import type { PostData } from "@/types/blog";
 import type { DocMeta } from "@/lib/docs";
 import { inlinePlainText } from "@/lib/inline-links";
 
 import { AUTHOR } from "@/config/author";
 import { CONTACT_EMAIL, SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryBySlug, getCategoryHubPath, getCategoryLabel } from '@/lib/categories';
-import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
+import { categoryBreadcrumbHead } from '@/lib/category-breadcrumb';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import { qualificationLabel } from "@/lib/qualification-names";
@@ -23,33 +22,22 @@ const keywordSetName = (category: string | undefined): string =>
 
 interface StructuredDataProps {
   type: "article" | "website" | "organization";
-  post?: PostData;
   docMeta?: DocMeta;
 }
 
 function generateBreadcrumbSchema(
-  meta: DocMeta | PostData,
+  meta: DocMeta,
   baseUrl: string
 ) {
   const category = meta.category;
 
-  const items: object[] = [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "ホーム",
-      item: baseUrl,
-    },
-  ];
-
-  if (category && getCategoryArea(category) === "exam") {
-    items.push({
-      "@type": "ListItem",
-      position: items.length + 1,
-      name: getAreaLabel("exam"),
-      item: `${baseUrl}${getAreaHubPath("exam")}`,
-    });
-  }
+  // 先頭の段（ホームと、資格試験なら領域の入口）は記事の見出しのパンくずと同じ規則（src/lib/category-breadcrumb.ts）
+  const items: object[] = categoryBreadcrumbHead(category).map((crumb, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: crumb.label,
+    item: crumb.href === "/" ? baseUrl : `${baseUrl}${crumb.href}`,
+  }));
 
   if (category) {
     items.push({
@@ -73,12 +61,12 @@ function generateBreadcrumbSchema(
   };
 }
 
-function isKeywordPage(meta: DocMeta | PostData): boolean {
-  return ("group" in meta && meta.group === "keyword") || (meta.tags || []).includes("keyword");
+function isKeywordPage(meta: DocMeta): boolean {
+  return meta.group === "keyword" || (meta.tags || []).includes("keyword");
 }
 
-function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
-  const slug = String("id" in meta ? meta.id : meta.slug);
+function generateDefinedTermSchema(meta: DocMeta, baseUrl: string) {
+  const slug = meta.slug;
   const category = meta.category;
 
   return {
@@ -98,7 +86,7 @@ function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
   };
 }
 
-function isExamQuizPage(meta: DocMeta | PostData): boolean {
+function isExamQuizPage(meta: DocMeta): boolean {
   const tags = meta.tags || [];
   return tags.includes("past-questions");
 }
@@ -112,8 +100,8 @@ function getExamName(category: string | undefined): string {
 type FAQEntry = { q: string; a: string };
 type RawFAQEntry = FAQEntry | { question: string; answer: string };
 
-function getFAQs(meta: DocMeta | PostData): FAQEntry[] {
-  const raw = "faqs" in meta ? meta.faqs : undefined;
+function getFAQs(meta: DocMeta): FAQEntry[] {
+  const raw = meta.faqs;
   if (!Array.isArray(raw)) return [];
   return raw.flatMap((item: RawFAQEntry) => {
     const q = "q" in item ? item.q : item.question;
@@ -139,8 +127,8 @@ function generateFAQSchema(faqs: FAQEntry[]) {
   };
 }
 
-function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
-  const slug = String("id" in meta ? meta.id : meta.slug);
+function generateQuizSchema(meta: DocMeta, baseUrl: string) {
+  const slug = meta.slug;
   return {
     "@context": "https://schema.org",
     "@type": "Quiz",
@@ -160,41 +148,12 @@ function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
   };
 }
 
-export default function StructuredData({ type, post, docMeta }: StructuredDataProps) {
+export default function StructuredData({ type, docMeta }: StructuredDataProps) {
   const generateStructuredData = () => {
     const baseUrl = SITE_ORIGIN;
 
     switch (type) {
       case "article":
-        if (post) {
-          return {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: post.title,
-            description: post.description,
-            author: {
-              "@type": "Person",
-              name: AUTHOR.name,
-              url: AUTHOR.url,
-              jobTitle: AUTHOR.jobTitle,
-              knowsAbout: AUTHOR.knowsAbout,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "doboku-note",
-            },
-            datePublished: post.date,
-            dateModified: post.date,
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": `${baseUrl}${getPublicDocPath(post.id)}`,
-            },
-            articleSection: post.category,
-            keywords: post.tags?.join(", "),
-            inLanguage: "ja-JP",
-          };
-        }
-
         if (docMeta) {
           return {
             "@context": "https://schema.org",
@@ -279,24 +238,24 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
 
   if (!structuredData) return null;
 
-  const meta = post || docMeta;
+  const meta = docMeta;
   const baseUrl = SITE_ORIGIN;
 
   // Additional schemas for specific page types
-  const quizData = meta && isExamQuizPage(meta as DocMeta | PostData)
-    ? generateQuizSchema(meta as DocMeta | PostData, baseUrl)
+  const quizData = meta && isExamQuizPage(meta)
+    ? generateQuizSchema(meta, baseUrl)
     : null;
 
-  const definedTermData = meta && isKeywordPage(meta as DocMeta | PostData)
-    ? generateDefinedTermSchema(meta as DocMeta | PostData, baseUrl)
+  const definedTermData = meta && isKeywordPage(meta)
+    ? generateDefinedTermSchema(meta, baseUrl)
     : null;
 
   const breadcrumbData =
     type === "article" && meta
-      ? generateBreadcrumbSchema(meta as DocMeta | PostData, baseUrl)
+      ? generateBreadcrumbSchema(meta, baseUrl)
       : null;
 
-  const faqEntries = meta ? getFAQs(meta as DocMeta | PostData) : [];
+  const faqEntries = meta ? getFAQs(meta) : [];
   const faqData = faqEntries.length > 0 ? generateFAQSchema(faqEntries) : null;
 
   return (

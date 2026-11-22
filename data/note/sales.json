@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-21",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -2436,6 +2436,97 @@
       "price": 1980
     },
     {
+      "date": "2026-11-18",
+      "productId": "article:tankan-takuitsu-heisei-pdf",
+      "title": "技術士 総合技術監理部門｜択一 過去問PDF 平成（平成21〜30年度 全400問・全選択肢解説）",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-11-18",
+      "productId": "pe1-chokuzen-pack",
+      "title": "技術士 第一次試験｜直前パック",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-17",
+      "productId": "cce-reiwa-civil-contractor-pack",
+      "title": "主任技士 小論文｜ゼネコン土木施工 令和形式5テーマ",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-11-17",
+      "productId": "article:pe-construction-oral-guide",
+      "title": "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-16",
+      "productId": "surveyor-gogo-pack",
+      "title": "測量士 午後記述式｜まるごと合格パック",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-11-16",
+      "productId": "bk-steel-concrete-secondary-magazine",
+      "title": "技術士 建設部門｜鋼コン 選択科目 模範解答集 R3-R8",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-11-15",
+      "productId": "ce-marugoto-pack",
+      "title": "コンクリート技士 択一｜まるごとパック",
+      "type": "magazine",
+      "price": 2380
+    },
+    {
+      "date": "2026-11-15",
+      "productId": "cce-goukaku-civil-contractor-pack",
+      "title": "主任技士 合格パック｜ゼネコン土木施工の択一＋小論文",
+      "type": "magazine",
+      "price": 3980
+    },
+    {
+      "date": "2026-11-15",
+      "productId": "pe1-chokuzen-pack",
+      "title": "技術士 第一次試験｜直前パック",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-15",
+      "productId": "article:cce-reiwa-civil-contractor-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜担い手不足と品質確保｜令和形式",
+      "type": "article",
+      "price": 1480
+    },
+    {
+      "date": "2026-11-15",
+      "productId": "article:cce-reiwa-civil-contractor-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜生産性向上・DX｜令和形式",
+      "type": "article",
+      "price": 1480
+    },
+    {
+      "date": "2026-11-15",
+      "productId": "article:cce-reiwa-civil-contractor-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜環境負荷低減｜令和形式",
+      "type": "article",
+      "price": 1480
+    },
+    {
+      "date": "2026-11-14",
+      "productId": "cce-reiwa-civil-contractor-pack",
+      "title": "主任技士 小論文｜ゼネコン土木施工 令和形式5テーマ",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
       "date": "2026-11-13",
       "productId": "cce-reiwa-testing-pack",
       "title": "主任技士 小論文｜試験・検査機関 令和形式5テーマ",
@@ -2619,9 +2710,9 @@
       "fee": 44677
     },
     "2026-11": {
-      "fetchedAt": "2026-11-14T01:01:07.328Z",
-      "count": 19,
-      "total": 40540,
+      "fetchedAt": "2026-11-21T00:42:01.939Z",
+      "count": 32,
+      "total": 69680,
       "finalized": false
     }
   }

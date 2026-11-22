@@ -1,6 +1,6 @@
 import Arrow from '@/components/ui/Arrow/Arrow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
 import { getCardImage } from '@/lib/site-thumbnail';
@@ -16,6 +16,7 @@ import AdSlot from '@/components/ads/AdSlot';
 import { withFeedAds } from '@/lib/feed-ads';
 import { feedAdBudget } from '@/lib/feed-ads-budget';
 import { compareExamYearDesc, examYearLabel, examYearRank } from '@/lib/exam-year.mjs';
+import { groupExamYears } from '@/lib/exam-year-grid';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -48,48 +49,21 @@ export function DocCard({ doc }: { doc: DocMeta }) {
 }
 
 /**
- * 第1次検定の過去問をテーブル形式で表示（2級向け、前期/後期）
- * 年度ごとに前期・後期・第2次をまとめる
+ * 第1次検定の過去問をテーブル形式で表示（2級向け、前期/後期）。年度ごとに前期・後期・第2次をまとめる。
+ * 平成27年度までは年1回（10月）の学科試験で slug に期が無い（primary-h26）。10月の列に「学科」として出す
  */
 function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secondaryDocs?: DocMeta[] | undefined }) {
-  // 年度コードでグループ化
-  // 平成27年度までは年1回（10月）の学科試験で slug に期が無い（primary-h26）。10月の列に「学科」として出す
-  const yearMap = new Map<string, { zenki?: DocMeta; kouki?: DocMeta; single?: DocMeta }>();
-  for (const doc of docs) {
-    const match = doc.slug?.match(/primary-(r|h)(\d+)(?:-(zenki|kouki))?$/);
-    if (!match) continue;
-    const yearCode = `${match[1]}${match[2]}`;
-    const part = (match[3] ?? 'single') as 'zenki' | 'kouki' | 'single';
-    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
-    yearMap.get(yearCode)![part] = doc;
-  }
-
-  // 第2次検定のマップ
-  const secondaryMap = new Map<string, DocMeta>();
-  if (secondaryDocs) {
-    for (const doc of secondaryDocs) {
-      const match = doc.slug?.match(/(r|h)(\d+)$/);
-      if (match) {
-        secondaryMap.set(`${match[1]}${match[2]}`, doc);
-      }
-    }
-  }
-
-  // 年度ソート（新しい順）
-  const years = Array.from(yearMap.keys()).sort(compareExamYearDesc);
-
-  const hasSecondary = secondaryMap.size > 0;
-
-  const columns = ['前期（6月）', '後期（10月）', ...(hasSecondary ? ['第2次'] : [])];
-  const rows: ExamMatrixRow[] = years.map((yearCode) => {
-    const pair = yearMap.get(yearCode)!;
+  const grid = groupExamYears('civil-2', docs, secondaryDocs);
+  const columns = ['前期（6月）', '後期（10月）', ...(grid.hasSecondary ? ['第2次'] : [])];
+  const rows: ExamMatrixRow[] = grid.years.map((yearCode) => {
+    const row = grid.cells.get(yearCode)!;
     return {
       key: yearCode,
       label: examYearLabel(yearCode),
       cells: [
-        { label: '前期', doc: pair.zenki },
-        pair.single ? { label: '学科', doc: pair.single } : { label: '後期', doc: pair.kouki },
-        ...(hasSecondary ? [{ label: '第2次', doc: secondaryMap.get(yearCode) }] : []),
+        { label: '前期', doc: row.c1 },
+        { label: row.single ? '学科' : '後期', doc: row.c2 },
+        ...(grid.hasSecondary ? [{ label: '第2次', doc: row.c3 }] : []),
       ],
     };
   });
@@ -98,47 +72,20 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
 }
 
 /**
- * 第1次検定の過去問をテーブル形式で表示
- * 年度ごとに問題A・問題Bをまとめる
+ * 第1次検定の過去問をテーブル形式で表示。年度ごとに問題A・問題B・第2次をまとめる
  */
 function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secondaryDocs?: DocMeta[] | undefined }) {
-  // 年度コードでグループ化
-  const yearMap = new Map<string, { a?: DocMeta; b?: DocMeta }>();
-  for (const doc of docs) {
-    const match = doc.slug?.match(/(r|h)(\d+)-(a|b)$/);
-    if (!match) continue;
-    const yearCode = `${match[1]}${match[2]}`;
-    const part = match[3] as 'a' | 'b';
-    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
-    yearMap.get(yearCode)![part] = doc;
-  }
-
-  // 第2次検定のマップ
-  const secondaryMap = new Map<string, DocMeta>();
-  if (secondaryDocs) {
-    for (const doc of secondaryDocs) {
-      const match = doc.slug?.match(/(r|h)(\d+)$/);
-      if (match) {
-        secondaryMap.set(`${match[1]}${match[2]}`, doc);
-      }
-    }
-  }
-
-  // 年度ソート（新しい順）
-  const years = Array.from(yearMap.keys()).sort(compareExamYearDesc);
-
-  const hasSecondary = secondaryMap.size > 0;
-
-  const columns = ['問題A', '問題B', ...(hasSecondary ? ['第2次'] : [])];
-  const rows: ExamMatrixRow[] = years.map((yearCode) => {
-    const pair = yearMap.get(yearCode)!;
+  const grid = groupExamYears('civil-1', docs, secondaryDocs);
+  const columns = ['問題A', '問題B', ...(grid.hasSecondary ? ['第2次'] : [])];
+  const rows: ExamMatrixRow[] = grid.years.map((yearCode) => {
+    const row = grid.cells.get(yearCode)!;
     return {
       key: yearCode,
       label: examYearLabel(yearCode),
       cells: [
-        { label: '問題A', doc: pair.a },
-        { label: '問題B', doc: pair.b },
-        ...(hasSecondary ? [{ label: '第2次', doc: secondaryMap.get(yearCode) }] : []),
+        { label: '問題A', doc: row.c1 },
+        { label: '問題B', doc: row.c2 },
+        ...(grid.hasSecondary ? [{ label: '第2次', doc: row.c3 }] : []),
       ],
     };
   });
@@ -147,31 +94,19 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
 }
 
 /**
- * PE過去問をテーブル形式で表示
- * 年度ごとに択一式・記述式をまとめる
+ * PE過去問をテーブル形式で表示。年度ごとに択一式・記述式をまとめる
  */
 function PeExamTable({ docs }: { docs: DocMeta[] }) {
-  const yearMap = new Map<string, { primary?: DocMeta; secondary?: DocMeta }>();
-  for (const doc of docs) {
-    const match = doc.slug?.match(/(r|h)(\d+)-(primary|secondary)$/);
-    if (!match) continue;
-    const yearCode = `${match[1]}${match[2]}`;
-    const type = match[3] as 'primary' | 'secondary';
-    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
-    yearMap.get(yearCode)![type] = doc;
-  }
-
-  const years = Array.from(yearMap.keys()).sort(compareExamYearDesc);
-
+  const grid = groupExamYears('pe', docs);
   const columns = ['択一式', '記述式'];
-  const rows: ExamMatrixRow[] = years.map((yearCode) => {
-    const pair = yearMap.get(yearCode)!;
+  const rows: ExamMatrixRow[] = grid.years.map((yearCode) => {
+    const row = grid.cells.get(yearCode)!;
     return {
       key: yearCode,
       label: examYearLabel(yearCode),
       cells: [
-        { label: '択一式', doc: pair.primary },
-        { label: '記述式', doc: pair.secondary },
+        { label: '択一式', doc: row.c1 },
+        { label: '記述式', doc: row.c2 },
       ],
     };
   });

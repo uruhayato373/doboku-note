@@ -7,7 +7,7 @@ import { loadExamStages } from '../../../../../../scripts/lib/exam-stages.mjs';
 
 /**
  * 資格の正本（qualification-registry.json）の中身と、名前の写しの検査結果。
- * 管理＞設定 で registry を開いたときに型の上へ出す（旧 /ops/ssot「正本の検査」をここへ統合・旧 URL は転送）。
+ * 管理＞設定 で registry を開いたときに型の上へ出す（旧 /ops/ssot「正本の検査」をここへ統合・旧 URL は削除済み）。
  * 判定は npm run check-qualification-ssot と同じ scripts/lib/qualification-ssot.mjs を呼ぶだけで、ここで判定しない。
  * 正本の変更はファイル＋PR で行い、この画面からは書き換えない（管理画面からの直接編集は DB 再検討の条件・data-storage-decision.md）。
  */

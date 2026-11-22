@@ -326,6 +326,7 @@ const Publication = z
         uploaded: utcTime('非公開で上げた時刻').optional(),
         scheduled: utcTime('予約した時刻').optional(),
         metadataSynced: utcTime('題名・概要欄・開示の欄を同期した時刻').optional(),
+        queueVerified: utcTime('X の予約キューで本文と日時を確かめた時刻').optional(),
       })
       .strict()
       .optional()
@@ -365,7 +366,7 @@ const Publication = z
     error: z.string().optional(),
     reason: z.string().optional(),
     legacyKey: z.string().optional().describe('取り込む前の鍵（旧台帳の key）'),
-    planSlot: z.string().min(1).optional().describe('Instagram の公開が入る年間の枠（config.channel-annual-plan）'),
+    planSlot: z.string().min(1).optional().describe('公開が入る年間の枠（config.channel-annual-plan）'),
     idException: idException.optional(),
     renamedTo: z.string().optional(),
   })

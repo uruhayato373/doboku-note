@@ -55,6 +55,7 @@ import {
 import { collectFailedRequests } from "../lib/report-honesty.mjs";
 import { normalizeTargetPath, parseLegacyRedirects } from "../lib/legacy-routes.mjs";
 import { GSC_PROPERTY, SITE_ORIGIN } from "../lib/site-identity.mjs";
+import { showsTargetUrl } from "../lib/gsc-inspect-text.mjs";
 
 const REQUESTS = datasetPath("gsc.indexing-requests");
 const HISTORY = datasetPath("gsc.indexing-history");
@@ -152,10 +153,26 @@ async function inspectViaSearchBar(page, cfg, target) {
     return false;
   }
   // 検査は 5〜25 秒かかる。判定文言が出るまでポーリングする。
+  // 判定文言だけで抜けると、直前の URL の結果を読んで次へ進み、ボタンが描かれる前に探して
+  // button-not-found になる（2026-11-20 実測: 読み込みダイアログが開いたままの画面を記録していた）。
+  // 対象の URL が画面にあり、読み込みダイアログが閉じたときだけ到達とする。
   for (let i = 0; i < 10; i++) {
     await page.waitForTimeout(4000);
     const t = await page.locator("body").innerText().catch(() => "");
-    if (/URL は Google に登録されて|URL が Google に登録されていません|is on Google|is not on Google/.test(t)) return true;
+    if (!/URL は Google に登録されて|URL が Google に登録されていません|is on Google|is not on Google/.test(t)) continue;
+    if (!showsTargetUrl(t, target)) continue;
+    if (await inspectionLoading(page)) continue;
+    return true;
+  }
+  return false;
+}
+
+/** URL 検査の読み込みダイアログ（「Google インデックスからデータを取得しています」）が見えているか。 */
+async function inspectionLoading(page) {
+  const dlg = page.getByRole("dialog", { name: /Google インデックスからデータを取得しています|Retrieving data from Google Index/i });
+  const n = await dlg.count().catch(() => 0);
+  for (let i = 0; i < n; i++) {
+    if (await dlg.nth(i).isVisible().catch(() => false)) return true;
   }
   return false;
 }
@@ -202,12 +219,17 @@ async function readInspection(page) {
 async function requestIndexing(page, cfg, runId, target) {
   // 実測: getByText では 2 件ヒットする（可視ボタン＋別要素）。role=button の可視要素だけに絞る。
   // 「公開 URL をテスト」は**別機能**（ライブテスト）なので候補に入れない（誤クリック防止）。
+  // ボタンは判定文言より遅れて描かれることがあるので、1 回で諦めず最大 20 秒待つ。
   const cands = page.getByRole("button", { name: /インデックス登録をリクエスト|Request indexing/ });
-  const n = await cands.count().catch(() => 0);
+  let n = 0;
   let btn = null;
-  for (let i = 0; i < n; i++) {
-    const c = cands.nth(i);
-    if (await c.isVisible().catch(() => false)) { btn = c; break; }
+  for (let attempt = 0; attempt < 10 && !btn; attempt++) {
+    if (attempt > 0) await page.waitForTimeout(2000);
+    n = await cands.count().catch(() => 0);
+    for (let i = 0; i < n; i++) {
+      const c = cands.nth(i);
+      if (await c.isVisible().catch(() => false)) { btn = c; break; }
+    }
   }
   if (!btn) {
     await dumpFailure(page, cfg, runId, {

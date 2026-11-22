@@ -3,7 +3,7 @@
  * x-schedule-guard.mjs
  *
  * X 予約投稿の「再発防止ゲート」。**予約を実行する前に必ず通す門番**。
- * SSOT＝content/sns/x/ 配下の全 status.json（tweet ごとに status / scheduled_at / text）を読み、
+ * SSOT＝コンテンツ台帳の X の行（loadXPosts・状態 / 予約日時 / tweets.md の本文）を読み、
  * 凍結リスク（x-post-policy §11）と二重投稿事故をブロック判定する。
  *
  * 検査（BLOCK = exit 1、WARN = 表示のみ）:
@@ -25,13 +25,12 @@
  *   node scripts/x/x-schedule-guard.mjs --dup 0.55    # near-dup BLOCK しきい値（既定 0.62）
  *   npm run x-schedule-guard
  */
-import fs from "fs";
-import path from "path";
 import { readScheduledQueue } from "../lib/x-scheduled-queue.mjs";
 import { normalize, trigrams, jaccard } from "../lib/x-text-similarity.mjs";
 import { REPO_ROOT as ROOT } from "../lib/repository-paths.mjs";
 import { loadChannelPlan, loadXCampaigns } from "../lib/channel-plan.mjs";
 import { tweetsOutsidePlan } from "../lib/channel-plan-audit.mjs";
+import { loadXPosts } from "../lib/registry-x-store.mjs";
 
 const ARGV = process.argv.slice(2);
 const flag = (name, def) => {
@@ -52,27 +51,14 @@ const hhmm = t => new Date(t).toLocaleTimeString("ja-JP", { timeZone: "Asia/Toky
   hour: "2-digit", minute: "2-digit" });
 const minuteKey = t => new Date(t).toISOString().slice(0, 16); // 分精度
 
-// ── SSOT 台帳を読む ────────────────────────────────────────────────────────
+// ── 台帳（X の状態の正本・DN-0612 P7）を読む ───────────────────────────────────
+// 判定の語は旧 status.json のまま使う: scheduled＝承認済み・予約に未投入（台帳 approved）、
+// queued＝予約に入れた（台帳 scheduled）、posted＝投稿済み（台帳 published）。止めた行と draft は対象外。
+const LEGACY_STATUS = { approved: "scheduled", scheduled: "queued", published: "posted" };
 function loadTweets() {
-  const bases = ["content/sns/x/draft", "content/sns/x/published"];
-  const out = [];
-  for (const base of bases) {
-    const dir = path.join(ROOT, base);
-    if (!fs.existsSync(dir)) continue;
-    for (const name of fs.readdirSync(dir)) {
-      if (name.startsWith("_")) continue; // _archive 等（旧アカウント退避）は除外
-      const f = path.join(dir, name, "status.json");
-      if (!fs.existsSync(f)) continue;
-      try {
-        const raw = JSON.parse(fs.readFileSync(f, "utf-8"));
-        const list = raw.tweets
-          ? (Array.isArray(raw.tweets) ? raw.tweets.map((t, i) => ({ n: String(i + 1), ...t })) : Object.entries(raw.tweets).map(([n, t]) => ({ n, ...t })))
-          : [];
-        list.forEach(t => out.push({ draft: name, ...t }));
-      } catch { /* skip corrupt */ }
-    }
-  }
-  return out;
+  return loadXPosts(ROOT)
+    .filter(p => LEGACY_STATUS[p.status])
+    .map(p => ({ ...p, draft: p.folder, n: p.key, status: LEGACY_STATUS[p.status], scheduled_at: p.publishAt, posted_at: p.publishedAt }));
 }
 
 // ── near-duplicate 検出（正規化 → 文字トライグラム Jaccard）───────────────
@@ -108,9 +94,9 @@ for (const [slot, items] of Object.entries(bySlot)) {
 }
 
 // 1.5 年間の枠 --------------------------------------------------------------
-// 枠の検査の対象の予約は、slot を持つ月次計画の行に結ばれていなければならない（config/channel-annual-plan.json）
+// 枠の検査の対象の予約は、frame（年間の枠 id）を持つ月次計画の行に結ばれていなければならない（config/channel-annual-plan.json）
 for (const line of tweetsOutsidePlan(loadChannelPlan(ROOT).channels.x, loadXCampaigns(ROOT), active)) {
-  blocks.push(`計画にない投稿 ${line}: 月次計画の行に slot を書く`);
+  blocks.push(`計画にない投稿 ${line}: 月次計画の行に frame を書く`);
 }
 
 // 2. near-duplicate ---------------------------------------------------------
@@ -174,13 +160,13 @@ if (WITH_QUEUE) {
     const snippets = new Set(snapshot.rows.flatMap(r => r.text.split("\n").map(s => s.trim()).filter(Boolean)));
     console.log(`   キュー取得: ${snippets.size} 行`);
     // 未投入(scheduled)のみ照合。queued は既にキュー投入済＝在って当然なので除外（後日 run の二重誤検出回避）。
-    for (const t of future.filter(t => t.status === "scheduled" && t.manual_only !== true)) {
+    for (const t of future.filter(t => t.status === "scheduled")) {
       const needle = (t.text || t.title || "").slice(0, 15).replace(/\s+/g, " ").trim();
       if (!needle) continue;
       for (const s of snippets) {
         if (s.includes(needle)) {
-          blocks.push(`実キュー二重 : [${t.draft}] "${needle}…" は status=scheduled なのに既にX予約キューに存在。` +
-            `再予約すると同枠二重投稿になる（x-sync-status で queued へ昇格させるか、この予約を外す）`);
+          blocks.push(`実キュー二重 : [${t.draft}] "${needle}…" は台帳で approved（未投入）なのに既にX予約キューに存在。` +
+            `再予約すると同枠二重投稿になる（publish-x の記録漏れなら台帳を scheduled に直すか、この予約を外す）`);
           break;
         }
       }

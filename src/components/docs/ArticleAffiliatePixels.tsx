@@ -7,7 +7,7 @@ import { useAffiliateVariant } from '@/components/ui/CareerAffiliate/CareerAffil
 
 import type { ArticlePixelCandidate } from '@/lib/article-affiliate-plan';
 
-/** 1 ページ・1 案件・1 発。hydration・resize・B2 の出現で同じ案件を再送しない。 */
+/** 1 ページ・1 案件・1 発。hydration・resize で同じ案件を再送しない。 */
 export default function ArticleAffiliatePixels({ candidates }: { candidates: ArticlePixelCandidate[] }) {
   const variant = useAffiliateVariant();
   const container = useRef<HTMLSpanElement>(null);
@@ -15,9 +15,8 @@ export default function ArticleAffiliatePixels({ candidates }: { candidates: Art
   useEffect(() => {
     if (!variant) return;
     const desktop = window.matchMedia('(min-width: 993px)');
-    const wide = window.matchMedia('(min-width: 1024px)');
     const send = () => {
-      const owners = chooseArticlePixels(candidates, vocab.affiliate, { desktop: desktop.matches, wide: wide.matches, variant }) as ArticlePixelCandidate[];
+      const owners = chooseArticlePixels(candidates, vocab.affiliate, { desktop: desktop.matches }) as ArticlePixelCandidate[];
       for (const owner of owners) {
         if (sent.current.has(owner.program) || !container.current) continue;
         sent.current.add(owner.program);
@@ -31,8 +30,8 @@ export default function ArticleAffiliatePixels({ candidates }: { candidates: Art
       }
     };
     send();
-    desktop.addEventListener('change', send); wide.addEventListener('change', send);
-    return () => { desktop.removeEventListener('change', send); wide.removeEventListener('change', send); };
+    desktop.addEventListener('change', send);
+    return () => desktop.removeEventListener('change', send);
   }, [candidates, variant]);
   return <span ref={container} hidden data-article-pixels />;
 }

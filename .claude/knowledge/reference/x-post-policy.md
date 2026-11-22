@@ -145,44 +145,8 @@ content/sns/x/
 
 - **書式**: `## Tweet NN: タイトル [thread]` ＋ 本文内を `--- リプライ ---` 行で区切る。1 部目＝ヘッド、2 部目以降＝リプライ。各部が独立ツイートとして 280 weighted 判定される（`check-x-length` が part 別に検査）。
 - **即時投稿**（`--immediate`）: `publish-x` が composer で全部組んで一括投稿（完全対応）。
-- **予約投稿**: `publish-x` は**ヘッドのみ**ネイティブ予約し、リプライ本文を `status.json` の `thread: { parts, replies_posted_at: null }` に記録する。予約時刻の経過後に **`node scripts/x/x-thread-replies.mjs --run`** を人間トリガーで実行 → ライブになったヘッドを自分のプロフィールから特定し、リプライをチェーンでぶら下げる（`--list` で pending 確認・`--dry-run` でヘッド特定まで）。リプライが数十分〜数時間遅れても自己リプライとして自然。
-- cron 常駐はしない（自動化フットプリント最小化・§11.3）。予約スレッドがある週は、ヘッド配信後に 1 回 `--run` を叩く運用。
+- **予約投稿**: X の予約はスレッドに対応しないので、`publish-x` はスレッドの予約を止める。スレッドは `--immediate` で出す（ヘッドだけ予約して後からリプライをつなぐ `x-thread-replies` は 2026-11-21 に撤去・DN-0612 P7）。
 
-### 5.3 実績・社会的証明型の作法（売上スクショ）
-
-- **購入者名は必ずマスク**。加工より DOM 置換（購入者名を「■■■」に置換してからスクショ）が確実（可逆リスクゼロ）。**外部公開前にユーザー目視承認を必須チェックポイントにする**。
-- 数字軸の裏取り: 販売実績は `data/note/sales.json` と突合してから書く（捏造・誇張の禁止・§9/軸2）。
-- **合否保証・断定表現は禁止**（[[note-selling-structures]] の Red Line と同じ）。「買えば受かる」ではなく「不合格の再受験コスト（受験料＋1年）vs 教材コスト」の**機会費用の対比**で訴求する。
-- 頻度は **週3本まで**（2026-07-14 ユーザー決定。当初案は週1本＝押し売り化懸念だったが、需要期の露出を優先して週3本に拡大）。緩和条件: ①3本は**各別角度**（機会費用/社会的証明/再受験をお金で買う 等）②**同一画像の3連投をしない**（少なくとも1本はテキストのみ＝メディア重複の spam footprint 回避）③near-dup ガード（Jaccard≥0.62 BLOCK）を全本通す。エンゲージ実測で押し売り兆候（伸び劣化）が出たら週1本に戻す。
-
-## 5.4 販売投稿の時期・締切・段階告知（2026-09-30）
-
-> **年間の枠（2026-11-06）**: 型・本数・販売の上限・時期の正本は `config/channel-annual-plan.json` の `channels.x`。枠の立ち位置と材料は `npm run competitor-position -- --slot <枠 id>` で読む。2026-12-01 以降の月次計画は、各投稿の `slot` に枠の id を書き、`type` は枠の型の `types` から選ぶ。`npm run check-channel-plan` と `x-schedule-guard` が計画にない投稿を止める。本文と日時は月次計画で決める。
-
-根拠は [07b_販売動線分析_ちゃんさと_2026-09.md](../../../docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md) §4。
-
-- **締切は1つにそろえる**: 添削の受付・購入者の質問・note の割引など、販売の締切は資格ごとに「本試験の1週間前」へそろえ、同じ日付を繰り返し書く。ココナラ添削の受付締切日は運営者が決めてから投稿に書く（未定のまま日付を書かない）
-- **販売投稿は山場に集める**: 平常時はノウハウ（リンクなし・サイト誘導）だけにし、note・ココナラへの販売投稿は合格発表日・試験直前の窓に集める。本試験前日は購入を促さない（学習点検だけ）
-- **新商品は4段で告知する**: 制作中 → 完成間近 → 発売（割引があれば割引） → 割引最終日。各段は文面を変え、§11 の重複・連投・一括予約の制限を守る
-- **販売投稿の連続（計画の検査）**: `check-x-campaign-plan` は計画ファイル 1 本の中だけで販売投稿の隣接を見る。予約の差し替えなどで計画内では隣り合っても、実際の予約で他の計画の非販売投稿が前後に入っていると予約一覧で確かめたときだけ、その投稿に `salesAdjacencyReason`（確かめた日と間に入る投稿・10 字以上）を書く。NG は WARN に下がる。差し替え元の原稿は status を `replaced`（`replaced_by` に差し替え先）にし、未投入に数えない
-- **リンクなしの予告は試すだけ**: 自社実績ではリンクなし投稿の反応の中央値が 0（§11.2.1）。予告だけの投稿は比較できる形で試すに留め、標準にしない
-
-## 5.5 リパーパス戦略（同一コアを6切り口で展開）
-
-→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`.claude/shared-policy/REPURPOSE.md`](../../shared-policy/REPURPOSE.md) を参照。投稿型↔角度（`angle`）の全対応表は [`.claude/knowledge/reference/content-angle-policy.md`](./content-angle-policy.md) §6.3 参照。
-
-## 6. URL / UTM
-
-- 投稿内 URL は 1 本まで（23 weighted）。
-- UTM 統一フォーマットは `docs/marketing/02_チャネル動線設計.md` §4 準拠（`utm_source=x` / `utm_medium=social`）。送客リンクへの付与は `node scripts/lib/utm-builder.mjs --url <URL> --channel x --format post --campaign <name>`（`utm-templates.json` 由来・冪等・既存 UTM は上書きしない）。
-- リンクは短縮 URL を使い、weighted 23 固定の利点を活かす。
-- **サイトへのリンクは新 URL（`/exam/{資格}/{種別}/{slug}` `/practice/{slug}` `/standards/...` `/topics/...` `/laws/{参考文献の id}`）で書く**（最重要・404 防止）。旧 `/docs/{slug}` は 2026-08-22 の URL 移行で 301 になった。届きはするが、読者は毎回 301 を挟み、Google は被リンク先の旧 URL を正規に選び続ける（DN-0288）。
-  - 例: `https://doboku-note.com/exam/civil-construction-2/primary/r03-kouki`（旧 `/docs/civil-construction-2-primary-r03-kouki`）
-  - 例: `https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026`（総監と土木で分岐する共通名は資格を確定する）
-  - 新旧の対応の真実源は `public/_redirects`。資格以降をハイフンでつなぐ（`/exam/<資格>/primary-r03-kouki`）と 404 になる。
-- **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/checks/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は既存の下書きでは `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。**これから commit する原稿（`--staged`）と note の原稿は旧 `/docs/` 自体を不可**（2026-11-11〜。旧 URL へのリンクが Google に旧 URL を正規と選ばせ続ける）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
-
-## 7. サマリカード画像（scripts/build/gen-x-card.mjs）
 
 ### 先生付きカードと予約原稿の確認
 
@@ -190,12 +154,10 @@ content/sns/x/
 
 全面生成の採用POP画像は、同じカードに `design: "pop-poster-v3"` と `approvedImage: {path, sha256}` を指定する。`path` は `media plate` で保存した1200×675の不変PNG。`gen-x-card` はDriveから復元してSHAと寸法を照合し、保存画素をそのまま再出力する。画像生成ツールを再実行せず、通常の先生組版へも戻さない。見出し・要点・ポーズ・altは実画像に合わせて保持する。
 
-PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-review` が「画像の生成・更新が必要」で停止する。採用後はフォルダ名全体と `--tweet N --force` で上記CLIを実行し、描画台帳も更新する。Git管理外のPOPカードは原稿hashと採用参照の一致、端末のPNGは `check-x-review --local` で実体hashを検査する。AIの忠実性判定・外部投稿への反映は別に記録する。
+PNGのコピーだけでは旧描画台帳の原稿hashが残る。採用後はフォルダ名全体と `--tweet N --force` で上記CLIを実行し、描画台帳も更新する。AIの忠実性判定・外部投稿への反映は別に記録する。
 
 - 生成: `node scripts/build/gen-x-card.mjs --draft 091-civil-2026-09-b --force`。代表1枚は `--tweet 1` を追加する。ドラフトはフォルダ名全体で指定する。数字だけの指定は候補が一意の場合のみ受理し、同番号の別企画があれば停止する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
-- 確認: `npm run x-review` → `http://127.0.0.1:3026`。`content/sns/x/review.json` の期間・対象計画から、画像・本文・日時・note導線を表示する閲覧専用ページ。検索・週別・note絞り込み・拡大・本文コピーに対応。常時起動は不要。
-- 検査: `npm run check-x-review` は期間内の計画と原稿をドラフト・番号・日時で1件ずつ照合し、欠落・余分な原稿・重複・空白日を検出する。日ごとの本数は対象計画に従い、1日3本以内・間隔60分以上・販売1日1本を横断検査する。原稿とstatusの一致、文字数、公開マガジン・UTM・画像用原稿も検査。`-- --local` は端末の全対象PNGをSHA-256照合する。画像のないCIは原稿と描画台帳のみで、画像実体の検査済みとはしない。
-- 状態: 月次計画は当初案として保持し、確認画面ではstatusの `original_scheduled_at`（未設定なら `scheduled_at`）と当初日時の一致を検査したうえで `scheduled_at` の変更後日時へ解決する。Articleの告知解放も当初日時で月次計画のURLを更新し、原稿の見出しには予約台帳の最新タイトルを使う。`scheduled` は予約用原稿、`queued` は既存の投入済み台帳。確認画面や画像生成からXへの予約完了を推定しない。別企画のArticle公開やURL確定待ちは警告表示して保持する。実投入は§11の実キュー照合へ進む。
+- 予約原稿の確認画面（`x-review`）と照合（`check-x-review`）は 2026-11-21 に撤去した（9〜11 月の 1 企画専用。X の状態の正本を台帳へ移したため・DN-0612 P7）。月次計画ごとの確認は、月次承認の画面で行う。
 
 ### 従来カード
 
@@ -307,9 +269,9 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 
 > **背景（2026-06-21）**: 凍結後に作った新アカウントで再開する際、(a) 古い予約が残ったまま同枠に再予約 → 同時刻二重投稿、(b) 旧アカ status.json の残骸を誤って publish → 凍結文面の再投稿、という二重事故を構造的に防ぐため**機械ゲート**を新設。`§11.1〜11.4` を人/エージェントの規律で守った上で、**予約実行の直前に必ず通す門番**として機能する。
 
-**SSOT**: X の投稿の状態（投稿してよいか・投稿したか）の正本はコンテンツ台帳（`content/registry/publications/x/{exam}.json`・[content-registry.md](content-registry.md)）。`content/sns/x/{draft,published}/<NNN>-*/status.json` は文面（`text`）と運用の記録（`scheduled_at` など）を持つ旧い写しで、P7 で文面を `tweets.md` へ寄せてから消す。移行のあいだ書き手は status.json も書くが、`loadLedger` は台帳の stopped・published を重ねて候補から外し、`publish-x` は投稿後に台帳へも書く（`scripts/lib/registry-x-store.mjs`）。
+**SSOT**: X の投稿の状態（投稿してよいか・投稿したか）の正本はコンテンツ台帳（`content/registry/publications/x/{exam}.json`・[content-registry.md](content-registry.md)）。文面は下書きの `tweets.md`（台帳の `copy: tweets.md#tweet/N`）。下書きの `status.json` は 2026-11-21 に撤去した（DN-0612 P7）。読み手は `scripts/lib/registry-x-store.mjs` の `loadXPosts`、書き手は `publish-x`（予約・投稿）・`x-sync-status`（キューで確かめた時刻）・`npm run registry -- reconcile-x`（投稿済みの照合）。
 
-**門番**: `npm run x-schedule-guard`（[scripts/x/x-schedule-guard.mjs](../../../scripts/x/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
+**門番**: `npm run x-schedule-guard`（[scripts/x/x-schedule-guard.mjs](../../../scripts/x/x-schedule-guard.mjs)）。台帳の X の行（`loadXPosts`）を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
 
 | 検査 | 判定 | 対応する §11 / 事故 |
 |---|---|---|
@@ -320,32 +282,14 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 | 同一 URL を3件以上の予約に貼付 | WARN | §11.1 |
 | `--queue`: X 実キューに予約予定の本文が既存 | BLOCK | (a) 古い予約残存の実体検出 |
 
-- **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9＋下記 queued 昇格）。緑でない限り予約しない。
+- **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ `npm run registry -- import-x --folder <フォルダ> --commit`（台帳に draft で足す）→ 月次計画に日時と `frame` → 運営者が `npm run registry -- approve-x-plan --plan <月次計画>` の一覧（管理画面 `/sns/x/plans`）を見て、出た `--expect <digest>` つきのコマンドを自分の端末で打つ（台帳 approved・投稿ごとに本文と日時のハッシュ。あとで本文か日時を変えた投稿だけ承認が外れる）→ **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行（台帳 scheduled）→ `npm run x-sync-status`（偽成功の実査・§9・台帳に `times.queueVerified`）→ 予約日時の後に `npm run registry -- reconcile-x --commit`（published）。緑でない限り予約しない。`publish-x` は、台帳に行が無い・承認されていない・承認が今の本文と日時に合わない・指定の日時が承認した日時と違う、のどれかで止まる。
 - **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（対象アカウントのX予約一覧で本文冒頭と予約日時の一致を確認）→ `posted`（公開URLなどで配信を確認）。`x-sync-status` はキュー照合で `queued` へ昇格するが、期限経過とキューからの消失だけでは `posted` にしない。ログイン未完了・別アカウント・一覧取得失敗は検査不成立として停止する。guard は `scheduled`＋`queued` を計画衝突の対象にし、`--queue` の二重投入チェックは `queued` を除外する。`x-schedule-view` と予約充足表示は `queued` だけを予約実績に数え、未投入計画を分ける。最終予約記録は途中の空白がない保証ではない。次バッチは未投入の `scheduled` のみを対象化する。
-- **アカウント境界（epoch）**: 凍結アカウントの drafts は `content/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
+- **日時未定のストック**: 日時を決めずに置く下書きは、tweets.md の題の直後に `<!-- x-stock: <載せる先> -->` を 1 行書く（載せる先は年間計画の枠 id か、担当のカード番号）。`x-queue-surfacer` は日付が 1 つも読めない下書きのうち印のあるものを「判定不能（要対応）」でなく「ストック」に数える。日付が読める下書きは印があっても due 判定する。使わないと決めた下書きは印でなく、台帳の行を止める（`npm run registry -- stop`・運営者）。
+- **アカウント境界（epoch）**: 凍結アカウントの drafts は `content/sns/x/_archive-<handle>/` へ退避する（旧アカウント @dobokunotecom の箱は 2026-11-21 に下書きごと消し、台帳の行も撤去した）。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
 
-### 11.5.1 投稿の頻度ゲート（2026-09-21 制定・CI 投稿は 2026-10-24 に廃止）
+### 11.5.1 投稿の頻度ゲート（2026-09-21 制定・2026-11-21 撤去）
 
-> **背景**: 2026-10-24（DN-0817）に CI からの X 自動投稿（`scheduled-publish.yml`・30 分刻み cron）を廃止した。X への投稿は運営者の Mac の profile だけで行い、CI はログインしない。人が都度目視していた歯止め（§11.1〜11.2）をコードで再現する頻度ゲートは、自動の経路を作り直すときの部品として残す。実体は `scripts/lib/x-frequency-gate.mjs`（純関数・fs/ネットワーク非依存）。
-
-**12 規則**（`evaluateXFrequencyGate`。1 件でも該当すれば `allow:false` で投稿しない）:
-
-1. `ledger-unavailable` — 台帳（status.json + posted-log.jsonl）が読めない
-2. `paused` — `.claude/state/x-repost/PAUSED` が存在する
-3. `account-state` — live のアカウント状態が `ok` でない
-4. `live-unavailable` — live 取得ができない、または `todayCount` が null
-5. `ledger-live-mismatch` — 台帳の当日件数と live の `todayCount` が不一致
-6. `per-day` — 当日 posted + 候補1件が上限（既定2）超
-7. `sales-per-day` — 当日の販売系 posted が上限（既定1）以上
-8. `per-week` — 直近7日の posted + 候補1件が上限（既定3）超
-9. `min-gap` — 直近 posted からの経過が下限（既定60分）未満
-10. `near-dup` — 直近30日の posted とのトライグラム Jaccard 類似度が閾値（既定0.62）以上
-11. `same-minute` — 直近7日に同一 HH:MM の posted が repeat 閾値以上
-12. `same-media` — 直近 posted が候補と同一画像を repeat 閾値回連続
-
-- **判定不能は投稿しない**: ledger 未取得・live 未取得・account-state 異常はいずれも「わからない」を allow 側に倒さず block する（§9 偽成功検証と同じ設計思想）。
-- **ライブ件数と台帳の突合**（規則5）: X 実キュー/実績（live）と `content/sns/x/*/status.json` 台帳が食い違えば、二重投稿や記録漏れの兆候として block する。
-- **account-state で自動 PAUSED**: live のアカウント状態異常（ロック・機能制限）を検知したら人の判断を待たず block する。`limits` は `clampLimits` で既定値より緩められない（count 系は下げる方向のみ・間隔/窓は伸ばす方向のみ）。
+2026-10-24（DN-0817）に CI からの X 自動投稿を廃止したあと、自動の経路を作り直すときの部品として残していた `scripts/lib/x-frequency-gate.mjs`（12 規則）は、本番の呼び手が無いまま 2026-11-21 に撤去した（DN-0612 P7）。予約の前の歯止めは §11.5 の `x-schedule-guard`。自動の経路を作り直すときは git の履歴から取り出す。
 
 ### 11.7 競合 read（scout-x-competitors）の安全弁
 
@@ -403,6 +347,6 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 
 `npm run check-x-queue-health` は対象アカウントのX実予約を読み取り、本文冒頭と予約分を台帳と照合する。翌日から7日間の空白、未来のqueuedの欠落、7日以内の未投入計画、同分重複、日3件超、予約終了まで7日以内を検出する。Articleは予定時刻の1時間後から未公開を検出し、公開後の告知予約・告知の公開未確認も対象にする。通常投稿の公開成否はこの検査では判定しない。
 
-結果は `.tmp/x-queue-health/latest.json`（再生成可能なローカル出力）。exit 0=実査PASS、1=対応必要、2=検査不成立。認証・別アカウント・不完全な取得・壊れた台帳は予約ゼロに変換せずBLOCKEDにし、前回PASSを失敗結果で上書きする。検査はXの予約を追加・削除せず、status.jsonも書き換えない。
+結果は `.tmp/x-queue-health/latest.json`（再生成可能なローカル出力）。exit 0=実査PASS、1=対応必要、2=検査不成立。認証・別アカウント・不完全な取得・壊れた台帳は予約ゼロに変換せずBLOCKEDにし、前回PASSを失敗結果で上書きする。検査はXの予約を追加・削除せず、台帳も書き換えない。
 
 Codexのこの作業タスクに紐づく監視は毎日09:30・21:30（JST）。変化のない正常時は通知せず、新しい問題・悪化・復旧を通知する。予約の再投入前には公開済み投稿と予約一覧の両方を照合し、取消や公開済みを再投稿しない。MacとCodexが稼働している時間に実行するため、停止中の常時監視を保証するものではない。Articleの時刻指定自動化も同じ実行条件になる。

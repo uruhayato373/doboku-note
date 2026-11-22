@@ -81,7 +81,7 @@ PE で型を作り、Civil へ流用した。
 
 **データ源（新規取得は不要）**: 既存自動計測を参照する。
 - 金 06:00 JST の CI `fetch-metrics.yml` が `npm run fetch-gsc-data` で `data/gsc/reports/`（`gsc.query` / 7日窓 `gsc.date`）にコミット。
-- 土曜 09:30 の Mac の週次レビュー（`scripts/scheduled/weekly-review.sh`・手順は [workflows.md](../../.claude/knowledge/reference/workflows.md)）が上記を読んでレビューする（クラウドルーティンは持たない）。
+- 土曜 09:30 の Mac の収集（`scripts/scheduled/weekly-review.sh`）のあと、13:10 のスケジュール済みタスクの週次レビューが上記を読む（実行主体の正本は [04_自動化マップ.md](./04_自動化マップ.md)。クラウドルーティンは持たない）。
 - → C1 は「~6/30 頃の週次レビュー時に、下記の軸で**この実験固有の効果**を見る」だけでよい。専用ルーティンは作らない（routine 重複禁止の教訓）。
 
 **評価軸と決定ルール**:

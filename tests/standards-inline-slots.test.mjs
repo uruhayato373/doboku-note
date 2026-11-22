@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import { URL } from 'node:url';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { planInlineSlots, withInlineSlots, INLINE_FIRST_CHARS, INLINE_INTERVAL_CHARS, INLINE_REMAINING_CHARS, INLINE_MAX_SLOTS } from '../src/lib/standards-inline-slots.mjs';
+import { planInlineSlots, planStandardsAdSlots, withInlineSlots, INLINE_FIRST_CHARS, INLINE_INTERVAL_CHARS, INLINE_REMAINING_CHARS, INLINE_MAX_SLOTS, STANDARDS_AD_GAP_CHARS, STANDARDS_AD_INTERVAL_CHARS, STANDARDS_AD_MAX_SLOTS } from '../src/lib/standards-inline-slots.mjs';
 
 const text = (n) => '土'.repeat(n);
 const table = '| 項目 | 基準 |\n| --- | --- |\n| 高さ | 10 |';
@@ -81,7 +81,7 @@ test('2-1章は表の後に 3 枠置き、末尾と枠の間隔の字数を守�
   }
 });
 
-test('描画した面だけがピクセルを持ち、rail 3 面・モバイル追加でも重複しない', async () => {
+test('描画した面だけがピクセルを持ち、rail 2 面・モバイル追加でも重複しない', async () => {
   const { execFileSync } = await import('node:child_process');
   const { execPath } = await import('node:process');
   const script = `
@@ -94,7 +94,7 @@ test('描画した面だけがピクセルを持ち、rail 3 面・モバイル�
     cases.push({ pageKind: 'standards-list', inlineSlots: [] });
     const result = cases.map(props => {
       const { inlineSlots, pageKind } = props;
-      const railSlots = pageKind === 'standards' ? ['standards-rail', 'standards-rail-2', 'standards-rail-3'] : ['standards-list-rail', 'standards-list-rail-2'];
+      const railSlots = pageKind === 'standards' ? ['standards-rail', 'standards-rail-2'] : ['standards-list-rail', 'standards-list-rail-2'];
       const rail = railSlots.map(slot => renderToStaticMarkup(React.createElement(StandardsRailBanner, { ...props, slot }))).join('');
       const end = renderToStaticMarkup(React.createElement(StandardsEndBanner, props));
       const inline = inlineSlots.map(slot => renderToStaticMarkup(React.createElement(StandardsInlineBanner, { slot, inlineSlots }))).join('');
@@ -113,9 +113,10 @@ test('描画した面だけがピクセルを持ち、rail 3 面・モバイル�
   `;
   // tsx CLI は IPC の listen を要求するため、sandbox でも動く import フックで描画する。
   const results = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
-  assert.deepEqual(results.map((r) => r.railPixels), [2, 1, 1, 1], 'buildjob は inline を優先、kensetsu-jobs は end を優先し、neo は rail が持つ');
-  assert.deepEqual(results.map((r) => r.extraCards), [2, 1, 1, 1], '本文中・本文末にない buildjob と neo だけモバイル追加する');
-  assert.equal(results[2].cards, 11, '本文中6枚・rail3枚・末尾1枚・モバイル追加1枚');
+  // 右の欄の転職は 2 面まで（standards-rail・standards-rail-2＝RAIL_AFFILIATE_MAX・2026-11-22）。3 面目の neo は出さない
+  assert.deepEqual(results.map((r) => r.railPixels), [1, 0, 0, 1], 'buildjob は inline を優先、kensetsu-jobs は end を優先し、本文に無いときだけ rail が持つ');
+  assert.deepEqual(results.map((r) => r.extraCards), [1, 0, 0, 1], '本文中・本文末にない案件だけモバイル追加する');
+  assert.equal(results[2].cards, 9, '本文中6枚・rail2枚・末尾1枚・モバイル追加0枚');
   for (const result of results) {
     assert.equal(result.railArms, 0);
     assert.equal(result.extraPixels, 0);
@@ -136,7 +137,7 @@ test('表も 2 つ目の ## も無い長い章は段落の切れ目に置き、�
 });
 
 
-test('PC は上端・目次後・回遊カード間へ配置し、モバイルの Disclosure には入れない', async () => {
+test('PC は上端・目次後の 2 面だけに置き（章・節）、モバイルの Disclosure には入れない', async () => {
   const { execFileSync } = await import('node:child_process');
   const { execPath } = await import('node:process');
   const script = `
@@ -176,8 +177,8 @@ test('PC は上端・目次後・回遊カード間へ配置し、モバイル�
   `;
   const data = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
   for (const row of data.rows) {
-    assert.deepEqual(row.order.slice(0, 5), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related', 'standards-rail-3']);
-    assert.ok(row.order.length > 5, '3面目は回遊カードの間');
+    assert.deepEqual(row.order.slice(0, 4), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related']);
+    assert.equal(row.order.filter(v => /^standards-rail/.test(v)).length, 2, '右の欄の転職は 2 面まで（RAIL_AFFILIATE_MAX）');
     assert.deepEqual(row.sectionOrder, row.order);
     assert.equal(row.mobileAds, 0);
   }
@@ -187,4 +188,31 @@ test('PC は上端・目次後・回遊カード間へ配置し、モバイル�
   assert.deepEqual(data.single, ['card', 'standards-list-rail-2'], '回遊が1枚だけなら後ろ');
   assert.equal(data.main, true);
   assert.equal(data.text, true);
+});
+
+test('AdSense の本文枠: 転職の最後の枠より後・転職から 800 字以上・約 5,000 字ごと・最大 10 枠（2026-11-22）', () => {
+  // 表で区切った 1,500 字の段を 40 個（6 万字）。転職は前の方に 3 枠、AdSense はその後ろに並ぶ
+  const md = `${text(700)}\n${table}\n` + `${text(1500)}\n${table}\n`.repeat(40) + text(900);
+  const banners = planInlineSlots(md).insertAt;
+  const ads = planStandardsAdSlots(md, banners).insertAt;
+  assert.equal(banners.length, INLINE_MAX_SLOTS);
+  assert.equal(ads.length, STANDARDS_AD_MAX_SLOTS, '長い章は上限まで置く');
+  const lines = md.split('\n');
+  const at = (line) => lines.slice(0, line).join('').replace(/\s/g, '').length;
+  const lastBanner = banners[banners.length - 1].line;
+  for (const [i, ad] of ads.entries()) {
+    assert.ok(ad.line > lastBanner, '転職の最後の枠より後');
+    assert.ok(banners.every((b) => Math.abs(at(ad.line) - at(b.line)) >= STANDARDS_AD_GAP_CHARS), '転職の枠から 800 字以上');
+    if (i) assert.ok(at(ad.line) - at(ads[i - 1].line) >= STANDARDS_AD_INTERVAL_CHARS, '前の AdSense から 5,000 字以上');
+    assert.equal(ad.slot, i ? `standards-adsense-${i + 1}` : 'standards-adsense');
+  }
+  const output = withInlineSlots(md);
+  assert.equal((output.match(/<StandardsInlineBanner /g) ?? []).length, INLINE_MAX_SLOTS);
+  assert.equal((output.match(/<StandardsInlineAd /g) ?? []).length, STANDARDS_AD_MAX_SLOTS);
+});
+
+test('AdSense の本文枠: 転職の最後の枠の後ろに区切りが無い短い章は置かない', () => {
+  const md = `${text(700)}\n${table}\n` + `${text(INLINE_INTERVAL_CHARS)}\n${table}\n`.repeat(2) + text(900);
+  assert.equal(planInlineSlots(md).insertAt.length, INLINE_MAX_SLOTS);
+  assert.equal(planStandardsAdSlots(md).insertAt.length, 0);
 });

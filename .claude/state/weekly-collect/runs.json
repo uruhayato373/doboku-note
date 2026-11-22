@@ -757,6 +757,286 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "pre",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-21T00:30:17.306Z",
+      "finishedAt": "2026-11-21T01:14:31.873Z",
+      "stages": [
+        {
+          "id": "drive",
+          "title": "Drive の読み取り（note 同期の配布 PDF）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [],
+          "durationSec": 2
+        },
+        {
+          "id": "auth",
+          "title": "ログインの確認と入り直し",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "auth-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 80
+        },
+        {
+          "id": "a8",
+          "title": "A8 の成果（前月と当月）",
+          "status": "failed",
+          "reason": "検算 a8-ui-run: [check-a8-ui-run] FAIL result-detail: rawFile が実在しない（null）",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [
+            {
+              "id": "a8-report-due",
+              "exit": 0
+            },
+            {
+              "id": "a8-ui-run",
+              "exit": 1
+            }
+          ],
+          "durationSec": 294
+        },
+        {
+          "id": "moshimo",
+          "title": "もしもの成果（前月と当月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0
+          ],
+          "verify": [
+            {
+              "id": "moshimo-report-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 19
+        },
+        {
+          "id": "kdp",
+          "title": "KDP のロイヤリティ",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0
+          ],
+          "verify": [
+            {
+              "id": "kdp-report-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 179
+        },
+        {
+          "id": "note-traffic",
+          "title": "note のアクセス（月と 2026-11-09〜2026-11-15）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 129
+        },
+        {
+          "id": "note-sales",
+          "title": "note の売上",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "sales-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 20
+        },
+        {
+          "id": "coconala",
+          "title": "ココナラの取引・出品分析・売上履歴",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "coconala-analytics",
+              "exit": 0
+            }
+          ],
+          "durationSec": 519
+        },
+        {
+          "id": "product-sales",
+          "title": "商品別の月次販売の台帳（前月と当月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [],
+          "durationSec": 1
+        },
+        {
+          "id": "business-records",
+          "title": "月の受取額と固定費の記録（前々月と前月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 1
+        },
+        {
+          "id": "gsc",
+          "title": "GSC の登録リクエスト 10 件と月次の理由別 CSV",
+          "status": "failed",
+          "reason": "検算 gsc-ui-run: [check-gsc-ui-run] run=なし unit 0（downloaded 0 / 0 件 0 / 失敗 0）実検査 0 / FAIL 0 / WARN 0",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "gsc-ui-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-indexing-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-ui-run",
+              "exit": 2
+            }
+          ],
+          "durationSec": 2
+        },
+        {
+          "id": "note-status",
+          "title": "note の公開状態・マガジン・題名と価格の照合（毎週）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 1132
+        },
+        {
+          "id": "note-audit",
+          "title": "note の全記事の照合（構造・タグ・本文・カード・導線。月 1 回）",
+          "status": "skipped",
+          "reason": "前回（2026-11-14）から 27 日たっていない",
+          "exits": [],
+          "verify": [],
+          "durationSec": 0
+        },
+        {
+          "id": "note-public-view",
+          "title": "note の公開画面の照合（公開 API・全件）",
+          "status": "warn",
+          "reason": "[check-note-public-view] ✗ 読者から見て不整合 63 本（WARN 0）。スクリーンショット: /Users/minamidaisuke/doboku-note/.claude/worktrees/weekly-collect/.tmp/note-public-view",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 200
+        },
+        {
+          "id": "competitors",
+          "title": "競合の公開データ（四半期）",
+          "status": "skipped",
+          "reason": "今の四半期の取得が済んでいる（note 2026-11-06・ココナラ 2026-10-01）",
+          "exits": [],
+          "verify": [],
+          "durationSec": 0
+        }
+      ],
+      "commit": {},
+      "leftover": []
+    },
+    {
+      "phase": "post",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-21T01:18:02.239Z",
+      "finishedAt": "2026-11-21T03:43:14.128Z",
+      "stages": [
+        {
+          "id": "note-live",
+          "title": "note の添付のライブ照合",
+          "status": "warn",
+          "reason": "node scripts/note/note-attach-file.mjs --note ndf50c0266cbe --file \"content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/上下水道部門-必須科目I-R09予想-I-模範解答.pdf\" --commit",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 2829
+        },
+        {
+          "id": "note-sync",
+          "title": "note の記事の同期（本文・カバー・タグ）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "note-sync-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 5373
+        },
+        {
+          "id": "note-sync-check",
+          "title": "note の反映の照合（公開 API）",
+          "status": "warn",
+          "reason": "[check-note-sync] ✗ 未反映 記事 434（止まっている 11）・マガジン 0。土曜の Mac の収集（weekly-collect の note-sync 段）が反映し、止まっている分は管理画面 /content/note-sync",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 490
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }

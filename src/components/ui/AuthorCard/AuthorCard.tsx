@@ -12,16 +12,14 @@ interface AuthorCardProps {
   lastRewrittenAt?: string;
 }
 
-const formatDate = (iso?: string): string | null => formatJaDate(iso);
-
 export default function AuthorCard({
   publishedAt,
   updatedAt,
   lastRewrittenAt,
 }: AuthorCardProps) {
-  const published = formatDate(publishedAt);
-  const updated = formatDate(updatedAt);
-  const lastReviewed = formatDate(lastRewrittenAt);
+  const published = formatJaDate(publishedAt);
+  const updated = formatJaDate(updatedAt);
+  const lastReviewed = formatJaDate(lastRewrittenAt);
 
   return (
     <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10" title="執筆者">

@@ -3,9 +3,8 @@ import { classifyDoc, type DocGroupKey } from './doc-classifier';
 import { DISCOVERY_CATEGORIES, discoveryGroups } from './sidebar-discovery';
 import { resolveCurriculum } from './category-curriculum';
 import { isCivilConstructionCategory } from './qualification-names';
-import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
-import peChapters from '@/config/pe-chapters.json';
-import { peKeywordPageExists } from './pe-keyword-nav';
+import { buildPastExamNavData } from './past-exam-nav';
+import { peKeywordSlug, peSectionKeywords } from './pe-section-keywords';
 export interface CategoryNavCardProps {
  variant: 'sidebar' | 'mobile'; category: string; currentSlug: string; docGroup: DocGroupKey; categoryArticles: DocMeta[];
 }
@@ -13,8 +12,7 @@ function linklistcard(p: { variant: string; title: string; currentSlug: string; 
 function pastexamcard(p: { variant: string; currentSlug: string; categoryArticles: DocMeta[]; category: string }) { return buildPastExamNavData(p.category, p.categoryArticles)?.years.length ? { kind: 'pastExam' as const } : null; }
 function sectioncard(p: { variant: string; currentSlug: string; currentSection: string | undefined }) {
  if (p.variant === 'sidebar') {
-  const section = peChapters.chapters.flatMap(c => c.sections).find(s => s.id === p.currentSection);
-  if (!section?.keywords.some(k => k.slug === p.currentSlug.replace('pe-comprehensive-management-', '') || peKeywordPageExists(k.slug))) return null;
+  if (!peSectionKeywords(p.currentSection, p.currentSlug)?.keywords.length) return null;
  }
  return { kind: 'section' as const, currentSection: p.currentSection };
 }
@@ -96,7 +94,6 @@ export function categoryNavLinkedSlugs(props: CategoryNavCardProps): string[] {
   if (card.kind === 'links') return card.docs.map(doc => doc.slug);
   if (card.kind === 'discovery') return discoveryGroups(props.category, props.currentSlug, props.categoryArticles).flatMap(group => group.docs.map(doc => doc.slug));
   if (card.kind === 'pastExam') return (buildPastExamNavData(props.category, props.categoryArticles)?.years ?? []).flatMap(year => [year.col1, year.col2, year.col3].flatMap(doc => doc ? [doc.slug] : []));
-  return (peChapters.chapters.flatMap(chapter => chapter.sections).find(section => section.id === card.currentSection)?.keywords ?? [])
-   .filter(keyword => peKeywordPageExists(keyword.slug)).map(keyword => `pe-comprehensive-management-${keyword.slug}`);
+  return (peSectionKeywords(card.currentSection, props.currentSlug)?.keywords ?? []).map(keyword => peKeywordSlug(keyword.slug));
  });
 }

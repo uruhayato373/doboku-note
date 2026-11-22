@@ -47,29 +47,30 @@ test('17カテゴリ × 全group × career の面→案件と承認画像（総�
  assert.equal(before['article-banner'],undefined);
 });
 
-test('B/B2 × 375/768/993/1024/1440: 二社目が未表示なら別画像面が所有し、各案件は1発',()=>{
+test('375/768/993/1024/1440: 幅に出る素材だけから各案件を1発にする',()=>{
  const candidates=[
-  {program:B,slot:'article-mid',src:'b-text'}, {program:C,slot:'article-mid',src:'c-text',secondary:true},
+  {program:B,slot:'article-mid',src:'b-text'},
   {program:B,slot:'article-banner',src:'b-wide',viewport:'pc'}, {program:B,slot:'article-banner',src:'b-small',viewport:'mobile'},
   {program:C,slot:'article-banner-2',src:'c-wide',viewport:'pc'}, {program:C,slot:'article-banner-2',src:'c-small',viewport:'mobile'},
   {program:R,slot:'article-rail',src:'r-rail',viewport:'pc'}, {program:B,slot:'article-banner-end',src:'b-end'},
  ];
- for(const variant of ['B','B2']) for(const width of [375,768,993,1024,1440]) {
-  const p=chooseArticlePixels(candidates,vocab,{desktop:width>=993,wide:width>=1024,variant});
+ for(const width of [375,768,993,1024,1440]) {
+  const p=chooseArticlePixels(candidates,vocab,{desktop:width>=993});
   assert.equal(new Set(p.map(p=>p.program)).size,p.length);
   assert.equal(p.find(p=>p.program===B).src,'b-text');
-  assert.equal(p.find(p=>p.program===C).src,variant==='B2'&&width>=1024?'c-text':width>=993?'c-wide':'c-small');
+  assert.equal(p.find(p=>p.program===C).src,width>=993?'c-wide':'c-small');
   assert.equal(p.some(p=>p.program===R),width>=993);
  }
 });
 
-test('代表14ページは同じ計画関数で0〜3本文・実カード分の右欄・末尾1。MDX加工後の注入も成立',()=>{
+test('代表14ページは同じ計画関数で0〜3本文・右欄は実カード分で 2 つまで・末尾1。MDX加工後の注入も成立',()=>{
  const code=`
  import { getDoc, getAllDocsMeta } from './src/lib/docs.ts';
  import { planArticleCtas } from './src/lib/article-cta-plan.ts';
  import { articleSidebarPlan, articleSidebarInput } from './src/lib/article-sidebar-plan.ts';
  import { articleSidebarContinuation } from './src/lib/article-sidebar-continuation.ts';
  import { articleImagePlacements } from './src/lib/article-affiliate-plan.ts';
+ import { RAIL_AFFILIATE_MAX } from './src/lib/rail-continuation.ts';
  import { compile } from '@mdx-js/mdx';
  import { remarkArticleBanners } from './src/lib/article-inline-slots.mjs';
  import remarkGfm from 'remark-gfm'; import remarkMath from 'remark-math';
@@ -81,10 +82,11 @@ test('代表14ページは同じ計画関数で0〜3本文・実カード分の�
  const p=planArticleCtas(doc,all,${now});
  const input=articleSidebarInput(doc.meta,p,all.filter(m=>m.category===doc.meta.category));
  const cards=articleSidebarPlan(input);
- const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length,p.careerPlacements);
- const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),cards.length,groups.map(g=>g.slot));
+ const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length).filter(g=>!g.lower);
+ // 右の欄の転職は上の束の先頭から 2 つまで（下に続く組には置かない・DocPage と同じ渡し方）
+ const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),Math.min(cards.length,RAIL_AFFILIATE_MAX));
  const compiled=String(await compile(p.body,{remarkPlugins:[remarkGfm,remarkMath,[remarkArticleBanners,{insertAt:p.inline}]]}));
- rows.push({slug,category:doc.meta.category,slots:images.map(i=>i.placement.slot),cards:cards.length+groups.length,compiled:compiled.includes('ArticleInlineBanner'),inline:p.inline.length,mid:p.effectiveMidPositions});
+ rows.push({slug,category:doc.meta.category,slots:images.map(i=>i.placement.slot),cards:cards.length,compiled:compiled.includes('ArticleInlineBanner'),inline:p.inline.length,mid:p.effectiveMidPositions});
  }
  const longBody=Array.from({length:12},(_,i)=>'## 節'+i+'\\n\\n'+'技術と施工管理の説明。'.repeat(170)+'\\n\\n').join('');
  for(const category of ['pe-comprehensive-management','rccm']) {
@@ -99,7 +101,7 @@ test('代表14ページは同じ計画関数で0〜3本文・実カード分の�
  assert.equal(rows.length,14);
  for(const p of rows){
   assert.ok(p.inline<=3);
-  assert.equal(p.slots.filter(s=>s.startsWith('article-rail')).length,Math.min(p.cards,expected[p.category][1].length,6));
+  assert.equal(p.slots.filter(s=>s.startsWith('article-rail')).length,Math.min(p.cards,expected[p.category][1].length,2),'右の欄の転職は 2 つまで');
   assert.equal(p.slots.filter(s=>s==='article-banner-end').length,1);
   assert.equal(p.compiled,p.inline>0);
   assert.ok(!p.slots.includes('article-mid') && !p.slots.includes('article-inline'));
@@ -142,7 +144,7 @@ test('17カテゴリの実配置は案件列が尽きたら右欄を終了し、
 });
 
 
-test('現行の画像面だけで各幅・案のピクセルを1案件1発にし、スマホ専用面をPCの撮影期待から除く', async () => {
+test('現行の画像面だけで各幅のピクセルを1案件1発にし、スマホ専用面をPCの撮影期待から除く', async () => {
  const { resolvePlacements } = await loadTsModule('src/lib/affiliate-placement.ts');
  const { articleImagePlacements, articlePixelCandidates } = await loadTsModule('src/lib/article-affiliate-plan.ts');
  for (const category of Object.keys(expected)) {
@@ -151,8 +153,8 @@ test('現行の画像面だけで各幅・案のピクセルを1案件1発にし
   const images = articleImagePlacements(p,['article-banner','article-banner-2','article-banner-3'],6);
   const candidates = articlePixelCandidates(p,['article-mid','article-inline'],images);
   assert.ok(candidates.every(c => !['article-mid','article-inline'].includes(c.slot)));
-  for (const width of [375,768,993,1024,1440]) for (const variant of ['B','B2']) {
-   const owners = chooseArticlePixels(candidates,vocab,{desktop:width>=993,wide:width>=1024,variant});
+  for (const width of [375,768,993,1024,1440]) {
+   const owners = chooseArticlePixels(candidates,vocab,{desktop:width>=993});
    const visible = images.filter(i=>i.creatives[width>=993?'pc':'mobile']);
    assert.deepEqual(new Set(owners.map(p=>p.program)),new Set(visible.map(i=>i.placement.program)));
    assert.equal(owners.length,new Set(owners.map(p=>p.program)).size);
@@ -171,7 +173,7 @@ test('旧手書きカードは空HTML。末尾と本文は共通外枠、横長�
    import React from 'react';
    import {renderToStaticMarkup as render} from 'react-dom/server';
    import CareerAffiliate from './src/components/ui/CareerAffiliate/CareerAffiliate';
-   import {ArticleBanner} from './src/components/docs/ArticleAffiliateBanners';
+   import {ArticleBanner} from './src/components/ui/ArticleAffiliateBanners/ArticleAffiliateBanners';
    import {resolvePlacements} from './src/lib/affiliate-placement';
    const p=resolvePlacements({pageKind:'doc',category:'civil-practice'},${now});
    const senior=resolvePlacements({pageKind:'doc',category:'pe-comprehensive-management'},${now});

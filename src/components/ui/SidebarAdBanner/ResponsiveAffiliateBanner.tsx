@@ -38,7 +38,7 @@ export default function ResponsiveAffiliateBanner({ placement, creativeSlot = pl
   strictImage?: boolean;
 }) {
   const fallback = () => affiliateSlotPreview() ? <PreviewBox width={placement.banner.width} height={placement.banner.height} placement={placement} /> : <SidebarAdBanner {...placement.banner} pixelSrc={withPixel ? placement.banner.pixelSrc : undefined} trackLabel={placement.trackLabel} placement={placement.slot} program={placement.program} />;
-  if (placement.secondary || placement.alternate) return strictImage ? null : fallback();
+  if (placement.alternate) return strictImage ? null : fallback();
   const { pc, mobile } = slotCreatives(placement.program, creativeSlot);
   const showPc = only !== 'mobile' ? pc : null;
   const showMobile = only !== 'pc' ? mobile : null;

@@ -29,12 +29,14 @@
  * npm run x-own-metrics — 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
  */
 import { spawnSync } from 'node:child_process';
-import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { datasetPath, latestFile } from '../lib/datasets.mjs';
 import { X_HANDLE as HANDLE } from '../lib/site-identity.mjs';
 import { jstClock } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { loadXPosts } from '../lib/registry-x-store.mjs';
+import { parseTweetBlocks } from '../lib/x-tweets-md.mjs';
 
 
 const argv = process.argv.slice(2);
@@ -78,7 +80,7 @@ function slotOf(hour) {
   return 'その他';
 }
 
-/** 本文から導線を判定（status.json に funnel が無い世代の投稿もあるため本文で見る） */
+/** 本文から導線を判定（台帳に funnel が無い世代の投稿もあるため本文で見る） */
 function funnelOf(text) {
   if (/coconala\.com/.test(text)) return 'coconala';
   if (/brain-market\.com/.test(text)) return 'brain';
@@ -88,29 +90,26 @@ function funnelOf(text) {
   return 'linkless';
 }
 
-/** content/sns/x/**\/status.json を読み、本文冒頭 → {exam,title} の索引を作る */
+/** 台帳の X の投稿（loadXPosts）と tweets.md の見出しから、本文冒頭 → {exam,title} の索引を作る */
 function loadStatusIndex() {
   const idx = [];
-  for (const base of ['content/sns/x/draft', 'content/sns/x/published']) {
-    const dir = join(ROOT, base);
-    if (!existsSync(dir)) continue;
-    for (const d of readdirSync(dir, { withFileTypes: true })) {
-      if (!d.isDirectory() || d.name.startsWith('_')) continue; // _archive = 旧アカウント epoch
-      const f = join(dir, d.name, 'status.json');
-      if (!existsSync(f)) continue;
-      let raw;
-      try { raw = JSON.parse(readFileSync(f, 'utf8')); } catch { continue; }
-      const tweets = raw.tweets && !Array.isArray(raw.tweets) ? Object.values(raw.tweets) : (raw.tweets ?? []);
-      for (const t of tweets) {
-        const key = String(t.text || '').slice(0, 20).replace(/\s+/g, ' ').trim();
-        if (key) idx.push({ key, exam: raw.exam ?? null, title: t.title ?? null, pack: d.name });
-      }
+  const titles = new Map(); // folder → (key → 見出し)
+  const titleOf = (p) => {
+    if (!titles.has(p.folder)) {
+      const f = join(ROOT, 'content/sns/x/draft', p.folder, 'tweets.md');
+      titles.set(p.folder, new Map(existsSync(f) ? parseTweetBlocks(readFileSync(f, 'utf8')).map((b) => [b.key, b.title]) : []));
     }
+    return titles.get(p.folder).get(p.key) ?? null;
+  };
+  for (const p of loadXPosts(ROOT)) {
+    if (!p.folder || /\/_/.test(p.row.legacyKey ?? '')) continue; // _archive = 旧アカウント epoch
+    const key = String(p.text || '').slice(0, 20).replace(/\s+/g, ' ').trim();
+    if (key) idx.push({ key, exam: p.exam ?? null, title: titleOf(p), pack: p.folder });
   }
   return idx;
 }
 
-/** 投稿本文から型ラベルを引く。status.json の title（"03 civil-1・個別支援"）の後半を使う */
+/** 投稿本文から型ラベルを引く。tweets.md の見出し（"03 civil-1・個別支援"）の後半を使う */
 function typeOf(hit) {
   if (!hit?.title) return '(未分類)';
   const m = String(hit.title).match(/・(.+)$/);
@@ -180,7 +179,7 @@ const joined = store.posts.map((p) => {
   return { ...p, exam: hit?.exam ?? '(不明)', type: typeOf(hit), funnel: funnelOf(p.text || ''), matched: !!hit };
 });
 const matched = joined.filter((j) => j.matched).length;
-console.log(`[x-own-metrics] status.json と突合: ${matched}/${joined.length} 件（未突合は型が "(未分類)" になる）`);
+console.log(`[x-own-metrics] 台帳と突合: ${matched}/${joined.length} 件（未突合は型が "(未分類)" になる）`);
 
 // 平均だけ見ると 1 本のバズに全体が引きずられる（実際 linkless は 57/35 の 2 本が牽引）。
 // **中央値と最大値を併記**して、外れ値かどうかを読み手が判断できるようにする。
@@ -219,7 +218,7 @@ table('時間帯スロット別', agg((j) => slotOf(j.hour)));
 table('導線別', agg((j) => j.funnel));
 table('資格別', agg((j) => j.exam));
 const types = agg((j) => j.type).filter((r) => r.k !== '(未分類)');
-if (types.length) table('型別（status.json と突合できた分のみ）', types.slice(0, 12));
+if (types.length) table('型別（台帳と突合できた分のみ）', types.slice(0, 12));
 
 const top = [...joined].sort((a, b) => b.likes - a.likes).slice(0, 5);
 console.log('\n── 反応が大きかった投稿 上位5 ──');

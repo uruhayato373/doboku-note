@@ -122,17 +122,131 @@ test('allowlist された全ルートが列挙でき、移行 fallback を持た
   }
 });
 
-test('/docs は content へ出ていくチャネル素材を列挙しない（/content の fallback と二重計上しない）', () => {
+test('/docs の一覧は docs/**/*.md の追跡ファイル全件と一致する', () => {
   const out = tsx(`
     import { rootById } from './tools/admin-app/src/lib/document-roots.ts';
     import { listDocuments } from './tools/admin-app/src/lib/document-store.ts';
-    const docs = listDocuments(rootById('docs'));
-    const leaked = docs.filter((e) => /^docs\\/(note|sns|textbook|coconala-blog)\\//.test(e.file));
-    process.stdout.write(JSON.stringify({ total: docs.length, leaked: leaked.slice(0, 3).map((e) => e.file) }));
+    process.stdout.write(JSON.stringify(listDocuments(rootById('docs')).map((e) => e.file).sort()));
+  `);
+  const listed = JSON.parse(out);
+  const tracked = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '--', 'docs/*.md'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
+    .split('\n').filter(Boolean).sort();
+  assert.ok(tracked.length > 0, 'docs/**/*.md の追跡ファイルが 0 件（検査不成立）');
+  const listedSet = new Set(listed);
+  const trackedSet = new Set(tracked);
+  assert.deepEqual(tracked.filter((p) => !listedSet.has(p)), [], '/docs に出ない追跡文書がある');
+  assert.deepEqual(listed.filter((p) => !trackedSet.has(p)), [], '/docs に追跡外の文書が出ている');
+});
+
+/* ------------------------------------------------------------------ *
+ * 本文リンク・画像の書き換え（document-roots.ts の adminUrlFor）
+ * ------------------------------------------------------------------ */
+
+test('adminUrlFor: 宛先ごとに管理画面の URL へ書き換え、開けない宛先は null', () => {
+  const out = tsx(`
+    import { adminUrlFor } from './tools/admin-app/src/lib/document-roots.ts';
+    const from = 'docs/strategy/README.md';
+    process.stdout.write(JSON.stringify({
+      sameDir: adminUrlFor(from, './02_設計思想.md'),
+      otherDir: adminUrlFor(from, '../reviews/competitors/README.md'),
+      encoded: adminUrlFor(from, './01_%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E6%88%A6%E7%95%A5.md'),
+      hash: adminUrlFor(from, './05_情報アーキテクチャ.md#URL-設計'),
+      knowledge: adminUrlFor(from, '../../.claude/knowledge/reference/workflows.md'),
+      knowledgeJson: adminUrlFor(from, '../../.claude/knowledge/reference/x.json'),
+      content: adminUrlFor(from, '../../content/note/README.md'),
+      contentDir: adminUrlFor(from, '../../content/note/'),
+      image: adminUrlFor('docs/design/callout-gallery.md', 'images/callout-note.png', 'image'),
+      imageOutside: adminUrlFor('docs/design/x.md', '../../content/site/a.png', 'image'),
+      config: adminUrlFor(from, '../../config/domains.json'),
+      data: adminUrlFor(from, '../../data/note/sales.json'),
+      src: adminUrlFor(from, '../../src/lib/note-magazines.ts'),
+      mdx: adminUrlFor(from, '../../content/site/exam/a/article.mdx'),
+      docsDir: adminUrlFor(from, '../reviews/'),
+      outside: adminUrlFor(from, '../../../x.md'),
+      external: adminUrlFor(from, 'https://example.com/a.md'),
+      anchor: adminUrlFor(from, '#見出し'),
+      absolute: adminUrlFor(from, '/docs/strategy/README'),
+    }, (_k, v) => (v === undefined ? 'keep' : v)));
+  `);
+  assert.deepEqual(JSON.parse(out), {
+    sameDir: '/docs/strategy/02_設計思想',
+    otherDir: '/docs/reviews/competitors/README',
+    encoded: '/docs/strategy/01_プロダクト戦略',
+    hash: '/docs/strategy/05_情報アーキテクチャ#URL-設計',
+    knowledge: '/knowledge/reference/workflows',
+    knowledgeJson: '/knowledge/reference/x',
+    content: '/content/content~note/README',
+    contentDir: '/content/content~note',
+    image: '/media/docs/design/images/callout-note.png',
+    imageOutside: 'keep',
+    config: null,
+    data: null,
+    src: null,
+    mdx: null,
+    docsDir: null,
+    outside: null,
+    external: 'keep',
+    anchor: 'keep',
+    absolute: 'keep',
+  });
+});
+
+test('renderDocument: 本文の相対リンクを書き換え、開けない宛先はリンクを外して文字を残す', () => {
+  const out = tsx(`
+    import { renderDocument } from './tools/admin-app/src/lib/markdown.ts';
+    const md = '[設計](./02_設計思想.md) と [設定](../../config/domains.json) と ![図](images/a.png) と [外](https://example.com)';
+    process.stdout.write(JSON.stringify(renderDocument(md, 'docs/strategy/README.md').html));
+  `);
+  const html = JSON.parse(out);
+  assert.match(html, /href="\/docs\/strategy\/02_%E8%A8%AD%E8%A8%88%E6%80%9D%E6%83%B3"/);
+  assert.ok(!html.includes('domains.json'), '開けない宛先のリンクが残っている');
+  assert.ok(html.includes('設定'), 'リンクを外したときに文字まで消えている');
+  assert.match(html, /src="\/media\/docs\/strategy\/images\/a\.png"/);
+  assert.match(html, /href="https:\/\/example\.com"/);
+});
+
+test('docs/**/*.md の相対リンク・画像は、書き換えた先のファイルが実在する', () => {
+  const out = tsx(`
+    import { readFileSync, existsSync, statSync } from 'node:fs';
+    import { execFileSync } from 'node:child_process';
+    import { remark } from 'remark';
+    import remarkGfm from 'remark-gfm';
+    import { visit } from 'unist-util-visit';
+    import { adminUrlFor } from './tools/admin-app/src/lib/document-roots.ts';
+    const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '--', 'docs/*.md'], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }).split('\\n').filter(Boolean);
+    const exists = (p) => existsSync(p);
+    const isDir = (p) => existsSync(p) && statSync(p).isDirectory();
+    const targetOk = (href) => {
+      const path = decodeURIComponent(href.split('#')[0]);
+      const [, base, rest] = path.match(/^\\/(media\\/docs|docs|knowledge|plans|strategy\\/policy|content\\/content~)\\/?(.*)$/) ?? [];
+      if (!base) return false;
+      if (base === 'media/docs') return exists('docs/' + rest);
+      if (base === 'docs') return exists('docs/' + rest + '.md');
+      if (base === 'knowledge') return exists('.claude/knowledge/' + rest + '.md') || exists('.claude/knowledge/' + rest + '.json');
+      if (base === 'plans') return exists('.claude/plans/' + rest + '.md');
+      if (base === 'strategy/policy') return exists('.claude/shared-policy/' + rest + '.md');
+      return exists('content/' + rest + '.md') || isDir('content/' + rest);
+    };
+    let links = 0, checked = 0, unlinked = 0;
+    const broken = [];
+    for (const file of files) {
+      const tree = remark().use(remarkGfm).parse(readFileSync(file, 'utf8'));
+      visit(tree, ['link', 'image'], (node) => {
+        const href = adminUrlFor(file, node.url, node.type === 'image' ? 'image' : 'link');
+        if (href === undefined) return;
+        links += 1;
+        if (href === null) { unlinked += 1; return; }
+        checked += 1;
+        if (!targetOk(href)) broken.push(file + ' -> ' + node.url + ' (' + href + ')');
+      });
+    }
+    process.stdout.write(JSON.stringify({ files: files.length, links, checked, unlinked, broken }));
   `);
   const r = JSON.parse(out);
-  assert.ok(r.total > 0, 'docs が 0 件（exclude が効きすぎている）');
-  assert.deepEqual(r.leaked, [], 'exclude したはずのチャネル素材が /docs に出ている');
+  // 検査した件数を出す。0 件は検査不成立（CLAUDE.md §9）
+  console.log(`docs ${r.files} 本・相対リンクと画像 ${r.links} 件（管理画面の URL ${r.checked} 件を実在確認・リンクを外す ${r.unlinked} 件）`);
+  assert.ok(r.checked > 0, '書き換えたリンクが 0 件（検査不成立）');
+  assert.deepEqual(r.broken, [], '書き換えた先のファイルが無い');
 });
 
 test('symlink で root 外へ出る文書は読めない（ディレクトリ・ファイル両方）', () => {
