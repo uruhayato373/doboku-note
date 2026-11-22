@@ -738,7 +738,7 @@
       "work": "pe-environment-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-001",
@@ -756,7 +756,21 @@
         "video": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-12-05T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-22T12:51:43.628Z",
+          "digest": "1c9180327a920f968283f10db75a35a63b55bd8bf1d8c5318d13ae9069506136"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-22T12:51:43.628Z",
+        "contentSha256": "279f8af76171d53103f57a53e2ab79811036d37d9ced5da7d40a0fb6143005f3"
+      }
     },
     {
       "id": "pe-construction/pe-fugoukaku-toan/youtube.longform",

@@ -8,7 +8,7 @@
       "work": "rccm-mondai1-keiken-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/cover",
         "scene-001": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-001",
@@ -27,7 +27,21 @@
         "video": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/video",
         "subtitles": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-05T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-22T12:51:44.405Z",
+          "digest": "44b76bf46aca3028f0294ac5b146c98b8df455c8733ed20ac59a764a61d0b326"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-22T12:51:44.405Z",
+        "contentSha256": "d43502827942c7fe3eb46699a078c6a8a5418adb8a3939774e9010ede21f9d28"
+      }
     },
     {
       "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform",
