@@ -9231,6 +9231,19 @@
       "commit": "f6e8feb49f67",
       "verification": "台帳の scheduled・approved で予約の日時を過ぎた行は 1 行（pe1-final-nov t21・2026-11-21 12:25 の当日分）。registry -- reconcile-x の対象 1 件（2026-11-21）",
       "note": "reconcile-x（PR #1693）で自分の投稿の一覧と結べた行を published にした（X の published は 266 行）。結べなかった過去の行は stopped(unverified-legacy) とし、下書きの削除とあわせて台帳から撤去した（PR #1697・止めた行 539 と日時を過ぎた承認済み 2 行。公開されたかは確かめられていない）。x-sync-status が公開済みを拾えなかったのは、キューから消えただけでは投稿済みにしない作りのため。照合は reconcile-x が受け持つ。土曜の収集へ入れるのは DN-1265"
+    },
+    {
+      "id": "DN-1285",
+      "at": "2026-11-23",
+      "task": "週次の下書きに SNS 流入・その週の YouTube 公開本数・収益カバレッジを足す（毎回未取得になる）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2deedae03a9d",
+      "verification": "node --test tests/weekly-draft-sections.test.mjs（pass 3）・node scripts/build/build-weekly-review-draft.mjs --week 2026-W47 --print で SNS 流入・YouTube の公開・収益カバレッジの 3 節を実データで確認",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
