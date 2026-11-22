@@ -13,6 +13,8 @@
  *   npm run fetch-ga4-data -- --organic-only               # organic search のみ
  *   npm run fetch-ga4-data -- --dimension sourceMedium --sns-only  # SNS流入 source×medium 別（x/instagram/youtube/note）
  *   npm run fetch-ga4-data -- --limit 50                   # 上位50件
+ *   npm run fetch-ga4-data -- --dimension page --adsense   # AdSense の収益（ページ別。--dimension adUnit で広告ユニット別）
+ *     罠: GA4 と AdSense のリンクは 2026-11-23 から。それより前の日は 0 円で返る（欠測であって収益 0 ではない）。収益は国で絞らない
  *   npm run fetch-ga4-data -- --include-all                # bot/海外を含める（既定では除外）
  *
  * フィルタ既定動作（2026-05-17 以降）:
@@ -57,6 +59,8 @@ const DIMENSION_MAP = {
   // campaignContent は utm_content（longform / shorts）＝配信形式の切り分け。
   campaign: "sessionCampaignName",
   campaignContent: "sessionManualAdContent",
+  // AdSense の広告ユニット（--adsense と組む）
+  adUnit: "adUnitName",
 };
 
 // spam 除外を適用してよい（sessionSource を fieldName に取れる）dimension
@@ -87,6 +91,9 @@ const DEFAULT_METRICS = [
   "bounceRate",
 ];
 
+// AdSense の収益の取得（--adsense）。並びの先頭で降順に並べる
+const ADSENSE_METRICS = ["totalAdRevenue", "publisherAdImpressions", "publisherAdClicks", "screenPageViews"];
+
 // bot/スパム参照元の既定ブロックリストは lib/ga4-client.mjs の SPAM_REFERRAL_SOURCES が真実源
 // （追加判明したらそちらへ追記する）
 
@@ -106,17 +113,20 @@ function parseArgs() {
     "include-all": { type: "boolean" },
     "no-japan-only": { type: "boolean" },
     "no-exclude-spam": { type: "boolean" },
+    // AdSense の収益（指標を固定し、国で絞らない。収益は日本以外の閲覧からも入る）
+    adsense: { type: "boolean" },
   });
   return {
     days: a.days,
     dimension: a.dimension,
     limit: a.limit,
-    metrics: a.event === 'note_cta_click' ? ['eventCount'] : a.metrics === null ? DEFAULT_METRICS : a.metrics.split(",").map((m) => m.trim()),
+    metrics: a.adsense ? ADSENSE_METRICS : a.event === 'note_cta_click' ? ['eventCount'] : a.metrics === null ? DEFAULT_METRICS : a.metrics.split(",").map((m) => m.trim()),
+    adsense: a.adsense,
     eventName: a.event,
     organicOnly: a.organicOnly,
     snsOnly: a.snsOnly,
     // 既定で日本・bot 除外を ON（measurement-incidents.md 2026-04-26 参照）
-    japanOnly: !(a.includeAll || a.noJapanOnly),
+    japanOnly: !(a.adsense || a.includeAll || a.noJapanOnly),
     excludeSpam: !(a.includeAll || a.noExcludeSpam),
   };
 }
@@ -266,6 +276,7 @@ async function fetchGa4(client, propertyId, opts) {
       dimensionApiName: dimensionName,
       metrics: opts.metrics,
       eventName: opts.eventName ?? null,
+      ...(opts.adsense ? { adsense: true } : {}),
       limit: opts.limit,
       organicOnly: opts.organicOnly,
       snsOnly: opts.snsOnly,
@@ -349,7 +360,7 @@ function printSummary(data) {
 }
 
 function saveJson(data, opts) {
-  const suffix = `${opts.organicOnly ? "-organic" : ""}${opts.snsOnly ? "-sns" : ""}${opts.eventName ? '-note-cta' : ''}`;
+  const suffix = `${opts.organicOnly ? "-organic" : ""}${opts.snsOnly ? "-sns" : ""}${opts.eventName ? '-note-cta' : ''}${opts.adsense ? '-adsense' : ''}`;
   const { ref } = writeReport(".", reportIdOf("ga4", `${opts.dimension}${suffix}`), data);
   console.log(`\n出力: ${ref}`);
 }

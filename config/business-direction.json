@@ -240,6 +240,15 @@
       ]
     },
     {
+      "id": "adsenseRevenue",
+      "stage": "販売",
+      "label": "AdSense 推定収益",
+      "unit": "円",
+      "definition": "GA4 の totalAdRevenue（AdSense とのリンクで入る推定収益）。国で絞らない。資格別は正規URL配下のページの収益。2026-11-23 にリンクしたので、それより前に始まる期間は欠測（0 円ではない）。AdSense の確定額・入金額ではない。",
+      "channel": "GA4",
+      "supply": "ci"
+    },
+    {
       "id": "netReceipts",
       "stage": "運営",
       "label": "手数料等控除後の受取額",
