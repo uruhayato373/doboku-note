@@ -90,7 +90,7 @@ test('案件が無ければバナーなしで回遊だけを出し、回遊が�
   assert.deepEqual(result, { n: 3, banners: 0, cards: 3 });
 });
 
-test('資格トップ: 1級土木は人気→新着の2組・ランキングに出た記事は出さない・記事が少ない資格は0組・バナーは上の束と同じ案件', () => {
+test('資格トップ: 1級土木は新着の1組＋AdSense（人気順は上の束の人気記事だけ）・ランキングに出た記事は出さない・記事が少ない資格は0組・バナーは上の束と同じ案件', () => {
   const rows = evaluate(`
     Date.now = () => Date.parse('2026-11-16T00:00:00+09:00');
     const { getAllDocsMeta } = await import('./src/lib/docs.ts');
@@ -109,7 +109,8 @@ test('資格トップ: 1級土木は人気→新着の2組・ランキングに�
     });
     process.stdout.write(JSON.stringify(rows));`);
   const by = Object.fromEntries(rows.map(row => [row.slug, row]));
-  assert.deepEqual(by['civil-construction-1'].groups.map(g => g.label), ['rail-popular', 'rail-latest']);
+  // 人気順は上の束の人気記事（順位つきのサムネイル）だけが持つ（2026-11-22）。下の続きは新着の 1 組と、その後ろの AdSense
+  assert.deepEqual(by['civil-construction-1'].groups.map(g => g.label ?? (g.adsense ? 'adsense' : null)), ['rail-latest', 'adsense']);
   assert.deepEqual(by['concrete-engineer'].groups.map(g => g.adsense), [false, true], '1 組だけなら後ろに AdSense');
   assert.equal(by['pavement'].groups.length, 0);
   for (const row of rows.filter(r => r.groups.length)) {
