@@ -738,7 +738,7 @@
       "work": "pe-environment-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-001",
@@ -770,6 +770,9 @@
         "by": "policy",
         "at": "2026-11-22T12:51:43.628Z",
         "contentSha256": "279f8af76171d53103f57a53e2ab79811036d37d9ced5da7d40a0fb6143005f3"
+      },
+      "times": {
+        "rendered": "2026-11-22T12:54:20.853Z"
       }
     },
     {

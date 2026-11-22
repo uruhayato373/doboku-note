@@ -8,7 +8,7 @@
       "work": "rccm-mondai1-keiken-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/cover",
         "scene-001": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-001",
@@ -41,6 +41,9 @@
         "by": "policy",
         "at": "2026-11-22T12:51:44.405Z",
         "contentSha256": "d43502827942c7fe3eb46699a078c6a8a5418adb8a3939774e9010ede21f9d28"
+      },
+      "times": {
+        "rendered": "2026-11-22T12:54:27.001Z"
       }
     },
     {
