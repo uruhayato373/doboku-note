@@ -586,6 +586,7 @@
     "youtube-analytics": "node scripts/youtube/youtube-analytics.mjs",
     "check-youtube-analytics": "node scripts/checks/check-youtube-analytics.mjs",
     "youtube-retention-summary": "node scripts/youtube/youtube-retention-summary.mjs",
+    "check-adsense-revenue-freshness": "node scripts/checks/check-adsense-revenue-freshness.mjs",
     "check-youtube-own-freshness": "node scripts/checks/check-youtube-own-freshness.mjs",
     "x-queue-surfacer": "node scripts/x/x-queue-surfacer.mjs",
     "x-reply-candidates": "node scripts/x/x-reply-candidates.mjs",
