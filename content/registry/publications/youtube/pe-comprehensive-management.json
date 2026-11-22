@@ -313,7 +313,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-tenken-2"
-        }
+        },
+        "relatedVideoId": "JDMeEBkcX5U",
+        "desiredRelatedVideoId": "JDMeEBkcX5U"
       },
       "thumbnail": {
         "status": "set",

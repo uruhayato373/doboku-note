@@ -948,7 +948,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1"
-        }
+        },
+        "relatedVideoId": "VQ0OLSQQCgc",
+        "desiredRelatedVideoId": "VQ0OLSQQCgc"
       },
       "thumbnail": {
         "status": "set",
