@@ -8,7 +8,7 @@
       "work": "rccm-mondai1-keiken-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/cover",
         "scene-001": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-001",
@@ -43,7 +43,42 @@
         "contentSha256": "d43502827942c7fe3eb46699a078c6a8a5418adb8a3939774e9010ede21f9d28"
       },
       "times": {
-        "rendered": "2026-11-22T12:54:27.001Z"
+        "rendered": "2026-11-22T12:54:27.001Z",
+        "uploaded": "2026-11-22T12:58:32.121Z",
+        "scheduled": "2026-11-22T12:58:41.616Z"
+      },
+      "delivery": {
+        "inputSha256": "3721c708b1e55a5d2859dae117eb4744c29a5e7e12324ea1fe0703de1421c883",
+        "marker": "dn-single-a3c781f300fe66e1b9cbdb5c75abadd763b6c22b",
+        "uploadRequestedAt": "2026-11-22T12:57:41.796Z",
+        "videoId": "81uGKwwkWnM",
+        "processedAt": "2026-11-22T12:58:31.300Z",
+        "thumbnailRequestedAt": "2026-11-22T12:58:32.157Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/81uGKwwkWnM/default.jpg?sqp=CKTMi9gG&rs=AOn4CLCzIttu5FivuN7g5CHydLyNkfIEAA",
+          "https://i9.ytimg.com/vi/81uGKwwkWnM/mqdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLBqS4jnoD4pzTdUiM3rQnPiJc_PEQ",
+          "https://i9.ytimg.com/vi/81uGKwwkWnM/hqdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLChMRx7kr0GXSzzD3gMSVUY6guzJg",
+          "https://i9.ytimg.com/vi/81uGKwwkWnM/sddefault.jpg?sqp=CKTMi9gG&rs=AOn4CLARa0JmIsyVXt4J7dsGYrdwLKeI5Q",
+          "https://i9.ytimg.com/vi/81uGKwwkWnM/maxresdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLANaDDffJ9GY0yaHsiqutvWz4st2Q",
+          "https://i9.ytimg.com/vi/81uGKwwkWnM/fhddefault.jpg?sqp=CKTMi9gG&rs=AOn4CLA8UG17z496crhB0kDSbxPRkeuf_g"
+        ],
+        "thumbnailAcceptedAt": "2026-11-22T12:58:36.083Z",
+        "scheduleRequestedAt": "2026-11-22T12:58:37.372Z",
+        "scheduleAt": "2026-12-05T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-22T12:58:41.616Z"
+      },
+      "platform": {
+        "id": "81uGKwwkWnM",
+        "url": "https://www.youtube.com/watch?v=81uGKwwkWnM",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-22T12:58:36.083Z"
       }
     },
     {
