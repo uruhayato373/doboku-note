@@ -35,12 +35,12 @@ export interface RailGroup {
   lower?: boolean;
 }
 
-/** 上詰めの組の下の空きに置く AdSense の上限（2026-11-16 運営者判断・2026-11-22 に 2,500px ごと最大 3 枠から詰めた）。間隔（1,500px ごとに 1 枠）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
-const RAIL_LOWER_AD_MAX = 5;
+/** 上詰めの組の下の空きに置く AdSense の上限（2026-11-16 運営者判断・2026-11-22 に 2,500px ごと最大 3 枠から 1,200px 間隔・最大 30 枠へ）。間隔（1,200px ごとに 1 枠＝1 画面に右の欄の広告は 1 枠まで）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
+const RAIL_LOWER_AD_MAX = 30;
 
 /**
  * 2 組目の転職バナーを AdSense の枠に替え（1 組だけなら組の後ろに AdSense だけの組を足す）、カード → 転職 → カード → AdSense → カード の順にする。
- * 上詰めの組の下の空きには AdSense だけの組（lower）を最大 5 つ足す。何枠出すかは描画した空きの高さで決める（1,500px ごとに 1 枠。
+ * 上詰めの組の下の空きには AdSense だけの組（lower）を最大 30 足す。何枠出すかは描画した空きの高さで決める（1,200px 間隔。
  * 字数からの高さの見積もりは表の多い基準書の章で外れ、空きが 1 万 px を超えても 0 枠だった）。転職バナーは同じ案件の繰り返しとピクセルの扱いが崩れるので足さない。
  */
 export function withRailAdSense(groups: RailGroup[]): RailGroup[] {

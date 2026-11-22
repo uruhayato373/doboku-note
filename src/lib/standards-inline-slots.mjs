@@ -4,6 +4,11 @@ export const INLINE_FIRST_CHARS = 600;
 export const INLINE_INTERVAL_CHARS = 1400;
 export const INLINE_REMAINING_CHARS = 600;
 export const INLINE_MAX_SLOTS = 3;
+// AdSense の記事内広告（2026-11-22）: 転職の 3 枠の後から本文の終わりまで、約 5,000 字ごとに最大 10 枠。転職の枠から 800 字以上離す。
+// 長い章（3.8 万字・高さ約 5.9 万 px）で、転職の 3 枠が上から 6,000px までに固まり、その下の本文に広告が 1 つも無かった。
+export const STANDARDS_AD_GAP_CHARS = 800;
+export const STANDARDS_AD_INTERVAL_CHARS = 5000;
+export const STANDARDS_AD_MAX_SLOTS = 10;
 
 /** @param {string} line */
 function isTableSeparator(line) {
@@ -92,7 +97,7 @@ export function planInlineSlots(markdown, opts = {}) {
     if (forbiddenRanges.some(r => candidate.line >= r.start && candidate.line <= r.end)) continue;
     const at = cumulative[candidate.line];
     if (occupiedLines.some(line => Math.abs(at - cumulative[line]) < firstChars)) continue;
-    if (insertAt.length >= Math.min(maxSlots, INLINE_MAX_SLOTS)) break;
+    if (insertAt.length >= maxSlots) break;
     if (chars - at < remainingChars) continue;
     if (insertAt.length ? at - previousChars < intervalChars : at <= firstChars) continue;
     const number = insertAt.length + 1;
@@ -102,12 +107,32 @@ export function planInlineSlots(markdown, opts = {}) {
   return { insertAt, chars, tables };
 }
 
+/**
+ * 転職の本文の枠の後ろに置く AdSense の枠（standards-adsense-N）。転職の最後の枠より前には置かない。
+ * @param {string} markdown
+ * @param {Array<{ line: number }>} banners planInlineSlots(markdown).insertAt
+ */
+export function planStandardsAdSlots(markdown, banners = planInlineSlots(markdown).insertAt) {
+  const last = banners.length ? banners[banners.length - 1].line : -1;
+  return planInlineSlots(markdown, {
+    slotPrefix: 'standards-adsense',
+    firstChars: STANDARDS_AD_GAP_CHARS,
+    intervalChars: STANDARDS_AD_INTERVAL_CHARS,
+    maxSlots: STANDARDS_AD_MAX_SLOTS,
+    occupiedLines: banners.map((b) => b.line),
+    forbiddenRanges: last >= 0 ? [{ start: 0, end: last }] : [],
+  });
+}
+
 /** @param {string} markdown @returns {string} */
 export function withInlineSlots(markdown) {
   const lines = markdown.split('\n');
+  const banners = planInlineSlots(markdown).insertAt;
+  const items = [
+    ...banners.map(({ line, slot }) => ({ line, tag: `<StandardsInlineBanner slot="${slot}" />` })),
+    ...planStandardsAdSlots(markdown, banners).insertAt.map(({ line, slot }) => ({ line, tag: `<StandardsInlineAd slot="${slot}" />` })),
+  ].sort((a, b) => b.line - a.line);
   // 後ろから入れることで、計画した元の行番号を保つ。
-  for (const { line, slot } of planInlineSlots(markdown).insertAt.reverse()) {
-    lines.splice(line, 0, '', `<StandardsInlineBanner slot="${slot}" />`, '');
-  }
+  for (const { line, tag } of items) lines.splice(line, 0, '', tag, '');
   return lines.join('\n');
 }

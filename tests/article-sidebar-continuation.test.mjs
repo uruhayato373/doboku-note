@@ -93,7 +93,7 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     assert.ok(row.groups.every(group=>!group.fill),row.slug+' 埋める組は作らない');
     assert.ok(row.groups.every(group=>group.label||group.adsense),row.slug+' カードの無い組は AdSense だけ');
     assert.equal(row.groups.filter(group=>group.adsense).length,row.groups.length?1:0,row.slug+' AdSense は 1 枠');
-    assert.ok(row.lower<=5,row.slug+' 空きの AdSense は最大 5 枠');
+    assert.ok(row.lower<=30,row.slug+' 空きの AdSense は最大 30 枠');
     assert.equal(dom.querySelectorAll('[data-article-sidebar-lower-ads] [data-adsense="rail"]').length,row.lower);
     assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation] [data-adsense="rail"]').length,(row.groups.length?1:0)+row.lower);
     assert.equal(dom.querySelectorAll('[data-article-sidebar-group]').filter(el=>/justify-around/.test(el.parentNode.getAttribute('class'))).length,0,'組は上詰め');
@@ -124,7 +124,7 @@ test('回遊候補が尽きれば組を作らない（上詰めでバナーだ�
     process.stdout.write(JSON.stringify({groups:packed(a),empty:packed(b),lower:a.filter(g=>g.lower).length}));`);
   assert.deepEqual(result.groups,[]);
   assert.deepEqual(result.empty,[]);
-  assert.equal(result.lower,5,'空きの AdSense は候補 5 枠（出すかは描画した空きの高さで決める）');
+  assert.equal(result.lower,30,'空きの AdSense は候補 30 枠（出すかは描画した空きの高さで決める）');
 });
 
 test('過去問は前後の年度→同じ年度の別区分の順。1組3件・種類が続かず・同じ記事を2回出さない', () => {
@@ -170,5 +170,5 @@ test('上詰め: 過去問も含めバナーだけの組を作らず、2 組目�
   assert.equal(result.groups[1].program,undefined,'AdSense の組に転職バナーは無い');
   assert.ok(result.groups[0].program,'1 組目は転職バナーつき（案件の数を超えた組はカードだけ）');
   assert.ok(!result.pixelSlots.includes(result.groups[1].slot),'AdSense に替えた面のピクセルは出さない');
-  assert.ok(result.lower>=1&&result.lower<=5,'長い本文は上詰めの組の下の空きに AdSense（最大 5 枠）');
+  assert.ok(result.lower>=1&&result.lower<=30,'長い本文は上詰めの組の下の空きに AdSense（最大 30 枠）');
 });

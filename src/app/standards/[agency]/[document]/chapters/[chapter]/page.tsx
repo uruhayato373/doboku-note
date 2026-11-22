@@ -132,6 +132,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     table: StandardScrollTable,
     // 実際に置く面だけを渡し、短い章でピクセルの持ち主が消えないようにする
     StandardsInlineBanner: ({ slot }: { slot: string }) => <StandardsInlineBanner slot={slot} inlineSlots={inlineSlots} />,
+    StandardsInlineAd: () => <AdSlot slot="inArticle" className={`${CTA_STACK_CLASS} my-8`} />,
   };
 
   return (

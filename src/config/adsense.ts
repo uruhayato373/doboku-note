@@ -1,7 +1,7 @@
 /**
  * AdSense の発行者 ID と広告ユニット（2026-11-16 に AdSense の管理画面で作成）。
  * 自動広告はアンカー広告と全画面広告だけを有効にし、ページ内広告は無効（管理画面の「サイトごと」）。
- * 手動の枠の置き場: 本文の途中（転職バナー・CTA から離す・src/lib/article-inline-slots.mjs）・PC の右の欄（上詰めの 2 組目と、その下の空きに高さ 1,500px ごとに最大 5 枠・src/lib/rail-continuation.ts）・ページ末尾（Multiplex）。
+ * 手動の枠の置き場: 本文の途中（転職バナー・CTA から離す・src/lib/article-inline-slots.mjs）・PC の右の欄（上詰めの 2 組目と、その下の空きに 1,200px 間隔で最大 30 枠・src/lib/rail-continuation.ts）・基準書の章と節の本文（転職の 3 枠の後から約 5,000 字ごとに最大 10 枠・src/lib/standards-inline-slots.mjs）・ページ末尾（Multiplex）。
  * 記事の一覧（資格トップのサムネイルの行・/practice の文字の行・検索結果）には、インフィード広告を 1 項目として挟む（src/lib/feed-ads.ts）。
  * 資格トップの本文の区画の切れ目には記事内広告を置く（src/components/ui/SectionAdBreak・PC は AdSense、スマホは 1 つ目が転職・2 つ目以降が AdSense）。
  * 手元・プレビュー（isAdSensePreviewHost）では広告を要求せず、破線の目印で置き場を見せる。

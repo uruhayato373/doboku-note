@@ -54,8 +54,8 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
   const long = byPath['kinki/common/1-1'];
   assert.ok(long.groups.length > 3 && long.groups.length <= 20, '長い章は回遊の候補の数まで（上限20）');
   assert.ok(long.groups.every(g => !g.fill), 'バナーだけの組は作らない（上詰めで広告が続く）');
-  assert.equal(long.lower, 5, '空きの AdSense の候補は 5 枠');
-  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 5, '組が無くても空きの AdSense の候補は 5 枠（出すかは描画した高さで決める）');
+  assert.equal(long.lower, 30, '空きの AdSense の候補は 30 枠');
+  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 30, '組が無くても空きの AdSense の候補は 30 枠（出すかは描画した高さで決める）');
   for (const row of [main, long]) {
     const hrefs = row.groups.flatMap(g => g.hrefs);
     assert.equal(new Set(hrefs).size, hrefs.length, row.path + ' 同じリンクを2回出さない');
