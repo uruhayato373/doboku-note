@@ -1,4 +1,4 @@
-import { articleSidebarContinuation } from '../../../../src/lib/article-sidebar-continuation';
+import { RAIL_AFFILIATE_MAX } from '../../../../src/lib/rail-continuation';
 import { getAllDocsMeta, getDoc } from '../../../../src/lib/docs';
 import { getPublicDocPath } from '../../../../src/lib/content-routes';
 import { isCareerDoc } from '../../../../src/lib/doc-classifier';
@@ -72,8 +72,8 @@ export async function getAffiliatePages(now = Date.now()) {
     const categoryArticles = related.filter(d => d.category === meta.category);
     const sidebarInput = articleSidebarInput(doc.meta, plan, categoryArticles);
     const cards = articleSidebarPlan(sidebarInput);
-    const groups = articleSidebarContinuation(sidebarInput, doc.meta, related, plan.body.length, plan.careerPlacements);
-    const images = articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length, groups.map(group => group.slot));
+    // 右の欄の転職は上の束の先頭から 2 つまで（サイトの DocPage と同じ渡し方）
+    const images = articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), Math.min(cards.length, RAIL_AFFILIATE_MAX));
     const candidates = articlePixelCandidates(plan.careerPlacements, plan.renderedCareerSlots, images);
     const owners = ([false, true] as const).flatMap(desktop =>
       chooseArticlePixels(candidates, vocab.affiliate, { desktop }).map(p => ({ ...p, label: desktop ? 'PC' : 'スマホ' })));

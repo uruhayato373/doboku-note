@@ -63,13 +63,14 @@ test('375/768/993/1024/1440: 幅に出る素材だけから各案件を1発に�
  }
 });
 
-test('代表14ページは同じ計画関数で0〜3本文・実カード分の右欄・末尾1。MDX加工後の注入も成立',()=>{
+test('代表14ページは同じ計画関数で0〜3本文・右欄は実カード分で 2 つまで・末尾1。MDX加工後の注入も成立',()=>{
  const code=`
  import { getDoc, getAllDocsMeta } from './src/lib/docs.ts';
  import { planArticleCtas } from './src/lib/article-cta-plan.ts';
  import { articleSidebarPlan, articleSidebarInput } from './src/lib/article-sidebar-plan.ts';
  import { articleSidebarContinuation } from './src/lib/article-sidebar-continuation.ts';
  import { articleImagePlacements } from './src/lib/article-affiliate-plan.ts';
+ import { RAIL_AFFILIATE_MAX } from './src/lib/rail-continuation.ts';
  import { compile } from '@mdx-js/mdx';
  import { remarkArticleBanners } from './src/lib/article-inline-slots.mjs';
  import remarkGfm from 'remark-gfm'; import remarkMath from 'remark-math';
@@ -81,10 +82,11 @@ test('代表14ページは同じ計画関数で0〜3本文・実カード分の�
  const p=planArticleCtas(doc,all,${now});
  const input=articleSidebarInput(doc.meta,p,all.filter(m=>m.category===doc.meta.category));
  const cards=articleSidebarPlan(input);
- const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length,p.careerPlacements);
- const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),cards.length,groups.map(g=>g.slot));
+ const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length).filter(g=>!g.lower);
+ // 右の欄の転職は上の束の先頭から 2 つまで（下に続く組には置かない・DocPage と同じ渡し方）
+ const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),Math.min(cards.length,RAIL_AFFILIATE_MAX));
  const compiled=String(await compile(p.body,{remarkPlugins:[remarkGfm,remarkMath,[remarkArticleBanners,{insertAt:p.inline}]]}));
- rows.push({slug,category:doc.meta.category,slots:images.map(i=>i.placement.slot),cards:cards.length+groups.length,compiled:compiled.includes('ArticleInlineBanner'),inline:p.inline.length,mid:p.effectiveMidPositions});
+ rows.push({slug,category:doc.meta.category,slots:images.map(i=>i.placement.slot),cards:cards.length,compiled:compiled.includes('ArticleInlineBanner'),inline:p.inline.length,mid:p.effectiveMidPositions});
  }
  const longBody=Array.from({length:12},(_,i)=>'## 節'+i+'\\n\\n'+'技術と施工管理の説明。'.repeat(170)+'\\n\\n').join('');
  for(const category of ['pe-comprehensive-management','rccm']) {
@@ -99,7 +101,7 @@ test('代表14ページは同じ計画関数で0〜3本文・実カード分の�
  assert.equal(rows.length,14);
  for(const p of rows){
   assert.ok(p.inline<=3);
-  assert.equal(p.slots.filter(s=>s.startsWith('article-rail')).length,Math.min(p.cards,expected[p.category][1].length,6));
+  assert.equal(p.slots.filter(s=>s.startsWith('article-rail')).length,Math.min(p.cards,expected[p.category][1].length,2),'右の欄の転職は 2 つまで');
   assert.equal(p.slots.filter(s=>s==='article-banner-end').length,1);
   assert.equal(p.compiled,p.inline>0);
   assert.ok(!p.slots.includes('article-mid') && !p.slots.includes('article-inline'));

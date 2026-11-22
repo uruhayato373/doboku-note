@@ -127,7 +127,7 @@ export default async function CategoryPage({
     <SectionAdBreak key="section-break-2" mobileAd={!mobileAdsAfterNote} />,
   ];
   // 上の束の下に、人気・新着の記事と転職バナーの組を並べる（記事数が少ない資格は 0 組。DN-1218 段 3）。
-  const railGroups = categorySidebarContinuation(docs, popularDocs, sidebarAd);
+  const railGroups = categorySidebarContinuation(docs, popularDocs);
   const categorySidebar = (
     <RailStack
       groups={railGroups}

@@ -41,6 +41,7 @@ import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { lawsOfArticle } from '@/lib/article-laws';
 import type { Pluggable } from 'unified';
 import { articleSidebarContinuation } from '@/lib/article-sidebar-continuation';
+import { RAIL_AFFILIATE_MAX } from '@/lib/rail-continuation';
 import { articleSidebarInput } from '@/lib/article-sidebar-plan';
 import { planArticleCtas } from '@/lib/article-cta-plan';
 import { remarkArticleBanners } from '@/lib/article-inline-slots.mjs';
@@ -301,8 +302,8 @@ export async function renderDocPage(slugStr: string) {
 
   const sidebarInput = articleSidebarInput(doc.meta, articlePlan, categoryArticles);
   const sidebarCards = buildArticleSidebarCards(sidebarInput);
-  const sidebarGroups = articleSidebarContinuation(sidebarInput, doc.meta, relatedArticles, body.length, careerPlacements);
-  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length, sidebarGroups.filter(group => group.banner).map(group => group.slot));
+  const sidebarGroups = articleSidebarContinuation(sidebarInput, doc.meta, relatedArticles, body.length);
+  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), Math.min(sidebarCards.length, RAIL_AFFILIATE_MAX));
   const pixels = articlePixelCandidates(careerPlacements, renderedCareerSlots, images);
 
   return (

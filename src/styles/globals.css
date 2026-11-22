@@ -1347,41 +1347,52 @@ html[data-program-split="alternate"] [data-program-split-arm="primary"] {
   color: var(--color-warn);
   pointer-events: none;
 }
-/* 右の欄の上詰めの組の下の空き（RailContinuation の lower）。枠は組の直後から 1,200px 間隔で並べる（各枠の箱を 1,200px にし、広告はその上端。
-   入る数だけ出す・最大 30 枠＝1 画面に右の欄の広告は 1 枠まで・2026-11-22 に「2,500px ごと最大 3 枠を均等に散らす」から変えた）。
+/* 右の欄の上詰めの組の下の空き（RailContinuation の lower）。縦長の枠（300×600）を組の直後から 1,000px 間隔で並べる（各枠の箱を 1,000px にし、
+   広告はその上端。表示の条件は 600px＋上の余白 24px。入る数だけ出す・最大 40 枠。2026-11-22 に 250px の枠を 1,200px 間隔で並べると
+   枠ごとに約 950px の空白が付いた箱に見えたので縦長にした）。
    箱の下の空白だけがはみ出し得るので overflow: hidden（広告そのものは表示の条件の高さに収まる）。
    字数からの見積もりは表の多い章で外れるので、描画した高さで決める。隠れた枠は AdSlot が広告を要求しない（幅 0） */
 /* 右の欄（RailStack）の 1 つ 1 つ。中身を出さなかった部品（出す商品・バナーが無い）は包みごと畳み、間隔を残さない */
 [data-rail-kind]:empty { display: none; }
 .rail-lower-ads { container-type: size; overflow: hidden; }
-.rail-lower-ads > [data-lower-ad] { display: none; flex: none; height: 1200px; }
-@container (min-height: 274px) { .rail-lower-ads > [data-lower-ad="1"] { display: block; } }
-@container (min-height: 1474px) { .rail-lower-ads > [data-lower-ad="2"] { display: block; } }
-@container (min-height: 2674px) { .rail-lower-ads > [data-lower-ad="3"] { display: block; } }
-@container (min-height: 3874px) { .rail-lower-ads > [data-lower-ad="4"] { display: block; } }
-@container (min-height: 5074px) { .rail-lower-ads > [data-lower-ad="5"] { display: block; } }
-@container (min-height: 6274px) { .rail-lower-ads > [data-lower-ad="6"] { display: block; } }
-@container (min-height: 7474px) { .rail-lower-ads > [data-lower-ad="7"] { display: block; } }
-@container (min-height: 8674px) { .rail-lower-ads > [data-lower-ad="8"] { display: block; } }
-@container (min-height: 9874px) { .rail-lower-ads > [data-lower-ad="9"] { display: block; } }
-@container (min-height: 11074px) { .rail-lower-ads > [data-lower-ad="10"] { display: block; } }
-@container (min-height: 12274px) { .rail-lower-ads > [data-lower-ad="11"] { display: block; } }
-@container (min-height: 13474px) { .rail-lower-ads > [data-lower-ad="12"] { display: block; } }
-@container (min-height: 14674px) { .rail-lower-ads > [data-lower-ad="13"] { display: block; } }
-@container (min-height: 15874px) { .rail-lower-ads > [data-lower-ad="14"] { display: block; } }
-@container (min-height: 17074px) { .rail-lower-ads > [data-lower-ad="15"] { display: block; } }
-@container (min-height: 18274px) { .rail-lower-ads > [data-lower-ad="16"] { display: block; } }
-@container (min-height: 19474px) { .rail-lower-ads > [data-lower-ad="17"] { display: block; } }
-@container (min-height: 20674px) { .rail-lower-ads > [data-lower-ad="18"] { display: block; } }
-@container (min-height: 21874px) { .rail-lower-ads > [data-lower-ad="19"] { display: block; } }
-@container (min-height: 23074px) { .rail-lower-ads > [data-lower-ad="20"] { display: block; } }
-@container (min-height: 24274px) { .rail-lower-ads > [data-lower-ad="21"] { display: block; } }
-@container (min-height: 25474px) { .rail-lower-ads > [data-lower-ad="22"] { display: block; } }
-@container (min-height: 26674px) { .rail-lower-ads > [data-lower-ad="23"] { display: block; } }
-@container (min-height: 27874px) { .rail-lower-ads > [data-lower-ad="24"] { display: block; } }
-@container (min-height: 29074px) { .rail-lower-ads > [data-lower-ad="25"] { display: block; } }
-@container (min-height: 30274px) { .rail-lower-ads > [data-lower-ad="26"] { display: block; } }
-@container (min-height: 31474px) { .rail-lower-ads > [data-lower-ad="27"] { display: block; } }
-@container (min-height: 32674px) { .rail-lower-ads > [data-lower-ad="28"] { display: block; } }
-@container (min-height: 33874px) { .rail-lower-ads > [data-lower-ad="29"] { display: block; } }
-@container (min-height: 35074px) { .rail-lower-ads > [data-lower-ad="30"] { display: block; } }
+.rail-lower-ads > [data-lower-ad] { display: none; flex: none; height: 1000px; }
+@container (min-height: 624px) { .rail-lower-ads > [data-lower-ad="1"] { display: block; } }
+@container (min-height: 1624px) { .rail-lower-ads > [data-lower-ad="2"] { display: block; } }
+@container (min-height: 2624px) { .rail-lower-ads > [data-lower-ad="3"] { display: block; } }
+@container (min-height: 3624px) { .rail-lower-ads > [data-lower-ad="4"] { display: block; } }
+@container (min-height: 4624px) { .rail-lower-ads > [data-lower-ad="5"] { display: block; } }
+@container (min-height: 5624px) { .rail-lower-ads > [data-lower-ad="6"] { display: block; } }
+@container (min-height: 6624px) { .rail-lower-ads > [data-lower-ad="7"] { display: block; } }
+@container (min-height: 7624px) { .rail-lower-ads > [data-lower-ad="8"] { display: block; } }
+@container (min-height: 8624px) { .rail-lower-ads > [data-lower-ad="9"] { display: block; } }
+@container (min-height: 9624px) { .rail-lower-ads > [data-lower-ad="10"] { display: block; } }
+@container (min-height: 10624px) { .rail-lower-ads > [data-lower-ad="11"] { display: block; } }
+@container (min-height: 11624px) { .rail-lower-ads > [data-lower-ad="12"] { display: block; } }
+@container (min-height: 12624px) { .rail-lower-ads > [data-lower-ad="13"] { display: block; } }
+@container (min-height: 13624px) { .rail-lower-ads > [data-lower-ad="14"] { display: block; } }
+@container (min-height: 14624px) { .rail-lower-ads > [data-lower-ad="15"] { display: block; } }
+@container (min-height: 15624px) { .rail-lower-ads > [data-lower-ad="16"] { display: block; } }
+@container (min-height: 16624px) { .rail-lower-ads > [data-lower-ad="17"] { display: block; } }
+@container (min-height: 17624px) { .rail-lower-ads > [data-lower-ad="18"] { display: block; } }
+@container (min-height: 18624px) { .rail-lower-ads > [data-lower-ad="19"] { display: block; } }
+@container (min-height: 19624px) { .rail-lower-ads > [data-lower-ad="20"] { display: block; } }
+@container (min-height: 20624px) { .rail-lower-ads > [data-lower-ad="21"] { display: block; } }
+@container (min-height: 21624px) { .rail-lower-ads > [data-lower-ad="22"] { display: block; } }
+@container (min-height: 22624px) { .rail-lower-ads > [data-lower-ad="23"] { display: block; } }
+@container (min-height: 23624px) { .rail-lower-ads > [data-lower-ad="24"] { display: block; } }
+@container (min-height: 24624px) { .rail-lower-ads > [data-lower-ad="25"] { display: block; } }
+@container (min-height: 25624px) { .rail-lower-ads > [data-lower-ad="26"] { display: block; } }
+@container (min-height: 26624px) { .rail-lower-ads > [data-lower-ad="27"] { display: block; } }
+@container (min-height: 27624px) { .rail-lower-ads > [data-lower-ad="28"] { display: block; } }
+@container (min-height: 28624px) { .rail-lower-ads > [data-lower-ad="29"] { display: block; } }
+@container (min-height: 29624px) { .rail-lower-ads > [data-lower-ad="30"] { display: block; } }
+@container (min-height: 30624px) { .rail-lower-ads > [data-lower-ad="31"] { display: block; } }
+@container (min-height: 31624px) { .rail-lower-ads > [data-lower-ad="32"] { display: block; } }
+@container (min-height: 32624px) { .rail-lower-ads > [data-lower-ad="33"] { display: block; } }
+@container (min-height: 33624px) { .rail-lower-ads > [data-lower-ad="34"] { display: block; } }
+@container (min-height: 34624px) { .rail-lower-ads > [data-lower-ad="35"] { display: block; } }
+@container (min-height: 35624px) { .rail-lower-ads > [data-lower-ad="36"] { display: block; } }
+@container (min-height: 36624px) { .rail-lower-ads > [data-lower-ad="37"] { display: block; } }
+@container (min-height: 37624px) { .rail-lower-ads > [data-lower-ad="38"] { display: block; } }
+@container (min-height: 38624px) { .rail-lower-ads > [data-lower-ad="39"] { display: block; } }
+@container (min-height: 39624px) { .rail-lower-ads > [data-lower-ad="40"] { display: block; } }

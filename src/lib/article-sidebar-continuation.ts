@@ -12,8 +12,6 @@ import { classifyDoc } from './doc-classifier';
 import { findYearRelatives } from './exam-year-nav.mjs';
 import { relatedTextbookSlugs } from './related-textbooks';
 import { isCivilConstructionCategory } from './qualification-names';
-import { articleImagePlacements, articleRailSlot } from './article-affiliate-plan';
-import type { ResolvedPlacements } from './affiliate-placement';
 import { createCardPicker, withRailAdSense, type RailGroup, type RailLink, type RailSource as Source } from './rail-continuation';
 
 export type { RailGroup } from './rail-continuation';
@@ -24,15 +22,14 @@ const EXAM_GROUPS = ['primary', 'secondary', 'pastExam'];
 /**
  * 上の束の行き先を除き、1 組 3 件（最後の組だけ 2 件）で下に続く束を作る。
  * 関連記事（上位 12 件）→ほかの種類→関連の続き…と交互に並べ、同じ種類を続けず、同じ記事を 2 回出さない。
- * 組の数は高さの見積もり（上限）と回遊の候補（実数）の小さいほう。広告の重複除外は既存の画像計画に一任。
- * 組は上詰めで並べ、2 組目の転職バナーは AdSense に替える（withRailAdSense）。
+ * 組の数は高さの見積もり（上限）と回遊の候補（実数）の小さいほう。
+ * 組は上詰めで並べ、転職バナーは置かず 1 組おきに AdSense を置く（withRailAdSense・RAIL_AFFILIATE_MAX）。
  */
 export function articleSidebarContinuation(
   input: ArticleSidebarInput,
   current: DocMeta,
   pool: DocMeta[],
   bodyLength: number,
-  placements: ResolvedPlacements,
 ): RailGroup[] {
   const count = articleSidebarGroupCount(bodyLength, input.headings.filter(h => h.level === 2).length, input.docGroup);
   if (!count) return withRailAdSense([]);
@@ -69,14 +66,11 @@ export function articleSidebarContinuation(
 
   const nextCard = createCardPicker({ first: related, others, usedHrefs });
 
-  const images = articleImagePlacements(placements, [], upper.length + count);
   const groups: RailGroup[] = [];
   for (let index = 0; index < count; index++) {
     const card = nextCard(index);
-    const slot = articleRailSlot(upper.length + index);
-    const banner = images.find(image => image.placement.slot === slot)?.placement;
-    // 上詰めなので、カードの無い組（バナーだけ）は作らない（広告が続く）
-    if (card) groups.push({ slot, card, banner });
+    // 上詰めなので、カードの無い組は作らない（広告が続く）
+    if (card) groups.push({ slot: `article-rail-group-${index + 1}`, card });
   }
   return withRailAdSense(groups);
 }

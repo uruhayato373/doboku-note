@@ -39,7 +39,7 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
       return {
         path, chars,
         lower: groups.filter(g => g.lower).length,
-        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, fill: Boolean(g.fill), adsense: Boolean(g.adsense), label: g.card?.label, plain: g.card?.plain, hrefs: g.card?.links.map(l => l.href) ?? [], program: g.banner?.program })),
+        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, plain: g.card?.plain, hrefs: g.card?.links.map(l => l.href) ?? [], banner: 'banner' in g })),
         upper: [...shown.practice, ...shown.exam].map(doc => getPublicDocPath(doc.slug)),
         self: '/standards/' + path.replace(/\\/([^/]+)$/, '/chapters/$1'),
       };
@@ -53,81 +53,73 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
   assert.equal(byPath['chubu/special/2-1'].groups.length, 0, '特に短い章は0組');
   const long = byPath['kinki/common/1-1'];
   assert.ok(long.groups.length > 3 && long.groups.length <= 20, '長い章は回遊の候補の数まで（上限20）');
-  assert.ok(long.groups.every(g => !g.fill), 'バナーだけの組は作らない（上詰めで広告が続く）');
-  assert.equal(long.lower, 30, '空きの AdSense の候補は 30 枠');
-  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 30, '組が無くても空きの AdSense の候補は 30 枠（出すかは描画した高さで決める）');
+  assert.ok(long.groups.every(g => g.hrefs.length), 'カードの無い組は作らない（上詰めで広告が続く）');
+  assert.equal(long.lower, 40, '空きの AdSense の候補は 40 枠');
+  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 40, '組が無くても空きの AdSense の候補は 40 枠（出すかは描画した高さで決める）');
   for (const row of [main, long]) {
     const hrefs = row.groups.flatMap(g => g.hrefs);
     assert.equal(new Set(hrefs).size, hrefs.length, row.path + ' 同じリンクを2回出さない');
     for (const href of row.upper) assert.ok(!hrefs.includes(href), row.path + ' 上の束の記事を出さない ' + href);
     assert.ok(!hrefs.includes(row.self), '自分の章を出さない');
-    // 2 件の組を出したら打ち切る（createCardPicker）ので、2 件を許すのはカードの組の最後だけ。後ろにバナーだけの組が続いてもよい
+    // 2 件の組を出したら打ち切る（createCardPicker）ので、2 件を許すのはカードの組の最後だけ
     // （2026-11-16: 記事の更新日でテーマの記事の並びが変わり、長い章の最後のカードの組が 2 件になった）
     const lastCard = row.groups.length - 1;
     row.groups.forEach((g, i) => {
-      assert.equal(g.slot, 'standards-rail-fill');
-      assert.equal(g.adsense, i === 1, '2 組目だけ AdSense');
-      if (i === 1) assert.equal(g.program, undefined, 'AdSense の組に転職バナーは無い');
-      else assert.ok(g.program, 'ほかの組に転職バナー');
+      assert.equal(g.slot, 'standards-rail-group');
+      assert.equal(g.adsense, i % 2 === 0, '1 組目から 1 組おきに AdSense');
+      assert.equal(g.banner, false, '下に続く組に転職バナーは置かない（右の欄の転職は上の束の 2 つまで）');
       if (i === lastCard) { assert.ok(g.hrefs.length === 2 || g.hrefs.length === 3, 'カードの最後の組は 2〜3 件'); }
       else { assert.equal(g.hrefs.length, 3, '1組は3件（カードの最後の組だけ2件）'); }
     });
-    const cards = row.groups.filter(g => !g.fill);
-    cards.forEach((g, i) => assert.notEqual(g.label, cards[i - 1]?.label, '同じ種類を続けない'));
+    row.groups.forEach((g, i) => assert.notEqual(g.label, row.groups[i - 1]?.label, '同じ種類を続けない'));
   }
   assert.ok(main.groups[2].plain, '前後の章は文字の一覧（サムネイルなし）');
-  assert.deepEqual([...new Set(main.groups.map(g => g.program).filter(Boolean))].sort(), ['buildjob', 'dainishinsotsu-agent-neo'], '案件は基準書の右欄の転職系だけ（DXを出さない）');
 });
 
-test('案件が無ければバナーなしで回遊だけを出し、回遊が尽きれば組なし', () => {
+test('下に続く組はカードだけで、転職バナーを持たない（AdSense は 1 組おき）', () => {
   const result = evaluate(`
     const { getStandardChapter } = await import('./src/lib/standards-articles.ts');
     const { standardsSidebarContinuation } = await import('./src/lib/standards-sidebar-continuation.ts');
     const { chapter, document } = getStandardChapter('mlit', 'sekou-kanri-kijun', '2-1');
-    const groups = standardsSidebarContinuation(document, chapter, 4716, {});
+    const groups = standardsSidebarContinuation(document, chapter, 4716);
     const packed = groups.filter(g => !g.lower);
-    process.stdout.write(JSON.stringify({ n: packed.length, banners: packed.filter(g => g.banner).length, cards: packed.filter(g => g.card).length }));`);
-  assert.deepEqual(result, { n: 3, banners: 0, cards: 3 });
+    process.stdout.write(JSON.stringify({ n: packed.length, banners: packed.filter(g => 'banner' in g).length, cards: packed.filter(g => g.card).length, ads: packed.filter(g => g.adsense).length }));`);
+  assert.deepEqual(result, { n: 3, banners: 0, cards: 3, ads: 2 });
 });
 
-test('資格トップ: 1級土木は新着の1組＋AdSense（人気順は上の束の人気記事だけ）・ランキングに出た記事は出さない・記事が少ない資格は0組・バナーは上の束と同じ案件', () => {
+test('資格トップ: 1級土木は AdSense＋新着の1組（人気順は上の束の人気記事だけ）・ランキングに出た記事は出さない・記事が少ない資格は0組・転職バナーは置かない', () => {
   const rows = evaluate(`
     Date.now = () => Date.parse('2026-11-16T00:00:00+09:00');
     const { getAllDocsMeta } = await import('./src/lib/docs.ts');
     const { getPopularDocs } = await import('./src/lib/popular.ts');
-    const { resolvePlacements } = await import('./src/lib/affiliate-placement.ts');
     const { categorySidebarContinuation } = await import('./src/lib/category-sidebar-continuation.ts');
     const { getPublicDocPath } = await import('./src/lib/content-routes.ts');
     const all = getAllDocsMeta();
     const rows = ['civil-construction-1', 'concrete-engineer', 'pe-first-stage', 'pavement'].map(slug => {
       const docs = all.filter(d => d.category === slug && d.published !== false && !d.tags?.includes('模範論文') && !d.hideFromCategory);
-      const placements = resolvePlacements({ pageKind: 'category', category: slug });
       const popular = getPopularDocs(docs, 5);
-      const groups = categorySidebarContinuation(docs, popular, placements['category-sidebar'] ?? null);
-      return { slug, docs: docs.length, sidebar: placements['category-sidebar']?.program, shown: popular.map(p => getPublicDocPath(p.doc.slug)),
-        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, hrefs: g.card?.links.map(l => l.href) ?? [], program: g.banner?.program, thumbs: g.card?.links.every(l => l.doc) })) };
+      const groups = categorySidebarContinuation(docs, popular);
+      return { slug, docs: docs.length, shown: popular.map(p => getPublicDocPath(p.doc.slug)),
+        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, hrefs: g.card?.links.map(l => l.href) ?? [], banner: 'banner' in g, thumbs: g.card?.links.every(l => l.doc) })) };
     });
     process.stdout.write(JSON.stringify(rows));`);
   const by = Object.fromEntries(rows.map(row => [row.slug, row]));
-  // 人気順は上の束の人気記事（順位つきのサムネイル）だけが持つ（2026-11-22）。下の続きは新着の 1 組と、その後ろの AdSense
-  assert.deepEqual(by['civil-construction-1'].groups.map(g => g.label ?? (g.adsense ? 'adsense' : null)), ['rail-latest', 'adsense']);
-  assert.deepEqual(by['concrete-engineer'].groups.map(g => g.adsense), [false, true], '1 組だけなら後ろに AdSense');
+  // 人気順は上の束の人気記事（順位つきのサムネイル）だけが持つ（2026-11-22）。下の続きは新着の 1 組で、カードの上に AdSense
+  assert.deepEqual(by['civil-construction-1'].groups.map(g => [g.label, g.adsense]), [['rail-latest', true]]);
+  assert.deepEqual(by['concrete-engineer'].groups.map(g => g.adsense), [true], '1 組だけでもカードの上に AdSense');
   assert.equal(by['pavement'].groups.length, 0);
   for (const row of rows.filter(r => r.groups.length)) {
     const hrefs = row.groups.flatMap(g => g.hrefs);
     assert.equal(new Set(hrefs).size, hrefs.length);
     for (const href of row.shown) assert.ok(!hrefs.includes(href), row.slug + ' ランキングの記事を出さない');
-    assert.equal(row.groups.filter(g => g.adsense).length, 1, 'AdSense は 1 枠');
-    assert.equal(row.groups[0].program, undefined, row.slug + ' 1 組目は上の束の転職バナーの近くなのでバナーを置かない（DN-1232/1233）');
-    for (const [i, g] of row.groups.entries()) {
-      if (g.adsense) continue;
-      assert.equal(g.slot, 'category-rail-fill'); assert.ok(g.thumbs, '記事はサムネイルつき');
-      if (i > 0) assert.equal(g.program, row.sidebar);
+    for (const g of row.groups) {
+      assert.equal(g.slot, 'category-rail'); assert.ok(g.thumbs, '記事はサムネイルつき');
+      assert.equal(g.banner, false, row.slug + ' 下に続く組に転職バナーは置かない');
     }
   }
 });
 
-test('基準書の右の欄を描画: 上の束の後に下に続く束・各組はバナーの直後が実カード・埋める面にピクセルを付けず・上の束の並びは変えない', () => {
+test('基準書の右の欄を描画: 上の束の転職は 2 つ・下に続く組は AdSense とカードだけ・ピクセルを付けず・上の束の並びは変えない', () => {
   const script = `
     import { createRequire } from 'node:module';
     import React from 'react';
@@ -160,12 +152,13 @@ test('基準書の右の欄を描画: 上の束の後に下に続く束・各組
     }));`;
   const data = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }));
   assert.deepEqual(data.upperWith, data.upperWithout, '上の束は変えない');
-  assert.deepEqual(data.upperWith.slice(0, 5), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related', 'standards-rail-3']);
+  assert.deepEqual(data.upperWith.slice(0, 4), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related']);
+  assert.equal(data.upperWith.filter(v => /^standards-rail/.test(v)).length, 2, '右の欄の転職は上の束の 2 つまで');
   assert.deepEqual(data.wrapper, ['upper', 'continuation']);
   assert.match(data.wrapperClass, /flex h-full flex-1 flex-col/);
   assert.equal(data.groups.length, 3);
-  data.groups.forEach((group, i) => assert.deepEqual(group, [i === 1 ? 'adsense' : 'banner:standards-rail-fill', 'card'], '広告の直後は実カード・2 組目は AdSense'));
-  assert.equal(data.pixels, 0, '埋める面にピクセルは付けない');
+  data.groups.forEach((group, i) => assert.deepEqual(group, i % 2 === 0 ? ['adsense', 'card'] : ['card'], '1 組目から 1 組おきに AdSense・転職バナーは置かない'));
+  assert.equal(data.pixels, 0, '下に続く組にピクセルは付けない');
   assert.equal(data.thumbs, 6, '実務と試験対策の記事 6 件はサムネイルつき');
   assert.equal(data.plainRows, 3, '前後の章は文字の一覧');
   assert.equal(data.noGroups, 0, '組が無ければ今までどおり');

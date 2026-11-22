@@ -1,11 +1,9 @@
 import type { DocMeta } from './docs';
-import type { ResolvedPlacement } from './affiliate-placement';
-import { slotCreatives } from './affiliate-slot-creatives';
 
 /**
  * 右の欄の「下に続く束」の共通部品（記事・基準書の章と節・資格トップが同じ仕組みを使う）。
- * 上の束（そのページの今の並び）の下へ、回遊カードと転職バナーの組を上詰めで並べる（2026-11-16 運営者判断: 均等割りは組の間に大きな余白が出た）。
- * 2 組目は転職バナーの代わりに AdSense の枠を置く（withRailAdSense）。上詰めで広告が続かないよう、カードの無い組（バナーだけ）は作らない。
+ * 上の束（そのページの今の並び）の下へ、回遊カードの組を上詰めで並べる（2026-11-16 運営者判断: 均等割りは組の間に大きな余白が出た）。
+ * 組には転職バナーを置かず、1 組おきに AdSense の枠を置く（withRailAdSense・2026-11-22）。上詰めで広告が続かないよう、カードの無い組は作らない。
  * 組の数の判定・カードの選び方・バナーだけの組の散らし方は、ここだけに置く。
  */
 
@@ -26,28 +24,30 @@ export interface RailCard {
 export interface RailGroup {
   slot: string;
   card: RailCard | null;
-  banner: ResolvedPlacement | undefined;
-  /** 回遊の組の間をバナーだけで埋める組（card なし・面は *-rail-fill） */
-  fill?: boolean;
-  /** 転職バナーの代わりに AdSense の枠を置く組 */
+  /** カードの上に AdSense の枠を置く組 */
   adsense?: boolean;
   /** 上詰めの組の下の空きに、組の直後から上詰めで並べる AdSense だけの組 */
   lower?: boolean;
 }
 
-/** 上詰めの組の下の空きに置く AdSense の上限（2026-11-16 運営者判断・2026-11-22 に 2,500px ごと最大 3 枠から 1,200px 間隔・最大 30 枠へ）。間隔（1,200px ごとに 1 枠＝1 画面に右の欄の広告は 1 枠まで）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
-const RAIL_LOWER_AD_MAX = 30;
+/**
+ * 右の欄の転職バナーの上限（上の束の先頭から数えて 2 つまで・2026-11-22 運営者判断）。下に続く組には転職バナーを置かず、
+ * 1 組おきに AdSense を置く。転職バナーは 28 日で表示 24,450・クリック 24（0.10%）で、基準書・キーワードはクリック 0 だった
+ * （GA4 2026-10-18〜11-14）。上の束が案件を 1 つずつ持つので、ピクセルもこの 2 つが持つ。
+ */
+export const RAIL_AFFILIATE_MAX = 2;
+
+/** 上詰めの組の下の空きに置く AdSense の上限。間隔（1,000px ごとに縦長の 1 枠）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
+const RAIL_LOWER_AD_MAX = 40;
 
 /**
- * 2 組目の転職バナーを AdSense の枠に替え（1 組だけなら組の後ろに AdSense だけの組を足す）、カード → 転職 → カード → AdSense → カード の順にする。
- * 上詰めの組の下の空きには AdSense だけの組（lower）を最大 30 足す。何枠出すかは描画した空きの高さで決める（1,200px 間隔。
- * 字数からの高さの見積もりは表の多い基準書の章で外れ、空きが 1 万 px を超えても 0 枠だった）。転職バナーは同じ案件の繰り返しとピクセルの扱いが崩れるので足さない。
+ * 下に続く組の転職バナーを外し、1 組目から 1 組おきに AdSense を置く（カードの上に AdSense → カード → AdSense …）。
+ * 上詰めの組の下の空きには縦長の AdSense だけの組（lower）を最大 40 足す。何枠出すかは描画した空きの高さで決める（1,000px 間隔。
+ * 字数からの高さの見積もりは表の多い基準書の章で外れ、空きが 1 万 px を超えても 0 枠だった）。
  */
 export function withRailAdSense(groups: RailGroup[]): RailGroup[] {
-  const packed = groups.length === 0 ? []
-    : groups.length === 1 ? [...groups, { slot: 'rail-adsense', card: null, banner: undefined, adsense: true }]
-    : groups.map((group, index) => index === 1 ? { ...group, banner: undefined, adsense: true } : group);
-  return [...packed, ...Array.from({ length: RAIL_LOWER_AD_MAX }, (_, i) => ({ slot: `rail-adsense-lower-${i + 1}`, card: null, banner: undefined, adsense: true, lower: true }))];
+  const packed = groups.map((group, index) => ({ ...group, adsense: index % 2 === 0 }));
+  return [...packed, ...Array.from({ length: RAIL_LOWER_AD_MAX }, (_, i) => ({ slot: `rail-adsense-lower-${i + 1}`, card: null, adsense: true, lower: true }))];
 }
 export interface RailSource { label: RailCard['label']; title: string; links: RailLink[]; plain?: boolean }
 
@@ -105,17 +105,3 @@ export function createCardPicker({ first, others, usedHrefs }: { first?: RailSou
     return null;
   };
 }
-
-/**
- * バナーだけの組の案件の列。右の欄に出ている案件を出る順に 1 回ずつ並べ直し、面名だけ fill 面にする。
- * ピクセルは上の束の同じ案件が既に 1 発持つので、ここでは増やさない。面の画像が無い案件は入れない。
- */
-export function railFillColumn(placements: ResolvedPlacement[], fillSlot: string): ResolvedPlacement[] {
-  const seen = new Set<string>();
-  return placements.flatMap(placement => {
-    if (seen.has(placement.program)) return [];
-    seen.add(placement.program);
-    return slotCreatives(placement.program, fillSlot).pc ? [{ ...placement, alternate: undefined, secondary: undefined, slot: fillSlot }] : [];
-  });
-}
-

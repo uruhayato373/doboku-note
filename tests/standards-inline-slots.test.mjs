@@ -81,7 +81,7 @@ test('2-1章は表の後に 3 枠置き、末尾と枠の間隔の字数を守�
   }
 });
 
-test('描画した面だけがピクセルを持ち、rail 3 面・モバイル追加でも重複しない', async () => {
+test('描画した面だけがピクセルを持ち、rail 2 面・モバイル追加でも重複しない', async () => {
   const { execFileSync } = await import('node:child_process');
   const { execPath } = await import('node:process');
   const script = `
@@ -94,7 +94,7 @@ test('描画した面だけがピクセルを持ち、rail 3 面・モバイル�
     cases.push({ pageKind: 'standards-list', inlineSlots: [] });
     const result = cases.map(props => {
       const { inlineSlots, pageKind } = props;
-      const railSlots = pageKind === 'standards' ? ['standards-rail', 'standards-rail-2', 'standards-rail-3'] : ['standards-list-rail', 'standards-list-rail-2'];
+      const railSlots = pageKind === 'standards' ? ['standards-rail', 'standards-rail-2'] : ['standards-list-rail', 'standards-list-rail-2'];
       const rail = railSlots.map(slot => renderToStaticMarkup(React.createElement(StandardsRailBanner, { ...props, slot }))).join('');
       const end = renderToStaticMarkup(React.createElement(StandardsEndBanner, props));
       const inline = inlineSlots.map(slot => renderToStaticMarkup(React.createElement(StandardsInlineBanner, { slot, inlineSlots }))).join('');
@@ -113,9 +113,10 @@ test('描画した面だけがピクセルを持ち、rail 3 面・モバイル�
   `;
   // tsx CLI は IPC の listen を要求するため、sandbox でも動く import フックで描画する。
   const results = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
-  assert.deepEqual(results.map((r) => r.railPixels), [2, 1, 1, 1], 'buildjob は inline を優先、kensetsu-jobs は end を優先し、neo は rail が持つ');
-  assert.deepEqual(results.map((r) => r.extraCards), [2, 1, 1, 1], '本文中・本文末にない buildjob と neo だけモバイル追加する');
-  assert.equal(results[2].cards, 11, '本文中6枚・rail3枚・末尾1枚・モバイル追加1枚');
+  // 右の欄の転職は 2 面まで（standards-rail・standards-rail-2＝RAIL_AFFILIATE_MAX・2026-11-22）。3 面目の neo は出さない
+  assert.deepEqual(results.map((r) => r.railPixels), [1, 0, 0, 1], 'buildjob は inline を優先、kensetsu-jobs は end を優先し、本文に無いときだけ rail が持つ');
+  assert.deepEqual(results.map((r) => r.extraCards), [1, 0, 0, 1], '本文中・本文末にない案件だけモバイル追加する');
+  assert.equal(results[2].cards, 9, '本文中6枚・rail2枚・末尾1枚・モバイル追加0枚');
   for (const result of results) {
     assert.equal(result.railArms, 0);
     assert.equal(result.extraPixels, 0);
@@ -136,7 +137,7 @@ test('表も 2 つ目の ## も無い長い章は段落の切れ目に置き、�
 });
 
 
-test('PC は上端・目次後・回遊カード間へ配置し、モバイルの Disclosure には入れない', async () => {
+test('PC は上端・目次後の 2 面だけに置き（章・節）、モバイルの Disclosure には入れない', async () => {
   const { execFileSync } = await import('node:child_process');
   const { execPath } = await import('node:process');
   const script = `
@@ -176,8 +177,8 @@ test('PC は上端・目次後・回遊カード間へ配置し、モバイル�
   `;
   const data = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
   for (const row of data.rows) {
-    assert.deepEqual(row.order.slice(0, 5), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related', 'standards-rail-3']);
-    assert.ok(row.order.length > 5, '3面目は回遊カードの間');
+    assert.deepEqual(row.order.slice(0, 4), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related']);
+    assert.equal(row.order.filter(v => /^standards-rail/.test(v)).length, 2, '右の欄の転職は 2 面まで（RAIL_AFFILIATE_MAX）');
     assert.deepEqual(row.sectionOrder, row.order);
     assert.equal(row.mobileAds, 0);
   }

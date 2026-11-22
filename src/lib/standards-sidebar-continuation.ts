@@ -2,27 +2,24 @@ import 'server-only';
 
 import type { DocMeta } from './docs';
 import { getAllDocsMeta } from './docs';
-import { resolvePlacements, type ResolvedPlacement, type ResolvedPlacements } from './affiliate-placement';
 import { articleSidebarGroupCount } from './article-sidebar-plan';
 import { getPublicDocPath } from './content-routes';
 import { getPopularDocs } from './popular';
-import { createCardPicker, withRailAdSense, railFillColumn, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
+import { createCardPicker, withRailAdSense, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
 import type { StandardDocument } from './standards';
 import { getStandardChapterTopics, getStandardRelatedDocs } from './standards-discovery';
 import { getStandardChapters, standardChapterPath, type StandardChapter } from './standards-articles';
 
 /**
  * 基準書の章・節ページの右の欄の「下に続く束」（DN-1218 段 3）。上の束（目次・回遊・資格の橋渡し）の下へ、
- * 回遊カード＋転職バナーの組を本文の長さに応じた数だけ並べる。組の数は記事と同じ判定（articleSidebarGroupCount・係数 standards）。
+ * 回遊カードの組を本文の長さに応じた数だけ並べる（1 組おきに AdSense・転職バナーは置かない＝rail-continuation の RAIL_AFFILIATE_MAX）。組の数は記事と同じ判定（articleSidebarGroupCount・係数 standards）。
  * 組の中身は、この章に近い実務の記事 → 試験対策の記事 → 同じ文書の前後の章（文字の一覧）→ 同じ資格の人気・新着の順に回し、
- * 上の束のカードに出た記事・同じ記事を 2 回出さない。バナーは基準書の右の欄の案件（standards-rail 系）を順に繰り返し、
- * ピクセルは付けない（上の束の同じ案件が持つ）。組は上詰めで、候補が尽きたら打ち切る（バナーだけの組は作らない）。2 組目は AdSense。
+ * 上の束のカードに出た記事・同じ記事を 2 回出さない。組は上詰めで、候補が尽きたら打ち切る（カードの無い組は作らない）。
  */
 
 /** 回遊の「同じ資格」。基準書の読み手の主な行き先（施工管理基準＝土木施工管理技士） */
 const STANDARDS_QUALIFICATION = 'civil-construction-1';
-const STANDARDS_RAIL_FILL_SLOT = 'standards-rail-fill';
-const RAIL_SLOTS = ['standards-rail', 'standards-rail-2', 'standards-rail-3'];
+const STANDARDS_RAIL_GROUP_SLOT = 'standards-rail-group';
 /** 同じ文書の前後の章として出す範囲（現在の章から数えて前後それぞれ） */
 const NEARBY_CHAPTERS = 3;
 
@@ -44,7 +41,6 @@ export function standardsSidebarContinuation(
   document: StandardDocument,
   chapter: StandardChapter,
   bodyLength: number,
-  placements: ResolvedPlacements = resolvePlacements({ pageKind: 'standards' }),
 ): RailGroup[] {
   const count = articleSidebarGroupCount(bodyLength, 0, 'standards');
   if (!count) return withRailAdSense([]);
@@ -67,12 +63,11 @@ export function standardsSidebarContinuation(
   ];
   const nextCard = createCardPicker({ others: sources, usedHrefs });
 
-  const column = railFillColumn(RAIL_SLOTS.flatMap(slot => placements[slot] ? [placements[slot] as ResolvedPlacement] : []), STANDARDS_RAIL_FILL_SLOT);
   const groups: RailGroup[] = [];
   for (let index = 0; index < count; index++) {
     const card = nextCard(index);
     if (!card) break;
-    groups.push({ slot: STANDARDS_RAIL_FILL_SLOT, card, banner: column.length ? column[index % column.length] : undefined });
+    groups.push({ slot: STANDARDS_RAIL_GROUP_SLOT, card });
   }
   return withRailAdSense(groups);
 }
