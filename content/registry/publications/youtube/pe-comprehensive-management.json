@@ -261,7 +261,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-tenken-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-tenken-2",
       "relatedTo": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
       "idException": "imported-before-cutover",
@@ -286,13 +286,38 @@
         "contentSha256": "d6d633bbc78f3b70a415fc25fe53af0ea601406bc7b166a3c36c210fffe1a287"
       },
       "times": {
-        "rendered": "2026-11-21T13:00:31.827Z"
+        "rendered": "2026-11-21T13:00:31.827Z",
+        "uploaded": "2026-11-22T12:59:54.014Z"
       },
       "delivery": {
         "inputSha256": "697befc07628b53d1579c6ae514e7b319fea07a475b7e5699dbc0399760eadc2",
         "marker": "dn-single-50a54ade2fffbf818a1291e85918a2d285337bb9",
         "uploadRequestedAt": "2026-11-21T13:02:18.557Z",
-        "videoId": "CnBFpn7o-R8"
+        "videoId": "CnBFpn7o-R8",
+        "processedAt": "2026-11-22T12:59:53.176Z",
+        "thumbnailRequestedAt": "2026-11-22T12:59:54.043Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/CnBFpn7o-R8/default.jpg?sqp=CKTMi9gG&rs=AOn4CLBX5YQnTre7J92HefT8oRcfIlK7ug",
+          "https://i9.ytimg.com/vi/CnBFpn7o-R8/mqdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLB14GhiWDAJmcH5Ew_K7skZx9quNg",
+          "https://i9.ytimg.com/vi/CnBFpn7o-R8/hqdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLC5-QQNLy_eY-JSHXrqFi7Z9dw7iw",
+          "https://i9.ytimg.com/vi/CnBFpn7o-R8/sddefault.jpg?sqp=CKTMi9gG&rs=AOn4CLBzNf5alXx9P8CkcB1a0OV1teqSGg",
+          "https://i9.ytimg.com/vi/CnBFpn7o-R8/maxresdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLBZLLR9Gd8ofoGW2DAQJnY8wfxPVA",
+          "https://i9.ytimg.com/vi/CnBFpn7o-R8/sardefault.jpg?sqp=CKTMi9gG&rs=AOn4CLAl7KyIIh9URZbKNr5pDWynmkzN3A"
+        ],
+        "thumbnailAcceptedAt": "2026-11-22T12:59:57.380Z"
+      },
+      "platform": {
+        "id": "CnBFpn7o-R8",
+        "url": "https://www.youtube.com/watch?v=CnBFpn7o-R8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-tenken-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-22T12:59:57.380Z"
       }
     },
     {
