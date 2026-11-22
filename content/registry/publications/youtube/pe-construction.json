@@ -896,7 +896,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-ippanron-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1",
       "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
       "idException": "imported-before-cutover",
@@ -921,13 +921,38 @@
         "contentSha256": "a8cb1c1636afddbbdbc50ee8e9a85c423aeb540bb90bc92b67f9dfc32466c330"
       },
       "times": {
-        "rendered": "2026-11-21T13:02:47.927Z"
+        "rendered": "2026-11-21T13:02:47.927Z",
+        "uploaded": "2026-11-22T13:01:14.422Z"
       },
       "delivery": {
         "inputSha256": "e5266698c198f046687e47164aa031719e3b0f0d35446e956e9d4199645ab408",
         "marker": "dn-single-2414635211b9e9a551c5a1553d215b8d7bca1e36",
         "uploadRequestedAt": "2026-11-21T13:04:08.885Z",
-        "videoId": "ggOr74pTYpc"
+        "videoId": "ggOr74pTYpc",
+        "processedAt": "2026-11-22T13:01:13.572Z",
+        "thumbnailRequestedAt": "2026-11-22T13:01:14.459Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/ggOr74pTYpc/default.jpg?sqp=CNDOi9gG&rs=AOn4CLByj0jJSD3DF6O8tDSA3YK_N8Bn-Q",
+          "https://i9.ytimg.com/vi/ggOr74pTYpc/mqdefault.jpg?sqp=CNDOi9gG&rs=AOn4CLAc4gKC3uKmbAFhwiCPf3phLMqRLA",
+          "https://i9.ytimg.com/vi/ggOr74pTYpc/hqdefault.jpg?sqp=CNDOi9gG&rs=AOn4CLDPgg_Ux49S8NJ0O-7Od3lBh2IqLg",
+          "https://i9.ytimg.com/vi/ggOr74pTYpc/sddefault.jpg?sqp=CNDOi9gG&rs=AOn4CLDgn1y7jS1XsuzFaV5VZZj9IS1QLA",
+          "https://i9.ytimg.com/vi/ggOr74pTYpc/maxresdefault.jpg?sqp=CNDOi9gG&rs=AOn4CLCshdNCuqNAs2TmivzpOyqZzidyYw",
+          "https://i9.ytimg.com/vi/ggOr74pTYpc/sardefault.jpg?sqp=CNDOi9gG&rs=AOn4CLCUMV_wHCQY9VwrpKnXYEyZmEPM1w"
+        ],
+        "thumbnailAcceptedAt": "2026-11-22T13:01:34.370Z"
+      },
+      "platform": {
+        "id": "ggOr74pTYpc",
+        "url": "https://www.youtube.com/watch?v=ggOr74pTYpc",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-22T13:01:34.370Z"
       }
     },
     {
