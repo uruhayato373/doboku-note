@@ -157,7 +157,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 7. **トップページの資格カードに追加**（公開＝サイトに出すなら必須）: `src/config/home-exam-cards.json` にカード（`slug`/`order`/`label`）を追加する。カードに出すのは名前だけで、説明文・試験日・件数は持たない（2026-10-02 に `en`/`subtitle`/`description`/`nextExam`/`stats` と `exam-schedule.ts` を消した。画面が描画していなかった）。試験日は `config/exam-calendar.json` が正本なので、新資格はそちらにも登録する。**ナビ（`categories.json`）と別管理**なのは、カードのコピーがナビ用と意図的に異なるため（例: ナビ「技術士第二次試験（建設部門）」⇄ カード「技術士（建設部門）」）。「どの資格をトップに出すか」は `categories.json` の `visible`（≠false）/`variant`（≠reference）が真実源で、両者の整合は `npm run check-home-exam-coverage`（pre-commit / CI ゲート）が強制する。**これを忘れると、公開済みコンテンツがあってもトップの資格カードに出ない**（2026-06-15 pe-first-stage 21本が該当＝ナビからのみ到達可能だった）。意図的にトップへ出さない資格は `categories.json` で `visible:false` にする。
 8. **SNSリンクハブに追加**: `src/app/links/page.tsx` の `EXAM_CARDS` と `EXAM_GROUPS` に追加する。L2もくじ・商品が未整備ならサイト行だけを表示する。
 9. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
-10. `src/components/ui/ArticleFooter/ArticleFooter.tsx` の資格別分岐を確認する（カテゴリページのビュー・並べ替え・見出しは 0 の `layout` に移した・DN-0793）。
+10. `src/components/docs/ArticleFooter.tsx` の資格別分岐を確認する（カテゴリページのビュー・並べ替え・見出しは 0 の `layout` に移した・DN-0793）。
 
 ### 新資格メモ: 技術士 水産部門（`pe-fisheries`、2026-11-10 展開中へ昇格・ガイドのみ）
 

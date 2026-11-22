@@ -14,7 +14,7 @@ import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 const CONFIG_PATH = path.join(ROOT, 'src/config/pe-construction-exam-keyword-links.json');
 const SUBJECTS_PATH = path.join(ROOT, 'src/lib/pe-construction-subjects.ts');
 const CURRICULUM_PATH = path.join(ROOT, 'src/config/category-curriculum.json');
-const ARTICLE_FOOTER_PATH = path.join(ROOT, 'src/components/ui/ArticleFooter/ArticleFooter.tsx');
+const ARTICLE_FOOTER_PATH = path.join(ROOT, 'src/components/docs/ArticleFooter.tsx');
 const COMPONENT_PATH = path.join(ROOT, 'src/components/ui/PeConstructionSubjectLinks/PeConstructionSubjectLinks.tsx');
 const CONTENT_ROOT = path.join(ROOT, 'content/site/pe-construction');
 

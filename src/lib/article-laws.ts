@@ -4,7 +4,14 @@
  */
 import egovLaws from '../../config/egov-laws.json';
 import { EGOV_LAW_BASE, articleLaws } from './egov-links.mjs';
-import type { ArticleLaw } from '@/components/ui/ArticleLaws/ArticleLaws';
+
+/** 「この記事の根拠法令」カードの 1 法令（法令 ID・名前・e-Gov の URL・引かれた条） */
+export interface ArticleLaw {
+  readonly lawId: string;
+  readonly title: string;
+  readonly url: string;
+  readonly articles: readonly { readonly article: string; readonly label: string; readonly url: string }[];
+}
 
 /**
  * 記事の本文（参考資料の節を含む全文）から、引いている法令と条を本文に出た順に返す。

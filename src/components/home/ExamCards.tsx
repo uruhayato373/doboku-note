@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { getCategoryHubPath } from '@/lib/categories';
+import type { ExamData } from '@/lib/home-exam-cards';
 import { WIDE_CONTAINER } from '@/components/layout/container';
 
-
-export interface ExamData {
-  slug: string;
-  label: string;
-  variant: "civil" | "pe";
-}
 
 interface ExamCardsProps {
   exams: ExamData[];

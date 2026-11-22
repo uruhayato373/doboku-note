@@ -32,7 +32,7 @@ test('空き約2000pxごとに1組。3000px未満は0組・長文は上限12（�
 
 test('PCの本文目次は開いたカード、モバイルは閉じたdetails、両方H2だけ', () => {
   const html = evaluate(`import React from 'react'; import {renderToStaticMarkup as render} from 'react-dom/server';
-    import TableOfContents from './src/components/ui/TableOfContents';
+    import TableOfContents from './src/components/docs/TableOfContents';
     process.stdout.write(JSON.stringify(render(<TableOfContents variant="mobile" headings={[{id:'orphan',text:'孤立H3',level:3},{id:'h2',text:'土木の基本',level:2},{id:'h3',text:'詳細',level:3}]}/>)));`,true);
   const dom = parse(html);
   const surfaces = dom.querySelectorAll('[data-cta-label="article-toc"]');
@@ -64,7 +64,7 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     }process.stdout.write(JSON.stringify(rows));})();`);
   const rows = evaluate(`
     import React from 'react'; import {renderToStaticMarkup as render} from 'react-dom/server';
-    import ArticleSidebar,{buildArticleSidebarCards} from './src/components/ui/ArticleSidebar/ArticleSidebar';
+    import ArticleSidebar,{buildArticleSidebarCards} from './src/components/docs/ArticleSidebar';
     import TwoColumnShell from './src/components/layout/TwoColumnShell';
     const rows = ${JSON.stringify(inputs)}.map(row=>({...row,
       groups:row.groups.filter(g=>!g.lower).map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href),banner:g.banner?.program,fill:g.fill,adsense:g.adsense,slot:g.slot})),

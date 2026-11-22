@@ -20,7 +20,7 @@ const SURFACES = [
 // 画像つきの部品は ArticleCard（上に画像）と ArticleThumbRow（左に画像）の 2 実装だけ（2026-11-17 にトップの新着・検索結果も寄せた）
 const CARDS = [
   'src/components/ui/ArticleCard/ArticleCard.tsx',
-  'src/components/ui/RelatedArticles/ArticleThumbRow.tsx',
+  'src/components/ui/ArticleThumbRow/ArticleThumbRow.tsx',
 ];
 
 test('サムネイルを出す面は data-cta="nav" とラベルを持つ', () => {

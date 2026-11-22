@@ -1,4 +1,4 @@
-import PrevNextNav from '@/components/ui/TextbookNav/PrevNextNav';
+import PrevNextNav from '@/components/ui/PrevNextNav/PrevNextNav';
 import { getStandardChapters, standardChapterPath } from '@/lib/standards-articles';
 import type { StandardChapter as Chapter } from '@/lib/standards-articles';
 import type { StandardDocument } from '@/lib/standards';

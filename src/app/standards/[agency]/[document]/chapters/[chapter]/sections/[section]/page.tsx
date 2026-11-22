@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { PrevNextPair } from '@/components/ui/TextbookNav/PrevNextNav';
+import { PrevNextPair } from '@/components/ui/PrevNextNav/PrevNextNav';
 import remarkGfm from 'remark-gfm';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';

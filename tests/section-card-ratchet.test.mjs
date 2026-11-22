@@ -10,7 +10,7 @@ import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
 const ALLOW = new Map([
   ['src/components/ui/MetaCard/MetaCard.tsx', '区画の部品'],
-  ['src/components/ui/RelatedArticles/ArticleThumbRow.tsx', 'framed の行（1 件ずつ枠で囲むリンク）'],
+  ['src/components/ui/ArticleThumbRow/ArticleThumbRow.tsx', 'framed の行（1 件ずつ枠で囲むリンク）'],
   ['src/components/tools/ToolParts.tsx', 'ツールの入力・結果の枠（ToolPanel）'],
   ['src/components/search/SearchResults.tsx', '検索結果に挟む広告の枠（結果のカードと同じ枠にそろえる）'],
   ['src/components/category/CategoryViews.tsx', '見出しの id と aria-labelledby で結ぶ技術士一次の入口（見出しの大きさも別）'],

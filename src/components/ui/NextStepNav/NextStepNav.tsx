@@ -1,6 +1,6 @@
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import type { DocMeta } from '@/lib/docs';
 import { resolveNextSteps } from '@/lib/next-step';
 import { getCardImage } from '@/lib/site-thumbnail';

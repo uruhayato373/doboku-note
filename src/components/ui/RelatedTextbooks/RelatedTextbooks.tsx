@@ -4,7 +4,7 @@
  * 順位づけ（過去問→教材インデックス優先・0 件ならタグの共通数）は src/lib/related-textbooks.ts に集約している
  * （右の欄の rail-textbooks と共有）。ここは並んだ章に記事の title・description を添えて描画するだけ。
  */
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import { getCardImage } from '@/lib/site-thumbnail';
 import { getPublicDocPath } from '@/lib/content-routes';
 import type { DocMeta } from '@/lib/docs';

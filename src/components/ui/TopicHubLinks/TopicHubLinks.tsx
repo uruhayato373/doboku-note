@@ -13,7 +13,7 @@
  */
 import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import type { TopicHubLink } from '@/lib/article-end-wiring';
 import { topicPath } from '@/lib/route-paths';
 import { getCardImage } from '@/lib/site-thumbnail';

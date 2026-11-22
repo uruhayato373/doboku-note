@@ -17,7 +17,7 @@ const NOT_CARD = /inline-flex|rounded-full|\bdownload\b|href=\{?["'`]#|href=\{`#
 // 部品そのものと、1 実装のまま使う固有の部品（理由つき）
 const ALLOW = new Map([
   ['src/components/ui/ArticleCard/ArticleCard.tsx', '共通部品（上に画像のカード）'],
-  ['src/components/ui/RelatedArticles/ArticleThumbRow.tsx', '共通部品（左に画像の行）'],
+  ['src/components/ui/ArticleThumbRow/ArticleThumbRow.tsx', '共通部品（左に画像の行）'],
   ['src/components/ui/LinkTile/LinkTile.tsx', '共通部品（枠つきタイル）'],
   ['src/components/ui/NavLinkCard/NavLinkCard.tsx', 'MDX の SeeAlso だけが使う本文のリンクカード（既存の共通部品）'],
   ['src/components/home/ExamCards.tsx', '資格の入口（資格ごとの色の縦線を持つ固有の形）'],
