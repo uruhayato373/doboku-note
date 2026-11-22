@@ -138,6 +138,16 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data -- --dimension sourceMedium --days 7 --sns-only --limit 50
 
+      # AdSense の推定収益（GA4 とのリンク 2026-11-23 以降）。ページ別と広告ユニット別・7d。
+      # 週次レビューと「手動の枠だけ vs 手動＋自動のページ内広告」の実験（experiments.json）が読む
+      - name: Fetch GA4 (AdSense revenue by page / ad unit, 7d)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          npm run fetch-ga4-data -- --dimension page --adsense --days 7 --limit 500
+          npm run fetch-ga4-data -- --dimension adUnit --adsense --days 7 --limit 50
+
       # 動画パック単位の送客（DN-0110 Phase 3）。utm_campaign = packId なので campaign 別に見ると
       # 「どの企画が実際に送客したか」が分かる。管理画面 /metrics/video が最新ファイルを読む。
       # 28d なのは公開直後の 7d では母数が小さすぎて判断できないため（KPI は 06_動画コンテンツ運用設計 §9）。

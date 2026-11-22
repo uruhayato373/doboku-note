@@ -126,6 +126,37 @@ const ga4EventCountReport = (key, { by, month = false } = {}) =>
       if (!month && m.windowKind === 'month') flag(ctx, ['meta', 'windowKind'], 'windowKind が month の取得は :month の枠に入る');
     });
 
+/** AdSense の収益（GA4 と AdSense のリンク 2026-11-23 以降・fetch-ga4-data --adsense）。国で絞らない。行の欄の名前はディメンション名 */
+const ga4AdsenseReport = (dim) =>
+  z.strictObject({
+    stamp: reportStamp,
+    meta: z
+      .looseObject({
+        ...dateRange,
+        dimension: z.literal(dim).describe('行のキーになるディメンション'),
+        dimensionApiName: z.string().min(1).describe('GA4 Data API のディメンション名'),
+        metrics: z.array(z.string()).min(1).describe('取得した指標'),
+        limit: z.number().int().min(1).describe('取得する行の上限'),
+        adsense: z.literal(true).describe('AdSense の収益の取得'),
+        japanOnly: z.literal(false).describe('収益は国で絞らない'),
+        propertyId: GA4_PROPERTY,
+        rowCount: count('API が返した総行数'),
+        truncated: z.boolean().describe('上限で打ち切ったか'),
+      })
+      .superRefine(rangeOrdered),
+    rows: z
+      .array(
+        z.looseObject({
+          [dim]: z.string(),
+          totalAdRevenue: z.number().min(0).describe('AdSense の推定収益（円）'),
+          publisherAdImpressions: count('広告の表示回数'),
+          publisherAdClicks: count('広告のクリック数'),
+          screenPageViews: count('表示回数'),
+        }),
+      )
+      .superRefine(uniqueBy(dim, dim)),
+  });
+
 const Ga4Sections = z.strictObject({
   page: ga4DimensionReport('page').optional(),
   date: ga4DimensionReport('date', { rowKeyPattern: /^\d{8}$/ }).optional(),
@@ -133,6 +164,8 @@ const Ga4Sections = z.strictObject({
   'channel-organic': ga4DimensionReport('channel').optional(),
   source: ga4DimensionReport('source').optional(),
   'sourceMedium-sns': ga4DimensionReport('sourceMedium').optional(),
+  'page-adsense': ga4AdsenseReport('page').optional(),
+  'adUnit-adsense': ga4AdsenseReport('adUnit').optional(),
   campaign: ga4DimensionReport('campaign').optional(),
   'campaign-note-cta': z.strictObject({
     stamp: reportStamp,

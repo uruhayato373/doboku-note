@@ -14,6 +14,8 @@ import { campaignClickTotals } from '../lib/metric-status.mjs';
 
 /** sessionCampaignName 別の note_cta_click の行の上限。これに届いたら打ち切りの疑いで値を載せない */
 const CAMPAIGN_ROW_LIMIT = 10000;
+/** GA4 と AdSense をリンクした日（JST）。GA4 は遡って入らないので、これより前に始まる期間の AdSense 収益は欠測（0 円ではない）として載せない */
+const ADSENSE_LINKED_FROM = '2026-11-23';
 const args = process.argv.slice(2);
 dotenv.config({ path: '.env.local', quiet: true });
 /** 正規表現のメタ文字をすべてエスケープする（GSC の includingRegex に渡す） */
@@ -64,8 +66,13 @@ async function run() {
         campaignLimited = (byCampaign.rowCount ?? rows.length) > rows.length || byCampaign.metadata?.subjectToThresholding || byCampaign.metadata?.samplingMetadatas?.length;
         if ((byCampaign.rowCount ?? rows.length) <= rows.length) Object.assign(values, campaignClickTotals(root, rows));
       }
+      // AdSense の推定収益（GA4 にリンクした日以降の期間だけ）。収益は日本以外の閲覧からも入るので国で絞らない
+      if (period.startDate >= ADSENSE_LINKED_FROM) {
+        const [ads] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], metrics: [{ name: 'totalAdRevenue' }], ...(qualification === 'all' ? {} : { dimensionFilter: field('pagePath', `/exam/${qualification}/`, 'BEGINS_WITH') }) });
+        values.adsenseRevenue = Number(ads.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+      }
       const limited = campaignLimited || users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || social.some((r) => r.metadata?.subjectToThresholding) || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length || social.some((r) => r.metadata?.samplingMetadatas?.length);
-      pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。', values });
+      pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。AdSense 推定収益は国で絞らず、GA4 とのリンク（2026-11-23）以降に始まる期間だけ載せる。', values });
       const filters = [{ dimension: 'country', operator: 'equals', expression: 'jpn' }];
       if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^${escapeRegExp(SITE_ORIGIN)}/exam/${qualification}/` });
       const aggregationType = qualification === 'all' ? 'byProperty' : 'auto';
