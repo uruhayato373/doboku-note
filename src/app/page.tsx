@@ -122,9 +122,16 @@ export default async function HomePage() {
         <AdSlot slot="endMultiplex" />
       </SectionBlock>
       <AboutSection />
-      {/* 転職の案内（1 枠。案件は配置ルール・素材の大きさは CTA の面の台帳の home-section） */}
-      <SectionBlock space="sm" ariaLabel="転職の相談先">
-        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
+      {/* 転職の案内（1 枠。案件は配置ルール・素材の大きさは CTA の面の台帳の home-section）。
+          PC は横の空き（300×250 の左右）に AdSense のディスプレイ広告（右の欄と同じ rail のユニット）を並べる。
+          スマホは縦に積むと広告が 2 つ続くので転職の 1 枠だけ（隠れた AdSense の枠は AdSlot が要求しない） */}
+      <SectionBlock space="sm" ariaLabel="転職の相談先と広告">
+        <div className="grid items-center gap-6 lg:grid-cols-2">
+          <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
+          <div className="hidden lg:block">
+            <AdSlot slot="rail" />
+          </div>
+        </div>
       </SectionBlock>
     </PageShell>
   );
