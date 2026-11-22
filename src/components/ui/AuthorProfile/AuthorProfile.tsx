@@ -26,6 +26,8 @@ interface AuthorProfileProps {
   readonly variant?: Variant;
   /** note CTA ボタンを出すか（既定 true）。直下に別の note CTA がある面では false。 */
   readonly showNoteCta?: boolean;
+  /** wide を短く出す（経歴の全文と保有資格の一覧の代わりに、肩書きの一文と資格の数・/about への案内）。トップで使う */
+  readonly summary?: boolean;
 }
 
 function Avatar() {
@@ -104,6 +106,7 @@ function SocialLinks({ center = false }: { center?: boolean }) {
 export default function AuthorProfile({
   variant = "sidebar",
   showNoteCta = true,
+  summary = false,
 }: AuthorProfileProps) {
   if (variant === "wide") {
     return (
@@ -127,10 +130,19 @@ export default function AuthorProfile({
               >
                 {AUTHOR.name}
               </Link>
-              <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">{AUTHOR.bio}</p>
-              <div className="mt-5">
-                <Qualifications columns={2} />
-              </div>
+              {summary ? (
+                <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">
+                  {AUTHOR.tagline} 保有資格 {AUTHOR.qualifications.length} 種。
+                  <Link href="/about" className="ml-1 font-bold text-(--accent) hover:underline">経歴と保有資格を見る</Link>
+                </p>
+              ) : (
+                <>
+                  <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">{AUTHOR.bio}</p>
+                  <div className="mt-5">
+                    <Qualifications columns={2} />
+                  </div>
+                </>
+              )}
               {showNoteCta && (
                 <div className="mt-5 max-w-xs">
                   <NoteCta />

@@ -256,6 +256,32 @@
         ]
       }
     },
+    "topic-rail": {
+      "label": "トピック 一覧の右欄",
+      "status": "active",
+      "pageKind": "topic",
+      "pixelPriority": 2,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "search-rail": {
+      "label": "検索の右欄",
+      "status": "active",
+      "pageKind": "search",
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
     "laws-list-end": {
       "label": "法令 一覧の末尾",
       "status": "active",
@@ -295,12 +321,13 @@
       "pixelPriority": 1,
       "sizes": {
         "pc": [
-          "728x90",
-          "468x60"
+          "300x250",
+          "336x280"
         ],
         "mobile": [
-          "320x100",
-          "320x50"
+          "300x250",
+          "336x280",
+          "320x100"
         ]
       }
     },

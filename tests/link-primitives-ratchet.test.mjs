@@ -34,7 +34,6 @@ const ALLOW = new Map([
   ['src/components/ui/NoteImageCta/NoteImageCta.tsx', 'note の導線'],
   ['src/components/ui/NoteLink/NoteLink.tsx', 'note の導線'],
   ['src/components/ui/OffsiteCta/OffsiteCta.tsx', '外部の商品の導線'],
-  ['src/components/home/PremiumNoteHero.tsx', 'note の導線'],
   ['src/app/tools/kakomon-quiz/KakomonQuizClient.tsx', '演習の後の note の導線（計測つき）'],
   ['src/app/tools/kakomon-quiz/QuizNoteProducts.tsx', 'note の商品'],
   ['src/app/tools/keiken-charcount/page.tsx', 'note の商品'],

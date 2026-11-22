@@ -2549,6 +2549,34 @@
       },
       "experiment": null,
       "note": "2026-11-15 運営者判断: 画像バナー（article-banner*）へ置き換え・DN-1215。スマホ本文は300×250。PCの横長素材はないので表示しない。"
+    },
+    {
+      "id": "PL-0174",
+      "program": "buildjob",
+      "slot": "topic-rail",
+      "target": {
+        "pageKind": "topic"
+      },
+      "period": {
+        "from": "2026-11-21T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-21 運営者依頼。テーマ別索引（/topics）の PC の右欄（AdSense・人気記事の後）。末尾の topic-end と同じ案件なのでピクセルは topic-end が持つ"
+    },
+    {
+      "id": "PL-0175",
+      "program": "buildjob",
+      "slot": "search-rail",
+      "target": {
+        "pageKind": "search"
+      },
+      "period": {
+        "from": "2026-11-21T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-21 運営者依頼。サイト内検索（/search）の PC の右欄（AdSense・人気記事の後）。検索の唯一の転職の面なのでピクセルもここ"
     }
   ],
   "pairs": [

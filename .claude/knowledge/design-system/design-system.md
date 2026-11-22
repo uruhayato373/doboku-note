@@ -26,7 +26,7 @@
 
 ## 1. 設計の前提（doboku-note 固有）
 
-`/links` は薄いページ見出し→ページ内目次→全公開資格のカード一覧。選択による表示切り替えをせず、スマホでもスクロールだけで主要な入口を見渡せるようにする。各カードは無料学習・note目次（未整備なら主教材）・Kindleの主教材・受付中の添削相談を並べ、残りの個別教材は小さな開閉一覧へ置く。資格はトップと共通の公開一覧、商品は台帳の公開・受付状態を使い、取り下げ・休止・準備中を除外する。価格改定に追随する表示を持たず、金額・割引率を含む説明文は載せない。全リンクをサーバー描画する。大型プロフィール、装飾画像、操作の説明、重複する宣伝文は置かない。
+`/links` は薄いページ見出し→ページ内目次→全公開資格のカード一覧。選択による表示切り替えをせず、スマホでもスクロールだけで主要な入口を見渡せるようにする。各カードは無料学習・note目次（未整備なら主教材）・Kindleの主教材・受付中の添削相談を並べ、残りの個別教材は小さな開閉一覧へ置く。主力の note の行（主力教材、無ければ目次）だけに note の完成画像のサムネイル（`learning-catalog` の `leadImage`）を行のリンクの中に添え、リンクは増やさない。ページ内目次は件数つきのボタン。カードは CSS の段組み（`columns`）で列ごとに上へ詰める（grid は行の高さに引っ張られ短いカードの下が空いた。並びは列の上から下で、スマホの順は優先順のまま）。資格はトップと共通の公開一覧、商品は台帳の公開・受付状態を使い、取り下げ・休止・準備中を除外する。価格改定に追随する表示を持たず、金額・割引率を含む説明文は載せない。全リンクをサーバー描画する。大型プロフィール、装飾画像、操作の説明、重複する宣伝文は置かない。
 
 記事カードの画像は資格一覧・関連記事・新着・テーマ入口・検索で共通の選択処理を使う。承認済みのページ別画像に資格色のHTML下帯を添え、未設定・取得失敗時は記事のOGPへ戻す。見せ方の分類は [画像運用設計](../../../docs/operations/画像運用設計.md) を参照する。
 
@@ -268,14 +268,18 @@
 
 ### 3.4 右サイドバー
 
-右サイドバーを置くのは以下の**3 系統のみ**:
+右サイドバーを置くのは以下の**5 系統のみ**:
 
 - `/docs/[slug]`（記事 = `ArticleSidebar`）
 - `/category/[slug]`
 - `/standards` とその下層（トップ＝テーマ・実務記事・比較／データ利用、地域以下＝`StandardsNavigation`）
 
-以下には**追加しない**: `/links`・`/search`・`/about`・`/privacy`・`/terms`・`/tools`。
-理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
+- `/search` と `/topics`（2026-11-21 運営者依頼で追加）。並びは一覧ページ共通の `IndexRail`（`layout/IndexRail.tsx`）: AdSense → よく読まれている記事 → 転職バナー → 新着の記事 → AdSense（2 枚目）→ 運営者 → 資格・分野から探す。広告（AdSense・転職）どうしは隣り合わせない。転職の面は `topic-rail`・`search-rail`（ピクセルはページで描く面のうち優先順の最も高い 1 面・`pixelFor`）。下に空きが残れば記事と同じく AdSense だけを散らす（`withRailAdSense`・`stretchAside`）。
+  - `/search`: 広告は検索語があり結果が 1 件以上のときだけ（`SearchRailAd`）。右の欄はサーバーで組み、広告の有無だけを検索の状態から決める（client で組むと /search のチャンクが膨らむ・DN-0684）。PC では本文の「よく読まれている記事」を隠す。絞り込みは本文に残す（右の欄は 993px 未満で消える）
+  - `/topics`: 広告は常時（22 テーマの入口が常にある）。本文は区分へ飛ぶリンク＋2 列のタイル。テーマが 2 枚以下の区分は末尾の 1 区画にまとめ、タイルの eyebrow に元の区分名を出す（区分の定義は変えない）
+
+以下には**追加しない**: `/links`・`/about`・`/privacy`・`/terms`・`/tools`。
+理由 — links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
 
 **右の欄の部品（2026-11-17 共通化）**: 右の欄の中身は `RailStack`（`ui/RailStack/RailStack.tsx`）だけが描く。記事（`ArticleSidebar`）・資格トップ（`CategoryPage`）・基準書（`StandardsNavigation`・`/standards` トップ）は並べるもの（`items`＝種類と中身）と下に続く組（`groups`）を渡すだけで、入れ物の div を手書きしない。並べる 1 つ 1 つは台帳 `src/lib/rail-kinds.mjs` の種類（nav・thumbs・tree・years・questions・author・bridge・note・career・adsense）を持ち、`data-rail-kind` の div で包まれる（中身が空なら畳む）。カードの外枠と題名は `MetaCard`（`padding="compact"`・`title`・`titleAside`・`eyebrow`）、文字の一覧は `LinkRow`（現在地は `current`）で、目次ツリー・年度の表・設問のチップも外枠は `MetaCard`。広告と note の画像の CTA だけが固有の形で、中身と配置の正本は `site-cta-surfaces.json` とアフィリエイトの配置ルール。コードは `tests/rail-ratchet.test.mjs`、ビルド後の HTML は `check-cta-density` の `rail-without-stack`・`rail-kind-unknown` が止める。
 
@@ -382,7 +386,7 @@ CLAUDE.md §7 と一致:
 - `rounded-{lg,xl,2xl} + shadow-*` の直書き → `rounded-card-*` / `shadow-card-*`。
 - インライン `style={{ borderColor }}` → Tailwind `dark:border-*`。
 - 下層ページにトップ級の大型 Hero を増やす → `PageHeader`。
-- `/search` `/links` `/about` 等へ右サイドバーを追加 → §3.4 の限定に従う。
+- `/links` `/about` 等へ右サイドバーを追加 → §3.4 の限定に従う。
 - 外枠幅をページごとにバラつかせる（`max-w-5xl` 等の混在）→ `max-w-[1280px]` + content rail。
 
 ### MDX コンテンツ
@@ -402,7 +406,7 @@ CLAUDE.md §7 と一致:
 
 **本文の AdSense（2026-11-22・全ページ共通）**: 転職の本文の枠（最大 3）の後から本文の終わりまで、記事・基準書は 1,500 字ごと（転職の枠から 800 字以上離す・1 行を 40 字に切り上げて数える・最大 30 枠）、過去問（設問が続く記事）は設問の見出しの直前に 3 問ごと（直前の転職・広告・CTA から 3 問以上あける。1 問が長い二次の記述は 1,500 字を超えた設問の前にも・最大 30 枠）に記事内広告（`inArticle`）を置く。値の唯一の置き場は `src/lib/body-ad-rules.mjs`（記事は `article-inline-slots.mjs`、基準書は `standards-inline-slots.mjs` が読む）。以前は記事が最大 2 枠・基準書が 5,000 字ごとで、本文の下半分に何も無い区間が PC で最大 16,700px・スマホで最大 2.9 万 px あった。**機械**＝`e2e/ad-coverage.spec.ts`（代表ページの本文で広告も導線も無い区間の上限）。
 
-**一覧のインフィード広告（2026-11-16）**: 記事の一覧（資格トップのサムネイルの行・カリキュラムの文字の行・検索結果）には AdSense のインフィード広告を 1 項目（`<AdSlot as="li" slot="inFeedThumb|inFeedText">`）として挟む。10 項目ごとに 1 枠・1 つの一覧で最大 2 枠・先頭と末尾に置かない・1 ページ 3 枠まで（検索結果は 5 件目の後に 1 枠）。折りたたみ（閉じた `Disclosure`）の中の一覧には置かない。判定は `src/lib/feed-ads.ts`（`withFeedAds`）と `src/lib/feed-ads-budget.ts`（ページの残り枠）だけ。**機械**＝`check-cta-density` の `feed-ad-total`・`feed-ad-adjacent`、描画は `inspectFeedAdsInPage`（site-visual-review の `feed-ad`・`e2e/cta.spec.ts`）。
+**一覧のインフィード広告（2026-11-16）**: 記事の一覧（資格トップのサムネイルの行・カリキュラムの文字の行・検索結果）には AdSense のインフィード広告を 1 項目（`<AdSlot as="li" slot="inFeedThumb|inFeedText">`）として挟む。10 項目ごとに 1 枠・1 つの一覧で最大 2 枠・先頭と末尾に置かない・1 ページ 3 枠まで（検索結果は 5 件目の後に 1 枠。PC は右の欄にも 1 枠・§3.4）。折りたたみ（閉じた `Disclosure`）の中の一覧には置かない。判定は `src/lib/feed-ads.ts`（`withFeedAds`）と `src/lib/feed-ads-budget.ts`（ページの残り枠）だけ。**機械**＝`check-cta-density` の `feed-ad-total`・`feed-ad-adjacent`、描画は `inspectFeedAdsInPage`（site-visual-review の `feed-ad`・`e2e/cta.spec.ts`）。
 
 **縦に続く導線の幅（2026-11-16）**: 本文の列で縦に続けて置く商品導線（転職の横長バナー・note のカード・ココナラ・AdSense の枠）は、置かれた列の幅いっぱいの同じ幅にそろえ（テーマのページだけ区画の左寄せで最大 760px）、導線の上に見出しの文字を付けない（PR・広告の表記はカードの中）。幅の正本は `src/lib/cta-stack.ts` の `CTA_STACK_CLASS`、当てた箱に `data-cta-stack`。比べるのは同じ置き場（折りたたみの中・記事カードの中・外）どうし。300px の中央寄せ・2 列の片側に置くと記事末がばらばらに見えた（67 種類 × 2 幅のうち 43 で不一致）。**機械**＝`scripts/lib/cta-stack-inspect.mjs`（site-visual-review の `cta-width`・`e2e/cta.spec.ts` の 7 ページ）。
 

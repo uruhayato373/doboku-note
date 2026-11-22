@@ -63,8 +63,9 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
         </section>
       )}
 
+      {/* PC（≥993px）は右の欄に同じ一覧があるので本文では隠す（src/app/search/page.tsx） */}
       {popular.length > 0 && (
-        <section>
+        <section className="zenn-desktop:hidden">
           <h2 className="font-serif text-lg font-bold text-(--ink) mb-1">よく読まれている記事</h2>
           <p className="text-sm text-(--ink-muted) mb-4">アクセスの多い記事から</p>
           <LinkRowList as="ol" className="card-surface-content overflow-hidden px-4 shadow-none">

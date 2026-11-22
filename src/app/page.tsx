@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { isStructuralTag } from '@/lib/content-taxonomy';
 import PageShell from "@/components/layout/PageShell";
-import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
+import { Hero, ExamCards, LatestArticles, AboutSection, NoteNowSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import { getCardImage } from "@/lib/site-thumbnail";
@@ -11,6 +11,7 @@ import { CategoryDef } from "@/lib/categories";
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import SectionBlock from '@/components/layout/SectionBlock';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import AdSlot from '@/components/ads/AdSlot';
 import { getStandardsCatalog } from '@/lib/standards';
 
 const categories = categoriesData as CategoryDef[];
@@ -71,6 +72,8 @@ export default async function HomePage() {
     <PageShell variant="default">
       <Hero />
       <ExamCards exams={exams} />
+      {/* 重点資格の note の案内（もくじ・試験の前後はその時期の商品）。資格カードの直後に置く（2026-11-22・表示がセッションの 12% だった） */}
+      <NoteNowSection />
       <SectionBlock space="sm" ariaLabel="実務・基準資料・法令・テーマ">
         {/* 4 つの領域の入口。法令（/laws）だけトップから入口が無かった（2026-11-15・DN-1219） */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="home-areas">
@@ -114,13 +117,21 @@ export default async function HomePage() {
         </div>
       </SectionBlock>
       <LatestArticles articles={latest} />
+      {/* AdSense の Multiplex（記事末と同じユニット）。転職・note の枠と隣り合わせない */}
+      <SectionBlock space="sm" ariaLabel="おすすめの記事（広告）">
+        <AdSlot slot="endMultiplex" />
+      </SectionBlock>
       <AboutSection />
-      {/* note 有料教材ハブへの導線（複数資格横断のトップは単一商品でなく /links 集約へ）。
-          ブランド背景＋HTML文字のヒーロー（PremiumNoteHero）。data-cta="note" で計測。 */}
-      <PremiumNoteHero />
-      {/* 転職の案内（1 枠。案件は配置ルール）。2026-10-31 に note のヒーローの後ろへ移した（撮影で全幅とも転職広告が先だった） */}
-      <SectionBlock space="sm" ariaLabel="転職の相談先">
-        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" framed />
+      {/* 転職の案内（1 枠。案件は配置ルール・素材の大きさは CTA の面の台帳の home-section）。
+          PC は横の空き（300×250 の左右）に AdSense のディスプレイ広告（右の欄と同じ rail のユニット）を並べる。
+          スマホは縦に積むと広告が 2 つ続くので転職の 1 枠だけ（隠れた AdSense の枠は AdSlot が要求しない） */}
+      <SectionBlock space="sm" ariaLabel="転職の相談先と広告">
+        <div className="grid items-center gap-6 lg:grid-cols-2">
+          <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
+          <div className="hidden lg:block">
+            <AdSlot slot="rail" />
+          </div>
+        </div>
       </SectionBlock>
     </PageShell>
   );
