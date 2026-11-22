@@ -11,6 +11,7 @@
  * 集めるもの（すべてオフライン。GitHub の Issue だけ gh を使う）: 計測ダイジェスト（W−1）・資格別 KPI（W−1 窓と前週）・
  * ダイジェストの未処分・実験の期限・点検と Issue・バックログの関門と健全性・検索の改善候補・PSI と実ユーザー計測・
  * build 後 SEO スキャン（check-seo-build の件数と前週比）・
+ * SNS 流入（business.weekly の sns）・その週の YouTube の公開（コンテンツ台帳）・収益カバレッジ（coverage-latest.md の要約）・
  * note 同期・X 予約キュー・ココナラ取引・売上台帳の当月行。
  *
  * Usage:
@@ -30,13 +31,15 @@ import { parseCliArgs } from '../lib/cli-args.mjs';
 import { todayJst } from '../lib/jst-date.mjs';
 import { isoWeekKey, reviewWeekOfDay, reviewWindowOfWeek, weekPeriod } from '../lib/review-week.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
-import { readDatasetIf } from '../lib/dataset-io.mjs';
+import { readDatasetIf, readLatest } from '../lib/dataset-io.mjs';
 import { renderSeoBuildSection } from '../lib/seo-build-summary.mjs';
 import { qualificationShortLabel } from '../lib/qualification-names.mjs';
 import { loadRegistry } from '../lib/qualification-registry.mjs';
 import { loadMonthReceipts } from '../lib/net-receipts-ledger.mjs';
 import { shiftMonth } from '../lib/net-receipts.mjs';
 import { runCheckedCommand, commandTimeoutMs } from '../lib/check-execution.mjs';
+import { loadRegistry as loadContentRegistry } from '../lib/content-registry.mjs';
+import { renderCoverageSection, renderSnsInflowSection, renderYoutubeWeekSection } from '../lib/weekly-draft-sections.mjs';
 
 const TAG = '[weekly-review-draft]';
 const args = parseCliArgs({ week: { type: 'string' }, print: { type: 'boolean' }, check: { type: 'boolean' } });
@@ -168,6 +171,17 @@ md.push('## PSI と実ユーザー計測', '', '```', pick(R.psi, /coverage|CI �
 let seoBuildHistory = null;
 try { seoBuildHistory = readDatasetIf(REPO_ROOT, 'analysis.seo-build-summary')?.history ?? null; } catch { seoBuildHistory = null; }
 md.push(...renderSeoBuildSection(seoBuildHistory, todayJst()));
+// SNS 流入・その週の YouTube・収益カバレッジ（DN-1285）。記録を読むだけ。読めなければ節に「未取得」と理由を書く
+const tryRead = (fn) => { try { return { value: fn(), error: null }; } catch (e) { return { value: null, error: e.message }; } };
+const unreadable = (title, error) => [`## ${title}`, '', `- 未取得（読めない: ${error.slice(0, 200)}）`, ''];
+const snsFile = datasetPath('business.weekly', { week: windowWeek });
+const sns = tryRead(() => readDatasetIf(REPO_ROOT, 'business.weekly', { values: { week: windowWeek } }));
+md.push(...(sns.error ? unreadable('SNS 流入', sns.error) : renderSnsInflowSection(sns.value, { windowWeek, file: snsFile })));
+const yt = tryRead(() => loadContentRegistry(REPO_ROOT).publications);
+md.push(...(yt.error ? unreadable('YouTube の公開', yt.error) : renderYoutubeWeekSection(yt.value, period)));
+const coverageFile = datasetPath('analysis.monetization-report');
+const coverage = tryRead(() => ({ report: readDatasetIf(REPO_ROOT, 'analysis.monetization-report'), trafficEnd: readLatest(REPO_ROOT, 'analysis.monetization-coverage')?.data?.meta?.trafficWindow?.end ?? null }));
+md.push(...(coverage.error ? unreadable('収益カバレッジ ダッシュボード', coverage.error) : renderCoverageSection(coverage.value.report, { file: coverageFile, trafficEnd: coverage.value.trafficEnd, windowEnd: windowPeriod.endDate })));
 md.push('## note 同期', '', block(R.noteSync, 10) + note(R.noteSync), '');
 md.push('## X 予約キュー', '', block(R.xQueue, 15) + note(R.xQueue), '');
 const co = R.coconala.data;
