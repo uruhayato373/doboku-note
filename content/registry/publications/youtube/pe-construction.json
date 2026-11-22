@@ -738,7 +738,7 @@
       "work": "pe-environment-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-001",
@@ -772,7 +772,42 @@
         "contentSha256": "279f8af76171d53103f57a53e2ab79811036d37d9ced5da7d40a0fb6143005f3"
       },
       "times": {
-        "rendered": "2026-11-22T12:54:20.853Z"
+        "rendered": "2026-11-22T12:54:20.853Z",
+        "uploaded": "2026-11-22T12:56:24.309Z",
+        "scheduled": "2026-11-22T12:56:33.267Z"
+      },
+      "delivery": {
+        "inputSha256": "e82a7f9eaf4d0323876760cf7548664bb0a2cf72dea850d1526e9a3631505229",
+        "marker": "dn-single-aff3b914086a09d68c62cc69d21e78595784ae54",
+        "uploadRequestedAt": "2026-11-22T12:55:32.659Z",
+        "videoId": "1KY2q6a6KiM",
+        "processedAt": "2026-11-22T12:56:23.471Z",
+        "thumbnailRequestedAt": "2026-11-22T12:56:24.372Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/1KY2q6a6KiM/default.jpg?sqp=CKTMi9gG&rs=AOn4CLBoN-32b0VOILQbGpKJ4DuJnwL7KQ",
+          "https://i9.ytimg.com/vi/1KY2q6a6KiM/mqdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLDt4aHwIrZZIsu5hEKiYbdocpBcDw",
+          "https://i9.ytimg.com/vi/1KY2q6a6KiM/hqdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLBRgoXDB1I898KAPGSXW4W_J3OGag",
+          "https://i9.ytimg.com/vi/1KY2q6a6KiM/sddefault.jpg?sqp=CKTMi9gG&rs=AOn4CLBDYsTL99Sa78zJzlD8-4bMJU6G0w",
+          "https://i9.ytimg.com/vi/1KY2q6a6KiM/maxresdefault.jpg?sqp=CKTMi9gG&rs=AOn4CLAO_i8sDVy7GVFnyBq2uMiPZZ5pOQ",
+          "https://i9.ytimg.com/vi/1KY2q6a6KiM/fhddefault.jpg?sqp=CKTMi9gG&rs=AOn4CLD8URhoMH-CkSSp4M5LS-e9690XQA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-22T12:56:28.328Z",
+        "scheduleRequestedAt": "2026-11-22T12:56:29.534Z",
+        "scheduleAt": "2026-12-05T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-22T12:56:33.267Z"
+      },
+      "platform": {
+        "id": "1KY2q6a6KiM",
+        "url": "https://www.youtube.com/watch?v=1KY2q6a6KiM",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-22T12:56:28.328Z"
       }
     },
     {
