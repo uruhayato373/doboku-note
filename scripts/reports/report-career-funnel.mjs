@@ -190,7 +190,7 @@ export function joinRulesToWindow(rules, win, byPlacement, a8Records) {
 
 /**
  * GA4 のページパス → 配置ルールの照合に使うページの文脈（affiliate-placement-core の matchesPage が読む形）。
- * 記事は doc-meta-index のカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、公的基準の章は standards・章以外は standards-list、トピックは topic、法令の一覧は laws-list（各法令の解説は doc）、トップは home。分からないページは null。
+ * 記事は doc-meta-index のカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、公的基準の章は standards・章以外は standards-list、トピックは topic、法令の一覧は laws-list（各法令の解説は doc）、サイト内検索は search、トップは home。分からないページは null。
  * @param {string} path GA4 の pagePath
  * @param {{docs: Record<string, {category?: string, tags?: string[]}>}} index doc-meta-index
  * @param {(path: string) => string|null} slugOf 公開パス → 記事 slug（scripts/lib/url-normalization.mjs の slugFromKey）
@@ -208,6 +208,7 @@ export function pageContextOf(path, index, slugOf) {
   if (p === "/standards" || p.startsWith("/standards/")) return { pageKind: "standards-list", category: null, isCareerDoc: false };
   if (p === "/topics" || p.startsWith("/topics/")) return { pageKind: "topic", category: null, isCareerDoc: false };
   if (p === "/laws") return { pageKind: "laws-list", category: null, isCareerDoc: false };
+  if (p === "/search") return { pageKind: "search", category: null, isCareerDoc: false };
   if (p === "/tools") return { pageKind: "tool", category: null, isCareerDoc: false };
   if (p === "/") return { pageKind: "home", category: null, isCareerDoc: false };
   return null;

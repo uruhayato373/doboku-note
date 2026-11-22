@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, BookOpen } from 'lucide-react';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
@@ -20,7 +21,15 @@ export const metadata = buildPageMetadata({
 const CHANNELS = { note: 'note', kindle: 'Kindle', coconala: 'ココナラ' };
 const ROW_CLASS = 'focus-ring flex min-h-11 items-center gap-3 px-4 py-3 transition-colors hover:bg-(--accent-fill)';
 
-function ProductRow({ product }: { product: LearningProduct }) {
+type LeadImage = NonNullable<LearningQualification['leadImage']>;
+
+/** 主力の行の左に置く完成画像（行のリンクの中。新しいリンクは増やさない） */
+function LeadThumb({ image }: { image: LeadImage }) {
+  return <Image src={image.src} alt="" width={image.width} height={image.height} unoptimized
+    className="h-auto w-24 shrink-0 rounded-card-inline border border-(--rule-soft) dark:border-(--rule-soft)" />;
+}
+
+function ProductRow({ product, image }: { product: LearningProduct; image?: LeadImage | undefined }) {
   const affiliate = product.channel === 'coconala';
   return (
     <a href={product.href} target="_blank" rel={affiliate ? AFFILIATE_LINK_REL : externalLinkRel(product.href)}
@@ -28,6 +37,7 @@ function ProductRow({ product }: { product: LearningProduct }) {
       data-cta={product.channel === 'kindle' ? undefined : product.channel}
       data-cta-label={product.id} data-cta-placement="links-hub" data-product-id={product.id}
       className={ROW_CLASS}>
+      {image && <LeadThumb image={image} />}
       <span className="min-w-0 flex-1">
         <span className="mb-1 flex items-center gap-2 text-xs text-(--ink-muted)">
           {CHANNELS[product.channel]}{affiliate && <AffiliatePrBadge />}
@@ -47,6 +57,8 @@ function QualificationCard({ exam }: { exam: LearningQualification }) {
   const featured = [exam.featured ?? (!exam.noteIndex ? mainNote : undefined), mainBook]
     .filter((product): product is LearningProduct => !!product);
   const remaining = exam.materials.filter((product) => !featured.some((entry) => entry.id === product.id));
+  const imageFor = (target: string) => (exam.leadImage?.target === target ? exam.leadImage : undefined);
+  const mokujiImage = imageFor('mokuji');
 
   return (
     <section id={`exam-${exam.id}`} aria-labelledby={`heading-${exam.id}`}
@@ -60,10 +72,11 @@ function QualificationCard({ exam }: { exam: LearningQualification }) {
           <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
           <span className="flex-1">無料で学ぶ</span><Arrow />
         </Link>
-        {exam.featured && <ProductRow product={exam.featured} />}
+        {exam.featured && <ProductRow product={exam.featured} image={imageFor(exam.featured.id)} />}
         {exam.noteIndex && (
           <a href={exam.noteIndex.href} target="_blank" rel={externalLinkRel(exam.noteIndex.href)}
             data-cta="note" data-cta-label={`mokuji-${exam.id}`} data-cta-placement="links-hub" className={ROW_CLASS}>
+            {mokujiImage && <LeadThumb image={mokujiImage} />}
             <span className="min-w-0 flex-1">
               <span className="mb-1 block text-xs text-(--ink-muted)">note</span>
               <span className="block text-sm font-medium leading-relaxed text-(--ink)">{exam.featured ? '全教材の目次を見る' : '教材の目次を見る'}</span>
@@ -71,7 +84,7 @@ function QualificationCard({ exam }: { exam: LearningQualification }) {
             <ArrowUpRight className="h-4 w-4 shrink-0 text-(--accent)" aria-hidden="true" />
           </a>
         )}
-        {featured.filter((product) => product !== exam.featured).map((product) => <ProductRow key={product.id} product={product} />)}
+        {featured.filter((product) => product !== exam.featured).map((product) => <ProductRow key={product.id} product={product} image={imageFor(product.id)} />)}
         {exam.support.map((product) => <ProductRow key={product.id} product={product} />)}
       </div>
       {remaining.length > 0 && (
@@ -93,16 +106,20 @@ export default function LinksPage() {
     <PageShell variant="default">
       <div className={`${WIDE_CONTAINER} py-7 sm:py-10`}>
         <PageHeader title="資格別の教材・学習サポート" className="mb-4 sm:mb-6" />
-        <nav aria-label="資格の目次" className="mb-6 flex flex-wrap gap-x-4 gap-y-1 border-b border-(--rule-soft) pb-4 dark:border-(--rule-soft)">
-          {catalog.map((exam) => (
-            <a key={exam.id} href={`#exam-${exam.id}`} title={exam.label}
-              className="focus-ring inline-flex min-h-10 items-center text-sm text-(--accent) underline decoration-(--rule-soft) underline-offset-4 hover:decoration-current">
-              {exam.shortLabel}
-            </a>
-          ))}
+        <nav aria-label="資格の目次" className="mb-6 flex flex-wrap gap-2 border-b border-(--rule-soft) pb-4 dark:border-(--rule-soft)">
+          {catalog.map((exam) => {
+            const count = exam.materials.length + exam.support.length;
+            return (
+              <a key={exam.id} href={`#exam-${exam.id}`} title={exam.label}
+                className="focus-ring inline-flex min-h-10 items-center gap-1.5 rounded-card-inline border border-(--rule-soft) bg-(--paper) px-3 text-sm text-(--ink) transition-colors hover:bg-(--accent-fill) hover:text-(--accent) dark:border-(--rule-soft)">
+                {exam.shortLabel}{count > 0 && <span className="text-xs text-(--ink-muted)">{count}</span>}
+              </a>
+            );
+          })}
         </nav>
-        <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {catalog.map((exam) => <QualificationCard key={exam.id} exam={exam} />)}
+        {/* 高さの違うカードを列ごとに上へ詰める（grid の行の高さに引っ張られて短いカードの下が空いていた）。並びは列の上から下へ */}
+        <div className="gap-5 md:columns-2 xl:columns-3">
+          {catalog.map((exam) => <div key={exam.id} className="mb-5 break-inside-avoid"><QualificationCard exam={exam} /></div>)}
         </div>
         <div className="mt-8 border-t border-(--rule-soft) pt-4 text-sm dark:border-(--rule-soft)">
           <Link href="/about" className="focus-ring text-(--accent) hover:underline">運営者について</Link>
