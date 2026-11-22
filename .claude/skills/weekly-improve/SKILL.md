@@ -55,11 +55,11 @@ npm run fetch-ga4-data -- --dimension date --days 28
 
 ### Phase 2: パターン抽出（metrics-analyzer エージェント）
 
-`metrics-analyzer` サブエージェントを起動（検索＝GSC・GA4 の 7 パターン。SNS 流入の急変は週次レビューの Agent F が担当で、ここでは扱わない）:
+`metrics-analyzer` サブエージェントを起動（検索＝GSC・GA4 の 7 パターン＋AdSense 収益の Pattern 8。SNS 流入の急変は週次レビューの Agent F が担当で、ここでは扱わない）:
 
 ```
-prompt: 最新の GSC/GA4 データから 7 パターン（High-Impr-Low-CTR, Rank-Stuck,
-Traffic-Drop, Hidden-Winner, Orphan-Query, Cannibalization, Content-Decay）で
+prompt: 最新の GSC/GA4 データから 8 パターン（High-Impr-Low-CTR, Rank-Stuck,
+Traffic-Drop, Hidden-Winner, Orphan-Query, Cannibalization, Content-Decay, AdSense-Revenue）で
 改善候補を抽出し、結果の Markdown を返してください（ファイルは書かない）。
 ```
 
