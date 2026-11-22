@@ -60,6 +60,15 @@ const BASELINE = join(AGENT_CONFIG_ROOT, 'backlog-vocab-baseline.json');
 const BACKLOG_REL = relative(ROOT, BACKLOG).split('\\').join('/');
 const BASELINE_REL = relative(ROOT, BASELINE).split('\\').join('/');
 const TODO_LAYERS = TODO_LAYER_FILES;
+/**
+ * [検証:] に書くと check-backlog-verify が毎回「検査不成立」になる script と、その理由。
+ * 週次の完了ゲート（weekly-review-completion）は検査不成立が 1 本でもあると閉じない（2026-11-21 に 4 枚が該当）。
+ */
+export const UNFIT_VERIFY = new Map([
+  ['site-visual-review', 'サブコマンドが要り、引数なしは必ず exit 2。site-visual-review:status を書く'],
+  ['standards-visual-review', 'サブコマンドが要り、引数なしは必ず exit 2。standards-visual-review:status を書く'],
+  ['quality:audit:ci', 'git 管理外の配布 EPUB が無い worktree では kindle-format などが exit 2。カードの完了を判定する個別の check-* を書く'],
+]);
 
 /** 完了を「報告」する形。allowlist はこれから完了させるための記述で backlog にあるべきもの。 */
 const DONE_PATTERNS = [
@@ -121,6 +130,8 @@ export function validateCards(cards, orphans, opts) {
     }
     if (c.verify && !npmScripts.has(c.verify)) {
       v.push({ rule: 'verify', at: at(c), msg: `[検証:${c.verify}] は origin/develop の package.json に無い＝sweep が「検証したつもり」になる（script を足す PR を先にマージするか、マージ後にカードへ書く。fetch 済みか（git fetch origin develop）も確かめる）` });
+    } else if (c.verify && UNFIT_VERIFY.has(c.verify)) {
+      v.push({ rule: 'verify-unfit', at: at(c), msg: `[検証:${c.verify}] は check-backlog-verify が毎回「検査不成立」になり、週次の完了ゲートが閉じない（${UNFIT_VERIFY.get(c.verify)}）` });
     }
   }
 

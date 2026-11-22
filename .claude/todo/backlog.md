@@ -679,7 +679,7 @@
 
 
 ### [DN-1226] standards-chapter（/standards/kinki/common/chapters/1-3）が画面の点検で不合格（cta）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-16]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review:status] [起票:2026-11-16]
 
 **起点**: 2026-11-16 の画面の点検（`npm run site-visual-review`・作業票 20261116T122139Z）で、standards-chapter（/standards/kinki/common/chapters/1-3）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
 
@@ -691,7 +691,7 @@
 
 
 ### [DN-1225] past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（cta）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-16]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review:status] [起票:2026-11-16]
 
 **起点**: 2026-11-16 の画面の点検（`npm run site-visual-review`・作業票 20261116T122139Z）で、past-exam（/exam/civil-construction-1/secondary/r06）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
 
@@ -825,7 +825,7 @@
 
 
 ### [DN-1199] textbook（/exam/civil-construction-1/textbook/network-schedule）が画面の点検で不合格（content）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-14] [進行中]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review:status] [起票:2026-11-14] [進行中]
 
 **起点**: 2026-11-14 の画面の点検（`npm run site-visual-review`・作業票 20261114T095559Z）で、textbook（/exam/civil-construction-1/textbook/network-schedule）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
 
@@ -2883,7 +2883,7 @@ Windows の PowerShell で repo 直下から順に:
 
 
 ### [DN-0110] YouTube 動画パックの公開と、概要欄（季節の主商品リンク・保有資格）の同期・6 週間判定
-タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10..2026-12] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10..2026-12] [種類:改善] [Codex候補] [検証:check-youtube-funnels] [起票:2026-08-21]
 
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
 

@@ -18,6 +18,11 @@ for (const cadence of ['weekly', 'monthly']) {
   });
 }
 
+// 週次の完了ゲートは当週の backlog 検証記録（check-backlog-verify の state）を要る。準備が回さないとゲートが閉じない（2026-11-21）
+test('週次の準備は backlog の検証を回す', () => {
+  assert.ok(buildSteps('weekly', '2026-W46').some((s) => s.npm === 'check-backlog-verify'));
+});
+
 test('表に無いコマンド・配線に無いコマンドを違反にする', () => {
   const p = stepProblems('weekly', [{ npm: 'no-such-script' }, { npm: 'lint' }], { scripts: { lint: 'x' }, wiring: { cadences: { weekly: { inputs: [], checks: [] } } } });
   assert.equal(p.length, 2);
