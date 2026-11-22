@@ -4,5 +4,5 @@ export { default as ExamCards } from "./ExamCards";
 export type { ExamData } from "@/lib/home-exam-cards";
 export { default as LatestArticles } from "./LatestArticles";
 export { default as AboutSection } from "./AboutSection";
-export { default as PremiumNoteHero } from "./PremiumNoteHero";
+export { default as NoteNowSection } from "./NoteNowSection";
 export type { LatestArticle } from "./LatestArticles";

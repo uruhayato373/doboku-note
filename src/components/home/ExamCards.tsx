@@ -54,7 +54,7 @@ export default function ExamCards({ exams }: ExamCardsProps) {
           </Link>
         </h2>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5" data-cta="nav" data-cta-label="home-exams">
         {exams.map((e) => (
           <ExamCard key={e.slug} e={e} />
         ))}
