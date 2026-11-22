@@ -77,6 +77,7 @@ export default function ArticleThumbRow({ href, title, caption, image, ctaLabel,
   if (variant === 'rail') {
     return (
       <Link href={href} {...label} className="focus-ring flex min-h-11 items-start gap-3 text-sm text-brand hover:underline">
+        {rank != null && <RankMarker rank={rank} />}
         {thumbnail}
         <span className="line-clamp-2 min-w-0 font-semibold">{title}</span>
       </Link>

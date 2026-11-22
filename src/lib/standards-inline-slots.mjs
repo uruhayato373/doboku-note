@@ -1,9 +1,15 @@
 /** 基準書の本文を分割せずに枠を置く。見出し ID の採番をサイト・管理画面で変えないための共有計画。 */
+import { BODY_AD_RULES } from './body-ad-rules.mjs';
+
 export const INLINE_FIRST_CHARS = 600;
 // 間隔は字数で取る。施工管理基準は表を組み直して繰り返しの字が減り（2-1 章 4,716 字）、1,800 字では 2 枠に減ったので 1,400 字（DN-1213）。
 export const INLINE_INTERVAL_CHARS = 1400;
 export const INLINE_REMAINING_CHARS = 600;
 export const INLINE_MAX_SLOTS = 3;
+// AdSense の記事内広告: 転職の 3 枠の後から本文の終わりまで（値は body-ad-rules.mjs の standards）。
+export const STANDARDS_AD_GAP_CHARS = BODY_AD_RULES.standards.gapChars;
+export const STANDARDS_AD_INTERVAL_CHARS = BODY_AD_RULES.standards.intervalChars;
+export const STANDARDS_AD_MAX_SLOTS = BODY_AD_RULES.standards.maxSlots;
 
 /** @param {string} line */
 function isTableSeparator(line) {
@@ -12,19 +18,12 @@ function isTableSeparator(line) {
 }
 
 /**
- * line は元の markdown の 0 始まりの行番号（その行の直前に差し込む）。
+ * 行ごとの累計の字数（cumulative[i] は i 行目の直前までの字数）。コードの囲みと 1 行の JSX は数えない。
+ * lineChars を渡すと、1 行を lineChars 字単位に切り上げて数える（短い行が続く様式・箇条は、字数のわりに画面の高さを取る）。
  * @param {string} markdown
- * @param {{ firstChars?: number, intervalChars?: number, remainingChars?: number, maxSlots?: number, slotPrefix?: string, forbiddenRanges?: Array<{start: number, end: number}>, allowedLines?: number[], occupiedLines?: number[] }} [opts]
- * @returns {{ insertAt: Array<{ line: number, slot: string, afterLabel: string }>, chars: number, tables: number }}
+ * @param {number} [lineChars]
  */
-export function planInlineSlots(markdown, opts = {}) {
-  const {
-    firstChars = INLINE_FIRST_CHARS,
-    intervalChars = INLINE_INTERVAL_CHARS,
-    remainingChars = INLINE_REMAINING_CHARS,
-    maxSlots = INLINE_MAX_SLOTS,
-    slotPrefix = 'standards-inline', forbiddenRanges = [], allowedLines, occupiedLines = [],
-  } = opts;
+export function measureLines(markdown, lineChars = 0) {
   // コメントを行ごと消すと元の行番号がずれるため、改行は保存する。
   const lines = markdown.replace(/\{\/\*[\s\S]*?\*\/\}/g, (s) => s.replace(/[^\n]/g, '')).split('\n');
   let fenceLength = 0;
@@ -40,9 +39,28 @@ export function planInlineSlots(markdown, opts = {}) {
   const cumulative = [0];
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i].trim();
-    const count = visible[i] && !/^<.*>$/.test(line) ? line.replace(/\s/g, '').length : 0;
-    cumulative.push(cumulative[i] + count);
+    const raw = visible[i] && !/^<.*>$/.test(line) ? line.replace(/\s/g, '').length : 0;
+    cumulative.push(cumulative[i] + (lineChars && raw ? Math.ceil(raw / lineChars) * lineChars : raw));
   }
+  return { lines, visible, cumulative };
+}
+
+/**
+ * line は元の markdown の 0 始まりの行番号（その行の直前に差し込む）。
+ * @param {string} markdown
+ * lineChars を渡すと、1 行を lineChars 字単位に切り上げて数える（短い行が続く様式・箇条は、字数のわりに画面の高さを取る。AdSense の枠だけが使う）。
+ * @param {{ firstChars?: number, intervalChars?: number, remainingChars?: number, maxSlots?: number, slotPrefix?: string, forbiddenRanges?: Array<{start: number, end: number}>, allowedLines?: number[], occupiedLines?: number[], lineChars?: number }} [opts]
+ * @returns {{ insertAt: Array<{ line: number, slot: string, afterLabel: string }>, chars: number, tables: number }}
+ */
+export function planInlineSlots(markdown, opts = {}) {
+  const {
+    firstChars = INLINE_FIRST_CHARS,
+    intervalChars = INLINE_INTERVAL_CHARS,
+    remainingChars = INLINE_REMAINING_CHARS,
+    maxSlots = INLINE_MAX_SLOTS,
+    slotPrefix = 'standards-inline', forbiddenRanges = [], allowedLines, occupiedLines = [], lineChars = 0,
+  } = opts;
+  const { lines, visible, cumulative } = measureLines(markdown, lineChars);
   const chars = cumulative[lines.length];
   /** @type {Array<{ line: number, afterLabel: string }>} */
   const candidates = [];
@@ -92,7 +110,7 @@ export function planInlineSlots(markdown, opts = {}) {
     if (forbiddenRanges.some(r => candidate.line >= r.start && candidate.line <= r.end)) continue;
     const at = cumulative[candidate.line];
     if (occupiedLines.some(line => Math.abs(at - cumulative[line]) < firstChars)) continue;
-    if (insertAt.length >= Math.min(maxSlots, INLINE_MAX_SLOTS)) break;
+    if (insertAt.length >= maxSlots) break;
     if (chars - at < remainingChars) continue;
     if (insertAt.length ? at - previousChars < intervalChars : at <= firstChars) continue;
     const number = insertAt.length + 1;
@@ -102,12 +120,33 @@ export function planInlineSlots(markdown, opts = {}) {
   return { insertAt, chars, tables };
 }
 
+/**
+ * 転職の本文の枠の後ろに置く AdSense の枠（standards-adsense-N）。転職の最後の枠より前には置かない。
+ * @param {string} markdown
+ * @param {Array<{ line: number }>} banners planInlineSlots(markdown).insertAt
+ */
+export function planStandardsAdSlots(markdown, banners = planInlineSlots(markdown).insertAt) {
+  const last = banners.length ? banners[banners.length - 1].line : -1;
+  return planInlineSlots(markdown, {
+    slotPrefix: 'standards-adsense',
+    firstChars: STANDARDS_AD_GAP_CHARS,
+    intervalChars: STANDARDS_AD_INTERVAL_CHARS,
+    maxSlots: STANDARDS_AD_MAX_SLOTS,
+    lineChars: BODY_AD_RULES.standards.lineChars,
+    occupiedLines: banners.map((b) => b.line),
+    forbiddenRanges: last >= 0 ? [{ start: 0, end: last }] : [],
+  });
+}
+
 /** @param {string} markdown @returns {string} */
 export function withInlineSlots(markdown) {
   const lines = markdown.split('\n');
+  const banners = planInlineSlots(markdown).insertAt;
+  const items = [
+    ...banners.map(({ line, slot }) => ({ line, tag: `<StandardsInlineBanner slot="${slot}" />` })),
+    ...planStandardsAdSlots(markdown, banners).insertAt.map(({ line, slot }) => ({ line, tag: `<StandardsInlineAd slot="${slot}" />` })),
+  ].sort((a, b) => b.line - a.line);
   // 後ろから入れることで、計画した元の行番号を保つ。
-  for (const { line, slot } of planInlineSlots(markdown).insertAt.reverse()) {
-    lines.splice(line, 0, '', `<StandardsInlineBanner slot="${slot}" />`, '');
-  }
+  for (const { line, tag } of items) lines.splice(line, 0, '', tag, '');
   return lines.join('\n');
 }

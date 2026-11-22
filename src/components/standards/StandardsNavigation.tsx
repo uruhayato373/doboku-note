@@ -299,7 +299,8 @@ export default function StandardsNavigation({
     currentDocument,
     currentChapter,
     withBridge: variant === 'sidebar',
-    betweenCards: variant === 'sidebar' ? <StandardsRailBanner slot={currentChapter ? 'standards-rail-3' : 'standards-list-rail-2'} pageKind={pageKind} inlineSlots={inlineSlots} /> : null,
+    // 右の欄の転職は 2 つまで（RAIL_AFFILIATE_MAX）。章・節ページは上の standards-rail・standards-rail-2 で足りるので、回遊の間には置かない
+    betweenCards: variant === 'sidebar' && !currentChapter ? <StandardsRailBanner slot="standards-list-rail-2" pageKind={pageKind} inlineSlots={inlineSlots} /> : null,
   });
 
   if (variant === 'mobile') {
@@ -326,7 +327,7 @@ export default function StandardsNavigation({
   }
 
   // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
-  // 上の束も下に続く束（章・節ページだけ・2 組目は AdSense）も上詰めで並べる。
+  // 上の束も下に続く束（章・節ページだけ・1 組おきに AdSense）も上詰めで並べる。
   const items: RailItem[] = [
     { kind: 'career', node: <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} /> },
     {

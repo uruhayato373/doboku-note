@@ -4,6 +4,7 @@ import RailStack, { type RailItem } from '@/components/ui/RailStack/RailStack';
 import type { RailKind } from '@/lib/rail-kinds.mjs';
 import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/ui/ArticleAffiliateBanners/ArticleAffiliateBanners';
 import type { ResolvedPlacements } from '@/lib/affiliate-placement';
+import { RAIL_AFFILIATE_MAX } from '@/lib/rail-continuation';
 import AuthorProfile from '@/components/ui/AuthorProfile/AuthorProfile';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
@@ -43,11 +44,12 @@ export function buildArticleSidebarCards({
   });
 }
 
-/** 上の束も下の組（回遊カード＋転職バナー、2 組目は AdSense）も上詰めで並べる。入れ物は RailStack（右の欄の唯一の入れ物）。 */
+/** 上の束（転職バナーは先頭から 2 つまで）も下の組（回遊カード・1 組おきに AdSense）も上詰めで並べる。入れ物は RailStack（右の欄の唯一の入れ物）。 */
 export default function ArticleSidebar({ cards, groups = [], placements, questionSeries = false }: { cards: RailItem[]; groups?: RailGroup[]; placements: ResolvedPlacements; questionSeries?: boolean }) {
-  const images = articleImagePlacements(placements, [], cards.length);
+  // 転職バナーは上の束の先頭から 2 つまで（RAIL_AFFILIATE_MAX）。ピクセルの計画（DocPage の articleImagePlacements）と同じ数にする
+  const images = articleImagePlacements(placements, [], Math.min(cards.length, RAIL_AFFILIATE_MAX));
   const items = cards.flatMap((card, index): RailItem[] => [
-    { kind: 'career', node: <ArticleBanner placement={images.find(image => image.placement.slot === articleRailSlot(index))?.placement} kind="rail" /> },
+    ...(index < RAIL_AFFILIATE_MAX ? [{ kind: 'career' as const, node: <ArticleBanner placement={images.find(image => image.placement.slot === articleRailSlot(index))?.placement} kind="rail" /> }] : []),
     card,
   ]);
   return <RailStack

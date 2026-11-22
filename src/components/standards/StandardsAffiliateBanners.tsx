@@ -11,7 +11,8 @@ type StandardsPageKind = 'standards' | 'standards-list';
 type PlacementProps = { pageKind: StandardsPageKind; inlineSlots?: readonly string[] };
 
 const SLOTS: Record<StandardsPageKind, { rail: string[]; end: string; inline: string[] }> = {
-  standards: { rail: ['standards-rail', 'standards-rail-2', 'standards-rail-3'], end: 'standards-end', inline: ['standards-inline', 'standards-inline-2', 'standards-inline-3'] },
+  // 右の欄は 2 つまで（src/lib/rail-continuation.ts の RAIL_AFFILIATE_MAX・2026-11-22）
+  standards: { rail: ['standards-rail', 'standards-rail-2'], end: 'standards-end', inline: ['standards-inline', 'standards-inline-2', 'standards-inline-3'] },
   'standards-list': { rail: ['standards-list-rail', 'standards-list-rail-2'], end: 'standards-list-end', inline: [] },
 };
 

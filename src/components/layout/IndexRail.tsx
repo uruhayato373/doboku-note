@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
 import RailStack from '@/components/ui/RailStack/RailStack';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import LinkRow, { LinkRowList, RankMarker } from '@/components/ui/LinkRow/LinkRow';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import RankMarker from '@/components/ui/RankMarker/RankMarker';
 import RailArticleList from '@/components/ui/RelatedArticles/RailArticleList';
-import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
+import AuthorProfile from '@/components/ui/AuthorProfile/AuthorProfile';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import { getAllCategories, getCategoryHubPath } from '@/lib/categories';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -47,7 +48,7 @@ export function indexRailData() {
 /**
  * 一覧ページ（/search・/topics）の右の欄（PC ≥993px）。上から
  * AdSense → よく読まれている記事 → 転職バナー → 新着の記事 → AdSense（2 枚目）→ 運営者 → 資格・分野から探す。
- * 広告どうし（AdSense・転職）は隣り合わせない。下に空きが残れば AdSense だけを散らす（withRailAdSense・空き 2,500px ごとに 1 枠）。
+ * 広告どうし（AdSense・転職）は隣り合わせない。下に空きが残れば縦長の AdSense だけを並べる（withRailAdSense・1,000px 間隔）。
  * 広告を出す条件はページで違う（検索は結果があるときだけ・テーマ索引は常時）ので、AdSense の枠は ad・ad2 で受ける。
  * 転職は career の面（config/affiliate-placements.json）。ピクセルはページで描く面のうち優先順の最も高い 1 面だけ（pixelFor）。
  * 2 ページで同じ並びを書かないためにここへ置く（design-system.md §3.4）。
@@ -82,7 +83,7 @@ export default function IndexRail({ ad, ad2, career, data, label }: {
         { kind: 'career', node: placement && <ResponsiveAffiliateBanner placement={placement} withPixel={pixel?.slot === career.slot} only="pc" /> },
         { kind: 'thumbs', node: latest.length > 0 && <RailArticleList card={{ label: 'rail-latest', title: '新着の記事', links: latest }} /> },
         { kind: 'adsense', node: ad2 },
-        { kind: 'author', node: <AuthorSidebarCard /> },
+        { kind: 'author', node: <AuthorProfile variant="sidebar" /> },
         { kind: 'nav', node: categories.length > 0 && (
           <MetaCard as="div" padding="compact" trackNav={`${label}-rail-exams`} title="資格・分野から探す">
             <LinkRowList>

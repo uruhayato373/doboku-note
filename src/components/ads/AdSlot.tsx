@@ -10,13 +10,18 @@ import { ADSENSE_CLIENT, ADSENSE_LAYOUT_KEYS, ADSENSE_SLOTS, ADSENSE_UNIT_NAMES,
  * 見えていない枠（スマホで隠れる右の欄）は push しない（幅 0 で要求すると AdSense がエラーを出す）。
  * 手元・プレビュー（localhost・pages.dev）では広告を要求せず、破線の枠にユニット名を出して置き場を見せる（撮影の目視でも位置がわかる）。
  */
-export default function AdSlot({ slot, className = '', as = 'aside' }: { slot: AdSenseSlot; className?: string; as?: 'aside' | 'li' | 'div' }) {
+export default function AdSlot({ slot, className = '', as = 'aside', tall = false }: {
+  slot: AdSenseSlot; className?: string; as?: 'aside' | 'li' | 'div';
+  /** 縦長（300×600 など）で出す。右の欄の下の空きの枠だけが使う（同じユニットに data-ad-format="vertical" を付ける） */
+  tall?: boolean;
+}) {
   const pathname = usePathname();
-  return <AdUnit key={pathname} slot={slot} className={className} as={as} />;
+  return <AdUnit key={pathname} slot={slot} className={className} as={as} tall={tall} />;
 }
 
 /** 枠の高さの下限（配信で変わる形式は下限だけ取って CLS を抑える） */
 const MIN_HEIGHT: Record<AdSenseSlot, number> = { endMultiplex: 320, rail: 250, inArticle: 280, inFeedThumb: 120, inFeedText: 90 };
+const TALL_MIN_HEIGHT = 600;
 
 /** 枠が画面に入ってから広告の要求（ins の中の iframe）が出るまでの待ち */
 const REQUEST_WAIT_MS = 8000;
@@ -47,7 +52,7 @@ function collapseIfNeverRequested(el: HTMLElement | null) {
   return () => { window.clearTimeout(timer); observer.disconnect(); };
 }
 
-function AdUnit({ slot, className, as }: { slot: AdSenseSlot; className: string; as: 'aside' | 'li' | 'div' }) {
+function AdUnit({ slot, className, as, tall }: { slot: AdSenseSlot; className: string; as: 'aside' | 'li' | 'div'; tall: boolean }) {
   const pushed = useRef(false);
   const ref = useRef<HTMLElement>(null);
   const [preview, setPreview] = useState(false);
@@ -71,7 +76,7 @@ function AdUnit({ slot, className, as }: { slot: AdSenseSlot; className: string;
     {preview && <span className="adsense-preview-label">AdSense {ADSENSE_UNIT_NAMES[slot]}（{ADSENSE_SLOTS[slot]}）</span>}
     <ins
       className="adsbygoogle"
-      style={{ display: 'block', textAlign: slot === 'inArticle' ? 'center' : undefined, minHeight: MIN_HEIGHT[slot] }}
+      style={{ display: 'block', textAlign: slot === 'inArticle' ? 'center' : undefined, minHeight: tall ? TALL_MIN_HEIGHT : MIN_HEIGHT[slot] }}
       data-ad-client={ADSENSE_CLIENT}
       data-ad-slot={ADSENSE_SLOTS[slot]}
       {...(slot === 'endMultiplex' ? {
@@ -85,6 +90,7 @@ function AdUnit({ slot, className, as }: { slot: AdSenseSlot; className: string;
         : slot === 'inArticle' ? { 'data-ad-layout': 'in-article', 'data-ad-format': 'fluid' }
         // 一覧の 1 項目はインフィード広告（レイアウトキーは AdSense の管理画面のコード）
         : layoutKey ? { 'data-ad-format': 'fluid', 'data-ad-layout-key': layoutKey }
+        : tall ? { 'data-ad-format': 'vertical' }
         : { 'data-ad-format': 'auto', 'data-full-width-responsive': 'true' })}
     />
   </>;
