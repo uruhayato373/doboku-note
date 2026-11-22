@@ -44,6 +44,11 @@ test('未知キーの token は違反になる（category に化けさせない�
 
 test('[検証:] が package.json に無ければ違反（「検証したつもり」を止める）', () => {
   assert.deepEqual(rules('[収益化] [検証:存在しないscript]'), ['verify']);
+  // 毎回検査不成立になる script（サブコマンド必須・worktree で EPUB が無い）は backlog 検証を止め、週次の完了ゲートが閉じない
+  const withUnfit = { ...OPTS, npmScripts: new Set(['site-visual-review', 'site-visual-review:status', 'quality:audit:ci']) };
+  assert.deepEqual(rules('[収益化] [検証:site-visual-review]', withUnfit), ['verify-unfit']);
+  assert.deepEqual(rules('[収益化] [検証:quality:audit:ci]', withUnfit), ['verify-unfit']);
+  assert.deepEqual(rules('[収益化] [検証:site-visual-review:status]', withUnfit), []);
   assert.deepEqual(rules('[収益化] [検証:check-note-republish]'), []);
 });
 

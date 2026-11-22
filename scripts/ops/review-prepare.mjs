@@ -50,6 +50,8 @@ export function buildSteps(cadence, period) {
       { id: 'growth-triage', npm: 'growth-triage', args: ['list'], timeoutMin: 2 },
       { id: 'issue-map', npm: 'check-issue-map', args: ['--due'], timeoutMin: 2 },
       { id: 'experiment-due', npm: 'check-experiment-due', args: [], timeoutMin: 2 },
+      // 完了ゲート（weekly-review-completion）は当週の backlog 検証記録を要る。準備で回さないと最後に足りない（2026-11-21）
+      { id: 'backlog-verify', npm: 'check-backlog-verify', args: [], writes: true, timeoutMin: 30 },
       { id: 'review-checks', npm: 'review-checks', args: ['--cadence', 'weekly', '--run', period, '--write'], writes: true, timeoutMin: 30 },
     ];
   }

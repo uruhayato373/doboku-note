@@ -9,6 +9,7 @@
 ## 運用ルール
 
 - **土曜 13:10 のスケジュール済みタスク `doboku-weekly-review` が実行**（土曜の Mac の収集と GSC の記録層が終わった後。収集が実行中なら見送る。プロンプトはアプリのタスク設定が持つ（リポジトリの外））。抜けた週は運営者の指示で対話セッションが後日まとめて回す
+- 自動実行の作業場所は `.claude/worktrees/weekly-review`（detached・**lock して残す**。lock が無いと片づけで消え、2026-11-21 の回は最初の同期で止まった）。`todo:add` は origin/develop へ直接積むので、起票の後は `git merge --ff-only origin/develop` で取り込んでから本文の振り分け・`growth-triage apply` を打つ（取り込まないと新カードが無く pre-commit で落ちる）。完了ゲートが要る当週の backlog 検証は `review-prepare` が回す。`[検証:]` に毎回検査不成立になる script（サブコマンド必須・`quality:audit:ci`）を書くとゲートが閉じないので、`check-backlog-schema` の `verify-unfit` が止める
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
 - レビュー完了後に `/plan-weekly` を実行し、翌週の計画を `.claude/todo/weekly.md` に書く
 - 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ
