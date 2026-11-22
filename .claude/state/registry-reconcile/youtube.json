@@ -1,10 +1,12 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-21T04:16:51.349Z",
+  "checkedAt": "2026-11-22T03:29:27.593Z",
   "channel": "youtube",
-  "targets": 82,
-  "checked": 82,
-  "observed": 82,
-  "advanced": [],
+  "targets": 85,
+  "checked": 85,
+  "observed": 85,
+  "advanced": [
+    "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform"
+  ],
   "findings": []
 }
