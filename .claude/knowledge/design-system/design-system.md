@@ -166,7 +166,7 @@
 |---|---|---|
 | 原子 | `Button`・`ButtonLink`（`variant`: primary／secondary／soft／text・`download`）、`Eyebrow`・`EYEBROW`・`eyebrowClass`（label／mono／plain・`tone`）、`Pill`（accent／tag／outline）、`Arrow`、`Breadcrumb`。既存の専用品 `MagazineBadge`・`AffiliatePrBadge`・`RankMarker` | `tests/atoms-ratchet.test.mjs` |
 | 分子 | 内部リンクの 4 部品（下の表）、ツールの `ToolField`・`ToolResultValue`・`ToolStatus`・`ToolNotice`・`ToolSources`（`src/components/tools/ToolParts.tsx`） | `tests/link-primitives-ratchet.test.mjs`・`tests/tool-parts-ratchet.test.mjs` |
-| 生体 | 区画の `MetaCard`（`title`・`lead`・`eyebrow`・`titleAside`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages`、右の欄の入れ物 `RailStack`（§3.4） | `tests/section-card-ratchet.test.mjs`・`tests/rail-ratchet.test.mjs` |
+| 生体 | 区画の `MetaCard`（`title`・`lead`・`eyebrow`・`titleAside`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages`、右の欄の入れ物 `RailStack`（§3.4）、区画の切れ目の広告 `SectionAdBreak`（資格トップの本文。PC は AdSense の記事内広告・スマホは 1 つ目が転職・2 つ目以降が AdSense） | `tests/section-card-ratchet.test.mjs`・`tests/rail-ratchet.test.mjs` |
 | テンプレート | `PageShell`・`PageHeader`・`TwoColumnShell`、ツールのページ `ToolPageShell` | — |
 | lib | 年度コード `src/lib/exam-year.mjs`、記事の種類のラベル `src/lib/doc-kind.ts` | `tests/dedupe-ratchet.test.mjs` |
 | lib（判定） | 過去問の年度×区分 `src/lib/exam-year-grid.ts`、設問番号 `src/lib/exam-question-number.ts`、総監の同じセクションのキーワード `src/lib/pe-section-keywords.ts`、パンくずの先頭の段 `src/lib/category-breadcrumb.ts`（2026-11-22 の点検で部品から移した） | — |
@@ -184,7 +184,7 @@
 
 前後ナビ（`PrevNextNav`／見出しの無い所は `PrevNextPair`）は部品を持たず、画像ありは `ArticleCard`、文字だけは `LinkTile` を左右に並べる。ツールの末尾の関連ページは `RelatedPages`（server で行き先の画像を引き、client のツールへ ReactNode で渡す）。1 実装のまま使う固有の形（チップ・表・資格の入口・矢印の行 `MetaListItem`・MDX の `SeeAlso`・商品の導線）は、ラチェットの許可リストに理由つきで載せる。
 
-記事（`DocPage`）の目次は本文上部にH2だけを表示する。PCは開いたカード、モバイルは畳んだ`Disclosure`で、計測ラベルは両方`article-toc`。右欄は目次を除いた上詰めの束と、本文の長さから0〜6組を見積もる追加回遊で構成する。追加の組はバナー→幅96pxのサムネイル一覧の順に、残りの高さへ均等配分する。右欄全体で記事・案件を再掲せず、候補切れは回遊のみ／広告のみを許す。固定・欄内スクロールは持たない。
+記事（`DocPage`）の目次は本文上部にH2だけを表示する。PCは開いたカード、モバイルは畳んだ`Disclosure`で、計測ラベルは両方`article-toc`。右欄は目次を除いた上詰めの束と、本文の長さから0〜6組を見積もる追加回遊で構成する。追加の組はバナー→幅96pxのサムネイル一覧の順に上詰めで並べ、その下の空きの AdSense も上詰めにする。右欄全体で記事・案件を再掲せず、候補切れは回遊のみ／広告のみを許す。固定・欄内スクロールは持たない。
 
 | コンポーネント | 役割 | 主な API |
 |---|---|---|
@@ -283,7 +283,7 @@
 
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-11-16 改訂・DN-1218）:
 1. **上の束（上詰め）**: note もくじタイル（`HubCtaBanner`・1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ）→ 運営者プロフィール → 設問ナビ・カテゴリナビ・ピラーナビ。目次は本文の上（`TableOfContents`）。
-2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）＋転職バナーの組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ上詰め（組の間 24px）で並べ、2 組目の転職バナーは AdSense の枠に替える（1 組だけなら後ろに AdSense。`withRailAdSense`）。カードの無い組（バナーだけ）は作らない（上詰めで広告が続くため）。上詰めの組の下に残る本文の横の空きには AdSense だけを均等に散らし、空きの高さ 2,500px ごとに 1 枠（最大 3 枠）出す。枠数は描画した高さで決める（globals.css の `rail-lower-ads` のコンテナクエリ。字数の見積もりは表の多い章で外れた）。2026-11-16 運営者判断: 残りの高さへの均等割りは組の間に約 500px の余白が出た。手元・プレビュー（localhost・pages.dev）の AdSense の枠は広告を要求せず、破線の目印にユニット名を出す（`AdSlot`）。
+2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）＋転職バナーの組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ上詰め（組の間 24px）で並べ、2 組目の転職バナーは AdSense の枠に替える（1 組だけなら後ろに AdSense。`withRailAdSense`）。カードの無い組（バナーだけ）は作らない（上詰めで広告が続くため）。上詰めの組の下に残る本文の横の空きには AdSense だけを組の直後から上詰めで並べ、空きの高さ 1,500px ごとに 1 枠（最大 5 枠）出す（2026-11-22 運営者判断: 均等に散らすと枠の上下に 700〜1,400px の空白が出た。右の欄に追従〔sticky〕は使わない）。枠数は描画した高さで決める（globals.css の `rail-lower-ads` のコンテナクエリ。字数の見積もりは表の多い章で外れた）。2026-11-16 運営者判断: 残りの高さへの均等割りは組の間に約 500px の余白が出た。手元・プレビュー（localhost・pages.dev）の AdSense の枠は広告を要求せず、破線の目印にユニット名を出す（`AdSlot`）。
 
 > **右の欄に sticky・欄内スクロール（`max-h`＋`overflow`）は使わない**（2026-11-15 運営者指示・全ページ共通。「広告が追いかけてくる」体験と、sticky の下に置いた要素が届かなくなる過去事故を避ける）。同じ「上の束＋下に続く束」を基準書の章・節（`standardsSidebarContinuation`）と資格トップ（`categorySidebarContinuation`）にも使い、組の数・カードの選び方・AdSense の組（`withRailAdSense`）は `src/lib/rail-continuation.ts` に集約する。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
 

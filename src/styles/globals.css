@@ -1347,12 +1347,14 @@ html[data-program-split="alternate"] [data-program-split-arm="primary"] {
   color: var(--color-warn);
   pointer-events: none;
 }
-/* 右の欄の上詰めの組の下の空き（RailContinuation の lower）。空きの高さ 2,500px ごとに AdSense を 1 枠出す（最大 3 枠）。
+/* 右の欄の上詰めの組の下の空き（RailContinuation の lower）。枠は組の直後から上詰めで並べ、空きの高さ 1,500px ごとに AdSense を 1 枠出す（最大 5 枠・2026-11-22 に 2,500px ごと最大 3 枠から詰めた）。
    字数からの見積もりは表の多い章で外れるので、描画した高さで決める。隠れた枠は AdSlot が広告を要求しない（幅 0） */
 /* 右の欄（RailStack）の 1 つ 1 つ。中身を出さなかった部品（出す商品・バナーが無い）は包みごと畳み、間隔を残さない */
 [data-rail-kind]:empty { display: none; }
 .rail-lower-ads { container-type: size; }
 .rail-lower-ads > [data-lower-ad] { display: none; }
-@container (min-height: 2500px) { .rail-lower-ads > [data-lower-ad="1"] { display: block; } }
-@container (min-height: 5000px) { .rail-lower-ads > [data-lower-ad="2"] { display: block; } }
-@container (min-height: 7500px) { .rail-lower-ads > [data-lower-ad="3"] { display: block; } }
+@container (min-height: 1500px) { .rail-lower-ads > [data-lower-ad="1"] { display: block; } }
+@container (min-height: 3000px) { .rail-lower-ads > [data-lower-ad="2"] { display: block; } }
+@container (min-height: 4500px) { .rail-lower-ads > [data-lower-ad="3"] { display: block; } }
+@container (min-height: 6000px) { .rail-lower-ads > [data-lower-ad="4"] { display: block; } }
+@container (min-height: 7500px) { .rail-lower-ads > [data-lower-ad="5"] { display: block; } }

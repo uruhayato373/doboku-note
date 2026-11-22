@@ -15,7 +15,8 @@ export default function RailContinuation({ groups }: { groups: RailGroup[] }) {
   const packed = groups.filter(group => !group.lower);
   const lower = groups.filter(group => group.lower);
   // 上詰め（2026-11-16 運営者判断: 均等割りは組の間に大きな余白が出た）。2 組目は転職バナーの代わりに AdSense。
-  // 上詰めの組の下に残る空き（本文の横）には AdSense だけを均等に散らす。何枠出すかは空きの高さで決める（globals.css の rail-lower-ads）
+  // 上詰めの組の下に残る空き（本文の横）には AdSense だけを、組の直後から上詰めで並べる（2026-11-22 運営者判断: 均等に散らすと
+  // 枠の上下に 700〜1,400px の空白が出た）。何枠出すかは空きの高さで決める（globals.css の rail-lower-ads。空きの箱は高さを測るために残す）
   return <div className="flex flex-1 flex-col" data-article-sidebar-continuation>
     {packed.length > 0 && <div className="flex flex-col gap-6 pt-6">
       {packed.map((group, index) => <div key={`${group.slot}-${index}`} className="space-y-3" data-article-sidebar-group data-article-sidebar-fill={group.fill || undefined} data-article-sidebar-ad-only={(!group.card && !group.fill && !group.adsense) || undefined}>
@@ -23,7 +24,7 @@ export default function RailContinuation({ groups }: { groups: RailGroup[] }) {
         {group.card && <div data-article-sidebar-card data-rail-kind={group.card.plain ? 'nav' : 'thumbs'}><RailArticleList card={group.card} /></div>}
       </div>)}
     </div>}
-    {lower.length > 0 && <div className="rail-lower-ads flex flex-1 flex-col justify-around gap-6 pt-6" data-article-sidebar-lower-ads>
+    {lower.length > 0 && <div className="rail-lower-ads flex flex-1 flex-col justify-start gap-6 pt-6" data-article-sidebar-lower-ads>
       {lower.map((group, index) => <div key={group.slot} data-lower-ad={index + 1} data-rail-kind="adsense"><AdSlot slot="rail" /></div>)}
     </div>}
   </div>;

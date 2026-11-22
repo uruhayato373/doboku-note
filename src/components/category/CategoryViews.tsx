@@ -40,7 +40,7 @@ const CIVIL_VIEW = {
 } as const;
 
 /** civil-construction-1・2: 受験ガイド＋分野別＋テキスト章目次をリスト化、過去問はテーブル維持（2級は前期/後期） */
-export function CivilConstructionView({ category, groups, mobileCareerAds = [] }: { category: keyof typeof CIVIL_VIEW; groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+export function CivilConstructionView({ category, groups, sectionBreaks = [] }: { category: keyof typeof CIVIL_VIEW; groups: DocGroup[]; sectionBreaks?: ReactNode[] }) {
   const view = CIVIL_VIEW[category];
   const guideGroup = groups.find(g => g.key === 'guide');
   const textbookGroup = groups.find(g => g.key === 'textbook');
@@ -59,13 +59,12 @@ export function CivilConstructionView({ category, groups, mobileCareerAds = [] }
     <>
       <ExamGuideSection curriculum={curriculum} />
       <FieldsSection curriculum={curriculum} />
-      {mobileCareerAds[0]}
+      {sectionBreaks[0]}
       {chapters.length > 0 && (
         <CurriculumSection id="textbook" title="テキスト" description={view.textbook.description} count={textbookCount}>
           <CurriculumList blocks={chapters} numbered {...(view.textbook.collapsible ? { collapsible: true } : {})} />
         </CurriculumSection>
       )}
-      {mobileCareerAds[1]}
       {primaryGroup && (
         <DocSection
           group={{
@@ -78,6 +77,8 @@ export function CivilConstructionView({ category, groups, mobileCareerAds = [] }
           secondaryDocs={secondaryYearDocs}
         />
       )}
+      {/* 2 つ目の区画の切れ目は過去問の表の後（2級はテキストが無く、テキストの後だと 1 つ目と並んだ） */}
+      {sectionBreaks[1]}
       {secondaryTopicDocs.length > 0 && (
         <DocSection
           group={{
@@ -99,7 +100,7 @@ export function CivilConstructionView({ category, groups, mobileCareerAds = [] }
 }
 
 /** concrete-chief-engineer / concrete-diagnostician: 受験ガイド＋テキスト章目次＋分野別過去問をリスト化（共用） */
-export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+export function ConcreteView({ groups, sectionBreaks = [] }: { groups: DocGroup[]; sectionBreaks?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
   const textbookGroup = groups.find(g => g.key === 'textbook');
   const primaryGroup = groups.find(g => g.key === 'primary');
@@ -114,7 +115,7 @@ export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGrou
   return (
     <>
       <ExamGuideSection curriculum={curriculum} />
-      {mobileCareerAds[0]}
+      {sectionBreaks[0]}
       {chapters.length > 0 && (
         <CurriculumSection id="textbook" title={textbookGroup?.title ?? 'テキスト'} description={textbookGroup?.description} count={textbookCount}>
           <CurriculumList blocks={chapters} numbered thumbnails={thumbnails} />
@@ -125,7 +126,7 @@ export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGrou
           <CurriculumList blocks={[{ docs: primaryGroup.docs }]} numbered thumbnails={thumbnails} />
         </CurriculumSection>
       )}
-      {mobileCareerAds[1]}
+      {sectionBreaks[1]}
     </>
   );
 }
@@ -133,7 +134,7 @@ export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGrou
 /** civil-practice: 実務ノート 49 本を工種別ブロック（category-curriculum の fields）で束ねる。
  *  既定の DocSection はフラットなカード列（モバイル 9,700px・2026-09 監査）になるため専用 View にした。
  *  fields に無い記事は unassigned として末尾に必ず出す（silent drop 防止）。 */
-export function PracticeView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+export function PracticeView({ groups, sectionBreaks = [] }: { groups: DocGroup[]; sectionBreaks?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
   const category = groups.flatMap(g => g.docs)[0]?.category ?? 'civil-practice';
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
@@ -147,7 +148,7 @@ export function PracticeView({ groups, mobileCareerAds = [] }: { groups: DocGrou
           <CurriculumList blocks={[{ docs: restDocs }]} />
         </CurriculumSection>
       )}
-      {mobileCareerAds[0]}
+      {sectionBreaks[0]}
       {others.map(group => (
         <DocSection key={group.title} group={group} />
       ))}
@@ -199,7 +200,7 @@ function PeFirstStageEntry({ placement }: { placement: string }) {
 }
 
 /** pe-first-stage: 適性・基礎・専門マトリクス */
-export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+export function PeFirstStageView({ groups, sectionBreaks = [] }: { groups: DocGroup[]; sectionBreaks?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
   const primaryGroup = groups.find(g => g.title === getGroupLabel('pe-first-stage', 'primary'));
   const curriculum = resolveCurriculum('pe-first-stage', guideGroup?.docs ?? []);
@@ -224,13 +225,13 @@ export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: Doc
         <DocSection group={primaryGroup} layout="pe-first-stage-table" />
       )}
       {/* セクションが1個のためテーブル後ろに転職枠を配置（モバイル・href のみ）。 */}
-      {mobileCareerAds[0]}
+      {sectionBreaks[0]}
     </>
   );
 }
 
 /** pe-comprehensive-management: ガイド・ピラー・過去問・キーワード索引導線 */
-export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+export function PeComprehensiveView({ groups, sectionBreaks = [] }: { groups: DocGroup[]; sectionBreaks?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'guide'));
   const pillarGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pillar'));
   const pastExamGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pastExam'));
@@ -245,7 +246,7 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
     <>
       <ExamGuideSection curriculum={curriculum} />
       <FieldsSection curriculum={curriculum} />
-      {mobileCareerAds[0]}
+      {sectionBreaks[0]}
       {pillarGroup && <DocSection group={pillarGroup} />}
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-exam-table" />
@@ -278,7 +279,7 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
 }
 
 /** pe-construction: 受験ガイド＋論文の書き方をリスト化、キーワード・科目×年度マトリクスは維持 */
-export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+export function PeConstructionView({ groups, sectionBreaks = [] }: { groups: DocGroup[]; sectionBreaks?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
   const keywordGroup = groups.find(g => g.key === 'keyword');
   const pastExamGroup = groups.find(g => g.key === 'pastExam');
@@ -292,7 +293,7 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
     <>
       <ExamGuideSection curriculum={curriculum} />
       <FieldsSection curriculum={curriculum} />
-      {mobileCareerAds[0]}
+      {sectionBreaks[0]}
       {keywordGroup && (keywordSection ? (
         <KeywordSection section={keywordSection} title={keywordGroup.title} description={keywordGroup.description} />
       ) : (
@@ -302,7 +303,7 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
         <DocSection group={pastExamGroup} layout="pe-construction-exam-table" />
       )}
       <PeFirstStageEntry placement="pe-construction" />
-      {mobileCareerAds[1]}
+      {sectionBreaks[1]}
       <CareerSection
         featured={curriculum.career.featured}
         rest={curriculum.career.rest}
