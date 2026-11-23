@@ -31,6 +31,7 @@ import { join } from 'node:path';
 import { todayJst } from '../lib/jst-date.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { median } from '../lib/stats.mjs';
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 x
 
@@ -88,12 +89,6 @@ function daysAgoFromPostTime(t, now) {
   return Math.floor((now.getTime() - d.getTime()) / 86400000);
 }
 
-const median = (arr) => {
-  if (arr.length === 0) return null;
-  const s = [...arr].sort((a, b) => a - b);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
-};
 
 function analyze(comp, now) {
   const user = parseUser(tw('user', comp.handle));

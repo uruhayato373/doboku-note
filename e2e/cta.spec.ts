@@ -40,7 +40,8 @@ const ctaStackPages = [
 ] as const;
 
 for (const path of ctaStackPages) {
-  test(`${path} の縦に続く商品導線の幅と左端がそろっている`, async ({ page }) => {
+  // @layout: 幅と左端のそろいは見た目の確認なので、落ちてもデプロイは止めない（夜間は別の Issue・e2e.yml）
+  test(`${path} の縦に続く商品導線の幅と左端がそろっている`, { tag: '@layout' }, async ({ page }) => {
     await page.goto(path);
     await page.waitForLoadState('networkidle').catch(() => {});
     const { checked, mismatches } = await page.evaluate(inspectCtaStacksInPage);
@@ -52,7 +53,7 @@ for (const path of ctaStackPages) {
 // 記事の一覧のインフィード広告（src/lib/feed-ads.ts）は一覧の項目の間にあり、前後の項目と同じ幅。1 ページ 3 枠まで。
 // 広告が 1 枠も無いと検査不成立として落とす（0 件の緑にしない）。手元では目印が出る。
 for (const path of ['/exam/civil-construction-1', '/practice']) {
-  test(`${path} のインフィード広告は一覧の項目の間にあり、幅がそろう`, async ({ page }) => {
+  test(`${path} のインフィード広告は一覧の項目の間にあり、幅がそろう`, { tag: '@layout' }, async ({ page }) => {
     await page.goto(path);
     await page.waitForLoadState('networkidle').catch(() => {});
     const { checked, total, mismatches } = await page.evaluate(inspectFeedAdsInPage);

@@ -27,9 +27,9 @@ import { listAttachedFiles } from '../lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from '../lib/note-attachments.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const argv = process.argv.slice(2);
 const getArg = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };

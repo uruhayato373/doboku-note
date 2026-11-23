@@ -35,6 +35,7 @@ import { runPool } from "../lib/worker-pool.mjs";
 import { datasetDir, datasetPath } from "../lib/datasets.mjs";
 import { GSC_PROPERTY } from "../lib/site-identity.mjs";
 import { parseCliArgs } from "../lib/cli-args.mjs";
+import { sleep } from '../lib/sleep.mjs';
 
 dotenv.config({ path: ".env.local" });
 
@@ -129,7 +130,6 @@ const PSI_RETRY = { attempts: 3, baseDelayMs: 2000 };
 /** 1 リクエストの上限。Lighthouse は長くても 60 秒台で返るので、2 分応答が無ければハング扱い。 */
 const PSI_FETCH_TIMEOUT_MS = 120_000;
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** リトライすべきか。5xx とネットワーク断だけ true。 */
 export function shouldRetryPsi(status) {

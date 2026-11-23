@@ -9,6 +9,7 @@ import { upsertPublications } from '../lib/content-registry-write.mjs';
 import { approvalState } from '../lib/media-review.mjs';
 import { writableStatus } from '../lib/youtube-migration.mjs';
 import { validateReschedulePlan } from '../lib/youtube-reschedule-plan.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const args = process.argv.slice(2);
 const get = (flag) => args[args.indexOf(flag) + 1];
@@ -56,7 +57,6 @@ for (const { item } of targets) {
   if (!video || video.snippet?.channelId !== plan.channelId || video.status?.privacyStatus !== 'private' || ![Date.parse(item.from), Date.parse(item.to)].includes(Date.parse(video.status.publishAt))) throw new Error(`YouTube 側の状態が計画と違う: ${item.publicationId}`);
 }
 
-const sleep = (ms) => new Promise((resolveWait) => setTimeout(resolveWait, ms));
 let done = 0;
 for (const { item, pub, copyPath, copy, key } of targets) {
   if (Date.parse(item.to) <= Date.now() + 5 * 60_000) throw new Error(`公開時刻が近すぎる: ${item.publicationId}`);

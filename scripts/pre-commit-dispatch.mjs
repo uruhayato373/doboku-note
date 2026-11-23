@@ -147,7 +147,9 @@ export function tailLines(text, n) {
 /** 出力の中の WARN 行の数（成功した検査の警告を件数だけ要約に載せる） */
 export function countWarns(text) {
   // 検査の正常な集計「WARN 0」「警告 0 件」を警告の本文と数えない。
-  return text.split('\n').filter((l) => /\bWARN(ING)?\b|警告/.test(l.replace(/\bWARN(?:ING)?\s*[:=]?\s*0\b|警告\s*[:：]?\s*0\s*件/g, ''))).length;
+  // 検査自身の要約行の「（WARN 2 件）」は個々の警告行の合計なので数えない（二重に数えて 1 件多く出ていた）。
+  const noise = /\bWARN(?:ING)?\s*[:=]?\s*0\b|警告\s*[:：]?\s*0\s*件|[（(]\s*(?:WARN(?:ING)?|警告)\s*\d+\s*件\s*[）)]/g;
+  return text.split('\n').filter((l) => /\bWARN(ING)?\b|警告/.test(l.replace(noise, ''))).length;
 }
 
 /** 最後に出す要約 1 行（WARN を出した検査は名前と件数だけ） */

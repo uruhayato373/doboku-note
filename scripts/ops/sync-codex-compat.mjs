@@ -37,6 +37,7 @@ import { join, dirname, relative, sep, isAbsolute } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -78,10 +79,6 @@ const RUNTIME_SCAN_ROOTS = [
 ];
 const TEXT_EXT = new Set(['.mjs', '.js', '.cjs', '.ts', '.tsx', '.jsx', '.json', '.md', '.mdx', '.yaml', '.yml', '.sh', '.toml', '.txt']);
 const WALK_IGNORE = new Set(['node_modules', '.git', '.claude/worktrees']);
-
-function toPosix(p) {
-  return p.split(sep).join('/');
-}
 
 function relRoot(absPath) {
   return toPosix(relative(ROOT, absPath));

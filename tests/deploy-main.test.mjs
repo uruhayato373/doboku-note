@@ -63,6 +63,8 @@ test('夜間の全件検査の未解決 Issue だけが昇格を止める', () =
     { number: 1, title: '[auto] e2e-nightly: develop 夜間 E2E 失敗' },
     { number: 2, title: '[auto] lighthouse-nightly: develop 夜間 Lighthouse 失敗' },
     { number: 3, title: '[auto] ops: 別の失敗' },
+    // デザイン由来の確認（@layout）の夜間の失敗は記録だけで、昇格は止めない（2026-11-23 運営者判断）
+    { number: 4, title: '[auto] e2e-layout-nightly: develop 夜間 E2E（デザインの確認）失敗' },
   ];
   assert.deepEqual(blockingNightlyIssues(issues).map((issue) => issue.number), [1, 2]);
   assert.deepEqual(blockingNightlyIssues([]), []);

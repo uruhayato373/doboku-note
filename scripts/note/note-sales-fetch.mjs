@@ -60,6 +60,7 @@ import { datasetPath } from '../lib/datasets.mjs';
 import { jstMonth, todayJst } from '../lib/jst-date.mjs';
 import { writeDataset } from '../lib/dataset-write.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const SALES_LOG = join(ROOT, datasetPath('note.sales'));
@@ -78,7 +79,6 @@ if (!/^\d{4}-\d{2}$/.test(MONTH_ARG)) {
 }
 const [YEAR, MONTH] = MONTH_ARG.split('-');
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // 前月指定の年/月 <select> を変えると販売履歴ページが読み込み直される。その途中で page.evaluate を
 // 呼ぶと「Execution context was destroyed」で落ちていた（2026-10-02 CI・前月だけ失敗・当月は既定値の

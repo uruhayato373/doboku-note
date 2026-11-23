@@ -31,6 +31,7 @@ import { NOTE_CREATOR as CREATOR } from '../lib/site-identity.mjs';
 import { fetchCreatorMagazines } from '../lib/note-api.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { assertAccountGate, launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 
 const argv = process.argv.slice(2);
@@ -57,7 +58,6 @@ async function magazineCover(key) {
 // 登録前のカバー。保存後は「カバーがある」ではなく「これから変わった」で判定する（もとからカバーのある誌の偽成功を防ぐ）
 const BEFORE = (await magazineCover(KEY))?.cover ?? null;
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await launchNoteContext({ viewport: { width: 1366, height: 1100 } });
 let exitCode = 0;
 try {

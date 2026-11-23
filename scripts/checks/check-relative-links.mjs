@@ -27,8 +27,8 @@ import { existsSync, readFileSync, writeSync } from 'node:fs';
 import { join, posix, resolve, sep } from 'node:path';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { exitWith, runMain, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
-const toPosix = (v) => v.split(sep).join('/');
 
 /** `.agents/` は `.claude/` の写しで別途 DN-0098 の判断待ち。二重に報告しない。 */
 // .claude/memory/ は Claude Code の auto-memory（個人知見の point-in-time 記録。当時の相対パスを残す・check-doc-refs と同じ扱い）

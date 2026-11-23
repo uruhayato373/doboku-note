@@ -36,6 +36,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleepSync as sleep } from '../lib/sleep.mjs';
 
 const WRAPPER = join(ROOT, 'scripts', 'content', 'notebooklm-cross-query.mjs');
 
@@ -69,7 +70,6 @@ if (!keys.length) {
   process.exit(1);
 }
 
-const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 function ask(q) {
   // 注: ラッパーは --notebooks "<名前>"（--notebook-id は非対応）。全角括弧質問もそのまま渡せる。

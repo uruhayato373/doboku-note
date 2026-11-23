@@ -29,6 +29,7 @@ import { generateWithCodex } from '../lib/codex-image.mjs';
 import { REPO_ROOT as ROOT, DESIGN_TOKENS_ROOT } from '../lib/repository-paths.mjs';
 import { parseCliArgs } from '../lib/cli-args.mjs';
 import { loadImageRules } from '../lib/image-rules.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const require = createRequire(import.meta.url);
 const BACKGROUNDS_DIR = path.join(ROOT, datasetDir('config.ogp-backgrounds'));
@@ -53,7 +54,6 @@ function buildPrompt(exam) {
   return OGP_BACKGROUND.lines.map((line) => line.replace(/\{(color|label|motif)\}/g, (_, k) => values[k])).join(' ');
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // 429（容量不足）や flash のテキスト返答は単発で起きがち。数回リトライで吸収する。
 async function withRetry(fn, label, attempts = 4) {

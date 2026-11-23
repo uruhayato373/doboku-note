@@ -14,6 +14,7 @@ import { spawnSync } from 'node:child_process';
 import process from 'node:process';
 import { blockingNightlyIssues, DEPLOY_WAIT_LIMIT_MS, deployRunOutcome, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from '../lib/deploy-main.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleepSync as sleep } from '../lib/sleep.mjs';
 
 const GATE = 'Pre-merge check (quality audit + build)';
 const DEPLOY = 'cloudflare-deploy.yml';
@@ -28,7 +29,6 @@ function run(cmd, args, { allowFail = false } = {}) {
 }
 const out = (cmd, args) => run(cmd, args).stdout.trim();
 const json = (cmd, args) => JSON.parse(out(cmd, args));
-const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 function stop(code, message) {
   console.error(`[deploy-main] 停止（exit ${code}）: ${message}`);

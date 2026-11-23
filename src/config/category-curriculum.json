@@ -238,7 +238,8 @@
         "guide-eligibility-2026",
         "guide-difference-chief",
         "guide-study-plan",
-        "guide-books"
+        "guide-books",
+        "guide-r08-answers"
       ]
     }
   },
@@ -249,7 +250,8 @@
       "slugs": [
         "guide-overview",
         "guide-trends",
-        "guide-essay"
+        "guide-essay",
+        "guide-r08-answers"
       ]
     }
   },
@@ -454,7 +456,8 @@
         "gakushuu-jikan-schedule",
         "secondary-study-method",
         "competency-revision-r8",
-        "public-servant-merit"
+        "public-servant-merit",
+        "koutou-shiken"
       ]
     },
     "fields": {
@@ -825,7 +828,10 @@
         "guide-overview",
         "guide-gogo-bunya",
         "guide-assistant-takuitsu",
-        "guide-study-plan"
+        "guide-study-plan",
+        "guide-difficulty",
+        "guide-gogo-kotaekata",
+        "guide-assistant-keisan"
       ]
     }
   },
@@ -837,7 +843,9 @@
         "guide-overview",
         "guide-keiken-kijutsu",
         "guide-sentaku-hinshutsu",
-        "guide-study-plan"
+        "guide-study-plan",
+        "guide-difficulty",
+        "guide-ouyou-kotaekata"
       ]
     }
   },

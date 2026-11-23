@@ -23,7 +23,8 @@ const pages = [
 const MAX_GAP = { desktop: 4500, mobile: 7000 } as const;
 
 for (const path of pages) {
-  test(`${path} の本文に広告も導線も無い区間が長すぎない`, async ({ page }, info) => {
+  // @layout: 区間の上限はデザインの許容値なので、落ちてもデプロイは止めない（夜間は別の Issue・e2e.yml）
+  test(`${path} の本文に広告も導線も無い区間が長すぎない`, { tag: '@layout' }, async ({ page }, info) => {
     await page.goto(path);
     const result = await page.evaluate(() => {
       const article = document.querySelector('main article') ?? document.querySelector('main');

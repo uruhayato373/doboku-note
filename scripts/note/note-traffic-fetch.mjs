@@ -37,6 +37,7 @@ import { parseCliArgs } from '../lib/cli-args.mjs';
 import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows, parseRequestedPeriod, trafficProblems } from '../lib/note-traffic-normalize.mjs';
 import { jstClock } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const NAME = 'note-traffic-fetch';
 const args = parseCliArgs({ month: { type: 'string' }, from: { type: 'string' }, to: { type: 'string' }, commit: { type: 'boolean' }, check: { type: 'boolean' } });
@@ -65,7 +66,6 @@ const periodLabel = requestedPeriod ? 'カスタム' : MONTH === thisMonth ? '�
 if (!periodLabel) { console.error(`${NAME}: ダッシュボードの期間ボタンは「今月」「先月」しか機械で選べない（${MONTH} は対象外。時系列は 365 日で取れる）`); process.exit(2); }
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 console.log(`=== ${NAME}: ${requestedPeriod ? requestedPeriod.from + '〜' + requestedPeriod.to : MONTH}（期間ボタン「${periodLabel}」）/ mode=${COMMIT ? 'COMMIT' : 'DRY-RUN'} ===`);
 
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({

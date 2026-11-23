@@ -16,6 +16,7 @@
  */
 import { freshnessDays } from './datasets.mjs';
 import { classifyProduct, classifySale } from './product-lineup.mjs';
+import { median } from './stats.mjs';
 
 /** 管理画面の列の並び。YouTube・note・ココナラは検索で混み具合を測り、X・Instagram は追跡数だけ持つ。 */
 export const CHANNELS = ['note', 'youtube', 'coconala', 'x', 'ig'];
@@ -39,12 +40,6 @@ export function densityOf(count, bands) {
   return 'none';
 }
 
-const median = (xs) => {
-  if (xs.length === 0) return null;
-  const s = [...xs].sort((a, b) => a - b);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
-};
 
 /**
  * YouTube の検索結果（複数クエリ分）から、チャンネルごとの最大再生数を出す。

@@ -53,6 +53,7 @@ import { NOTE_PLACEHOLDER_RE } from '../lib/note-publication-state.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
 import { stripHtmlComments } from '../lib/strip-markup.mjs';
 import { escapeRegExp } from '../lib/regexp-escape.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 
 const argv = process.argv.slice(2);
@@ -171,7 +172,6 @@ const existingUrl = fmField('noteUrl');
 if (existingUrl && /^https?:\/\//.test(existingUrl)) { console.log('[skip] 既に公開済み: ' + existingUrl); process.exit(0); }
 
 const ctx = await launchNoteContext();
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let publishedUrl = null;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

@@ -426,8 +426,13 @@ export function usageRecord(json, now = new Date()) {
       return { ...base, kind: 'skill', name: input.skill };
     }
     if (json.tool_name === 'Agent' || json.tool_name === 'Task') {
-      const name = typeof input.subagent_type === 'string' && input.subagent_type ? input.subagent_type : 'general-purpose';
-      return { ...base, kind: 'agent', name };
+      const typed = typeof input.subagent_type === 'string' && input.subagent_type !== '';
+      const name = typed ? input.subagent_type : 'general-purpose';
+      // 呼び出しで明示した model・effort（無ければ null＝定義の frontmatter か既定 CLAUDE_CODE_SUBAGENT_MODEL が効く）。
+      // 型なしの委任の割合と、明示の内訳を DN-1246 の比較で読む（scripts/reports/report-agent-usage.mjs）
+      const model = typeof input.model === 'string' && input.model ? input.model : null;
+      const effort = typeof input.effort === 'string' && input.effort ? input.effort : null;
+      return { ...base, kind: 'agent', name, typed, model, effort };
     }
     return null;
   }

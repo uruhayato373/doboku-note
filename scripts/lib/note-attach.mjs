@@ -15,7 +15,8 @@
  * ここでは JS の Range で contenteditable 末尾へ確実に移動する。
  */
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+import { sleep } from './sleep.mjs';
+
 
 /**
  * エディタ本文に見えている添付ファイル名（*.pdf）。全文置換の前に記録して復元に使う。

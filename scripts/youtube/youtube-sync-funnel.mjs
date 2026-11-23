@@ -9,6 +9,7 @@ import { REPO_ROOT } from '../lib/repository-paths.mjs';
 import { loadRegistry, resolveCopy } from '../lib/content-registry.mjs';
 import { approvalState } from '../lib/media-review.mjs';
 import { writableSnippet } from '../lib/youtube-migration.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const sha = (value) => createHash('sha256').update(value).digest('hex');
 const args = process.argv.slice(2);
@@ -95,7 +96,6 @@ function checkStatus(video, item) {
     throw new Error(`予約状態が計画と違う: ${item.publicationId}`);
   }
 }
-const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 for (const { item, copy } of targets) {
   if (!item.repairKind && Date.parse(item.publishAt) <= Date.now() + 5 * 60_000) throw new Error(`公開直前になったため停止: ${item.publicationId}`);
   const before = await readVideo(item.videoId);

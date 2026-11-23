@@ -237,7 +237,8 @@ for (const file of files) {
   }
 
   totalPosts += plan.posts.length;
-  for(const warning of retainedWarnings)console.log(`[check-x-campaign-plan] WARN: ${warning}`);
+  // 投稿済みで直せないもの・理由付きの例外は直す対象ではないので WARN にしない（pre-commit の要約に毎回載って本物の警告が埋もれる）
+  for(const warning of retainedWarnings)console.log(`[check-x-campaign-plan] INFO: ${warning}`);
   if (errors.length) {
     anyError = true;
     console.error(`[check-x-campaign-plan] NG: ${basename(file)} (schemaVersion ${v})`);

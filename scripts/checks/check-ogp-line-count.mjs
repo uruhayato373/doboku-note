@@ -22,8 +22,8 @@ import { readFileSync } from 'node:fs';
 import { join, sep } from 'node:path';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
-const toPosix = (v) => v.split(sep).join('/');
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
 const MIN = Number(argv[argv.indexOf('--min') + 1]) || 3;
