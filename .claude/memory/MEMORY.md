@@ -152,6 +152,7 @@
 - [Xの読み取り](reference_x_read_without_account.md) — Yahoo検索が無認証・続きで120h・X検索は表示名にも当たる
 - [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
 - [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP
+- [AdSenseとGA4のアカウント](reference_adsense_ga4_accounts.md) — 別アカウント・11/23リンク・以前は欠測
 - [ココナラ価格](reference_coconala_price_edit_gotchas.md) — 500円刻み・偽成功
 - [IG照合](reference_ig_publish_reconcile.md) — verify-ig-status・--now偽陰性
 - [YouTube予約](reference_youtube_schedule.md) — publishAt・quota・60秒

@@ -196,7 +196,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `kindle-book-composer` | 制作 | kindle-book | 編集可 | sonnet | product | Kindle の論点分類・構成 spec・前付け原稿・KDP の販売文（メタデータ）を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計]. | `/kdp-publish` `/kindle-build` |
 | `kindle-book-qa` | 採点 | kindle-book | 監査のみ | sonnet | product | Kindle EPUB と原稿を完全性・構成・KDP 規約などで監査し修正案を返す Evaluator。修正・出版はしない。Use when [EPUB 品質チェック]. | `/kindle-build` |
 | `magazine-pdf-builder` | 制作 | magazine-pdf | 編集可 | sonnet | product | note マガジンの article.md を「問題文＋解答」中心の紙用 PDF にする spec を作り、magazine-to-pdf.mjs を実行する Generator。 | `/cce-essay-cycle` `/magazine-to-pdf` `/note-attach-pdf` |
-| `metrics-analyzer` | 分析 | search-metrics | 監査のみ | sonnet | site | 検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/weekly-improve` |
+| `metrics-analyzer` | 分析 | search-metrics | 監査のみ | sonnet | site | 検索（GSC・GA4）と AdSense 収益のデータから8パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/weekly-improve` |
 | `note-buyer-responder` | 制作 | note-buyer | 編集可 | sonnet | product | note の購入者コメントへの返信を、購入と納品の実体を確かめたうえで下書きする。送信は運営者か親の承認後。Use when [note のコメントに返信, 購入者への応対, 納品の問い合わせ]. | — |
 | `note-catalog-operator` | 運用 | note | 編集可 | sonnet | product | note の価格・マガジン・収録・カバー・PDF 添付・同期検証を運用する。返信は対象外。Use when [note 価格変更, マガジン収録]. | — |
 | `note-fact-checker` | 照合 | note-draft | 監査のみ | sonnet | product | note 公開用ドラフトの数値・主張・年度を doboku-note 内部データと突合する Evaluator。 | `/note-prepublish-review` `/pe-essay-review` |

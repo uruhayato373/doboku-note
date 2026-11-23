@@ -2693,6 +2693,44 @@
         "/exam/pe-construction/past-exams/r08-road-ii-2-2",
         "/exam/pe-construction/past-exams/r08-road-iii-1"
       ]
+    },
+    {
+      "runId": "2026-11-22T22-40-12Z",
+      "collectedAt": "2026-11-22T22:40:12.892Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-construction/past-exams/r08-road-iii-2",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
+        "/exam/pe-construction/guide/koutou-shiken",
+        "/practice/project-request-to-budget",
+        "/practice/road-work-approval-vs-road-use-permit",
+        "/exam/civil-construction-1/guide/market-value-check",
+        "/standards/chubu/special/chapters/6-7"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/past-exams/r08-road-iii-2",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
+        "/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
+        "/exam/pe-construction/guide/koutou-shiken",
+        "/practice/project-request-to-budget",
+        "/practice/road-work-approval-vs-road-use-permit",
+        "/exam/civil-construction-1/guide/market-value-check",
+        "/standards/chubu/special/chapters/6-7"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-20T01:59:20.399Z",
+  "updated_at": "2026-11-23T03:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -10899,6 +10899,35 @@
           "at": "2026-11-15T22:38:59.071Z",
           "event": "implemented",
           "change": "目次を本文の上へ・右の欄の下に続く束（#1619）、本文末の回遊のサムネイル化（#1620）、基準書・資格トップの右の欄（段 3）。本番反映は main への deploy 後"
+        }
+      ]
+    },
+    {
+      "id": "EXP-066",
+      "title": "本文の手動の広告の枠に、自動広告のページ内広告（広告の負荷は低め）を足して、ページあたりの AdSense 収益が増えるかを比べる",
+      "hypothesis": "本文の広告は手動の決まり（記事・基準書は 1,500 字ごと、過去問は 3 問ごと・src/lib/body-ad-rules.mjs）で置いている。自動広告のページ内広告を低い負荷で足せば、Google が読者と端末ごとに枠を足し、ページあたりの収益（AdSense 推定収益 ÷ 表示回数）が上がる。ただし過去問の問題と解答のあいだに入るなどで読み進めが落ちるなら採らない",
+      "target_metric": "AdSense 推定収益（business-direction の adsenseRevenue）と表示回数 1,000 回あたりの収益（data/ga4/reports の page-adsense）・1 セッションあたりのページ数と平均エンゲージメント時間（読み進めの悪化の見張り）",
+      "target_delta": "自動を足してから 28 日で、表示 1,000 回あたりの収益が手動だけの基準より 15% 以上上がり、1 セッションあたりのページ数の低下が 5% 以内",
+      "status": "proposed",
+      "created_at": "2026-11-23",
+      "next_check_date": "2026-12-14",
+      "updated_at": "2026-11-23T03:00:00.000Z",
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "広告で読み進めを邪魔されずに、問題と解説を続けて読みたい",
+        "verifiedGap": "手動の本文の広告の決まりは 2026-11-22 に本番へ出たばかりで、手動だけの収益の基準が無い。GA4 と AdSense のリンクは 2026-11-23 からなので、それより前の収益は GA4 に無い",
+        "metricId": "adsenseRevenue",
+        "reviewRecord": "data/business/records/review-2026-11-21T04-37-45-265Z-d2f725dc-9d00-4b85-8415-484d8387e5ef.json"
+      },
+      "pending_user_actions": [
+        {
+          "action": "2026-12-14 ごろ、手動だけの 3 週分（2026-11-23〜12-13）を基準にしてから、AdSense の管理画面で自動広告のページ内広告を有効にする（広告の負荷は低め）。設定の変更なので運営者の操作"
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-11-23T03:00:00.000Z",
+          "event": "recorded"
         }
       ]
     }

@@ -1,122 +1,122 @@
 {
   "schemaVersion": 1,
-  "generated_at": "2026-11-15T21:28:37.273Z",
+  "generated_at": "2026-11-22T22:16:18.654Z",
   "results": [
     {
       "url": "https://doboku-note.com/",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:26:51.350Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:14:39.625Z",
       "scores": {
-        "performance": 100,
+        "performance": 55,
         "accessibility": 100,
-        "best_practices": 96,
+        "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 702.0587539728205,
-        "TBT_ms": 14.5,
+        "LCP_ms": 6406.901359226977,
+        "TBT_ms": 547,
         "CLS": 0,
-        "FCP_ms": 281.0202599906278,
-        "TTI_ms": 1269.4308373626047,
-        "SI_ms": 301.1183149947258
+        "FCP_ms": 1051.0308636224524,
+        "TTI_ms": 14380.371234260392,
+        "SI_ms": 8580.096784550762
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -130,124 +130,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:39.693Z",
+      "analysis_utc": "2026-11-22T22:14:15.045Z",
       "final_url": "https://doboku-note.com/"
     },
     {
       "url": "https://doboku-note.com/search",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:26:53.803Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:14:24.936Z",
       "scores": {
-        "performance": 94,
+        "performance": 82,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 66
       },
       "lab_data": {
-        "LCP_ms": 306.0022008103035,
-        "TBT_ms": 205,
+        "LCP_ms": 4675.214413505016,
+        "TBT_ms": 24.836300745302196,
         "CLS": 0,
-        "FCP_ms": 306.0022008103035,
-        "TTI_ms": 1234.6539339484175,
-        "SI_ms": 512.4558276293575
+        "FCP_ms": 1051.005727673207,
+        "TTI_ms": 4704.065616316389,
+        "SI_ms": 3706.4963204245946
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -261,13 +261,13 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:40.808Z",
+      "analysis_utc": "2026-11-22T22:14:13.263Z",
       "final_url": "https://doboku-note.com/search"
     },
     {
       "url": "https://doboku-note.com/exam",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:26:49.688Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:14:26.145Z",
       "scores": {
         "performance": 100,
         "accessibility": 100,
@@ -275,110 +275,110 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 244.59869448912877,
-        "TBT_ms": 24.5,
+        "LCP_ms": 904.5973964495943,
+        "TBT_ms": 79,
         "CLS": 0,
-        "FCP_ms": 244.59869448912877,
-        "TTI_ms": 1074.4402512042059,
-        "SI_ms": 245.75357881959542
+        "FCP_ms": 904.5973964495943,
+        "TTI_ms": 6857.728380651937,
+        "SI_ms": 2397.3452949773487
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -392,537 +392,13 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:39.604Z",
+      "analysis_utc": "2026-11-22T22:14:13.526Z",
       "final_url": "https://doboku-note.com/exam"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:26:54.112Z",
-      "scores": {
-        "performance": 93,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 1756.7272078064304,
-        "TBT_ms": 12,
-        "CLS": 0,
-        "FCP_ms": 281.0043386296464,
-        "TTI_ms": 1983.3498260802035,
-        "SI_ms": 385.69657291038885
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:39.458Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:12.418Z",
-      "scores": {
-        "performance": 94,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 1651.8716587779156,
-        "TBT_ms": 23,
-        "CLS": 0.00004507197551930463,
-        "FCP_ms": 365.00415388970794,
-        "TTI_ms": 1760.5877744729933,
-        "SI_ms": 679.4756177424347
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:52.005Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/primary/r07-a",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:15.994Z",
-      "scores": {
-        "performance": 88,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 956.0147307974914,
-        "TBT_ms": 58.5,
-        "CLS": 0.2133448649407124,
-        "FCP_ms": 403.00431145292436,
-        "TTI_ms": 1536.0169583815027,
-        "SI_ms": 628.1158801741615
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:53.678Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/primary/r07-a"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/primary/h26-a",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:15.590Z",
-      "scores": {
-        "performance": 91,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 1961.0201859381282,
-        "TBT_ms": 34.00000000000023,
-        "CLS": 0,
-        "FCP_ms": 348.0021474402264,
-        "TTI_ms": 2071.1202933101395,
-        "SI_ms": 487.98372121734656
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:55.985Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/primary/h26-a"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/r07",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:19.291Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:14:38.878Z",
       "scores": {
         "performance": 95,
         "accessibility": 100,
@@ -930,110 +406,110 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 1471.8756152134697,
-        "TBT_ms": 61.999999999999886,
+        "LCP_ms": 1201.0115721463608,
+        "TBT_ms": 175.5,
         "CLS": 0,
-        "FCP_ms": 305.00492205435205,
-        "TTI_ms": 1673.9466057615596,
-        "SI_ms": 408.4048957613669
+        "FCP_ms": 1201.0115721463608,
+        "TTI_ms": 7682.251268986214,
+        "SI_ms": 4491.462781842285
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -1047,13 +523,930 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:26:56.474Z",
+      "analysis_utc": "2026-11-22T22:14:13.898Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:14:42.931Z",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1201.0023313267475,
+        "TBT_ms": 8.5,
+        "CLS": 0,
+        "FCP_ms": 1201.0023313267475,
+        "TTI_ms": 5908.160918380268,
+        "SI_ms": 3041.0559963923915
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:14:26.727Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/primary/r07-a",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:14:56.323Z",
+      "scores": {
+        "performance": 75,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 5593.708138293622,
+        "TBT_ms": 173,
+        "CLS": 0.03147043928595484,
+        "FCP_ms": 1351.0029247134426,
+        "TTI_ms": 8070.017290751391,
+        "SI_ms": 3919.6951639958725
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:14:28.355Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/primary/r07-a"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/primary/h26-a",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:06.067Z",
+      "scores": {
+        "performance": 80,
+        "accessibility": 100,
+        "best_practices": 81,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1351.0020013079647,
+        "TBT_ms": 607,
+        "CLS": 0,
+        "FCP_ms": 1351.0020013079647,
+        "TTI_ms": 14703.776405793582,
+        "SI_ms": 5680.859281609806
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:14:40.868Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/primary/h26-a"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/r07",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:01.355Z",
+      "scores": {
+        "performance": 99,
+        "accessibility": 96,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1201.0048643509074,
+        "TBT_ms": 95.5,
+        "CLS": 0,
+        "FCP_ms": 1201.0048643509074,
+        "TTI_ms": 7454.020389737551,
+        "SI_ms": 2465.9115542046698
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:14:41.963Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/r07"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:34.936Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:13.289Z",
+      "scores": {
+        "performance": 95,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1501.0015387151677,
+        "TBT_ms": 179.50378460214688,
+        "CLS": 0,
+        "FCP_ms": 1501.0015387151677,
+        "TTI_ms": 8345.020753294488,
+        "SI_ms": 4011.7949119921
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:14:45.232Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:16.023Z",
+      "scores": {
+        "performance": 93,
+        "accessibility": 100,
+        "best_practices": 81,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1351.0014373627837,
+        "TBT_ms": 271.5,
+        "CLS": 0,
+        "FCP_ms": 1351.0014373627837,
+        "TTI_ms": 12364.964694861686,
+        "SI_ms": 3732.666009830262
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:14:58.000Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:18.404Z",
+      "scores": {
+        "performance": 99,
+        "accessibility": 99,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1201.0039719285378,
+        "TBT_ms": 10,
+        "CLS": 0,
+        "FCP_ms": 1201.0039719285378,
+        "TTI_ms": 5971.522088732302,
+        "SI_ms": 3084.2878142543623
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:15:03.009Z",
+      "final_url": "https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:30.798Z",
       "scores": {
         "performance": 96,
         "accessibility": 100,
@@ -1061,110 +1454,110 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 1435.511761607835,
-        "TBT_ms": 22.000000000000114,
+        "LCP_ms": 1201.0075954237755,
+        "TBT_ms": 175.99050572028136,
         "CLS": 0,
-        "FCP_ms": 397.00277466318016,
-        "TTI_ms": 1699.0643774867312,
-        "SI_ms": 571.644247933263
+        "FCP_ms": 1201.0075954237755,
+        "TTI_ms": 7948.037027690905,
+        "SI_ms": 4002.665235136197
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -1178,517 +1571,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:14.140Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:34.106Z",
-      "scores": {
-        "performance": 100,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 353.0038117366496,
-        "TBT_ms": 7,
-        "CLS": 0,
-        "FCP_ms": 353.0038117366496,
-        "TTI_ms": 1670.073459349167,
-        "SI_ms": 389.2170548023039
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:17.567Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:35.276Z",
-      "scores": {
-        "performance": 94,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 1651.0260553435,
-        "TBT_ms": 0,
-        "CLS": 0,
-        "FCP_ms": 325.0038888572388,
-        "TTI_ms": 1677.0265608949412,
-        "SI_ms": 414.6486888166089
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:17.823Z",
-      "final_url": "https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview"
-    },
-    {
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:40.727Z",
-      "scores": {
-        "performance": 98,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 1061.0203225720713,
-        "TBT_ms": 20.500000000000114,
-        "CLS": 0,
-        "FCP_ms": 355.004147463688,
-        "TTI_ms": 1568.4732985936935,
-        "SI_ms": 546.1569826311661
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:21.167Z",
+      "analysis_utc": "2026-11-22T22:15:08.636Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:51.740Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:39.389Z",
       "scores": {
-        "performance": 100,
+        "performance": 93,
         "accessibility": 100,
-        "best_practices": 100,
+        "best_practices": 81,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 281.003422848996,
-        "TBT_ms": 5.5,
+        "LCP_ms": 1201.0043633637024,
+        "TBT_ms": 287.5,
         "CLS": 0,
-        "FCP_ms": 281.003422848996,
-        "TTI_ms": 1548.169135486917,
-        "SI_ms": 356.76737384763936
+        "FCP_ms": 1201.0043633637024,
+        "TTI_ms": 12430.439091711247,
+        "SI_ms": 3043.0475935912846
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -1702,124 +1702,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:35.968Z",
+      "analysis_utc": "2026-11-22T22:15:15.854Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:52.549Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:33.581Z",
       "scores": {
-        "performance": 100,
+        "performance": 99,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 286.0033121094698,
-        "TBT_ms": 3.0000000000001137,
+        "LCP_ms": 1201.0048276934563,
+        "TBT_ms": 6.5,
         "CLS": 0,
-        "FCP_ms": 286.0033121094698,
-        "TTI_ms": 1485.372375614656,
-        "SI_ms": 304.47594790704125
+        "FCP_ms": 1201.0048276934563,
+        "TTI_ms": 5986.872609697687,
+        "SI_ms": 2826.7303615753244
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -1833,124 +1833,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:36.800Z",
+      "analysis_utc": "2026-11-22T22:15:17.937Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:51.140Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:39.243Z",
       "scores": {
-        "performance": 99,
+        "performance": 97,
         "accessibility": 100,
-        "best_practices": 100,
+        "best_practices": 81,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 841.0089568791386,
-        "TBT_ms": 0,
+        "LCP_ms": 1351.0016298869227,
+        "TBT_ms": 160,
         "CLS": 0,
-        "FCP_ms": 324.0023570734575,
-        "TTI_ms": 853.0090983035461,
-        "SI_ms": 335.14673121779214
+        "FCP_ms": 1351.0016298869227,
+        "TTI_ms": 12640.767358069746,
+        "SI_ms": 3522.944149659761
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -1964,124 +1964,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:37.004Z",
+      "analysis_utc": "2026-11-22T22:15:20.445Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:27:58.080Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:58.863Z",
       "scores": {
-        "performance": 100,
+        "performance": 96,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 370.0013773273564,
-        "TBT_ms": 9,
+        "LCP_ms": 1501.0019474325325,
+        "TBT_ms": 96,
         "CLS": 0,
-        "FCP_ms": 370.0013773273564,
-        "TTI_ms": 1350.1563238118636,
-        "SI_ms": 469.1025653573424
+        "FCP_ms": 1501.0019474325325,
+        "TTI_ms": 8082.521761555348,
+        "SI_ms": 4929.951742439971
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -2095,124 +2095,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:42.589Z",
+      "analysis_utc": "2026-11-22T22:15:33.188Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:28:07.303Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:56.273Z",
       "scores": {
-        "performance": 100,
+        "performance": 97,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 282.0324456463469,
-        "TBT_ms": 47.5,
+        "LCP_ms": 1051.013804755597,
+        "TBT_ms": 148.9999999999991,
         "CLS": 0,
-        "FCP_ms": 282.0324456463469,
-        "TTI_ms": 1373.8165719442825,
-        "SI_ms": 408.1279244439026
+        "FCP_ms": 1051.013804755597,
+        "TTI_ms": 7421.577775405038,
+        "SI_ms": 3871.529825188213
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -2226,124 +2226,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:53.156Z",
+      "analysis_utc": "2026-11-22T22:15:36.196Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:28:08.284Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:15:57.302Z",
       "scores": {
-        "performance": 100,
+        "performance": 81,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 765.5194795903774,
-        "TBT_ms": 15.500000000000114,
+        "LCP_ms": 4681.214125669754,
+        "TBT_ms": 49.49340096749302,
         "CLS": 0,
-        "FCP_ms": 281.0059029061749,
-        "TTI_ms": 1544.4813444317892,
-        "SI_ms": 318.62798840243954
+        "FCP_ms": 1051.005123481837,
+        "TTI_ms": 7544.533712538842,
+        "SI_ms": 4202.893695617708
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -2357,13 +2357,144 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:53.530Z",
+      "analysis_utc": "2026-11-22T22:15:41.147Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:28:09.232Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:16:08.069Z",
+      "scores": {
+        "performance": 92,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 1828.0156360251608,
+        "TBT_ms": 177.49999999999977,
+        "CLS": 0,
+        "FCP_ms": 1828.0156360251608,
+        "TTI_ms": 7604.554105052039,
+        "SI_ms": 5460.337867534754
+      },
+      "field_data": {
+        "LCP": {
+          "percentile": 1106,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 2500,
+              "proportion": 0.9514
+            },
+            {
+              "min": 2500,
+              "max": 4000,
+              "proportion": 0.0257
+            },
+            {
+              "min": 4000,
+              "proportion": 0.023
+            }
+          ],
+          "category": "FAST"
+        },
+        "INP": {
+          "percentile": 110,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 200,
+              "proportion": 0.9385
+            },
+            {
+              "min": 200,
+              "max": 500,
+              "proportion": 0.0508
+            },
+            {
+              "min": 500,
+              "proportion": 0.0107
+            }
+          ],
+          "category": "FAST"
+        },
+        "CLS": {
+          "percentile": 0,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 10,
+              "proportion": 0.9439
+            },
+            {
+              "min": 10,
+              "max": 25,
+              "proportion": 0.0308
+            },
+            {
+              "min": 25,
+              "proportion": 0.0253
+            }
+          ],
+          "category": "FAST"
+        },
+        "FCP": {
+          "percentile": 1012,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 1800,
+              "proportion": 0.9372
+            },
+            {
+              "min": 1800,
+              "max": 3000,
+              "proportion": 0.0329
+            },
+            {
+              "min": 3000,
+              "proportion": 0.0299
+            }
+          ],
+          "category": "FAST"
+        },
+        "TTFB": {
+          "percentile": 535,
+          "distributions": [
+            {
+              "min": 0,
+              "max": 800,
+              "proportion": 0.9012
+            },
+            {
+              "min": 800,
+              "max": 1800,
+              "proportion": 0.0746
+            },
+            {
+              "min": 1800,
+              "proportion": 0.0242
+            }
+          ],
+          "category": "FAST"
+        }
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": true,
+        "origin_fallback": true,
+        "url_overall_category": "FAST",
+        "origin_overall_category": "FAST"
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-11-22T22:15:41.878Z",
+      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:16:14.458Z",
       "scores": {
         "performance": 99,
         "accessibility": 100,
@@ -2371,110 +2502,110 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 995.5297768149622,
-        "TBT_ms": 58.5,
+        "LCP_ms": 1051.0064429670783,
+        "TBT_ms": 36,
         "CLS": 0,
-        "FCP_ms": 286.0054139663568,
-        "TTI_ms": 1439.4276214004146,
-        "SI_ms": 385.269110791669
+        "FCP_ms": 1051.0064429670783,
+        "TTI_ms": 8204.548325931193,
+        "SI_ms": 3009.2104264562367
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -2488,255 +2619,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:27:54.482Z",
-      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile"
-    },
-    {
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:28:23.928Z",
-      "scores": {
-        "performance": 93,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 1494.3770528565117,
-        "TBT_ms": 127.84830880343134,
-        "CLS": 0.01670733788265618,
-        "FCP_ms": 338.00767856950574,
-        "TTI_ms": 1685.2248946122145,
-        "SI_ms": 629.5739307423868
-      },
-      "field_data": {
-        "LCP": {
-          "percentile": 1623,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 2500,
-              "proportion": 0.9165
-            },
-            {
-              "min": 2500,
-              "max": 4000,
-              "proportion": 0.066
-            },
-            {
-              "min": 4000,
-              "proportion": 0.0175
-            }
-          ],
-          "category": "FAST"
-        },
-        "INP": {
-          "percentile": 65,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 200,
-              "proportion": 0.9717
-            },
-            {
-              "min": 200,
-              "max": 500,
-              "proportion": 0.0186
-            },
-            {
-              "min": 500,
-              "proportion": 0.0097
-            }
-          ],
-          "category": "FAST"
-        },
-        "CLS": {
-          "percentile": 3,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 10,
-              "proportion": 0.9425
-            },
-            {
-              "min": 10,
-              "max": 25,
-              "proportion": 0.0475
-            },
-            {
-              "min": 25,
-              "proportion": 0.01
-            }
-          ],
-          "category": "FAST"
-        },
-        "FCP": {
-          "percentile": 1310,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 1800,
-              "proportion": 0.8923
-            },
-            {
-              "min": 1800,
-              "max": 3000,
-              "proportion": 0.0878
-            },
-            {
-              "min": 3000,
-              "proportion": 0.0199
-            }
-          ],
-          "category": "FAST"
-        },
-        "TTFB": {
-          "percentile": 675,
-          "distributions": [
-            {
-              "min": 0,
-              "max": 800,
-              "proportion": 0.8312
-            },
-            {
-              "min": 800,
-              "max": 1800,
-              "proportion": 0.1457
-            },
-            {
-              "min": 1800,
-              "proportion": 0.0231
-            }
-          ],
-          "category": "FAST"
-        }
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": true,
-        "origin_fallback": true,
-        "url_overall_category": "FAST",
-        "origin_overall_category": "FAST"
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:28:00.989Z",
+      "analysis_utc": "2026-11-22T22:15:58.403Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:28:37.272Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:16:18.653Z",
       "scores": {
-        "performance": 94,
+        "performance": 100,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 1561.065906675519,
-        "TBT_ms": 71,
+        "LCP_ms": 1051.0058013907317,
+        "TBT_ms": 56,
         "CLS": 0,
-        "FCP_ms": 316.007125046002,
-        "TTI_ms": 1625.4597613233423,
-        "SI_ms": 499.4827342833238
+        "FCP_ms": 1051.0058013907317,
+        "TTI_ms": 8225.05289250952,
+        "SI_ms": 2692.7965200552803
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -2750,124 +2750,124 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:28:09.820Z",
+      "analysis_utc": "2026-11-22T22:15:59.397Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle",
-      "strategy": "desktop",
-      "fetched_at": "2026-11-15T21:28:23.993Z",
+      "strategy": "mobile",
+      "fetched_at": "2026-11-22T22:16:14.662Z",
       "scores": {
-        "performance": 98,
+        "performance": 99,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 1081.5159505633728,
-        "TBT_ms": 5.5,
+        "LCP_ms": 1051.0087881096067,
+        "TBT_ms": 11,
         "CLS": 0,
-        "FCP_ms": 285.0037910086272,
-        "TTI_ms": 1543.1759221805708,
-        "SI_ms": 338.05477664405515
+        "FCP_ms": 1051.0087881096067,
+        "TTI_ms": 5723.3966648620135,
+        "SI_ms": 3037.002531986586
       },
       "field_data": {
         "LCP": {
-          "percentile": 1623,
+          "percentile": 1106,
           "distributions": [
             {
               "min": 0,
               "max": 2500,
-              "proportion": 0.9165
+              "proportion": 0.9514
             },
             {
               "min": 2500,
               "max": 4000,
-              "proportion": 0.066
+              "proportion": 0.0257
             },
             {
               "min": 4000,
-              "proportion": 0.0175
+              "proportion": 0.023
             }
           ],
           "category": "FAST"
         },
         "INP": {
-          "percentile": 65,
+          "percentile": 110,
           "distributions": [
             {
               "min": 0,
               "max": 200,
-              "proportion": 0.9717
+              "proportion": 0.9385
             },
             {
               "min": 200,
               "max": 500,
-              "proportion": 0.0186
+              "proportion": 0.0508
             },
             {
               "min": 500,
-              "proportion": 0.0097
+              "proportion": 0.0107
             }
           ],
           "category": "FAST"
         },
         "CLS": {
-          "percentile": 3,
+          "percentile": 0,
           "distributions": [
             {
               "min": 0,
               "max": 10,
-              "proportion": 0.9425
+              "proportion": 0.9439
             },
             {
               "min": 10,
               "max": 25,
-              "proportion": 0.0475
+              "proportion": 0.0308
             },
             {
               "min": 25,
-              "proportion": 0.01
+              "proportion": 0.0253
             }
           ],
           "category": "FAST"
         },
         "FCP": {
-          "percentile": 1310,
+          "percentile": 1012,
           "distributions": [
             {
               "min": 0,
               "max": 1800,
-              "proportion": 0.8923
+              "proportion": 0.9372
             },
             {
               "min": 1800,
               "max": 3000,
-              "proportion": 0.0878
+              "proportion": 0.0329
             },
             {
               "min": 3000,
-              "proportion": 0.0199
+              "proportion": 0.0299
             }
           ],
           "category": "FAST"
         },
         "TTFB": {
-          "percentile": 675,
+          "percentile": 535,
           "distributions": [
             {
               "min": 0,
               "max": 800,
-              "proportion": 0.8312
+              "proportion": 0.9012
             },
             {
               "min": 800,
               "max": 1800,
-              "proportion": 0.1457
+              "proportion": 0.0746
             },
             {
               "min": 1800,
-              "proportion": 0.0231
+              "proportion": 0.0242
             }
           ],
           "category": "FAST"
@@ -2881,7 +2881,7 @@
         "origin_overall_category": "FAST"
       },
       "lcp_element": null,
-      "analysis_utc": "2026-11-15T21:28:10.227Z",
+      "analysis_utc": "2026-11-22T22:16:00.691Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle"
     }
   ]

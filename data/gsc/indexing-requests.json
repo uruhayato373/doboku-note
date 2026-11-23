@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-21T22-40-11Z",
-  "collectedAt": "2026-11-21T22:40:11.067Z",
+  "runId": "2026-11-22T22-40-12Z",
+  "collectedAt": "2026-11-22T22:40:12.892Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "a0d0b97954",
+  "scriptVersion": "139ca646f",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 55,
+  "targetCount": 45,
   "items": [
     {
-      "slug": "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-4",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-geotechnical-ii-1-4",
+      "slug": "/exam/pe-construction/past-exams/r08-road-iii-2",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-iii-2",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -30,42 +30,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r08-geotechnical-ii-2-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-geotechnical-ii-2-2",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-geotechnical-iii-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-geotechnical-iii-2",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-river-coast-ii-1-1",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-river-coast-ii-1-1",
+      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
@@ -81,8 +47,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r08-river-coast-ii-2-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-river-coast-ii-2-2",
+      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
@@ -98,42 +64,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r08-road-ii-1-1",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-ii-1-1",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-road-ii-1-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-ii-1-2",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-road-ii-2-1",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-ii-2-1",
+      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
@@ -149,8 +81,25 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r08-road-ii-2-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-ii-2-2",
+      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/guide/koutou-shiken",
+      "url": "https://doboku-note.com/exam/pe-construction/guide/koutou-shiken",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -166,8 +115,59 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r08-road-iii-1",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-iii-1",
+      "slug": "/practice/project-request-to-budget",
+      "url": "https://doboku-note.com/practice/project-request-to-budget",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/road-work-approval-vs-road-use-permit",
+      "url": "https://doboku-note.com/practice/road-work-approval-vs-road-use-permit",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-1/guide/market-value-check",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/market-value-check",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/chubu/special/chapters/6-7",
+      "url": "https://doboku-note.com/standards/chubu/special/chapters/6-7",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
