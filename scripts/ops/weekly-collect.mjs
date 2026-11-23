@@ -31,13 +31,15 @@ import { spawn, spawnSync } from 'node:child_process';
 import { hostname } from 'node:os';
 
 import { parseCliArgs } from '../lib/cli-args.mjs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { datasetDir, datasetPath, freshnessDays, latestFileDate } from '../lib/datasets.mjs';
 import { listRunIds } from '../lib/run-audit.mjs';
 import { readJsonIf, writeJson } from '../lib/json-io.mjs';
 import { guardBrowserLaunch, LaunchGuardError } from '../lib/playwright-launch.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
-import { commitAndPush, onBranch } from '../lib/routine-commit.mjs';
+import { commitAndPush, onBranch, pushToDevelop } from '../lib/routine-commit.mjs';
+import { commitStageRecords } from '../lib/weekly-collect-commit.mjs';
+import { WEEKLY_REVIEW_LOG } from '../lib/review-automation.mjs';
 import { buildStages, commandFailureReason, judgeRuns, previousMonth, resumePlan, runPassed, stageStatus, verifyFailureReason } from '../lib/weekly-collect-plan.mjs';
 import { jstMonth, todayJst } from '../lib/jst-date.mjs';
 import { CHECKS, resolveCommand } from './quality-audit.mjs';
@@ -197,12 +199,40 @@ async function runStage(stage) {
   return result;
 }
 
-/** selfCommits でない段が残した記録を、型を検査してから commit・push する。paths は data/ と段の addPaths */
-function commitPending(label, paths) {
-  if (!git(['status', '--porcelain']).stdout.trim()) return null;
+/** ci-data add で記録を stage する（型の違反・git の失敗は理由を返す） */
+function stageRecords(paths) {
   const add = spawnSync(process.execPath, ['scripts/ops/ci-data.mjs', 'add', '--paths', paths, '--datasets', ADD_DATASETS], { cwd: REPO_ROOT, encoding: 'utf8' });
   process.stdout.write(add.stdout || ''); process.stderr.write(add.stderr || '');
-  if (add.status !== 0) return `ci-data add が exit ${add.status}（型の違反か git の失敗）`;
+  return add.status === 0 ? null : `ci-data add が exit ${add.status}（型の違反か git の失敗）`;
+}
+
+/**
+ * 段が残した記録をその段の commit にする（DN-1195）。commit が検査で落ちたら、その段のファイルだけを退避して段を failed にし、
+ * 次の段の記録は止めない。push は段ごと（途中で Mac が止まっても、済んだ段の記録は develop に残る・DN-1196）
+ */
+function commitStage(stage, result, paths) {
+  const keepDir = join(dirname(WEEKLY_REVIEW_LOG), `weekly-collect-setaside-${nowIso().replace(/[-:]/g, '').slice(0, 15)}-${stage.id}`);
+  const r = commitStageRecords({
+    root: REPO_ROOT,
+    message: `chore(weekly-collect): ${stage.id} の記録 ${nowIso().slice(0, 16)}Z [skip ci]`,
+    stage: () => stageRecords(paths),
+    keepDir,
+    push: args.noPush ? null : pushToDevelop,
+  });
+  if (r.status === 'set-aside') {
+    result.status = 'failed';
+    result.reason = [result.reason, `記録を commit できず退避した（${r.files.length} ファイル・${keepDir}）: ${r.problem}`].filter(Boolean).join(' / ').slice(0, 1500);
+    console.log(`${TAG} [${stage.id}] 記録を退避: ${keepDir}`);
+    return null;
+  }
+  return r.problem ?? null;
+}
+
+/** 段の外で残った記録（前の回の取り残しなど）を、型を検査してから commit・push する。paths は data/ と段の addPaths */
+function commitPending(label, paths) {
+  if (!git(['status', '--porcelain']).stdout.trim()) return null;
+  const problem = stageRecords(paths);
+  if (problem) return problem;
   const r = commitAndPush([], `chore(weekly-collect): ${label} ${nowIso().slice(0, 16)}Z [skip ci]`, { push: !args.noPush });
   return r.problem ?? null;
 }
@@ -282,9 +312,13 @@ async function main() {
 
   const problems = [];
   const addPaths = [ADD_PATHS, ...new Set(selected.flatMap((s) => s.addPaths ?? []))].join(',');
+  // 前の回の取り残しは、最初の段の記録に混ぜない
+  { const p = commitPending('前の回の残り', addPaths); if (p) problems.push(p); }
   for (const stage of selected) {
-    if (stage.selfCommits) { const p = commitPending('記録の保存', addPaths); if (p) problems.push(p); }
     const r = await runStage(stage);
+    // selfCommits の段も、時間切れなどで自分の commit の外に残した記録をここで拾う
+    const p = commitStage(stage, r, addPaths);
+    if (p) problems.push(`${stage.id}: ${p}`);
     run.stages.push(r);
     console.log(`${TAG} [${stage.id}] ${r.status}${r.reason ? `: ${r.reason}` : ''}`);
   }

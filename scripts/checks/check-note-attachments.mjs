@@ -285,6 +285,8 @@ if (short.length) {
     console.error(`  ${s.noteId}  live=${s.live}/期待${s.want}  ${s.title}`);
     for (const p of s.expected) console.error(`      node scripts/note/note-attach-file.mjs --note ${s.noteId} --file "${p}" --commit`);
   }
+  // 最後の行は土曜の収集の段の理由（commandFailureReason は末尾 1 行を拾う）。修復コマンドの 1 行が「添付が exit 1」と読まれた（DN-1268）ので、件数の要約で終える
+  console.error(`\n✗ 未添付 ${short.length} 件（本文で約束 ${short.filter((s) => s.promises).length} 件）。復旧は PDF のある checkout で node scripts/note/note-attach-batch.mjs --commit（1 日 100 件まで）`);
 }
 if (fetchFailDominant(fetchFail.length, need.length)) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); __exit(1); }
 __exit(short.length || promisedNoPdf.length ? 1 : 0);
