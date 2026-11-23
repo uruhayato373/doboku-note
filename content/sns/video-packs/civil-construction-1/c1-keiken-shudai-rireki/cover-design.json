@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級土木",
+        "経験記述",
+        "16年の全履歴"
+      ],
+      "accentLine": 2,
+      "subtitle": "令和9年度の見立て",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監・元発注者"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}

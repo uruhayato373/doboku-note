@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "落ちる人の",
+        "思い込みTOP3"
+      ],
+      "accentLine": 2,
+      "subtitle": "答案を点検する3つの問い",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監・元発注者"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}

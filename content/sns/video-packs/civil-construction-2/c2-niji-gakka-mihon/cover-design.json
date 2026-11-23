@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "2級土木 二次",
+        "学科記述",
+        "1問丸ごと解説"
+      ],
+      "accentLine": 2,
+      "subtitle": "経験記述の出題履歴も",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監・元発注者"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}
