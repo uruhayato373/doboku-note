@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-22T03:29:27.593Z",
+  "checkedAt": "2026-11-23T04:00:13.812Z",
   "channel": "youtube",
-  "targets": 85,
-  "checked": 85,
-  "observed": 85,
+  "targets": 89,
+  "checked": 89,
+  "observed": 89,
   "advanced": [
-    "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform"
+    "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform",
+    "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform"
   ],
   "findings": []
 }
