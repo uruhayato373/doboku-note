@@ -139,9 +139,6 @@ jobs:
         run: npm run refresh-indexes
 
       - name: Unit tests
-        # 手元は 8GB の Mac 向けに並列 2（package.json の既定）。runner（4 コア想定）では 4 に上げる。
-        env:
-          UNIT_TEST_CONCURRENCY: "4"
         run: npm run quality:audit:ci -- --only unit-tests
 
 
