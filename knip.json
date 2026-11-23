@@ -11,22 +11,12 @@
     "tests/**/*.mjs"
   ],
   "ignore": [
-    ".local/**",
-    "docs/**",
-    ".obsidian/**",
-    "public/**",
-    "out/**",
     ".claude/config/shadcn-reference/**",
     ".claude/workflows/**"
   ],
   "ignoreBinaries": [
-    "cmd.exe",
-    "codex",
-    "du",
     "ffmpeg",
     "ffprobe",
-    "gh",
-    "launchctl",
     "magick",
     "netstat",
     "osascript",
@@ -36,28 +26,20 @@
     "pdftotext",
     "pgrep",
     "pkill",
-    "powershell",
-    "powershell.exe",
-    "ps",
-    "python",
     "rclone",
     "sips",
     "swiftc",
     "tesseract",
-    "which",
     "yt-dlp",
     "whisper-cli"
   ],
   "ignoreDependencies": [
-    "@fontsource/noto-sans-jp",
     "hast-util-sanitize",
-    "class-variance-authority",
     "@radix-ui/react-slot",
     "@radix-ui/react-dialog",
     "@radix-ui/react-separator",
     "@radix-ui/react-tooltip",
     "@tanstack/react-table",
-    "textlint",
     "@fontsource/manrope"
   ]
 }

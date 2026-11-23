@@ -160,7 +160,6 @@
       "scripts/checks/check-project-task-refs.mjs",
       "tools/admin-app/src/lib/project.ts",
       "scripts/lib/git-dates.mjs",
-      "tools/admin-app/src/app/project/[...path]/page.tsx",
       "tools/admin-app/src/lib/document-store.ts",
       "tests/admin-document-store.test.mjs",
       "tests/project-task-refs.test.mjs",
