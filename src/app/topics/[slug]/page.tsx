@@ -2,7 +2,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
-import SectionBlock from '@/components/layout/SectionBlock';
+import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import TopicRail from '@/components/topics/TopicRail';
+import type { ReactNode } from 'react';
+import type { TocHeading } from '@/lib/toc';
 import TopicArticles, { type TopicArea } from '@/components/topics/TopicArticles';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getCategoryBySlug, getCategoryLabel } from '@/lib/categories';
@@ -45,6 +48,18 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     : { title: 'テーマが見つかりません', robots: { index: false, follow: false } };
 }
 
+/**
+ * 本文の 1 区画（左の列）。id は右の欄の追従ブロックの目次（区画の見出し）が飛ぶ先。
+ * 2026-11-23 に 1 列の全幅の帯（SectionBlock）から、ほかのページ種別と同じ 2 列＋右の欄へそろえた。
+ */
+function TopicSection({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  return (
+    <section id={id} aria-label={label} className="scroll-mt-24 border-t border-(--rule-soft) py-10 first:border-t-0 first:pt-0 dark:border-(--rule-soft)">
+      {children}
+    </section>
+  );
+}
+
 export default async function TopicPage({ params }: { params: Promise<Params> }) {
   const topic = getTopicBySlug((await params).slug);
   if (!topic) notFound();
@@ -65,26 +80,47 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
     .map(area => ({ area, count: area === 'standards' ? areaCount(area) + standards.length : areaCount(area) }))
     .filter(({ count }) => count > 0);
 
+  // 右の欄の追従ブロックの目次（出す区画だけ・本文の並び順）
+  const sections: TocHeading[] = [
+    topic.intro?.length ? { id: 'topic-intro', text: topic.introHeading ?? `${topic.label}で押さえること`, level: 2 } : null,
+    roadmap.length ? { id: 'topic-roadmap', text: '学ぶ順番の地図', level: 2 } : null,
+    topic.examDiffs?.length ? { id: 'topic-exam-diffs', text: '資格ごとの出題の違い', level: 2 } : null,
+    { id: 'topic-articles', text: '試験対策・実務ノート', level: 2 },
+    topicLaws.length ? { id: 'topic-laws', text: 'このテーマの記事が引く法令', level: 2 } : null,
+    policies.length ? { id: 'topic-policies', text: '国の計画・施策・審議会', level: 2 } : null,
+    lawDirectory.length ? { id: 'topic-law-directory', text: '法令と分野の対応', level: 2 } : null,
+    standards.length ? { id: 'topic-standards', text: '関連する公的基準・マニュアル', level: 2 } : null,
+    products.length ? { id: 'topic-products', text: 'このテーマの有料教材（note）', level: 2 } : null,
+    relatedTopics.length ? { id: 'topic-related', text: '関連するテーマ', level: 2 } : null,
+  ].filter((h): h is TocHeading => h !== null);
+
   return (
     <PageShell variant="default">
+      <TwoColumnShell
+        as="div"
+        stretchAside
+        aside={<TopicRail docs={docs} featured={topic.featured ?? []} sections={sections} />}
+      >
       <PageHeader
-        variant="band"
+        variant="inline"
+        titleSize="lg"
         breadcrumb={[{ label: 'ホーム', href: '/' }, { label: 'テーマ', href: '/topics' }, { label: topic.label }]}
         label="TOPIC HUB"
         title={topic.label}
         lead={topic.description}
         meta={`記事 ${docs.length}件 / 基準資料 ${standards.length}件`}
+        className="mb-6"
       />
       {topic.intro && topic.intro.length > 0 && (
-        <SectionBlock space="sm" ariaLabel="このテーマの要点">
+        <TopicSection id="topic-intro" label="このテーマの要点">
           <h2 className="mb-4 font-serif text-2xl font-bold text-(--ink)">{topic.introHeading ?? `${topic.label}で押さえること`}</h2>
           <div className="max-w-[780px] space-y-4 text-[15px] leading-[1.9] text-(--ink-body)">
             {topic.intro.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
           </div>
-        </SectionBlock>
+        </TopicSection>
       )}
       {roadmap.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="学ぶ順番の地図">
+        <TopicSection id="topic-roadmap" label="学ぶ順番の地図">
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">学ぶ順番の地図</h2>
           <p className="mb-6 text-sm text-(--ink-muted)">上から順に進むと、前の段の知識が次の段で使えます。</p>
           <ol className="max-w-[780px] space-y-0" data-cta="nav" data-cta-label="topic-roadmap">
@@ -106,10 +142,10 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
               </li>
             ))}
           </ol>
-        </SectionBlock>
+        </TopicSection>
       )}
       {topic.examDiffs && topic.examDiffs.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="資格ごとの出題の違い">
+        <TopicSection id="topic-exam-diffs" label="資格ごとの出題の違い">
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">資格ごとの出題の違い</h2>
           <p className="mb-6 text-sm text-(--ink-muted)">同じ分野でも、資格によって問われ方が変わります。</p>
           <dl className="max-w-[780px] space-y-5">
@@ -120,9 +156,9 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
               </div>
             ))}
           </dl>
-        </SectionBlock>
+        </TopicSection>
       )}
-      <SectionBlock divider={topic.intro?.length || roadmap.length ? 'top' : 'none'} ariaLabel="関連記事">
+      <TopicSection id="topic-articles" label="関連記事">
         {areaNav.length > 1 && (
           <nav aria-label="領域へ移動" className="mb-6 flex flex-wrap gap-x-5 gap-y-1">
             {areaNav.map(({ area, count }) => (
@@ -141,46 +177,46 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           kind: docKindLabel(doc),
         }))} areaLabels={areaLabels} featured={(topic.featured ?? []).map(getPublicDocPath)} />
         </div>
-      </SectionBlock>
+      </TopicSection>
       {topicLaws.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="このテーマの記事が引く法令">
+        <TopicSection id="topic-laws" label="このテーマの記事が引く法令">
           <TopicLaws laws={topicLaws} topicLabel={topic.label} />
-        </SectionBlock>
+        </TopicSection>
       )}
       {policies.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="このテーマの国の計画・施策・審議会">
+        <TopicSection id="topic-policies" label="このテーマの国の計画・施策・審議会">
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">{topic.label}の国の計画・施策・審議会</h2>
           <p className="mb-6 text-sm text-(--ink-muted)">このテーマの方向を決めている国の計画と施策、審議会の答申です。根拠になる法令とあわせて読めます。</p>
           <div className="max-w-[780px]"><PolicyList policies={policies} /></div>
-        </SectionBlock>
+        </TopicSection>
       )}
       {lawDirectory.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="法令と分野の対応">
+        <TopicSection id="topic-law-directory" label="法令と分野の対応">
           <LawDirectory rows={lawDirectory} />
-        </SectionBlock>
+        </TopicSection>
       )}
       {standards.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="関連する基準資料">
-          <h2 id="topic-standards" className="mb-6 scroll-mt-24 font-serif text-2xl font-bold text-(--ink)">関連する公的基準・マニュアル</h2>
+        <TopicSection id="topic-standards" label="関連する基準資料">
+          <h2 className="mb-6 font-serif text-2xl font-bold text-(--ink)">関連する公的基準・マニュアル</h2>
           <div className="grid gap-4 lg:grid-cols-2">
             {standards.map((document) => <StandardDocumentCard key={`${document.agencyId}-${document.documentId}`} document={document} />)}
           </div>
-        </SectionBlock>
+        </TopicSection>
       )}
       {products.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="このテーマの有料教材">
+        <TopicSection id="topic-products" label="このテーマの有料教材">
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">このテーマの有料教材（note）</h2>
           <p className="mb-2 text-sm text-(--ink-muted)">同じテーマを、資格ごとの模範解答・答案集で深めたいときに。</p>
           <div className="max-w-[760px]">
             {products.map((id) => <MagazineCard key={id} id={id} variant="inline" utmContent={`topic-${topic.slug}`} placement="topic-page" />)}
           </div>
-        </SectionBlock>
+        </TopicSection>
       )}
       {relatedTopics.length > 0 && (
-        <SectionBlock divider="top" ariaLabel="関連するテーマ">
+        <TopicSection id="topic-related" label="関連するテーマ">
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">関連するテーマ</h2>
           <p className="mb-6 text-sm text-(--ink-muted)">このテーマの記事が一緒に扱っているテーマです。</p>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="topic-related">
+          <ul className="grid gap-4 sm:grid-cols-2" data-cta="nav" data-cta-label="topic-related">
             {relatedTopics.map(({ topic: related, shared }) => (
               <li key={related.slug}>
                 <LinkTile
@@ -193,12 +229,13 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
               </li>
             ))}
           </ul>
-        </SectionBlock>
+        </TopicSection>
       )}
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール）。ほかの区画と同じ左端にそろえる（2026-10-31 まで中央に細く出ていた） */}
-      <SectionBlock divider="top" ariaLabel="転職の相談先">
+      <TopicSection id="topic-career" label="転職の相談先">
         <AffiliateSlot page={{ pageKind: 'topic' }} slot="topic-end" alignStart />
-      </SectionBlock>
+      </TopicSection>
+      </TwoColumnShell>
     </PageShell>
   );
 }
