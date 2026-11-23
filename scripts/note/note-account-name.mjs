@@ -36,13 +36,13 @@ import { join } from 'node:path';
 import { NOTE_CREATOR as CREATOR } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const TMP = join(ROOT, '.tmp');
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const NAME = getArg('--name');
 const COMMIT = argv.includes('--commit');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 mkdirSync(TMP, { recursive: true });
 
 /** public API のクリエイター情報（未ログイン＝読者から見える値）。 */

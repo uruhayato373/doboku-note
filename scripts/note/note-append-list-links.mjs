@@ -40,6 +40,7 @@ import { readFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const argv = process.argv.slice(2);
@@ -53,7 +54,6 @@ const SECTIONS = spec.sections || [];
 if (!NOTE || !SECTIONS.length) { console.error('spec に note と sections が必要'); process.exit(1); }
 const magId = (u) => (u.match(/\/m\/([a-z0-9]+)/) || u.match(/\/n\/([a-z0-9]+)/) || [])[1] || u;
 const ALL_IDS = SECTIONS.flatMap((s) => s.items.map((i) => magId(i.url)));
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 mkdirSync(join(ROOT, '.tmp'), { recursive: true });
 console.log(`[prep] note=${NOTE} sections=${SECTIONS.length} items=${ALL_IDS.length} mode=${COMMIT ? 'COMMIT' : 'DRY'}`);
 

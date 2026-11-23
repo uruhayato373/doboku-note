@@ -19,6 +19,7 @@ import { google } from 'googleapis';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
 import { loadRegistry } from '../lib/content-registry.mjs';
 import { selectScheduled, unscheduledStatus, decide, isUnscheduled } from '../lib/youtube-unschedule.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const APPLY = argv.includes('--apply');
@@ -26,7 +27,6 @@ const outIdx = argv.indexOf('--out');
 const OUT = outIdx >= 0 ? argv[outIdx + 1] : '.tmp/youtube-unscheduled.txt';
 const pubIdx = argv.indexOf('--pub');
 const ONLY = pubIdx >= 0 ? argv[pubIdx + 1].split(',').filter(Boolean) : null;
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function main() {
   const targets = selectScheduled(loadRegistry(REPO_ROOT).publications, Date.now(), ONLY);

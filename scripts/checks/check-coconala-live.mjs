@@ -21,9 +21,9 @@ import { readCatalog, readListings } from '../lib/coconala-catalog.mjs';
 import { checkListedServices, diffLiveProfile, fetchLiveHtml } from '../lib/coconala-live.mjs';
 import { readDataset } from '../lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const asJson = process.argv.includes('--json');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fetchHtml = (url) => fetchLiveHtml(url, execFileSync);
 
 const catalog = readCatalog();

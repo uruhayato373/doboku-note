@@ -30,6 +30,19 @@ test('対象0・スキップ・結果なし・失敗・壊れた集計を偽PASS
   assert.equal(checkE2EExecution(error).ok, false);
 });
 
+test('--allow-failures（夜間の @layout の組）は失敗だけを許し、対象0・スキップ・結果なしは止める', () => {
+  const failed = fixture(); failed.stats = { expected: 1, unexpected: 1, flaky: 0, skipped: 0 };
+  failed.suites[0].specs[0].tests[0] = { projectName: 'desktop-chromium', status: 'unexpected', results: [{ status: 'failed' }] };
+  assert.equal(checkE2EExecution(failed).ok, false);
+  const allowed = checkE2EExecution(failed, { allowFailures: true });
+  assert.equal(allowed.ok, true);
+  assert.equal(allowed.failed, 1);
+  assert.equal(checkE2EExecution({ suites: [], stats: { expected: 0, unexpected: 0, flaky: 0, skipped: 0 } }, { allowFailures: true }).ok, false);
+  const skipped = fixture(); skipped.stats = { expected: 1, unexpected: 0, flaky: 0, skipped: 1 };
+  skipped.suites[0].specs[0].tests[0] = { status: 'skipped', results: [{ status: 'skipped' }] };
+  assert.equal(checkE2EExecution(skipped, { allowFailures: true }).ok, false);
+});
+
 test('Playwrightの実収集でa11yは両project同範囲、mobile専用はモバイルだけに配分する', () => {
   const report = JSON.parse(execFileSync(process.execPath, [join(ROOT, 'node_modules/@playwright/test/cli.js'), 'test', '--list', '--reporter=json'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 }));
   const files = new Map();
@@ -59,7 +72,11 @@ test('CIでstandards-dataの生成漏れをスキップせず、生成とE2E実�
   // Windows の作業ツリーは CRLF になる。行末をそろえてから読む（\n 固定だと手元でだけ落ちる）
   const e2e = readFileSync(join(ROOT, '.github/workflows/e2e.yml'), 'utf8').replace(/\r\n/g, '\n');
   assert.match(e2e, /PLAYWRIGHT_JSON_OUTPUT_NAME: \.tmp\/e2e-report\.json/);
-  assert.match(e2e, /run: npm run test:e2e -- --reporter=line,html,json \$\{\{ github\.event_name == 'pull_request' && '--project=desktop-chromium e2e\/smoke\.spec\.ts e2e\/navigation\.spec\.ts e2e\/cta\.spec\.ts' \|\| '' \}\}/);
+  assert.match(e2e, /run: npm run test:e2e -- --reporter=line,html,json \$\{\{ github\.event_name == 'pull_request' && '--project=desktop-chromium e2e\/smoke\.spec\.ts e2e\/navigation\.spec\.ts e2e\/cta\.spec\.ts e2e\/desktop\.spec\.ts' \|\| '--grep-invert @layout' \}\}/);
+  // デザインの確認（@layout）は夜間に別の段で回し、別の channel に記録する（deploy:main を止めない）
+  assert.match(e2e, /--grep @layout --output test-results-layout/);
+  assert.match(e2e, /--report \.tmp\/e2e-layout-report\.json --allow-failures/);
+  assert.match(e2e, /--channel e2e-layout-nightly/);
   assert.match(e2e, /name: Check E2E execution coverage\n\s+if: always\(\)\n\s+run: npm run check-e2e-execution/);
 });
 

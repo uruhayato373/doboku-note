@@ -29,13 +29,13 @@ import { join, relative } from 'node:path';
 import { SITE_HOST } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const NOTE_DIR = join(ROOT, 'content/note');
 const JSON_OUT = process.argv.includes('--json');
 const outIdx = process.argv.indexOf('--out');
 const OUT = outIdx >= 0 ? process.argv[outIdx + 1] : null;
 const log = (...a) => { if (!JSON_OUT) console.log(...a); };
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function curl(url, timeout = 25) {
   try {

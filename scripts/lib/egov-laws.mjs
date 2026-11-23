@@ -11,6 +11,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { egovLinksOf } from '../../src/lib/egov-links.mjs';
+import { sleepSync as sleep } from './sleep.mjs';
 
 // 記事のリンクの読み取りはサイトと共有の src/lib/egov-links.mjs だけに置く（DN-0731）
 export { egovLinksOf };
@@ -21,7 +22,6 @@ export function isLawSource(source) {
   return source.class === 'external-primary' && (/-(act|order|rules)$/.test(source.id) || source.id === 'japan-constitution');
 }
 
-const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 /**
  * e-Gov 法令 API から 1 法令を取る。取れなければ { error }（ID が無いときは missing: true）。

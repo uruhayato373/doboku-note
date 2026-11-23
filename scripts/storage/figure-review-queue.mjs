@@ -38,9 +38,9 @@ import {
   LEDGER_FILE, emptyLedger, fileSha, buildQueue, listFigureKeys, describeFigure,
   syncImageDims, validateVerdict, provenanceEntryFor, verdictsFromResults,
 } from '../lib/figure-review.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 const PROVENANCE_FILE = '.claude/state/figure-provenance.json';
-const toPosix = (p) => p.split(sep).join('/');
 
 const listFigureBases = () => listFigureKeys(SITE_CONTENT_ROOT);
 const describe = (figKey, cache) => describeFigure({ siteRoot: SITE_CONTENT_ROOT, repoRoot: ROOT, figKey, cache });

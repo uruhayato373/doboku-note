@@ -626,7 +626,8 @@
 1. 2026-11-18〜12-16 の起動回数を、エージェントごと（旧名は新名へ合算）と general-purpose について前の 4 週間と比べる
 2. 新設の 3 体（note-traffic-analyst・coconala-traffic-analyst・product-portfolio-planner）と共通化した essay-writer／essay-qa・figure-crop-worker／figure-crop-auditor の返り値を、実際に動いた回の記録で見て、入力・返り値の形を直す。動いていない役は起動条件が合っているかを確かめる
 3. Workflow の機械の段から起動したエージェントが hook に記録されるかを確かめる（cli-runner が 0 回だった）
-4. 比較が済んだら、呼び出しを記録する hook（`scripts/hooks/agent-hook.mjs` の record-usage・`scripts/lib/agent-hooks.mjs`）を外す（DN-0798 から移した）
+4. 比較は `npm run report-agent-usage -- --since 2026-11-18 --until 2026-12-16`（前の 4 週間は `--since 2026-10-21 --until 2026-11-18`）。2026-11-23 から型なしの委任の割合と、呼び出しで明示した model・effort も記録している（`.claude/settings.json` の `CLAUDE_CODE_SUBAGENT_MODEL=sonnet` の効き目を見る）。effort の既定を役割ごとに変えるか（`scripts/lib/domain-roles.mjs` の ROLE_DEFAULTS）はこの内訳を見て決める
+5. 比較が済んだら、呼び出しを記録する hook（`scripts/hooks/agent-hook.mjs` の record-usage・`scripts/lib/agent-hooks.mjs`）を外す（DN-0798 から移した）。model の内訳を続けて見るなら残す
 **完了条件**: 比較の表（エージェントごとの前後の回数・general-purpose の増減）がカードの完了記録か docs/reviews にあり、直した役の commit がある。記録の hook が外れている。
 
 
@@ -3147,6 +3148,36 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1288] data/ga4・gsc の週次レポート（追跡 約 98MB）の保持と置き場を見直す
+タグ: [領域:管理] [種類:改善] [起票:2026-11-23]
+
+**起点**: 2026-11-23 の点検。`data/ga4/reports` が追跡 24 ファイル・68MB、`data/gsc/reports` が 30MB で、pack（1.5GB）の主因と推定。保持は 90 日（`scripts/lib/datasets.mjs` の retain）で効いているが、1 ファイルが 2〜14MB と大きく、新しいほど大きい。開発の速さには効かないので急がない。
+**やること**:
+1. 読み手（週次レビュー・成長ダイジェスト・実験の基準の参照 `data/business/experiments.json` の baseline.source）が、どの期間のどの枠を読んでいるかを洗う
+2. 保持を短くする・大きい枠（page 別など）だけ別の置き場（private R2）へ移す・行数の上限を下げる、のどれにするかを決める
+**完了条件**: 追跡サイズの前後の数字と、読み手が壊れていないこと（週次レビューと実験の基準の参照が解決する）の確認がある。
+
+
+### [DN-1287] tsx を子プロセスで起動する単体テスト 65 本の起動費を減らす
+タグ: [領域:管理] [種類:改善] [起票:2026-11-23]
+
+**起点**: 2026-11-23 の点検。`npm run test`（手元 150〜211 秒）のうち、tsx を子プロセスで起動するテストが 65 本あり、1 本ごとに 0.5〜1 秒の起動費がかかる（推定で合計 40〜60 秒）。最も遅い `affiliate-pages`（12.4 秒）も tsx で全記事を読む。分離なしの 1 プロセス実行（`--experimental-test-isolation=none`）は 531 秒・失敗 23 件で不採用だった。
+**やること**:
+1. tsx 子プロセスのテストを、読む対象（ts の lib を import したいだけか、react-server の描画が要るか）で分ける
+2. ts の lib を import したいだけのものは、テストの前に 1 回だけ事前計算した JSON を読む形か、同じ tsx プロセスにまとめる形にする
+**完了条件**: `npm run test` の件数が変わらず失敗 0 で、所要時間が 20 秒以上縮んでいる（前後の数字）。
+
+
+### [DN-1286] PR と deploy で同じ中身を最大 4 回フルビルドしているのを、ビルドの成果物の使い回しで減らす
+タグ: [領域:管理] [種類:改善] [起票:2026-11-23]
+
+**起点**: 2026-11-23 の待ち時間の点検（#1713〜#1718）。PR 1 本で同じ中身を `ci.yml` の build（194〜283 秒）と `e2e.yml` の build（約 223 秒）で別々にビルドし、squash 後の develop の push と main の `cloudflare-deploy.yml` でもう一度ずつビルドする（1 回の変更で最大 4 回）。PR の E2E 本体は 15 秒程度で、待ちの大半がビルド。
+**やること**:
+1. `ci.yml` の build job の `out/` を artifact にし、`e2e.yml` の PR 経路はそれを受け取って E2E だけ回す形を設計する（同じ commit の成果物であることの確かめ方を決める）
+2. main の deploy で develop の検査済みの `out/` を使い回せるかを検討する（main に develop 以外の差が入る場合の取り違えを防ぐ）
+**完了条件**: PR 1 本あたりのフルビルドの回数と、PR の E2E の所要時間の前後の数字がある。取り違えを防ぐ確かめがテストか workflow の段にある。
+
+
 ### [DN-1284] 資格トップのココナラの月額添削のカードを、完成画像の CTA にするか決める（今は文字だけ）
 タグ: [領域:商品] [種類:改善] [起票:2026-11-22]
 
@@ -4001,6 +4032,16 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-1289] CodeQL を develop の push ごとから外すか、Lighthouse の夜間を週 1〜2 回にするかを決める
+タグ: [領域:管理] [種類:意思決定] [起票:2026-11-23]
+
+**起点**: 2026-11-23 の点検。CodeQL（リポジトリ設定の既定セットアップ）が develop への push ごとに 3 job（約 1〜3 分ずつ）走る（直近 200 run のうち 33 本）。Lighthouse の夜間（`lighthouse.yml`）は毎日約 8〜9 分で 30 回連続成功している。どちらも待ちのクリティカルパスではないが、課金と並列の混雑に効く。
+**やること**: 運営者が決める。
+- CodeQL を PR と週次だけにするか（develop への直 push のコードの静的解析が遅れる）
+- Lighthouse を週 1〜2 回にするか（画像の肥大や a11y の低下の発見が最大数日遅れる。`deploy:main` の夜間の Issue の停止条件は今のまま使える）
+**完了条件**: 決めた頻度が設定（リポジトリ設定・`lighthouse.yml`・`config/automations.json`）に入っている。
+
 
 ### [DN-1282] MDX の <CareerAffiliate program="career"> 213 か所に残る描画されない属性（service・category・description・points・cta・約 1,400 行）を消すか決める
 タグ: [領域:アフィリエイト] [種類:意思決定] [起票:2026-11-22]

@@ -74,6 +74,12 @@ on:
     - cron: "17 14 * * 1-6" # 月〜土の JST 23:17。a11y を除く
     - cron: "17 14 * * 0" # 日の JST 23:17。a11y を含む全件
   workflow_dispatch:
+    inputs:
+      standards_scope:
+        description: 基準書の描画の範囲（distinct＝比較の内の文書・all＝必携・マニュアルなども全ページ）
+        type: choice
+        options: [distinct, all]
+        default: distinct
 
 permissions:
   contents: read
@@ -82,7 +88,7 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    # 夜間・手動は公的基準の全文書を描画する（STANDARDS_RENDER_SCOPE=all・DN-0850）ので長めに取る
+    # 夜間・手動は全 spec を回し、日曜は公的基準の全文書も描画する（STANDARDS_RENDER_SCOPE=all・DN-0850）ので長めに取る
     timeout-minutes: ${{ github.event_name == 'pull_request' && 30 || 60 }}
 
     steps:
@@ -130,19 +136,41 @@ jobs:
       - name: Check E2E targets (out/)
         run: npm run check-e2e-targets
 
+      # 確認は 2 組に分ける（2026-11-23 運営者判断「デプロイを止めるのは壊れた類だけ」）。
+      # - 壊れた類（表示・本文・リンク・操作・基準書の描画など）: 夜間に落ちると channel e2e-nightly の Issue になり、deploy:main を止める
+      # - デザインの類（タグ @layout。広告の枠数・空きの上限・幅のそろい）: 夜間は下の別の段で回し、落ちても channel
+      #   e2e-layout-nightly の Issue に記録するだけ（scripts/lib/deploy-main.mjs の blockingNightlyIssues は見ない）
+      # PR はデザインを変えたその場で気づけるよう、@layout を含む desktop.spec も回して PR を落とす。
       - name: Run E2E
         env:
           PLAYWRIGHT_JSON_OUTPUT_NAME: .tmp/e2e-report.json
           PLAYWRIGHT_HTML_OPEN: never
-          # 全 spec を回す夜間・手動は、比較の外の文書（必携・マニュアル・特記など）も全ページ描画する
-          STANDARDS_RENDER_SCOPE: all
+          # 比較の外の文書（必携・マニュアル・特記など）の全ページ描画は、日曜の夜間と手動で all を選んだときだけ（月〜土は distinct）
+          STANDARDS_RENDER_SCOPE: ${{ (github.event.schedule == '17 14 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.standards_scope == 'all')) && 'all' || 'distinct' }}
           # アクセシビリティは週 1 回だけ回す（毎日の夜間は除く）
           E2E_SKIP_A11Y: ${{ github.event.schedule == '17 14 * * 1-6' && '1' || '' }}
-        run: npm run test:e2e -- --reporter=line,html,json ${{ github.event_name == 'pull_request' && '--project=desktop-chromium e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/cta.spec.ts' || '' }}
+        run: npm run test:e2e -- --reporter=line,html,json ${{ github.event_name == 'pull_request' && '--project=desktop-chromium e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/cta.spec.ts e2e/desktop.spec.ts' || '--grep-invert @layout' }}
+
+      # 夜間・手動のデザインの確認（@layout）。落ちても job は緑のまま（continue-on-error）で、下の段が別の Issue にする。
+      # 報告・画像の置き場を分ける（Playwright は実行のたびに --output の置き場を消すので、上の段の失敗の画像を消さない）
+      - name: Run E2E (layout)
+        id: layout
+        if: ${{ !cancelled() && github.event_name != 'pull_request' }}
+        continue-on-error: true
+        env:
+          PLAYWRIGHT_JSON_OUTPUT_NAME: .tmp/e2e-layout-report.json
+          PLAYWRIGHT_HTML_OPEN: never
+          PLAYWRIGHT_HTML_OUTPUT_DIR: playwright-report-layout
+        run: npm run test:e2e -- --reporter=line,html,json --grep @layout --output test-results-layout
 
       - name: Check E2E execution coverage
         if: always()
         run: npm run check-e2e-execution -- --report .tmp/e2e-report.json
+
+      # @layout の組も対象 0・未実行・スキップは止める（検査ゼロを緑にしない）。失敗そのものは上の段の結果で別の Issue にする
+      - name: Check E2E execution coverage (layout)
+        if: ${{ always() && steps.layout.outcome != 'skipped' }}
+        run: npm run check-e2e-execution -- --report .tmp/e2e-layout-report.json --allow-failures
 
       # 夜間 run は PR に紐づかず誰も見ないので、失敗を Issue にする（PR run は PR 上で見える）。
       - name: Report - nightly E2E failure
@@ -171,14 +199,44 @@ jobs:
           node scripts/reports/report-automation-failure.mjs --resolve --channel e2e-nightly \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+      # デザインの確認（@layout）の夜間の失敗。デプロイは止めない（channel が e2e-nightly と違う）
+      - name: Report - nightly layout E2E failure
+        if: ${{ always() && github.event_name == 'schedule' && steps.layout.outcome == 'failure' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "develop の夜間 E2E のデザインの確認（タグ @layout：広告の枠数・空きの上限・幅のそろい）が失敗した。デプロイは止めていない。"
+            echo "デザインを意図して変えたなら検査の期待値を、意図していないなら画面を直す。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}（artifact: playwright-e2e-${{ github.run_attempt }} の playwright-report-layout）"
+            echo "- 再現: \`npm run build && npm run test:e2e -- --grep @layout\`"
+          } > /tmp/e2e-layout-body.md
+          node scripts/reports/report-automation-failure.mjs \
+            --channel e2e-layout-nightly \
+            --title "develop 夜間 E2E（デザインの確認）失敗" \
+            --body-file /tmp/e2e-layout-body.md
+
+      - name: Resolve - nightly layout E2E Issue (復旧)
+        if: ${{ always() && github.event_name == 'schedule' && steps.layout.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/reports/report-automation-failure.mjs --resolve --channel e2e-layout-nightly \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Upload Playwright artifacts
-        if: failure()
+        if: ${{ failure() || steps.layout.outcome == 'failure' }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: playwright-e2e-${{ github.run_attempt }}
           path: |
             playwright-report/
+            playwright-report-layout/
             .tmp/e2e-report.json
+            .tmp/e2e-layout-report.json
             test-results/
+            test-results-layout/
           if-no-files-found: ignore
           retention-days: 14

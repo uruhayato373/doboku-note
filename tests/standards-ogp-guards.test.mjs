@@ -150,26 +150,7 @@ test('退避台帳: キー形状は entries[フルパス]（欠陥の本体・as
   assert.equal(entry.group, 'site-ogp-png', `${relPath} の group が site-ogp-png でない`);
 });
 
-test('章 OGP 被覆検査（15番目）が全文書で PASS し、検査件数が章数と一致する', () => {
-  const { status, stdout, stderr } = runNode(CHECK_STANDARD_ARTICLES, ['--json']);
-  assert.notEqual(status, -1, `check-standard-articles を起動できない。\nstderr:\n${stderr}`);
-  const report = JSON.parse(stdout);
-  assert.ok(report.documents.length > 0, '検査できた文書が 0 件（検査不成立）');
-
-  for (const doc of report.documents) {
-    const check = doc.checks.find((c) => c.id === 15);
-    assert.ok(check, `${doc.target}: 15 番目の検査（章ごとの OGP）が結果に無い`);
-    assert.equal(
-      check.status,
-      'PASS',
-      `${doc.target}: 章 OGP 被覆が PASS でない（${check.status}）。違反: ${JSON.stringify(check.violations)}`,
-    );
-    const expected = chapterDocuments.find(
-      (d) => `${d.agencyId}/${d.documentId}` === doc.target,
-    )?.manifest.chapters.length;
-    assert.equal(check.checked, expected, `${doc.target}: 検査 ${check.checked} 章 ≠ manifest の ${expected} 章`);
-  }
-});
+// 「章 OGP 被覆検査（15番目）が全文書で PASS」は実リポジトリ実行の重複を避けるため standard-articles-platform.test.mjs へ移した。
 
 test('章 OGP 被覆検査はローカルに実体が無くても退避台帳で PASS する（台帳分岐の実走）', () => {
   // 実ファイルを消さずに台帳分岐を通すため、章 md と manifest だけを symlink した

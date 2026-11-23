@@ -47,6 +47,7 @@ import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -63,7 +64,6 @@ if (!LIST_DRAFTS && !DRAFT && (!KEYS.length || !KEYS.every((k) => /^n[a-z0-9]+$/
   process.exit(1);
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 function liveExists(key) {
   try {
     const r = spawnSync('curl', ['-s', '--ssl-no-revoke', '--max-time', '20', '-H', 'User-Agent: Mozilla/5.0', `https://note.com/api/v3/notes/${key}`], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });

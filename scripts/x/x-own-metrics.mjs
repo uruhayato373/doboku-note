@@ -37,6 +37,7 @@ import { jstClock } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { loadXPosts } from '../lib/registry-x-store.mjs';
 import { parseTweetBlocks } from '../lib/x-tweets-md.mjs';
+import { medianOrZero as median } from '../lib/stats.mjs';
 
 
 const argv = process.argv.slice(2);
@@ -183,12 +184,6 @@ console.log(`[x-own-metrics] 台帳と突合: ${matched}/${joined.length} 件（
 
 // 平均だけ見ると 1 本のバズに全体が引きずられる（実際 linkless は 57/35 の 2 本が牽引）。
 // **中央値と最大値を併記**して、外れ値かどうかを読み手が判断できるようにする。
-const median = (a) => {
-  if (!a.length) return 0;
-  const s = [...a].sort((x, y) => x - y);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
-};
 const agg = (keyFn) => {
   const m = new Map();
   for (const j of joined) {

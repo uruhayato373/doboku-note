@@ -31,12 +31,12 @@ import { join } from 'node:path';
 import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { NOTE_BASE } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const NOTE = process.argv[2];
 const BODY = readFileSync(process.argv[3], 'utf8').trim();
 const SUBMIT = process.argv.includes('--submit');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 if (!NOTE || !BODY) { console.error('usage: node scripts/note/note-comment-reply.mjs <noteId> <本文txt> [--submit]'); process.exit(1); }
 
 const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), leanContextOptions({

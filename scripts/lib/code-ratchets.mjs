@@ -11,7 +11,7 @@ import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
 export const CODE_RATCHET_BASELINE = '.claude/config/code-ratchet-baseline.json';
 
-const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'scripts/lib/note-api.mjs', 'scripts/lib/mdx-files.mjs', 'scripts/lib/regexp-escape.mjs', 'tests/script-helpers-ratchet.test.mjs', 'scripts/lib/code-ratchets.mjs']);
+const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'scripts/lib/note-api.mjs', 'scripts/lib/mdx-files.mjs', 'scripts/lib/regexp-escape.mjs', 'scripts/lib/sleep.mjs', 'scripts/lib/posix-path.mjs', 'scripts/lib/stats.mjs', 'tests/script-helpers-ratchet.test.mjs', 'scripts/lib/code-ratchets.mjs']);
 
 /** ルートを自分で計算する定義（行単位。root-ok の行は数えない） */
 export const DEFINES_ROOT = /^[ \t]*(?:export\s+)?(?:const|let|var)\s+(?:ROOT|REPO_ROOT|REPO|PROJECT_ROOT|repoRoot|root|ownRoot)\s*=[^\n]*(?:import\.meta\.(?:url|dirname)|__dirname|process\.cwd\(\))/;
@@ -32,6 +32,13 @@ export const DEFINES_HEADING_ID = /^[ \t]*(?:export\s+)?function\s+generateHeadi
 /** 正規表現の特殊文字を `\\$&` で逃がす自前のエスケープ（行単位。インラインの .replace も、const の定義も同じ形なので 1 件） */
 export const DEFINES_ESCAPE_REGEXP = /\.replace\(\s*\/\[[^\n]*?\]\/g,\s*(['"])\\\\\$&\1\s*\)/;
 
+/** 自前の sleep（const・function。`const sleep = opts.sleep ?? …` のような注入の既定値は数えない。scripts/lib/sleep.mjs の sleep・sleepSync を使う） */
+export const DEFINES_SLEEP = /^[ \t]*(?:export\s+)?(?:(?:const|let|var)\s+sleep\s*=(?![^\n]*\.sleep\b)|(?:async\s+)?function\s+sleep\s*\()/;
+/** 自前のパス区切りの正規化（scripts/lib/posix-path.mjs の toPosix を使う） */
+export const DEFINES_TO_POSIX = /^[ \t]*(?:export\s+)?(?:(?:const|let|var)\s+toPosix\s*=|function\s+toPosix\s*\()/;
+/** 自前の中央値（const で値を受ける関数・function。`const median = ctrs.length ? …` のような変数は数えない。scripts/lib/stats.mjs の median・medianOrZero を使う） */
+export const DEFINES_MEDIAN = /^[ \t]*(?:export\s+)?(?:function\s+median\s*\(|const\s+median\s*=\s*(?:\([^)]*\)|\w+)\s*=>)/;
+
 /** 定義の行から本文の終わり（同じ字下げの `}` か `};`）までを返す */
 function bodyFrom(lines, i) {
   const indent = lines[i].match(/^[ \t]*/)[0];
@@ -41,7 +48,7 @@ function bodyFrom(lines, i) {
 
 export function findDefinitions(text) {
   const lines = text.split('\n');
-  const hits = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [], siteSlug: [], headingId: [] };
+  const hits = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [], siteSlug: [], headingId: [], sleep: [], toPosix: [], median: [] };
   lines.forEach((l, i) => {
     if (DEFINES_ROOT.test(l) && !/\/\/\s*root-ok:/.test(l)) hits.root.push(i + 1);
     // walk という名前でもディレクトリを読まないもの（構文木をたどる visitor など）は数えない
@@ -49,6 +56,9 @@ export function findDefinitions(text) {
     if (DEFINES_ESCAPE_REGEXP.test(l)) hits.escapeRegExp.push(i + 1);
     if (DEFINES_SITE_SLUG.test(l)) hits.siteSlug.push(i + 1);
     if (DEFINES_HEADING_ID.test(l)) hits.headingId.push(i + 1);
+    if (DEFINES_SLEEP.test(l)) hits.sleep.push(i + 1);
+    if (DEFINES_TO_POSIX.test(l)) hits.toPosix.push(i + 1);
+    if (DEFINES_MEDIAN.test(l)) hits.median.push(i + 1);
     if (DEFINES_PARSE_ARGS.test(l) && !/\bparseCliArgs\(/.test(bodyFrom(lines, i))) hits.parseArgs.push(i + 1);
     if (DEFINES_CURL_JSON.test(l) && /\b(?:spawnSync|execFileSync|execSync|spawn)\(/.test(bodyFrom(lines, i))) hits.curlJson.push(i + 1);
     if (DEFINES_MDX_WALK.test(l) && /\b(?:readdirSync|readdir|opendirSync|opendir)\(/.test(bodyFrom(lines, i)) && !/\b(?:listFiles|listSiteMdx)\(/.test(bodyFrom(lines, i))) hits.mdxWalk.push(i + 1);
@@ -64,7 +74,7 @@ export function scanScriptHelpers(root = ROOT) {
     // このリポの共通部品を import できない自己完結のコードなので数えない
     .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && !OWN.has(f) && !f.startsWith('.claude/shared-policy/'));
   if (files.length <= 500) throw new Error(`走査したコード ${files.length} ファイル（検査不成立）`);
-  const found = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [], siteSlug: [], headingId: [] };
+  const found = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [], siteSlug: [], headingId: [], sleep: [], toPosix: [], median: [] };
   for (const f of files) {
     const hits = findDefinitions(readFileSync(join(root, f), 'utf8'));
     for (const k of Object.keys(found)) for (const line of hits[k]) found[k].push(`${f}:${line}`);

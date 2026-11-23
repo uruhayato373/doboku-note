@@ -1,8 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { runPool } from '../scripts/lib/worker-pool.mjs';
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+import { sleep } from '../scripts/lib/sleep.mjs';
 
 test('結果は入力順で返る（完了順ではない）', async () => {
   const items = [30, 5, 20, 1];

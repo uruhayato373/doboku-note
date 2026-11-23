@@ -5,8 +5,8 @@ import { expect, test } from '@playwright/test';
 
 // 右の欄の最後の追従ブロック（src/components/ui/RailFollow・2026-11-23）。上の束と組が流れ切ったあと画面の上端に残り、現在地の目次と AdSense 1 枠を見せる。
 // 以前は組の下の空きに縦長の AdSense を 1,000px ごとに最大 40 枠並べていた（長い章で 1 ページ 71 枠になり、AdSense は上から約 19 枠しか処理しなかった）。
-// 手元では破線の目印で置き場を見せ、広告は要求しない。
-test('右の欄の最後の追従ブロックは下へ読んでも画面に残り、目次の現在地が動き、手元では目印が出る', async ({ page }) => {
+// 手元では破線の目印で置き場を見せ、広告は要求しない。@layout: 落ちてもデプロイは止めない（夜間は別の Issue・e2e.yml）。
+test('右の欄の最後の追従ブロックは下へ読んでも画面に残り、目次の現在地が動き、手元では目印が出る', { tag: '@layout' }, async ({ page }) => {
   await page.goto('/standards/kinki/common/chapters/1-3');
   const follow = page.locator('aside [data-rail-follow]');
   await expect(follow).toHaveCount(1);

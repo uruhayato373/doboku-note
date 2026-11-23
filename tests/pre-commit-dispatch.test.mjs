@@ -101,13 +101,15 @@ const LEGACY = [
 ];
 
 /** 全量を走査する検査のうち、旧フックより狭くしたもの（staged の変更が入力に当たらないと飛ばす） */
-const GATED = new Set(['scripts/checks/check-datasets.mjs', 'scripts/checks/check-qualification-ssot.mjs', 'scripts/checks/check-exam-calendar.mjs']);
+const GATED = new Set(['scripts/checks/check-business-direction.mjs', 'scripts/checks/check-datasets.mjs', 'scripts/checks/check-qualification-ssot.mjs', 'scripts/checks/check-exam-calendar.mjs']);
 /** check-exam-calendar が禁止パターンを走査する置き場（検査の SCAN_ROOTS と同じ並びをテスト側で独立に持つ） */
 const EXAM_CALENDAR_ROOTS = ['content/sns/x/draft/', 'docs/strategy/', 'docs/editorial/', 'docs/marketing/', 'docs/operations/', 'docs/products/', 'content/note/1級・2級土木/', '.claude/agents/', '.claude/skills/', '.claude/todo/', 'src/config/', 'src/lib/', 'content/site/concrete-chief-engineer/', 'content/site/concrete-engineer/', 'content/site/concrete-diagnostician/'];
 
 /** 2 検査の入力（テスト側で独立に持つ。steps の宣言とずれたら下のテストが落ちる） */
 const GATE_INPUTS = {
-  'scripts/checks/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
+  // 追加・削除（fileSetRe）は台帳の置き場・データセットの部品・ワークフロー・package.json に当たるときだけ。内容の変更（M）は prefixes に当たれば回る
+  'scripts/checks/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSetRe: /^(config\/|data\/|\.claude\/state\/|content\/registry\/|scripts\/lib\/(datasets|dataset-)[^/]*\.mjs$|\.github\/workflows\/|package\.json$)/ },
+  'scripts/checks/check-business-direction.mjs': { prefixes: ['config/', 'data/', '.claude/state/', 'content/registry/', 'content/sns/', 'content/kindle/', 'scripts/'], files: [], fileSet: false },
   'scripts/checks/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
   // 走査する置き場・試験日の正本と資格の台帳（config/）・検査と部品（scripts/）。台帳と除外が指すパスの実在は追加・削除で変わる（DN-1141）
   'scripts/checks/check-exam-calendar.mjs': { prefixes: [...EXAM_CALENDAR_ROOTS, 'config/', 'scripts/'], files: [], fileSet: true },
@@ -126,7 +128,7 @@ const SITE_GATED = ['scripts/checks/check-published-vs-redirects.mjs', 'scripts/
 function gatedOut(ctx) {
   const skipped = new Set();
   for (const [script, g] of Object.entries(GATE_INPUTS)) {
-    const hit = ctx.entries.some((e) => g.prefixes.some((p) => e.path.startsWith(p)) || g.files.includes(e.path) || (g.fileSet && e.status !== 'M'));
+    const hit = ctx.entries.some((e) => g.prefixes.some((p) => e.path.startsWith(p)) || g.files.includes(e.path) || (g.fileSet && e.status !== 'M') || (g.fileSetRe && e.status !== 'M' && g.fileSetRe.test(e.path)));
     if (!hit) skipped.add(script);
   }
   return skipped;
@@ -222,6 +224,7 @@ test('content/site だけを読む 5 検査は、content/site に触れない co
 test('全量を走査する 3 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
   const triggers = {
     'scripts/checks/check-datasets.mjs': ['config/exam-calendar.json', 'data/note/sales.json', '.claude/state/todo-claims.json', 'content/registry/articles.json', 'scripts/lib/datasets.mjs', 'tools/admin-app/src/x.tsx', 'src/lib/x.ts', '.github/workflows/ci.yml', 'package.json', '.claude/skills/x/SKILL.md'],
+    'scripts/checks/check-business-direction.mjs': ['config/business-direction.json', 'data/business/records/review-x.json', '.claude/state/note-published.json', 'content/registry/articles.json', 'scripts/lib/business-direction.mjs'],
     'scripts/checks/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
   };
   // 試験日の検査: 走査する置き場・試験日の正本・資格の台帳・検査の部品のどれかに当たれば回す
@@ -232,19 +235,31 @@ test('全量を走査する 3 検査は、入力に当たる変更があれば�
       assert.ok(planned(ctx).some(([s]) => s === script), `${script} が ${p} の変更で回らない`);
     }
   }
-  // 追加・削除は追跡ファイルの集合を変えるので datasets と exam-calendar は必ず回す（参照先の記事の実在・台帳の網羅・除外が指すパスの実在）
+  // 追加・削除は追跡ファイルの集合を変えるので exam-calendar は必ず回す。datasets は台帳の置き場などの追加・削除のときだけ回す
   for (const status of ['A', 'D', 'T']) {
-    for (const script of ['scripts/checks/check-datasets.mjs', 'scripts/checks/check-exam-calendar.mjs']) {
-      assert.ok(planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === script), `${script} ${status}`);
+    assert.ok(planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === 'scripts/checks/check-exam-calendar.mjs'), `exam-calendar ${status}`);
+    assert.ok(!planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === 'scripts/checks/check-datasets.mjs'), `datasets は記事の ${status} で回さない`);
+    for (const p of ['config/x.json', 'data/note/x.json', '.claude/state/x.json', 'content/registry/x.json', 'scripts/lib/dataset-io.mjs', '.github/workflows/x.yml', 'package.json']) {
+      assert.ok(planned(makeCtx({ staged: [p], status })).some(([s]) => s === 'scripts/checks/check-datasets.mjs'), `datasets ${p} ${status}`);
     }
   }
+});
+
+test('pre-commit の全量走査 2 本: docs の md 1 本では走らず、config/business-direction.json では走る', () => {
+  const ran = (ctx) => new Set(planned(ctx).map(([s]) => s));
+  for (const status of ['M', 'A']) {
+    const r = ran(makeCtx({ staged: ['docs/strategy/README.md'], status }));
+    assert.ok(!r.has('scripts/checks/check-business-direction.mjs') && !r.has('scripts/checks/check-datasets.mjs'), `docs の md（${status}）`);
+  }
+  const r = ran(makeCtx({ staged: ['config/business-direction.json'], status: 'M' }));
+  assert.ok(r.has('scripts/checks/check-business-direction.mjs') && r.has('scripts/checks/check-datasets.mjs'));
 });
 
 test('全量を走査する 3 検査は、記事の編集（M）だけの commit では飛ばす', () => {
   const ctx = makeCtx({ staged: ['content/site/building-construction/guide-x/article.mdx', 'content/note/x/y/article.md', 'docs/README.md'], status: 'M' });
   const ran = new Set(planned(ctx).map(([s]) => s));
   for (const g of GATED) assert.ok(!ran.has(g), `${g} が記事の編集で回っている`);
-  assert.equal(gatedOut(ctx).size, 3);
+  assert.equal(gatedOut(ctx).size, 4);
   // この commit で飛ばすのは GATED の 3 本だけ（content/site に触れているので SITE_GATED の 5 本は回る）。ほかは旧フックのまま
   assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }));
 });
@@ -429,4 +444,7 @@ test('PRECOMMIT_VERBOSE=1 で従来どおり（出力を捕まえない）。cou
   assert.equal(countWarns('[check-affiliate-wiring] ✓ mats 9 種 が整合（WARN 0）\n警告: 0 件\n'), 0);
   assert.equal(countWarns('[check-affiliate-wiring] WARN: catalog.x に ID が無い\n（WARN 0）\n'), 1);
   assert.equal(countWarns('WARN 10\nWARN 0 / 警告: 実際の指摘\n'), 2);
+  // 検査の要約行の「（WARN 2 件）」は個々の警告行の合計。数えない
+  assert.equal(countWarns('  [WARN] a\n  [WARN] b\n[check-drive-vault] ✓ 整合（WARN 2 件）\n'), 2);
+  assert.equal(countWarns('[x] FAIL 1 件（警告 3 件）\n'), 0);
 });

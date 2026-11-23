@@ -32,7 +32,6 @@ export const profileDir = () => resolveProfileDir('coconala', { cwd: ROOT, repoR
 export const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
-export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** coconala-account.json を読む（無ければ空オブジェクト） */
 export function readAccount() {
@@ -45,6 +44,8 @@ export function readAccount() {
 
 export { CATALOG_PATH, LISTINGS_PATH } from './coconala-catalog.mjs';
 import { CATALOG_PATH } from './coconala-catalog.mjs';
+import { sleep } from './sleep.mjs';
+export { sleep };
 export const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
 
 /**

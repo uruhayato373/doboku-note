@@ -8,6 +8,8 @@
  * ---------------------------------------------------------------------------
  */
 
+import { sleep } from './sleep.mjs';
+
 /** HTML から @type=Product の JSON-LD を取り出す。見つからなければ null */
 export function parseServiceProduct(html) {
   const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
@@ -128,7 +130,6 @@ export function fetchLiveHtml(url, execFileSync) {
  * @returns {Promise<Array<{id:string,url?:string,ok:boolean,fetched:boolean,issues:string[]}>>}
  */
 export async function checkListedServices(catalog, listings, { sellerName = '', execFileSync, sleepMs = 1000 } = {}) {
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const results = [];
   const targets = Object.values(catalog).filter((s) => s.status === 'listed');
   for (const [i, s] of targets.entries()) {
