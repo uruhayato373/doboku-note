@@ -26,6 +26,7 @@ import dotenv from "dotenv";
 import { runPool } from "../lib/worker-pool.mjs";
 import { GSC_PROPERTY, SITE_ORIGIN } from "../lib/site-identity.mjs";
 import { parseCliArgs } from "../lib/cli-args.mjs";
+import { sleep } from '../lib/sleep.mjs';
 
 dotenv.config({ path: ".env.local" });
 
@@ -107,7 +108,6 @@ export function shouldRetryInspect(e) {
   return false;
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function inspectUrl(auth, inspectionUrl, { attempts = RETRY_ATTEMPTS, baseMs = RETRY_BASE_MS } = {}) {
   const searchconsole = google.searchconsole({ version: "v1", auth });

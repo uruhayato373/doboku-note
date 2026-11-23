@@ -3,6 +3,9 @@
 // 種類は MDX 記事なら領域（categories.json の area）× 記事型（frontmatter の group）、基準書は置き場とファイル名で決める。
 // 指標はどれも本文の文字列だけから数える（LLM を使わない L0 の棚卸し）。読み手は scripts/reports/page-quality-inventory.mjs。
 
+import { median } from './stats.mjs';
+export { median };
+
 /**
  * @param {Array<{id:string, match:{area?:string, groups?:string[], paths?:string[], file?:string}}>} profiles
  * @param {{rel:string, area?:string|null, group?:string|null}} page rel はリポジトリ相対（/ 区切り）
@@ -64,14 +67,6 @@ function countProseChars(body) {
     if (!/[#*|>`_\-[\]\s]/.test(ch)) count += 1;
   }
   return count;
-}
-
-/** 中央値（空は null） */
-export function median(values) {
-  if (!values.length) return null;
-  const s = [...values].sort((a, b) => a - b);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
 }
 
 /**

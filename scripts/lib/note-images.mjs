@@ -21,8 +21,8 @@
 import { existsSync } from 'node:fs';
 import { resolve, basename, join } from 'node:path';
 import { figureSvgFor, renderNoteFigure } from './note-figure-png.mjs';
+import { sleep } from './sleep.mjs';
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // トークンは全角括弧＝markdown 変換されない・deriveProbe の probe 候補（記号なし16字以上）にならない。
 const tokenFor = (n) => `〔〔IMG:${n}〕〕`;

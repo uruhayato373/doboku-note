@@ -35,6 +35,7 @@ import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { isUnmeasurable } from '../lib/note-live-check.mjs';
 import { fetchFailDominant } from '../lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -48,7 +49,6 @@ const GOAL = 90;     // ライブで満たしたい下限
 const ARTICLE = getArg('--article');
 const LIST = getArg('--list');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 if (!ARTICLE && !LIST) { console.error('--article <path> or --list <file> required'); process.exit(1); }
 

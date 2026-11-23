@@ -32,6 +32,7 @@ import { resolveProfileDir } from '../lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { median } from '../lib/stats.mjs';
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 coconala
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
@@ -57,12 +58,6 @@ function reviewNum(s) {
   const m = String(s).match(/\(?\s*([\d,]+)\s*\)?/);
   return m ? parseInt(m[1].replace(/,/g, ''), 10) : null;
 }
-const median = (arr) => {
-  if (arr.length === 0) return null;
-  const s = [...arr].sort((a, b) => a - b);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
-};
 function priceBands(prices) {
   const b = { low: 0, mid: 0, high: 0, premium: 0 }; // ~999 / 1000-2999 / 3000-11999 / 12000+
   for (const p of prices) {

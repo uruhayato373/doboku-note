@@ -27,13 +27,13 @@ import {
   COCONALA_CONTENT_ROOT, KINDLE_CONTENT_ROOT, CONTENT_SOURCES_ROOT,
 } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
 const WITH_REFS = argv.includes('--refs');
 const ONLY = argv.includes('--id') ? argv[argv.indexOf('--id') + 1] : null;
 
-const toPosix = (v) => v.split(sep).join('/');
 
 /**
  * 1 ルートの決定的インベントリ。存在しないルートは exists:false で明示する（空と混同しない）。

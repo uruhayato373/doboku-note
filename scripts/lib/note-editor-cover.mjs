@@ -7,7 +7,8 @@
 // 罠（2026-09-18 実測）: note のエディタはカバーの削除とアップロードを「更新する」より前に live へ書く。
 // ここで失敗すると live のカバーが空になっている可能性がある。呼び出し側は失敗を記録し、次の実行で同じ記事を
 // もう一度差し替える（台帳にカバーを記録しないので、次回も要登録として残る）。
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+import { sleep } from './sleep.mjs';
 
 /**
  * @param {import('playwright').Page} page エディタを開いた状態のページ

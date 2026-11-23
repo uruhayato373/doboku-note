@@ -35,6 +35,8 @@ import { loadXPosts } from '../lib/registry-x-store.mjs';
 import { fetchFailDominant } from '../lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
+import { sleep } from '../lib/sleep.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 const NAME = 'check-outbound-links';
 const argv = process.argv.slice(2);
@@ -45,8 +47,6 @@ const JSON_OUT = argv.includes('--json');
 const THROTTLE_MS = 220;
 
 const SCOPES = ['site', 'note', 'sns', 'coconala'];
-const toPosix = (p) => p.split(sep).join('/');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const TEXT_EXT = /\.(md|mdx|txt|json|ts|tsx)$/;
 const isExcluded = (name) => name === 'node_modules' || name.startsWith('_archive');

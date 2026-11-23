@@ -32,6 +32,7 @@ import { recordPublishedHash } from '../lib/note-republish-hash.mjs';
 import { todayJst } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const DONE_LOG = join(ROOT, '.claude/state/note-swap-banner-done.json');
 const NEW_PROSE_PREFIX = 'この教材は、技術士（総合技術監理部門）を持つ';
@@ -43,7 +44,6 @@ const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
 const PASTE_SHORTCUT = process.platform === 'darwin' ? 'Meta+V' : 'Control+V';
-const sleep = (ms) => new Promise((resolveSleep) => setTimeout(resolveSleep, ms));
 
 const argv = process.argv.slice(2);
 const getArg = (name) => {

@@ -9,6 +9,8 @@
  * - 正規表現のエスケープ: `scripts/lib/regexp-escape.mjs` の `escapeRegExp`（scripts/ に書き写しが 16 か所超あり、逃がす記号がまちまちで
  *   path-literals.mjs は「.」だけ逃がして CodeQL の Incomplete string escaping に指摘された。DN-0588）。
  *   `.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')` の形の自前エスケープを書かない。
+ * - 待機・パス区切りの正規化・中央値: `scripts/lib/sleep.mjs`（sleep・sleepSync）・`posix-path.mjs`（toPosix）・`stats.mjs`（median・medianOrZero）。
+ *   書き写しが sleep 53・toPosix 14・median 7 ファイルにあった。空・偶数個・丸めが違う定義は別名の関数に分け、挙動が同じものだけ置き換えた。
  * - 引数の読み方: `scripts/lib/cli-args.mjs` の `parseCliArgs`（手書きの parseArgs が 70 超あった）。
  *
  * 基準値より増えたら落ちる。減らしたときは基準値を下げる（上げない）。共通部品を呼ぶだけの薄い関数
@@ -34,6 +36,9 @@ const HINT = {
   escapeRegExp: 'scripts/lib/regexp-escape.mjs の escapeRegExp を import する（全記号を逃がす）',
   siteSlug: 'src/lib/site-slug.mjs の siteSlugFromRel・siteSlugFromParts を使う',
   headingId: 'src/lib/heading-id.mjs の generateHeadingId を使う',
+  sleep: 'scripts/lib/sleep.mjs の sleep（非同期）・sleepSync（同期）を import する',
+  toPosix: 'scripts/lib/posix-path.mjs の toPosix を import する',
+  median: 'scripts/lib/stats.mjs の median・medianOrZero を import する（空・偶数個・丸めが違う定義は別名のまま）',
 };
 
 test('各自の定義は基準値より増えない', () => {
@@ -51,7 +56,7 @@ test('減っても赤にしない: 基準値を下げるのは pre-commit の ti
 
 test('検出の型: 計算は数え、import・root-ok・共通部品を呼ぶだけの関数は数えない', () => {
   const count = (text) => Object.fromEntries(Object.entries(findDefinitions(text)).map(([k, v]) => [k, v.length]));
-  const z = { root: 0, walk: 0, parseArgs: 0, curlJson: 0, mdxWalk: 0, escapeRegExp: 0, siteSlug: 0, headingId: 0 };
+  const z = { root: 0, walk: 0, parseArgs: 0, curlJson: 0, mdxWalk: 0, escapeRegExp: 0, siteSlug: 0, headingId: 0, sleep: 0, toPosix: 0, median: 0 };
   assert.deepEqual(count("const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');"), { ...z, root: 1 });
   assert.deepEqual(count('const root = process.cwd();'), { ...z, root: 1 });
   assert.deepEqual(count('const PROJECT_ROOT = path.resolve(__dirname, "../..");'), { ...z, root: 1 });
@@ -76,6 +81,24 @@ test('検出の型: 計算は数え、import・root-ok・共通部品を呼ぶ�
   assert.deepEqual(count('const re = new RegExp(name.replace(/[.+?^${}()|[\\]\\\\]/g, "\\\\$&"));'), { ...z, escapeRegExp: 1 });
   assert.deepEqual(count("const re = new RegExp(escapeRegExp(name));"), z);
   assert.deepEqual(count("const s = text.replace(/\\s+/g, ' ');"), z);
+});
+
+test('sleep・toPosix・median の自前の定義を数える', () => {
+  const count = (text) => findDefinitions(text);
+  assert.equal(count('const sleep = (ms) => new Promise((r) => setTimeout(r, ms));').sleep.length, 1);
+  assert.equal(count('export const sleep = (ms) => Atomics.wait(buf, 0, 0, ms);').sleep.length, 1);
+  assert.equal(count('function sleep(ms) {\n  spawnSync("sleep");\n}').sleep.length, 1);
+  assert.equal(count('  const sleep = opts.sleep ?? ((ms) => new Promise((r) => setTimeout(r, ms)));').sleep.length, 0, '注入の既定値は数えない');
+  assert.equal(count("import { sleep } from './sleep.mjs';\nawait sleep(10);").sleep.length, 0);
+  assert.equal(count("const toPosix = (p) => p.split(sep).join('/');").toPosix.length, 1);
+  assert.equal(count('const toPosix = (p: string) => p.replace(/\\\\/g, "/");').toPosix.length, 1);
+  assert.equal(count('function toPosix(file) {\n  return file;\n}').toPosix.length, 1);
+  assert.equal(count("import { toPosix } from './posix-path.mjs';\nconst x = toPosix(p);").toPosix.length, 0);
+  assert.equal(count('export function median(values) {\n  return 1;\n}').median.length, 1);
+  assert.equal(count('const median = (arr) => {\n  return 1;\n};').median.length, 1);
+  assert.equal(count('const median = (sorted) => sorted[0];').median.length, 1);
+  assert.equal(count('const median = ctrs.length ? ctrs[0] : null;').median.length, 0, '変数は数えない');
+  assert.equal(count("import { median } from './stats.mjs';").median.length, 0);
 });
 
 test('slug と見出し ID の自前の規則を数える（DN-0797）', () => {

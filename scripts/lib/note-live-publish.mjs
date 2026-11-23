@@ -6,8 +6,8 @@
  */
 import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from './repository-paths.mjs';
+import { sleep } from './sleep.mjs';
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  * 公開に進む →（有料なら境界設定）→ 更新する → 更新通知「いいえ」。

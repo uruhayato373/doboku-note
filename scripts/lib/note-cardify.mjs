@@ -14,7 +14,8 @@
  *   各スクリプトの公開後 API assert（assertNoUrlHeadings）。真実源: .claude/knowledge/reference/note-api-verification.md
  */
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+import { sleep } from './sleep.mjs';
+
 
 /**
  * 次にカード化する bare URL 段落の位置を決める（純関数・単体テスト対象）。

@@ -26,6 +26,7 @@ import { join } from 'node:path';
 import { NOTE_CREATOR as CREATOR } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -35,7 +36,6 @@ if (!KEYS.length || !KEYS.every((k) => /^m[0-9a-f]+$/.test(k))) {
   console.error('使い方: node scripts/note/note-magazine-delete.mjs --keys m1,m2 [--commit]');
   process.exit(1);
 }
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** 公開 API でマガジンが引けるか。取得失敗（非 JSON）は null＝判定不能として「消えた」と扱わない。 */
 function magazineExists(key) {

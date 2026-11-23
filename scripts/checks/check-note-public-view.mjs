@@ -43,6 +43,7 @@ import { datasetPath } from '../lib/datasets.mjs';
 import { NOTE_BASE } from '../lib/site-identity.mjs';
 import { MAX_FETCH_FAIL_RATE } from '../lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const API_ONLY = argv.includes('--api-only');
@@ -59,7 +60,6 @@ const CONCURRENCY = 2;
 const PAGE_GAP_MS = 400;
 const COOLDOWN_MS = 60_000;
 let cooldownUntil = 0;
-const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 /** 開く前に: 制限に当たった直後なら休み明けまで待ち、毎回少し間を空ける。 */
 async function politeWait() {
   if (Date.now() < cooldownUntil) await sleep(cooldownUntil - Date.now());

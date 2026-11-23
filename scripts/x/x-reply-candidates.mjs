@@ -25,6 +25,7 @@ import { X_HANDLE } from '../lib/site-identity.mjs';
 import { parseCliArgs } from '../lib/cli-args.mjs';
 import { qualificationShortLabel } from '../lib/qualification-names.mjs';
 import { paginateRealtime, parseRealtimeApi, parseRealtimeHtml, parseXPosts, selectCandidates } from '../lib/x-reply-candidates.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const OUT = path.join(REPO_ROOT, '.tmp', 'x-outreach', 'candidates.json');
 const UA = 'Mozilla/5.0 (compatible; doboku-note-research/1.0)';
@@ -38,7 +39,6 @@ const limits = flags.all ? { ...rawConfig.limits, perTopic: Number.MAX_SAFE_INTE
 const config = { ...rawConfig, limits, topics: rawConfig.topics.map((t) => ({ ...t, label: t.qualifications.map((id) => qualificationShortLabel(registry, id)).join('・') })) };
 const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { replies: [], skips: [] };
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const curl = (url) => execFileSync('curl', ['-sS', '--ssl-no-revoke', '--max-time', '25', '-A', UA, url], {
   encoding: 'utf8',
