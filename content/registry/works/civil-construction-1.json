@@ -95,7 +95,14 @@
     {
       "id": "c1-keiken-omoikomi-top3",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-omoikomi-top3"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-omoikomi-top3",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-23",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "4f4a4256d1ea8de9c8df9eae7ef27972d393bc60ccdb446987f4eb55f80fdc89"
+      }
     },
     {
       "id": "c1-keiken-shudai-rireki",

@@ -18,7 +18,7 @@
 | `c1-keiken-hinshitsu-kakikata` | 1級土木 経験記述｜品質管理の書き方 | 経験記述で品質管理が出たとき、品質に留意して施工した、までしか書けず、どの品質項目を課題にして、基準や測り方をどう書けばよいか分からない | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
 | `c1-keiken-kouji-gaiyou` | 1級土木 経験記述｜工事概要の書き方 | 経験記述の工事概要の七つの欄を埋めても、どこまで細かく書けば足りるのか、欄どうしが合っているのか分からない | howto | 公開 | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `c1-keiken-ochiru-naoshikata` | 1級土木 経験記述｜落ちる答案の直し方 | 経験記述を書いたが、課題に処置を書くなど欄の中身を取り違えていないか不安で、どこをどう直せばよいか分からない | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
-| `c1-keiken-omoikomi-top3` | 施工経験記述で落ちる人の思い込みTOP3｜元発注者が答案のどこで止まるか | 経験記述を書き切ったのに落ちた、あるいは落ちそうで、何が足りないのか自分では分からない | diagnosis | 未登録 | —/— | `civil-1-keiken-complete-pack` |
+| `c1-keiken-omoikomi-top3` | 施工経験記述で落ちる人の思い込みTOP3｜発注者の目線で答案を点検する3つの問い | 経験記述を書き切ったのに落ちた、あるいは落ちそうで、何が足りないのか自分では分からない | diagnosis | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `c1-keiken-shudai-rireki` | 1級土木 経験記述｜16年分の出題テーマ全履歴と令和9年度の見立て | 経験記述でどの管理項目が出るか読めず、5つ全部を準備するべきか、山を張ってよいか決められない | exam-point | 未登録 | —/— | `civil-1-keiken-complete-pack` |
 | `c1-next-license-after-first` | 1級の次に取る資格 | 1級を取ったあと、技術士・RCCM・コンクリート診断士のどれを次に取るか、基準が分からず決められない | roadmap | レビュー | 台本/構成 | `site-article` |
 | `c1-next-pe-construction` | 1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験 | 1級の次に技術士（建設部門）を考えているが、経験記述の延長で書けるのか、何が違うのか分からない | roadmap | 未登録 | —/— | `site-article` |
