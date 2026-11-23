@@ -12,7 +12,7 @@ import { ADSENSE_CLIENT, ADSENSE_LAYOUT_KEYS, ADSENSE_SLOTS, ADSENSE_UNIT_NAMES,
  */
 export default function AdSlot({ slot, className = '', as = 'aside', tall = false }: {
   slot: AdSenseSlot; className?: string; as?: 'aside' | 'li' | 'div';
-  /** 縦長（300×600 など）で出す。右の欄の下の空きの枠だけが使う（同じユニットに data-ad-format="vertical" を付ける） */
+  /** 縦長（300×600 など）で出す。右の欄の最後の追従ブロック（RailFollow）が画面の高さで決めて使う（同じユニットに data-ad-format="vertical" を付ける） */
   tall?: boolean;
 }) {
   const pathname = usePathname();
@@ -20,8 +20,8 @@ export default function AdSlot({ slot, className = '', as = 'aside', tall = fals
 }
 
 /** 枠の高さの下限（配信で変わる形式は下限だけ取って CLS を抑える） */
-const MIN_HEIGHT: Record<AdSenseSlot, number> = { endMultiplex: 320, rail: 250, inArticle: 280, inFeedThumb: 120, inFeedText: 90 };
-const TALL_MIN_HEIGHT = 600;
+export const MIN_HEIGHT: Record<AdSenseSlot, number> = { endMultiplex: 320, rail: 250, inArticle: 280, inFeedThumb: 120, inFeedText: 90 };
+export const TALL_MIN_HEIGHT = 600;
 
 /** 枠が画面に入ってから広告の要求（ins の中の iframe）が出るまでの待ち */
 const REQUEST_WAIT_MS = 8000;

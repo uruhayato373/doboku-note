@@ -38,8 +38,8 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
       const shown = getStandardRelatedDocs(getStandardChapterTopics(resolved.chapter), 3);
       return {
         path, chars,
-        lower: groups.filter(g => g.lower).length,
-        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, plain: g.card?.plain, hrefs: g.card?.links.map(l => l.href) ?? [], banner: 'banner' in g })),
+        lower: groups.filter(g => 'lower' in g).length,
+        groups: groups.map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, plain: g.card?.plain, hrefs: g.card?.links.map(l => l.href) ?? [], banner: 'banner' in g })),
         upper: [...shown.practice, ...shown.exam].map(doc => getPublicDocPath(doc.slug)),
         self: '/standards/' + path.replace(/\\/([^/]+)$/, '/chapters/$1'),
       };
@@ -54,8 +54,11 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
   const long = byPath['kinki/common/1-1'];
   assert.ok(long.groups.length > 3 && long.groups.length <= 20, '長い章は回遊の候補の数まで（上限20）');
   assert.ok(long.groups.every(g => g.hrefs.length), 'カードの無い組は作らない（上詰めで広告が続く）');
-  assert.equal(long.lower, 40, '空きの AdSense の候補は 40 枠');
-  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 40, '組が無くても空きの AdSense の候補は 40 枠（出すかは描画した高さで決める）');
+  // 2026-11-23: 組の下の空きに縦長の AdSense を最大 40 枠並べるのをやめた（1-3 章で 1 ページ 71 枠になり、AdSense は上から約 19 枠しか処理しなかった）。
+  // 空きは欄の最後の追従ブロック（RailFollow）が受け持つ
+  assert.equal(long.lower, 0, '空きの AdSense の組は作らない');
+  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 0, '組が無いときも空きの AdSense の組は作らない');
+  assert.equal(long.groups.filter(g => g.adsense).length, 2, '下に続く組の AdSense は 2 枠まで（RAIL_GROUP_AD_MAX）');
   for (const row of [main, long]) {
     const hrefs = row.groups.flatMap(g => g.hrefs);
     assert.equal(new Set(hrefs).size, hrefs.length, row.path + ' 同じリンクを2回出さない');
@@ -66,7 +69,7 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
     const lastCard = row.groups.length - 1;
     row.groups.forEach((g, i) => {
       assert.equal(g.slot, 'standards-rail-group');
-      assert.equal(g.adsense, i % 2 === 0, '1 組目から 1 組おきに AdSense');
+      assert.equal(g.adsense, i % 2 === 0 && i < 4, '1 組目と 3 組目だけに AdSense（2 枠まで）');
       assert.equal(g.banner, false, '下に続く組に転職バナーは置かない（右の欄の転職は上の束の 2 つまで）');
       if (i === lastCard) { assert.ok(g.hrefs.length === 2 || g.hrefs.length === 3, 'カードの最後の組は 2〜3 件'); }
       else { assert.equal(g.hrefs.length, 3, '1組は3件（カードの最後の組だけ2件）'); }
@@ -76,13 +79,13 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
   assert.ok(main.groups[2].plain, '前後の章は文字の一覧（サムネイルなし）');
 });
 
-test('下に続く組はカードだけで、転職バナーを持たない（AdSense は 1 組おき）', () => {
+test('下に続く組はカードだけで、転職バナーを持たない（AdSense は 1 組目と 3 組目）', () => {
   const result = evaluate(`
     const { getStandardChapter } = await import('./src/lib/standards-articles.ts');
     const { standardsSidebarContinuation } = await import('./src/lib/standards-sidebar-continuation.ts');
     const { chapter, document } = getStandardChapter('mlit', 'sekou-kanri-kijun', '2-1');
     const groups = standardsSidebarContinuation(document, chapter, 4716);
-    const packed = groups.filter(g => !g.lower);
+    const packed = groups;
     process.stdout.write(JSON.stringify({ n: packed.length, banners: packed.filter(g => 'banner' in g).length, cards: packed.filter(g => g.card).length, ads: packed.filter(g => g.adsense).length }));`);
   assert.deepEqual(result, { n: 3, banners: 0, cards: 3, ads: 2 });
 });
@@ -100,7 +103,7 @@ test('資格トップ: 1級土木は AdSense＋新着の1組（人気順は上�
       const popular = getPopularDocs(docs, 5);
       const groups = categorySidebarContinuation(docs, popular);
       return { slug, docs: docs.length, shown: popular.map(p => getPublicDocPath(p.doc.slug)),
-        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, hrefs: g.card?.links.map(l => l.href) ?? [], banner: 'banner' in g, thumbs: g.card?.links.every(l => l.doc) })) };
+        groups: groups.map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, hrefs: g.card?.links.map(l => l.href) ?? [], banner: 'banner' in g, thumbs: g.card?.links.every(l => l.doc) })) };
     });
     process.stdout.write(JSON.stringify(rows));`);
   const by = Object.fromEntries(rows.map(row => [row.slug, row]));

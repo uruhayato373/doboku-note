@@ -48,7 +48,7 @@ for (const category of ['pe-first-stage','civil-practice','concrete-engineer']) 
  const props={variant:'sidebar' as const,category,currentSlug:current.slug,docGroup:'guide' as const,categoryArticles};
  const upper=new Set(categoryNavLinkedSlugs(props).map(getPublicDocPath));
  const input={sidebarMokuji:null,headings:[{id:'section',text:'内容',level:2}],category,docGroup:'guide' as const,slugStr:current.slug,content:'',sectionStr:undefined,categoryArticles,hasCategoryNavCard:true,showPillarNav:false,showTableOfContents:true};
- const groups=articleSidebarContinuation(input,current,docs,20000).filter(group=>!group.lower);
+ const groups=articleSidebarContinuation(input,current,docs,20000);
  const links=groups.flatMap(group=>group.card?.links ?? []);
  assert(links.length>0,category+'の検査0件を許さない');
  assert(links.every(link=>!upper.has(link.href)&&link.href!==getPublicDocPath(current.slug)));

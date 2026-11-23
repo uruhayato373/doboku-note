@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
@@ -18,36 +18,44 @@ interface TocGroup {
 interface TableOfContentsProps {
   headings: TocItem[];
   variant?: 'sidebar' | 'mobile';
+  /**
+   * 右の欄の追従ブロック（RailFollow）用。画面の高さを超えないよう、現在の H2 の前後 COMPACT_AROUND 項目と、
+   * 現在の H2 の下の見出しを現在地の周り COMPACT_CHILDREN 項目だけ出す（欄内スクロールは使わない・design-system.md）。
+   */
+  compact?: boolean;
 }
 
-export default function TableOfContents({ headings, variant = 'sidebar' }: TableOfContentsProps) {
-  const [activeId, setActiveId] = useState<string>('');
-  const observerRef = useRef<IntersectionObserver | null>(null);
+/** 見出しがこの位置（画面の上端からの px）より上に来たら現在地にする */
+const ACTIVE_LINE_PX = 96;
+const COMPACT_AROUND = 2;
+const COMPACT_CHILDREN = 5;
 
+/** start から count 項目の窓を、center が入るように length の中で取る */
+function windowAround(length: number, center: number, count: number): [number, number] {
+  const start = Math.min(Math.max(0, center - Math.floor(count / 2)), Math.max(0, length - count));
+  return [start, start + count];
+}
+
+export default function TableOfContents({ headings, variant = 'sidebar', compact = false }: TableOfContentsProps) {
+  const [activeId, setActiveId] = useState<string>('');
+
+  // 現在地＝画面の上端（ACTIVE_LINE_PX）より上にある最後の見出し。目次のリンク・ページ内リンクで一気に飛んでも外れないよう、
+  // 見出しが帯を横切るのを待つ（IntersectionObserver）のではなく、スクロールのたびに位置で決める（1 フレームに 1 回）
   useEffect(() => {
     if (variant === 'mobile' || headings.length === 0) return;
-
-    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
-      const visible = entries
-        .filter((e) => e.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-      if (visible.length > 0) {
-        setActiveId(visible[0]!.target.id);
-      }
-    };
-
-    observerRef.current = new IntersectionObserver(handleIntersect, {
-      rootMargin: '-80px 0px -80% 0px',
-    });
-
     const elements = headings
       .map((h) => document.getElementById(h.id))
       .filter(Boolean) as HTMLElement[];
-
-    elements.forEach((el) => observerRef.current?.observe(el));
-
-    return () => observerRef.current?.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const passed = elements.filter((el) => el.getBoundingClientRect().top <= ACTIVE_LINE_PX);
+      setActiveId(passed.at(-1)?.id ?? '');
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(frame); };
   }, [headings, variant]);
 
   // Build nested groups: H2 → group, H3/H4 → children of last group
@@ -68,6 +76,19 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
     return result;
   }, [headings]);
 
+  // 追従ブロックでは現在地の周りだけを出す（まだ現在地が無いときは先頭から）
+  const visibleGroups = useMemo<TocGroup[]>(() => {
+    if (!compact) return groups;
+    const at = Math.max(0, groups.findIndex(g => g.heading.id === activeId || g.children.some(c => c.id === activeId)));
+    const [from, to] = windowAround(groups.length, at, COMPACT_AROUND * 2 + 1);
+    return groups.slice(from, to).map((group, i) => {
+      if (from + i !== at) return { ...group, children: [] };
+      const child = Math.max(0, group.children.findIndex(c => c.id === activeId));
+      const [cFrom, cTo] = windowAround(group.children.length, child, COMPACT_CHILDREN);
+      return { ...group, children: group.children.slice(cFrom, cTo) };
+    });
+  }, [compact, groups, activeId]);
+
   if (headings.length === 0) return null;
 
   const handleClick = (e: React.MouseEvent, id: string) => {
@@ -81,7 +102,7 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
 
   const tocList = (
     <ol className="ol-depth-1">
-      {groups.filter(group => variant === 'sidebar' || group.heading.level === 2).map((group) => (
+      {visibleGroups.filter(group => variant === 'sidebar' || group.heading.level === 2).map((group) => (
         <li
           key={group.heading.id}
           className={activeId === group.heading.id ? 'active' : undefined}
@@ -138,6 +159,15 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
           </nav>
         </Disclosure>
       </>
+    );
+  }
+
+  if (compact) {
+    return (
+      <MetaCard as="div" padding="compact" trackNav="rail-follow-toc">
+        <div className="toc-title">このページの現在地</div>
+        <nav aria-label="このページの目次（現在地の周り）" className="toc-content">{tocList}</nav>
+      </MetaCard>
     );
   }
 

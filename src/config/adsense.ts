@@ -1,15 +1,15 @@
 /**
  * AdSense の発行者 ID と広告ユニット（2026-11-16 に AdSense の管理画面で作成）。
- * 自動広告はアンカー広告と全画面広告だけを有効にし、ページ内広告は無効（管理画面の「サイトごと」）。
- * 手動の枠の置き場: 本文の途中（記事・基準書は 1,500 字ごと、過去問は 3 問ごと。値の唯一の置き場は src/lib/body-ad-rules.mjs）・PC の右の欄（下に続く組に 1 組おき、その下の空きに縦長の枠を 1,000px 間隔で最大 40 枠・src/lib/rail-continuation.ts）・ページ末尾（Multiplex）。
+ * 自動広告: アンカー広告と全画面広告に加え、本文の中はページ内広告に任せる（2026-11-23 運営者判断。管理画面の「サイトごと」で有効にする。サイドレールは右の欄の追従広告と重なるので切る）。
+ * 手動の枠の置き場: PC の右の欄（下に続く組の 2 枠・src/lib/rail-continuation.ts と、欄の最後の追従ブロック 1 枠・src/components/ui/RailFollow）・ページ末尾（Multiplex）。
+ * 本文の中には手動の枠を置かない（以前は字数・問題の数で最大 30 枠置き、長い章で 1 ページ 71 枠になって AdSense が上から約 19 枠しか処理しなかった）。
  * 記事の一覧（資格トップのサムネイルの行・/practice の文字の行・検索結果）には、インフィード広告を 1 項目として挟む（src/lib/feed-ads.ts）。
- * 資格トップの本文の区画の切れ目には記事内広告を置く（src/components/ui/SectionAdBreak・PC は AdSense、スマホは 1 つ目が転職・2 つ目以降が AdSense）。
  * 手元・プレビュー（isAdSensePreviewHost）では広告を要求せず、破線の目印で置き場を見せる。
  */
 export const ADSENSE_CLIENT = 'ca-pub-8504035087322664';
 
 export const ADSENSE_SLOTS = {
-  // 本文の途中は記事内広告（ネイティブ・2026-11-16 作成）。旧 doboku-in-article（3134794094・ディスプレイ）は使わないが AdSense には残す
+  // 記事内広告（ネイティブ・2026-11-16 作成）。本文の中は 2026-11-23 から自動広告に任せ、手動では使わないが AdSense には残す
   inArticle: '2242183125', // doboku-in-article-native（記事内広告・fluid）
   rail: '8003977399', // doboku-rail（ディスプレイ・レスポンシブ）
   endMultiplex: '1246997354', // doboku-end-multiplex（Multiplex）

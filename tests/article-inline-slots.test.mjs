@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { planInlineSlots, measureLines } from '../src/lib/standards-inline-slots.mjs';
-import { planArticleInlineSlots, remarkArticleBanners, ADSENSE_INTERVAL_CHARS, ADSENSE_MAX_SLOTS, QUESTIONS_PER_AD } from '../src/lib/article-inline-slots.mjs';
+import { planInlineSlots } from '../src/lib/standards-inline-slots.mjs';
+import { planArticleInlineSlots, remarkArticleBanners } from '../src/lib/article-inline-slots.mjs';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkMdx from 'remark-mdx';
@@ -64,43 +64,18 @@ test('条文とSourceRefを分けず、AST不成立を黙って通常選択に�
  assert.throws(()=>planArticleInlineSlots('<Callout>\n\n閉じない'));
 });
 
-test('AdSense の本文枠: 転職バナーの候補と 800 字以上離し、本文の終わりまで 2,000 字ごとに置き、ArticleInlineAd として差し込む', () => {
-  const body = Array.from({ length: 30 }, () => text(500)).join('\n\n');
-  const plan = planArticleInlineSlots(body);
-  assert.ok(plan.adInsertAt.length >= 4 && plan.adInsertAt.length <= ADSENSE_MAX_SLOTS, `枠の数 ${plan.adInsertAt.length}`);
-  assert.ok(plan.adInsertAt.every(s => s.slot.startsWith('adsense')));
-  const charsAt = line => body.split('\n').slice(0, line).join('').length;
-  for (const [i, ad] of plan.adInsertAt.entries()) {
-    for (const banner of plan.insertAt) assert.ok(Math.abs(charsAt(ad.line) - charsAt(banner.line)) >= 800, `広告 ${ad.line} とバナー ${banner.line} が近い`);
-    if (i) assert.ok(charsAt(ad.line) - charsAt(plan.adInsertAt[i - 1].line) >= ADSENSE_INTERVAL_CHARS, '前の広告から 2,000 字以上');
+test('本文の AdSense は手動で置かない（自動広告のページ内広告に任せる・2026-11-23）。差し込むのは転職の枠だけ', () => {
+  for (const [body, opts] of [
+    [Array.from({ length: 30 }, () => text(500)).join('\n\n'), {}],
+    [Array.from({ length: 30 }, (_, i) => `## 問題 No.${i + 1}\n\n${text(300)}\n\n<details>\n<summary>解答</summary>\n\n${text(600)}\n\n</details>`).join('\n\n'), { questionSeries: true }],
+  ]) {
+    const plan = planArticleInlineSlots(body, opts);
+    assert.ok(!('adInsertAt' in plan), 'AdSense の計画を返さない');
+    assert.ok(plan.insertAt.every(s => !s.slot.startsWith('adsense')));
+    const tree = parser.parse(body);
+    remarkArticleBanners({ insertAt: plan.insertAt })(tree);
+    const names = tree.children.filter(n => n.type === 'mdxJsxFlowElement').map(n => n.name);
+    assert.ok(!names.includes('ArticleInlineAd'));
+    assert.equal(names.filter(n => n === 'ArticleInlineBanner').length, plan.insertAt.length);
   }
-  // 本文の下半分にも置く（以前は最大 2 枠で、上の方に固まって下半分が空いた）
-  assert.ok(charsAt(plan.adInsertAt.at(-1).line) > 15000 * 0.75, '最後の広告が本文の終わりの 4 分の 1 にある');
-  const tree = parser.parse(body);
-  remarkArticleBanners({ insertAt: [...plan.adInsertAt, ...plan.insertAt] })(tree);
-  const names = tree.children.filter(n => n.type === 'mdxJsxFlowElement').map(n => n.name);
-  assert.equal(names.filter(n => n === 'ArticleInlineAd').length, plan.adInsertAt.length);
-  assert.equal(names.filter(n => n === 'ArticleInlineBanner').length, plan.insertAt.length);
-});
-
-test('過去問の AdSense は設問の見出しの直前にだけ置き、転職・広告から 3 問以上か 1,500 字以上あけて最後まで続ける', () => {
-  const body = Array.from({ length: 30 }, (_, i) => `## 問題 No.${i + 1}\n\n${text(300)}\n\n<details>\n<summary>解答</summary>\n\n${text(600)}\n\n</details>`).join('\n\n');
-  const plan = planArticleInlineSlots(body, { questionSeries: true });
-  const lines = body.split('\n');
-  const questionLines = lines.flatMap((line, i) => /^## 問題/.test(line) ? [i] : []);
-  const ads = plan.adInsertAt.map(s => questionLines.indexOf(s.line));
-  const taken = [...plan.insertAt.map(s => questionLines.indexOf(s.line)), ...ads].sort((a, b) => a - b);
-  assert.ok(ads.length >= 6, `枠の数 ${ads.length}`);
-  assert.ok(ads.every(q => q > 0), '設問の見出しの直前だけ');
-  const { cumulative } = measureLines(body, 40);
-  for (const q of ads) {
-    const before = taken.filter(t => t < q).at(-1);
-    const far = before === undefined || q - before >= QUESTIONS_PER_AD || cumulative[questionLines[q]] - cumulative[questionLines[before]] >= ADSENSE_INTERVAL_CHARS;
-    assert.ok(far, `問 ${before + 1} と問 ${q + 1} の枠が近い`);
-  }
-  assert.ok(ads.at(-1) >= 30 - QUESTIONS_PER_AD - 1, '最後の数問の手前まで続く');
-});
-
-test('AdSense の本文枠: 短い記事には置かない', () => {
-  assert.equal(planArticleInlineSlots(`${text(700)}\n\n${text(700)}`).adInsertAt.length, 0);
 });
