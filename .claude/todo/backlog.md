@@ -4033,14 +4033,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-1289] CodeQL を develop の push ごとから外すか、Lighthouse の夜間を週 1〜2 回にするかを決める
-タグ: [領域:管理] [種類:意思決定] [起票:2026-11-23]
-
-**起点**: 2026-11-23 の点検。CodeQL（リポジトリ設定の既定セットアップ）が develop への push ごとに 3 job（約 1〜3 分ずつ）走る（直近 200 run のうち 33 本）。Lighthouse の夜間（`lighthouse.yml`）は毎日約 8〜9 分で 30 回連続成功している。どちらも待ちのクリティカルパスではないが、課金と並列の混雑に効く。
-**やること**: 運営者が決める。
-- CodeQL を PR と週次だけにするか（develop への直 push のコードの静的解析が遅れる）
-- Lighthouse を週 1〜2 回にするか（画像の肥大や a11y の低下の発見が最大数日遅れる。`deploy:main` の夜間の Issue の停止条件は今のまま使える）
-**完了条件**: 決めた頻度が設定（リポジトリ設定・`lighthouse.yml`・`config/automations.json`）に入っている。
 
 
 ### [DN-1282] MDX の <CareerAffiliate program="career"> 213 か所に残る描画されない属性（service・category・description・points・cta・約 1,400 行）を消すか決める
