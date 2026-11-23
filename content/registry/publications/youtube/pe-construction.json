@@ -1450,7 +1450,7 @@
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-001",
@@ -1484,7 +1484,42 @@
         "contentSha256": "b7fd571fcf4a09db7b7357c501b9da601849713f6a7c9bdc7cdea8766465bbb4"
       },
       "times": {
-        "rendered": "2026-11-23T12:55:41.048Z"
+        "rendered": "2026-11-23T12:55:41.048Z",
+        "uploaded": "2026-11-23T13:03:24.897Z",
+        "scheduled": "2026-11-23T13:03:33.906Z"
+      },
+      "delivery": {
+        "inputSha256": "3a9ea72a31ae117a48af613e63180de4caf4632d39cd1edacc9b258670f28db8",
+        "marker": "dn-single-ce69c211313fc3b12fb0784a327925e3c0c9ebfd",
+        "uploadRequestedAt": "2026-11-23T13:02:33.100Z",
+        "videoId": "o1-_v4BnN68",
+        "processedAt": "2026-11-23T13:03:24.291Z",
+        "thumbnailRequestedAt": "2026-11-23T13:03:24.944Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/default.jpg?sqp=CNDxkNgG&rs=AOn4CLCHdh0aWhN4o8d_vgbBBNAfNS6ffA",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/mqdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLCkKzGOMV2OQQGaaDzjhiNQIQypRQ",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/hqdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLBrGLVtC_RnvrVEGStswjWuXrTrhA",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/sddefault.jpg?sqp=CNDxkNgG&rs=AOn4CLD8Qvn7DbPyr4lCFtKQMpErU-lGKQ",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/maxresdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLBcdJYLaGwAovPlbkoefrXDjAbVZA",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/fhddefault.jpg?sqp=CNDxkNgG&rs=AOn4CLDRrIx4YNupghSgPHB1d0ddykwutQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-23T13:03:29.080Z",
+        "scheduleRequestedAt": "2026-11-23T13:03:30.103Z",
+        "scheduleAt": "2026-12-07T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-23T13:03:33.906Z"
+      },
+      "platform": {
+        "id": "o1-_v4BnN68",
+        "url": "https://www.youtube.com/watch?v=o1-_v4BnN68",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-23T13:03:29.080Z"
       }
     },
     {
