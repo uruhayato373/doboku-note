@@ -10067,7 +10067,11 @@
       "executor": "claude-code",
       "outcome": "done",
       "note": "棚卸し 2026-11-23: 済み（裏取り）— e54049de4（#1651）と config/channel-annual-plan.json L65-71。削除前に check-youtube-plan の exit 0 を確かめる。check-youtube-plan は 2026-11-23 に exit 0・違反 0 件",
-      "verification": "e54049de4（#1651）と config/channel-annual-plan.json L65-71。削除前に check-youtube-plan の exit 0 を確かめる。check-youtube-plan は 2026-11-23 に exit 0・違反 0 件"
+      "verification": "e54049de4（#1651）と config/channel-annual-plan.json L65-71。削除前に check-youtube-plan の exit 0 を確かめる。check-youtube-plan は 2026-11-23 に exit 0・違反 0 件",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-youtube-plan"
+      }
     },
     {
       "id": "DN-1227",
@@ -10078,7 +10082,11 @@
       "executor": "claude-code",
       "outcome": "done",
       "note": "棚卸し 2026-11-23: 済み（裏取り）— node --test tests/youtube-longform-plan.test.mjs が 20 件 pass（2026-11-23）・#1651 で直った",
-      "verification": "node --test tests/youtube-longform-plan.test.mjs が 20 件 pass（2026-11-23）・#1651 で直った"
+      "verification": "node --test tests/youtube-longform-plan.test.mjs が 20 件 pass（2026-11-23）・#1651 で直った",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/youtube-longform-plan.test.mjs"
+      }
     },
     {
       "id": "DN-0597",
