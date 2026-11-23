@@ -15,6 +15,11 @@
       }
     },
     {
+      "id": "c1-ichiji-derujun-tokuten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-ichiji-derujun-tokuten"
+    },
+    {
       "id": "c1-juken-junjo-2027",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027",
@@ -88,6 +93,16 @@
       }
     },
     {
+      "id": "c1-keiken-omoikomi-top3",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-omoikomi-top3"
+    },
+    {
+      "id": "c1-keiken-shudai-rireki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-shudai-rireki"
+    },
+    {
       "id": "c1-next-license-after-first",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first",
@@ -98,6 +113,11 @@
         "by": "Claude Code video-content-qa",
         "inputSha256": "33ec4fac7c47c47acfa65eeb6d97b19b807dc259c226a531d4771ba4b3ebacc0"
       }
+    },
+    {
+      "id": "c1-next-pe-construction",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-next-pe-construction"
     },
     {
       "id": "civil-09-a",

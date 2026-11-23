@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-next-pe-construction",
+  "exam": "civil-construction-1",
+  "title": "1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験",
+  "audience": "1級土木の二次に合格した人、合格発表を待つ人",
+  "pain": "1級の次に技術士（建設部門）を考えているが、経験記述の延長で書けるのか、何が違うのか分からない",
+  "promise": "1級の経験記述と技術士の記述式の違いと、受ける前に確かめることが分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-construction-1/guide-vs-pe/article.mdx",
+    "campaign": "c1-next-pe-construction"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  },
+  "outline": {
+    "format": "mindset",
+    "minutes": 12,
+    "titleCandidates": [
+      "1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験"
+    ],
+    "chapters": [],
+    "free": [
+      "1級の経験記述と技術士の記述式の違い",
+      "受ける前に確かめること"
+    ],
+    "paid": [],
+    "related": [
+      "civil-construction-1/civil-license-ladder-order",
+      "civil-construction-1/c1-next-license-after-first"
+    ],
+    "beforeScript": [
+      "候補。章立ては c1-keiken-omoikomi-top3 ほか 4 本の結果を見てから組む",
+      "技術士の段の考え方は docs/marketing/08_YouTube戦略_技術士建設部門.md に従う"
+    ]
+  }
+}

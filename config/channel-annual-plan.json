@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "_doc": "docs/marketing/02_チャネル動線設計.md（チャネル横断の役割）・docs/marketing/06_動画コンテンツ運用設計.md（動画）。チャネルの年間の枠と型の正本。slots・entries・cycle・metrics は YouTube、channels は X・Instagram の枠と型を持つ。枠の stance は config.competitor-positions の立ち位置を指す。materials は entries と primaryCta に無い材料だけを持ち、写さない。編集後は check-channel-plan・check-youtube-plan・check-competitor-positions を通す",
-  "updatedAt": "2026-11-10",
+  "updatedAt": "2026-11-23",
   "cycle": {
     "id": "2026-11_2027-10",
     "window": {
@@ -3338,6 +3338,210 @@
         ],
         "next": "資格ごとの教材のクリックを見る"
       }
+    },
+    {
+      "id": "c1-mindset-keiken-2027",
+      "exam": "civil-construction-1",
+      "format": "mindset",
+      "title": "経験記述 落ちる人の思い込み（試行）",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "accepted",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2026-12",
+        "to": "2027-01"
+      },
+      "anchors": [
+        "secondResult"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-keiken-complete-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "既存の単論点の動画と中身を重ねず、サイトの分析を素材に新しく作る",
+      "reason": {
+        "reader": "経験記述を書き切ったのに落ちた、落ちそうで理由が分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "採点する側が答案のどこで止まるかを無料で示し、完成答案は note で買う",
+        "demand": "未検証。発注者の視点を題名に出す動画は競合 35 本中 1 本",
+        "evidence": [
+          "docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md",
+          "config/competitor-positions.json"
+        ],
+        "next": "既存の単論点の動画（再生中央値 4 回）と、再生・視聴維持・note への流入を 4〜8 週で比べる"
+      }
+    },
+    {
+      "id": "c1-kanban-keiken-2027",
+      "exam": "civil-construction-1",
+      "format": "kanban-survey",
+      "title": "1級二次 経験記述の出題全履歴（試行）",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "accepted",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2026-12",
+        "to": "2027-01"
+      },
+      "anchors": [
+        "secondResult"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-keiken-complete-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "既存の単論点の動画と中身を重ねず、サイトの分析を素材に新しく作る",
+      "reason": {
+        "reader": "どの管理項目が出るか読めず、準備の範囲を決められない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "16 年分の指定項目を無料で一望させ、5 管理の答案は note で買う",
+        "demand": "未検証。出題予想・傾向の動画はちゃんさとで再生中央値 13,300",
+        "evidence": [
+          "docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md",
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md"
+        ],
+        "next": "既存の単論点の動画（再生中央値 4 回）と、再生・視聴維持・note への流入を 4〜8 週で比べる"
+      }
+    },
+    {
+      "id": "c1-kanban-ichiji-2027",
+      "exam": "civil-construction-1",
+      "format": "kanban-survey",
+      "title": "1級一次 出る順と得点の組み立て（試行）",
+      "stance": "civil-start",
+      "materials": {
+        "status": "accepted",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-01",
+        "to": "2027-02"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-ichiji-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "既存の単論点の動画と中身を重ねず、サイトの分析を素材に新しく作る",
+      "reason": {
+        "reader": "一次の範囲が広く、どこから手をつけどこを捨てるか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "分野構成と得点の組み立てを無料で示し、論点ごとの頻度表は note で買う",
+        "demand": "未検証。競合の土木の動画は 30〜60 分の長尺が再生中央値 21,000（07c）",
+        "evidence": [
+          "docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md",
+          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"
+        ],
+        "next": "既存の単論点の動画（再生中央値 4 回）と、再生・視聴維持・note への流入を 4〜8 週で比べる"
+      }
+    },
+    {
+      "id": "c2-kanban-niji-2027",
+      "exam": "civil-construction-2",
+      "format": "kanban-survey",
+      "title": "2級二次 学科記述の出題履歴と1問の見本（試行）",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "accepted",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2026-12",
+        "to": "2027-02"
+      },
+      "anchors": [
+        "secondResult"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-2-niji-marugoto-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "既存の単論点の動画と中身を重ねず、サイトの分析を素材に新しく作る",
+      "reason": {
+        "reader": "学科記述の出題の形と、部分点の取り方が分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "出題履歴とサイトで公開済みの 1 問の解き方を無料で示し、残りの解説と暗記は note で買う",
+        "demand": "2級の R8 二次の解答ページはサイト最多のセッション（試験直後の答え合わせの需要）",
+        "evidence": [
+          "docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md",
+          "content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx"
+        ],
+        "next": "既存の単論点の動画（再生中央値 4 回）と、再生・視聴維持・note への流入を 4〜8 週で比べる"
+      }
+    },
+    {
+      "id": "c1-mindset-next-pe-2027",
+      "exam": "civil-construction-1",
+      "format": "mindset",
+      "title": "1級の次に技術士を受ける前に（候補）",
+      "stance": "beyond-next-license",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-01",
+        "to": "2027-03"
+      },
+      "anchors": [
+        "secondResult"
+      ],
+      "primaryCta": {
+        "kind": "site-article",
+        "targets": [
+          "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "既存の単論点の動画と中身を重ねず、サイトの分析を素材に新しく作る",
+      "reason": {
+        "reader": "1級の次に技術士を考えているが、経験記述の延長で書けるのか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "1級と技術士の記述式の違いを無料で示し、技術士の教材へつなぐ",
+        "demand": "未検証。先の 4 本の結果を見てから採否を決める",
+        "evidence": [
+          "docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md"
+        ],
+        "next": "既存の単論点の動画（再生中央値 4 回）と、再生・視聴維持・note への流入を 4〜8 週で比べる"
+      }
     }
   ],
   "entries": [
@@ -4548,6 +4752,71 @@
       "target": "2027-10-15",
       "priority": "P2",
       "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-mindset-keiken-1",
+      "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-omoikomi-top3/youtube.longform",
+      "title": "経験記述で落ちる人の思い込みTOP3",
+      "action": "new",
+      "slot": "c1-mindset-keiken-2027",
+      "start": "2026-12-08",
+      "ready": "2026-12-15",
+      "target": "2026-12-22",
+      "priority": "P2",
+      "note": "docs/marketing/11 の骨子から起こした企画。章立ては video-pack.json の outline。台本から作る"
+    },
+    {
+      "id": "y27-c2-kanban-niji-1",
+      "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/c2-niji-gakka-mihon/youtube.longform",
+      "title": "2級二次 学科記述の出題履歴と1問の見本",
+      "action": "new",
+      "slot": "c2-kanban-niji-2027",
+      "start": "2026-12-14",
+      "ready": "2026-12-21",
+      "target": "2026-12-29",
+      "priority": "P2",
+      "note": "docs/marketing/11 の骨子から起こした企画。章立ては video-pack.json の outline。台本から作る"
+    },
+    {
+      "id": "y27-c1-kanban-keiken-1",
+      "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-shudai-rireki/youtube.longform",
+      "title": "1級 経験記述の出題全履歴",
+      "action": "new",
+      "slot": "c1-kanban-keiken-2027",
+      "start": "2026-12-16",
+      "ready": "2026-12-26",
+      "target": "2027-01-05",
+      "priority": "P2",
+      "note": "docs/marketing/11 の骨子から起こした企画。章立ては video-pack.json の outline。台本から作る"
+    },
+    {
+      "id": "y27-c1-kanban-ichiji-1",
+      "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-ichiji-derujun-tokuten/youtube.longform",
+      "title": "1級一次 出る順と得点の組み立て",
+      "action": "new",
+      "slot": "c1-kanban-ichiji-2027",
+      "start": "2027-01-11",
+      "ready": "2027-01-19",
+      "target": "2027-01-26",
+      "priority": "P2",
+      "note": "docs/marketing/11 の骨子から起こした企画。章立ては video-pack.json の outline。台本から作る"
+    },
+    {
+      "id": "y27-c1-mindset-next-pe-1",
+      "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-next-pe-construction/youtube.longform",
+      "title": "1級の次に技術士を受ける前に（候補）",
+      "action": "new",
+      "slot": "c1-mindset-next-pe-2027",
+      "start": "2027-01-25",
+      "ready": "2027-02-01",
+      "target": "2027-02-23",
+      "priority": "P3",
+      "note": "候補。先の 4 本の結果を見てから採否を決める。章立ては未着手（video-pack.json の outline）"
     }
   ]
 }

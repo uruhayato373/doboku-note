@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-shudai-rireki",
+  "exam": "civil-construction-1",
+  "title": "1級土木 経験記述｜16年分の出題テーマ全履歴と令和9年度の見立て",
+  "audience": "2027 年に 1級土木の二次を受ける人・再受検する人",
+  "pain": "経験記述でどの管理項目が出るか読めず、5つ全部を準備するべきか、山を張ってよいか決められない",
+  "promise": "平成23〜令和8年度の指定項目と令和6年度の形式変更が一望でき、準備の順番が決まる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r03/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r04/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r05/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r06/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r07/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-keiken-complete-pack",
+    "campaign": "c1-keiken-shudai-rireki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  },
+  "outline": {
+    "format": "kanban-survey",
+    "minutes": 14,
+    "titleCandidates": [
+      "1級土木 経験記述｜16年分の出題テーマ全履歴と令和9年度の見立て",
+      "【1級土木 二次】経験記述は何が何回出たか｜安全8回・品質7回・工程2回",
+      "1級土木 施工経験記述の出題傾向を全部見る｜令和6年度の形式変更から何が変わったか"
+    ],
+    "chapters": [
+      {
+        "at": "0:00",
+        "title": "つかみ",
+        "body": "結論を先に。16 年で安全 8 回・品質 7 回・工程 2 回・施工計画 1 回・環境対策 1 回"
+      },
+      {
+        "at": "1:00",
+        "title": "問題1の構造",
+        "body": "工事概要（設問1）と管理項目の記述（設問2）。必須問題で配点は非公表"
+      },
+      {
+        "at": "2:30",
+        "title": "平成23〜令和5年度",
+        "body": "1 テーマ指定の時代。品質と安全が交互に出て、工程は平成24年度だけ。年表のスライド 1 枚"
+      },
+      {
+        "at": "6:00",
+        "title": "令和6年度の形式変更",
+        "body": "5 管理のうち 2 つを指定し、同じ工事で両方を必答。R6 安全＋施工計画、R7 品質＋環境対策、R8 安全＋工程"
+      },
+      {
+        "at": "9:00",
+        "title": "令和9年度の見立て",
+        "body": "5 つから 2 つの組合せは 10 通り。1 つの工事で 5 管理すべてを書ける準備が要る理由。的中は断定しない"
+      },
+      {
+        "at": "11:00",
+        "title": "準備の順番",
+        "body": "題材の工事を 1 つ決める → 5 管理の課題を 1 行ずつ出す → 工事概要の数字をそろえる"
+      },
+      {
+        "at": "12:30",
+        "title": "まとめと次の行動",
+        "body": "思い込みの動画（c1-keiken-omoikomi-top3）へ。概要欄の note"
+      }
+    ],
+    "free": [
+      "全年度の指定項目",
+      "令和6年度の形式変更",
+      "準備の順番"
+    ],
+    "paid": [
+      "各年度の模範答案（civil-1-pastexam-essay）",
+      "10 通りの組合せの答案（2テーマ組合せ大全）",
+      "出る順の日割り（civil-1-r8-bunseki）"
+    ],
+    "beforeScript": [
+      "回数（安全 8・品質 7・工程 2・施工計画 1・環境対策 1）はサイト記事から数えた値。台本の前に JCTC の公表問題で照合して確定する"
+    ]
+  }
+}
