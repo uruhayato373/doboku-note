@@ -258,7 +258,7 @@ export async function renderDocPage(slugStr: string) {
   const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
   const showTableOfContents = !isQuestionSeries && headings.some((h) => h.level === 2);
 
-  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline, adInline } = articlePlan;
+  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
   const midSlots = midKinds.map(kind => () => {
     if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
     if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
@@ -274,7 +274,6 @@ export async function renderDocPage(slugStr: string) {
   let inlineCareerCardsRendered = 0;
   const baseComponents = {
     ArticleInlineBanner: ({ slot }: { slot: string }) => <ArticleBanner placement={careerPlacements[slot]} kind="inline" />,
-    ArticleInlineAd: () => <AdSlot slot="inArticle" className={`${CTA_STACK_CLASS} my-8`} />,
     ...components,
     table: (p: React.ComponentProps<'table'>) => (
       <div className="table-scroll">
@@ -318,7 +317,7 @@ export async function renderDocPage(slugStr: string) {
           gutter="flush-mobile"
           stretchAside
           aside={
-            <ArticleSidebar cards={sidebarCards} groups={sidebarGroups} placements={careerPlacements} questionSeries={isQuestionSeries} />
+            <ArticleSidebar cards={sidebarCards} groups={sidebarGroups} placements={careerPlacements} questionSeries={isQuestionSeries} followHeadings={showTableOfContents ? headings : []} />
           }
         >
             {/* Editorial article card: 12px radius, soft border + shadow。
@@ -365,7 +364,7 @@ export async function renderDocPage(slugStr: string) {
                   source={body}
                   components={componentsWithMid}
                   midCtaPositions={effectiveMidPositions}
-                  inline={[...inline, ...adInline]}
+                  inline={inline}
                 />
               </div>
               {endNoteSlot && <MagazineHeroCta id={endNoteSlot.magazineId}

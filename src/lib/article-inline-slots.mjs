@@ -4,14 +4,10 @@ import remarkParse from 'remark-parse';
 import remarkMdx from 'remark-mdx';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-import { planInlineSlots, measureLines } from './standards-inline-slots.mjs';
-import { BODY_AD_RULES } from './body-ad-rules.mjs';
+import { planInlineSlots } from './standards-inline-slots.mjs';
 
-export const ADSENSE_GAP_CHARS = BODY_AD_RULES.article.gapChars;
-export const ADSENSE_INTERVAL_CHARS = BODY_AD_RULES.article.intervalChars;
-export const ADSENSE_MAX_SLOTS = BODY_AD_RULES.article.maxSlots;
-export const QUESTIONS_PER_AD = BODY_AD_RULES.questionSeries.questionsPerAd;
-export const QUESTION_AD_MAX_SLOTS = BODY_AD_RULES.questionSeries.maxSlots;
+// 本文の AdSense は手動で置かず、自動広告のページ内広告に任せる（2026-11-23 運営者判断。手動は 1 ページ 71 枠まで増え、
+// AdSense は上から約 19 枠しか処理せず右の欄が空白になった）。ここで計画するのは転職の本文の枠だけ。
 const QUESTION_HEADING = /(?:問題|問\s*\d|第\s*\d+\s*問|No\.?\s*\d|[ⅠⅡⅢIV]+[-－]\d)/i;
 
 const parser = unified().use(remarkParse).use(remarkMdx).use(remarkGfm).use(remarkMath);
@@ -58,48 +54,11 @@ export function planArticleInlineSlots(markdown, { midPositions = [], reservedSt
   const plan = planInlineSlots(markdown, { slotPrefix: 'article-banner', allowedLines, forbiddenRanges, occupiedLines });
   // 注入位置は次の root ノードへ正規化する（空行自身は AST ノードを持たない）。
   const normalize = s => ({ ...s, line: starts.find(line => line >= s.line) ?? s.line });
-  // AdSense の本文枠（決まりは body-ad-rules.mjs）。転職バナーの候補位置（素材の有無に関わらず）と CTA から離す。
-  // 過去問は設問の境目に問題の数で、それ以外は字数で割る。
-  const taken = [...occupiedLines, ...plan.insertAt.map(s => s.line)];
-  const ads = questionSeries
-    ? planQuestionAds(blocks.filter(isQuestionHeading).map(n => n.position.start.line - 1), taken.map(line => normalize({ line }).line), forbiddenRanges, measureLines(markdown, BODY_AD_RULES.article.lineChars).cumulative)
-    : planInlineSlots(markdown, {
-      slotPrefix: 'adsense', allowedLines, forbiddenRanges, occupiedLines: taken,
-      firstChars: ADSENSE_GAP_CHARS, intervalChars: ADSENSE_INTERVAL_CHARS, maxSlots: ADSENSE_MAX_SLOTS, lineChars: BODY_AD_RULES.article.lineChars,
-    }).insertAt;
-  return { ...plan, hasRuledCareerCard, renderedMidIndexes: midPositions.flatMap((n, i) => h2[n + 1] ? [i] : []), insertAt: plan.insertAt.map(normalize), adInsertAt: ads.map(normalize) };
+  return { ...plan, hasRuledCareerCard, renderedMidIndexes: midPositions.flatMap((n, i) => h2[n + 1] ? [i] : []), insertAt: plan.insertAt.map(normalize) };
 }
 
 function isQuestionHeading(node) {
   return node.type === 'heading' && node.depth === 2 && QUESTION_HEADING.test(textOf(node));
-}
-
-/**
- * 過去問の AdSense の枠。設問の見出しの直前にだけ置き、直前の転職・AdSense・CTA から QUESTIONS_PER_AD 問以上あける。
- * 1 問が長い試験（二次の記述）は問題の数では間が空きすぎるので、直前の枠から記事の字数の間隔（ADSENSE_INTERVAL_CHARS）を超えた設問の前にも置く。
- * @param {number[]} questionLines 設問の見出しの行（0 始まり・本文の順）
- * @param {number[]} takenLines 転職の枠・CTA が入る行（設問の見出しへ正規化済み）
- * @param {Array<{start: number, end: number}>} forbiddenRanges
- * @param {number[]} cumulative 行ごとの累計の字数（measureLines）
- */
-function planQuestionAds(questionLines, takenLines, forbiddenRanges, cumulative) {
-  const taken = new Set(takenLines);
-  const insertAt = [];
-  // since は直前の枠（転職・AdSense・CTA）から数えた設問の数（枠の入った設問を 1 問目と数える）、last はその枠の行
-  let since = 0;
-  let last = -1;
-  for (const line of questionLines) {
-    if (insertAt.length >= QUESTION_AD_MAX_SLOTS) break;
-    if (taken.has(line)) { since = 1; last = line; continue; }
-    const longEnough = last >= 0 && cumulative[line] - cumulative[last] >= ADSENSE_INTERVAL_CHARS;
-    if ((since >= QUESTIONS_PER_AD || longEnough) && !forbiddenRanges.some(r => line >= r.start && line <= r.end)) {
-      insertAt.push({ line, slot: insertAt.length ? `adsense-${insertAt.length + 1}` : 'adsense' });
-      since = 0;
-      last = line;
-    }
-    since++;
-  }
-  return insertAt;
 }
 
 /** 単一 MDX コンパイル内で注入し、本文・見出し ID の採番を変えない。 */
@@ -108,7 +67,7 @@ export function remarkArticleBanners({ insertAt = [] } = {}) {
     for (const item of [...insertAt].sort((a, b) => a.line - b.line).reverse()) {
       const index = tree.children.findIndex(n => n.position?.start.line - 1 >= item.line);
       if (index < 0) throw new Error(`記事バナーの境界がない: ${item.line}`);
-      tree.children.splice(index, 0, { type: 'mdxJsxFlowElement', name: item.slot.startsWith('adsense') ? 'ArticleInlineAd' : 'ArticleInlineBanner', attributes: [{ type: 'mdxJsxAttribute', name: 'slot', value: item.slot }], children: [] });
+      tree.children.splice(index, 0, { type: 'mdxJsxFlowElement', name: 'ArticleInlineBanner', attributes: [{ type: 'mdxJsxAttribute', name: 'slot', value: item.slot }], children: [] });
     }
   };
 }
