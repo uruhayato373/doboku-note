@@ -10348,6 +10348,40 @@
       "executor": "claude-code",
       "outcome": "dropped",
       "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— MDX の CareerAffiliate program=career 213 か所の描画されない属性の削除（先に check-affiliate-placements.mjs が属性を必須にしていないか確かめる）"
+    },
+    {
+      "id": "DN-1269",
+      "at": "2026-11-23",
+      "task": "土曜の収集の note-audit 段の skipped の理由「27 日たっていない」の日数を確かめる",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/weekly-collect-plan.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2373d374e639",
+      "verification": "node --test tests/weekly-collect-plan.test.mjs",
+      "note": "27 は経過日数ではなく照合の間隔（4 週に 1 日の余裕）。skip の理由を『月 1 回（27 日ごと）の照合で、前回（日付）から N 日。次は 日付 以降の土曜』に直した（noteAuditSkipReason）"
+    },
+    {
+      "id": "DN-1190",
+      "at": "2026-11-23",
+      "task": "土曜の収集のログイン以外の失敗（note-traffic・note-sales の検算・ココナラのカタログ・もしも・後段の途中終了とロック）を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-weekly-collect"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2373d374e639",
+      "verification": "npm run -s check-weekly-collect",
+      "note": "11/21 の土曜の収集で note-traffic・note-sales・coconala・moshimo の段が ok（check-weekly-collect）。2 は #1590、5 は再起動が原因でロックは kill -0 で外れる。残りなし"
     }
   ]
 }

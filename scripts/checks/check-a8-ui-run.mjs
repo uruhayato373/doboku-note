@@ -103,9 +103,14 @@ function auditRun({ root, base, id, runs, cfg, f }) {
     const k = u.reportKey;
     checked += 1;
     if (u.status !== 'downloaded') { f.add(k === 'site-summary' ? 'fail' : 'warn', `${k}: status=${u.status}${u.error ? `（${String(u.error).slice(0, 80)}）` : ''}`); continue; }
-    if (!(u.csvRows > 0)) f.add('warn', `${k}: csvRows=${u.csvRows}`);
-    const raw = resolveRaw(dir, root, u.rawFile);
-    if (!raw) f.add('fail', `${k}: rawFile が実在しない（${u.rawFile ?? 'null'}）`);
+    // 成果 0 件の期間は A8 が CSV ボタンを出さず「データがありません」だけを出す。取得側（fetch-a8-ui-csv の emptyOk）は
+    // CSV を落とさず noData・0 行で downloaded にするので、raw と sha256 は無いのが正しい。0 件と取得の失敗を分けて出す（DN-1266）
+    const emptyOk = u.noData === true && u.csvRows === 0 && cfg?.a8?.reports?.[k]?.emptyOk === true;
+    if (emptyOk) f.add('info', `${k}: 成果 0 件の期間（A8 の「データがありません」・CSV なし）`);
+    else if (!(u.csvRows > 0)) f.add('warn', `${k}: csvRows=${u.csvRows}`);
+    const raw = emptyOk ? null : resolveRaw(dir, root, u.rawFile);
+    if (emptyOk) { /* raw なしが正しい */ }
+    else if (!raw) f.add('fail', `${k}: rawFile が実在しない（${u.rawFile ?? 'null'}）`);
     else if (!u.sha256) f.add('fail', `${k}: manifest に sha256 が無い`);
     else if (sha256Of(readFileSync(raw)) !== u.sha256) f.add('fail', `${k}: sha256 が不一致（改竄または再取得）`);
     if (!u.period) f.add('warn', `${k}: period が記録されていない`);

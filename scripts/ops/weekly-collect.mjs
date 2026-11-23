@@ -31,11 +31,15 @@ import { spawn, spawnSync } from 'node:child_process';
 import { hostname } from 'node:os';
 
 import { parseCliArgs } from '../lib/cli-args.mjs';
-import { datasetPath, freshnessDays, latestFileDate } from '../lib/datasets.mjs';
+import { dirname, join } from 'node:path';
+import { datasetDir, datasetPath, freshnessDays, latestFileDate } from '../lib/datasets.mjs';
+import { listRunIds } from '../lib/run-audit.mjs';
 import { readJsonIf, writeJson } from '../lib/json-io.mjs';
 import { guardBrowserLaunch, LaunchGuardError } from '../lib/playwright-launch.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
-import { commitAndPush, onBranch } from '../lib/routine-commit.mjs';
+import { commitAndPush, onBranch, pushToDevelop } from '../lib/routine-commit.mjs';
+import { commitStageRecords } from '../lib/weekly-collect-commit.mjs';
+import { WEEKLY_REVIEW_LOG } from '../lib/review-automation.mjs';
 import { buildStages, commandFailureReason, judgeRuns, previousMonth, resumePlan, runPassed, stageStatus, verifyFailureReason } from '../lib/weekly-collect-plan.mjs';
 import { jstMonth, todayJst } from '../lib/jst-date.mjs';
 import { CHECKS, resolveCommand } from './quality-audit.mjs';
@@ -130,10 +134,25 @@ function verifyCommand(id) {
   return { argv: command[0] === 'node' ? command.slice(1) : command, timeoutMin: Math.ceil(check.timeout / 60_000) };
 }
 
-/** 取った記録の検算。skip の段でも回す（取る月が無い週も、過去の記録の食い違いを見落とさない） */
-async function runVerify(stage, result) {
+/** 段の verifyIfNewRun（検算 id → 取得の run の置き場の台帳 id）ごとに、いまある run の一覧を取る */
+function runIdsByVerify(stage) {
+  return Object.fromEntries(Object.entries(stage.verifyIfNewRun ?? {}).map(([id, key]) => [id, listRunIds(join(REPO_ROOT, datasetDir(key)))]));
+}
+
+/** 取った記録の検算。skip の段でも回す（取る月が無い週も、過去の記録の食い違いを見落とさない）。
+ * verifyIfNewRun の検算は、この回に run が増えたときだけ回す（取得の 1 回分を見る検算は、取得しなかった週に見る物が無い・DN-1267） */
+async function runVerify(stage, result, runsBefore = {}) {
   const failures = [];
   for (const id of stage.verify ?? []) {
+    if (runsBefore[id]) {
+      const before = new Set(runsBefore[id]);
+      const fresh = listRunIds(join(REPO_ROOT, datasetDir(stage.verifyIfNewRun[id]))).filter((r) => !before.has(r));
+      if (fresh.length === 0) {
+        console.log(`${TAG} [${stage.id}] 検算 ${id}: この回は取得していない（run が増えていない）ので回さない`);
+        result.verify.push({ id, exit: null, skipped: 'この回は取得していない' });
+        continue;
+      }
+    }
     const { argv, timeoutMin } = verifyCommand(id);
     console.log(`${TAG} [${stage.id}] 検算 ${id}: ${argv.join(' ')}`);
     const r = await runCommand(argv, { timeoutMin, env: {} });
@@ -147,6 +166,7 @@ async function runStage(stage) {
   const started = Date.now();
   const result = { id: stage.id, title: stage.title, status: 'skipped', reason: '', exits: [], verify: [], durationSec: 0 };
   const reasons = [];
+  const runsBefore = runIdsByVerify(stage);
   if (stage.skip) {
     reasons.push(stage.skip);
   } else {
@@ -172,19 +192,47 @@ async function runStage(stage) {
       if (result.status === 'ok') reasons.length = 0;
     }
   }
-  const verifyFailures = await runVerify(stage, result);
+  const verifyFailures = await runVerify(stage, result, runsBefore);
   if (verifyFailures.length) { result.status = 'failed'; reasons.push(...verifyFailures); }
   result.reason = reasons.join(' / ').slice(0, 900);
   result.durationSec = Math.round((Date.now() - started) / 1000);
   return result;
 }
 
-/** selfCommits でない段が残した記録を、型を検査してから commit・push する。paths は data/ と段の addPaths */
-function commitPending(label, paths) {
-  if (!git(['status', '--porcelain']).stdout.trim()) return null;
+/** ci-data add で記録を stage する（型の違反・git の失敗は理由を返す） */
+function stageRecords(paths) {
   const add = spawnSync(process.execPath, ['scripts/ops/ci-data.mjs', 'add', '--paths', paths, '--datasets', ADD_DATASETS], { cwd: REPO_ROOT, encoding: 'utf8' });
   process.stdout.write(add.stdout || ''); process.stderr.write(add.stderr || '');
-  if (add.status !== 0) return `ci-data add が exit ${add.status}（型の違反か git の失敗）`;
+  return add.status === 0 ? null : `ci-data add が exit ${add.status}（型の違反か git の失敗）`;
+}
+
+/**
+ * 段が残した記録をその段の commit にする（DN-1195）。commit が検査で落ちたら、その段のファイルだけを退避して段を failed にし、
+ * 次の段の記録は止めない。push は段ごと（途中で Mac が止まっても、済んだ段の記録は develop に残る・DN-1196）
+ */
+function commitStage(stage, result, paths) {
+  const keepDir = join(dirname(WEEKLY_REVIEW_LOG), `weekly-collect-setaside-${nowIso().replace(/[-:]/g, '').slice(0, 15)}-${stage.id}`);
+  const r = commitStageRecords({
+    root: REPO_ROOT,
+    message: `chore(weekly-collect): ${stage.id} の記録 ${nowIso().slice(0, 16)}Z [skip ci]`,
+    stage: () => stageRecords(paths),
+    keepDir,
+    push: args.noPush ? null : pushToDevelop,
+  });
+  if (r.status === 'set-aside') {
+    result.status = 'failed';
+    result.reason = [result.reason, `記録を commit できず退避した（${r.files.length} ファイル・${keepDir}）: ${r.problem}`].filter(Boolean).join(' / ').slice(0, 1500);
+    console.log(`${TAG} [${stage.id}] 記録を退避: ${keepDir}`);
+    return null;
+  }
+  return r.problem ?? null;
+}
+
+/** 段の外で残った記録（前の回の取り残しなど）を、型を検査してから commit・push する。paths は data/ と段の addPaths */
+function commitPending(label, paths) {
+  if (!git(['status', '--porcelain']).stdout.trim()) return null;
+  const problem = stageRecords(paths);
+  if (problem) return problem;
   const r = commitAndPush([], `chore(weekly-collect): ${label} ${nowIso().slice(0, 16)}Z [skip ci]`, { push: !args.noPush });
   return r.problem ?? null;
 }
@@ -250,7 +298,7 @@ async function main() {
   const kdp = kdpMonthsDue();
   const stages = buildStages({ kdpMonths: kdp.months, competitorScans: competitorScans(), noteAuditLastAt: noteAuditLastAt(), noteTrafficMonthFetchedAt: noteTrafficMonthFetchedAt() });
   if (args.plan) {
-    const view = stages.map((s) => ({ id: s.id, phase: s.phase, title: s.title, skip: s.skip ?? null, commands: s.commands.map((c) => c.argv.join(' ')), verify: (s.verify ?? []).map((id) => ({ id, command: verifyCommand(id).argv.join(' ') })) }));
+    const view = stages.map((s) => ({ id: s.id, phase: s.phase, title: s.title, skip: s.skip ?? null, commands: s.commands.map((c) => c.argv.join(' ')), verify: (s.verify ?? []).map((id) => ({ id, command: verifyCommand(id).argv.join(' ') + (s.verifyIfNewRun?.[id] ? '（この回に run が増えたときだけ）' : '') })) }));
     if (args.json) console.log(JSON.stringify({ stages: view, kdpProblem: kdp.problem ?? null }, null, 2));
     else for (const s of view) console.log(`${s.phase.padEnd(4)} ${s.id.padEnd(16)} ${s.title}${s.skip ? `（skip: ${s.skip}）` : ''}\n${[...s.commands.map((c) => `       ${c}`), ...s.verify.map((v) => `       検算 ${v.id}: ${v.command}`)].join('\n')}`);
     return;
@@ -264,9 +312,13 @@ async function main() {
 
   const problems = [];
   const addPaths = [ADD_PATHS, ...new Set(selected.flatMap((s) => s.addPaths ?? []))].join(',');
+  // 前の回の取り残しは、最初の段の記録に混ぜない
+  { const p = commitPending('前の回の残り', addPaths); if (p) problems.push(p); }
   for (const stage of selected) {
-    if (stage.selfCommits) { const p = commitPending('記録の保存', addPaths); if (p) problems.push(p); }
     const r = await runStage(stage);
+    // selfCommits の段も、時間切れなどで自分の commit の外に残した記録をここで拾う
+    const p = commitStage(stage, r, addPaths);
+    if (p) problems.push(`${stage.id}: ${p}`);
     run.stages.push(r);
     console.log(`${TAG} [${stage.id}] ${r.status}${r.reason ? `: ${r.reason}` : ''}`);
   }
