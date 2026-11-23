@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "packId": "c2-niji-gakka-mihon",
+  "exam": "civil-construction-2",
+  "title": "【2級土木】第二次検定の全体像｜経験記述の出題履歴と学科記述の解き方の見本",
+  "audience": "2級土木 R8 二次の合格発表を待つ人、2027 年に二次を受ける人",
+  "pain": "学科記述は分野が広く、何がどの形式で出るのか、どう書けば部分点が取れるのか分からない",
+  "promise": "経験記述と学科記述の出題履歴が分かり、令和8年度の1問で読み方から書き方までの手順が見える",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r08/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-written-questions-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-niji-marugoto-pack",
+    "campaign": "c2-niji-gakka-mihon"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  },
+  "outline": {
+    "format": "kanban-survey",
+    "minutes": 11,
+    "titleCandidates": [
+      "【2級土木】第二次検定の全体像｜経験記述の出題履歴と学科記述の解き方の見本",
+      "【2級土木】学科記述は6分野で読む｜令和8年度 法面保護工を解いてみる"
+    ],
+    "chapters": [
+      {
+        "at": "0:00",
+        "title": "つかみ",
+        "body": "二次は経験記述 1 問＋学科記述 8 問。合格基準 60%・配点は非公表"
+      },
+      {
+        "at": "1:09",
+        "title": "経験記述の出題履歴",
+        "body": "R3〜R5 は 2 つから 1 つ選択、R6 から 2 テーマ必答（R6 品質＋工程、R7 安全＋工程、R8 品質＋安全）。安全・品質・工程の 3 つを準備する理由"
+      },
+      {
+        "at": "2:06",
+        "title": "学科記述の構成",
+        "body": "必須と選択（同じ組で 2 問解くと減点）、6 分野（土工・コンクリート・品質・安全・施工計画・工程）、穴埋め・用語説明・対策列挙の 3 形式。各形式の短い練習つき"
+      },
+      {
+        "at": "4:26",
+        "title": "1 問を丸ごと解く",
+        "body": "令和8年度の法面保護工（①〜④から 2 つ選び、目的か留意点を書く）。問題文の読み方 → 選び方 → 書き方 → 部分点の取り方の順に 1 問だけ通す（部分点は非公表と断り、書いたあとの点検まで通す）"
+      },
+      {
+        "at": "9:09",
+        "title": "結果までに知っておくこと",
+        "body": "発表は 2027-02-03（一次の発表は 12-02）。同日受検は一次が基準に届かないと二次は採点されない。通知は全体の結果のみ（評定 B・C）。振り返りは無料 note へ案内"
+      },
+      {
+        "at": "9:40",
+        "title": "まとめと次の行動",
+        "body": "概要欄の note と、サイトの解答例ページ"
+      }
+    ],
+    "free": [
+      "出題履歴",
+      "出題形式",
+      "サイトで公開済みの 1 問の解き方"
+    ],
+    "paid": [
+      "残りの問題の解説",
+      "暗記ノート（civil-2-anki-note）",
+      "出る順の全表（civil-2-gakka-kijutsu）"
+    ],
+    "beforeScript": [
+      "解答速報（exam-sokuho）は 2026 年はやらないと決めている。試験直後の答え合わせではなく「解き方の見本」として作り、年度の全問は通さない",
+      "公開題名は 2級の表記（【2級土木】テーマ｜…）にそろえる（video-content-policy §2.1）"
+    ]
+  }
+}

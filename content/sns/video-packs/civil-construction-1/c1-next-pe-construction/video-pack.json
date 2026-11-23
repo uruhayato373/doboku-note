@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-next-pe-construction",
+  "exam": "civil-construction-1",
+  "title": "1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験",
+  "audience": "1級土木の二次に合格した人、合格発表を待つ人",
+  "pain": "1級の次に技術士（建設部門）を考えているが、経験記述の延長で書けるのか、何が違うのか分からない",
+  "promise": "1級の経験記述と技術士の記述式の違いと、受ける前に確かめることが分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-construction-1/guide-vs-pe/article.mdx",
+    "campaign": "c1-next-pe-construction"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  },
+  "outline": {
+    "format": "mindset",
+    "minutes": 11,
+    "titleCandidates": [
+      "1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験"
+    ],
+    "chapters": [
+      {
+        "at": "0:00",
+        "title": "つかみ",
+        "body": "思い込みを先に疑う。三つの違いを示し、実績を語らない・合格を保証しないと断る。範囲は記述の性質だけ"
+      },
+      {
+        "at": "0:56",
+        "title": "思い込み1　書く中身が違う",
+        "body": "根拠法と記述の中心の違い。事実から判断の理由へ。架空の排水対策の例で比べ、事実は材料として使う"
+      },
+      {
+        "at": "3:00",
+        "title": "思い込み2　答える相手が違う",
+        "body": "1級は自分の工事が主役、技術士は設問の問い。科目ごとの枚数、観点を立てた課題の選び方、設問の分解"
+      },
+      {
+        "at": "4:50",
+        "title": "思い込み3　骨格と点の取り方",
+        "body": "課題から評価の四段と、現状から効果・リスクの四段。始まりと終わりの中身の違い、リスクを自分で挙げる。一般論で止めない点は共通"
+      },
+      {
+        "at": "6:23",
+        "title": "点と時間の違い",
+        "body": "1枚600字・約20分、配点と合格ライン、必須と選択はそれぞれ基準、合格率、口頭試験、受験資格は公式で確認"
+      },
+      {
+        "at": "8:25",
+        "title": "まとめ　受ける前に確かめる三つ",
+        "body": "三つの違いの整理と、設問の分解・判断の理由を足す・1枚20分の三つの確認。年度の条件は公式で確認"
+      },
+      {
+        "at": "9:43",
+        "title": "限界・次の行動",
+        "body": "動画の限界、まとめ。次に観る動画と、概要欄のサイト記事"
+      }
+    ],
+    "free": [
+      "1級の経験記述と技術士の記述式の違い",
+      "受ける前に確かめること"
+    ],
+    "paid": [],
+    "related": [
+      "civil-construction-1/civil-license-ladder-order",
+      "civil-construction-1/c1-next-license-after-first"
+    ],
+    "beforeScript": [
+      "候補。台本は先に書いたが、公開の採否は先の 4 本の結果を見て決める",
+      "技術士の段の考え方は docs/marketing/08_YouTube戦略_技術士建設部門.md に従う"
+    ]
+  }
+}

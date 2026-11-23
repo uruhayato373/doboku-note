@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-omoikomi-top3",
+  "exam": "civil-construction-1",
+  "title": "施工経験記述で落ちる人の思い込みTOP3｜発注者の目線で答案を点検する3つの問い",
+  "audience": "1級・2級土木の二次を受けて手応えがない人、不合格だった人、2027 年に二次を受ける人",
+  "pain": "経験記述を書き切ったのに落ちた、あるいは落ちそうで、何が足りないのか自分では分からない",
+  "promise": "落ちやすい答案に共通する3つの思い込みと、書類を読む側の目線で答案を点検する3つの問いが分かる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md",
+      "access": "free"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-keiken-complete-pack",
+    "campaign": "c1-keiken-omoikomi-top3"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  },
+  "outline": {
+    "format": "mindset",
+    "minutes": 11,
+    "titleCandidates": [
+      "施工経験記述で落ちる人の思い込みTOP3｜発注者の目線で答案を点検する3つの問い",
+      "【1級・2級土木】経験記述が「書けたのに落ちる」3つの思い込み｜書類を読む側の目線",
+      "経験記述は大きさや言い換えでは決まらない｜落ちる答案に共通する3つの思い込み"
+    ],
+    "chapters": [
+      {
+        "at": "0:00",
+        "title": "つかみ",
+        "body": "書けたのに落ちる原因になりやすい三つの思い込みを先に示す。語るのは発注者側で書類を読む目線で、採点基準は非公表・合格は保証しないと断る"
+      },
+      {
+        "at": "0:35",
+        "title": "思い込み1　大きな工事が有利",
+        "body": "珍しい工法を書いても加点されない（2級の記事）。見られるのは経験と立場。立場の欄・設問ごとの切り口・経験していない工事は失格"
+      },
+      {
+        "at": "2:13",
+        "title": "思い込み2　課題・検討・処置は言い換えでよい",
+        "body": "令和8年度の設問構成と令和6年度からの形式。四つの欄は別々の問いに答える。伏せ字の架空の悪い例を1つだけ見せ、手が止まる所は独自の見立てとして示す。設問の指定（交通誘導員の配置のみは除く）を外さない"
+      },
+      {
+        "at": "5:19",
+        "title": "思い込み3　工事概要は最後でよい",
+        "body": "工事概要の項目、無記載は不合格とされる解説、工期の決まり、概要と本文の数字の食い違い"
+      },
+      {
+        "at": "6:54",
+        "title": "三つの共通点",
+        "body": "どれも書く側の都合。独学で気づける層と気づけない層。三つを正しい形へ"
+      },
+      {
+        "at": "7:40",
+        "title": "合格率・合格基準と部分点",
+        "body": "二次の合格率、合格基準は得点60%以上で配点は非公表。書いた分だけが採点の対象で、空欄を作らず設問の指示語に応える"
+      },
+      {
+        "at": "9:35",
+        "title": "限界・まとめ・次の行動",
+        "body": "動画の限界、三つのまとめと点検の三つの問い。次に観る動画（c1-keiken-shudai-rireki）と概要欄の note"
+      }
+    ],
+    "free": [
+      "3つの思い込み",
+      "採点で止まる箇所",
+      "伏せ字の架空の悪い例 1 つ"
+    ],
+    "paid": [
+      "良い例の完成文",
+      "添削観点の一覧",
+      "置換ガイド"
+    ],
+    "related": [
+      "civil-construction-1/c1-keiken-ochiru-naoshikata",
+      "civil-construction-1/c1-keiken-hacchusha-yomu"
+    ],
+    "beforeScript": [
+      "既存の c1-keiken-ochiru-naoshikata（直し方）と中身を重ねない。こちらは思い込みを正す側に留める"
+    ]
+  }
+}

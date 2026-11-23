@@ -15,6 +15,18 @@
       }
     },
     {
+      "id": "c1-ichiji-derujun-tokuten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-ichiji-derujun-tokuten",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-23",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b23ff6b77f8b8b636eac9dbc16d7506a1ca245fb49eb6460a3050d07863e7f5c"
+      }
+    },
+    {
       "id": "c1-juken-junjo-2027",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027",
@@ -88,6 +100,30 @@
       }
     },
     {
+      "id": "c1-keiken-omoikomi-top3",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-omoikomi-top3",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-23",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "4f4a4256d1ea8de9c8df9eae7ef27972d393bc60ccdb446987f4eb55f80fdc89"
+      }
+    },
+    {
+      "id": "c1-keiken-shudai-rireki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-shudai-rireki",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-23",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "621c1362cbf30587e82d01fe02db243ba812760eae0d44f1e2a26d0bf340951b"
+      }
+    },
+    {
       "id": "c1-next-license-after-first",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first",
@@ -97,6 +133,18 @@
         "at": "2026-11-11",
         "by": "Claude Code video-content-qa",
         "inputSha256": "33ec4fac7c47c47acfa65eeb6d97b19b807dc259c226a531d4771ba4b3ebacc0"
+      }
+    },
+    {
+      "id": "c1-next-pe-construction",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-next-pe-construction",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-23",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "10c2275234527dd4d72a4e32e928dd20fdf146c3d2f5723f256c170bab5d6a36"
       }
     },
     {

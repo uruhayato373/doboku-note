@@ -4,42 +4,47 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **91**（更新: 2026-11-11）
+パック数: **96**（更新: 2026-11-23）
 
-## 1級土木施工管理技士（16）
+## 1級土木施工管理技士（20）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `c1-after-ichiji-niji-junbi` | 1級土木｜第一次検定のあとにやる二次の準備 | 第一次検定のあと、第二次検定の準備を何から始めればよいか分からず、参考書を読み進めて書く材料が決まらない | roadmap | 未登録 | 台本/構成 | `civil-1-niji-marugoto-pack` |
-| `c1-juken-junjo-2027` | 1級土木｜2027 年度の受検の順序 | 2027 年度に1級土木を受けたいが、申込・第一次検定・第二次検定の時期と、それに合わせて何をどの順で準備すればよいか分からない | roadmap | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
-| `c1-keiken-anzen-kakikata` | 1級土木 経験記述｜安全管理の書き方 | 経験記述で安全管理が出たとき、危険予知活動や安全パトロールしか浮かばず、何を課題にして書けばよいか分からない | howto | 未登録 | 台本/構成 | `civil-1-experience-essay` |
-| `c1-keiken-hacchusha-yomu` | 1級土木 経験記述｜発注者はどこを読むか | 経験記述を書いたが、一般論になっていないか、工事の書類を読む側にどう読まれるか分からず不安 | howto | 未登録 | 台本/構成 | `civil-1-experience-essay` |
-| `c1-keiken-hinshitsu-kakikata` | 1級土木 経験記述｜品質管理の書き方 | 経験記述で品質管理が出たとき、品質に留意して施工した、までしか書けず、どの品質項目を課題にして、基準や測り方をどう書けばよいか分からない | howto | 未登録 | 台本/構成 | `civil-1-experience-essay` |
-| `c1-keiken-kouji-gaiyou` | 1級土木 経験記述｜工事概要の書き方 | 経験記述の工事概要の七つの欄を埋めても、どこまで細かく書けば足りるのか、欄どうしが合っているのか分からない | howto | 未登録 | 台本/構成 | `civil-1-keiken-complete-pack` |
-| `c1-keiken-ochiru-naoshikata` | 1級土木 経験記述｜落ちる答案の直し方 | 経験記述を書いたが、課題に処置を書くなど欄の中身を取り違えていないか不安で、どこをどう直せばよいか分からない | howto | 未登録 | 台本/構成 | `civil-1-experience-essay` |
-| `c1-next-license-after-first` | 1級の次に取る資格 | 1級を取ったあと、技術士・RCCM・コンクリート診断士のどれを次に取るか、基準が分からず決められない | roadmap | 未登録 | 台本/構成 | `links-hub` |
-| `civil-license-ladder-order` | 2級から1級、技術士へ進む順序 | 2級の次に1級を取るか技術士に進むか迷い、三つの資格の役割と受験の起点の違いが分からず、進む順序を決められない | roadmap | 未登録 | 台本/構成 | `links-hub` |
-| `owner-career-before-moving` | 発注者側へ移る前に知ること | 受注者側から発注者側へ移ると何が変わるのか、移った後の仕事の持ち方と最初に何を確かめるかが分からない | career | 未登録 | 台本/構成 | `site-article` |
-| `owner-career-shigoto` | 発注者の仕事の中身 | 発注者側の土木技術者が1年を通じて何をしているかが分からず、受注者側から見た発注者の動きや判断の理由がつかめない | career | レビュー | 台本/構成 | `site-article` |
-| `owner-eye-kantokuin` | 監督員とのやり取りで押さえること | 監督員との指示・承諾・協議で何を記録し、どう伝えれば後で揉めないかが分からない | howto | レビュー | 台本/構成 | `site-article` |
-| `owner-eye-kouji-kensa` | 工事検査で発注者が見るところ | 発注者の工事検査で何を見られるのか分からず、書類と出来形・品質の準備が後手になる | howto | レビュー | 台本/構成 | `site-article` |
-| `owner-eye-sekkei-henkou-hantei` | 設計変更を発注者はどう判断するか | 設計変更を申し出ても、発注者が何を見て判断するのか分からず、通る申出の組み立てが分からない | howto | 未登録 | 台本/構成 | `site-article` |
-| `owner-eye-sekkei-tosho` | 発注者の目で読む設計図書 | 設計図書のどこを先に読み、発注者が何を前提に書いているかが分からず、着工前の照査や食い違いの確認が後手になる | howto | レビュー | 台本/構成 | `site-article` |
-| `owner-eye-suryo-sekisan` | 数量と積算を発注者の目で見る | 積算や数量の話が総額でしか読めず、どの費目や数量が動いたのか、何を根拠に言えばよいかが分からない | howto | 未登録 | 台本/構成 | `site-article` |
+| `c1-after-ichiji-niji-junbi` | 1級土木｜第一次検定のあとにやる二次の準備 | 第一次検定のあと、第二次検定の準備を何から始めればよいか分からず、参考書を読み進めて書く材料が決まらない | roadmap | レビュー | 台本/構成 | `civil-1-niji-marugoto-pack` |
+| `c1-ichiji-derujun-tokuten` | 1級土木 第一次検定｜分野ごとの出題数から逆算する、46問の取り方 | 一次の範囲が広すぎて、どこから手をつけ、どこを捨ててよいのかが分からない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-pack` |
+| `c1-juken-junjo-2027` | 1級土木｜2027 年度の受検の順序 | 2027 年度に1級土木を受けたいが、申込・第一次検定・第二次検定の時期と、それに合わせて何をどの順で準備すればよいか分からない | roadmap | 予約 | 台本/構成 | `civil-1-ichiji-ronten` |
+| `c1-keiken-anzen-kakikata` | 1級土木 経験記述｜安全管理の書き方 | 経験記述で安全管理が出たとき、危険予知活動や安全パトロールしか浮かばず、何を課題にして書けばよいか分からない | howto | 公開 | 台本/構成 | `civil-1-experience-essay` |
+| `c1-keiken-hacchusha-yomu` | 1級土木 経験記述｜発注者はどこを読むか | 経験記述を書いたが、一般論になっていないか、工事の書類を読む側にどう読まれるか分からず不安 | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
+| `c1-keiken-hinshitsu-kakikata` | 1級土木 経験記述｜品質管理の書き方 | 経験記述で品質管理が出たとき、品質に留意して施工した、までしか書けず、どの品質項目を課題にして、基準や測り方をどう書けばよいか分からない | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
+| `c1-keiken-kouji-gaiyou` | 1級土木 経験記述｜工事概要の書き方 | 経験記述の工事概要の七つの欄を埋めても、どこまで細かく書けば足りるのか、欄どうしが合っているのか分からない | howto | 公開 | 台本/構成 | `civil-1-keiken-complete-pack` |
+| `c1-keiken-ochiru-naoshikata` | 1級土木 経験記述｜落ちる答案の直し方 | 経験記述を書いたが、課題に処置を書くなど欄の中身を取り違えていないか不安で、どこをどう直せばよいか分からない | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
+| `c1-keiken-omoikomi-top3` | 施工経験記述で落ちる人の思い込みTOP3｜発注者の目線で答案を点検する3つの問い | 経験記述を書き切ったのに落ちた、あるいは落ちそうで、何が足りないのか自分では分からない | diagnosis | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
+| `c1-keiken-shudai-rireki` | 1級土木 経験記述｜16年分の出題テーマ全履歴と令和9年度の見立て | 経験記述でどの管理項目が出るか読めず、5つ全部を準備するべきか、山を張ってよいか決められない | exam-point | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
+| `c1-next-license-after-first` | 1級の次に取る資格 | 1級を取ったあと、技術士・RCCM・コンクリート診断士のどれを次に取るか、基準が分からず決められない | roadmap | レビュー | 台本/構成 | `site-article` |
+| `c1-next-pe-construction` | 1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験 | 1級の次に技術士（建設部門）を考えているが、経験記述の延長で書けるのか、何が違うのか分からない | roadmap | レビュー | 台本/構成 | `site-article` |
+| `civil-license-ladder-order` | 2級から1級、技術士へ進む順序 | 2級の次に1級を取るか技術士に進むか迷い、三つの資格の役割と受験の起点の違いが分からず、進む順序を決められない | roadmap | 予約 | 台本/構成 | `site-article` |
+| `owner-career-before-moving` | 発注者側へ移る前に知ること | 受注者側から発注者側へ移ると何が変わるのか、移った後の仕事の持ち方と最初に何を確かめるかが分からない | career | 予約 | 台本/構成 | `site-article` |
+| `owner-career-shigoto` | 発注者の仕事の中身 | 発注者側の土木技術者が1年を通じて何をしているかが分からず、受注者側から見た発注者の動きや判断の理由がつかめない | career | 予約 | 台本/構成 | `site-article` |
+| `owner-eye-kantokuin` | 監督員とのやり取りで押さえること | 監督員との指示・承諾・協議で何を記録し、どう伝えれば後で揉めないかが分からない | howto | 予約 | 台本/構成 | `site-article` |
+| `owner-eye-kouji-kensa` | 工事検査で発注者が見るところ | 発注者の工事検査で何を見られるのか分からず、書類と出来形・品質の準備が後手になる | howto | 予約 | 台本/構成 | `site-article` |
+| `owner-eye-sekkei-henkou-hantei` | 設計変更を発注者はどう判断するか | 設計変更を申し出ても、発注者が何を見て判断するのか分からず、通る申出の組み立てが分からない | howto | 予約 | 台本/構成 | `site-article` |
+| `owner-eye-sekkei-tosho` | 発注者の目で読む設計図書 | 設計図書のどこを先に読み、発注者が何を前提に書いているかが分からず、着工前の照査や食い違いの確認が後手になる | howto | 予約 | 台本/構成 | `site-article` |
+| `owner-eye-suryo-sekisan` | 数量と積算を発注者の目で見る | 積算や数量の話が総額でしか読めず、どの費目や数量が動いたのか、何を根拠に言えばよいかが分からない | howto | 予約 | 台本/構成 | `site-article` |
 
-## 2級土木施工管理技士（9）
+## 2級土木施工管理技士（10）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `anzen-touan-gutaika-kaitei` | 安全管理の答案を具体化する — 総監・元発注者の解説（改訂版） | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 公開 | 台本/構成 | `civil-2-experience-essay` |
-| `c2-juken-junjo-2027` | 2級土木｜2027 年度の受検の順序 | 2027 年度に2級土木を受けたいが、第一次検定の前期・後期と第二次検定をどう分けて受け、何をどの順で準備すればよいか分からない | roadmap | レビュー | 台本/構成 | `civil-2-takuitsu-pdf` |
+| `c2-juken-junjo-2027` | 2級土木｜2027 年度の受検の順序 | 2027 年度に2級土木を受けたいが、第一次検定の前期・後期と第二次検定をどう分けて受け、何をどの順で準備すればよいか分からない | roadmap | 予約 | 台本/構成 | `civil-2-takuitsu-pdf` |
+| `c2-niji-gakka-mihon` | 【2級土木】第二次検定の全体像｜経験記述の出題履歴と学科記述の解き方の見本 | 学科記述は分野が広く、何がどの形式で出るのか、どう書けば部分点が取れるのか分からない | exam-point | レビュー | 台本/構成 | `civil-2-niji-marugoto-pack` |
 | `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 公開 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `hinshitsu-touan-gutaika` | 品質管理｜試験をした、だけで終わらせない | 品質管理の答案が「試験をした」で終わり、現場条件に合った管理の内容が伝わらない | howto | 公開 | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-anzen-kakikata` | 安全管理の書き方｜課題・検討・処置を欄ごとに分ける | 安全管理の答案で、課題に対策まで書いたり、検討と処置が重なったりして、欄の役割が分からない | howto | 未登録 | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-daizai-erabi` | 題材選び｜規模より自分の経験 | 小規模な工事しか経験がなく、施工経験記述に書ける題材がないと思っている | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-hinshitsu-kakikata` | 品質管理の書き方｜検討は観点から選ぶ | 品質管理の答案で、検討に何を書けばよいか分からず、処置と同じ内容を重ねたり、観点が課題に合わなかったりする | howto | 未登録 | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-koji-gaiyo-kakikata` | 工事概要の書き方｜具体さと本文との整合 | 施工経験記述の工事概要は埋めたが、採点者に現場が伝わる具体さか、本文と食い違っていないかが分からない | howto | 未登録 | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-teishutsumae-tenken` | 提出前の点検｜経験記述を5点で見直す | 書き上げた経験記述の答案を、どの観点でどの順に見直せばよいか分からず、不安なまま仕上げてしまう | howto | 未登録 | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-anzen-kakikata` | 安全管理の書き方｜課題・検討・処置を欄ごとに分ける | 安全管理の答案で、課題に対策まで書いたり、検討と処置が重なったりして、欄の役割が分からない | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-daizai-erabi` | 題材選び｜規模より自分の経験 | 小規模な工事しか経験がなく、施工経験記述に書ける題材がないと思っている | howto | 停止 | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-hinshitsu-kakikata` | 品質管理の書き方｜検討は観点から選ぶ | 品質管理の答案で、検討に何を書けばよいか分からず、処置と同じ内容を重ねたり、観点が課題に合わなかったりする | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-koji-gaiyo-kakikata` | 工事概要の書き方｜具体さと本文との整合 | 施工経験記述の工事概要は埋めたが、採点者に現場が伝わる具体さか、本文と食い違っていないかが分からない | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-teishutsumae-tenken` | 提出前の点検｜経験記述を5点で見直す | 書き上げた経験記述の答案を、どの観点でどの順に見直せばよいか分からず、不安なまま仕上げてしまう | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
 
 ## 技術士 第一次試験（12）
 
@@ -47,7 +52,7 @@
 |---|---|---|---|---|---|---|
 | `pe1-kiso-2of3-reliability` | 技術士一次 基礎科目 2/3多数決系の信頼度は「2個正常」と「3個正常」を足す | 2/3多数決冗長系の信頼度を求めるとき、ちょうど2個正常と3個正常の片方を足し忘れる、または2個正常の3通りを掛け忘れる | exam-point | 公開 | 台本/構成 | `pe1-chokuzen-pack` |
 | `pe1-kiso-2s-complement` | 技術士一次 基礎科目 1の補数と2の補数は「+1」の1手で分かれる | 2進数の1の補数と2の補数を取り違え、反転しただけの値や+1の相手を誤って選んでしまう | exam-point | 公開 | 台本/構成 | `pe1-chokuzen-pack` |
-| `pe1-kiso-gradient-length` | 技術士一次 基礎科目 勾配ベクトルと最急勾配の長さを取り違えない | 令和7年度 基礎Ⅰ-3-2の論点である、勾配ベクトルそのものと、最急勾配の長さ（ノルム）を取り違えてしまう | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-gradient-length` | 技術士一次 基礎科目 勾配ベクトルと最急勾配の長さを取り違えない | 令和7年度 基礎Ⅰ-3-2の論点である、勾配ベクトルそのものと、最急勾配の長さ（ノルム）を取り違えてしまう | howto | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-gyouretsu-vector` | 技術士一次 基礎科目 ベクトルの射影を求める1つの手順 | 基礎科目のベクトルの射影で、内積の値をどう使うか分からず、式を丸暗記になる | howto | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-kairo-setsuten` | 技術士一次 基礎科目 直列と並列は接続点の名前から読む | 基礎科目の回路で、図の形から直列か並列かを決めてしまい、合成抵抗の途中で手が止まる | howto | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-newton-hou` | 技術士一次 基礎科目 ニュートン法の分母は高さを横の距離に直す | 基礎科目のニュートン法で、なぜ導関数で割るのか分からず、更新式を丸暗記になる | howto | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
@@ -62,82 +67,82 @@
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
-| `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-environment-shutsudai-yomikata` | 建設部門 建設環境｜出題の読み方 | 建設環境の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、題材が幅広い中で数の指定や除外の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-environment-magazine` |
-| `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-geotechnical-shutsudai-yomikata` | 建設部門 土質及び基礎｜出題の読み方 | 土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-geotechnical-magazine` |
-| `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-hissu1-jikan-haibun` | 建設部門 必須Ⅰ｜時間配分 | 必須Ⅰの2時間で、読解・構成・記述・見直しに何分ずつ使えばよいか決められず、書き切れるか不安 | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-hissu1-konkyo-tsumikata` | 建設部門 必須Ⅰ｜答案の組み立て — (2)の解決策に根拠を積む | 必須Ⅰの(2)で解決策の名前は浮かぶのに、なぜ効くのかを支える材料を何から集めて答案のどこに置けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-hissu1-risk-kakunin` | 建設部門 必須Ⅰ｜答案のリスクの確認 — (3)を四つの点で点検する | 必須Ⅰの設問(3)に懸念と対策を書いても、(2)の解決策から出たリスクになっているか、対策が足りているか確かめ方が分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-hissu1-theme-junbi` | 建設部門 必須Ⅰ｜テーマの読み方と準備の順序 | 必須Ⅰは毎年題が変わり、過去問を並べても何から準備すればよいか決められない | roadmap | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-ii1-kakikata` | 建設部門｜Ⅱ-1 の書き方 — 600字を設問に沿って組み立てる | Ⅱ-1の知識はあるのに、600字にまとめると散らかり、何をどの順に何字で書けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
-| `pe-ii2-kakikata` | 建設部門｜Ⅱ-2 の書き方 — 2枚50行を設問に沿って組み立てる | Ⅱ-2は手順を書くうちに知識の列挙になり、調整方策が薄くなって、50行をどう割り振ればよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-construction-planning-magazine` |
-| `pe-iii-kakikata` | 建設部門｜Ⅲ の書き方 — 3枚75行を設問に沿って組み立てる | Ⅲは3枚75行も書くのに、前置きが長くなって解決策が薄くなり、どこに何行使えばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
+| `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | 停止 | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | 停止 | 台本/構成 | `pe-construction-required-magazine` |
+| `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | 停止 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-environment-shutsudai-yomikata` | 建設部門 建設環境｜出題の読み方 | 建設環境の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、題材が幅広い中で数の指定や除外の条件をどこに気を付けて読めばよいか分からない | howto | 予約 | 台本/構成 | `pe-construction-environment-magazine` |
+| `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | 公開 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-geotechnical-shutsudai-yomikata` | 建設部門 土質及び基礎｜出題の読み方 | 土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない | howto | 公開 | 台本/構成 | `pe-construction-geotechnical-magazine` |
+| `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-hissu1-jikan-haibun` | 建設部門 必須Ⅰ｜時間配分 | 必須Ⅰの2時間で、読解・構成・記述・見直しに何分ずつ使えばよいか決められず、書き切れるか不安 | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-hissu1-konkyo-tsumikata` | 建設部門 必須Ⅰ｜答案の組み立て — (2)の解決策に根拠を積む | 必須Ⅰの(2)で解決策の名前は浮かぶのに、なぜ効くのかを支える材料を何から集めて答案のどこに置けばよいか決められない | howto | 公開 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-hissu1-risk-kakunin` | 建設部門 必須Ⅰ｜答案のリスクの確認 — (3)を四つの点で点検する | 必須Ⅰの設問(3)に懸念と対策を書いても、(2)の解決策から出たリスクになっているか、対策が足りているか確かめ方が分からない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-hissu1-theme-junbi` | 建設部門 必須Ⅰ｜テーマの読み方と準備の順序 | 必須Ⅰは毎年題が変わり、過去問を並べても何から準備すればよいか決められない | roadmap | 公開 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-ii1-kakikata` | 建設部門｜Ⅱ-1 の書き方 — 600字を設問に沿って組み立てる | Ⅱ-1の知識はあるのに、600字にまとめると散らかり、何をどの順に何字で書けばよいか決められない | howto | 予約 | 台本/構成 | `pe-construction-road-magazine` |
+| `pe-ii2-kakikata` | 建設部門｜Ⅱ-2 の書き方 — 2枚50行を設問に沿って組み立てる | Ⅱ-2は手順を書くうちに知識の列挙になり、調整方策が薄くなって、50行をどう割り振ればよいか決められない | howto | 予約 | 台本/構成 | `pe-construction-construction-planning-magazine` |
+| `pe-iii-kakikata` | 建設部門｜Ⅲ の書き方 — 3枚75行を設問に沿って組み立てる | Ⅲは3枚75行も書くのに、前置きが長くなって解決策が薄くなり、どこに何行使えばよいか決められない | howto | 予約 | 台本/構成 | `pe-construction-road-magazine` |
 | `pe-kojutsu-fukabori` | 技術士建設部門の口頭対策 — 深掘りの質問に事実で答える | 業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
-| `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | レビュー | 台本/構成 | `pe-construction-oral-guide` |
-| `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
-| `pe-river-coast-shutsudai-yomikata` | 建設部門 河川、砂防及び海岸・海洋｜出題の読み方 | 河川、砂防及び海岸・海洋の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、河川・ダム・砂防・海岸のどこに気を付けて問題文を読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-river-coast-magazine` |
-| `pe-road-shutsudai-yomikata` | 建設部門 道路｜出題の読み方 | 道路の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、どこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
-| `pe-tunnel-shutsudai-yomikata` | 建設部門 トンネル｜出題の読み方 | トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-tunnel-magazine` |
-| `pe-urban-planning-shutsudai-yomikata` | 建設部門 都市及び地方計画｜出題の読み方 | 都市及び地方計画の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、制度の説明と課題の抽出でどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-urban-planning-magazine` |
-| `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | 予約 | 台本/構成 | `pe-construction-oral-guide` |
+| `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 公開 | 台本/構成 | `pe-construction-oral-guide` |
+| `pe-river-coast-shutsudai-yomikata` | 建設部門 河川、砂防及び海岸・海洋｜出題の読み方 | 河川、砂防及び海岸・海洋の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、河川・ダム・砂防・海岸のどこに気を付けて問題文を読めばよいか分からない | howto | 予約 | 台本/構成 | `pe-construction-river-coast-magazine` |
+| `pe-road-shutsudai-yomikata` | 建設部門 道路｜出題の読み方 | 道路の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、どこに気を付けて読めばよいか分からない | howto | 公開 | 台本/構成 | `pe-construction-road-magazine` |
+| `pe-tunnel-shutsudai-yomikata` | 建設部門 トンネル｜出題の読み方 | トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない | howto | 公開 | 台本/構成 | `pe-construction-tunnel-magazine` |
+| `pe-urban-planning-shutsudai-yomikata` | 建設部門 都市及び地方計画｜出題の読み方 | 都市及び地方計画の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、制度の説明と課題の抽出でどこに気を付けて読めばよいか分からない | howto | 公開 | 台本/構成 | `pe-construction-urban-planning-magazine` |
+| `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 公開 | 台本/構成 | `pe-construction-required-magazine` |
 
 ## 技術士（総合技術監理部門）（14）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `cm-essay-tradeoff-kakikata` | 総監 記述｜5管理のトレードオフを答案に書く | 施策を書いたあと、その裏の問題点を5管理のトレードオフとしてどう書けばよいか分からない | howto | 未登録 | 台本/構成 | `essay-core-pack` |
-| `cm-fugokaku-tenken` | 総監｜落ちた原因を点検して学習を始め直す | 不合格の原因が分からないまま、同じ勉強を最初から繰り返してしまう | diagnosis | 未登録 | 台本/構成 | `essay-core-pack` |
-| `cm-mondaibun-yomikata` | 総監 記述｜問題文の読み方 | 問題文が長く、どこを拾って答案の条件にすればよいか分からない | howto | 未登録 | 台本/構成 | `essay-core-pack` |
-| `cm-ochiru-answer-naoshikata` | 総監 記述｜落ちる答案の直し方 | 答案を書いても出来に自信が持てず、どこが崩れているのか分からないまま書き直してしまう | diagnosis | 未登録 | 台本/構成 | `essay-core-pack` |
-| `cm-setsumon3-risk-kokufuku` | 総監 記述｜設問3の将来のリスクと克服策 | 設問3で施策を書いたあと、最も重大な障害をどう選び、克服策をどこまで具体に書けばよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
-| `gyoumu-keireki-kakikata` | 総監｜業務経歴の書き方 | 業務経歴票で何を書けば通るのか分からず、手が止まる | howto | 未登録 | 台本/構成 | `essay-complete-pack` |
-| `hakusho-kadai-erabu` | 総監 記述｜白書から課題を選ぶ | 白書をどこまで読み、どの課題を答案に使えばよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
-| `hakusho-shisaku-kaiketsu` | 総監 記述｜白書の施策を解決策へつなぐ | 白書で施策を見つけても、答案の解決策にどう書き換えればよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
-| `hakusho-tsunagu-jitsuen` | 総監 記述｜白書の論点を答案へつなぐ実演 | 白書で読んだ論点を、答案のどこにどう置けばよいか分からない | howto | 未登録 | 台本/構成 | `essay-core-pack` |
-| `hakusho-yomu-fukasa` | 総監 記述｜白書の読み方と読む深さ | 白書が多く、どの白書をどこまで深く読めばよいか分からない | howto | 未登録 | 台本/構成 | `tankan-reading-guide` |
-| `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | 予約 | 台本/構成 | `essay-complete-pack` |
+| `cm-essay-tradeoff-kakikata` | 総監 記述｜5管理のトレードオフを答案に書く | 施策を書いたあと、その裏の問題点を5管理のトレードオフとしてどう書けばよいか分からない | howto | 公開 | 台本/構成 | `essay-core-pack` |
+| `cm-fugokaku-tenken` | 総監｜落ちた原因を点検して学習を始め直す | 不合格の原因が分からないまま、同じ勉強を最初から繰り返してしまう | diagnosis | 公開 | 台本/構成 | `essay-core-pack` |
+| `cm-mondaibun-yomikata` | 総監 記述｜問題文の読み方 | 問題文が長く、どこを拾って答案の条件にすればよいか分からない | howto | 公開 | 台本/構成 | `essay-core-pack` |
+| `cm-ochiru-answer-naoshikata` | 総監 記述｜落ちる答案の直し方 | 答案を書いても出来に自信が持てず、どこが崩れているのか分からないまま書き直してしまう | diagnosis | 公開 | 台本/構成 | `essay-core-pack` |
+| `cm-setsumon3-risk-kokufuku` | 総監 記述｜設問3の将来のリスクと克服策 | 設問3で施策を書いたあと、最も重大な障害をどう選び、克服策をどこまで具体に書けばよいか分からない | howto | 公開 | 台本/構成 | `setsumon3-policy-bank` |
+| `gyoumu-keireki-kakikata` | 総監｜業務経歴の書き方 | 業務経歴票で何を書けば通るのか分からず、手が止まる | howto | 予約 | 台本/構成 | `essay-complete-pack` |
+| `hakusho-kadai-erabu` | 総監 記述｜白書から課題を選ぶ | 白書をどこまで読み、どの課題を答案に使えばよいか分からない | howto | 予約 | 台本/構成 | `setsumon3-policy-bank` |
+| `hakusho-shisaku-kaiketsu` | 総監 記述｜白書の施策を解決策へつなぐ | 白書で施策を見つけても、答案の解決策にどう書き換えればよいか分からない | howto | 予約 | 台本/構成 | `setsumon3-policy-bank` |
+| `hakusho-tsunagu-jitsuen` | 総監 記述｜白書の論点を答案へつなぐ実演 | 白書で読んだ論点を、答案のどこにどう置けばよいか分からない | howto | 予約 | 台本/構成 | `essay-core-pack` |
+| `hakusho-yomu-fukasa` | 総監 記述｜白書の読み方と読む深さ | 白書が多く、どの白書をどこまで深く読めばよいか分からない | howto | 予約 | 台本/構成 | `tankan-reading-guide` |
+| `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | 公開 | 台本/構成 | `essay-complete-pack` |
 | `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | 停止 | 台本/構成 | `tankan-oral-complete` |
-| `sokan-kojutsu-tachiba` | 総監 口頭｜立場ごとに聞かれることと答え方 | 立場によって口頭で聞かれることが違うと聞くが、自分の立場ではどこを準備すればよいか分からない | howto | レビュー | 台本/構成 | `tankan-oral-complete` |
-| `sokan-kojutsu-tradeoff` | 口頭試験 5管理のトレードオフを自分の経験で語る | 口頭試験で5管理のトレードオフを聞かれると、一般論の対立しか言えず、自分の経験に結び付けられない | howto | 予約 | 台本/構成 | `tankan-oral-complete` |
+| `sokan-kojutsu-tachiba` | 総監 口頭｜立場ごとに聞かれることと答え方 | 立場によって口頭で聞かれることが違うと聞くが、自分の立場ではどこを準備すればよいか分からない | howto | 予約 | 台本/構成 | `tankan-oral-complete` |
+| `sokan-kojutsu-tradeoff` | 口頭試験 5管理のトレードオフを自分の経験で語る | 口頭試験で5管理のトレードオフを聞かれると、一般論の対立しか言えず、自分の経験に結び付けられない | howto | 公開 | 台本/構成 | `tankan-oral-complete` |
 
 ## RCCM（2）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `rccm-mondai1-keiken-kakikata` | RCCM｜問題Ⅰの業務経験の書き方 — 証明書と整合させ、判断を主語に書く | 問題Ⅰで業務の選び方と、技術上・業務上の問題点の書き分けが分からず、業務の説明だけで字数が終わる | howto | 未登録 | 台本/構成 | `rccm-mondai1-template` |
-| `rccm-mondai3-ronbun-kata` | RCCM｜問題Ⅲの論文の型 — 骨子・用語の因果・配分・立場 | 問題Ⅲで、テーマが選べない中の備え方と、指定用語の使い方、設問①②の配分が分からず、用語を並べるだけの答案になる | howto | 未登録 | 台本/構成 | `rccm-mondai3-magazine` |
+| `rccm-mondai1-keiken-kakikata` | RCCM｜問題Ⅰの業務経験の書き方 — 証明書と整合させ、判断を主語に書く | 問題Ⅰで業務の選び方と、技術上・業務上の問題点の書き分けが分からず、業務の説明だけで字数が終わる | howto | 予約 | 台本/構成 | `rccm-mondai1-template` |
+| `rccm-mondai3-ronbun-kata` | RCCM｜問題Ⅲの論文の型 — 骨子・用語の因果・配分・立場 | 問題Ⅲで、テーマが選べない中の備え方と、指定用語の使い方、設問①②の配分が分からず、用語を並べるだけの答案になる | howto | レビュー | 台本/構成 | `rccm-mondai3-magazine` |
 
 ## コンクリート技士（1）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `ce-haigou-kakunin-jun` | コンクリート技士 配合計算を、確認順で1問解き切る | 配合計算で、百分率・単位・空気量・表面水のどこかでずれ、選択肢の数字と合わない | howto | 未登録 | 台本/構成 | `ce-mix-jis-practice` |
+| `ce-haigou-kakunin-jun` | コンクリート技士 配合計算を、確認順で1問解き切る | 配合計算で、百分率・単位・空気量・表面水のどこかでずれ、選択肢の数字と合わない | howto | 予約 | 台本/構成 | `ce-mix-jis-practice` |
 
 ## コンクリート主任技士（14）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `shunin-cement-4kagoubutsu` | 主任技士 セメント4化合物は強度が出る時期で並べる | C3SとC2Sの早期強度・長期強度の役割が入れ替わった選択肢で、どちらが正しいか迷う | exam-point | 公開 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-chinka-hibiware-genin` | 主任技士 沈下ひび割れと乾燥収縮の見分け方 | 打込み後1〜2時間に鉄筋上で出るひびを乾燥収縮と混同し、対策を間違える | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-chinka-hibiware-genin` | 主任技士 沈下ひび割れと乾燥収縮の見分け方 | 打込み後1〜2時間に鉄筋上で出るひびを乾燥収縮と混同し、対策を間違える | exam-point | 公開 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | 停止 | 台本/構成 | `cce-takuitsu-chokuzen-pack` |
 | `shunin-haigou-zettaiyouseki` | 主任技士 配合計算を1問、絶対容積で最後まで解く | 配合計算で、細骨材を残りで出すため合計が必ず1,000Lになり、途中の誤りに気づけない | howto | 公開 | 台本/構成 | `cce-mix-calculation-practice` |
 | `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず、どこから手を付けるか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-kanri-kikaku-genkai` | 管理限界と規格限界を混同しない — 管理図が安定でも製品は合格とは限らない | 管理図が安定なら製品も合格、と管理限界と規格限界を混同する | exam-point | 公開 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-kyoudo-hantei-2jouken` | 圧縮強度の合否は平均値だけで決めない — 二つの条件を同時に確かめる | 圧縮強度の合否を3回の平均値が呼び強度以上かどうかだけで決めてしまう | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-kyoudo-hantei-2jouken` | 圧縮強度の合否は平均値だけで決めない — 二つの条件を同時に確かめる | 圧縮強度の合否を3回の平均値が呼び強度以上かどうかだけで決めてしまう | exam-point | 公開 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-ochiru-shouronbun` | 主任技士 小論文でやりがちな4つの見直し — 設問に答える答案へ | 書き終えた小論文が設問に答えられているか、自分で確かめる方法が分からない | diagnosis | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
 | `shunin-r8-juuten` | 主任技士 直前期の過去問の回し方 — 一巡・弱点再演習・設問の聞かれ方確認 | 試験直前期に、択一の過去問をどの順でどう回せばよいか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-rekka-taio` | 主任技士 耐久性は対策より先に劣化機構を決める | 耐久性の問題で、対策が効く劣化機構を確かめず、効果が似ているという類推で選んでしまう | howto | 公開 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-shiken-zentaizou` | コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て | 四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない | roadmap | 停止 | 台本/構成 | `links-hub` |
 | `shunin-shoki-3kyokusen` | 主任技士 練混ぜ直後〜24時間の3曲線 — 断熱温度上昇・貫入抵抗・ブリーディング水 | 断熱温度上昇量・凝結試験の貫入抵抗値・ブリーディング水の累計の3曲線を取り違える | exam-point | 公開 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 項目と行数から骨子を作る | 技術的な文章を書き慣れておらず、1,000字前後の答案構成が組めない | howto | 停止 | 台本/構成 | `cce-essay-mokuji` |
-| `shunin-theme-tachiba-erabi` | 主任技士 小論文｜テーマの傾向と立場の選び方 | 小論文は選択式のテーマが多いのに、どの系統を準備し、どの立場の経験で書くか決められない | roadmap | 未登録 | 台本/構成 | `cce-marugoto-pack` |
+| `shunin-theme-tachiba-erabi` | 主任技士 小論文｜テーマの傾向と立場の選び方 | 小論文は選択式のテーマが多いのに、どの系統を準備し、どの立場の経験で書くか決められない | roadmap | 予約 | 台本/構成 | `cce-marugoto-pack` |
 
 ## コンクリート診断士（1）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `cd-mondai-b-kakikata` | 診断士｜問題Bの書き方 — 変状から対策まで一本道で組む | 劣化した構造物の写真を前に、変状から原因、調査、対策へどうつなげて書けばよいか分からず、手が止まる | howto | 未登録 | 台本/構成 | `cd-marugoto-pack` |
+| `cd-mondai-b-kakikata` | 診断士｜問題Bの書き方 — 変状から対策まで一本道で組む | 劣化した構造物の写真を前に、変状から原因、調査、対策へどうつなげて書けばよいか分からず、手が止まる | howto | レビュー | 台本/構成 | `cd-marugoto-pack` |

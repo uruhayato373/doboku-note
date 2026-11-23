@@ -1,0 +1,1031 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 13,
+      "narration": "1級土木に受かった人が、技術士を受ける前に疑ってほしい思い込みが一つあります。経験記述の延長で、技術士の記述式も書ける。この思い込みを確かめます。",
+      "caption": "同じ「記述」でも別の試験",
+      "visual": {
+        "kind": "cover",
+        "heading": "同じ記述でも別の試験",
+        "items": [
+          "1級土木から技術士（建設部門）へ"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "answer",
+      "start": 13,
+      "end": 28,
+      "narration": "先に答えです。一つ目、書く中身が違う。事実から、判断の理由へ。二つ目、答える相手が違う。自分の工事から、設問が示す問題へ。三つ目、骨格と点の取り方が違う。この三つです。",
+      "caption": "三つの違いを先に示す",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "書く中身：事実から判断の理由へ",
+          "答える相手：自分の工事から設問の問いへ",
+          "骨格と点の取り方も別"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "stance",
+      "start": 28,
+      "end": 42,
+      "narration": "見方を先に言います。語るのは、サイトの記事の整理を動画向けに組み直した内容です。受験や合格の実績は語りません。合格も保証せず、数字は記事にある値だけを使います。",
+      "caption": "この動画の見方",
+      "visual": {
+        "kind": "compare",
+        "heading": "この動画の見方",
+        "ngLabel": "しないこと",
+        "okLabel": "すること",
+        "rows": [
+          {
+            "label": "実績",
+            "ng": "語る",
+            "ok": "語らない"
+          },
+          {
+            "label": "数字",
+            "ng": "推測で出す",
+            "ok": "記事の値だけ"
+          },
+          {
+            "label": "合格",
+            "ng": "保証する",
+            "ok": "保証しない"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 42,
+      "end": 56,
+      "narration": "取る順序や、次にどの資格を選ぶかは、別の動画で扱っています。この動画は、記述の性質の違いだけに絞ります。受ける前に確かめることも、最後に三つにまとめます。",
+      "caption": "扱うのは記述の性質だけ",
+      "visual": {
+        "kind": "points",
+        "heading": "この動画の範囲",
+        "items": [
+          "扱う：記述の性質の違い",
+          "扱う：受ける前の確認",
+          "扱わない：資格を取る順序"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "m1-title",
+      "start": 56,
+      "end": 67,
+      "narration": "一つ目の思い込み。1級の経験記述を書き慣れたから、技術士の記述式も同じ要領で書ける。現場の経験があれば足りる、という考えです。",
+      "caption": "思い込み1　延長で書ける",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み1",
+        "items": [
+          "経験記述に慣れた",
+          "同じ要領で書ける",
+          "現場経験があれば足りる"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "law",
+      "start": 67,
+      "end": 82,
+      "narration": "まず前提です。記事によると、施工管理技士は建設業法が定める配置技術者の資格、技術士は技術士法が定める高度専門技術者の称号です。試験で問う能力も、別の方向を向いています。",
+      "caption": "根拠法も役割も別",
+      "visual": {
+        "kind": "compare",
+        "heading": "二つの資格の根拠",
+        "ngLabel": "1級土木施工管理技士",
+        "okLabel": "技術士",
+        "rows": [
+          {
+            "label": "根拠法",
+            "ng": "建設業法",
+            "ok": "技術士法"
+          },
+          {
+            "label": "役割の中心",
+            "ng": "配置技術者",
+            "ok": "高度専門技術者"
+          },
+          {
+            "label": "記述の中心",
+            "ng": "施工経験",
+            "ok": "課題と解決策"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "c1-kind",
+      "start": 82,
+      "end": 95,
+      "narration": "1級の第二次検定の記述は、実際の施工経験に基づく品質、安全、工程の論述が中心です。現場での判断力と、管理手法の実践が見られると、記事は整理しています。",
+      "caption": "1級は施工経験の論述",
+      "visual": {
+        "kind": "points",
+        "heading": "1級の第二次検定の記述",
+        "items": [
+          "実際の施工経験に基づく",
+          "品質・安全・工程の論述",
+          "現場の判断と管理手法の実践"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "pe-kind",
+      "start": 95,
+      "end": 109,
+      "narration": "技術士の建設部門は、技術的な課題の分析、解決策の提案、リスクへの対応を、論理的に記述する形式です。記事は、問われる論理の深さと抽象度が違うと整理しています。",
+      "caption": "技術士は分析と提案",
+      "visual": {
+        "kind": "points",
+        "heading": "技術士（建設部門）の記述",
+        "items": [
+          "課題の分析",
+          "解決策の提案",
+          "リスクへの対応"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "fact-vs-why",
+      "start": 109,
+      "end": 126,
+      "narration": "1級の記述に慣れていると、何をやったか、という事実の記述になりがちだと、記事は注意しています。技術士では、なぜその判断をしたか、何がトレードオフだったか、代替案をなぜ採らなかったかを書きます。",
+      "caption": "事実から判断の理由へ",
+      "visual": {
+        "kind": "compare",
+        "heading": "書く中心の違い",
+        "ngLabel": "1級で慣れた形",
+        "okLabel": "技術士で求められる形",
+        "rows": [
+          {
+            "label": "書く中心",
+            "ng": "何をやったか",
+            "ok": "なぜその判断か"
+          },
+          {
+            "label": "触れること",
+            "ng": "実施した処置",
+            "ok": "トレードオフと代替案"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "ex-fact",
+      "start": 126,
+      "end": 137,
+      "narration": "架空の短い例で見ます。大雨のあとに路面へ水が出る場所の、排水対策を書くとします。事実だけで書くと、側溝を増設した、で終わります。",
+      "caption": "架空の例　事実だけの書き方",
+      "visual": {
+        "kind": "sheet",
+        "heading": "架空の例：排水対策",
+        "sheetTitle": "事実だけの書き方",
+        "rows": [
+          {
+            "label": "書いた文",
+            "value": "側溝を増設した",
+            "state": "todo"
+          },
+          {
+            "label": "理由",
+            "value": "書いていない",
+            "state": "todo"
+          },
+          {
+            "label": "比べた案",
+            "value": "書いていない",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "ex-judge",
+      "start": 137,
+      "end": 152,
+      "narration": "判断まで書くと、側溝の増設と地下排水の追加を比べ、用地と維持管理の面から増設を選んだ。堆積で能力が落ちるリスクは、点検で補う。こう変わります。これは本動画の独自の例です。",
+      "caption": "架空の例　判断まで書く",
+      "visual": {
+        "kind": "sheet",
+        "heading": "架空の例：排水対策",
+        "sheetTitle": "判断まで書いた形",
+        "rows": [
+          {
+            "label": "比べた案",
+            "value": "増設と地下排水の追加",
+            "state": "done"
+          },
+          {
+            "label": "選んだ理由",
+            "value": "用地と維持管理",
+            "state": "focus"
+          },
+          {
+            "label": "残るリスク",
+            "value": "堆積。点検で補う",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "material",
+      "start": 152,
+      "end": 168,
+      "narration": "事実が要らないという意味ではありません。施工経験は、判断の根拠として並べ直す材料になります。記事も、経験した事実を、技術的な判断の根拠として再構成する準備が必要と述べています。",
+      "caption": "事実は材料として使う",
+      "visual": {
+        "heading": "事実を材料にする",
+        "flow": [
+          "施工で経験した事実",
+          "判断の根拠に並べ直す",
+          "理由とともに書く"
+        ],
+        "items": [
+          "事実",
+          "根拠",
+          "判断の理由"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "m1-fix",
+      "start": 168,
+      "end": 180,
+      "narration": "一つ目のまとめです。書いた事実の横に、なぜ、を置けるか確かめます。事実だけの文が並んでいたら、そこが技術士の記述では足りない所です。",
+      "caption": "一つ目の見直し方",
+      "visual": {
+        "kind": "points",
+        "heading": "一つ目の見直し",
+        "items": [
+          "事実の横に「なぜ」を置く",
+          "事実だけの文を探す",
+          "比べた案を一つ足す"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "m2-title",
+      "start": 180,
+      "end": 192,
+      "narration": "二つ目の思い込み。技術士の記述式も、自分が経験した工事を詳しく書けば評価される。1級と同じで、自分の現場が主役だ、という考えです。",
+      "caption": "思い込み2　自分の工事を書く",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み2",
+        "items": [
+          "自分の工事を詳しく書く",
+          "現場が主役",
+          "1級と同じ答え方"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "own",
+      "start": 192,
+      "end": 206,
+      "narration": "1級の経験記述は、自分が経験した工事を選び、工事概要と立場を書きます。経験した工事でないと判明した場合は失格、という注意が問題に付きます。主役は自分の工事です。",
+      "caption": "1級は自分の工事が主役",
+      "visual": {
+        "kind": "points",
+        "heading": "1級の経験記述",
+        "items": [
+          "自分が経験した工事を選ぶ",
+          "工事概要と立場を書く",
+          "経験していなければ失格"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "setsumon",
+      "start": 206,
+      "end": 218,
+      "narration": "技術士の設問は、課題を三つ挙げよ、最も重要なものを選んで解決策を示せ、新たに生じるリスクと対策を述べよ、のように、複数の小問が連なります。",
+      "caption": "技術士の設問は問いが連なる",
+      "visual": {
+        "heading": "技術士の設問の例",
+        "flow": [
+          "課題を挙げる",
+          "選んで解決策を示す",
+          "リスクと対策を述べる"
+        ],
+        "items": [
+          "小問1",
+          "小問2",
+          "小問3"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "kinds",
+      "start": 218,
+      "end": 233,
+      "narration": "建設部門の記述式は、科目ごとに答案の枚数が違います。必須科目1は3枚で約1,800字、選択のII-1は1枚、II-2は2枚、IIIは3枚です。1枚は約600字です。",
+      "caption": "科目ごとに枚数が違う",
+      "visual": {
+        "kind": "sheet",
+        "heading": "答案の枚数",
+        "sheetTitle": "建設部門の記述式",
+        "rows": [
+          {
+            "label": "必須I",
+            "value": "3枚（約1,800字）",
+            "state": "focus"
+          },
+          {
+            "label": "選択II-1",
+            "value": "1枚（約600字）",
+            "state": "done"
+          },
+          {
+            "label": "選択II-2",
+            "value": "2枚（約1,200字）",
+            "state": "done"
+          },
+          {
+            "label": "選択III",
+            "value": "3枚（約1,800字）",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "topic-given",
+      "start": 233,
+      "end": 245,
+      "narration": "つまり、答える相手は自分の工事ではなく、設問が示す問題です。施工の経験は、解決策を具体にするための材料として使います。主役は設問の問いです。",
+      "caption": "答える相手は設問が示す問題",
+      "visual": {
+        "kind": "compare",
+        "heading": "答える相手",
+        "ngLabel": "1級の経験記述",
+        "okLabel": "技術士の記述式",
+        "rows": [
+          {
+            "label": "主役",
+            "ng": "自分の工事",
+            "ok": "設問の問い"
+          },
+          {
+            "label": "経験の役割",
+            "ng": "書く中身そのもの",
+            "ok": "解決策を具体にする材料"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "viewpoint",
+      "start": 245,
+      "end": 260,
+      "narration": "課題の扱い方も違います。1級の記事は、課題を一つに絞って深く書くよう勧めています。技術士では、安全、品質、コスト、工期、環境などの観点を立て、重複のない課題を複数選びます。",
+      "caption": "1級は一つに絞り技術士は観点を立てる",
+      "visual": {
+        "kind": "compare",
+        "heading": "課題の扱い",
+        "ngLabel": "1級の経験記述",
+        "okLabel": "技術士の記述式",
+        "rows": [
+          {
+            "label": "課題の数",
+            "ng": "一つに絞る",
+            "ok": "観点を立てて複数"
+          },
+          {
+            "label": "選び方",
+            "ng": "現場に固有の危険や条件",
+            "ok": "重複のない観点から選ぶ"
+          }
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "decompose",
+      "start": 260,
+      "end": 279,
+      "narration": "技術士の記述式で多い失点は、知識不足より、問いの取りこぼしだと記事は述べています。書く前に設問を小問に分け、見出しと一対一にします。1級の設問は欄が決まっているので、この癖は付きにくい。これは本動画の見立てです。",
+      "caption": "書く前に設問を問いに分解",
+      "visual": {
+        "heading": "設問を問いに分ける",
+        "flow": [
+          "設問文を小問に分ける",
+          "小問と見出しを一対一にする",
+          "条件付きの指示を書き残す"
+        ],
+        "items": [
+          "分ける",
+          "対応させる",
+          "条件を残す"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "m2-fix",
+      "start": 279,
+      "end": 290,
+      "narration": "二つ目のまとめです。主役を自分の工事から、設問の問いへ移します。経験は、問いに答えるための材料として、あとから選びます。",
+      "caption": "二つ目の見直し方",
+      "visual": {
+        "kind": "points",
+        "heading": "二つ目の見直し",
+        "items": [
+          "主役は設問の問い",
+          "経験は材料として選ぶ",
+          "観点を立てて課題を選ぶ"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "m3-title",
+      "start": 290,
+      "end": 302,
+      "narration": "三つ目の思い込み。課題、検討、処置、評価という経験記述の骨格を、そのまま使い回せば、技術士の答案も組み立てられる、という考えです。",
+      "caption": "思い込み3　骨格は使い回せる",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み3",
+        "items": [
+          "四つの欄を使い回す",
+          "骨格は同じはず",
+          "形さえ合えば書ける"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "four",
+      "start": 302,
+      "end": 314,
+      "narration": "1級の骨格は、現場状況と技術的課題、検討した項目、対応処置、評価の流れです。一つの現場の中で、課題から評価まで一本の線でつなぎます。",
+      "caption": "1級の骨格",
+      "visual": {
+        "heading": "1級の経験記述の骨格",
+        "flow": [
+          "現場状況と技術的課題",
+          "検討した項目",
+          "対応処置",
+          "評価"
+        ],
+        "items": [
+          "課題",
+          "検討",
+          "処置",
+          "評価"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "skeleton",
+      "start": 314,
+      "end": 328,
+      "narration": "技術士の骨格は、現状と背景、課題、解決策、効果とリスクです。記事は、設問の種別を問わず、この論理の連鎖で各ブロックを組み立てると一貫すると整理しています。",
+      "caption": "技術士の骨格",
+      "visual": {
+        "heading": "技術士の記述式の骨格",
+        "flow": [
+          "現状・背景",
+          "課題",
+          "解決策",
+          "効果・リスク"
+        ],
+        "items": [
+          "背景",
+          "課題",
+          "解決策",
+          "効果とリスク"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "diff-skeleton",
+      "start": 328,
+      "end": 342,
+      "narration": "違いは両端に出ます。始まりは、現場状況か、社会的な背景や制度か。終わりは、処置の評価か、効果と新たに生じるリスクか。同じ四段でも、置く中身が変わります。",
+      "caption": "始まりと終わりが違う",
+      "visual": {
+        "kind": "compare",
+        "heading": "骨格の両端",
+        "ngLabel": "1級の経験記述",
+        "okLabel": "技術士の記述式",
+        "rows": [
+          {
+            "label": "始まり",
+            "ng": "現場状況",
+            "ok": "現状・背景"
+          },
+          {
+            "label": "真ん中",
+            "ng": "検討と対応処置",
+            "ok": "課題と解決策"
+          },
+          {
+            "label": "終わり",
+            "ng": "処置の評価",
+            "ok": "効果とリスク"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "risk",
+      "start": 342,
+      "end": 358,
+      "narration": "終わりの違いは大きいです。技術士では、書いた解決策に対して、実行後に新たに生じるリスクと、その対策まで書きます。最後の小問を書き忘れるのが致命的な失点だと、記事は注意しています。",
+      "caption": "リスクを自分で挙げる",
+      "visual": {
+        "kind": "points",
+        "heading": "技術士の終わり方",
+        "items": [
+          "解決策の効果",
+          "新たに生じるリスク",
+          "そのリスクへの対策"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "concrete",
+      "start": 358,
+      "end": 372,
+      "narration": "共通する点もあります。DXを推進する、品質を確保する、と書いて止めない。誰が、何を、どの基準で行うかまで書く。この具体化は、1級でも技術士でも同じです。",
+      "caption": "一般論で止めない点は共通",
+      "visual": {
+        "kind": "points",
+        "heading": "共通すること",
+        "items": [
+          "一般論で止めない",
+          "誰が・何を・どの基準で",
+          "具体の一文を置く"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "m3-fix",
+      "start": 372,
+      "end": 383,
+      "narration": "三つ目のまとめです。骨格の形は似ていても、始まりと終わりで置く中身が違います。使い回さず、技術士の四段に置き直します。",
+      "caption": "三つ目の見直し方",
+      "visual": {
+        "kind": "points",
+        "heading": "三つ目の見直し",
+        "items": [
+          "始まりは背景と現状",
+          "終わりは効果とリスク",
+          "四段に置き直す"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "time-title",
+      "start": 383,
+      "end": 396,
+      "narration": "ここからは、受ける前に確かめたい、点と時間の数字です。数字は、サイトの記事にある値だけを使います。受験する年度の公式資料で、必ず確かめてください。",
+      "caption": "点の取り方と時間",
+      "visual": {
+        "kind": "points",
+        "heading": "数字の見方",
+        "items": [
+          "サイトの記事にある値",
+          "年度は公式資料で確認",
+          "推測の数字は使わない"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "speed",
+      "start": 396,
+      "end": 409,
+      "narration": "答案用紙は1枚が600字、24字で25行です。記事は、1枚を約20分で書き切る速度を目安にしています。3枚の設問なら、構想に使える時間はわずかです。",
+      "caption": "一枚を約20分で書く",
+      "visual": {
+        "kind": "sheet",
+        "heading": "書く速度の目安",
+        "sheetTitle": "答案用紙",
+        "rows": [
+          {
+            "label": "1枚",
+            "value": "600字（24字×25行）",
+            "state": "done"
+          },
+          {
+            "label": "1枚の時間",
+            "value": "約20分",
+            "state": "focus"
+          },
+          {
+            "label": "3枚の設問",
+            "value": "構想の時間はわずか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "score",
+      "start": 409,
+      "end": 426,
+      "narration": "筆記の数字です。必須科目1は40点で、24点以上。選択科目は、II-1が10点、II-2が20点、IIIが30点で、合計60点のうち36点以上が基準です。令和8年度の案内を確かめた記事の値です。",
+      "caption": "配点と合格ライン",
+      "visual": {
+        "kind": "sheet",
+        "heading": "筆記試験の数字",
+        "sheetTitle": "令和8年度の案内（記事の値）",
+        "rows": [
+          {
+            "label": "必須I",
+            "value": "40点／24点以上",
+            "state": "focus"
+          },
+          {
+            "label": "選択II-1",
+            "value": "10点",
+            "state": "done"
+          },
+          {
+            "label": "選択II-2",
+            "value": "20点",
+            "state": "done"
+          },
+          {
+            "label": "選択III",
+            "value": "30点（選択計60点で36点以上）",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "each",
+      "start": 426,
+      "end": 438,
+      "narration": "合格基準は、どちらも60%以上の得点です。必須と選択は、それぞれが基準を満たす必要があります。必須で稼いで、選択を補うことはできません。",
+      "caption": "必須と選択は別々に基準",
+      "visual": {
+        "kind": "compare",
+        "heading": "基準の考え方",
+        "ngLabel": "できないこと",
+        "okLabel": "必要なこと",
+        "rows": [
+          {
+            "label": "必須と選択",
+            "ng": "一方で他方を補う",
+            "ok": "それぞれが基準以上"
+          },
+          {
+            "label": "割合",
+            "ng": "半分でよい",
+            "ok": "どちらも60%以上"
+          }
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "rate",
+      "start": 438,
+      "end": 455,
+      "narration": "合格率も見ます。1級の第二次検定は、令和3年度から7年度で、28.7%から41.2%の間です。技術士の建設部門は、記事によると10%台が多く、年度の正確な数字は日本技術士会の統計で確かめます。",
+      "caption": "合格率は別の試験の数字",
+      "visual": {
+        "kind": "sheet",
+        "heading": "合格率の目安",
+        "sheetTitle": "記事の値",
+        "rows": [
+          {
+            "label": "1級 第二次",
+            "value": "28.7%〜41.2%（R3〜R7）",
+            "state": "done"
+          },
+          {
+            "label": "技術士 建設部門",
+            "value": "10%台が多い",
+            "state": "focus"
+          },
+          {
+            "label": "年度の数字",
+            "value": "日本技術士会で確認",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "not-ranking",
+      "start": 455,
+      "end": 469,
+      "narration": "ただし、記事は、難しい、簡単、という比べ方より、別の能力を問う試験と捉えるのが適切だと述べています。どちらが上か、ではなく、問われるものが違う、という見方です。",
+      "caption": "上下ではなく別の能力",
+      "visual": {
+        "kind": "points",
+        "heading": "記事の捉え方",
+        "items": [
+          "難しいか簡単かではない",
+          "別の能力を問う試験",
+          "どちらが上かで見ない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "oral",
+      "start": 469,
+      "end": 487,
+      "narration": "筆記の先には口頭試験があります。筆記の合格者だけが受け、試問は20分、延長は10分程度です。実施大綱は、筆記の記述式答案と業務経歴を踏まえて行うとしています。答案は、口頭で説明を求められる前提で組みます。",
+      "caption": "筆記の先に口頭試験",
+      "visual": {
+        "kind": "sheet",
+        "heading": "口頭試験",
+        "sheetTitle": "記事の値",
+        "rows": [
+          {
+            "label": "受ける人",
+            "value": "筆記の合格者だけ",
+            "state": "done"
+          },
+          {
+            "label": "試問時間",
+            "value": "20分（延長10分程度）",
+            "state": "done"
+          },
+          {
+            "label": "踏まえるもの",
+            "value": "答案と業務経歴",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "eligible",
+      "start": 487,
+      "end": 505,
+      "narration": "受験資格も確かめます。技術士の第二次試験は、第一次試験の合格などに加えて、所定の実務経験が必要です。目安は一般に、第一次合格後の4年から7年程度。要件は変わるので、日本技術士会の最新情報を見てください。",
+      "caption": "受験資格は年度と経歴で変わる",
+      "visual": {
+        "kind": "points",
+        "heading": "受験資格の確認",
+        "items": [
+          "第一次合格などが前提",
+          "所定の実務経験が必要",
+          "要件は公式で確認"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "sum",
+      "start": 505,
+      "end": 519,
+      "narration": "ここまでを整理します。一つ目、書く中身は、事実から判断の理由へ。二つ目、答える相手は、自分の工事から設問の問いへ。三つ目、骨格は、始まりと終わりの中身が違います。",
+      "caption": "三つの違いの整理",
+      "visual": {
+        "kind": "compare",
+        "heading": "三つの違い",
+        "ngLabel": "1級の経験記述",
+        "okLabel": "技術士の記述式",
+        "rows": [
+          {
+            "label": "書く中身",
+            "ng": "事実",
+            "ok": "判断の理由"
+          },
+          {
+            "label": "答える相手",
+            "ng": "自分の工事",
+            "ok": "設問の問い"
+          },
+          {
+            "label": "骨格の両端",
+            "ng": "現場状況から評価",
+            "ok": "背景からリスク"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "check-title",
+      "start": 519,
+      "end": 531,
+      "narration": "では、受ける前に何を確かめるか。大がかりな準備ではなく、手元で今日できる確認を三つに絞ります。結果で、自分に足りない所が見えてきます。",
+      "caption": "受ける前の三つの確認",
+      "visual": {
+        "kind": "points",
+        "heading": "受ける前の三つの確認",
+        "items": [
+          "設問を問いに分けてみる",
+          "事実に判断の理由を足す",
+          "1枚を約20分で書いてみる"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "check1",
+      "start": 531,
+      "end": 544,
+      "narration": "一つ目。過去問の設問を一つ選び、小問に分けて、見出しを立ててみます。サイトでは、建設部門の過去問を、令和元年度から令和7年度まで無料で公開しています。",
+      "caption": "確認1　設問を問いに分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "確認1",
+        "items": [
+          "過去問の設問を一つ選ぶ",
+          "小問に分ける",
+          "見出しと一対一にする"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "check2",
+      "start": 544,
+      "end": 557,
+      "narration": "二つ目。自分の施工経験を一つ選び、何をしたかの横に、比べた案と選んだ理由を書き足してみます。足せない所が、判断の理由を普段言葉にしていない所です。",
+      "caption": "確認2　判断の理由を足す",
+      "visual": {
+        "heading": "事実に理由を足す",
+        "flow": [
+          "経験を一つ選ぶ",
+          "比べた案を書く",
+          "選んだ理由を足す"
+        ],
+        "items": [
+          "経験",
+          "比べた案",
+          "選んだ理由"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "check3",
+      "start": 557,
+      "end": 570,
+      "narration": "三つ目。1枚を約20分で書いてみて、時間と字数を計ります。字数は上限の9割前後を目安にします。書き切れるかどうかは、書いてみないと分かりません。",
+      "caption": "確認3　一枚を計って書く",
+      "visual": {
+        "kind": "points",
+        "heading": "確認3",
+        "items": [
+          "1枚を約20分で書く",
+          "字数は上限の9割前後",
+          "時間と字数を計る"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "official",
+      "start": 570,
+      "end": 583,
+      "narration": "試験の日程、受験資格の要件、配点は、年度で変わることがあります。この動画の数字は記事の値で、受験する年度の公式の案内で、必ず確かめてください。",
+      "caption": "年度の条件は公式で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "公式で確かめること",
+        "items": [
+          "日程",
+          "受験資格の要件",
+          "配点と合格の基準"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "limit",
+      "start": 583,
+      "end": 599,
+      "narration": "この動画の限界です。採点の基準そのものは、ここで説明できません。1級の経験記述の経験が無駄になる、という話でもありません。経験は、判断の材料として生きます。合格も保証しません。",
+      "caption": "この動画の限界",
+      "visual": {
+        "kind": "compare",
+        "heading": "この動画の限界",
+        "ngLabel": "言っていないこと",
+        "okLabel": "言っていること",
+        "rows": [
+          {
+            "label": "採点",
+            "ng": "基準を断言する",
+            "ok": "公表分だけ確認"
+          },
+          {
+            "label": "経験記述",
+            "ng": "無駄になる",
+            "ok": "材料として生きる"
+          },
+          {
+            "label": "合格",
+            "ng": "保証する",
+            "ok": "保証しない"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 599,
+      "end": 611,
+      "narration": "まとめます。同じ記述でも、書く中身、答える相手、骨格が違います。受ける前に、設問の分解、判断の理由、1枚20分の三つを確かめてください。",
+      "caption": "まとめ",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "書く中身は判断の理由",
+          "答える相手は設問の問い",
+          "三つの確認を先に試す"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "next",
+      "start": 611,
+      "end": 626,
+      "narration": "次に観るなら、資格を取る順序を三つの問いで決める動画と、1級の次に取る資格を一つに絞る動画があります。どちらも関連動画に置いています。この動画では、順序は扱っていません。",
+      "caption": "次に観る動画",
+      "visual": {
+        "kind": "points",
+        "heading": "次に観る動画",
+        "items": [
+          "資格を取る順序を決める",
+          "次に取る資格を一つに絞る",
+          "リンクは関連動画から"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 626,
+      "end": 640,
+      "narration": "施工管理技士と技術士の違いを、記事で確かめたい人は、概要欄のサイト記事を見てください。役割、難易度、受験資格、キャリア接続を、自分の言葉で整理できます。",
+      "caption": "概要欄の記事で確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "記事で確かめる",
+        "items": [
+          "施工管理技士と技術士の違い",
+          "役割・難易度・受験資格",
+          "リンクは概要欄から"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    }
+  ]
+}

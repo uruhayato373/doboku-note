@@ -1,0 +1,939 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "経験記述を書き切ったのに、落ちた。その原因になりやすい三つの思い込みを、順に正していきます。",
+      "caption": "書けたのに落ちる、三つの思い込み",
+      "visual": {
+        "kind": "cover",
+        "heading": "落ちる人の思い込みTOP3",
+        "items": [
+          "1級・2級土木施工管理｜経験記述"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "answer",
+      "start": 8,
+      "end": 23,
+      "narration": "先に答えです。一つ目、大きな工事、珍しい工事のほうが有利。二つ目、課題、検討、処置は同じことの言い換えでよい。三つ目、工事概要は形式だから最後に埋めればよい。この三つです。",
+      "caption": "三つの思い込みを先に示す",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "大きな工事のほうが有利",
+          "課題・検討・処置は言い換えでよい",
+          "工事概要は最後に埋めればよい"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "stance",
+      "start": 23,
+      "end": 35,
+      "narration": "見方を先に言います。語るのは、発注者側で工事の書類を読む目線です。採点基準は公表されていないので、採点を断言せず、合格も保証しません。",
+      "caption": "読む側の目線を借りる動画",
+      "visual": {
+        "kind": "compare",
+        "heading": "この動画の見方",
+        "ngLabel": "しないこと",
+        "okLabel": "すること",
+        "rows": [
+          {
+            "label": "採点",
+            "ng": "基準を断言",
+            "ok": "公表分だけ確認"
+          },
+          {
+            "label": "合格",
+            "ng": "保証する",
+            "ok": "点検の材料を示す"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "sceneId": "m1-title",
+      "start": 35,
+      "end": 45,
+      "narration": "一つ目の思い込み。大きな工事、珍しい工事を選んだほうが有利だ。難しい工法を書けば、点が上がる。そう考える人は多いです。",
+      "caption": "思い込み1　大きな工事が有利",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み1",
+        "items": [
+          "大きな工事のほうが有利",
+          "難しい工法を書けば点が上がる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m1-fact",
+      "start": 45,
+      "end": 58,
+      "narration": "2級土木の記事には、特殊な工事や高度な工法を書いても加点されるわけではない、とあります。見られるのは、適切な施工管理が行われたことが伝わるかどうかです。",
+      "caption": "珍しい工法を書いても加点されない",
+      "visual": {
+        "kind": "compare",
+        "heading": "規模より何が読めるか",
+        "ngLabel": "思い込み",
+        "okLabel": "読む側が見る点",
+        "rows": [
+          {
+            "label": "選び方",
+            "ng": "大きい・珍しい工事",
+            "ok": "施工管理が伝わる工事"
+          },
+          {
+            "label": "工法",
+            "ng": "高度な工法を書く",
+            "ok": "何を考え何をしたか"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m1-read",
+      "start": 58,
+      "end": 73,
+      "narration": "読む側が確かめたいのは、この人が現場で何を考え、何をしたかです。規模の大きさではありません。自分の経験と立場が、答案から読み取れるか。工事の大小は、その材料にすぎません。",
+      "caption": "経験と立場が読めるか",
+      "visual": {
+        "kind": "points",
+        "heading": "読む側が確かめること",
+        "items": [
+          "現場で何を考えたか",
+          "自分が何をしたか",
+          "立場が読み取れるか"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m1-role",
+      "start": 73,
+      "end": 91,
+      "narration": "立場の欄を例に取ります。1級の記事では、現場での職務上の立場を書くとされ、現場代理人、主任技術者、監理技術者などが挙がります。監督員は発注者側の呼称で、請負者の技術者が書くと、発注者名との組合せが合いません。",
+      "caption": "立場は現場での職務上の立場を書く",
+      "visual": {
+        "kind": "compare",
+        "heading": "立場の欄（1級の記事）",
+        "ngLabel": "不適当",
+        "okLabel": "適当",
+        "rows": [
+          {
+            "label": "請負者の立場",
+            "ng": "監督員と書く",
+            "ok": "現場代理人・主任技術者"
+          },
+          {
+            "label": "発注者名との組合せ",
+            "ng": "合わない",
+            "ok": "立場に合う呼称"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m1-fail",
+      "start": 91,
+      "end": 106,
+      "narration": "大きな工事に見せようとして、経験していない工事を書くのは最も危険です。経験した工事でないと判明した場合は失格になります。選ぶ基準は、大きさではなく、自分が語れるかどうかです。",
+      "caption": "経験していない工事は失格",
+      "visual": {
+        "kind": "points",
+        "heading": "工事を選ぶ基準",
+        "items": [
+          "大きさではなく語れるか",
+          "経験していない工事は失格"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m1-sum",
+      "start": 106,
+      "end": 117,
+      "narration": "一つ目のまとめです。工事の大きさで選ばない。自分の経験と立場が、読む側に伝わる工事を選ぶ。大きさで勝とうとしないことです。",
+      "caption": "一つ目の直し方は、大きさで選ばない",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み1の正し方",
+        "items": [
+          "大きさで選ばない",
+          "経験と立場が読める工事を選ぶ"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m1-two",
+      "start": 117,
+      "end": 133,
+      "narration": "もう一つ。同じ工事を使っても、設問ごとに切り口を変えます。令和8年度の1級なら、設問1は安全管理、設問2は工程管理。1級の記事でも、設問1と設問2に同一内容の解答は不可とされています。",
+      "caption": "同じ工事でも切り口を変える",
+      "visual": {
+        "kind": "compare",
+        "heading": "設問ごとの切り口",
+        "ngLabel": "同じ話",
+        "okLabel": "別の切り口",
+        "rows": [
+          {
+            "label": "設問1",
+            "ng": "工事の苦労話",
+            "ok": "安全管理の課題"
+          },
+          {
+            "label": "設問2",
+            "ng": "言い換えて再利用",
+            "ok": "工程管理の課題"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m2-title",
+      "start": 133,
+      "end": 145,
+      "narration": "二つ目の思い込み。課題、検討、対応処置は、同じことの言い換えでよい。どうせ同じ内容だから、言葉を変えて欄を埋めればよい、という考えです。",
+      "caption": "思い込み2　欄は言い換えでよい",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み2",
+        "items": [
+          "課題・検討・処置は同じこと",
+          "言葉を変えて欄を埋めればよい"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m2-form",
+      "start": 145,
+      "end": 159,
+      "narration": "設問の形を見ます。令和8年度の1級では、設問1が安全管理でした。現場状況と技術的課題と検討した項目、続いて対応処置とその評価。欄ごとに、問われていることが違います。",
+      "caption": "設問は欄ごとに問いが違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度 設問1（安全管理）",
+        "items": [
+          "現場状況・技術的課題",
+          "検討した項目",
+          "対応処置とその評価"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m2-new",
+      "start": 159,
+      "end": 177,
+      "narration": "1級の記事によると、令和6年度から、五つの管理項目のうち二つが指定され、同一の工事で両方を必ず書く形式に変わっています。二つの設問に、別の課題と別の処置を書き分けます。年度の形式は、公式の手引で確認してください。",
+      "caption": "形式は年度の手引で確認する",
+      "visual": {
+        "kind": "points",
+        "heading": "令和6年度以降の形式",
+        "items": [
+          "二つの管理項目を必ず書く",
+          "課題と処置を設問ごとに書き分ける",
+          "年度の手引で確認する"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m2-roles",
+      "start": 177,
+      "end": 189,
+      "narration": "課題は、何が問題か。検討は、何を比べて選んだか。対応処置は、実際に何をしたか。評価は、その結果どうなったか。四つは、別々の問いに答える欄です。",
+      "caption": "四つの欄は別々の問いに答える",
+      "visual": {
+        "kind": "sheet",
+        "heading": "欄ごとの問い",
+        "sheetTitle": "欄ごとの問い",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "何が問題か",
+            "state": "focus"
+          },
+          {
+            "label": "検討",
+            "value": "何を比べて選んだか"
+          },
+          {
+            "label": "処置",
+            "value": "実際に何をしたか"
+          },
+          {
+            "label": "評価",
+            "value": "結果どうなったか"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m2-loop",
+      "start": 189,
+      "end": 204,
+      "narration": "同じ言葉を言い換えて四つの欄を埋めると、答案は一本の線にならず、同じ場所を回るだけになります。検討の中身も、実際にやった数値も、結果の確認も、読む側は見つけられません。",
+      "caption": "言い換えは同じ場所を回るだけ",
+      "visual": {
+        "kind": "points",
+        "heading": "言い換えで埋めると",
+        "items": [
+          "一本の線にならない",
+          "検討の中身が見えない",
+          "結果の確認も見えない"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m2-eval",
+      "start": 204,
+      "end": 222,
+      "narration": "評価の欄も同じです。評価は、処置を言い直す欄ではありません。課題が解けたかどうかの確認です。品質なら規格値を確保できたか、工程なら工期内に完了できたか、安全なら無事故で完了できたか。結果の形で締めます。",
+      "caption": "評価は課題が解けたかの確認",
+      "visual": {
+        "kind": "sheet",
+        "heading": "評価の確かめ方",
+        "sheetTitle": "評価の確かめ方",
+        "rows": [
+          {
+            "label": "品質",
+            "value": "規格値を確保できたか"
+          },
+          {
+            "label": "工程",
+            "value": "工期内に完了できたか"
+          },
+          {
+            "label": "安全",
+            "value": "無事故で完了できたか"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m2-ex-intro",
+      "start": 222,
+      "end": 233,
+      "narration": "一般論で止まる答案を、伏せ字の架空例で一つだけ見せます。〇〇工事の安全管理を書いたつもりの文章です。次の画面を見てください。",
+      "caption": "伏せ字の架空例を一つだけ見る",
+      "visual": {
+        "kind": "points",
+        "heading": "悪い例を一つだけ",
+        "items": [
+          "〇〇工事の安全管理",
+          "伏せ字の架空例"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m2-ex",
+      "start": 233,
+      "end": 245,
+      "narration": "〇〇工事において、安全に十分注意して施工した。関係者と協議し、安全に配慮した計画を作成して実施した。その結果、安全に施工することができた。",
+      "caption": "架空例　一般論だけの安全管理",
+      "visual": {
+        "kind": "points",
+        "heading": "悪い例（架空・伏せ字）",
+        "items": [
+          "〇〇工事において、安全に十分注意して施工した。",
+          "関係者と協議し、安全に配慮した計画を実施した。",
+          "その結果、安全に施工できた。"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m2-diag",
+      "start": 245,
+      "end": 261,
+      "narration": "この例では、課題が見当たりません。何の災害を防ぐのか、特定されていないからです。検討は、何と何を比べたのか分からない。処置は、数値も基準も出てきません。評価は、処置の言い直しです。",
+      "caption": "課題・検討・処置・評価が見当たらない",
+      "visual": {
+        "kind": "sheet",
+        "heading": "この例で見当たらないもの",
+        "sheetTitle": "この例で見当たらないもの",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "何の災害か不明",
+            "state": "ng"
+          },
+          {
+            "label": "検討",
+            "value": "比較が無い",
+            "state": "ng"
+          },
+          {
+            "label": "処置",
+            "value": "数値・基準が無い",
+            "state": "ng"
+          },
+          {
+            "label": "評価",
+            "value": "処置の言い直し",
+            "state": "ng"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m2-stop",
+      "start": 261,
+      "end": 278,
+      "narration": "これは公表された基準ではなく、本動画の独自の見立てです。書類を読む側の感覚では、手が止まるのは課題の欄です。何を確保することが課題か決まらないと、後ろの欄は何に対する検討と処置なのか、宙に浮きます。",
+      "caption": "独自の見立て　手が止まるのは課題の欄",
+      "visual": {
+        "kind": "points",
+        "heading": "独自の見立て：手が止まる所",
+        "items": [
+          "課題が決まらない",
+          "後ろの欄が宙に浮く"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m2-swap",
+      "start": 278,
+      "end": 290,
+      "narration": "見分け方は簡単です。その一文の工事名を、別の工事に入れ替えても成り立つなら、一般論です。入れ替えられない一文だけが、あなたの経験を示します。",
+      "caption": "別の工事に入れ替えて成り立つなら一般論",
+      "visual": {
+        "kind": "compare",
+        "heading": "一文の点検",
+        "ngLabel": "一般論",
+        "okLabel": "自分の経験",
+        "rows": [
+          {
+            "label": "入れ替え",
+            "ng": "別工事でも成り立つ",
+            "ok": "その工事でしか書けない"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m2-spec",
+      "start": 290,
+      "end": 305,
+      "narration": "設問の指定も、欄の役割の一部です。令和8年度の1級の設問1には、交通誘導員の配置のみに関する記述は除く、とありました。設問の趣旨外の記述は不合格につながる、と解説にあります。",
+      "caption": "設問の指定を外さない",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度 設問1の指定",
+        "items": [
+          "交通誘導員の配置のみは除く",
+          "趣旨外の記述は不合格につながる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m2-sum",
+      "start": 305,
+      "end": 319,
+      "narration": "二つ目のまとめです。四つの欄は、別の問いに答える欄です。一文を別の工事に入れ替えても成り立つなら、その文は一般論です。欄ごとに、その欄だけが答える内容を置きます。",
+      "caption": "二つ目の直し方は、欄の問いを分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み2の正し方",
+        "items": [
+          "四つの欄は別の問い",
+          "入れ替えて成り立つ文は一般論"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "m3-title",
+      "start": 319,
+      "end": 328,
+      "narration": "三つ目の思い込み。工事概要は形式だから、最後に空いた時間で埋めればよい。本文のほうが大事だ、という考えです。",
+      "caption": "思い込み3　工事概要は最後でよい",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み3",
+        "items": [
+          "工事概要は形式にすぎない",
+          "最後に埋めればよい"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m3-items",
+      "start": 328,
+      "end": 341,
+      "narration": "工事概要には、工事名と立場、そして発注者名、工事場所、工期、主な工種、施工量があります。令和8年度の設問でも、この項目を書くことが求められました。",
+      "caption": "工事概要の項目",
+      "visual": {
+        "kind": "points",
+        "heading": "工事概要の項目",
+        "items": [
+          "工事名・立場",
+          "発注者名・工事場所",
+          "工期",
+          "主な工種・施工量"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m3-blank",
+      "start": 341,
+      "end": 357,
+      "narration": "令和8年度の解説では、工事概要の無記載や記述漏れは不合格となる、とされています。形式に見えても、空欄は土台の欠落になります。最後に埋めようとして時間が足りなくなるのは、避けたい失敗です。",
+      "caption": "工事概要の無記載は不合格とされる",
+      "visual": {
+        "kind": "points",
+        "heading": "工事概要の空欄",
+        "items": [
+          "無記載・記述漏れは不合格",
+          "最後に回して時間が足りなくなる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "m3-period",
+      "start": 357,
+      "end": 373,
+      "narration": "工期の欄にも決まりがあります。1級の記事では、施工中の工事は避ける、年月日まで省略せずに書く、施工量との釣り合いを見直す、とされています。工事を選ぶ段階で、概要の条件に合うかを確かめます。",
+      "caption": "工期は工事を選ぶ段階で確かめる",
+      "visual": {
+        "kind": "compare",
+        "heading": "工期の欄（1級の記事）",
+        "ngLabel": "避ける",
+        "okLabel": "書く",
+        "rows": [
+          {
+            "label": "工事",
+            "ng": "施工中の工事",
+            "ok": "完成した工事"
+          },
+          {
+            "label": "書き方",
+            "ng": "年月日を省く",
+            "ok": "年月日まで書く"
+          },
+          {
+            "label": "量との釣り合い",
+            "ng": "極端にずれる",
+            "ok": "施工量と合う"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m3-match",
+      "start": 373,
+      "end": 388,
+      "narration": "もう一つは、食い違いです。2級の記事では、工期は本文の季節や時期と矛盾させない、本文で扱う工種は主な工種に挙げる、とされています。1級の記事でも、施工量は主な工種に対応させます。",
+      "caption": "概要と本文が食い違わない",
+      "visual": {
+        "kind": "sheet",
+        "heading": "概要と本文を合わせる",
+        "sheetTitle": "概要と本文を合わせる",
+        "rows": [
+          {
+            "label": "工期",
+            "value": "本文の季節・時期と合う",
+            "state": "focus"
+          },
+          {
+            "label": "施工量",
+            "value": "主な工種に対応する"
+          },
+          {
+            "label": "主な工種",
+            "value": "本文で扱う工種を挙げる"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m3-trust",
+      "start": 388,
+      "end": 403,
+      "narration": "概要と本文の食い違いは、減点されやすい書き方としても挙がっています。書類を読む側の感覚では、概要で読んだ数字と本文の数字が合わないと、後ろの文全体を疑って読むことになります。",
+      "caption": "食い違いは信用を落とす（読む側の感覚）",
+      "visual": {
+        "kind": "points",
+        "heading": "数字が合わないと",
+        "items": [
+          "本文全体を疑って読む",
+          "減点されやすい書き方に挙がる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "m3-sum",
+      "start": 403,
+      "end": 414,
+      "narration": "三つ目のまとめです。工事概要は最後に埋めず、先に決めて、本文の土台にします。数字を先に決めてから書けば、本文の数字がずれません。",
+      "caption": "三つ目の直し方は、概要を先に決める",
+      "visual": {
+        "kind": "points",
+        "heading": "思い込み3の正し方",
+        "items": [
+          "概要は先に決める",
+          "本文の数字と照合する"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "common",
+      "start": 414,
+      "end": 429,
+      "narration": "三つの思い込みには、共通点があります。どれも、書く側の都合で考えていることです。大きく見せたい、早く埋めたい、後で埋めたい。読む側は、書いてあることだけを順に読みます。",
+      "caption": "三つの共通点は書く側の都合",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの共通点",
+        "items": [
+          "大きく見せたい",
+          "言い換えで早く埋めたい",
+          "概要は後で埋めたい"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "sceneId": "layers",
+      "start": 429,
+      "end": 446,
+      "narration": "独学での気づきやすさも違います。形式の漏れや、概要の空欄は、チェックで自分でも見つけられます。具体性は半分しか気づけません。課題から評価までの流れが通っているかは、自分では、ほぼ気づけません。",
+      "caption": "自分で気づける層と気づけない層",
+      "visual": {
+        "kind": "sheet",
+        "heading": "独学での気づきやすさ",
+        "sheetTitle": "独学での気づきやすさ",
+        "rows": [
+          {
+            "label": "形式・概要",
+            "value": "自分で気づける",
+            "state": "ok"
+          },
+          {
+            "label": "具体性",
+            "value": "半分気づける",
+            "state": "focus"
+          },
+          {
+            "label": "論理の通り",
+            "value": "ほぼ気づけない",
+            "state": "ng"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "sceneId": "recap",
+      "start": 446,
+      "end": 460,
+      "narration": "ここまでを一枚にまとめます。大きさで選ぶのではなく、語れる経験で選ぶ。言い換えで埋めるのではなく、欄ごとの問いに答える。後回しにするのではなく、先に決めて合わせる。",
+      "caption": "三つの思い込みを正しい形へ",
+      "visual": {
+        "kind": "compare",
+        "heading": "思い込みと正しい形",
+        "ngLabel": "思い込み",
+        "okLabel": "正しい形",
+        "rows": [
+          {
+            "label": "工事",
+            "ng": "大きさで選ぶ",
+            "ok": "語れる経験で選ぶ"
+          },
+          {
+            "label": "欄",
+            "ng": "言い換えで埋める",
+            "ok": "欄ごとの問いに答える"
+          },
+          {
+            "label": "概要",
+            "ng": "最後に埋める",
+            "ok": "先に決めて合わせる"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "rate",
+      "start": 460,
+      "end": 479,
+      "narration": "ここで数字を確かめます。1級の第二次検定の合格率は、令和3年度から7年度で、28.7%から41.2%の間。2級土木は、令和5年度が62.9%、令和6年度が35.3%と、年度で大きく振れます。簡単な試験とは言えません。",
+      "caption": "二次の合格率は年度で振れる",
+      "visual": {
+        "kind": "points",
+        "heading": "第二次検定の合格率",
+        "items": [
+          "1級 令和3〜7年度は28.7〜41.2%",
+          "2級 令和5年度は62.9%",
+          "2級 令和6年度は35.3%"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "basis",
+      "start": 479,
+      "end": 494,
+      "narration": "合格基準は、得点がおおむね60%以上と公表されています。一方で、問題ごとの配点は公表されていません。経験記述が何点なのかも、部分点の入り方も、公式には示されていません。",
+      "caption": "合格基準は60%、配点は非公表",
+      "visual": {
+        "kind": "sheet",
+        "heading": "公表されていること",
+        "sheetTitle": "公表されていること",
+        "rows": [
+          {
+            "label": "合格基準",
+            "value": "得点60%以上",
+            "state": "ok"
+          },
+          {
+            "label": "配点",
+            "value": "問題ごとは非公表",
+            "state": "todo"
+          },
+          {
+            "label": "部分点",
+            "value": "入り方は非公表",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "gap",
+      "start": 494,
+      "end": 507,
+      "narration": "配点が分からないので、自分の答案を自分で採点できません。書けたつもりと、読まれた結果のあいだに差が出ます。その差を作るのが、ここまで見た思い込みです。",
+      "caption": "書けたつもりと読まれた結果の差",
+      "visual": {
+        "kind": "points",
+        "heading": "自己採点できない",
+        "items": [
+          "配点が分からない",
+          "書けたつもりと読まれた結果",
+          "差を作るのが三つの思い込み"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "sceneId": "why-miss",
+      "start": 507,
+      "end": 521,
+      "narration": "参考書の模範解答は、完成した形だけを見せます。そのため、自分の答案のどこが完成形と違うのかは、教えてくれません。差は、自分の答案を他人の目で読んで、初めて見えます。",
+      "caption": "模範解答は完成形だけを見せる",
+      "visual": {
+        "kind": "points",
+        "heading": "独学で詰まる所",
+        "items": [
+          "模範解答は完成形だけ",
+          "自分の答案との差は見えない",
+          "他人の目で読むと見える"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "sceneId": "part-1",
+      "start": 521,
+      "end": 531,
+      "narration": "最後に、部分点の考え方です。記述式で採点の対象になるのは、解答欄に書かれた文字だけです。空欄は点になりません。",
+      "caption": "書いた分だけが採点の対象",
+      "visual": {
+        "kind": "points",
+        "heading": "部分点の考え方",
+        "items": [
+          "採点の対象は書いた文字だけ",
+          "空欄は点にならない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "part-2",
+      "start": 531,
+      "end": 550,
+      "narration": "部分点の入り方は公式には示されていません。ただ、白紙にするより、設問の指示語に応える語を置くほうが、点が入る余地を残せます。現場状況、技術的課題、検討した項目、対応処置、評価。これらを本文の中で見つかる形で置きます。",
+      "caption": "白紙にせず指示語に応える",
+      "visual": {
+        "kind": "points",
+        "heading": "設問の指示語に応える",
+        "items": [
+          "現場状況・技術的課題",
+          "検討した項目",
+          "対応処置・評価"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "part-3",
+      "start": 550,
+      "end": 562,
+      "narration": "ただし、足りない部分を想像で作ってはいけません。経験していない工事と判明すれば失格です。部分点の工夫は、自分が経験した範囲の中だけで行います。",
+      "caption": "想像で足さない",
+      "visual": {
+        "kind": "compare",
+        "heading": "部分点の工夫",
+        "ngLabel": "してはいけない",
+        "okLabel": "してよい",
+        "rows": [
+          {
+            "label": "足りない所",
+            "ng": "想像で作る",
+            "ok": "経験した範囲で書く"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "part-kanji",
+      "start": 562,
+      "end": 575,
+      "narration": "思い出せない漢字や数値があるときは、ひらがなで書く、言い回しを変える、所定の値で管理した、という表現に置き換える。手を止めずに、書ける形で埋めていきます。",
+      "caption": "思い出せない時も手を止めない",
+      "visual": {
+        "kind": "points",
+        "heading": "思い出せない時の対応",
+        "items": [
+          "ひらがなで書く",
+          "言い回しを変える",
+          "所定の値で管理したと書く"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "limit",
+      "start": 575,
+      "end": 593,
+      "narration": "この動画の限界です。実際の採点の基準は公表されておらず、これは採点を保証するものではありません。合格も保証しません。令和6年度から出題の形式が見直されているので、受検年度の公式の手引と問題で確認してください。",
+      "caption": "採点は保証しない・公式で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "この動画の限界",
+        "items": [
+          "採点基準は公表されていない",
+          "合格を保証しない",
+          "年度の手引と問題で確認"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "sum-1",
+      "start": 593,
+      "end": 607,
+      "narration": "まとめます。一つ目、大きさで工事を選ばず、自分の経験と立場が読める工事を選ぶ。二つ目、課題、検討、処置、評価は別の問いに答える欄で、入れ替えて成り立つ文は一般論。",
+      "caption": "まとめ　一つ目と二つ目",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ 1・2",
+        "items": [
+          "大きさで選ばず経験が読める工事",
+          "四つの欄は別の問いに答える"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "sum-2",
+      "start": 607,
+      "end": 619,
+      "narration": "三つ目、工事概要は先に決めて、本文の数字と合わせる。そして最後に、空欄を作らず、設問の指定を外さない。この三つで、書いた答案を点検してください。",
+      "caption": "まとめ　三つ目と最後の点検",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ 3と点検",
+        "items": [
+          "工事概要は先に決める",
+          "空欄を作らない",
+          "設問の指定を外さない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check-steps",
+      "start": 619,
+      "end": 633,
+      "narration": "点検は、順番に三つ問います。この工事を、大きさ以外の理由で選べるか。四つの欄に、別の問いへの答えが入っているか。概要の工期、施工量、工種が、本文と合っているか。",
+      "caption": "書いた答案を三つの問いで点検",
+      "visual": {
+        "kind": "points",
+        "heading": "答案の点検",
+        "items": [
+          "工事を大きさ以外の理由で選べるか",
+          "欄ごとに別の問いに答えているか",
+          "概要と本文が合っているか"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "sceneId": "next",
+      "start": 633,
+      "end": 647,
+      "narration": "次に観る動画は、経験記述の出題を年度ごとに並べた、出題の全履歴です。書き方の直し方は、落ちる答案の直し方の動画で扱っています。どちらも関連動画に置いています。",
+      "caption": "次は出題の全履歴の動画へ",
+      "visual": {
+        "kind": "points",
+        "heading": "次に観る動画",
+        "items": [
+          "経験記述の出題の全履歴",
+          "落ちる答案の直し方"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 647,
+      "end": 661,
+      "narration": "自分の現場に近い想定工事を選んで、五つの管理をどう書き分けるかを見たい人は、概要欄の完全攻略パックを確認してください。無料のサイト記事も、概要欄に載せています。",
+      "caption": "想定工事を選んで書き分けるなら概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の工事に近い例を探す",
+        "items": [
+          "想定工事から近いものを選ぶ",
+          "リンクは概要欄から"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ]
+}

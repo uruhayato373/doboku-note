@@ -27,6 +27,18 @@
       }
     },
     {
+      "id": "c2-niji-gakka-mihon",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/c2-niji-gakka-mihon",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-23",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "961168b816719641bf223a923281e8eb03093980fb1acaded0f3eb74caf50800"
+      }
+    },
+    {
       "id": "character-10-a",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/096-character-2026-10-a",

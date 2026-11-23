@@ -30,6 +30,13 @@
       "copy": "content/sns/video-packs/civil-construction-1/c1-after-ichiji-niji-junbi/youtube.json#longform"
     },
     {
+      "id": "civil-construction-1/c1-ichiji-derujun-tokuten/youtube.longform",
+      "work": "c1-ichiji-derujun-tokuten",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
       "id": "civil-construction-1/c1-juken-junjo-2027/youtube.longform",
       "work": "c1-juken-junjo-2027",
       "account": "youtube:main",
@@ -518,6 +525,20 @@
       "idException": "imported-before-cutover"
     },
     {
+      "id": "civil-construction-1/c1-keiken-omoikomi-top3/youtube.longform",
+      "work": "c1-keiken-omoikomi-top3",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-shudai-rireki/youtube.longform",
+      "work": "c1-keiken-shudai-rireki",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
       "id": "civil-construction-1/c1-next-license-after-first/youtube.longform",
       "work": "c1-next-license-after-first",
       "account": "youtube:main",
@@ -542,6 +563,13 @@
         "subtitles": "civil-construction-1/c1-next-license-after-first/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first/youtube.json#longform"
+    },
+    {
+      "id": "civil-construction-1/c1-next-pe-construction/youtube.longform",
+      "work": "c1-next-pe-construction",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
     },
     {
       "id": "civil-construction-1/civil-license-ladder-order/youtube.longform",
