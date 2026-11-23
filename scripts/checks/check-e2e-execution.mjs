@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /** E2E CI の JSON report を読み、対象0・未実行・スキップを成功扱いしない。 */
 // npm run check-e2e-execution -- --report .tmp/e2e-report.json — E2E CIのJSON結果から対象/実行/未実行/skipを確認。対象0・未実行・skip・失敗・集計不一致でexit 1（E2E後にalwaysで実行）
+// --allow-failures: 失敗は数えるが exit 1 にしない（夜間の @layout の組。失敗は E2E の段の結果で別の Issue にするので、ここは対象0・未実行・skip だけを止める）
 import { parseCliArgs } from '../lib/cli-args.mjs';
 import { readJson } from '../lib/json-io.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
 import { isCliEntry } from '../lib/cli-run.mjs';
 
-export function checkE2EExecution(report) {
+export function checkE2EExecution(report, { allowFailures = false } = {}) {
   const tests = [];
   const walk = (suite) => {
     for (const child of suite.suites ?? []) walk(child);
@@ -27,7 +28,7 @@ export function checkE2EExecution(report) {
   if (!counts.targets) issues.push('検査対象が0件');
   if (counts.skipped) issues.push(`適用対象のスキップ ${counts.skipped} 件`);
   if (counts.notExecuted) issues.push(`実行結果なし ${counts.notExecuted} 件`);
-  if (counts.failed) issues.push(`成功していない検査 ${counts.failed} 件`);
+  if (counts.failed && !allowFailures) issues.push(`成功していない検査 ${counts.failed} 件`);
   if (report.errors?.length) issues.push(`Playwrightの実行エラー ${report.errors.length} 件`);
   const stats = report.stats;
   const total = stats && ['expected', 'unexpected', 'flaky', 'skipped'].reduce((sum, key) => sum + stats[key], 0);
@@ -37,8 +38,8 @@ export function checkE2EExecution(report) {
 
 function main() {
   try {
-    const args = parseCliArgs({ report: { type: 'string', default: '.tmp/e2e-report.json' } });
-    const result = checkE2EExecution(readJson(REPO_ROOT, args.report));
+    const args = parseCliArgs({ report: { type: 'string', default: '.tmp/e2e-report.json' }, 'allow-failures': { type: 'boolean' } });
+    const result = checkE2EExecution(readJson(REPO_ROOT, args.report), { allowFailures: args.allowFailures });
     console.log(`check-e2e-execution: 対象 ${result.targets} / 実行 ${result.executed} / スキップ ${result.skipped} / 未実行 ${result.notExecuted} / 失敗 ${result.failed}`);
     for (const issue of result.issues) console.error(`  ${issue}`);
     process.exitCode = result.ok ? 0 : 1;
