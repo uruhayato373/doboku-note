@@ -67,9 +67,9 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     import ArticleSidebar,{buildArticleSidebarCards} from './src/components/docs/ArticleSidebar';
     import TwoColumnShell from './src/components/layout/TwoColumnShell';
     const rows = ${JSON.stringify(inputs)}.map(row=>({...row,
-      groups:row.groups.filter(g=>!g.lower).map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href),banner:'banner' in g,adsense:g.adsense,slot:g.slot})),
-      lower:row.groups.filter(g=>g.lower).length,
-      html:render(<TwoColumnShell stretchAside aside={<ArticleSidebar cards={buildArticleSidebarCards(row.input)} groups={row.groups} placements={row.placements} questionSeries={row.input.questionSeries}/>}><article><div className="prose-blog"><h2>土木・技術士</h2></div></article></TwoColumnShell>)}));
+      groups:row.groups.map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href),banner:'banner' in g,adsense:g.adsense,slot:g.slot})),
+      lower:row.groups.filter(g=>'lower' in g).length,
+      html:render(<TwoColumnShell stretchAside aside={<ArticleSidebar cards={buildArticleSidebarCards(row.input)} groups={row.groups} placements={row.placements} questionSeries={row.input.questionSeries} followHeadings={row.input.questionSeries?[]:row.input.headings}/>}><article><div className="prose-blog"><h2>土木・技術士</h2></div></article></TwoColumnShell>)}));
     process.stdout.write(JSON.stringify(rows));`,true);
   assert.equal(rows.length,7);
   let total = 0;
@@ -87,18 +87,20 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     const sizes=row.groups.filter(group=>group.links).map(group=>group.links.length);
     sizes.forEach((size,i)=>assert.ok(i===sizes.length-1?size>=2&&size<=3:size===3,row.slug+' 1組は3件・最後だけ2件以上'));
     kinds.push(...labels);
-    // 上詰め: カードの無い組は作らず、転職バナーは置かず、1 組目から 1 組おきに AdSense（2026-11-22）
+    // 上詰め: カードの無い組は作らず、転職バナーは置かず、1 組目と 3 組目だけに AdSense（2026-11-23・2 枠まで）
     assert.ok(row.groups.every(group=>group.label),row.slug+' カードの無い組は作らない');
     assert.ok(row.groups.every(group=>!group.banner),row.slug+' 下に続く組に転職バナーは置かない');
-    assert.deepEqual(row.groups.map(group=>Boolean(group.adsense)),row.groups.map((_,i)=>i%2===0),row.slug+' AdSense は 1 組おき');
-    const ads=Math.ceil(row.groups.length/2);
-    assert.ok(row.lower<=40,row.slug+' 空きの AdSense は最大 40 枠');
-    assert.equal(dom.querySelectorAll('[data-article-sidebar-lower-ads] [data-adsense="rail"]').length,row.lower);
-    assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation] [data-adsense="rail"]').length,ads+row.lower);
+    assert.deepEqual(row.groups.map(group=>Boolean(group.adsense)),row.groups.map((_,i)=>i%2===0&&i<4),row.slug+' AdSense は 1 組目と 3 組目だけ');
+    const ads=Math.min(2,Math.ceil(row.groups.length/2));
+    assert.equal(row.lower,0,row.slug+' 組の下の空きに AdSense の組を作らない（2026-11-23）');
+    assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation] [data-adsense="rail"]').length,ads);
+    // 欄の最後に追従ブロックが 1 つ（下には何も置かない）。広告は形を決めてから描くので、サーバーの HTML では高さだけ取った空の入れ物
+    const follow=dom.querySelectorAll('[data-rail-follow]');
+    assert.equal(follow.length,1,row.slug+' 追従ブロックは 1 つ');
+    assert.equal(follow[0].nextElementSibling,null,row.slug+' 追従ブロックは欄の最後');
     assert.ok(dom.querySelectorAll('aside [data-article-affiliate="rail"]').length<=2,row.slug+' 右の欄の転職は 2 つまで');
     assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation] [data-cta="affiliate"]').length,0,row.slug+' 下に続く束に転職は無い');
     assert.equal(dom.querySelectorAll('[data-article-sidebar-group]').filter(el=>/justify-around/.test(el.parentNode.getAttribute('class'))).length,0,'組は上詰め');
-    assert.equal(dom.querySelectorAll('[data-article-sidebar-lower-ads]').filter(el=>/justify-(around|between|evenly)/.test(el.getAttribute('class'))).length,0,'空きの AdSense も上詰め（均等に散らすと枠の上下に大きな空白が出た・2026-11-22）');
     assert.equal(dom.querySelectorAll('[data-article-question-series]').length,row.input.questionSeries?1:0);
     for(const image of dom.querySelectorAll('a[data-thumb] img')) {
       assert.equal(image.getAttribute('loading'),'lazy');
@@ -119,11 +121,9 @@ test('回遊候補が尽きれば組を作らない（上詰めでバナーだ�
     import {articleSidebarContinuation} from './src/lib/article-sidebar-continuation.ts';
     const current={slug:'civil-practice-example',category:'civil-practice',title:'確認',published:true};
     const input={sidebarMokuji:null,headings:[],category:current.category,docGroup:'guide',slugStr:current.slug,content:'',sectionStr:undefined,categoryArticles:[current],hasCategoryNavCard:false,showPillarNav:false,showTableOfContents:true};
-    const packed=gs=>gs.filter(g=>!g.lower);
     const a=articleSidebarContinuation(input,current,[],20000);
-    process.stdout.write(JSON.stringify({groups:packed(a),lower:a.filter(g=>g.lower).length}));`);
-  assert.deepEqual(result.groups,[]);
-  assert.equal(result.lower,40,'空きの AdSense は候補 40 枠（出すかは描画した空きの高さで決める）');
+    process.stdout.write(JSON.stringify({groups:a}));`);
+  assert.deepEqual(result.groups,[],'回遊が尽きたら組を作らない（空きは欄の最後の追従ブロックが受け持つ）');
 });
 
 test('過去問は前後の年度→同じ年度の別区分の順。1組3件・種類が続かず・同じ記事を2回出さない', () => {
@@ -136,7 +136,7 @@ test('過去問は前後の年度→同じ年度の別区分の順。1組3件・
     const current=pool.find(doc=>doc.slug==='pe-first-stage-r05-basic');
     const input={sidebarMokuji:null,headings:[],category:'pe-first-stage',docGroup:'primary',slugStr:current.slug,content:'',sectionStr:undefined,categoryArticles:pool,hasCategoryNavCard:false,showPillarNav:false,showTableOfContents:true};
     const groups=articleSidebarContinuation(input,current,pool,50000);
-    process.stdout.write(JSON.stringify(groups.filter(g=>!g.lower).map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href)}))));`);
+    process.stdout.write(JSON.stringify(groups.map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href)}))));`);
   const years=result.find(group=>group.label==='rail-exam-years');
   assert.ok(years,'年度の組');
   assert.deepEqual(years.links.slice(0,3).map(href=>href.split('/').pop()),['r04-basic','r06-basic','r05-aptitude']);
@@ -147,7 +147,7 @@ test('過去問は前後の年度→同じ年度の別区分の順。1組3件・
   assert.equal(result[0].label,'rail-exam-years','関連が無ければ種類の違う組から始まる');
 });
 
-test('上詰め: 過去問も含め下に続く組はカードだけ・1 組目から 1 組おきに AdSense・ピクセルは上の束の 2 面だけ', () => {
+test('上詰め: 過去問も含め下に続く組はカードだけ・1 組目と 3 組目に AdSense・ピクセルは上の束の 2 面だけ', () => {
   const result = evaluate(`
     import {articleSidebarContinuation} from './src/lib/article-sidebar-continuation.ts';
     import {articleImagePlacements,articlePixelCandidates} from './src/lib/article-affiliate-plan.ts';
@@ -161,13 +161,13 @@ test('上詰め: 過去問も含め下に続く組はカードだけ・1 組目�
     const p=(slot,program)=>[slot,{slot,program}];
     const placements=Object.fromEntries([p('article-rail','buildjob'),p('article-rail-2','rsg-kensetsu'),p('article-rail-3','dainishinsotsu-agent-neo'),p('article-rail-4','kensetsu-jobs')]);
     const all=articleSidebarContinuation(input,current,pool,50000);
-    const groups=all.filter(g=>!g.lower);
+    const groups=all;
     // 上の束が 4 枚あっても、転職の面は先頭の 2 つだけ（DocPage と ArticleSidebar が同じ数を渡す）
     const images=articleImagePlacements(placements,[],Math.min(4,RAIL_AFFILIATE_MAX));
-    process.stdout.write(JSON.stringify({lower:all.filter(g=>g.lower).length,groups:groups.map(g=>({card:Boolean(g.card),adsense:Boolean(g.adsense),banner:'banner' in g})),pixelSlots:articlePixelCandidates(placements,[],images).map(c=>c.slot)}));`);
+    process.stdout.write(JSON.stringify({lower:all.filter(g=>'lower' in g).length,groups:groups.map(g=>({card:Boolean(g.card),adsense:Boolean(g.adsense),banner:'banner' in g})),pixelSlots:articlePixelCandidates(placements,[],images).map(c=>c.slot)}));`);
   assert.ok(result.groups.length>=2);
   assert.ok(result.groups.every(group=>group.card&&!group.banner),'カードの無い組・転職バナーの組は作らない');
-  assert.deepEqual(result.groups.map(group=>group.adsense),result.groups.map((_,i)=>i%2===0),'1 組目から 1 組おきに AdSense');
+  assert.deepEqual(result.groups.map(group=>group.adsense),result.groups.map((_,i)=>i%2===0&&i<4),'1 組目と 3 組目だけに AdSense');
   assert.deepEqual([...new Set(result.pixelSlots)],['article-rail','article-rail-2'],'ピクセルは上の束の 2 面だけ');
-  assert.ok(result.lower>=1&&result.lower<=40,'長い本文は上詰めの組の下の空きに AdSense（最大 40 枠）');
+  assert.equal(result.lower,0,'長い本文でも組の下の空きに AdSense の組を作らない（欄の最後の追従ブロックが受け持つ）');
 });

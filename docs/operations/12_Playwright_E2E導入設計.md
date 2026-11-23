@@ -61,7 +61,7 @@
 
 推奨トリガー。
 
-- `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時。実行は desktop の `smoke`・`navigation`・`cta`・`desktop`・`ad-coverage` だけ（待ち時間を約 5 分に抑える。デザインを変えた PR がその場で気づけるよう、デザインの確認の 2 spec を含める・2026-11-23）
+- `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時。実行は desktop の `smoke`・`navigation`・`cta`・`desktop` だけ（待ち時間を約 5 分に抑える。デザインを変えた PR がその場で気づけるよう、デザインの確認の `desktop` を含める・2026-11-23。本文の空白区間を見る `ad-coverage` は、本文の広告を自動広告に任せたので同日に削除）
 - `workflow_dispatch`
 - `schedule`（毎日 JST 23:17・checkout は develop。毎時 0 分の指定は起動が 3.5〜7 時間遅れ、失敗が朝に出ていたので 2026-11-13 に移した）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。全 spec は夜間と手動で回す。確認は 2 組に分ける（2026-11-23 運営者判断「デプロイを止めるのは壊れた類だけ」）。
   - 壊れた類（表示・本文・リンク・操作・基準書の描画）: 失敗は `automation-failure` Issue（channel `e2e-nightly`）で、`deploy:main` は未解決のこの Issue があると止まる

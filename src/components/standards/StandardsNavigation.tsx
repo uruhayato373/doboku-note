@@ -27,6 +27,9 @@ import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import RailStack, { type RailItem } from '@/components/ui/RailStack/RailStack';
 import type { RailGroup } from '@/lib/rail-continuation';
+import RailFollow from '@/components/ui/RailFollow/RailFollow';
+import { followToc } from '@/components/docs/follow-toc';
+import type { TocHeading } from '@/lib/toc';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -38,6 +41,8 @@ type StandardsNavigationProps = {
   inlineSlots?: readonly string[];
   /** 章・節ページの右の欄の「下に続く束」（回遊カード＋転職バナーの組。無ければ上の束だけ） */
   railGroups?: RailGroup[];
+  /** 章・節ページの右の欄の最後の追従ブロック（現在地の目次＋AdSense 1 枠）に出す本文の見出し。渡したページだけ追従ブロックを置く */
+  followHeadings?: TocHeading[] | undefined;
 };
 
 function AgencyNav({ currentAgency }: { currentAgency: string }) {
@@ -267,6 +272,7 @@ export default function StandardsNavigation({
   variant = 'sidebar',
   inlineSlots = [],
   railGroups = [],
+  followHeadings,
 }: StandardsNavigationProps) {
   const agency = getStandardsCatalog().agencies.find((entry) => entry.agencyId === agencyId);
   const sectionTitle = currentSection !== undefined
@@ -344,5 +350,5 @@ export default function StandardsNavigation({
     { kind: 'career', node: currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} /> },
     ...discovery,
   ];
-  return <RailStack items={items} groups={railGroups} upperData={{ 'data-standards-sidebar': '' }} />;
+  return <RailStack items={items} groups={railGroups} follow={followHeadings && <RailFollow toc={followToc(followHeadings)} />} upperData={{ 'data-standards-sidebar': '' }} />;
 }

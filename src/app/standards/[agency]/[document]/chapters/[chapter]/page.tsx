@@ -15,6 +15,7 @@ import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
+import { extractHeadings } from '@/lib/toc';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import StandardChapterPager from '@/components/standards/StandardChapterPager';
@@ -105,6 +106,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const inlinePlan = target.splitBySection ? null : planInlineSlots(markdown);
   const inlineSlots = inlinePlan ? inlinePlan.insertAt.map(({ slot }) => slot) : [];
   // 節ページに分けた章は本文が節の一覧なので、右の欄の下に続く束の見積もりは前置きの字数だけ
+  // 右の欄の最後の追従ブロックの目次（本文の 節・条。id は rehypeHeadingIds と同じ規則）
+  const followHeadings = extractHeadings(preamble ?? markdown, 2, 3);
   const railGroups = standardsSidebarContinuation(entry, target, inlinePlan?.chars ?? preamble?.length ?? 0);
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
@@ -132,7 +135,6 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     table: StandardScrollTable,
     // 実際に置く面だけを渡し、短い章でピクセルの持ち主が消えないようにする
     StandardsInlineBanner: ({ slot }: { slot: string }) => <StandardsInlineBanner slot={slot} inlineSlots={inlineSlots} />,
-    StandardsInlineAd: () => <AdSlot slot="inArticle" className={`${CTA_STACK_CLASS} my-8`} />,
   };
 
   return (
@@ -145,7 +147,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
       <TwoColumnShell
         gutter="flush-mobile"
         stretchAside
-        aside={<StandardsNavigation agencyId={agency} currentDocument={entry} currentChapter={target} inlineSlots={inlineSlots} railGroups={railGroups} />}
+        aside={<StandardsNavigation agencyId={agency} currentDocument={entry} currentChapter={target} inlineSlots={inlineSlots} railGroups={railGroups} followHeadings={followHeadings} />}
       >
         <MetaCard
           as="article"

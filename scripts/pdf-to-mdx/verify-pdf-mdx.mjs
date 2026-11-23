@@ -406,7 +406,7 @@ if (pdfPath && existsSync(pdfPath)) {
     const headingPatterns = [
       // 第N章 タイトル (前処理で連結済み)
       {
-        re: /^第[0-9０-９]+章[\s　]+([一-龯ぁ-んァ-ヶー一-龯ぁ-んァ-ヶー]{2,40})\s*$/gm,
+        re: /^第[0-9０-９]+章[\s　]+([一-龯ぁ-んァ-ヶー]{2,40})\s*$/gm,
         tier: 'chapter',
       },
       // N.N.N サブサブ見出し

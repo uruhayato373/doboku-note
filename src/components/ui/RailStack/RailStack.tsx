@@ -5,7 +5,7 @@ import { isRailAd, type RailKind } from '@/lib/rail-kinds.mjs';
 
 /**
  * 右の欄（PC ≥993px）の中身の唯一の入れ物。記事・資格トップ・基準書の全ページが使う（2026-11-17 に 4 か所の手書きをまとめた）。
- * 上の束（items）を上詰めで並べ、その下に回遊と広告の組（groups・RailContinuation）を続ける。
+ * 上の束（items）を上詰めで並べ、その下に回遊と広告の組（groups・RailContinuation）を続け、最後に追従ブロック（follow・RailFollow）を置く。
  * 並べる 1 つ 1 つは種類（src/lib/rail-kinds.mjs の台帳）を持ち、data-rail-kind を付けた div で包む。
  * 中身が空の部品（出す商品が無いなど）は包みごと畳む（globals.css の [data-rail-kind]:empty）。
  */
@@ -13,9 +13,11 @@ export type RailItem = { readonly kind: RailKind; readonly node: ReactNode };
 
 type Data = Readonly<Record<`data-${string}`, string | number | boolean | undefined>>;
 
-export default function RailStack({ items, groups = [], data, upperData, cardData }: {
+export default function RailStack({ items, groups = [], follow, data, upperData, cardData }: {
   readonly items: readonly RailItem[];
   readonly groups?: RailGroup[];
+  /** 欄の最後の追従ブロック（RailFollow）。上の束と組が流れ切ったあと画面に残る。下には何も置かない */
+  readonly follow?: ReactNode;
   /** 欄全体（上の束＋組）に付ける属性。付けると組が無くても外の入れ物を出す */
   readonly data?: Data;
   /** 上の束に付ける属性（data-standards-sidebar など） */
@@ -30,11 +32,12 @@ export default function RailStack({ items, groups = [], data, upperData, cardDat
       ))}
     </div>
   );
-  if (groups.length === 0 && !data) return upper;
+  if (groups.length === 0 && !data && !follow) return upper;
   return (
     <div className="flex h-full flex-1 flex-col" {...data}>
       {upper}
       <RailContinuation groups={groups} />
+      {follow}
     </div>
   );
 }

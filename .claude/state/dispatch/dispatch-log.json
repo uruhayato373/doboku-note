@@ -9244,6 +9244,19 @@
       "commit": "2deedae03a9d",
       "verification": "node --test tests/weekly-draft-sections.test.mjs（pass 3）・node scripts/build/build-weekly-review-draft.mjs --week 2026-W47 --print で SNS 流入・YouTube の公開・収益カバレッジの 3 節を実データで確認",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1289",
+      "at": "2026-11-23",
+      "task": "CodeQL を develop の push ごとから外すか、Lighthouse の夜間を週 1〜2 回にするかを決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8f7454eae0d",
+      "verification": "gh repo view --json visibility（PUBLIC）・gh run list --workflow lighthouse.yml --limit 30（success 30）",
+      "note": "現状維持で閉じる（2026-11-23 運営者判断）。リポジトリは PUBLIC で Actions は無料のため回数を減らしても費用は浮かない。CodeQL は検査・デプロイと並行で deploy:main は待たず、Lighthouse の夜間は直近 30 回すべて成功・失敗 Issue 0 件でデプロイを止めたことも無い。待ち時間にも費用にも効かないので変えない。別件: CodeQL の未対応のアラートが 21 件ある"
     }
   ]
 }

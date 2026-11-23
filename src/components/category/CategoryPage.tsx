@@ -12,6 +12,7 @@ import { PopularShowcase, PopularRanking } from '@/components/category/PopularSe
 import { getPopularDocs } from '@/lib/popular';
 import { categorySidebarContinuation } from '@/lib/category-sidebar-continuation';
 import RailStack from '@/components/ui/RailStack/RailStack';
+import RailFollow from '@/components/ui/RailFollow/RailFollow';
 import {
   CivilConstructionView,
   ConcreteView,
@@ -117,20 +118,20 @@ export default async function CategoryPage({
   // 2026-10-31: 本番の配置の撮影で、総監・建設部門・1 級・2 級は転職広告（385〜640px）が note もくじ（1,300〜1,600px）より上、
   // 他の資格は note のバナーと転職広告が 10px ほどで接していた。学習のページは note を主導線にする方針（affiliate-operations.md §6）
   // に合わせて note を先に出し、運営者プロフィールを挟んで転職広告を置く。
-  // 本文の区画の切れ目（SectionAdBreak）。PC は AdSense、スマホは 1 つ目が転職バナー・2 つ目以降が AdSense。
-  // note が一覧の下にある資格（mobileAdsAfterNote）は、スマホでは切れ目に広告を出さない（転職は最下部へ回す）。
+  // 本文の区画の切れ目（SectionAdBreak）。スマホの 1 つ目に転職バナー。AdSense は自動広告に任せる（2026-11-23）。
+  // note が一覧の下にある資格（mobileAdsAfterNote）は、スマホでは切れ目に転職を出さない（最下部へ回す）。
   const mobileAffiliate = mobileSplit && !mobileAdsAfterNote ? (
     <div data-cta-stack className={CTA_STACK_CLASS}>{mobileSplit}</div>
   ) : null;
   const sectionBreaks = [
     <SectionAdBreak key="section-break-1" mobile={mobileAffiliate} />,
-    <SectionAdBreak key="section-break-2" mobileAd={!mobileAdsAfterNote} />,
   ];
   // 上の束の下に、人気・新着の記事と転職バナーの組を並べる（記事数が少ない資格は 0 組。DN-1218 段 3）。
   const railGroups = categorySidebarContinuation(docs, popularDocs);
   const categorySidebar = (
     <RailStack
       groups={railGroups}
+      follow={<RailFollow />}
       data={{ 'data-category-sidebar': '' }}
       items={[
         ...(slug === 'concrete-engineer'

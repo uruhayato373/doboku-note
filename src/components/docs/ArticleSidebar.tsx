@@ -12,6 +12,9 @@ import { categoryNavCards, categoryNavKinds } from '@/components/ui/CategoryNavC
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import RelatedTools from '@/components/ui/RelatedTools';
+import RailFollow from '@/components/ui/RailFollow/RailFollow';
+import { followToc } from '@/components/docs/follow-toc';
+import type { TocHeading } from '@/lib/toc';
 
 
 /** 記事右欄の上の束。目次は本文上部、年度別の設問ナビはここに残す。 */
@@ -44,8 +47,11 @@ export function buildArticleSidebarCards({
   });
 }
 
-/** 上の束（転職バナーは先頭から 2 つまで）も下の組（回遊カード・1 組おきに AdSense）も上詰めで並べる。入れ物は RailStack（右の欄の唯一の入れ物）。 */
-export default function ArticleSidebar({ cards, groups = [], placements, questionSeries = false }: { cards: RailItem[]; groups?: RailGroup[]; placements: ResolvedPlacements; questionSeries?: boolean }) {
+/**
+ * 上の束（転職バナーは先頭から 2 つまで）も下の組（回遊カード・1 組目と 3 組目に AdSense）も上詰めで並べ、最後に追従ブロック（現在地の目次＋AdSense 1 枠）を置く。
+ * 入れ物は RailStack（右の欄の唯一の入れ物）。followHeadings が空なら追従ブロックは広告だけ（年度別の過去問は設問ナビが上の束にある）。
+ */
+export default function ArticleSidebar({ cards, groups = [], placements, questionSeries = false, followHeadings = [] }: { cards: RailItem[]; groups?: RailGroup[]; placements: ResolvedPlacements; questionSeries?: boolean; followHeadings?: TocHeading[] }) {
   // 転職バナーは上の束の先頭から 2 つまで（RAIL_AFFILIATE_MAX）。ピクセルの計画（DocPage の articleImagePlacements）と同じ数にする
   const images = articleImagePlacements(placements, [], Math.min(cards.length, RAIL_AFFILIATE_MAX));
   const items = cards.flatMap((card, index): RailItem[] => [
@@ -55,6 +61,7 @@ export default function ArticleSidebar({ cards, groups = [], placements, questio
   return <RailStack
     items={items}
     groups={groups}
+    follow={<RailFollow toc={followToc(followHeadings)} />}
     cardData={{ 'data-article-sidebar-card': '' }}
     data={{ 'data-article-sidebar-cards': cards.length + groups.filter(group => group.card).length, 'data-article-question-series': questionSeries || undefined }}
   />;

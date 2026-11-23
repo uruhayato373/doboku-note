@@ -12,5 +12,7 @@ metadata:
 - 2026-11-23 に AdSense 側のアカウントを GA4 プロパティの「編集者」に足し、そのアカウントから GA4 ⇔ AdSense をリンクした（運営者の承認のうえで代行）。
 - GA4 は遡って入らないので、`totalAdRevenue` は 2026-11-22 以前は 0（欠測であって収益 0 ではない）。収益の収集は `fetch-business-metrics`（adsenseRevenue）と `fetch-ga4-data --adsense`。AdSense Management API はサービスアカウント不可なので使っていない。
 - 実験は EXP-066（手動の枠だけ vs 手動＋自動のページ内広告）。
+- 販売者情報の公開設定（sellers.json）は**機密**（2026-11-23 運営者判断）。サイトはペンネーム「架（かける）」だけを出しており、透明にするとお支払いプロファイルの名前と doboku-note.com が結びついて公開されるため。AdSense の最適化案「広告主に対して情報を透明化する」は、この理由で採らない。
+- 広告レビューセンターは 2026-11-23 に有効にした（競合のココナラ出品の広告を広告主・URL 単位で止めるため・DN-1230）。
 
 関連: [[feedback-metrics-cicd-supplied]]

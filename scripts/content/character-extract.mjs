@@ -18,8 +18,8 @@
  *
  * 依存: ImageMagick(magick)。AI品質の切り抜きが要るときは aidesigner remove_image_background(無料)を併用。
  */
-import { execSync, execFileSync } from 'node:child_process';
-import { readdirSync, statSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { readdirSync, statSync, mkdirSync, rmSync, existsSync, copyFileSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import { datasetPath } from '../lib/datasets.mjs';
 import { FONTS_ROOT } from '../lib/repository-paths.mjs';
@@ -57,11 +57,9 @@ mkdirSync(stg, { recursive: true });
 
 function knockout(src, dst) {
   // 四隅の無地背景を flood-fill で透過 → トリム
-  execSync(
-    `magick ${JSON.stringify(src)} -alpha set -bordercolor white -border 2 ` +
-    `-fuzz ${fuzz}% -fill none -draw "alpha 0,0 floodfill" -shave 2x2 -trim +repage ${JSON.stringify(dst)}`,
-    { stdio: 'pipe' }
-  );
+  // シェルを通さず引数の配列で渡す（ファイル名の展開を防ぐ）
+  execFileSync('magick', [src, '-alpha', 'set', '-bordercolor', 'white', '-border', '2',
+    '-fuzz', `${fuzz}%`, '-fill', 'none', '-draw', 'alpha 0,0 floodfill', '-shave', '2x2', '-trim', '+repage', dst], { stdio: 'pipe' });
 }
 
 const staged = [];
@@ -96,7 +94,7 @@ if (!names) {
 if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
 for (const s of staged) {
   const dst = join(outDir, `${s.name}.png`);
-  execSync(`cp ${JSON.stringify(s.dst)} ${JSON.stringify(dst)}`);
+  copyFileSync(s.dst, dst); // シェルを通さない（ファイル名の $(...) を展開させない・CodeQL js/shell-command-injection-from-environment）
   console.log(`  ${s.src} → ${s.name}.png`);
 }
 console.log(`\n保存完了: ${staged.length}枚 → ${outDir}`);

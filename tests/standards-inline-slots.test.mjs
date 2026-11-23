@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import { URL } from 'node:url';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { planInlineSlots, planStandardsAdSlots, withInlineSlots, INLINE_FIRST_CHARS, INLINE_INTERVAL_CHARS, INLINE_REMAINING_CHARS, INLINE_MAX_SLOTS, STANDARDS_AD_GAP_CHARS, STANDARDS_AD_INTERVAL_CHARS, STANDARDS_AD_MAX_SLOTS } from '../src/lib/standards-inline-slots.mjs';
+import { planInlineSlots, withInlineSlots, INLINE_FIRST_CHARS, INLINE_INTERVAL_CHARS, INLINE_REMAINING_CHARS, INLINE_MAX_SLOTS } from '../src/lib/standards-inline-slots.mjs';
 
 const text = (n) => '土'.repeat(n);
 const table = '| 項目 | 基準 |\n| --- | --- |\n| 高さ | 10 |';
@@ -190,29 +190,9 @@ test('PC は上端・目次後の 2 面だけに置き（章・節）、モバ�
   assert.equal(data.text, true);
 });
 
-test('AdSense の本文枠: 転職の最後の枠より後・転職から 800 字以上・約 5,000 字ごと・最大 10 枠（2026-11-22）', () => {
-  // 表で区切った 1,500 字の段を 40 個（6 万字）。転職は前の方に 3 枠、AdSense はその後ろに並ぶ
+test('本文の AdSense は手動で置かない（自動広告のページ内広告に任せる・2026-11-23）。長い章でも差し込むのは転職の 3 枠だけ', () => {
   const md = `${text(700)}\n${table}\n` + `${text(1500)}\n${table}\n`.repeat(40) + text(900);
-  const banners = planInlineSlots(md).insertAt;
-  const ads = planStandardsAdSlots(md, banners).insertAt;
-  assert.equal(banners.length, INLINE_MAX_SLOTS);
-  assert.equal(ads.length, STANDARDS_AD_MAX_SLOTS, '長い章は上限まで置く');
-  const lines = md.split('\n');
-  const at = (line) => lines.slice(0, line).join('').replace(/\s/g, '').length;
-  const lastBanner = banners[banners.length - 1].line;
-  for (const [i, ad] of ads.entries()) {
-    assert.ok(ad.line > lastBanner, '転職の最後の枠より後');
-    assert.ok(banners.every((b) => Math.abs(at(ad.line) - at(b.line)) >= STANDARDS_AD_GAP_CHARS), '転職の枠から 800 字以上');
-    if (i) assert.ok(at(ad.line) - at(ads[i - 1].line) >= STANDARDS_AD_INTERVAL_CHARS, '前の AdSense から 5,000 字以上');
-    assert.equal(ad.slot, i ? `standards-adsense-${i + 1}` : 'standards-adsense');
-  }
   const output = withInlineSlots(md);
   assert.equal((output.match(/<StandardsInlineBanner /g) ?? []).length, INLINE_MAX_SLOTS);
-  assert.equal((output.match(/<StandardsInlineAd /g) ?? []).length, STANDARDS_AD_MAX_SLOTS);
-});
-
-test('AdSense の本文枠: 転職の最後の枠の後ろに区切りが無い短い章は置かない', () => {
-  const md = `${text(700)}\n${table}\n` + `${text(INLINE_INTERVAL_CHARS)}\n${table}\n`.repeat(2) + text(900);
-  assert.equal(planInlineSlots(md).insertAt.length, INLINE_MAX_SLOTS);
-  assert.equal(planStandardsAdSlots(md).insertAt.length, 0);
+  assert.equal((output.match(/<StandardsInlineAd /g) ?? []).length, 0);
 });

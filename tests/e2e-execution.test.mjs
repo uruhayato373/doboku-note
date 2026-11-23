@@ -72,7 +72,7 @@ test('CIでstandards-dataの生成漏れをスキップせず、生成とE2E実�
   // Windows の作業ツリーは CRLF になる。行末をそろえてから読む（\n 固定だと手元でだけ落ちる）
   const e2e = readFileSync(join(ROOT, '.github/workflows/e2e.yml'), 'utf8').replace(/\r\n/g, '\n');
   assert.match(e2e, /PLAYWRIGHT_JSON_OUTPUT_NAME: \.tmp\/e2e-report\.json/);
-  assert.match(e2e, /run: npm run test:e2e -- --reporter=line,html,json \$\{\{ github\.event_name == 'pull_request' && '--project=desktop-chromium e2e\/smoke\.spec\.ts e2e\/navigation\.spec\.ts e2e\/cta\.spec\.ts e2e\/desktop\.spec\.ts e2e\/ad-coverage\.spec\.ts' \|\| '--grep-invert @layout' \}\}/);
+  assert.match(e2e, /run: npm run test:e2e -- --reporter=line,html,json \$\{\{ github\.event_name == 'pull_request' && '--project=desktop-chromium e2e\/smoke\.spec\.ts e2e\/navigation\.spec\.ts e2e\/cta\.spec\.ts e2e\/desktop\.spec\.ts' \|\| '--grep-invert @layout' \}\}/);
   // デザインの確認（@layout）は夜間に別の段で回し、別の channel に記録する（deploy:main を止めない）
   assert.match(e2e, /--grep @layout --output test-results-layout/);
   assert.match(e2e, /--report \.tmp\/e2e-layout-report\.json --allow-failures/);

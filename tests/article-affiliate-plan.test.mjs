@@ -82,7 +82,7 @@ test('代表14ページは同じ計画関数で0〜3本文・右欄は実カー�
  const p=planArticleCtas(doc,all,${now});
  const input=articleSidebarInput(doc.meta,p,all.filter(m=>m.category===doc.meta.category));
  const cards=articleSidebarPlan(input);
- const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length).filter(g=>!g.lower);
+ const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length);
  // 右の欄の転職は上の束の先頭から 2 つまで（下に続く組には置かない・DocPage と同じ渡し方）
  const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),Math.min(cards.length,RAIL_AFFILIATE_MAX));
  const compiled=String(await compile(p.body,{remarkPlugins:[remarkGfm,remarkMath,[remarkArticleBanners,{insertAt:p.inline}]]}));

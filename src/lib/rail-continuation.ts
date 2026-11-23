@@ -1,9 +1,11 @@
 import type { DocMeta } from './docs';
+import { RAIL_GROUP_AD_MAX } from './rail-kinds.mjs';
 
 /**
  * 右の欄の「下に続く束」の共通部品（記事・基準書の章と節・資格トップが同じ仕組みを使う）。
  * 上の束（そのページの今の並び）の下へ、回遊カードの組を上詰めで並べる（2026-11-16 運営者判断: 均等割りは組の間に大きな余白が出た）。
- * 組には転職バナーを置かず、1 組おきに AdSense の枠を置く（withRailAdSense・2026-11-22）。上詰めで広告が続かないよう、カードの無い組は作らない。
+ * 組には転職バナーを置かず、1 組目と 3 組目のカードの上にだけ AdSense の枠を置く（withRailAdSense）。上詰めで広告が続かないよう、カードの無い組は作らない。
+ * 欄の最後には追従ブロック（RailFollow・目次＋AdSense 1 枠）が付く（RailStack の follow）。
  * 組の数の判定・カードの選び方・バナーだけの組の散らし方は、ここだけに置く。
  */
 
@@ -26,8 +28,6 @@ export interface RailGroup {
   card: RailCard | null;
   /** カードの上に AdSense の枠を置く組 */
   adsense?: boolean;
-  /** 上詰めの組の下の空きに、組の直後から上詰めで並べる AdSense だけの組 */
-  lower?: boolean;
 }
 
 /**
@@ -37,17 +37,12 @@ export interface RailGroup {
  */
 export const RAIL_AFFILIATE_MAX = 2;
 
-/** 上詰めの組の下の空きに置く AdSense の上限。間隔（1,000px ごとに縦長の 1 枠）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
-const RAIL_LOWER_AD_MAX = 40;
-
 /**
- * 下に続く組の転職バナーを外し、1 組目から 1 組おきに AdSense を置く（カードの上に AdSense → カード → AdSense …）。
- * 上詰めの組の下の空きには縦長の AdSense だけの組（lower）を最大 40 足す。何枠出すかは描画した空きの高さで決める（1,000px 間隔。
- * 字数からの高さの見積もりは表の多い基準書の章で外れ、空きが 1 万 px を超えても 0 枠だった）。
+ * 下に続く組の転職バナーを外し、1 組目から 1 組おきに AdSense を置く（RAIL_GROUP_AD_MAX 枠まで＝1 組目と 3 組目。値と経緯は rail-kinds.mjs）。
+ * 組の下の空きは、欄の最後の追従ブロック（RailFollow）が受け持つ。
  */
 export function withRailAdSense(groups: RailGroup[]): RailGroup[] {
-  const packed = groups.map((group, index) => ({ ...group, adsense: index % 2 === 0 }));
-  return [...packed, ...Array.from({ length: RAIL_LOWER_AD_MAX }, (_, i) => ({ slot: `rail-adsense-lower-${i + 1}`, card: null, adsense: true, lower: true }))];
+  return groups.map((group, index) => ({ ...group, adsense: index % 2 === 0 && index / 2 < RAIL_GROUP_AD_MAX }));
 }
 export interface RailSource { label: RailCard['label']; title: string; links: RailLink[]; plain?: boolean }
 

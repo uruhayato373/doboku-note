@@ -16,7 +16,7 @@ import { parseCliArgs } from '../lib/cli-args.mjs';
 import { impressionKeyCounts } from '../lib/affiliate-link-keys.mjs';
 
 import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST, articleImageKind } from '../../src/lib/cta-density-policy.mjs';
-import { RAIL_KINDS } from '../../src/lib/rail-kinds.mjs';
+import { RAIL_KINDS, RAIL_GROUP_AD_MAX } from '../../src/lib/rail-kinds.mjs';
 import { isCliEntry } from '../lib/cli-run.mjs';
 export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
 
@@ -114,11 +114,23 @@ export function inspectHtml(html, slug) {
   let railUnits = 0;
   for (const rail of rails) {
     if (!rail.querySelector('[data-rail-stack]')) { add('rail-without-stack', 1, 0, [], ['layout']); continue; }
-    const units = rail.querySelectorAll('[data-rail-stack], [data-article-sidebar-group], [data-article-sidebar-lower-ads]').flatMap(box => box.childNodes.filter(n => n.tagName));
+    const units = rail.querySelectorAll('[data-rail-stack], [data-article-sidebar-group]').flatMap(box => box.childNodes.filter(n => n.tagName));
     railUnits += units.length;
     const unknown = units.filter(n => !Object.hasOwn(RAIL_KINDS, attr(n, 'data-rail-kind')));
     if (unknown.length) add('rail-kind-unknown', unknown.length, 0, [], ['layout'], { kinds: [...new Set(unknown.map(n => attr(n, 'data-rail-kind') || n.tagName.toLowerCase()))] });
+    // 追従ブロック（RailFollow）は 1 つだけで欄の最後。下に要素を置くと届かなくなる（2026-07 頃の事故・2026-11-23 に欄の最後だけ追従を戻した）
+    const follows = rail.querySelectorAll('[data-rail-follow]');
+    if (follows.length > 1) add('rail-follow-multiple', follows.length, 1, [], ['layout']);
+    for (const follow of follows) {
+      if (follow.parentNode.childNodes.filter(n => n.tagName).at(-1) !== follow) add('rail-follow-not-last', 1, 0, [], ['layout']);
+    }
+    // 右の欄の AdSense は下に続く組の RAIL_GROUP_AD_MAX 枠まで（追従ブロックの 1 枠は描画後に置くので HTML には無い）
+    const railAds = rail.querySelectorAll('[data-adsense]').length;
+    if (railAds > RAIL_GROUP_AD_MAX) add('rail-adsense-total', railAds, RAIL_GROUP_AD_MAX, [], ['adsense']);
   }
+  // 本文の AdSense は手動で置かず、自動広告のページ内広告に任せる（2026-11-23）
+  const bodyAds = prose ? prose.querySelectorAll('[data-adsense]').length : 0;
+  if (bodyAds) add('body-adsense-manual', bodyAds, 0, [], ['adsense']);
   if (notes.length > 30) add('note-total', notes.length, 30, notes);
   if (article) {
     const bodyNotes = notes.filter(n => within(n.node, article));

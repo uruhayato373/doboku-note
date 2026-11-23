@@ -140,7 +140,7 @@ jobs:
       # - 壊れた類（表示・本文・リンク・操作・基準書の描画など）: 夜間に落ちると channel e2e-nightly の Issue になり、deploy:main を止める
       # - デザインの類（タグ @layout。広告の枠数・空きの上限・幅のそろい）: 夜間は下の別の段で回し、落ちても channel
       #   e2e-layout-nightly の Issue に記録するだけ（scripts/lib/deploy-main.mjs の blockingNightlyIssues は見ない）
-      # PR はデザインを変えたその場で気づけるよう、@layout を含む desktop.spec・ad-coverage.spec も回して PR を落とす。
+      # PR はデザインを変えたその場で気づけるよう、@layout を含む desktop.spec も回して PR を落とす。
       - name: Run E2E
         env:
           PLAYWRIGHT_JSON_OUTPUT_NAME: .tmp/e2e-report.json
@@ -149,7 +149,7 @@ jobs:
           STANDARDS_RENDER_SCOPE: ${{ (github.event.schedule == '17 14 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.standards_scope == 'all')) && 'all' || 'distinct' }}
           # アクセシビリティは週 1 回だけ回す（毎日の夜間は除く）
           E2E_SKIP_A11Y: ${{ github.event.schedule == '17 14 * * 1-6' && '1' || '' }}
-        run: npm run test:e2e -- --reporter=line,html,json ${{ github.event_name == 'pull_request' && '--project=desktop-chromium e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/cta.spec.ts e2e/desktop.spec.ts e2e/ad-coverage.spec.ts' || '--grep-invert @layout' }}
+        run: npm run test:e2e -- --reporter=line,html,json ${{ github.event_name == 'pull_request' && '--project=desktop-chromium e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/cta.spec.ts e2e/desktop.spec.ts' || '--grep-invert @layout' }}
 
       # 夜間・手動のデザインの確認（@layout）。落ちても job は緑のまま（continue-on-error）で、下の段が別の Issue にする。
       # 報告・画像の置き場を分ける（Playwright は実行のたびに --output の置き場を消すので、上の段の失敗の画像を消さない）

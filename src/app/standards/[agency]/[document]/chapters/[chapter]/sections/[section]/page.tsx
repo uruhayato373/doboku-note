@@ -14,6 +14,7 @@ import ArticleImage from '@/components/ui/ArticleImage/ArticleImage';
 import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
+import { extractHeadings } from '@/lib/toc';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
@@ -101,6 +102,8 @@ export default async function StandardSectionPage({ params }: { params: Promise<
   const { document: entry, chapter, section, index, markdown } = resolved;
   const inlinePlan = planInlineSlots(markdown);
   const inlineSlots = inlinePlan.insertAt.map(({ slot }) => slot);
+  // 右の欄の最後の追従ブロックの目次（本文の 節・条。id は rehypeHeadingIds と同じ規則）
+  const followHeadings = extractHeadings(markdown, 2, 3);
   const railGroups = standardsSidebarContinuation(entry, chapter, inlinePlan.chars);
   const pages = standardSectionPageRange(chapter, index);
   const previous = chapter.sections[index - 1];
@@ -125,7 +128,6 @@ export default async function StandardSectionPage({ params }: { params: Promise<
     // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
     table: StandardScrollTable,
     StandardsInlineBanner: ({ slot }: { slot: string }) => <StandardsInlineBanner slot={slot} inlineSlots={inlineSlots} />,
-    StandardsInlineAd: () => <AdSlot slot="inArticle" className={`${CTA_STACK_CLASS} my-8`} />,
   };
 
   return (
@@ -146,6 +148,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             currentSection={section.number}
             inlineSlots={inlineSlots}
             railGroups={railGroups}
+            followHeadings={followHeadings}
           />
         )}
       >

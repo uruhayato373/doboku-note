@@ -19,7 +19,16 @@ export const RAIL_KINDS = /** @type {const} */ ({
   note: { part: 'NoteProductCard / HubCtaBanner', frame: 'own', reason: 'note の商品の画像の CTA。中身と配置は site-cta-surfaces.json が正本' },
   career: { part: 'ArticleBanner / StandardsRailBanner / ProgramSplitBanner', frame: 'own', reason: '転職の広告のバナー。配置はアフィリエイトの配置ルールが正本' },
   adsense: { part: 'AdSlot', frame: 'own', reason: 'AdSense の枠' },
+  follow: { part: 'RailFollow', frame: 'own', reason: '欄の最後の追従ブロック（現在地の目次＋AdSense 1 枠）。目次は MetaCard、広告は AdSlot を中に持つ入れ物' },
 });
+
+/**
+ * 右の欄の下に続く組に置く AdSense の上限（2026-11-23 運営者判断）。組み立て（src/lib/rail-continuation.ts の withRailAdSense）と
+ * ビルド後の HTML の検査（scripts/checks/check-cta-density.mjs）が同じ値を読む。欄の最後の追従ブロック（RailFollow）の 1 枠は別に数える。
+ * 以前は組の下の空きに縦長の枠を 1,000px ごとに最大 40 足していたが、長い基準書の章（1-3 章・高さ約 5.6 万 px）で 1 ページの手動の枠が 71 になり、
+ * AdSense は上から約 19 枠しか処理せず右の欄が空白のままだった。
+ */
+export const RAIL_GROUP_AD_MAX = 2;
 
 /** @typedef {keyof typeof RAIL_KINDS} RailKind */
 
