@@ -17,8 +17,9 @@ test('右の欄の空きに AdSense の枠が出て、空きからはみ出さ�
       // コンテナクエリは内容の箱（padding を除く）の高さで判定する
       height: el.clientHeight - parseFloat(getComputedStyle(el).paddingTop) - parseFloat(getComputedStyle(el).paddingBottom),
       visible: ads.length,
-      // 見えている枠の下端が空きの下端を 1px より超えるもの
-      overflow: ads.filter((ad) => ad.getBoundingClientRect().bottom > box.bottom + 1).length,
+      // 見えている広告（枠の中の AdSense の箱）の下端が空きの下端を 1px より超えるもの。
+      // 1,000px の枠そのものは空きの overflow:hidden で切られる前提なので測らない（中の広告が収まれば読者には欠けて見えない）
+      overflow: ads.filter((ad) => (ad.querySelector('[data-adsense]') ?? ad).getBoundingClientRect().bottom > box.bottom + 1).length,
     };
   });
   expect(height, '右の欄の下に空きが無い（検査不成立）').toBeGreaterThan(1000);
