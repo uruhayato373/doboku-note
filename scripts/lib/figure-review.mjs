@@ -20,6 +20,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
 import { escapeRegExp } from './regexp-escape.mjs';
+import { toPosix } from './posix-path.mjs';
 
 export const LEDGER_FILE = '.claude/state/quality/figure-review-ledger.json';
 export const VERDICTS = ['ok', 'needs-source', 'source-unavailable'];
@@ -179,7 +180,6 @@ export function servedExt(baseAbs, refExt, exists = existsSync) {
   return IMG_EXT.find((e) => exists(`${baseAbs}.${e}`)) ?? null;
 }
 
-const toPosix = (p) => p.split(sep).join('/');
 
 /** 記事の img/ にあるラスター画像（png/webp/jpg）の図キー（資格/記事/img/名前・拡張子なし）。ogp は除く */
 export function listFigureKeys(siteRoot) {

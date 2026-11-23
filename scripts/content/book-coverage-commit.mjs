@@ -25,6 +25,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { datasetPath } from '../lib/datasets.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
+import { sleepSync as sleep } from '../lib/sleep.mjs';
 
 const NAME = 'book-coverage-commit';
 const argv = process.argv.slice(2);
@@ -49,7 +50,6 @@ const paths = [dir, ...extra];
 const gitIn = (dir, args) => execFileSync('git', ['-c', 'core.quotepath=false', '-C', dir, ...args], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
 const git = (args) => gitIn(REPO_ROOT, args);
 const tryGit = (args) => { try { return { ok: true, out: git(args) }; } catch (e) { return { ok: false, out: `${e.stdout ?? ''}${e.stderr ?? ''}` }; } };
-const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 // 1. 排他
 const lock = join(tmpdir(), 'doboku-book-coverage-commit.lock');

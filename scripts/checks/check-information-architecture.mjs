@@ -32,9 +32,9 @@ import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';
 import { extname, basename, join, sep } from 'node:path';
 import { REPO_ROOT as ROOT, MOVED_PATHS, RESTRUCTURED_PATHS } from '../lib/repository-paths.mjs';
 import { exitWith, runMain, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 const CONFIG = join(ROOT, '.claude/config/information-architecture.json');
-const toPosix = (v) => v.split(sep).join('/');
 
 /** 拡張子で終わるパスはファイル、それ以外はディレクトリとみなす（旧パスの置き場はこの形で揃っている） */
 const isFilePath = (p) => /\.[A-Za-z0-9]+$/.test(p.split('/').pop());

@@ -28,6 +28,8 @@ import { resolveProfileDir } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
 import { NOTE_CREATOR } from './site-identity.mjs';
 import { REPO_ROOT as ROOT } from './repository-paths.mjs';
+import { sleep } from './sleep.mjs';
+export { sleep };
 
 export { ROOT };
 
@@ -39,7 +41,6 @@ export const profileDir = () => resolveProfileDir('note', { cwd: ROOT, repoRoot:
 /** 会社 PC のプロキシ越しに Chrome を起動するため。未設定なら undefined（システム既定）。 */
 const ENV_PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
-export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  * note 編集スクリプト共通のブラウザ起動。

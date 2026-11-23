@@ -19,7 +19,8 @@
  * 送信ボタン: 「下書きで保存」/「公開する」/「更新する」
  * ---------------------------------------------------------------------------
  */
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+import { sleep } from './sleep.mjs';
 
 /** 促進モーダル（c-serviceDialog / tw-z-modal）が被さっていたら閉じる */
 export async function dismissModal(page) {

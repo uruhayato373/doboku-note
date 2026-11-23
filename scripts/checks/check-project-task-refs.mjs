@@ -43,6 +43,7 @@ import { parseBacklog } from '../lib/backlog-lib.mjs';
 import { REPO_ROOT as ROOT, TODO_ROOT } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
 import { exitWith, runMain, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 const PROJECT_DIR = join(ROOT, 'docs');
 const BACKLOG = join(TODO_ROOT, 'backlog.md');
@@ -58,7 +59,6 @@ const ACTION_HEADING = /^#{2,4}\s+.*(次のアクション|次にやること|�
 const UNCHECKED = /^\s*[-*]\s+\[ \]\s+(.*)$/;
 const ID_RE = /DN-\d{4}/g;
 
-const toPosix = (v) => v.split(sep).join('/');
 
 /**
  * その週の状態を記録するスナップショット文書か。

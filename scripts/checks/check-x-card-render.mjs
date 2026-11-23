@@ -37,6 +37,7 @@ import { isXCardPng, listScopedXCardPngs } from '../lib/x-card-render-scope.mjs'
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { listFiles } from '../lib/fs-walk.mjs';
 import { sha256File } from '../lib/asset-storage.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 const LEDGER = join(ROOT, '.claude/state/sns/x-card-render.json');
 const X_DIR = join(ROOT, 'content/sns/x');
@@ -49,7 +50,6 @@ const readCardSpec = rel => {
   return JSON.parse(readFileSync(specFile, 'utf8')).tweets[number];
 };
 
-const toPosix = (p) => p.split(sep).join('/');
 
 const scoped = listScopedXCardPngs(ROOT);
 if (!scoped.ok) {

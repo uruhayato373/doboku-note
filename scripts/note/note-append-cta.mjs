@@ -28,6 +28,7 @@ import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -49,7 +50,6 @@ const BOUNDARY_RE = getArg('--boundary-h2') || '試験問題|予想問題';
 if (!NOTE || !TEXT || !URL) { console.error('required: --note <noteId> --text "<文章>" --url <magazineUrl> [--after <needle>] [--boundary-h2 <regex>]'); process.exit(1); }
 // マガジン key（m... / n...）を URL から抽出（DOM 冪等チェック用の安定キー）
 const URL_KEY = (URL.match(/\/(?:m|n)\/([a-z0-9]+)/) || [])[1] || URL;
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 mkdirSync(join(ROOT, '.tmp'), { recursive: true });
 
 console.log(`[prep] note=${NOTE} urlKey=${URL_KEY} mode=${COMMIT ? 'COMMIT(更新する)' : 'DRY-RUN(更新しない)'}`);

@@ -11,6 +11,7 @@
  * exit code: このファイルは CLI を持たない（呼び出し側スクリプトの exit code に従う）。
  */
 import { freshnessDays } from './datasets.mjs';
+import { medianOrZero as median } from './stats.mjs';
 
 // sum{} のサブフィールド（1 要素 = 1 フィールド。ネストは "name { ... }" のまま 1 要素にする）。
 // pruneQueryFields はこの「フィールド名が先頭」という形に依存して剪定する。
@@ -116,12 +117,6 @@ export function summarizeDays(groups) {
   });
 }
 
-const median = (nums) => {
-  if (nums.length === 0) return 0;
-  const sorted = [...nums].sort((a, b) => a - b);
-  const mid = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
-};
 
 /**
  * 直近日の JP リクエストが直前 6 日の中央値の 3 倍以上、または海外が国内を上回る日を異常として検知する。

@@ -33,6 +33,7 @@ import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { listAttachedFiles, countEmbeds, saveAttachmentDraft } from '../lib/note-attach.mjs';
 import { escapeRegExp } from '../lib/regexp-escape.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 
 const argv = process.argv.slice(2);
@@ -64,7 +65,6 @@ if (!existsSync(fileAbs)) {
 }
 console.log(`[prep] note=${NOTE} file=${fileAbs} mode=${COMMIT ? 'COMMIT' : DRAFT_ONLY ? 'DRAFT_ONLY' : 'PROBE'}`);
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await launchNoteContext();
 let exitCode = 0;
 try {

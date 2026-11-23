@@ -22,12 +22,12 @@ import { join } from 'node:path';
 import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { NOTE_CREATOR } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const OUT = join(ROOT, '.tmp/note/publish-probe');
 mkdirSync(OUT, { recursive: true });
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const NOTE = process.argv[2];
 if (!NOTE) { console.error('usage: node .tmp/note-publish-dialog-probe.mjs <noteId>'); process.exit(1); }
 

@@ -14,6 +14,7 @@ import { parseNoteText } from '../lib/note-meta.mjs';
 import { fetchCreatorMagazines } from '../lib/note-api.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -38,7 +39,6 @@ if (COMMIT && !argv.includes('--allow-duplicate')) {
   if (same.length) { console.error(`ABORT: 同名のマガジンが既にある: ${same.join(', ')}（作り直すなら先に削除する）`); process.exit(4); }
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await launchNoteContext();
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

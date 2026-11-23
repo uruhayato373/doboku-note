@@ -8,7 +8,10 @@
     "mdxWalk": 22,
     "escapeRegExp": 0,
     "siteSlug": 0,
-    "headingId": 0
+    "headingId": 0,
+    "sleep": 5,
+    "toPosix": 6,
+    "median": 5
   },
   "readJson": 4
 }

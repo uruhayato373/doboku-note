@@ -19,6 +19,7 @@ import { REPO_ROOT } from '../lib/repository-paths.mjs';
 import { R2_PUBLIC_HOST } from '../lib/site-identity.mjs';
 import { chunk, judgeCdnCheck } from '../lib/r2-cdn-check.mjs';
 import { createHash } from 'node:crypto';
+import { sleep } from '../lib/sleep.mjs';
 
 const args = parseCliArgs({ list: { type: 'string' } });
 if (!args.list) {
@@ -67,7 +68,6 @@ if (overwritten.length) {
 console.log(`[purge-r2-changed] 送った ${uploaded.length} 件（上書き ${overwritten.length}）/ ${purgeNote}`);
 
 // 2) 通常 URL の実体を SHA-256 で照合する（purge の反映待ちに 3 回まで間を空けて取り直す）
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function check(item) {
   let last = 'fetch-failed';
   for (let attempt = 0; attempt < 3; attempt++) {

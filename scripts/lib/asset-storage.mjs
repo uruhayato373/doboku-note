@@ -31,12 +31,12 @@ import { closeSync, createReadStream, existsSync, mkdirSync, openSync, readdirSy
 import { dirname, join, sep } from 'node:path';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { datasetPath } from './datasets.mjs';
+import { toPosix } from './posix-path.mjs';
+export { toPosix };
 
 export const CONFIG_PATH = join(REPO_ROOT, datasetPath('config.asset-storage'));
 export const MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/manifest.json');
 
-/** R2 のキーは常に '/' 区切り。Windows の path.sep が '\\' なので正規化する。 */
-export const toPosix = (p) => p.split(sep).join('/');
 
 /**
  * 置き場は **誰が使うか（audience）** で決める（2026-09-05・asset-storage-policy.md §1）。

@@ -4,8 +4,8 @@
 // 呼ぶのは「公開に進む」で設定画面に着いた直後。「更新する」は呼び出し側が押す。
 import { isUnmeasurable } from './note-live-check.mjs';
 import { tagChipPattern } from './note-tag-plan.mjs';
+import { sleep } from './sleep.mjs';
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export const tagsOfNote = (d) => (d?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
 
 /** ログイン済みブラウザの API で記事を読む（著者本人には会員限定記事のタグ・カバーも返る）。 */

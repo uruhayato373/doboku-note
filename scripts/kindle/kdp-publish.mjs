@@ -44,6 +44,7 @@ import { jstClock, todayJst } from '../lib/jst-date.mjs';
 import { updateKindleCatalog } from '../lib/product-registry.mjs';
 import { loadKindleCatalog } from '../lib/kindle-catalog.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -116,7 +117,6 @@ const setDraftAsin = (id, asin) => {
   if (wrote) console.log(`[catalog] draftAsin 記録: ${id} = ${asin}`);
 };
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const K = (id) => `kdp-${id || 'bookshelf'}`;
 const shot = async (page, step) => { try { await page.screenshot({ path: join(TMP, `${K(ID)}-${step}.png`) }); console.log(`[shot] .tmp/${K(ID)}-${step}.png`); } catch {} };
 

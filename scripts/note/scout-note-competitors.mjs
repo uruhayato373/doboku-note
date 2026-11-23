@@ -43,6 +43,7 @@ import { loadPreviousSnapshot, saveSnapshot } from '../lib/competitor-history.mj
 import { datasetPath } from '../lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from '../lib/note-api.mjs';
+import { median } from '../lib/stats.mjs';
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 note
 
@@ -113,12 +114,6 @@ function fetchMagazineNotes(key) {
   return out;
 }
 
-const median = (arr) => {
-  if (arr.length === 0) return null;
-  const s = [...arr].sort((a, b) => a - b);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
-};
 
 /** 価格帯バンド（09 の分析軸に合わせる）。 */
 function priceBands(prices) {

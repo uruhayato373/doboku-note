@@ -45,6 +45,7 @@ import { kdpLiveBookIdsAsOf, loadKindleCatalogIfPresent } from '../lib/kindle-ca
 import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope, mergeKdpBookRows } from '../lib/kdp-report-parsers.mjs';
 import { writeDataset } from '../lib/dataset-write.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -75,7 +76,6 @@ if (argv.includes('--list-due')) {
   process.exit(0);
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const jpDate = (d) => `${Y}年${String(M).padStart(2, '0')}月${String(d).padStart(2, '0')}日`;
 const num = (s) => Number(String(s).replace(/[¥￥,\s]/g, '')) || 0;
 

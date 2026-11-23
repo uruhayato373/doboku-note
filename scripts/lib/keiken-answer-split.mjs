@@ -3,6 +3,7 @@ import { basename, dirname, extname, join, relative, sep } from 'node:path';
 import { strFromU8, unzipSync } from 'fflate';
 import { datasetPath } from './datasets.mjs';
 import { readDataset } from './dataset-io.mjs';
+import { toPosix } from './posix-path.mjs';
 
 export const SCAN_TARGETS = [
   { kind: 'dir', path: 'content/note/1級・2級土木', label: 'note（1級・2級土木）' },
@@ -28,7 +29,6 @@ const SITUATION = /現場状況|施工条件|周辺(?:の)?状況/;
 const CHALLENGE = /技術的課題|留意した事項|課題/;
 const MARKER = /(?:設問\s*[（(]\s*([１２12])\s*[)）]|[（(]\s*([１２12])\s*[)）]|([①②]))/gu;
 
-const toPosix = (p) => p.split(sep).join('/');
 const digit = (s) => ({ '１': 1, '２': 2, '1': 1, '2': 2, '①': 1, '②': 2 }[s]);
 
 export function gradeFromPath(file) {

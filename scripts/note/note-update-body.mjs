@@ -92,6 +92,7 @@ import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
 import { stripHtmlComments } from '../lib/strip-markup.mjs';
 import { escapeRegExp } from '../lib/regexp-escape.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const sha256File = (p) => createHash('sha256').update(readFileSync(p)).digest('hex');
 
@@ -291,7 +292,6 @@ function deriveProbe(body) {
   return flat.slice(0, 20);
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function emptyAndPaste(page, body, probe) {
   // 3. 本文置換: Ctrl+A → Delete で空に → ClipboardEvent paste（空エディタ paste 成功条件を再現）

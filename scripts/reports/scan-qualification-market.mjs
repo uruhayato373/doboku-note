@@ -38,6 +38,7 @@ import { todayJst } from '../lib/jst-date.mjs';
 import { latestMarketSnapshot, MARKET_DATASET, stringifyMarketSnapshot } from '../lib/market-inputs.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.market-scan'));
 const REGISTRY_PATH = join(ROOT, datasetPath('config.qualification-registry'));
@@ -86,7 +87,6 @@ const OUT_PATH = join(ROOT, datasetPath(MARKET_DATASET, { date: today }));
 const snapshot = { schemaVersion: 1, ...(latestMarketSnapshot(ROOT) ?? { youtube: {}, note: {}, youtubeChannels: {} }) };
 delete snapshot.version;
 const doneToday = (bucket, k) => !FORCE && snapshot[bucket]?.[k]?.fetchedAt?.slice(0, 10) === today && !snapshot[bucket][k].error;
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const save = () => {
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   snapshot.updatedAt = new Date().toISOString();

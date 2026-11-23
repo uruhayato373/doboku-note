@@ -17,6 +17,7 @@ import {
 import { cardifyBareUrls } from '../lib/note-cardify.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 /**
  * 公開済み note 記事の「指定した範囲だけ」を更新する。
@@ -55,7 +56,6 @@ const remainingSpecs = listedSpecs.slice(START - 1);
 const specArgs = LIMIT > 0 ? remainingSpecs.slice(0, LIMIT) : remainingSpecs;
 if (specArgs.length === 0) throw new Error('spec list が空');
 
-const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 const expected = (op) => op.expected ?? 1;
 const shot = (name, noteId) => join(ROOT, `.tmp/note-partial-${name}-${noteId}.png`);
 mkdirSync(join(ROOT, '.tmp'), { recursive: true });

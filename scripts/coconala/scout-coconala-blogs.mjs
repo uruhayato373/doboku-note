@@ -36,6 +36,7 @@ import { resolveProfileDir } from '../lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { sleep } from '../lib/sleep.mjs';
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.coconala-blog'));
 const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
@@ -48,7 +49,6 @@ const qi = argv.indexOf('--query');
 const AD_HOC = qi >= 0 ? argv[qi + 1] : null;
 const TOP_N = 12;
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const today = () => todayJst();
 
 const config = JSON.parse(readFileSync(CONFIG_PATH, 'utf8'));

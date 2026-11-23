@@ -21,6 +21,7 @@ import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import { REPO_ROOT as root, SITE_CONTENT_ROOT } from '../lib/repository-paths.mjs';
+import { toPosix } from '../lib/posix-path.mjs';
 
 // Load .env.local
 const envPath = path.join(root, '.env.local');
@@ -34,7 +35,6 @@ const contentDir = SITE_CONTENT_ROOT;
 
 // R2 のキーは常に '/' 区切り。Windows の path.join は '\\' を返すため正規化する
 // （未正規化だと R2 キーが 'posts/...\\...\\q01.webp' になり URL と一致せず 404 になる）。
-const toPosix = (p) => p.split(path.sep).join('/');
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const ACCESS_KEY = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
