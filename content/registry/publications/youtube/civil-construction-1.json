@@ -8,7 +8,7 @@
       "work": "c1-after-ichiji-niji-junbi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/c1-after-ichiji-niji-junbi/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-after-ichiji-niji-junbi/youtube.longform/scene-001",
@@ -43,7 +43,42 @@
         "contentSha256": "5b629b3588dedf8fd08bf80f5687a569abb7d0731269337d6b9b23a54c7ed257"
       },
       "times": {
-        "rendered": "2026-11-23T12:55:35.200Z"
+        "rendered": "2026-11-23T12:55:35.200Z",
+        "uploaded": "2026-11-23T13:01:32.425Z",
+        "scheduled": "2026-11-23T13:01:41.086Z"
+      },
+      "delivery": {
+        "inputSha256": "a30ec1170fe2b38de77731471c7f832e3d9a18197106a88e87ed216ed81af419",
+        "marker": "dn-single-a6e913ab0d53b6a454185b2874e55ae3c9563c32",
+        "uploadRequestedAt": "2026-11-23T13:00:40.432Z",
+        "videoId": "DFCyPacEdSM",
+        "processedAt": "2026-11-23T13:01:31.341Z",
+        "thumbnailRequestedAt": "2026-11-23T13:01:32.474Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/DFCyPacEdSM/default.jpg?sqp=CNDxkNgG&rs=AOn4CLBzUoyn0TbSjH5Gh7Er6KHadNk48w",
+          "https://i9.ytimg.com/vi/DFCyPacEdSM/mqdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLDSaYldhHlrOfEUsucmHpZtXukWMw",
+          "https://i9.ytimg.com/vi/DFCyPacEdSM/hqdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLAOlFkuFNtXTmdgQMsnFaFPDSFsPQ",
+          "https://i9.ytimg.com/vi/DFCyPacEdSM/sddefault.jpg?sqp=CNDxkNgG&rs=AOn4CLBVTzqt6VHPMsIRi-VO984PeTrJ-Q",
+          "https://i9.ytimg.com/vi/DFCyPacEdSM/maxresdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLCEEEF7EQfKsJ9hej47bVz3rgTP6g",
+          "https://i9.ytimg.com/vi/DFCyPacEdSM/fhddefault.jpg?sqp=CNDxkNgG&rs=AOn4CLDlC9o6xb_G5NZFBWlz1NN-N2QK5g"
+        ],
+        "thumbnailAcceptedAt": "2026-11-23T13:01:36.209Z",
+        "scheduleRequestedAt": "2026-11-23T13:01:37.417Z",
+        "scheduleAt": "2026-12-07T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-23T13:01:41.086Z"
+      },
+      "platform": {
+        "id": "DFCyPacEdSM",
+        "url": "https://www.youtube.com/watch?v=DFCyPacEdSM",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/c1-after-ichiji-niji-junbi/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-23T13:01:36.209Z"
       }
     },
     {
