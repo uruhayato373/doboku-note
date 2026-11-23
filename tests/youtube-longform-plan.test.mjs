@@ -195,6 +195,18 @@ test('台本待ちは公開行の無い企画と QA で止まった行を、確�
   assert.deepEqual(q.map((r) => [r.id, r.state, r.overdue]), [['early', 'script', true], ['blocked', 'qa-blocked', false], ['late', 'script', false]]);
 });
 
+test('企画だけのパックを台帳に登録した下書きの行は、台本ができるまで台本待ちに残る（2026-11-23）', () => {
+  const e = (id, ready, extra = {}) => ({ ...row, id, ready, ...extra });
+  const plan = { entries: [
+    e('idea', '2026-12-15', { publicationId: 'q/idea/youtube.longform' }),
+    e('written', '2026-12-16', { publicationId: 'q/written/youtube.longform' }),
+  ] };
+  const pubs = [{ id: 'q/idea/youtube.longform', status: 'draft' }, { id: 'q/written/youtube.longform', status: 'draft' }];
+  const hasScript = (id) => id === 'q/written/youtube.longform';
+  assert.deepEqual(scriptQueue(plan, pubs, '2026-11-23', { hasScript }).map((r) => [r.id, r.state]), [['idea', 'script']]);
+  assert.deepEqual(scriptQueue(plan, pubs, '2026-11-23').map((r) => r.id), ['idea', 'written'], '確かめる手段を渡さなければ下書きを落とさない');
+});
+
 test('ショートの決まり: 親が公開・予約に進んでから、1 本につき上限まで。枠の外は試行の上限まで', () => {
   const plan = {
     shortsRule: { parentStatus: ['published', 'scheduled'], perLongform: 2, trial: { max: 3 } },

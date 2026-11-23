@@ -57,8 +57,8 @@ import { applyReadingDict } from '../lib/sns-common/reading-dict.mjs';
 import { stagedRenderWorks } from '../lib/youtube-single-r2.mjs';
 import { assertCleanTree, dispatchAndWatch, pullRebaseResolvingManifest } from '../lib/publish-sync.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, supersededRetirement, tokenMisreads, uploadsLeft } from '../lib/video-publish-gate.mjs';
-import { scriptQueue, slotProblems, weekLimit } from '../lib/youtube-longform-audit.mjs';
-import { loadPlanAudit } from '../lib/youtube-longform-plan.mjs';
+import { slotProblems, weekLimit } from '../lib/youtube-longform-audit.mjs';
+import { loadPlanAudit, loadScriptQueue } from '../lib/youtube-longform-plan.mjs';
 import { loadSiteRoutes, siteArticleUrl } from '../lib/site-links.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, preflightProblems, recordAudit, retryItems, summarize, unapprovedRow } from '../lib/video-factory.mjs';
 
@@ -137,7 +137,7 @@ async function status() {
   const checked = rows.filter((r) => r.stage !== 'unregistered').length;
   // 最上流の「次にどの台本を書くか」。パックがまだ無い企画の行は上の走査に出ないので、年間計画から出す（DN-1069）
   const { plan, publications } = loadPlanAudit(ROOT);
-  const queue = scriptQueue(plan, publications).filter((r) => !args.exam || r.exam === args.exam);
+  const queue = loadScriptQueue(ROOT, plan, publications).filter((r) => !args.exam || r.exam === args.exam);
   if (args.json) { console.log(JSON.stringify({ scanned, checked, counts, rows, scriptQueue: queue }, null, 2)); return; }
   console.log(`パック ${scanned} 件のうち、公開行のある ${checked} 件を判定（台帳未登録 ${scanned - checked} 件は registry -- import-video-pack で載せる）`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
