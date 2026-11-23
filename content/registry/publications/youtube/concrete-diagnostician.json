@@ -8,7 +8,7 @@
       "work": "cd-mondai-b-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/cover",
         "scene-001": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-001",
@@ -41,7 +41,42 @@
         "contentSha256": "e9de45f1c0df0c391cbec480df996874db986ee95a84a2bd1dab9bc611e2f5b0"
       },
       "times": {
-        "rendered": "2026-11-23T12:55:23.353Z"
+        "rendered": "2026-11-23T12:55:23.353Z",
+        "uploaded": "2026-11-23T12:57:34.411Z",
+        "scheduled": "2026-11-23T12:57:43.415Z"
+      },
+      "delivery": {
+        "inputSha256": "c3b8ebb42f5d9682a6ae7d1cab76279e53b2cedd6c4de20049f9d65b05dd5d9b",
+        "marker": "dn-single-67302a35fcbf9527a202ef9db1bd2b7fc36802f9",
+        "uploadRequestedAt": "2026-11-23T12:56:44.984Z",
+        "videoId": "DehBBjBBI88",
+        "processedAt": "2026-11-23T12:57:33.573Z",
+        "thumbnailRequestedAt": "2026-11-23T12:57:34.449Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/DehBBjBBI88/default.jpg?sqp=CKTvkNgG&rs=AOn4CLBlOzYGaaieYJqinmh0D9WCe4t0kg",
+          "https://i9.ytimg.com/vi/DehBBjBBI88/mqdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLA2BdZxhXTKBwebaBR-SC4y5GW_DA",
+          "https://i9.ytimg.com/vi/DehBBjBBI88/hqdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLCq_53PzTpZqUZJPGlDYb0UU--qqQ",
+          "https://i9.ytimg.com/vi/DehBBjBBI88/sddefault.jpg?sqp=CKTvkNgG&rs=AOn4CLD3y85kmevUIoeogmzulghpXVCy_Q",
+          "https://i9.ytimg.com/vi/DehBBjBBI88/maxresdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLD-ox1AwVs0BdNvkmLQOedWHx_evw",
+          "https://i9.ytimg.com/vi/DehBBjBBI88/fhddefault.jpg?sqp=CKTvkNgG&rs=AOn4CLA1MAC_bmm3LEc5x5NF6yRRNfDfyw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-23T12:57:38.363Z",
+        "scheduleRequestedAt": "2026-11-23T12:57:39.691Z",
+        "scheduleAt": "2026-12-06T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-23T12:57:43.415Z"
+      },
+      "platform": {
+        "id": "DehBBjBBI88",
+        "url": "https://www.youtube.com/watch?v=DehBBjBBI88",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-23T12:57:38.363Z"
       }
     }
   ]
