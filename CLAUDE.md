@@ -90,7 +90,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ### 5. モデルは判断が必要な場面だけに使う（＝ハーネス設計原則）
 > 他ドキュメントから「CLAUDE.md『ハーネス設計原則』」として参照されるのはこの §5。
-- **サブエージェント**: `model: sonnet` 既定。Opus は親エージェントのみ（per-agent 一覧 → agents-registry.md）
+- **サブエージェント**: sonnet 既定（型なしも settings の env）。Opus は親のみ（一覧 → agents-registry.md）
 - **同時起動は原則 3 体まで**・Workflow の並行は 2 本まで。超える規模は分割して順に回す
 - **worktree は複数セッションが並行するときだけ**（§10）。単一セッションでは作らない
 - ルーティング・リトライ・ステータスコード処理など、コードで決定できるものはサブエージェントに委ねない

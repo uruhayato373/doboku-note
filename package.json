@@ -532,6 +532,7 @@
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-civil-exam-textbook-index && npm run build-public-redirects && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages && npm run build-frequent-topics && npm run build-standards-data && npm run build-note-catalog && npm run build-exam-question-data && npm run build-quiz-data && npm run build-llms-txt",
     "render-figure-sns": "node scripts/sns/render-figure-sns.mjs",
     "report-buildjob-affiliate": "node scripts/reports/report-buildjob-affiliate.mjs",
+    "report-agent-usage": "node scripts/reports/report-agent-usage.mjs",
     "report-career-funnel": "node scripts/reports/report-career-funnel.mjs",
     "report-ga4-gsc-crosswalk": "node scripts/reports/report-ga4-gsc-crosswalk.mjs",
     "report-defect-learning": "node scripts/reports/report-defect-learning.mjs",

@@ -626,7 +626,8 @@
 1. 2026-11-18〜12-16 の起動回数を、エージェントごと（旧名は新名へ合算）と general-purpose について前の 4 週間と比べる
 2. 新設の 3 体（note-traffic-analyst・coconala-traffic-analyst・product-portfolio-planner）と共通化した essay-writer／essay-qa・figure-crop-worker／figure-crop-auditor の返り値を、実際に動いた回の記録で見て、入力・返り値の形を直す。動いていない役は起動条件が合っているかを確かめる
 3. Workflow の機械の段から起動したエージェントが hook に記録されるかを確かめる（cli-runner が 0 回だった）
-4. 比較が済んだら、呼び出しを記録する hook（`scripts/hooks/agent-hook.mjs` の record-usage・`scripts/lib/agent-hooks.mjs`）を外す（DN-0798 から移した）
+4. 比較は `npm run report-agent-usage -- --since 2026-11-18 --until 2026-12-16`（前の 4 週間は `--since 2026-10-21 --until 2026-11-18`）。2026-11-23 から型なしの委任の割合と、呼び出しで明示した model・effort も記録している（`.claude/settings.json` の `CLAUDE_CODE_SUBAGENT_MODEL=sonnet` の効き目を見る）。effort の既定を役割ごとに変えるか（`scripts/lib/domain-roles.mjs` の ROLE_DEFAULTS）はこの内訳を見て決める
+5. 比較が済んだら、呼び出しを記録する hook（`scripts/hooks/agent-hook.mjs` の record-usage・`scripts/lib/agent-hooks.mjs`）を外す（DN-0798 から移した）。model の内訳を続けて見るなら残す
 **完了条件**: 比較の表（エージェントごとの前後の回数・general-purpose の増減）がカードの完了記録か docs/reviews にあり、直した役の commit がある。記録の hook が外れている。
 
 
