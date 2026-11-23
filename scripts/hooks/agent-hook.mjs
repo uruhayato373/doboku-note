@@ -6,6 +6,7 @@
 //     check-cd-scope           PreToolUse(Bash)   括弧の外の cd で worktree・プロジェクトの下の階層へ移るなら exit 2（Claude Code だけ）
 //     check-shell-traps        PreToolUse(Bash)   zsh の修飾子の罠・main への直接 push・git stash・git add -A を止め、develop への push では最新の検査結果を 1 行出す
 //     check-agent-network      PreToolUse(Bash)   ネット取得禁止のサブエージェント（agent_type）が curl 等で取得するなら exit 2
+//     pre-bash                 PreToolUse(Bash)   上の 4 本（doc-sync・cd-scope・shell-traps・agent-network）を 1 回の起動で順に回す（settings.json はこれを呼ぶ）
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
 //     check-disk-hygiene       Stop               check-disk-hygiene.mjs --quick --stop を stderr へ
@@ -138,6 +139,21 @@ const HANDLERS = {
     return 2;
   },
 
+  // settings.json の Bash PreToolUse を 1 回の起動にまとめる入口（4 回の node 起動と stdin 読みを 1 回にする）。
+  // 合成の規則: 4 判定を doc-sync → cd-scope → shell-traps → agent-network の順に全部回し、各判定のメッセージは全部出す。
+  // 終了コードは各判定の最大値（今はどれも 0 か 2＝1 本でも 2 を返せば 2 で止める）。個別の入口は手で呼ぶ・テスト用に残す。
+  'pre-bash'(input) {
+    let code = 0;
+    for (const name of ['check-doc-sync', 'check-cd-scope', 'check-shell-traps', 'check-agent-network']) {
+      try {
+        code = Math.max(code, HANDLERS[name](input));
+      } catch (e) {
+        process.stderr.write(`[agent-hook ${name}] ${e.message}\n`);
+      }
+    }
+    return code;
+  },
+
   'check-mojibake'({ filePath }) {
     if (!isMdxPath(filePath)) return 0;
     const abs = resolve(ROOT, filePath);
@@ -150,8 +166,14 @@ const HANDLERS = {
   },
 
   'check-stray-files'() {
-    const listed = git(['ls-files', '--others', '--exclude-standard', '--', ...STRAY_GLOBS]) + '\n' + git(['ls-files', '--others', '--ignored', '--exclude-standard', '--', ...STRAY_GLOBS]);
-    const stray = strayAtRoot(listed.split(/\r?\n/));
+    // 見たいのは直下だけ。`git ls-files --others --ignored` は node_modules・.next・out の全域を歩いて 1.6 秒かかるので、
+    // 直下を readdir し、拡張子が合うものから git 管理下のファイルを除く（無視ファイルも含めて判定は従来と同じ）
+    const exts = STRAY_GLOBS.map((g) => g.slice(1));
+    const candidates = readdirSync(ROOT, { withFileTypes: true })
+      .filter((d) => !d.isDirectory() && exts.some((e) => d.name.endsWith(e)))
+      .map((d) => d.name);
+    const tracked = new Set(candidates.length ? git(['ls-files', '--', ...candidates]).split(/\r?\n/) : []);
+    const stray = strayAtRoot(candidates.filter((n) => !tracked.has(n)));
     if (!stray.length) return 0;
     err(['', '⚠️  リポジトリ直下に一時ファイルが残っています:', ...stray.map((s) => `    ${s}`), '', '    → 次回から .tmp/ 配下に出してください（詳細: .tmp/README.md）', '    → 不要なら: rm <ファイル名>  または  rm .tmp/*', '']);
     return 0;

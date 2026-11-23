@@ -284,3 +284,11 @@ test('directMainPush: main への push だけを止める', () => {
   for (const c of ['git push origin main', 'git -c x=y push url abc:refs/heads/main', 'cd a && git push origin develop:main']) assert.equal(directMainPush(c), true, c);
   for (const c of ['git push origin develop', 'git push -u origin feat/main-menu', 'git log main; npm run deploy:main', 'git push origin feat/x; echo main']) assert.equal(directMainPush(c), false, c);
 });
+
+test('CLI: pre-bash は 4 判定を 1 回の起動で回す（止める判定があれば exit 2・無害なら 0）', () => {
+  const stash = runHook('pre-bash', JSON.stringify({ tool_input: { command: 'git stash' } }));
+  assert.equal(stash.status, 2);
+  assert.match(stash.stderr, /BLOCK: git stash/);
+  assert.equal(runHook('pre-bash', JSON.stringify({ tool_input: { command: 'ls' } })).status, 0);
+  assert.equal(runHook('pre-bash', '').status, 0);
+});
