@@ -268,7 +268,7 @@
 
 ### 3.4 右サイドバー
 
-右サイドバーを置くのは以下の**5 系統のみ**:
+右サイドバーを置くのは以下の**6 系統のみ**:
 
 - `/docs/[slug]`（記事 = `ArticleSidebar`）
 - `/category/[slug]`
@@ -277,6 +277,7 @@
 - `/search` と `/topics`（2026-11-21 運営者依頼で追加）。並びは一覧ページ共通の `IndexRail`（`layout/IndexRail.tsx`）: AdSense → よく読まれている記事 → 転職バナー → 新着の記事 → AdSense（2 枚目）→ 運営者 → 資格・分野から探す。広告（AdSense・転職）どうしは隣り合わせない。転職の面は `topic-rail`・`search-rail`（ピクセルはページで描く面のうち優先順の最も高い 1 面・`pixelFor`）。下に空きが残れば記事と同じく AdSense だけを散らす（`withRailAdSense`・`stretchAside`）。
   - `/search`: 広告は検索語があり結果が 1 件以上のときだけ（`SearchRailAd`）。右の欄はサーバーで組み、広告の有無だけを検索の状態から決める（client で組むと /search のチャンクが膨らむ・DN-0684）。PC では本文の「よく読まれている記事」を隠す。絞り込みは本文に残す（右の欄は 993px 未満で消える）
   - `/topics`: 広告は常時（22 テーマの入口が常にある）。本文は区分へ飛ぶリンク＋2 列のタイル。テーマが 2 枚以下の区分は末尾の 1 区画にまとめ、タイルの eyebrow に元の区分名を出す（区分の定義は変えない）
+- `/topics/[slug]`（テーマの個別ページ・2026-11-23 運営者判断で 1 列の帯から 2 列＋右の欄へそろえた）。右の欄は `TopicRail`（`topics/TopicRail.tsx`）: 転職バナー（面 `topic-rail`・ピクセルは末尾の `topic-end`）→ まず読む記事（`featured`）→ 運営者、下に続く組（このテーマの人気・新着。1 組目に AdSense）、欄の最後に追従ブロック（本文の区画の目次＋AdSense 1 枠）。note の教材と関連テーマは本文の区画にあるので右の欄で繰り返さない。本文の区画は `SectionBlock` の全幅の帯ではなく、左の列の `TopicSection`（id つき・追従ブロックの目次の飛び先）
 
 以下には**追加しない**: `/links`・`/about`・`/privacy`・`/terms`・`/tools`。
 理由 — links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
@@ -410,7 +411,7 @@ CLAUDE.md §7 と一致:
 
 **一覧のインフィード広告（2026-11-16）**: 記事の一覧（資格トップのサムネイルの行・カリキュラムの文字の行・検索結果）には AdSense のインフィード広告を 1 項目（`<AdSlot as="li" slot="inFeedThumb|inFeedText">`）として挟む。10 項目ごとに 1 枠・1 つの一覧で最大 2 枠・先頭と末尾に置かない・1 ページ 3 枠まで（検索結果は 5 件目の後に 1 枠。PC は右の欄にも 1 枠・§3.4）。折りたたみ（閉じた `Disclosure`）の中の一覧には置かない。判定は `src/lib/feed-ads.ts`（`withFeedAds`）と `src/lib/feed-ads-budget.ts`（ページの残り枠）だけ。**機械**＝`check-cta-density` の `feed-ad-total`・`feed-ad-adjacent`、描画は `inspectFeedAdsInPage`（site-visual-review の `feed-ad`・`e2e/cta.spec.ts`）。
 
-**縦に続く導線の幅（2026-11-16）**: 本文の列で縦に続けて置く商品導線（転職の横長バナー・note のカード・ココナラ・AdSense の枠）は、置かれた列の幅いっぱいの同じ幅にそろえ（テーマのページだけ区画の左寄せで最大 760px）、導線の上に見出しの文字を付けない（PR・広告の表記はカードの中）。幅の正本は `src/lib/cta-stack.ts` の `CTA_STACK_CLASS`、当てた箱に `data-cta-stack`。比べるのは同じ置き場（折りたたみの中・記事カードの中・外）どうし。300px の中央寄せ・2 列の片側に置くと記事末がばらばらに見えた（67 種類 × 2 幅のうち 43 で不一致）。**機械**＝`scripts/lib/cta-stack-inspect.mjs`（site-visual-review の `cta-width`・`e2e/cta.spec.ts` の 7 ページ）。
+**縦に続く導線の幅（2026-11-16）**: 本文の列で縦に続けて置く商品導線（転職の横長バナー・note のカード・ココナラ・AdSense の枠）は、置かれた列の幅いっぱいの同じ幅にそろえ（テーマのページの教材のカードだけ最大 760px）、導線の上に見出しの文字を付けない（PR・広告の表記はカードの中）。幅の正本は `src/lib/cta-stack.ts` の `CTA_STACK_CLASS`、当てた箱に `data-cta-stack`。比べるのは同じ置き場（折りたたみの中・記事カードの中・外）どうし。300px の中央寄せ・2 列の片側に置くと記事末がばらばらに見えた（67 種類 × 2 幅のうち 43 で不一致）。**機械**＝`scripts/lib/cta-stack-inspect.mjs`（site-visual-review の `cta-width`・`e2e/cta.spec.ts` の 7 ページ）。
 
 **機械ゲート** = `npm run check-cta-density`（ビルド後 `out/docs/**` を走査）。守る対象は (1)「ファーストビュー〜本文中の能動的な note 押し出し密度」の暴走回帰、(2) アフィリの「1 ページ 1 ピクセル」（同一 a8mat の二重発火）。全 1056 ページで違反 0 を確認済み（2026-07 フルビルド検証）。
 
