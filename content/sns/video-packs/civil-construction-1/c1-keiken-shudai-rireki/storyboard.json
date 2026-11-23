@@ -1,0 +1,1285 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 11,
+      "narration": "1級土木の経験記述は、何が何回出てきたのか。平成二十三年度から令和八年度まで、十六年分の指定項目を、まとめて見ていきます。",
+      "caption": "1級土木の経験記述　出題テーマ全履歴",
+      "visual": {
+        "kind": "cover",
+        "heading": "経験記述 出題テーマ全履歴",
+        "items": [
+          "1級土木施工管理｜平成23〜令和8年度"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "answer",
+      "start": 11,
+      "end": 28,
+      "narration": "先に答えです。十六年で指定された管理項目は、延べ十九回。安全管理が八回、品質管理が七回、工程管理が二回、施工計画と環境対策が一回ずつです。そして直近の三年では、五つの管理項目がすべて出ています。",
+      "caption": "十六年で延べ十九回　安全8・品質7",
+      "visual": {
+        "kind": "points",
+        "heading": "十六年の指定回数",
+        "items": [
+          "安全管理　8回",
+          "品質管理　7回",
+          "工程管理　2回",
+          "施工計画・環境対策　各1回"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "stance",
+      "start": 28,
+      "end": 45,
+      "narration": "この数は、当サイトの過去問記事から数えた値です。受検の年は、公式の問題と手引で必ず確かめてください。採点基準は公表されていないので、採点は断言しません。令和九年度の話も、的中の約束ではありません。",
+      "caption": "数はサイト記事から数えた値",
+      "visual": {
+        "kind": "compare",
+        "heading": "この動画の見方",
+        "ngLabel": "しないこと",
+        "okLabel": "すること",
+        "rows": [
+          {
+            "label": "採点",
+            "ng": "基準を断言",
+            "ok": "公表分だけ確認"
+          },
+          {
+            "label": "来年度",
+            "ng": "的中を約束",
+            "ok": "事実から備え方"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "pain",
+      "start": 45,
+      "end": 58,
+      "narration": "迷いは二つあります。五つの管理項目を全部準備するのか、出そうな二つに山を張るのか。この動画は、その判断の材料として、出題の事実を年度ごとに並べます。",
+      "caption": "五つ全部か、山を張るか",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の迷い",
+        "items": [
+          "5つ全部を準備する？",
+          "出そうな2つに山を張る？"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q1-place",
+      "start": 58,
+      "end": 70,
+      "narration": "まず、問題1の形です。経験記述は問題1で、毎年必ず出題される必須問題です。問題1から問題3は全問解答なので、選んで避けることはできません。",
+      "caption": "問題1は必須　問題1〜3は全問解答",
+      "visual": {
+        "kind": "points",
+        "heading": "問題1の位置づけ",
+        "items": [
+          "経験記述は問題1",
+          "問題1〜3は全問解答",
+          "毎年必ず出題される"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "q1-outline",
+      "start": 70,
+      "end": 82,
+      "narration": "令和八年度の問題1は、工事概要と設問でできています。工事概要には、工事名、立場、発注者名、工事場所、工期、主な工種、施工量を書きます。",
+      "caption": "工事概要は七つの欄",
+      "visual": {
+        "kind": "sheet",
+        "heading": "工事概要の七つの欄",
+        "sheetTitle": "工事概要の七つの欄",
+        "rows": [
+          {
+            "label": "工事名"
+          },
+          {
+            "label": "立場"
+          },
+          {
+            "label": "発注者名"
+          },
+          {
+            "label": "工事場所"
+          },
+          {
+            "label": "工期"
+          },
+          {
+            "label": "主な工種"
+          },
+          {
+            "label": "施工量"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "q1-questions",
+      "start": 82,
+      "end": 97,
+      "narration": "設問では、指定された管理項目について、技術的な課題、検討した項目、対応処置、その評価を書きます。令和八年度は、検討した項目まで書く区画と、処置と評価を書く区画に分かれていました。",
+      "caption": "設問ごとに課題・検討・処置・評価",
+      "visual": {
+        "kind": "sheet",
+        "heading": "設問に書くこと",
+        "sheetTitle": "設問に書くこと",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "技術的な課題",
+            "state": "focus"
+          },
+          {
+            "label": "検討",
+            "value": "検討した項目"
+          },
+          {
+            "label": "処置",
+            "value": "対応処置"
+          },
+          {
+            "label": "評価",
+            "value": "その結果"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "q1-warn",
+      "start": 97,
+      "end": 111,
+      "narration": "令和八年度の注意書きでは、工事概要が無記載か記述漏れの場合、設問1が無記載か求められた内容以外の場合は、不合格とされています。経験した工事でないと分かれば、失格です。",
+      "caption": "概要の無記載・趣旨外は不合格",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の注意書き",
+        "items": [
+          "工事概要の無記載・記述漏れ",
+          "設問1の無記載・趣旨外",
+          "経験していない工事は失格"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "q1-meaning",
+      "start": 111,
+      "end": 123,
+      "narration": "つまり、問題1は、何が指定されるかの前に、概要を埋めて、設問の趣旨を外さないことが前提です。ここから、指定項目の履歴を、年度の順に見ていきます。",
+      "caption": "どの管理が出るかより先に守ること",
+      "visual": {
+        "kind": "points",
+        "heading": "先に守ること",
+        "items": [
+          "工事概要を埋める",
+          "設問の趣旨を外さない",
+          "自分が経験した工事"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "h-intro",
+      "start": 123,
+      "end": 135,
+      "narration": "最初は、平成二十三年度から令和五年度までの十三年です。この間は、品質管理、安全管理、工程管理のいずれか、一つの管理項目だけが指定されていました。",
+      "caption": "前半十三年は一つだけ指定",
+      "visual": {
+        "kind": "points",
+        "heading": "平成23〜令和5年度",
+        "items": [
+          "13年分",
+          "指定は1テーマだけ",
+          "品質・安全・工程のいずれか"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "h-1",
+      "start": 135,
+      "end": 143,
+      "narration": "平成二十三年度は安全管理。二十四年度は工程管理。二十五年度は品質管理。二十六年度は安全管理です。",
+      "caption": "平成23〜26年度",
+      "visual": {
+        "kind": "sheet",
+        "heading": "平成23〜26年度",
+        "sheetTitle": "平成23〜26年度",
+        "rows": [
+          {
+            "label": "平成23年度",
+            "value": "安全管理"
+          },
+          {
+            "label": "平成24年度",
+            "value": "工程管理",
+            "state": "focus"
+          },
+          {
+            "label": "平成25年度",
+            "value": "品質管理"
+          },
+          {
+            "label": "平成26年度",
+            "value": "安全管理"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "h-2",
+      "start": 143,
+      "end": 151,
+      "narration": "平成二十七年度は品質管理。二十八年度と二十九年度は、続けて安全管理。三十年度は品質管理です。",
+      "caption": "平成27〜30年度",
+      "visual": {
+        "kind": "sheet",
+        "heading": "平成27〜30年度",
+        "sheetTitle": "平成27〜30年度",
+        "rows": [
+          {
+            "label": "平成27年度",
+            "value": "品質管理"
+          },
+          {
+            "label": "平成28年度",
+            "value": "安全管理"
+          },
+          {
+            "label": "平成29年度",
+            "value": "安全管理"
+          },
+          {
+            "label": "平成30年度",
+            "value": "品質管理"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "h-3",
+      "start": 151,
+      "end": 162,
+      "narration": "令和元年度と二年度は、続けて品質管理。三年度と四年度は、続けて安全管理。五年度は品質管理で、ここまでが一つだけ指定の時代です。",
+      "caption": "令和元〜5年度",
+      "visual": {
+        "kind": "sheet",
+        "heading": "令和元〜5年度",
+        "sheetTitle": "令和元〜5年度",
+        "rows": [
+          {
+            "label": "令和元年度",
+            "value": "品質管理"
+          },
+          {
+            "label": "令和2年度",
+            "value": "品質管理"
+          },
+          {
+            "label": "令和3年度",
+            "value": "安全管理"
+          },
+          {
+            "label": "令和4年度",
+            "value": "安全管理"
+          },
+          {
+            "label": "令和5年度",
+            "value": "品質管理"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r05/article.mdx"
+    },
+    {
+      "sceneId": "h-tally",
+      "start": 162,
+      "end": 173,
+      "narration": "この十三年を数えると、品質管理が六回、安全管理が六回、工程管理が一回です。工程管理が指定されたのは、平成二十四年度だけでした。",
+      "caption": "前半は品質6・安全6・工程1",
+      "visual": {
+        "kind": "sheet",
+        "heading": "十三年の内訳",
+        "sheetTitle": "十三年の内訳",
+        "rows": [
+          {
+            "label": "品質管理",
+            "value": "6回",
+            "state": "focus"
+          },
+          {
+            "label": "安全管理",
+            "value": "6回",
+            "state": "focus"
+          },
+          {
+            "label": "工程管理",
+            "value": "1回（平成24年度）"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "h-read",
+      "start": 173,
+      "end": 187,
+      "narration": "この時代は、品質と安全の二つを準備すれば、十三年のうち十二年に対応できました。数字だけを見れば、山を張りたくなるのも分かります。ただし、これは令和五年度までの話です。",
+      "caption": "当時の数字は山を張りたくなる",
+      "visual": {
+        "kind": "points",
+        "heading": "前半の読み方",
+        "items": [
+          "品質か安全で13年中12年",
+          "山を張りたくなる数字",
+          "ただし令和5年度まで"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "r6-change",
+      "start": 187,
+      "end": 196,
+      "narration": "令和六年度に、形式が変わりました。五つの管理項目のうち二つが指定され、同じ工事で、両方を書く形になりました。",
+      "caption": "令和6年度に形式が変わった",
+      "visual": {
+        "kind": "compare",
+        "heading": "出題形式の変更",
+        "ngLabel": "令和5年度まで",
+        "okLabel": "令和6年度から",
+        "rows": [
+          {
+            "label": "指定",
+            "ng": "1テーマ",
+            "ok": "2テーマ必答"
+          },
+          {
+            "label": "工事",
+            "ng": "1つの工事",
+            "ok": "同じ工事で両方"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "r6-five",
+      "start": 196,
+      "end": 207,
+      "narration": "五つの管理項目は、品質管理、安全管理、工程管理、施工計画、環境対策です。以前の三つに、施工計画と環境対策が加わった形です。",
+      "caption": "五つの管理項目",
+      "visual": {
+        "kind": "points",
+        "heading": "五つの管理項目",
+        "items": [
+          "品質管理",
+          "安全管理",
+          "工程管理",
+          "施工計画",
+          "環境対策"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "r6-diff",
+      "start": 207,
+      "end": 219,
+      "narration": "二つの設問は、同一内容の解答にできません。同じ工事の、別の側面を書き分けます。安全管理の話を、そのまま工程管理に書き写すことはできません。",
+      "caption": "二つの設問は同一内容にできない",
+      "visual": {
+        "kind": "points",
+        "heading": "二つの設問のルール",
+        "items": [
+          "同じ工事を使う",
+          "同一内容の解答は不可",
+          "別の側面を書き分ける"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q1-cell",
+      "start": 219,
+      "end": 232,
+      "narration": "一級の答案は、設問ごとに、二つの区画に分かれています。一つ目は、現場状況と課題、そして検討した項目まで。二つ目は、その検討項目への対応処置と評価です。",
+      "caption": "一級は検討項目まで一つ目の区画",
+      "visual": {
+        "kind": "sheet",
+        "heading": "設問ごとの二つの区画",
+        "sheetTitle": "設問ごとの二つの区画",
+        "rows": [
+          {
+            "label": "区画1",
+            "value": "現場状況・課題・検討した項目",
+            "state": "focus"
+          },
+          {
+            "label": "区画2",
+            "value": "対応処置・その評価"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "r6",
+      "start": 232,
+      "end": 241,
+      "narration": "令和六年度は、設問1が安全管理、設問2が施工計画でした。施工計画は、このとき初めて指定された項目です。",
+      "caption": "令和6年度　安全管理と施工計画",
+      "visual": {
+        "kind": "sheet",
+        "heading": "令和6年度",
+        "sheetTitle": "令和6年度",
+        "rows": [
+          {
+            "label": "設問1",
+            "value": "安全管理",
+            "state": "focus"
+          },
+          {
+            "label": "設問2",
+            "value": "施工計画",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r06/article.mdx"
+    },
+    {
+      "sceneId": "r7",
+      "start": 241,
+      "end": 249,
+      "narration": "令和七年度は、設問1が品質管理、設問2が環境対策でした。環境対策も、この年が初めてです。",
+      "caption": "令和7年度　品質管理と環境対策",
+      "visual": {
+        "kind": "sheet",
+        "heading": "令和7年度",
+        "sheetTitle": "令和7年度",
+        "rows": [
+          {
+            "label": "設問1",
+            "value": "品質管理",
+            "state": "focus"
+          },
+          {
+            "label": "設問2",
+            "value": "環境対策",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r07/article.mdx"
+    },
+    {
+      "sceneId": "r8",
+      "start": 249,
+      "end": 260,
+      "narration": "令和八年度は、設問1が安全管理、設問2が工程管理でした。設問1には、交通誘導員の配置のみに関する記述は除く、という指定がありました。",
+      "caption": "令和8年度　安全管理と工程管理",
+      "visual": {
+        "kind": "sheet",
+        "heading": "令和8年度",
+        "sheetTitle": "令和8年度",
+        "rows": [
+          {
+            "label": "設問1",
+            "value": "安全管理（交通誘導員のみは除く）",
+            "state": "focus"
+          },
+          {
+            "label": "設問2",
+            "value": "工程管理",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "r8-q2",
+      "start": 260,
+      "end": 276,
+      "narration": "令和八年度の設問2を見ると、工程管理では、現場状況の記述は求められず、技術的な課題と検討した項目から始まります。設問ごとに、書き出す位置が違う場合があるので、年度の問題文で確かめます。",
+      "caption": "令和8年度の設問2は課題から始まる",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の書き出し",
+        "items": [
+          "設問1　現場状況から",
+          "設問2　技術的な課題から",
+          "設問の文面を年度ごとに確認"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-r08/article.mdx"
+    },
+    {
+      "sceneId": "r-three",
+      "start": 276,
+      "end": 289,
+      "narration": "三年を並べます。安全と施工計画、品質と環境対策、安全と工程。同じ組合せは、一度も出ていません。そして五つの管理項目が、三年のうちにすべて登場しました。",
+      "caption": "三年とも組合せが違う",
+      "visual": {
+        "kind": "sheet",
+        "heading": "令和6〜8年度の組合せ",
+        "sheetTitle": "令和6〜8年度の組合せ",
+        "rows": [
+          {
+            "label": "令和6年度",
+            "value": "安全＋施工計画"
+          },
+          {
+            "label": "令和7年度",
+            "value": "品質＋環境対策"
+          },
+          {
+            "label": "令和8年度",
+            "value": "安全＋工程"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "r-safeq",
+      "start": 289,
+      "end": 302,
+      "narration": "もう一つ、事実があります。三年とも、安全管理か品質管理のどちらかは入っています。ただし、もう一方の項目は、施工計画、環境対策、工程と、毎年違いました。",
+      "caption": "三年とも安全か品質は入っている",
+      "visual": {
+        "kind": "points",
+        "heading": "三年の事実",
+        "items": [
+          "安全か品質は毎年入っている",
+          "相手の項目は毎年違う",
+          "施工計画・環境対策・工程"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "total",
+      "start": 302,
+      "end": 316,
+      "narration": "十六年の合計です。安全管理が八回、品質管理が七回、工程管理が二回、施工計画と環境対策が一回ずつ。延べ十九回になるのは、後半の三年が、一年に二つずつ指定されたからです。",
+      "caption": "十六年の合計",
+      "visual": {
+        "kind": "sheet",
+        "heading": "十六年の指定回数",
+        "sheetTitle": "十六年の指定回数",
+        "rows": [
+          {
+            "label": "安全管理",
+            "value": "8回",
+            "state": "focus"
+          },
+          {
+            "label": "品質管理",
+            "value": "7回",
+            "state": "focus"
+          },
+          {
+            "label": "工程管理",
+            "value": "2回"
+          },
+          {
+            "label": "施工計画",
+            "value": "1回"
+          },
+          {
+            "label": "環境対策",
+            "value": "1回"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "rev-safety",
+      "start": 316,
+      "end": 329,
+      "narration": "テーマごとに、年度を逆引きします。最も多い安全管理は、平成二十三年度、二十六年度、二十八年度、二十九年度、令和三年度、四年度、六年度、八年度の八回です。",
+      "caption": "安全管理が出た八つの年度",
+      "visual": {
+        "kind": "sheet",
+        "heading": "安全管理　8回",
+        "sheetTitle": "安全管理　8回",
+        "rows": [
+          {
+            "label": "平成",
+            "value": "23・26・28・29年度",
+            "state": "focus"
+          },
+          {
+            "label": "令和",
+            "value": "3・4・6・8年度",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "rev-quality",
+      "start": 329,
+      "end": 341,
+      "narration": "品質管理は、平成二十五年度、二十七年度、三十年度、令和元年度、二年度、五年度、七年度の七回です。安全管理と、ほぼ同じ頻度で並んでいます。",
+      "caption": "品質管理が出た七つの年度",
+      "visual": {
+        "kind": "sheet",
+        "heading": "品質管理　7回",
+        "sheetTitle": "品質管理　7回",
+        "rows": [
+          {
+            "label": "平成",
+            "value": "25・27・30年度",
+            "state": "focus"
+          },
+          {
+            "label": "令和",
+            "value": "元・2・5・7年度",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "rev-rest",
+      "start": 341,
+      "end": 354,
+      "narration": "工程管理は、平成二十四年度と令和八年度の二回。施工計画は令和六年度、環境対策は令和七年度に、それぞれ一回です。この三つは、まだ数えるほどしか出ていません。",
+      "caption": "工程・施工計画・環境対策",
+      "visual": {
+        "kind": "sheet",
+        "heading": "出た回数の少ない三つ",
+        "sheetTitle": "出た回数の少ない三つ",
+        "rows": [
+          {
+            "label": "工程管理",
+            "value": "平成24・令和8年度"
+          },
+          {
+            "label": "施工計画",
+            "value": "令和6年度"
+          },
+          {
+            "label": "環境対策",
+            "value": "令和7年度"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "rev-streak",
+      "start": 354,
+      "end": 370,
+      "narration": "年度の並びには、同じ項目が続いた例があります。平成二十八年度と二十九年度の安全管理、令和元年度と二年度の品質管理、令和三年度と四年度の安全管理です。前の年に出たから別の項目、とは言えません。",
+      "caption": "前の年と同じ項目が続いた例",
+      "visual": {
+        "kind": "sheet",
+        "heading": "同じ項目が続いた年度",
+        "sheetTitle": "同じ項目が続いた年度",
+        "rows": [
+          {
+            "label": "安全管理",
+            "value": "平成28・29年度"
+          },
+          {
+            "label": "品質管理",
+            "value": "令和元・2年度"
+          },
+          {
+            "label": "安全管理",
+            "value": "令和3・4年度"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "rev-rare",
+      "start": 370,
+      "end": 383,
+      "narration": "工程管理は、前半の十三年で一回だけでした。それでも、令和八年度に指定されています。回数が少ない項目を外す、という判断は、直近の三年では通用しませんでした。",
+      "caption": "回数が少なくても出る",
+      "visual": {
+        "kind": "points",
+        "heading": "回数が少ない項目も出た",
+        "items": [
+          "工程管理は13年で1回だけ",
+          "令和8年度に指定された",
+          "少ない項目を外す判断は危うい"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "total-warn",
+      "start": 383,
+      "end": 396,
+      "narration": "ただし、この回数は、一つだけ指定の十三年と、二つ指定の三年を足した数です。今後の形式は後者なので、十三年の偏りを、そのまま今後に当てはめるのは危険です。",
+      "caption": "回数は形式の違う二つの時代の合計",
+      "visual": {
+        "kind": "compare",
+        "heading": "回数の読み方",
+        "ngLabel": "そのまま当てはめる",
+        "okLabel": "分けて読む",
+        "rows": [
+          {
+            "label": "前半",
+            "ng": "今後も同じ偏り",
+            "ok": "1テーマ指定の時代"
+          },
+          {
+            "label": "後半",
+            "ng": "3年は少ない",
+            "ok": "今の形式はこちら"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "y9-open",
+      "start": 396,
+      "end": 408,
+      "narration": "令和九年度の見立てです。何が出るかを、この動画で当てることはしません。出題の予想は、的中を約束できないからです。分かるのは、備え方の筋道です。",
+      "caption": "令和9年度は当てない",
+      "visual": {
+        "kind": "points",
+        "heading": "令和9年度の見立て",
+        "items": [
+          "何が出るかは当てない",
+          "的中の約束はしない",
+          "分かるのは備え方の筋道"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "y9-combo",
+      "start": 408,
+      "end": 420,
+      "narration": "五つから二つを選ぶ組合せは、十通りです。直近の三年に出たのは、そのうちの三通りでした。三年の並びだけで、次を絞り込む根拠にはなりません。",
+      "caption": "五つから二つで十通り",
+      "visual": {
+        "kind": "points",
+        "heading": "組合せの数",
+        "items": [
+          "5つから2つ選ぶ",
+          "組合せは10通り",
+          "直近3年で出たのは3通り"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "y9-avoid",
+      "start": 420,
+      "end": 434,
+      "narration": "まだ出ていない七通りから出る、とも、直近の三年と同じ組合せは避ける、とも言えません。どちらも、公表された根拠がないからです。当てに行く動きは、この動画ではしません。",
+      "caption": "出ていない組合せが来るとは言えない",
+      "visual": {
+        "kind": "points",
+        "heading": "二つの思い込み",
+        "items": [
+          "まだ出ていない組合せが来る",
+          "最近の組合せは避けられる",
+          "どちらも根拠はない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "y9-both",
+      "start": 434,
+      "end": 445,
+      "narration": "そこで、現実的な備えは、どの二つが指定されても書ける状態です。工事概要は一つで、そこに二つの設問がぶら下がる形だからです。",
+      "caption": "指定された二つがどれでも書ける",
+      "visual": {
+        "kind": "points",
+        "heading": "備えの考え方",
+        "items": [
+          "工事概要は1つ",
+          "設問が2つぶら下がる",
+          "どの2つでも書ける"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "y9-one",
+      "start": 445,
+      "end": 459,
+      "narration": "ここで大事なのは、五つの管理を、五つの別の工事で準備しないことです。一つの工事を、五つの管理の視点から整理しておく。これが、組合せがどれになっても対応できる形です。",
+      "caption": "一つの工事で五つの管理",
+      "visual": {
+        "kind": "compare",
+        "heading": "準備の形",
+        "ngLabel": "五つの別の工事",
+        "okLabel": "一つの工事",
+        "rows": [
+          {
+            "label": "題材",
+            "ng": "管理ごとに探す",
+            "ok": "1つに決める"
+          },
+          {
+            "label": "視点",
+            "ng": "バラバラ",
+            "ok": "5管理の視点で整理"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "y9-pick",
+      "start": 459,
+      "end": 469,
+      "narration": "だから題材は、珍しさや大きさでは選びません。五つの管理について、自分が語れる工事かどうか。それが選ぶ基準です。",
+      "caption": "題材は珍しさでなく語れるか",
+      "visual": {
+        "kind": "points",
+        "heading": "題材の選び方",
+        "items": [
+          "珍しさ・大きさで選ばない",
+          "5つの管理が語れる",
+          "自分が経験した工事"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p-order",
+      "start": 469,
+      "end": 481,
+      "narration": "準備の順番は、三つです。一つ目、題材の工事を一つ決める。二つ目、五つの管理について、課題を一行ずつ出す。三つ目、工事概要の数字をそろえる。",
+      "caption": "準備の順番は三つ",
+      "visual": {
+        "kind": "points",
+        "heading": "準備の順番",
+        "items": [
+          "1　題材の工事を1つ決める",
+          "2　5管理の課題を1行ずつ",
+          "3　工事概要の数字をそろえる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p1-term",
+      "start": 481,
+      "end": 497,
+      "narration": "一つ目、題材の決め方です。工期は、完成して一年から五年ほどが目安です。施工中の工事は避け、十年以上前の工事も避けます。小さすぎる工事も、一級の題材としては評価が下がるおそれがあります。",
+      "caption": "工期は完成後1〜5年・施工中は避ける",
+      "visual": {
+        "kind": "sheet",
+        "heading": "題材の目安",
+        "sheetTitle": "題材の目安",
+        "rows": [
+          {
+            "label": "完成後",
+            "value": "1〜5年ほど",
+            "state": "ok"
+          },
+          {
+            "label": "施工中",
+            "value": "避ける",
+            "state": "ng"
+          },
+          {
+            "label": "10年以上前",
+            "value": "避ける",
+            "state": "ng"
+          },
+          {
+            "label": "工期2か月未満",
+            "value": "評価が下がるおそれ",
+            "state": "ng"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p1-role",
+      "start": 497,
+      "end": 512,
+      "narration": "立場の欄は、現場での職務上の立場を書きます。現場代理人、主任技術者、監理技術者などです。監督員は発注者側の呼称なので、請負者の技術者が書くと、発注者名との組合せが合いません。",
+      "caption": "立場は現場での職務上の立場",
+      "visual": {
+        "kind": "sheet",
+        "heading": "立場の欄",
+        "sheetTitle": "立場の欄",
+        "rows": [
+          {
+            "label": "書く",
+            "value": "現場代理人・主任技術者・監理技術者",
+            "state": "ok"
+          },
+          {
+            "label": "注意",
+            "value": "監督員は発注者側の呼称",
+            "state": "ng"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p2-intro",
+      "start": 512,
+      "end": 523,
+      "narration": "二つ目です。選んだ工事で、五つの管理それぞれに、どんな課題が立てられるか。完成した文章は要りません。一行ずつ、書き出します。",
+      "caption": "五つの管理の課題を一行ずつ",
+      "visual": {
+        "kind": "points",
+        "heading": "課題の書き出し",
+        "items": [
+          "完成した文章は要らない",
+          "1管理につき1行",
+          "同じ工事で5つ"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p2-a",
+      "start": 523,
+      "end": 540,
+      "narration": "品質管理は、品質を保証する計画と、その技術的な背景が見える課題にします。安全管理は、通常の安全活動ではなく、その現場に固有の危険から立てます。工程管理は、遅れの原因と、出来高管理を書き分けます。",
+      "caption": "品質・安全・工程の課題の立て方",
+      "visual": {
+        "kind": "sheet",
+        "heading": "課題の立て方（1）",
+        "sheetTitle": "課題の立て方（1）",
+        "rows": [
+          {
+            "label": "品質",
+            "value": "計画と技術的背景が見える"
+          },
+          {
+            "label": "安全",
+            "value": "その現場に固有の危険から"
+          },
+          {
+            "label": "工程",
+            "value": "遅れの原因と出来高管理"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p2-b",
+      "start": 540,
+      "end": 555,
+      "narration": "施工計画は、施工に入る前に、工事の内容や方法を検討することです。施工管理の視点との違いを意識して書きます。環境対策は、周辺環境、自然環境、建設副産物の三つの軸から選びます。",
+      "caption": "施工計画・環境対策の課題の立て方",
+      "visual": {
+        "kind": "sheet",
+        "heading": "課題の立て方（2）",
+        "sheetTitle": "課題の立て方（2）",
+        "rows": [
+          {
+            "label": "施工計画",
+            "value": "着工前の検討を書く"
+          },
+          {
+            "label": "環境対策",
+            "value": "周辺・自然・建設副産物"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p2-one",
+      "start": 555,
+      "end": 569,
+      "narration": "課題は、一つに絞ります。範囲を広げるほど各論が薄くなり、検討と対応処置の対応も崩れるからです。一つの課題で、原因、検討、処置、評価が、一本の線でつながる形にします。",
+      "caption": "課題は一つに絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "課題は一つに絞る",
+        "items": [
+          "範囲を広げない",
+          "原因から評価まで一本の線",
+          "検討と処置の対応を崩さない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p-q",
+      "start": 569,
+      "end": 588,
+      "narration": "課題が出てこないときは、問いを変えます。品質は、何を保証しようとしたか。安全は、いちばん危なかった作業は何か。工程は、遅れそうだった点はどこか。施工計画は、着工前に何を決めたか。環境対策は、周りへ何が及びそうだったか。",
+      "caption": "五つの管理を引き出す問い",
+      "visual": {
+        "kind": "sheet",
+        "heading": "課題を引き出す問い（本動画の整理）",
+        "sheetTitle": "課題を引き出す問い（本動画の整理）",
+        "rows": [
+          {
+            "label": "品質",
+            "value": "何を保証しようとしたか"
+          },
+          {
+            "label": "安全",
+            "value": "いちばん危なかった作業は"
+          },
+          {
+            "label": "工程",
+            "value": "遅れそうだった点はどこか"
+          },
+          {
+            "label": "施工計画",
+            "value": "着工前に何を決めたか"
+          },
+          {
+            "label": "環境対策",
+            "value": "周りへ何が及びそうだったか"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p-split",
+      "start": 588,
+      "end": 604,
+      "narration": "指定された二つを、同じ工事で書くときは、課題の文を共通にしません。たとえば安全と工程が指定されたら、安全では危険を、工程では遅れの原因を、それぞれの課題にします。同一内容は不可だからです。",
+      "caption": "二つの設問は書き分ける",
+      "visual": {
+        "kind": "compare",
+        "heading": "二つの設問の書き分け",
+        "ngLabel": "同じ文",
+        "okLabel": "別の課題",
+        "rows": [
+          {
+            "label": "安全",
+            "ng": "工程と同じ課題",
+            "ok": "危険から立てる"
+          },
+          {
+            "label": "工程",
+            "ng": "安全と同じ課題",
+            "ok": "遅れの原因から立てる"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p3-nums",
+      "start": 604,
+      "end": 619,
+      "narration": "三つ目、工事概要の数字です。施工量は、主な工種に対応するように書きます。量と工期の釣り合いが悪いと、本文と食い違います。数字は、日報などで裏づけられるものだけを使います。",
+      "caption": "工期・施工量・主な工種をそろえる",
+      "visual": {
+        "kind": "sheet",
+        "heading": "概要の数字",
+        "sheetTitle": "概要の数字",
+        "rows": [
+          {
+            "label": "施工量",
+            "value": "主な工種に対応させる",
+            "state": "focus"
+          },
+          {
+            "label": "工期",
+            "value": "施工量と釣り合う"
+          },
+          {
+            "label": "数値",
+            "value": "裏づけられるものだけ",
+            "state": "ok"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "p-end",
+      "start": 619,
+      "end": 632,
+      "narration": "この順番にするのは、どの二つが指定されても、工事概要も題材も、すでに決まっている状態を作るためです。出題回数の多い順に準備するのとは、考え方が違います。",
+      "caption": "この順番を使う理由",
+      "visual": {
+        "kind": "compare",
+        "heading": "準備の考え方",
+        "ngLabel": "回数の順",
+        "okLabel": "工事を軸に",
+        "rows": [
+          {
+            "label": "軸",
+            "ng": "出た回数",
+            "ok": "自分の工事"
+          },
+          {
+            "label": "結果",
+            "ng": "外れた年に弱い",
+            "ok": "どの組合せでも書ける"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "sum1",
+      "start": 632,
+      "end": 645,
+      "narration": "まとめます。十六年で、安全が八回、品質が七回、工程が二回、施工計画と環境対策が一回ずつ。数えたのは当サイトの記事からなので、受検の年は公式で確かめます。",
+      "caption": "まとめ　十六年の事実",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ　事実",
+        "items": [
+          "安全8・品質7・工程2",
+          "施工計画1・環境対策1",
+          "受検の年は公式で確認"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "sum2",
+      "start": 645,
+      "end": 657,
+      "narration": "令和六年度から、五つのうち二つが指定され、同じ工事で両方を書く形に変わりました。前半十三年の偏りを、今後にそのまま当てはめることはできません。",
+      "caption": "まとめ　令和6年度で形式が変わった",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ　形式",
+        "items": [
+          "令和6年度から2テーマ必答",
+          "同じ工事で両方を書く",
+          "前半の偏りをそのまま使わない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "sum3",
+      "start": 657,
+      "end": 669,
+      "narration": "令和九年度の中身は、当てられません。だから、一つの工事を決め、五つの管理の課題を一行ずつ出し、概要の数字をそろえる。これが、準備の順番です。",
+      "caption": "まとめ　備えは一つの工事から",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ　備え",
+        "items": [
+          "工事を1つ決める",
+          "5管理の課題を1行ずつ",
+          "概要の数字をそろえる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 669,
+      "end": 680,
+      "narration": "点検は、三つの問いです。この工事で、五つの管理が語れるか。課題が一つに絞れているか。概要の工期、施工量、主な工種が、合っているか。",
+      "caption": "三つの問いで点検",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの点検",
+        "items": [
+          "5つの管理が語れるか",
+          "課題が1つに絞れているか",
+          "概要の数字が合っているか"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "next",
+      "start": 680,
+      "end": 692,
+      "narration": "次に観る動画は、経験記述で落ちる人の思い込みを正す動画です。出題の履歴を見たあとに、書き方の思い込みを点検できます。関連動画に置いています。",
+      "caption": "次は落ちる人の思い込みの動画へ",
+      "visual": {
+        "kind": "points",
+        "heading": "次に観る動画",
+        "items": [
+          "経験記述　落ちる人の思い込みTOP3",
+          "関連動画から"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 692,
+      "end": 705,
+      "narration": "この動画で出したのは、全年度の指定項目、令和六年度の形式変更、そして準備の順番です。各年度の答案や、十通りの組合せごとの答案は、動画では出しません。",
+      "caption": "この動画で出す範囲",
+      "visual": {
+        "kind": "compare",
+        "heading": "この動画の範囲",
+        "ngLabel": "出さないもの",
+        "okLabel": "出したもの",
+        "rows": [
+          {
+            "label": "指定項目",
+            "ng": "各年度の答案",
+            "ok": "全年度の指定項目"
+          },
+          {
+            "label": "形式",
+            "ng": "組合せごとの答案",
+            "ok": "令和6年度の形式変更"
+          },
+          {
+            "label": "準備",
+            "ng": "出る順の日割り",
+            "ok": "準備の順番"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 705,
+      "end": 723,
+      "narration": "自分の現場に近い想定工事で、五つの管理をどう書き分けるかを見たい人は、概要欄の完全攻略パックを確認してください。各年度の答案や、組合せごとの答案は、動画では出しません。無料のサイト記事も、概要欄にあります。",
+      "caption": "各年度の答案は概要欄の完全攻略パック",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の工事に近い例を探す",
+        "items": [
+          "想定工事から近いものを選ぶ",
+          "リンクは概要欄から"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ]
+}

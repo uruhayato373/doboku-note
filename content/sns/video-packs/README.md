@@ -11,7 +11,7 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `c1-after-ichiji-niji-junbi` | 1級土木｜第一次検定のあとにやる二次の準備 | 第一次検定のあと、第二次検定の準備を何から始めればよいか分からず、参考書を読み進めて書く材料が決まらない | roadmap | レビュー | 台本/構成 | `civil-1-niji-marugoto-pack` |
-| `c1-ichiji-derujun-tokuten` | 1級土木 第一次検定｜12年分の出題から見る「出る順」と46問の取り方 | 一次の範囲が広すぎて、どこから手をつけ、どこを捨ててよいのかが分からない | exam-point | 未登録 | —/— | `civil-1-ichiji-pack` |
+| `c1-ichiji-derujun-tokuten` | 1級土木 第一次検定｜分野ごとの出題数から逆算する、46問の取り方 | 一次の範囲が広すぎて、どこから手をつけ、どこを捨ててよいのかが分からない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-pack` |
 | `c1-juken-junjo-2027` | 1級土木｜2027 年度の受検の順序 | 2027 年度に1級土木を受けたいが、申込・第一次検定・第二次検定の時期と、それに合わせて何をどの順で準備すればよいか分からない | roadmap | 予約 | 台本/構成 | `civil-1-ichiji-ronten` |
 | `c1-keiken-anzen-kakikata` | 1級土木 経験記述｜安全管理の書き方 | 経験記述で安全管理が出たとき、危険予知活動や安全パトロールしか浮かばず、何を課題にして書けばよいか分からない | howto | 公開 | 台本/構成 | `civil-1-experience-essay` |
 | `c1-keiken-hacchusha-yomu` | 1級土木 経験記述｜発注者はどこを読むか | 経験記述を書いたが、一般論になっていないか、工事の書類を読む側にどう読まれるか分からず不安 | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
@@ -19,9 +19,9 @@
 | `c1-keiken-kouji-gaiyou` | 1級土木 経験記述｜工事概要の書き方 | 経験記述の工事概要の七つの欄を埋めても、どこまで細かく書けば足りるのか、欄どうしが合っているのか分からない | howto | 公開 | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `c1-keiken-ochiru-naoshikata` | 1級土木 経験記述｜落ちる答案の直し方 | 経験記述を書いたが、課題に処置を書くなど欄の中身を取り違えていないか不安で、どこをどう直せばよいか分からない | howto | 予約 | 台本/構成 | `civil-1-experience-essay` |
 | `c1-keiken-omoikomi-top3` | 施工経験記述で落ちる人の思い込みTOP3｜発注者の目線で答案を点検する3つの問い | 経験記述を書き切ったのに落ちた、あるいは落ちそうで、何が足りないのか自分では分からない | diagnosis | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
-| `c1-keiken-shudai-rireki` | 1級土木 経験記述｜16年分の出題テーマ全履歴と令和9年度の見立て | 経験記述でどの管理項目が出るか読めず、5つ全部を準備するべきか、山を張ってよいか決められない | exam-point | 未登録 | —/— | `civil-1-keiken-complete-pack` |
+| `c1-keiken-shudai-rireki` | 1級土木 経験記述｜16年分の出題テーマ全履歴と令和9年度の見立て | 経験記述でどの管理項目が出るか読めず、5つ全部を準備するべきか、山を張ってよいか決められない | exam-point | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `c1-next-license-after-first` | 1級の次に取る資格 | 1級を取ったあと、技術士・RCCM・コンクリート診断士のどれを次に取るか、基準が分からず決められない | roadmap | レビュー | 台本/構成 | `site-article` |
-| `c1-next-pe-construction` | 1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験 | 1級の次に技術士（建設部門）を考えているが、経験記述の延長で書けるのか、何が違うのか分からない | roadmap | 未登録 | —/— | `site-article` |
+| `c1-next-pe-construction` | 1級土木に受かった人が技術士を受ける前に知ること｜同じ「記述」でも別の試験 | 1級の次に技術士（建設部門）を考えているが、経験記述の延長で書けるのか、何が違うのか分からない | roadmap | レビュー | 台本/構成 | `site-article` |
 | `civil-license-ladder-order` | 2級から1級、技術士へ進む順序 | 2級の次に1級を取るか技術士に進むか迷い、三つの資格の役割と受験の起点の違いが分からず、進む順序を決められない | roadmap | 予約 | 台本/構成 | `site-article` |
 | `owner-career-before-moving` | 発注者側へ移る前に知ること | 受注者側から発注者側へ移ると何が変わるのか、移った後の仕事の持ち方と最初に何を確かめるかが分からない | career | 予約 | 台本/構成 | `site-article` |
 | `owner-career-shigoto` | 発注者の仕事の中身 | 発注者側の土木技術者が1年を通じて何をしているかが分からず、受注者側から見た発注者の動きや判断の理由がつかめない | career | 予約 | 台本/構成 | `site-article` |
