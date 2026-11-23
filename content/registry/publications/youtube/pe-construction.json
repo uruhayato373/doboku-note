@@ -1272,7 +1272,7 @@
       "work": "pe-hissu1-jikan-haibun",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-001",
@@ -1307,7 +1307,42 @@
         "contentSha256": "40cb0e1100affa7fbe063fc0b104591e1f2d158d9b1561788257e502a0e9acce"
       },
       "times": {
-        "rendered": "2026-11-23T12:55:30.727Z"
+        "rendered": "2026-11-23T12:55:30.727Z",
+        "uploaded": "2026-11-23T12:59:30.432Z",
+        "scheduled": "2026-11-23T12:59:38.527Z"
+      },
+      "delivery": {
+        "inputSha256": "f00be592c4a22d943bc4bb5a8ddc6ec3a12b4dc1d6daef228491a03dad02c8f6",
+        "marker": "dn-single-f874510c867b4d6bc7acd8db588863b29dcec988",
+        "uploadRequestedAt": "2026-11-23T12:58:47.217Z",
+        "videoId": "aI4MOqaKh_o",
+        "processedAt": "2026-11-23T12:59:29.712Z",
+        "thumbnailRequestedAt": "2026-11-23T12:59:30.474Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/default.jpg?sqp=CKTvkNgG&rs=AOn4CLACtaf95PBv3eRFAkkBLjcFG4bc1g",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/mqdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLCVbw-vEqOFdNCWJeNW1kA3WhTqRw",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/hqdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLBp9u2mUTuGW-QvGnTrimg0a6KCeA",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/sddefault.jpg?sqp=CKTvkNgG&rs=AOn4CLDil-n1I03e8RiShoL_udNRaICsIg",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/maxresdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLDcSgCsfanub6W969_uoZEnv81F6w",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/fhddefault.jpg?sqp=CKTvkNgG&rs=AOn4CLCxxeZLFh4-vrHetPrESKZgWZmWDA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-23T12:59:33.950Z",
+        "scheduleRequestedAt": "2026-11-23T12:59:35.025Z",
+        "scheduleAt": "2026-12-06T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-23T12:59:38.527Z"
+      },
+      "platform": {
+        "id": "aI4MOqaKh_o",
+        "url": "https://www.youtube.com/watch?v=aI4MOqaKh_o",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-23T12:59:33.950Z"
       }
     },
     {
