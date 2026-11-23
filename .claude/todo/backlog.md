@@ -531,6 +531,22 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1291] 総監の 5 管理 pillar と 1級土木の受験ガイドの出題数の誤りを過去問に合わせて直す
+タグ: [領域:サイト] [時期:2026-12] [種類:不具合] [起票:2026-11-23]
+
+**起点**: 2026-11-23 のテーマのページの事実の照合（guide-fact-checker）で、既存の記事が過去問の記事と食い違う数字を書いていると分かった。テーマのページの下書きからは外したが、元の記事は直していない。
+
+**食い違い**
+- 総監の 5 管理の pillar 記事（`economic-management-pillar` 8〜10 問・`safety-management-pillar` 8〜10 問・`human-resource-management-pillar` 6〜8 問・`information-management-pillar` 7〜9 問・`social-environment-management-pillar` 6〜8 問）。令和1〜8 年度の択一式（`pe-comprehensive-management/r01-primary`〜`r08-primary`）は 40 問が I-1-1〜8 経済性・9〜16 人的資源・17〜24 情報・25〜32 安全・33〜40 社会環境の 8 問ずつ。pillar どうしの「第 2」「第 3」の順位も矛盾している。
+- `information-management-pillar`（本文と FAQ）の「生成 AI は令和6年度から出題」。r06・r07 の択一式に生成 AI の問題は無く、r08 の I-1-21 が AI 事業者ガイドライン。
+- 1級土木の受験ガイドの分野別の問数: `guide-quality-management`（品質管理 5〜7 問・ヒストグラム毎年）、`guide-environment-management`（環境保全 5〜7 問）、`guide-schedule-management`（5〜7 問）。r05〜r08 の問題B では、環境保全は No.17〜20 の 4 問が基本、ヒストグラムは r03〜r08 に 0 件。`guide-safety-management`（安全 8〜10 問・needs-review）も過去問のページでは 11 問と読める。
+- `civil-practice/coast-port-administrators` の「漁港法」（L51・L123）。平成13年に「漁港及び漁場の整備等に関する法律」へ改題済み。
+
+**やること**: 各記事の数字を過去問の記事で数え直して直す（公式に分野別の内訳が無いものは「サイト集計」と明記するか、数を書かない）。
+
+**完了条件**: 上の記事の数字が過去問の記事と一致し、`npm run check-mdx` が通る。
+
+
 
 
 ### [DN-1275] 技術士の改訂コンピテンシーの文言を一次資料で照合し、口頭試験対策 3 本とそろえる
