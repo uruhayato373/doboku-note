@@ -1800,6 +1800,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 2. note 直前暗記ノート n7b4f17a09d3f の「試験日は2026年11月22日です」と、直前パック mfa3fcffdd85d のマガジン説明の「（11/22）」を見直す
 3. X の固定ポスト（`config/x-account.json` の pinnedPost・2114705375127863454）と自己紹介の最終行を、一次の試験後向けに差し替える（`npm run x-profile-sync`）
 
+**技術士一次の分の結果（2026-11-24・運営者承認で反映）**: 1 と 2 は済み。note の 3 本（建設部門もくじ・直前暗記ノート・直前3週間の過ごし方）を `note-update-body --sync --commit` で反映し（ok=5・コンクリ技士の 2 本と同時）、直前パックのマガジン説明を `note-edit-magazine` で反映した（API の description で確認）。暗記ノートの記事に埋め込んだ直前パックのカードは note 側の保存で旧説明（11/22）のまま残る。3 は自己紹介だけ済み（`x-profile-sync --commit` で一致を確認。最終行から一次の日付を外した）。**固定ポストの差し替えは未**（新しい投稿と画面での固定が要る・運営者）。
+
 **コンクリートの試験後（11/30〜）**:
 4. note 小論文もくじ n3ced0cbfbb42・コンクリート資格もくじ nd59f471c9214・小論文 出題傾向 n39ce3c33eaa8・まるごとパック案内 n5395599af1f8 から「本試験前の返却は11/25（水）までの受付分です」を外す（`note-update-body`）
 5. ココナラ添削 services/4425046 の出品文に運営者が手で足した【本試験（11/29）前の返却について】の節を外す（公開中の出品の本文欄は coconala-edit が見つけられないので画面で。文面は `.tmp/coconala-cce-tensaku-deadline.md`）。外したら `config/coconala-listings.json` と一致させ `npm run check-coconala-live`
