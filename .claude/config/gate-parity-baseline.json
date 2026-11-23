@@ -1,6 +1,6 @@
 {
   "_doc": "check-gate-parity のラチェット baseline。package.json に定義があるが pre-commit / quality-audit / workflow / SKILL のどこからも呼ばれない検査を、理由付きで記録する。ここに無い新規オーファンは CI が落とす。配線したら該当行を削除する（スクリプトが info で知らせる）。",
-  "_updatedAt": "2026-10-25",
+  "_updatedAt": "2026-11-23",
   "orphans": {
     "check-rendered-pages": "out/ の全ページを Chrome で描画して画面の崩れを拾う手元の検査（2026-10-28）。ビルド済みの out/ と npm run serve と Chrome が要り、全件で約 55 分かかるので CI・pre-commit には配線しない。部品・生成器・記事の一括変更の後、deploy 前に人が回す（用途はスクリプトの冒頭コメント）",
     "check-afb-outcomes-freshness": "afb の成果の鮮度。doboku-note は afb の広告を置いておらず、2026-10-13 に afb の取得ごと止めた（DN-0643）。afb で広告を置くときに quality-audit の ops へ戻すので、スクリプトは残す",
@@ -11,13 +11,10 @@
     "check-ig-insights-freshness": "Instagram Graph API 週次取得（fetch-ig-insights.yml）の鮮度検査。Meta の利用制限でトークンを発行できず取得が止まっているため、ops 検査に置くと永久に赤になる（2026-09-21）。制限が解けて cron を戻すときに quality-audit の ops:true へ再登録し、この行を消す",
     "check-local-data": "手元の git 管理外のファイル（.tmp・.claude/state など）を .claude/shared-policy/local-data.json の申告と突き合わせる手元専用の検査（obsidian の正本から配る写し・2026-10-19 取り込み）。CI のチェックアウトには手元データが無く検査が成立しないので、CI・pre-commit には配線しない",
     "check-note-republish": "原稿と note の再公開ドリフトの surfacer。正常な公開待ちも含むので合否を持たず、出力は週次 CI（note-live-audit.yml）の artifact にしか残らず読み手が無かった。2026-10-25 に note-live-audit.yml を土曜の収集の note-audit 段へ移したとき、この検査は移さなかった（反映待ちは note-sync-check 段と note-sync-plan が見る・DN-0847）。手で叩く調査ツールとして残す",
-    "check-youtube-cover-handoff": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "audit-sns-landing-cta": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "audit-sns-landing-cta:ci": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "check-video-publication": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "verify-video-publication": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
-    "check-registry-due": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
-    "check-youtube-shorts": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "check-instagram-reels": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "check-x-card-render": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "check-x-posted-live": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",

@@ -97,17 +97,9 @@
       "kind": "page",
       "question": "資格・区分・チャネルの販売中商品の空きはどこか。"
     },
-    "/content/magazines": {
-      "kind": "redirect",
-      "question": "販売状態のマガジン一覧へ転送する"
-    },
     "/content/note": {
       "kind": "page",
       "question": "note 記事の原稿・公開・反映状態は何か。"
-    },
-    "/content/note-status": {
-      "kind": "redirect",
-      "question": "販売状態の note タブへ転送する"
     },
     "/content/note-sync": {
       "kind": "page",
@@ -252,14 +244,6 @@
     "/product/status": {
       "kind": "page",
       "question": "note・ココナラ・Kindle の販売状態はどうか。"
-    },
-    "/project": {
-      "kind": "redirect",
-      "question": "旧文書一覧 URL の行き先はどこか。"
-    },
-    "/project/[...path]": {
-      "kind": "redirect",
-      "question": "旧文書詳細 URL の行き先はどこか。"
     },
     "/quality": {
       "kind": "page",
