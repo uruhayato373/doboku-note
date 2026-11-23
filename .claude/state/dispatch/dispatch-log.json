@@ -9257,6 +9257,1131 @@
       "commit": "e8f7454eae0d",
       "verification": "gh repo view --json visibility（PUBLIC）・gh run list --workflow lighthouse.yml --limit 30（success 30）",
       "note": "現状維持で閉じる（2026-11-23 運営者判断）。リポジトリは PUBLIC で Actions は無料のため回数を減らしても費用は浮かない。CodeQL は検査・デプロイと並行で deploy:main は待たず、Lighthouse の夜間は直近 30 回すべて成功・失敗 Issue 0 件でデプロイを止めたことも無い。待ち時間にも費用にも効かないので変えない。別件: CodeQL の未対応のアラートが 21 件ある"
+    },
+    {
+      "id": "DN-1244",
+      "at": "2026-11-23",
+      "task": "データ台帳の書き手の未記入 175 件を領域ごとに埋める（役割分担の見直し・第2段階の残り）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 書き手の未記入 175 件は基準線 dataset-writer-baseline.json で増加が止まっている。減らすかは月次で拾い直す"
+    },
+    {
+      "id": "DN-1183",
+      "at": "2026-11-23",
+      "task": "ビルドの入力に触れない push で build ジョブを飛ばせるか決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-0998 へ統合した — ビルドの入力に触れない push（直近 7 日で 577/834 件）では build ジョブを飛ばせるか。content/note は note カタログ経由でビルドに入るので対象外、data/ は 1 本ずつ確認、deploy:main が build を飛ばした run を検査済みと数えてよいか決める"
+    },
+    {
+      "id": "DN-1182",
+      "at": "2026-11-23",
+      "task": "develop が赤い時間を短くする（push の前に関係するテストを回す範囲を広げる）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-0998 へ統合した — pre-commit の UNIT_TEST_RULES に scripts/X.mjs と tests/X.test.mjs の名前対応を足し、直近 30 日の赤を何件拾えるかを測る。完了条件は ci:stats の『develop が赤だった時間』の前後比較"
+    },
+    {
+      "id": "DN-1138",
+      "at": "2026-11-23",
+      "task": "PR の E2E の再ビルドをやめる（主要 3 本を ci.yml の build ジョブで回す）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-0998 へ統合した — e2e.yml の PR 再ビルド（187〜236 秒）を ci.yml の build ジョブの後段に統合する案。2026-11-13 の実測で律速は ci の build ジョブ（ci 5.5 分・e2e 4.7 分）で、減るのはランナー時間だけ"
+    },
+    {
+      "id": "DN-1137",
+      "at": "2026-11-23",
+      "task": "refresh-indexes の手動義務をなくす（生成物を git から外して build 時に作る）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— refresh-indexes の手動義務をなくす（生成物を git から外して build 時に作る）案。追跡生成物と build 以外の読み手を洗う大工事で、着手のきっかけが無い"
+    },
+    {
+      "id": "DN-1135",
+      "at": "2026-11-23",
+      "task": "検査の失敗メッセージに直し方を足し、規則文書をさらに縮める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 検査メッセージに直し方を足し rules を 45KB 以下にする案（11/11 に 4% 縮めた後の追加）"
+    },
+    {
+      "id": "DN-1127",
+      "at": "2026-11-23",
+      "task": "CI の構成変更（PR #1540）の 1 週間後の計測を取り直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-0998 へ統合した — PR #1540 の 1 週間後に npm run ci:stats -- --limit 500 --failures で取消・失敗・赤の時間を取り直し、pre-commit の穴 3 種（magazine-cta-reachability・media-references・backlog-schema）の赤を記録する。基準は変更前 9 時間で成功 10・取消 18・失敗 8・run 6.9 分・赤 約 4 時間"
+    },
+    {
+      "id": "DN-1018",
+      "at": "2026-11-23",
+      "task": "管理画面の台帳の型を Zod スキーマから導出する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 管理画面の台帳の型を Zod スキーマから導出する案（出発点 dataset-schemas-config-ops.mjs:816 と automations.ts:15,65）"
+    },
+    {
+      "id": "DN-1016",
+      "at": "2026-11-23",
+      "task": "scripts と src の依存の向きを整理する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— scripts と src の依存の向きの残り（exam-palette.mjs の移動と純粋関数の置き場の決定）"
+    },
+    {
+      "id": "DN-0933",
+      "at": "2026-11-23",
+      "task": "スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 主要な短縮は #1360 で完了。残りは任意の最適化（weekly-review の肥大が再発したら拾い直す）"
+    },
+    {
+      "id": "DN-0579",
+      "at": "2026-11-23",
+      "task": "Windows PC から Tailscale 経由で管理画面が開けるか確認する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 手順の正本は tools/admin-app/README.md「別 PC から開く（Tailscale）」。Windows を使う必要が出たときに確かめる"
+    },
+    {
+      "id": "DN-0439",
+      "at": "2026-11-23",
+      "task": "コンテンツ台帳から、選んだ制作物の反映計画を作って一括で更新する（ずれの検知をチャネル共通の部品に）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 台帳（/content/ledger）と note-sync-plan は稼働済み。ココナラ・Kindle の反映が実際に滞ったときに拾い直す"
+    },
+    {
+      "id": "DN-0233",
+      "at": "2026-11-23",
+      "task": "Mac 端末の初期設定を今回の設計に合わせて揃える（hygiene・pre-commit・dotfiles・memory リンク・MCP）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— Mac 端末の初期設定の残り。disk-hygiene と check-memory が劣化を検出する"
+    },
+    {
+      "id": "DN-0494",
+      "at": "2026-11-23",
+      "task": "Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— Windows で check-memory が警告したときに直す"
+    },
+    {
+      "id": "DN-1288",
+      "at": "2026-11-23",
+      "task": "data/ga4・gsc の週次レポート（追跡 約 98MB）の保持と置き場を見直す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— data/ga4・gsc の週次レポートの保持。clone や worktree の遅さで問題になったときに拾い直す"
+    },
+    {
+      "id": "DN-1287",
+      "at": "2026-11-23",
+      "task": "tsx を子プロセスで起動する単体テスト 65 本の起動費を減らす",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— テスト所要時間 150〜211 秒が CI の待ちで問題になったときに拾い直す"
+    },
+    {
+      "id": "DN-1286",
+      "at": "2026-11-23",
+      "task": "PR と deploy で同じ中身を最大 4 回フルビルドしているのを、ビルドの成果物の使い回しで減らす",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1184 へ統合した — PR の E2E（e2e.yml の約 223 秒の build）も ci.yml の artifact を受け取る形にできるか、という経路を足す"
+    },
+    {
+      "id": "DN-1279",
+      "at": "2026-11-23",
+      "task": "管理画面 Kindle の relatedDocs（関連文書）が常に空で、どこにも描画されていない",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 管理画面 Kindle の relatedDocs が描画されないデッドコード（tools/admin-app/src/lib/kindle.ts:198）"
+    },
+    {
+      "id": "DN-1277",
+      "at": "2026-11-23",
+      "task": "docs の棚卸しの残り（GSC/GA4 実装指示書・計測基盤ロードマップ・SEO×note 連携・動画 QA ログ・採点ルーブリックの議論項目）を抽出してから縮める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— docs の棚卸しの残り。06_seo-note-synergy-strategy.md の C1 の効果判定が未記録なので月次で拾い直す"
+    },
+    {
+      "id": "DN-1255",
+      "at": "2026-11-23",
+      "task": "note 記事の列挙（7 か所の自前走査）を lib の 1 関数にまとめる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— note 記事の列挙 7 か所を lib にまとめる整理"
+    },
+    {
+      "id": "DN-1254",
+      "at": "2026-11-23",
+      "task": "scripts の小さな helper の書き写し（sleep・エスケープ・sha256・git・R2 など）を lib に寄せる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— scripts の小さな helper の書き写しを lib に寄せる整理"
+    },
+    {
+      "id": "DN-1253",
+      "at": "2026-11-23",
+      "task": "scripts の frontmatter の正規表現読み（約 50 ファイル）を共通部品にそろえる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— frontmatter の正規表現読み約 50 ファイルを共通部品に"
+    },
+    {
+      "id": "DN-1252",
+      "at": "2026-11-23",
+      "task": "scripts の引数の手読み（約 105 ファイル）を parseCliArgs にそろえ、ラチェットで止める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 引数の手読み約 105 ファイルを parseCliArgs に"
+    },
+    {
+      "id": "DN-1206",
+      "at": "2026-11-23",
+      "task": ".obsidian/ の zip と端末ごとの状態を git の追跡から外す",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— .obsidian/ の zip と端末の状態を追跡から外す"
+    },
+    {
+      "id": "DN-1205",
+      "at": "2026-11-23",
+      "task": ".claude/state/ のログと作り直せる出力を git の追跡から外す",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— .claude/state/ の約 39MB のログを追跡から外す"
+    },
+    {
+      "id": "DN-1186",
+      "at": "2026-11-23",
+      "task": "静的生成で 1 ページごとに全記事を走査している分を測り、大きければ直す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 静的生成の全記事走査の割合を測る"
+    },
+    {
+      "id": "DN-1185",
+      "at": "2026-11-23",
+      "task": "Pagefind の索引作成（ビルドのうち 53〜61 秒）を速くできるか調べる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— Pagefind の索引作成（53〜61 秒）の高速化の調査"
+    },
+    {
+      "id": "DN-0841",
+      "at": "2026-11-23",
+      "task": "管理画面のカラーテーマを stats47 と同じトークンにそろえる（公開サイトには shadcn を入れない）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 管理画面のカラートークンを stats47 にそろえる"
+    },
+    {
+      "id": "DN-0981",
+      "at": "2026-11-23",
+      "task": "解答速報は正答を無料のまま、解説と次の一手を登録の特典にしてリスト化を試す",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 実験 EXP-063 の未了の作業へ移した — 11/30 に登録率と速報ページ順位を見る（3 位以上落ちたら特典案内を外す・Brevo list #3 の運営者テスト登録 1 件は数えない）。合格発表後に続行／他資格へ拡大を判定"
+    },
+    {
+      "id": "DN-0949",
+      "at": "2026-11-23",
+      "task": "本文中の note 案内を POP 画像と文字のカードで A/B し、既定を決める（EXP-053）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 実験 EXP-053 の未了の作業へ移した — 判定し、本文中の note 案内の既定を決めて負けた側の案のコード（src/lib/note-body-experiment.mjs ほか）を消す。集計は npm run report-note-body-experiment"
+    },
+    {
+      "id": "DN-1225",
+      "at": "2026-11-23",
+      "task": "past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（cta）",
+      "tier": "mid",
+      "kind": "不具合",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1226 へ統合した — /exam/civil-construction-1/secondary/r06（past-exam）でも同じ崩れ。完了条件に npm run site-visual-review -- prepare --keys past-exam の撮り直しと pass を加える"
+    },
+    {
+      "id": "DN-1224",
+      "at": "2026-11-23",
+      "task": "基準書・資格トップの右の欄の続きの束に cta-density の右欄検査を当てる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 基準書・資格トップの右欄（*-rail-fill）が check-cta-density の対象外（検査 0 件）。rail-continuation.ts の構造だけが守っている"
+    },
+    {
+      "id": "DN-1158",
+      "at": "2026-11-23",
+      "task": "立場のテーマ「建設コンサル会社の技術者」を作り、テーマ（topics.json の audience）として公開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1202 へ統合した — 公開したら demand-map.json の positions（consultant-engineer）の status を live にして topic を書く。完了に npm run check-topic-wiring が通る"
+    },
+    {
+      "id": "DN-1173",
+      "at": "2026-11-23",
+      "task": "src/config のマスタを台帳に載せ、型と記事 slug の外部キーを付ける",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— src/config の追跡 30 ファイルが datasets.mjs の台帳の対象外で、記事 slug の参照切れを検査する仕組みが無い"
+    },
+    {
+      "id": "DN-1157",
+      "at": "2026-11-23",
+      "task": "建設部門の合格者向けに「総監に進むか（手当・就ける役・受け方の順番）」の無料記事を 1 本書き、総監の既存商品へつなぐ（PC-008）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 config/demand-map.json PC-008 へ移した — 建設部門の合格者向けに『総監に進むか（手当・就ける役・受け方の順番）』の無料記事を 1 本。総監の既存商品へ導線。合格発表（2027 年 3 月）前に公開し、公開したら status を live にする"
+    },
+    {
+      "id": "DN-1110",
+      "at": "2026-11-23",
+      "task": "画面の点検（site-visual-review）を develop に入れ、本番ビルドで全ページを回して 3 幅・縮小の設定を検証する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— site-visual-review は 3 幅・縮小の設定で本番ビルドの全ページ判定をまだ回していない"
+    },
+    {
+      "id": "DN-1095",
+      "at": "2026-11-23",
+      "task": "技術士一次の情報工学部門の専門科目の過去問 16 回分を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/06_多資格展開戦略.md へ移した — 技術士一次の専門科目 5 部門（環境・水産・衛生工学・経営工学・情報工学）の過去問 16 回分（H23〜R07・R01 再試験）を、上下水道（PR #820）と同じ手順で作る。解説は付けない（DN-1044）。次は衛生工学。完了条件は check-past-exam-ledger"
+    },
+    {
+      "id": "DN-1094",
+      "at": "2026-11-23",
+      "task": "技術士一次の経営工学部門の専門科目の過去問 16 回分を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/06_多資格展開戦略.md へ移した — DN-1095 と同じ 1 行にまとめる"
+    },
+    {
+      "id": "DN-1093",
+      "at": "2026-11-23",
+      "task": "技術士一次の衛生工学部門の専門科目の過去問 16 回分を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/06_多資格展開戦略.md へ移した — DN-1095 と同じ 1 行にまとめる"
+    },
+    {
+      "id": "DN-1019",
+      "at": "2026-11-23",
+      "task": "scripts と管理画面の URL 組み立てを route-paths の共有関数へ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— scripts と管理画面の URL 直書き 10 か所（standards-render-targets.mjs:24 ほか）を route-paths の共有関数へ"
+    },
+    {
+      "id": "DN-0982",
+      "at": "2026-11-23",
+      "task": "管工事の工程表ガイドに遅延の再計算とダミーの例題と図を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 管工事の工程表ガイドに遅延の再計算とダミー経路の例題、図 1 枚を足す（図に答えを書かない）"
+    },
+    {
+      "id": "DN-0972",
+      "at": "2026-11-23",
+      "task": "1級二次の案内を試験の 8〜12 週前へ前倒しする",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 1級二次の案内を試験の 8〜12 週前へ前倒し（1級の購入の 65% は試験の 29 日以上前・DN-0343）。判定: 2027-08 の 1級売上が 2026-08（10 件・¥36,440）以上か。2027-06 の月次で採否"
+    },
+    {
+      "id": "DN-0970",
+      "at": "2026-11-23",
+      "task": "2級二次の買う時期に届く検索入口を、工種別の例文ページで作る",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 2級二次の試験 8〜4 週前に検索される工種別の経験記述の例文ページを強化。判定: 2級 Google クリックが 2026 年の 137 の 2 倍以上か"
+    },
+    {
+      "id": "DN-0966",
+      "at": "2026-11-23",
+      "task": "択一の試験後に使える自己採点の画面を作り、結果別の行き先へつなぐ",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 2級一次の前期を最初の対象に自己採点の画面を作り、結果別の行き先（DN-0959）を置く。根拠 docs/reviews/critical/2026-11-04-notebooklm-strategy-trial.md。2027-02 の月次で採否"
+    },
+    {
+      "id": "DN-0938",
+      "at": "2026-11-23",
+      "task": "基準書の全文ライブラリの表と図を、章記事と同じ仕組みで展開する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 基準書の全文ライブラリ 280 分冊の表と図を章記事と同じ仕組みで展開（表キャプション 1,424 に対し Markdown 表 30、図 333 に対し画像 0）"
+    },
+    {
+      "id": "DN-0915",
+      "at": "2026-11-23",
+      "task": "運営者が決めた立場のテーマを育成中で作り、EXP-046 を始める",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 実験 EXP-046 の未了の作業へ移した — 決まった立場について、記事に立場のタグを付け、topics.json に facet: audience のテーマを育成中で作り、教材の枠を置く。running にして反映日を history に書き、demand-map.json の position を live にする"
+    },
+    {
+      "id": "DN-0907",
+      "at": "2026-11-23",
+      "task": "悩みのハブ「施工管理から発注者側へ移りたい人の地図」の候補を作り、運営者の決定後に育成中で出す（EXP-045）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 実験 EXP-045 の未了の作業へ移した — キャリア記事 45 本を移る先 × 要る資格で並べたハブの候補を運営者に出し、決まったら noindex で作る（DN-1200 で制作）。転職アフィリの枠は EXP-043 と重ねない"
+    },
+    {
+      "id": "DN-1151",
+      "at": "2026-11-23",
+      "task": "基準類の右の目次（編・章・節）で、節ページの重さの増分とスマホ幅の表示を確かめて記録する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 基準類の右の目次で節ページの重さの増分（試作で 400KB→463KB）とスマホ幅の表示を確かめる"
+    },
+    {
+      "id": "DN-0342",
+      "at": "2026-11-23",
+      "task": "1級・2級建築施工管理の無料記事を数本公開し、2027年の二次検定に向けて需要を測る",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1292 として再起票した（題名が残作業と離れていた）"
+    },
+    {
+      "id": "DN-1290",
+      "at": "2026-11-23",
+      "task": "テーマの地図で記事が無かった段の記事を書く（27 件）",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/21_分類の軸と回遊の配線2026-10.md へ移した — テーマの地図で記事が無い段（27 件・一覧は cd8566ae2）。記事を書いたら roadmap の段の docs に結び check-topic-wiring で確かめる。外した段は tunnels・ports-coasts・railways（2 段）"
+    },
+    {
+      "id": "DN-1283",
+      "at": "2026-11-23",
+      "task": "GA4 の取得に「着地ページ × 流入元」を足すか決める（トップなど面ごとの流入元が記録に無い）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— GA4 に着地ページ × 流入元を足すか（トップはセッションの 1.65%）"
+    },
+    {
+      "id": "DN-1281",
+      "at": "2026-11-23",
+      "task": "チップ形のリンク 7 実装・文字リンク・検索の選択状態のボタン・トップの独自ボタンを原子にそろえるか決める（見た目が変わる）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— チップ形リンク 7 実装などを原子にそろえるか（/design-review --visual で確認）"
+    },
+    {
+      "id": "DN-1280",
+      "at": "2026-11-23",
+      "task": "src/components の区画の組み立て（MetaCard＋LinkRowList＋LinkRow 約 14 か所・MetaCard＋2 列の LinkTile 約 5 か所）を共通の生体にするか決める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— MetaCard＋LinkRowList 約 14 か所の共通化"
+    },
+    {
+      "id": "DN-1210",
+      "at": "2026-11-23",
+      "task": "図の文字の重なりの検出を CI で落ちる HIGH に上げ、線・多角形との重なりも見る",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— audit-svg の P2-text-overlap・P9-text-shape-overlap を HIGH に上げる（残 7 ファイル）"
+    },
+    {
+      "id": "DN-0976",
+      "at": "2026-11-23",
+      "task": "note の案内の部品とナビのカードの重なりを整理する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— note 案内の部品とナビカードの重なりの整理（EXP-053 判定後）"
+    },
+    {
+      "id": "DN-1276",
+      "at": "2026-11-23",
+      "task": "quality-cycle の無人リライト（auto-approve・Diff 閾値・Impact スコア）を再開するか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— quality-cycle の無人リライトを再開するか（論点は a40a995d25 の docs/editorial/03_リライト方法論方針.md 212〜253 行）"
+    },
+    {
+      "id": "DN-1058",
+      "at": "2026-11-23",
+      "task": "建設部門の模範解答集 12 冊に R8 本試験の模範解答を足し、題名をそろえ、単品の冒頭にマガジンへの導線を入れる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1293 として再起票した（題名が残作業と離れていた）"
+    },
+    {
+      "id": "DN-0969",
+      "at": "2026-11-23",
+      "task": "総監の完全パック・コアパックを R8 本試験と R9 予想の収録へ更新する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/23_技術士R9商品計画2026-11.md へ移した — 総監の完全パックとコアパックを R8 本試験と R9 予想の収録へ更新する（2027-03〜04）。収録の差は npm run product -- plan、完了は npm run verify-note-magazines"
+    },
+    {
+      "id": "DN-0968",
+      "at": "2026-11-23",
+      "task": "建設部門の選択 11 科目へ R8 の実問題の模範解答と R9 予想を足し、パックを更新する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/23_技術士R9商品計画2026-11.md へ移した — 売れ筋 6 科目（道路・トンネル・鉄道・都市計画・鋼コン・土質）から R8 実問題の模範解答と R9 予想を作り、残り 5 科目へ続ける。4 月にパックの収録を更新し、2026-11-02 に売り場から外した 8 本の扱いを決める"
+    },
+    {
+      "id": "DN-0326",
+      "at": "2026-11-23",
+      "task": "総監・建設部門 R9 向けの予想問題集を執筆し、直前商品の公開とカウントダウン投稿まで仕上げる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/23_技術士R9商品計画2026-11.md へ移した — R9 予想問題集（総監・建設）を執筆し cem-essay-qa を通す。直前商品を note で公開し、直前 CTA を配線する。直前カウントダウン投稿を予約し x-post-qa を通す（凍結対策を守る）"
+    },
+    {
+      "id": "DN-1236",
+      "at": "2026-11-23",
+      "task": "1級管工事 第二次（2026-12-06）に向けて、有料の予想問題と模範解答を note で出す",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1294 として再起票した（題名が残作業と離れていた）"
+    },
+    {
+      "id": "DN-1245",
+      "at": "2026-11-23",
+      "task": "ココナラの撤退ラインと工数警告の判定をスクリプトにする",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— ココナラの撤退ライン・工数警告の判定をスクリプトにする案。手で数えて足りている"
+    },
+    {
+      "id": "DN-1203",
+      "at": "2026-11-23",
+      "task": "1級管工事 第二次の記述の答案を仕上げる商品を計画書に並べ、2027 年の試験の 8 週前までに出す",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/管工事/noteコンテンツ計画.md へ移した — 1級管工事 第二次の記述の答案を仕上げる商品（自分の担当機器で組み立てる型と模範答案、必要ならココナラの添削）を、2027 年の試験の 8 週前（2027-10 上旬）までに出す。DN-0965 の棚と重ねない。空調は公的資料で裏取りする"
+    },
+    {
+      "id": "DN-1025",
+      "at": "2026-11-23",
+      "task": "note スクリプトの起動と確認を note-browser へ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— note スクリプトの起動と確認を note-browser へ移す整理（触るときに移す）"
+    },
+    {
+      "id": "DN-0978",
+      "at": "2026-11-23",
+      "task": "購入者の声を集めて商品ページの証拠にする",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 購入者の声の集め方。売上の実績が出た後の月次で拾い直す"
+    },
+    {
+      "id": "DN-0974",
+      "at": "2026-11-23",
+      "task": "建築施工管理の note 商品を計画どおり作り、カテゴリを公開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/建築施工管理/noteコンテンツ計画.md へ移した — 公開期日は 2027-07-31。1級経験記述マガジン、2級経験記述、1級・2級の記述の教材、まるごとパックの順に作る。非表示のカテゴリ building-construction は公開に切り替える（exam-content-policy.md Part 4）"
+    },
+    {
+      "id": "DN-0965",
+      "at": "2026-11-23",
+      "task": "管工事の note 商品の残り（工程・安全・パック）を次の試験前に展開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/管工事/noteコンテンツ計画.md へ移した — 工程管理・安全管理・設備全般の教材とパックを 2級第二次の 8 週前までに note へ出す。運営者の座は上下水道の技術士までに限り、空調は資料で裏取りする。択一は DN-0454。需要の証拠は未検証で、2026 年の販売を初回の記録にする"
+    },
+    {
+      "id": "DN-0657",
+      "at": "2026-11-23",
+      "task": "総監の港湾・空港ペルソナを1年度A・Bで試作し、新5候補の拡充順を決める",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/技術士総監/noteコンテンツ計画.md へ移した — 次のペルソナ拡充: 最初は港湾・空港の技術コンサルだけを 1 年度 A・B で試作し、pe-essay-cycle の Generator/Evaluator 分離で QA する。工数と反応を記録してから 5 年度への拡充と残 4 候補の優先順位を判断する。一括制作はしない"
+    },
+    {
+      "id": "DN-0307",
+      "at": "2026-11-23",
+      "task": "日本語が母語でない受験者向けに、経験記述の添削を広げられるか試す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 日本語が母語でない受験者向けに経験記述添削の出品文へ歓迎文を足す案（需要の根拠は 2026-09-25 の 1 件のみ）"
+    },
+    {
+      "id": "DN-1010",
+      "at": "2026-11-23",
+      "task": "note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる（現状 175 件で一致・故障なし）"
+    },
+    {
+      "id": "DN-1011",
+      "at": "2026-11-23",
+      "task": "hub-cta とココナラの TS 文字列解析を商品の読み口へ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— hub-cta とココナラの TS 文字列解析を商品の読み口へ移す"
+    },
+    {
+      "id": "DN-1284",
+      "at": "2026-11-23",
+      "task": "資格トップのココナラの月額添削のカードを、完成画像の CTA にするか決める（今は文字だけ）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 資格トップのココナラ月額添削のカードを画像にするか（表示 209・クリック 2）"
+    },
+    {
+      "id": "DN-1259",
+      "at": "2026-11-23",
+      "task": "scripts/kindle-dist（配布物の手元の置き場）を scripts/ の外へ移すかを決める",
+      "tier": "low",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— scripts/kindle-dist を scripts/ の外へ移すか（置き場の整理）"
+    },
+    {
+      "id": "DN-1258",
+      "at": "2026-11-23",
+      "task": "Kindle 表紙の制作記録の pop.reference が Git 管理外の c-05.jpg を指している件を整理する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— Kindle 表紙の制作記録の pop.reference が Git 管理外の c-05.jpg を指している"
+    },
+    {
+      "id": "DN-1257",
+      "at": "2026-11-23",
+      "task": "Kindle の題名と価格の正本を products.json と spec.json のどちらかに決める",
+      "tier": "low",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— Kindle の題名と価格の正本を products.json と spec.json のどちらにするか（check-kindle-prices で一致は保たれている）"
+    },
+    {
+      "id": "DN-0403",
+      "at": "2026-11-23",
+      "task": "総監・建設部門の note 共同マガジンの候補と参加条件を調べる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— note 共同マガジンの候補調査（新チャネル展開停止の方針下・docs/strategy/09 アクション3）"
+    },
+    {
+      "id": "DN-0961",
+      "at": "2026-11-23",
+      "task": "技術士一次の過去問 PDF に令和8年度を足す",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 docs/strategy/23_技術士R9商品計画2026-11.md へ移した — 令和 8 年度版を公式の問題と正答の公開後に PDF へ追加し、直前パックへ反映する。2027 年試験の 8 週前までに note へ反映。KDP は新刊を作らない"
+    },
+    {
+      "id": "DN-0488",
+      "at": "2026-11-23",
+      "task": "stats47 の建設統計・行政財政指標を note 記事のデータ根拠に 1〜2 点埋め込んで試作する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— stats47 の建設統計を note 記事のデータ根拠に埋め込む試作（効果を測る前提なし）"
+    },
+    {
+      "id": "DN-0329",
+      "at": "2026-11-23",
+      "task": "2027 年夏の 1級土木と診断士: 経験記述商品の今季版・一次の解答速報と過去問・二次と診断士の直前投稿",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/1級・2級土木/noteコンテンツ計画.md へ移した — 2027 夏: 経験記述商品を今季の出題へ更新・1級一次の解答速報と年度別過去問・二次と診断士の直前投稿（x-post-qa 通過）。診断士分はコンクリート診断士の計画書へ"
+    },
+    {
+      "id": "DN-0327",
+      "at": "2026-11-23",
+      "task": "コンクリート診断士の記述対策を執筆する",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/コンクリート診断士/noteコンテンツ計画.md へ移した — 記述対策の原稿を 2027 夏の試験に向けて執筆し品質チェックを通す（今年度は商品なし）"
+    },
+    {
+      "id": "DN-1243",
+      "at": "2026-11-23",
+      "task": "親の通常動画が非公開アップロードに進むと、ショートが「在庫に進んでいない」違反に戻り CI が赤になる",
+      "tier": "high",
+      "kind": "不具合",
+      "executor": "claude-code",
+      "outcome": "done",
+      "note": "棚卸し 2026-11-23: 済み（裏取り）— e54049de4（#1651）と config/channel-annual-plan.json L65-71。削除前に check-youtube-plan の exit 0 を確かめる。check-youtube-plan は 2026-11-23 に exit 0・違反 0 件",
+      "verification": "e54049de4（#1651）と config/channel-annual-plan.json L65-71。削除前に check-youtube-plan の exit 0 を確かめる。check-youtube-plan は 2026-11-23 に exit 0・違反 0 件",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-youtube-plan"
+      }
+    },
+    {
+      "id": "DN-1227",
+      "at": "2026-11-23",
+      "task": "YouTube の長尺計画の検査が落ちる（親の通常動画が在庫に進む前にショートが進んだ 2 件）",
+      "tier": "high",
+      "kind": "不具合",
+      "executor": "claude-code",
+      "outcome": "done",
+      "note": "棚卸し 2026-11-23: 済み（裏取り）— node --test tests/youtube-longform-plan.test.mjs が 20 件 pass（2026-11-23）・#1651 で直った",
+      "verification": "node --test tests/youtube-longform-plan.test.mjs が 20 件 pass（2026-11-23）・#1651 で直った",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/youtube-longform-plan.test.mjs"
+      }
+    },
+    {
+      "id": "DN-0597",
+      "at": "2026-11-23",
+      "task": "YouTube Analytics の2回の定期記録を確認する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1063 へ統合した — data/youtube/analytics/{date}.json に対象数・欠測・平均視聴率・流入元が出ることを金曜の定期取得 2 回で確かめる"
+    },
+    {
+      "id": "DN-1020",
+      "at": "2026-11-23",
+      "task": "YouTube の R2 配置スクリプトの共通処理を lib へ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— stage-youtube-renders-r2.mjs と stage-youtube-shorts-r2.mjs の重複 5 ブロック 64 行（jscpd 2026-11-06）"
+    },
+    {
+      "id": "DN-0410",
+      "at": "2026-11-23",
+      "task": "チャネル別の送客（UTM）を 1 画面で見られる GA4 の計測ダッシュボードを作る",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— UTM の source/medium/campaign 別の送客を管理画面の 1 画面で見る（fetch-ga4-data --sns-only で代替可）"
+    },
+    {
+      "id": "DN-0363",
+      "at": "2026-11-23",
+      "task": "SNS の入口→サイト→note/ココナラの経路を台帳と機械監査で管理する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— SNS の入口（X 固定・IG ハイライト・/links）を台帳と検査で管理する（IG は保留中）"
+    },
+    {
+      "id": "DN-0184",
+      "at": "2026-11-23",
+      "task": "YouTube・SNSの人物／見出しテンプレートを複数ポーズで実装し、既存予約・公開投稿へ反映する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 人物・見出しテンプレートを複数ポーズで実装し、既存の投稿へ反映する（SNS の新規投稿は保留中）"
+    },
+    {
+      "id": "DN-0836",
+      "at": "2026-11-23",
+      "task": "管理画面の作品別確認画面（/content/items/…）を iPhone の Safari（Tailscale 経由）で再生・シークまで確かめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— /content/items/civil-construction-2/matome-2kyu-chokuzen を iPhone Safari で再生確認"
+    },
+    {
+      "id": "DN-1263",
+      "at": "2026-11-23",
+      "task": "管理画面の X の月次計画の画面（/sns/x/plans）を実際に開いて表示を確かめる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— npm run admin で /sns/x/plans を開いて表示を確かめる"
+    },
+    {
+      "id": "DN-1071",
+      "at": "2026-11-23",
+      "task": "音声の関門で場面の欠落と数字の誤読を見られるようにする",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 音声の関門 audio.maxTokenMisreads の誤検出（数字+助数詞・促音）を吸収して上限を決める"
+    },
+    {
+      "id": "DN-0602",
+      "at": "2026-11-23",
+      "task": "競合動画を Mac で10秒ごとに切り出して画面の切り替え間隔を測り、07c §3 を埋める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 競合動画 6 本を 10 秒ごとに切り出して画面切り替えを測る（07c §3）"
+    },
+    {
+      "id": "DN-0835",
+      "at": "2026-11-23",
+      "task": "SNS の保留が解けたらやること（X Article の再計画・X の posted_url の確認・X カード画像の追跡方針）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1295 として再起票した（題名が残作業と離れていた）"
+    },
+    {
+      "id": "DN-0914",
+      "at": "2026-11-23",
+      "task": "技術士（建設部門）必須科目I 模範解答集を令和9年度版へ更新する（PC-004）",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 content/note/技術士建設部門/noteコンテンツ計画.md へ移した — 必須I 模範解答集を令和9年度版へ更新（PC-004）。令和8年度の筆記の問題（2026-07-20）を加え、予想を改訂コンピテンシーに合わせて差し替える。2027-04 までに公開。価格は維持。判定は 2027-05-01〜07-31 の販売件数を前年同期と比べる"
+    },
+    {
+      "id": "DN-0910",
+      "at": "2026-11-23",
+      "task": "悩みの軸・類似／差別の型を 1級土木（経験記述）へ広げ、商品候補を台帳に足す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 1級土木（経験記述）へ悩みの軸と類似／差別の型を広げる案"
+    },
+    {
+      "id": "DN-0909",
+      "at": "2026-11-23",
+      "task": "YouTube 競合の動画コメントを公式 API で取り、受験者の悩みの証拠に入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 競合 YouTube のコメントを公式 API で取る案（認証なし）"
+    },
+    {
+      "id": "DN-0908",
+      "at": "2026-11-23",
+      "task": "差別商品の検証：発注者の目で業務を課題に言い換える無料記事を 1 本出し、有料化を判断する（PC-006）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 企画の正本 config/demand-map.json PC-006 へ移した — 無料記事を 1 本出し、公開後 60 日のクリック・滞在・note CTA で有料（¥2,980）化を判断する"
+    },
+    {
+      "id": "DN-0811",
+      "at": "2026-11-23",
+      "task": "サイトと収益化をエージェント相手に「公開壁打ち」できる型を作り、1回目をやる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— サイトと収益化をエージェントと公開壁打ちする型の案"
+    },
+    {
+      "id": "DN-0843",
+      "at": "2026-11-23",
+      "task": "EXP-048 の判定（2026-12-26）を受けて、転職アフィリの面・案件を広げる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "note": "棚卸し 2026-11-23: 済み（裏取り）— 前提消滅: EXP-048 は判定せず閉じた（本文）。追加面の維持・縮小は DN-1215 とアフィリ運用の正本が扱う",
+      "verification": "前提消滅: EXP-048 は判定せず閉じた（本文）。追加面の維持・縮小は DN-1215 とアフィリ運用の正本が扱う"
+    },
+    {
+      "id": "DN-1251",
+      "at": "2026-11-23",
+      "task": "note の本文の図で SVG の無い 16 件を SVG 化し、残る render-figure-*.mjs 5 本を退役させる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— note の図の PNG 16 件を SVG 化し render-figure-*.mjs 5 本を退役させる"
+    },
+    {
+      "id": "DN-1170",
+      "at": "2026-11-23",
+      "task": "プレックスジョブ（A8）が参加中にも申込中にも無い理由（否認か取消か）を確かめ、再申請を判断する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1169 へ統合した — プレックスジョブ（s00000027873001・施工管理特化・成果 ¥7,519）が参加中にも申込中にも無い。否認か取消かを確かめ、再申請を判断する。台帳の plex-job の a8 の note に理由と日付を書く"
+    },
+    {
+      "id": "DN-1168",
+      "at": "2026-11-23",
+      "task": "afb（RSG建設転職）の広告素材を提携台帳に集める",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: DN-1169 へ統合した — afb の RSG建設転職（PID 14065・partner_site_id 984453）の素材を台帳 creatives に asp:'afb' で足す。サイト切替は Chosen.js の実 UI 操作だけが効く。ログインは運営者"
+    },
+    {
+      "id": "DN-0904",
+      "at": "2026-11-23",
+      "task": "技術士（建設部門）の参考書の低評価レビューを分類し、満たされていない悩みの証拠に入れる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 技術士（建設部門）の参考書の低評価レビューの分類（Amazon が 503）"
+    },
+    {
+      "id": "DN-1155",
+      "at": "2026-11-23",
+      "task": "技術士・総監向けに「複数登録して市場価値を見る」記事を別に立てるか決める（施工管理側は guide-market-value-check で公開済み）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 技術士・総監向けに『複数登録して市場価値を見る』記事を立てるか（EXP-054 の結果と合わせて）"
+    },
+    {
+      "id": "DN-0429",
+      "at": "2026-11-23",
+      "task": "2027 年の重点カードを確認し、次の年間ロードマップ（2027-10〜）へ切り替える",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 2027-10 以降の年間ロードマップへの切り替えは annual-roadmap.json の period を月次で更新する運用に任せる"
+    },
+    {
+      "id": "DN-0337",
+      "at": "2026-11-23",
+      "task": "新年度版の教材を参考文献台帳へ取り込む",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 新年度版の教材が出たときに reference-sources.json と対応表へ取り込む"
+    },
+    {
+      "id": "DN-0336",
+      "at": "2026-11-23",
+      "task": "教材ページの「要確認」をゼロにする",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— check-content-expansion の要確認をゼロにする"
+    },
+    {
+      "id": "DN-0732",
+      "at": "2026-11-23",
+      "task": "行政書士テキストの行政法を文字起こしして台帳に載せ、自治体の土木担当シリーズの根拠の補助にする",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— 行政書士テキストの行政法（207 頁・スキャン）の文字起こし（運営者が後回しと決定 2026-10-13）"
+    },
+    {
+      "id": "DN-1282",
+      "at": "2026-11-23",
+      "task": "MDX の <CareerAffiliate program=\"career\"> 213 か所に残る描画されない属性（service・category・description・points・cta・約 1,400 行）を消すか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "dropped",
+      "note": "棚卸し 2026-11-23: 月次の改善の候補（採否は月次レビュー）— MDX の CareerAffiliate program=career 213 か所の描画されない属性の削除（先に check-affiliate-placements.mjs が属性を必須にしていないか確かめる）"
+    },
+    {
+      "id": "DN-1269",
+      "at": "2026-11-23",
+      "task": "土曜の収集の note-audit 段の skipped の理由「27 日たっていない」の日数を確かめる",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/weekly-collect-plan.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2373d374e639",
+      "verification": "node --test tests/weekly-collect-plan.test.mjs",
+      "note": "27 は経過日数ではなく照合の間隔（4 週に 1 日の余裕）。skip の理由を『月 1 回（27 日ごと）の照合で、前回（日付）から N 日。次は 日付 以降の土曜』に直した（noteAuditSkipReason）"
+    },
+    {
+      "id": "DN-1190",
+      "at": "2026-11-23",
+      "task": "土曜の収集のログイン以外の失敗（note-traffic・note-sales の検算・ココナラのカタログ・もしも・後段の途中終了とロック）を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-weekly-collect"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2373d374e639",
+      "verification": "npm run -s check-weekly-collect",
+      "note": "11/21 の土曜の収集で note-traffic・note-sales・coconala・moshimo の段が ok（check-weekly-collect）。2 は #1590、5 は再起動が原因でロックは kill -0 で外れる。残りなし"
     }
   ]
 }

@@ -1272,7 +1272,7 @@
       "work": "pe-hissu1-jikan-haibun",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-001",
@@ -1291,7 +1291,59 @@
         "video": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform",
+      "publishAt": "2026-12-06T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-23T12:50:34.401Z",
+          "digest": "e270ad50fb60f86d3ceb2db375745ece3f6e2b64e5d0c4012f8bbe3537a04863"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-23T12:50:34.401Z",
+        "contentSha256": "40cb0e1100affa7fbe063fc0b104591e1f2d158d9b1561788257e502a0e9acce"
+      },
+      "times": {
+        "rendered": "2026-11-23T12:55:30.727Z",
+        "uploaded": "2026-11-23T12:59:30.432Z",
+        "scheduled": "2026-11-23T12:59:38.527Z"
+      },
+      "delivery": {
+        "inputSha256": "f00be592c4a22d943bc4bb5a8ddc6ec3a12b4dc1d6daef228491a03dad02c8f6",
+        "marker": "dn-single-f874510c867b4d6bc7acd8db588863b29dcec988",
+        "uploadRequestedAt": "2026-11-23T12:58:47.217Z",
+        "videoId": "aI4MOqaKh_o",
+        "processedAt": "2026-11-23T12:59:29.712Z",
+        "thumbnailRequestedAt": "2026-11-23T12:59:30.474Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/default.jpg?sqp=CKTvkNgG&rs=AOn4CLACtaf95PBv3eRFAkkBLjcFG4bc1g",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/mqdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLCVbw-vEqOFdNCWJeNW1kA3WhTqRw",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/hqdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLBp9u2mUTuGW-QvGnTrimg0a6KCeA",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/sddefault.jpg?sqp=CKTvkNgG&rs=AOn4CLDil-n1I03e8RiShoL_udNRaICsIg",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/maxresdefault.jpg?sqp=CKTvkNgG&rs=AOn4CLDcSgCsfanub6W969_uoZEnv81F6w",
+          "https://i9.ytimg.com/vi/aI4MOqaKh_o/fhddefault.jpg?sqp=CKTvkNgG&rs=AOn4CLCxxeZLFh4-vrHetPrESKZgWZmWDA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-23T12:59:33.950Z",
+        "scheduleRequestedAt": "2026-11-23T12:59:35.025Z",
+        "scheduleAt": "2026-12-06T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-23T12:59:38.527Z"
+      },
+      "platform": {
+        "id": "aI4MOqaKh_o",
+        "url": "https://www.youtube.com/watch?v=aI4MOqaKh_o",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-23T12:59:33.950Z"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
@@ -1398,7 +1450,7 @@
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-001",
@@ -1416,7 +1468,59 @@
         "video": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform",
+      "publishAt": "2026-12-07T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-23T12:50:36.012Z",
+          "digest": "077e5730ae853acadcad2dbdc03349c3cf8e9062e1ca715e8972c2a62a7fefba"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-23T12:50:36.012Z",
+        "contentSha256": "b7fd571fcf4a09db7b7357c501b9da601849713f6a7c9bdc7cdea8766465bbb4"
+      },
+      "times": {
+        "rendered": "2026-11-23T12:55:41.048Z",
+        "uploaded": "2026-11-23T13:03:24.897Z",
+        "scheduled": "2026-11-23T13:03:33.906Z"
+      },
+      "delivery": {
+        "inputSha256": "3a9ea72a31ae117a48af613e63180de4caf4632d39cd1edacc9b258670f28db8",
+        "marker": "dn-single-ce69c211313fc3b12fb0784a327925e3c0c9ebfd",
+        "uploadRequestedAt": "2026-11-23T13:02:33.100Z",
+        "videoId": "o1-_v4BnN68",
+        "processedAt": "2026-11-23T13:03:24.291Z",
+        "thumbnailRequestedAt": "2026-11-23T13:03:24.944Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/default.jpg?sqp=CNDxkNgG&rs=AOn4CLCHdh0aWhN4o8d_vgbBBNAfNS6ffA",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/mqdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLCkKzGOMV2OQQGaaDzjhiNQIQypRQ",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/hqdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLBrGLVtC_RnvrVEGStswjWuXrTrhA",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/sddefault.jpg?sqp=CNDxkNgG&rs=AOn4CLD8Qvn7DbPyr4lCFtKQMpErU-lGKQ",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/maxresdefault.jpg?sqp=CNDxkNgG&rs=AOn4CLBcdJYLaGwAovPlbkoefrXDjAbVZA",
+          "https://i9.ytimg.com/vi/o1-_v4BnN68/fhddefault.jpg?sqp=CNDxkNgG&rs=AOn4CLDRrIx4YNupghSgPHB1d0ddykwutQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-23T13:03:29.080Z",
+        "scheduleRequestedAt": "2026-11-23T13:03:30.103Z",
+        "scheduleAt": "2026-12-07T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-23T13:03:33.906Z"
+      },
+      "platform": {
+        "id": "o1-_v4BnN68",
+        "url": "https://www.youtube.com/watch?v=o1-_v4BnN68",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-23T13:03:29.080Z"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",

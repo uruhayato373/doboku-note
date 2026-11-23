@@ -253,7 +253,7 @@
             "qualifications": ["rccm", "concrete-diagnostician"],
             "cells": [
               { "mark": "empty" },
-              { "mark": "zero", "head": "✕ 診断士", "text": "売上に出ていない", "dns": ["DN-0329"] },
+              { "mark": "zero", "head": "✕ 診断士", "text": "売上に出ていない", "dns": [] },
               { "mark": "zero", "head": "✕ RCCM", "text": "10 月のクリック 31・CTR 17.6% で販売 0", "dns": ["DN-0944"] },
               { "mark": "empty" }
             ]

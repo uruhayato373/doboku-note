@@ -23,6 +23,14 @@ export function commitAndPush(paths, message, { push = true } = {}) {
   const c = git(['commit', '-m', message]);
   if (c.status !== 0) return { status: 'no-change', problem: `commit に失敗: ${(c.stderr || c.stdout).trim().slice(0, 300)}` };
   if (!push) return { status: 'committed' };
+  return pushToDevelop();
+}
+
+/**
+ * いまの HEAD を develop へ push する（fetch → rebase → push。競合したら 1 回だけやり直す）。
+ * @returns {{ status: 'committed' | 'pushed', problem?: string }}
+ */
+export function pushToDevelop() {
   for (let attempt = 1; attempt <= 2; attempt += 1) {
     git(['fetch', '-q', 'origin', 'develop']);
     if (git(['rebase', '-q', 'origin/develop']).status !== 0) {

@@ -32,3 +32,8 @@
 - `scripts/checks/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`/google-search-growth` で使う）
 - `scripts/checks/check-disk-hygiene.mjs` — ローカル容量の surfacer（quality-audit report `disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
 - `.claude/skills/nsm-experiment/references/definition.md` — NSM 定義の真実源
+
+## 起票の入口（2026-11-23〜2027-01-31・台帳の片付けの期間）
+
+- 起票するのは不具合と期日ものだけ（正本は `todo-standards.md` §1-3）。計測の機会のうち改善の案は、`growth-triage` で `defer`（理由「月次で採否」）にし、月次レビューの「改善の候補」に回す。
+- 申し送りの振り分けも同じ。改善の案は `→ 振り分け: 月次` と書き、backlog に積まない。

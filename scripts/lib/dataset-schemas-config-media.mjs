@@ -570,7 +570,7 @@ export const ConfigXReplyTrial = z
           .int()
           .positive()
           .describe('送信の間隔のばらつきの上限。minIntervalMinutes〜この値の間で毎回変える（2026-11-17 スパム判定のタグの後に運営者の判断）'),
-        maxPerDay: z.number().int().positive().describe('1 日（JST）に送る返信の上限。質問への答えも数える（2026-11-17 運営者の判断）'),
+        maxPerDay: z.number().int().positive().describe('1 日（JST）に送る返信の上限。質問への答えも数える（2026-11-17 運営者の判断で 5 件、2026-11-23 に 10 件へ引き上げ）'),
         candidatesPerRun: z.number().int().positive(),
         lookbackHours: z.number().int().positive(),
         perTopic: z.number().int().positive().describe('1 つの話題（資格）から出す候補の上限。偏りを防ぐ'),

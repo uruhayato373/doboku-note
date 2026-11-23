@@ -154,7 +154,7 @@ test('note の全記事の照合（note-audit）は前回から 27 日たつま�
   assert.equal(first.skip, null);
   assert.deepEqual(ids(first), ['check-note-structure.mjs', 'check-note-live-tags.mjs', 'check-note-live-headings.mjs', 'audit-note-cards.mjs', 'audit-note-funnel.mjs']);
   const recent = buildStages({ today: '2026-11-21', noteAuditLastAt: '2026-11-14T02:39:47.455Z' }).find((s) => s.id === 'note-audit');
-  assert.match(recent.skip, /前回（2026-11-14）から 27 日たっていない/);
+  assert.equal(recent.skip, '月 1 回（27 日ごと）の照合で、前回（2026-11-14）から 7 日。次は 2026-12-11 以降の土曜', '27 は間隔で経過日数ではない（DN-1269）');
   assert.equal(buildStages({ today: '2026-12-12', noteAuditLastAt: '2026-11-14T02:39:47.455Z' }).find((s) => s.id === 'note-audit').skip, null);
   assert.equal(noteAuditDue({ today: '2026-12-10', lastAt: '2026-11-14T02:39:47.455Z' }), false);
   assert.equal(NOTE_AUDIT_INTERVAL_DAYS, 27);
@@ -231,4 +231,15 @@ test('回す範囲: 土曜の開始時刻〜日曜だけ・今週の pre が無�
   assert.equal(p('2026-11-15', '2026-11-15T01:00:00Z', [...old, pre, post]), 'none');
   assert.equal(p('2026-11-16', '2026-11-16T01:00:00Z', [...old, pre]), 'none'); // 月曜は回さない
   assert.equal(p('2026-11-13', '2026-11-13T05:00:00Z', old), 'none'); // 金曜
+});
+
+test('取得の 1 回分を見る検算（verifyIfNewRun）は段の verify にあり、置き場が台帳にある（取らなかった週に実検査 0 で failed にしない・DN-1267）', async () => {
+  const { datasetDir } = await import('../scripts/lib/datasets.mjs');
+  const stages = buildStages({ today: '2026-11-21' });
+  const gsc = stages.find((s) => s.id === 'gsc');
+  assert.deepEqual(gsc.verifyIfNewRun, { 'gsc-ui-run': 'gsc.ui-raw' });
+  for (const s of stages) for (const [id, key] of Object.entries(s.verifyIfNewRun ?? {})) {
+    assert.ok((s.verify ?? []).includes(id), `${s.id}: verifyIfNewRun の ${id} が verify に無い`);
+    assert.ok(datasetDir(key), `${s.id}: ${key} が台帳に無い`);
+  }
 });

@@ -59,6 +59,48 @@
       "owner": "codex",
       "startedAt": "2026-11-15T01:19:24.693Z",
       "branch": null
+    },
+    {
+      "id": "DN-0999",
+      "owner": "claude-code",
+      "startedAt": "2026-11-23T08:12:25.427Z",
+      "branch": null
+    },
+    {
+      "id": "DN-0875",
+      "owner": "claude-code",
+      "startedAt": "2026-11-23T08:12:25.912Z",
+      "branch": null
+    },
+    {
+      "id": "DN-1267",
+      "owner": "claude-2B",
+      "startedAt": "2026-11-23T08:11:48.714Z",
+      "branch": "fix/weekly-collect-2b"
+    },
+    {
+      "id": "DN-1266",
+      "owner": "claude-2B",
+      "startedAt": "2026-11-23T08:11:48.886Z",
+      "branch": "fix/weekly-collect-2b"
+    },
+    {
+      "id": "DN-1195",
+      "owner": "claude-2B",
+      "startedAt": "2026-11-23T08:11:49.226Z",
+      "branch": "fix/weekly-collect-2b"
+    },
+    {
+      "id": "DN-1196",
+      "owner": "claude-2B",
+      "startedAt": "2026-11-23T08:11:49.404Z",
+      "branch": "fix/weekly-collect-2b"
+    },
+    {
+      "id": "DN-1268",
+      "owner": "claude-2B",
+      "startedAt": "2026-11-23T08:11:49.573Z",
+      "branch": "fix/weekly-collect-2b"
     }
   ]
 }
