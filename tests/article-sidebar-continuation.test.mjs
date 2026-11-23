@@ -69,7 +69,7 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     const rows = ${JSON.stringify(inputs)}.map(row=>({...row,
       groups:row.groups.map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href),banner:'banner' in g,adsense:g.adsense,slot:g.slot})),
       lower:row.groups.filter(g=>'lower' in g).length,
-      html:render(<TwoColumnShell stretchAside aside={<ArticleSidebar cards={buildArticleSidebarCards(row.input)} groups={row.groups} placements={row.placements} questionSeries={row.input.questionSeries} followHeadings={row.input.questionSeries?[]:row.input.headings}/>}><article><div className="prose-blog"><h2>土木・技術士</h2></div></article></TwoColumnShell>)}));
+      html:render(<TwoColumnShell stretchAside aside={<ArticleSidebar cards={buildArticleSidebarCards(row.input)} groups={row.groups} placements={row.placements} questionSeries={row.input.questionSeries} followHeadings={row.input.questionSeries?[]:row.input.headings}/>}><article className="bg-(--paper)"><div className="prose-blog"><h2>土木・技術士</h2></div></article></TwoColumnShell>)}));
     process.stdout.write(JSON.stringify(rows));`,true);
   assert.equal(rows.length,7);
   let total = 0;

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import TopicRail from '@/components/topics/TopicRail';
 import type { ReactNode } from 'react';
 import type { TocHeading } from '@/lib/toc';
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
  */
 function TopicSection({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
-    <section id={id} aria-label={label} className="scroll-mt-24 border-t border-(--rule-soft) py-10 first:border-t-0 first:pt-0 dark:border-(--rule-soft)">
+    <section id={id} aria-label={label} className="scroll-mt-24 border-t border-(--rule-soft) py-10 first:border-t-0 last:pb-0 dark:border-(--rule-soft)">
       {children}
     </section>
   );
@@ -101,6 +102,8 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
         stretchAside
         aside={<TopicRail docs={docs} featured={topic.featured ?? []} sections={sections} />}
       >
+      {/* 左の列を 1 枚の白い面にする（資格トップ・基準書と同じ。2026-11-23 まで背景の上に直に載っていた） */}
+      <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
       <PageHeader
         variant="inline"
         titleSize="lg"
@@ -109,8 +112,9 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
         title={topic.label}
         lead={topic.description}
         meta={`記事 ${docs.length}件 / 基準資料 ${standards.length}件`}
-        className="mb-6"
+        className="border-b border-(--rule-soft) py-5 sm:py-6 dark:border-(--rule-soft)"
       />
+      <div>
       {topic.intro && topic.intro.length > 0 && (
         <TopicSection id="topic-intro" label="このテーマの要点">
           <h2 className="mb-4 font-serif text-2xl font-bold text-(--ink)">{topic.introHeading ?? `${topic.label}で押さえること`}</h2>
@@ -235,6 +239,8 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
       <TopicSection id="topic-career" label="転職の相談先">
         <AffiliateSlot page={{ pageKind: 'topic' }} slot="topic-end" alignStart />
       </TopicSection>
+      </div>
+      </MetaCard>
       </TwoColumnShell>
     </PageShell>
   );
