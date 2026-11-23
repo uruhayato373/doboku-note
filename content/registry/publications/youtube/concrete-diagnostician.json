@@ -8,7 +8,7 @@
       "work": "cd-mondai-b-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/cover",
         "scene-001": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-001",
@@ -25,7 +25,21 @@
         "video": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/video",
         "subtitles": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-06T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-23T12:50:33.576Z",
+          "digest": "5476793f913e440f38699290206d2a1e201eb68531e343374f7f0779312de8b3"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-23T12:50:33.576Z",
+        "contentSha256": "e9de45f1c0df0c391cbec480df996874db986ee95a84a2bd1dab9bc611e2f5b0"
+      }
     }
   ]
 }

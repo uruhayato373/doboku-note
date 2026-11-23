@@ -1272,7 +1272,7 @@
       "work": "pe-hissu1-jikan-haibun",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-001",
@@ -1291,7 +1291,21 @@
         "video": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform",
+      "publishAt": "2026-12-06T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-23T12:50:34.401Z",
+          "digest": "e270ad50fb60f86d3ceb2db375745ece3f6e2b64e5d0c4012f8bbe3537a04863"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-23T12:50:34.401Z",
+        "contentSha256": "40cb0e1100affa7fbe063fc0b104591e1f2d158d9b1561788257e502a0e9acce"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
@@ -1398,7 +1412,7 @@
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-001",
@@ -1416,7 +1430,21 @@
         "video": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform",
+      "publishAt": "2026-12-07T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-23T12:50:36.012Z",
+          "digest": "077e5730ae853acadcad2dbdc03349c3cf8e9062e1ca715e8972c2a62a7fefba"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-23T12:50:36.012Z",
+        "contentSha256": "b7fd571fcf4a09db7b7357c501b9da601849713f6a7c9bdc7cdea8766465bbb4"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
