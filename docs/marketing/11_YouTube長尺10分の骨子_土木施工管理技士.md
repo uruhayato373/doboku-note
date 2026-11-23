@@ -6,7 +6,7 @@
 **親 SSOT**: [07_YouTube戦略_土木施工管理技士.md](./07_YouTube戦略_土木施工管理技士.md)（ポジショニング・Red Line）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（動画パック・KPI）。型の採否の正本は `config/youtube-formats.json`、競合の結論は `config/competitor-positions.json`、試験日は `config/exam-calendar.json`、商品と価格は `config/products.json`（この文書に価格は書かない）
 
 > [!important] 前提の訂正：チャネルは既にある
-> doboku-note の YouTube チャネル（@doboku-note）は 2026-09 から稼働しており、土木の通常動画は動画パック 25 本（公開・予約・描画済みなど。`content/registry/publications/youtube/`）がある。ただし型は 2〜8 分の単論点（`single-topic-text`・`single-topic-zukai`）で、2026-10-08 時点で再生中央値 4 回・尺の中央値 2.5 分。この文書の動画は**新しい面ではなく、同じチャネルに「10〜15 分の看板（網羅型）と思考系」という型を足す試行**である。`youtube-formats.json` にこの尺の型は無いので、制作に入る前に型の追加（status: trial）をユーザーが決める。
+> doboku-note の YouTube チャネル（@doboku-note）は 2026-09 から稼働しており、土木の通常動画は動画パック 25 本（公開・予約・描画済みなど。`content/registry/publications/youtube/`）がある。ただし型は 2〜8 分の単論点（`single-topic-text`・`single-topic-zukai`）で、2026-10-08 時点で再生中央値 4 回・尺の中央値 2.5 分。この文書の動画は**新しい面ではなく、同じチャネルに「10〜15 分の看板（網羅型）と思考系」という型を足す試行**である。型は 2026-11-23 に `youtube-formats.json` へ trial で足した（看板の網羅型 `kanban-survey`・思考系 `mindset`、どちらも 10〜15 分）。
 
 ## 1. 設計の考え方
 
@@ -168,10 +168,9 @@
 
 - **見る数字**: 動画ごとの視聴回数・平均視聴時間（維持率曲線は再生 50 回以上で判定。DN-1063）、`utm_source=youtube`・`utm_campaign={packId}` のサイト・note への流入、note の売上の流入元
 - **計測の穴**: 概要欄の先頭のリンクが note へ直行だと GA4 から見えない（DN-1086 の 2026-11-12 の実査）。サイトの該当ページを経由するリンクと note 直行のリンクを並べ、どちらが押されたかを分けて見る
-- **続ける条件の考え方**: 既存の単論点の動画（再生中央値 4 回）と比べて、視聴回数と流入が上回るか。欠測を 0 と読まない。数値の閾値は型を `youtube-formats.json` に足すときに決める
+- **続ける条件の考え方**: 既存の単論点の動画（再生中央値 4 回）と比べて、視聴回数と流入が上回るか。欠測を 0 と読まない。数値の閾値は最初の 4 本が出そろった時点で決める
 
-## 4. 制作に入る前に決めること
+## 4. 制作に入る前にすること
 
-1. `youtube-formats.json` に 10〜15 分の看板・思考系の型を trial で足すか（ユーザーの判断）
-2. 各動画を動画パック（`content/sns/video-packs/civil-construction-{1,2}/`）として起こし、`/video-content` の工程（台本 → 機械ゲート → `video-content-qa` → 承認）に乗せる
-3. V2・V3 の集計の数字は台本の段で原典と照合する
+1. 各動画を動画パック（`content/sns/video-packs/civil-construction-{1,2}/`）として起こし、`/video-content` の工程（台本 → 機械ゲート → `video-content-qa` → 承認）に乗せる
+2. V2・V3 の集計の数字は台本の段で原典と照合する

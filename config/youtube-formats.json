@@ -1,7 +1,7 @@
 {
   "_doc": "docs/marketing/06_動画コンテンツ運用設計.md（横断の方針）・docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md（根拠）",
   "schemaVersion": 1,
-  "updated": "2026-11-10",
+  "updated": "2026-11-23",
   "description": "YouTube の動画の型（何を・何分で・どこへ送るか）と採否の状態の正本。status は active（公開中）・trial（試作・比較中）・proposed（提案・未承認）・paused（止めた）・rejected（やらない）。採否はユーザーが決め、decision の backlog カードで判断し、ここの status を書き換える。根拠は evidence の文書。動画パックの契約は config/video-content.json、パックごとの公開状態はコンテンツ台帳 content/registry（写しの video-content-status.json は 2026-10-09 に消えた。読み手は scripts/lib/registry-video-state.mjs の loadVideoState）。数値の記録は data/youtube/own-videos（自社・月次）と data/youtube/competitors（競合・四半期）で、取得は npm run youtube-own-metrics・npm run scout-youtube-competitors。titleSignals は題名で型を見分ける語（両スクリプトが再生中央値を集計する）。",
   "channel": {
     "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
@@ -117,6 +117,30 @@
       "evidence": ["docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md", "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
       "decision": "DN-1004",
       "note": "07a §3 で試験直後の窓として指摘。ひげごろーの1級二次の解答速報（ライブ）は24,205回。2026-10-10 の運営者判断で 2026 年はやらない（10/25 の 2 級二次を含む）。2026-10-06〜11-02 の検索では2級の R8 二次の解答ページが5,222クリック（全体8,137の64%）で、試験直後の答え合わせの需要は確か。再開するかは 2027 年の枠で判断する"
+    },
+    {
+      "id": "kanban-survey",
+      "label": "看板の網羅型（出題履歴・分野構成を全部見せる）",
+      "status": "trial",
+      "role": "発見",
+      "lengthMinutes": { "min": 10, "max": 15 },
+      "ctaKinds": ["note-magazine", "site-article"],
+      "producedBy": "動画パックの通常の工程（スライド＋声・顔出しなし）。サイトで無料公開している表と図をそのまま使い、年度ではなくテーマの出題履歴で切る",
+      "evidence": ["docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md", "docs/marketing/07_YouTube戦略_土木施工管理技士.md"],
+      "decision": null,
+      "note": "2026-11-23 にユーザーが試行で採用。最初は 1級・2級土木の 3 本（11 の V2・V3・V4）。週 1 本で出し、4〜8 週で既存の単論点の動画（再生中央値 4 回）と再生・視聴維持・note への流入を比べる。年度別の通し解説はしない（07 §10）。商品の「出る順」の全表と日割りは出さない"
+    },
+    {
+      "id": "mindset",
+      "label": "思考系（落ちる人の思い込みを採点者の目線で正す）",
+      "status": "trial",
+      "role": "理解",
+      "lengthMinutes": { "min": 10, "max": 15 },
+      "ctaKinds": ["note-magazine", "site-article"],
+      "producedBy": "動画パックの通常の工程（スライド＋声・顔出しなし）。悪い例は伏せ字の架空例だけ使い、良い例の完成文は出さない",
+      "evidence": ["docs/marketing/11_YouTube長尺10分の骨子_土木施工管理技士.md", "docs/marketing/07_YouTube戦略_土木施工管理技士.md"],
+      "decision": null,
+      "note": "2026-11-23 にユーザーが試行で採用。看板の網羅型（kanban-survey）の次に観る動画として置く。最初は 1級・2級土木の 1 本（11 の V1）、技術士の段は候補 1 本（V5）。判定は kanban-survey と同じ 4〜8 週"
     }
   ]
 }
