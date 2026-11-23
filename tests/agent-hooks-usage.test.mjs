@@ -15,6 +15,11 @@ test('Skill・Agent・Task の PreToolUse を記録する', () => {
     { at: '2026-10-21T03:04:05.000Z', session: 's1', fromAgent: null, kind: 'skill', name: 'deploy' });
   assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { subagent_type: 'guide-qa' } }, NOW).name, 'guide-qa');
   assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Task', tool_input: {} }, NOW).name, 'general-purpose');
+  // 型なしの委任かどうかと、呼び出しで明示した model・effort を残す（無ければ null）
+  const untyped = usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { prompt: 'x' } }, NOW);
+  assert.deepEqual([untyped.typed, untyped.model, untyped.effort], [false, null, null]);
+  const explicit = usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { subagent_type: 'Explore', model: 'sonnet', effort: 'low' } }, NOW);
+  assert.deepEqual([explicit.typed, explicit.model, explicit.effort], [true, 'sonnet', 'low']);
   assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { subagent_type: 'Explore' }, agent_type: 'todo-planner' }, NOW).fromAgent, 'todo-planner');
 });
 
