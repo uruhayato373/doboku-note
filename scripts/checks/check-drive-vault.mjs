@@ -59,6 +59,8 @@ const git = (args) => execFileSync('git', ['-c', 'core.quotepath=false', ...args
 const problems = [];
 const fail = (kind, detail, path = null) => problems.push({ severity: 'FAIL', kind, detail, path });
 const warn = (kind, detail, path = null) => problems.push({ severity: 'WARN', kind, detail, path });
+// 文書化済みの例外など、直す対象ではない事実。WARN にすると pre-commit の要約に毎回載って本物の警告が埋もれる
+const info = (kind, detail, path = null) => problems.push({ severity: 'INFO', kind, detail, path });
 
 async function main() {
   // (a) 設定
@@ -80,7 +82,7 @@ async function main() {
         if (!(typeof g.audienceException === 'string' && g.audienceException.length >= 20)) {
           fail('audience', 'group ' + g.id + ' は audience=human。R2 に置くなら audienceException（20 字以上の理由）、さもなければ drive-vault.json へ');
         } else {
-          warn('audience-exception', 'group ' + g.id + ' は human なのに R2 に残っている（例外: ' + g.audienceException.slice(0, 60) + '…）');
+          info('audience-exception', 'group ' + g.id + ' は human なのに R2 に残っている（例外: ' + g.audienceException.slice(0, 60) + '…）');
         }
       } else if (!AUDIENCE_RULES[g.audience].includes(g.bucket)) {
         fail('audience', 'group ' + g.id + ' は audience=' + g.audience + ' だが bucket=' + g.bucket + '（許容: ' + AUDIENCE_RULES[g.audience].join('|') + '）');

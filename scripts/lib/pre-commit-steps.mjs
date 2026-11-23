@@ -31,6 +31,8 @@ import { SCAN_ROOTS as EXAM_CALENDAR_SCAN_ROOTS } from './exam-calendar-guards.m
 const hasStaged = (ctx, re) => ctx.staged.some((f) => re.test(f));
 /** staged の変更（削除・改名を含む）のパスが 1 つでも前方一致するか。entries は --no-renames なので改名は削除＋追加で見える */
 const touchesPrefix = (ctx, prefixes) => ctx.entries.some((e) => prefixes.some((p) => e.path === p || (p.endsWith('/') && e.path.startsWith(p))));
+/** check-datasets の入力のうち、追加・削除（追跡ファイルの集合の変化）で結果が変わる置き場 */
+const DATASETS_FILESET_RE = /^(config\/|data\/|\.claude\/state\/|content\/registry\/|scripts\/lib\/(datasets|dataset-)[^/]*\.mjs$|\.github\/workflows\/|package\.json$)/; // path-literal-ok: 置き場の前方一致で staged のパスを分類する
 /** 追加・削除・型変更（＝追跡ファイルの集合が変わる変更）が 1 つでもあるか。M だけの commit では false */
 const changesFileSet = (ctx) => ctx.entries.some((e) => e.status !== 'M');
 /**
@@ -142,7 +144,12 @@ export const STEPS = [
   // 置き場のモデル（docs/content/config/data/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
   // docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
   s('check-information-architecture'),
-  s('check-business-direction'),
+  // 入力: 方針と商品の設定（config/）・計測と記録（data/）・作業状態（.claude/state/）・台帳（content/registry/）・
+  // 計測の有無を見る SNS の置き場（content/sns/）・Kindle の台帳の元（content/kindle/）・検査と部品（scripts/）。
+  // 当たらない commit（記事・docs だけ）では結果が変わらないので飛ばす（毎回 2.3〜2.9 秒）
+  s('check-business-direction', ['--staged'], {
+    touches: (ctx) => touchesPrefix(ctx, ['config/', 'data/', '.claude/state/', 'content/registry/', 'content/sns/', 'content/kindle/', 'scripts/']), // path-literal-ok: 置き場の前方一致で staged のパスを分類する
+  }),
   // SNS 投稿（content/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
   s('check-sns-urls'),
   // 退役アカウント/ハンドル（404 の note 旧名・凍結 X 旧アカ）への参照（2026-08-13。
@@ -161,11 +168,12 @@ export const STEPS = [
   // 入力: registry・設定（CONFIG_DIRS）・コード（CODE_DIRS）。検査自身が走査する根をそのまま使う
   s('check-qualification-ssot', [], { touches: (ctx) => touchesPrefix(ctx, [...CONFIG_DIRS, ...CODE_DIRS].map((d) => `${d}/`)) }),
   // 設定（config/）・記録（data/）の全ファイルが台帳に宣言され、型のあるものは型に合う
-  // 入力: 台帳の置き場（AREAS）・コード（scripts・tools・src・.claude）・ワークフローと package.json・参照先の記事の実在
-  // （追加・削除・改名）。M だけの記事編集では回さない（全量走査で 2〜2.5 秒）
+  // 入力: 台帳の置き場（AREAS）・コード（scripts・tools・src・.claude）・ワークフローと package.json の内容変更、
+  // および台帳の置き場・データセットの部品・ワークフロー・package.json の追加・削除・改名。
+  // 記事など台帳の外の追加・削除では回さない（全量走査で追加/削除のたびに約 6 秒）
   s('check-datasets', [], {
     touches: (ctx) =>
-      changesFileSet(ctx) ||
+      (changesFileSet(ctx) && ctx.entries.some((e) => e.status !== 'M' && DATASETS_FILESET_RE.test(e.path))) ||
       touchesPrefix(ctx, [...Object.values(AREAS).map((a) => `${a.dir}/`), 'scripts/', 'tools/', 'src/', '.claude/', '.github/workflows/', 'package.json', 'config/', 'data/']),
   }),
   // X月間キャンペーン計画の日付・導線・URL・販売投稿間隔を検証
