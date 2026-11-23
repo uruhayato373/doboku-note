@@ -31,7 +31,9 @@ import { spawn, spawnSync } from 'node:child_process';
 import { hostname } from 'node:os';
 
 import { parseCliArgs } from '../lib/cli-args.mjs';
-import { datasetPath, freshnessDays, latestFileDate } from '../lib/datasets.mjs';
+import { join } from 'node:path';
+import { datasetDir, datasetPath, freshnessDays, latestFileDate } from '../lib/datasets.mjs';
+import { listRunIds } from '../lib/run-audit.mjs';
 import { readJsonIf, writeJson } from '../lib/json-io.mjs';
 import { guardBrowserLaunch, LaunchGuardError } from '../lib/playwright-launch.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
@@ -130,10 +132,25 @@ function verifyCommand(id) {
   return { argv: command[0] === 'node' ? command.slice(1) : command, timeoutMin: Math.ceil(check.timeout / 60_000) };
 }
 
-/** 取った記録の検算。skip の段でも回す（取る月が無い週も、過去の記録の食い違いを見落とさない） */
-async function runVerify(stage, result) {
+/** 段の verifyIfNewRun（検算 id → 取得の run の置き場の台帳 id）ごとに、いまある run の一覧を取る */
+function runIdsByVerify(stage) {
+  return Object.fromEntries(Object.entries(stage.verifyIfNewRun ?? {}).map(([id, key]) => [id, listRunIds(join(REPO_ROOT, datasetDir(key)))]));
+}
+
+/** 取った記録の検算。skip の段でも回す（取る月が無い週も、過去の記録の食い違いを見落とさない）。
+ * verifyIfNewRun の検算は、この回に run が増えたときだけ回す（取得の 1 回分を見る検算は、取得しなかった週に見る物が無い・DN-1267） */
+async function runVerify(stage, result, runsBefore = {}) {
   const failures = [];
   for (const id of stage.verify ?? []) {
+    if (runsBefore[id]) {
+      const before = new Set(runsBefore[id]);
+      const fresh = listRunIds(join(REPO_ROOT, datasetDir(stage.verifyIfNewRun[id]))).filter((r) => !before.has(r));
+      if (fresh.length === 0) {
+        console.log(`${TAG} [${stage.id}] 検算 ${id}: この回は取得していない（run が増えていない）ので回さない`);
+        result.verify.push({ id, exit: null, skipped: 'この回は取得していない' });
+        continue;
+      }
+    }
     const { argv, timeoutMin } = verifyCommand(id);
     console.log(`${TAG} [${stage.id}] 検算 ${id}: ${argv.join(' ')}`);
     const r = await runCommand(argv, { timeoutMin, env: {} });
@@ -147,6 +164,7 @@ async function runStage(stage) {
   const started = Date.now();
   const result = { id: stage.id, title: stage.title, status: 'skipped', reason: '', exits: [], verify: [], durationSec: 0 };
   const reasons = [];
+  const runsBefore = runIdsByVerify(stage);
   if (stage.skip) {
     reasons.push(stage.skip);
   } else {
@@ -172,7 +190,7 @@ async function runStage(stage) {
       if (result.status === 'ok') reasons.length = 0;
     }
   }
-  const verifyFailures = await runVerify(stage, result);
+  const verifyFailures = await runVerify(stage, result, runsBefore);
   if (verifyFailures.length) { result.status = 'failed'; reasons.push(...verifyFailures); }
   result.reason = reasons.join(' / ').slice(0, 900);
   result.durationSec = Math.round((Date.now() - started) / 1000);
@@ -250,7 +268,7 @@ async function main() {
   const kdp = kdpMonthsDue();
   const stages = buildStages({ kdpMonths: kdp.months, competitorScans: competitorScans(), noteAuditLastAt: noteAuditLastAt(), noteTrafficMonthFetchedAt: noteTrafficMonthFetchedAt() });
   if (args.plan) {
-    const view = stages.map((s) => ({ id: s.id, phase: s.phase, title: s.title, skip: s.skip ?? null, commands: s.commands.map((c) => c.argv.join(' ')), verify: (s.verify ?? []).map((id) => ({ id, command: verifyCommand(id).argv.join(' ') })) }));
+    const view = stages.map((s) => ({ id: s.id, phase: s.phase, title: s.title, skip: s.skip ?? null, commands: s.commands.map((c) => c.argv.join(' ')), verify: (s.verify ?? []).map((id) => ({ id, command: verifyCommand(id).argv.join(' ') + (s.verifyIfNewRun?.[id] ? '（この回に run が増えたときだけ）' : '') })) }));
     if (args.json) console.log(JSON.stringify({ stages: view, kdpProblem: kdp.problem ?? null }, null, 2));
     else for (const s of view) console.log(`${s.phase.padEnd(4)} ${s.id.padEnd(16)} ${s.title}${s.skip ? `（skip: ${s.skip}）` : ''}\n${[...s.commands.map((c) => `       ${c}`), ...s.verify.map((v) => `       検算 ${v.id}: ${v.command}`)].join('\n')}`);
     return;

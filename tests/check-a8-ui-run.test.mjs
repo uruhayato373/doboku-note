@@ -77,3 +77,21 @@ test('台帳の lastRun でない古い run は既定では見ない（古い失
   assert.ok(auditA8({ root: r0, runId: '2026-09-07T00-00-00Z' }).fail.some((m) => m.includes('status=error')));
   rmSync(r0, { recursive: true });
 });
+
+test('成果 0 件の期間（noData・0 行・emptyOk のレポート）は raw なしでも FAIL にしない・emptyOk でないレポートの raw なしは FAIL（DN-1266）', () => {
+  const r0 = mkdtempSync(join(tmpdir(), 'a8-run-'));
+  put(r0, 'config/a8-report-automation.json', { a8: { ...cfg.a8, reports: { 'result-detail': { emptyOk: true }, 'site-summary': {} } } });
+  put(r0, 'data/a8/report-log.json', { ...good, lastRun: '2026-11-21T00-00-00Z' });
+  const dir = 'data/a8/ui/2026-11-21T00-00-00Z';
+  put(r0, `${dir}/manifest.json`, { mediaId: 'a1', status: 'ok', units: [
+    { reportKey: 'result-detail', status: 'downloaded', csvRows: 0, rawFile: null, sha256: null, noData: true, period: { raw: '20261101-20261121' } },
+    { reportKey: 'site-summary', status: 'downloaded', csvRows: 0, rawFile: null, sha256: null, noData: true, period: { raw: '202611' } },
+  ] });
+  put(r0, `${dir}/normalized/result-detail.json`, { rows: [] });
+  put(r0, `${dir}/normalized/site-summary.json`, { rows: [] });
+  const r = auditA8({ root: r0 });
+  assert.ok(!r.fail.some((m) => m.startsWith('result-detail:')));
+  assert.ok(r.info.some((m) => m.startsWith('result-detail: 成果 0 件')));
+  assert.ok(r.fail.some((m) => m.startsWith('site-summary: rawFile が実在しない')));
+  rmSync(r0, { recursive: true });
+});
