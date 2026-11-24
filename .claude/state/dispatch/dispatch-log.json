@@ -11043,6 +11043,19 @@
       "commit": "3374480160db",
       "verification": "check-doc-refs・check-relative-links・check-qualification-ssot・check-exam-calendar・check-datasets・check-qualification-market が通過（05e4fd0942）",
       "note": "01 に 55 歳までの方向（情報拠点・2 段構え・集める基準・建設 DX を本命にしない・測り方）、02 に長期の方向と中小企業診断士（候補）、18 に情報拠点の中での役割を書いた。測り方は business-direction.json の観測値 2 つ（gscBaselineClicks・docsToExamTransitions・目標値なし）。診断士は qualification-registry に candidate で登録し、試験の 3 台帳と market-scan に足した（一次情報 jf-cmca.jp）"
+    },
+    {
+      "id": "DN-0477",
+      "at": "2026-11-25",
+      "task": "合格ラボを畳む（note 側の後始末）: 22 記事の会員限定を外し、旧プランと加入ページの実状を確かめる",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cb7ecb62afdc",
+      "verification": "公開 API で 22 本の is_limited・circle_plans・価格を実測（2026-11-25）",
+      "note": "運営者の決定（2026-11-25）で実害なしとして閉じた。合格ラボの会員専用マガジン・添削つきプラン・勧誘記事は削除済み（11/04）、有料の特典誌は紐づけを外して単品販売を継続。22 記事は is_limited=true のまま（circle_plans・belonging_magazine_keys は空、価格 0）で、隠れているのは末尾の「以上、〜でした。」だけ。公開設定の画面に外す操作は見当たらなかった。原稿の memberTrial: bottom は試し読みラインを末尾直前に置く指定として残す"
     }
   ]
 }
