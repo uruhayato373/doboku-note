@@ -624,18 +624,6 @@
 
 
 
-### [DN-1226] standards-chapter（/standards/kinki/common/chapters/1-3）が画面の点検で不合格（cta）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review:status] [起票:2026-11-16]
-
-**起点**: 2026-11-16 の画面の点検（`npm run site-visual-review`・作業票 20261116T122139Z）で、standards-chapter（/standards/kinki/common/chapters/1-3）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
-
-- cta [w375]: スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）（w375-cta-02.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys standards-chapter` で撮り直して判定し、record で pass と台帳に記録される。
-
-- 統合（2026-11-23 の棚卸し・旧カード「past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（cta）」から）: /exam/civil-construction-1/secondary/r06（past-exam）でも同じ崩れ。完了条件に npm run site-visual-review -- prepare --keys past-exam の撮り直しと pass を加える
 
 
 
