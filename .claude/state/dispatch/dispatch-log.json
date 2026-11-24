@@ -10503,6 +10503,19 @@
       "commit": "d0f916fd53f7",
       "verification": "data/gsc/reports/2026-11-20.json の page と page-query を ronbun-keyword で集計",
       "note": "分けない（2026-11-24 決定）。GSC 2026-10-20〜11-16 の 28 日で、6 テーマ集約ページの表示は 社会資本 71・担い手DX 63・地域づくり 31・維持管理 7・防災 2・脱炭素 1（計 175・クリック 5）。page×query に出た検索語は社会資本の 1 語（4 表示）だけで、残りは匿名化の閾値未満。テーマ別に分ける根拠になる検索語のまとまりが無く、分けるとページが薄くなり表示も割れる。試験前の山（2027 年 3〜6 月）に検索語のまとまりが出たら、そのとき 1 まとまりずつ分ける"
+    },
+    {
+      "id": "DN-1273",
+      "at": "2026-11-24",
+      "task": "quality-audit の report 区分の FAIL（Issue #1475・11/09〜）の中身を読み、直すか個別に起票する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ca93167fe93c",
+      "verification": "npm run check-external-links（exit 1・切れ 21・一覧は DN-1298）",
+      "note": "report 区分の FAIL は external-links の 1 項目だけ（11/23 の週次・main）。#1607 で官公庁の 403・429 は FAIL から外れたが、本当に切れたリンクが 21 件ある（手元の実行で 対象 5,766・実検査 5,548・切れ 21・確かめられない 218）。21 件は DN-1298 に起票した。#1475 は DN-1298 で切れが 0 になれば次の週次で自動で閉じる"
     }
   ]
 }
