@@ -511,3 +511,15 @@ export function immutableConflict(group, rel, sha256, cur) {
   if (cur && cur.sha256 !== sha256) return '書き換えない group で台帳と中身が違う（別名で置く）';
   return null;
 }
+
+/**
+ * 手元の実体が台帳と違うとき、どちらが新しいかを決める（DN-0770 の事故・2026-11-24）。
+ * 台帳の最後の書き込み（verifiedAt か syncedAt）より手元のファイルの更新日時が古ければ、vault の方が新しい。
+ * そのとき手元を --force で上げると、直した版（vault）を古い版（手元）で上書きする。日時が無ければ判断しない（unknown）。
+ * @returns {'local-newer'|'vault-newer'|'unknown'}
+ */
+export function driftDirection(localMtimeMs, entry) {
+  const at = Date.parse(entry?.verifiedAt ?? entry?.syncedAt ?? '');
+  if (!Number.isFinite(at) || !Number.isFinite(localMtimeMs)) return 'unknown';
+  return localMtimeMs > at ? 'local-newer' : 'vault-newer';
+}
