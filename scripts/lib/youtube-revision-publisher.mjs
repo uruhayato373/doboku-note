@@ -27,6 +27,13 @@ const withoutSchedule = delivery => Object.fromEntries(Object.entries(delivery ?
 const unscheduledSince = (pub, remote) => pub.status === 'uploaded_private' && Boolean(pub.delivery?.videoId) && !pub.delivery.scheduleRequestedAt &&
   Boolean(remote?.scheduleRequestedAt) && same(pub.delivery, withoutSchedule(remote));
 const urls = thumbnails => Object.values(thumbnails ?? {}).map(x => x?.url).filter(Boolean);
+// 非公開動画の表紙 URL は sqp・rs の署名つきで、読み返すたびに署名が変わる（2026-11-17・DN-1239）。
+// 署名でなく、表紙の世代を表すパス（/vi/<id>/<size>_custom_<n>.jpg）で照合する。ホストも i.ytimg / i9.ytimg で揺れる
+const thumbnailPath = url => { try { return new URL(url).pathname; } catch { return url; } };
+const thumbnailMatches = (recorded, thumbnails) => {
+  const live = new Set(urls(thumbnails).map(thumbnailPath));
+  return Boolean(recorded?.some(url => live.has(thumbnailPath(url))));
+};
 
 function verifiedBytes(root, asset) {
   const bytes = readFileSync(join(root, asset.path));
@@ -289,9 +296,9 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
     if (!scheduled) pub.status = 'uploaded_private';
     save();
     // 非公開動画の表紙 URL は署名つきで、日が経つと変わる（2026-11-10・11/05 の受理の URL が 11/10 に合わなかった）。
-    // 受理から 1 時間以上たち、まだ予約していないのに今の URL と合わなければ、同じ表紙を設定し直して読み直す（DN-1064）
+    // 受理から 1 時間以上たち、まだ予約していないのに今の表紙のパスと合わなければ、同じ表紙を設定し直して読み直す（DN-1064・照合は DN-1239 でパスに変えた）
     const staleThumbnail = pub.delivery.thumbnailAcceptedAt && !pub.delivery.scheduleRequestedAt &&
-      now() - Date.parse(pub.delivery.thumbnailAcceptedAt) > 3_600_000 && !pub.delivery.thumbnailUrls?.some(url => urls(actual.snippet.thumbnails).includes(url));
+      now() - Date.parse(pub.delivery.thumbnailAcceptedAt) > 3_600_000 && !thumbnailMatches(pub.delivery.thumbnailUrls, actual.snippet.thumbnails);
     if (['upload', 'schedule'].includes(phase) && staleThumbnail) {
       for (const key of ['thumbnailRequestedAt', 'thumbnailUrls', 'thumbnailAcceptedAt']) delete pub.delivery[key];
       await journalSave(); save();
@@ -311,7 +318,7 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
       scheduled = actual.status.publishAt && Date.parse(actual.status.publishAt) === Date.parse(pub.publishAt);
       if (actual.status.privacyStatus !== 'private' || (actual.status.publishAt && (!scheduled || !pub.delivery.scheduleRequestedAt))) throw new Error('表紙設定中に公開状態・予約が変わったため停止');
     }
-    const thumbnailVerified = pub.delivery.thumbnailAcceptedAt && pub.delivery.thumbnailUrls?.some(url => urls(actual.snippet.thumbnails).includes(url));
+    const thumbnailVerified = pub.delivery.thumbnailAcceptedAt && thumbnailMatches(pub.delivery.thumbnailUrls, actual.snippet.thumbnails);
     if (thumbnailVerified) { pub.thumbnail = { ...pub.thumbnail, status: 'set', setAt: pub.delivery.thumbnailAcceptedAt }; save(); }
     if (scheduled) {
       if (!thumbnailVerified) throw new Error('予約実体の表紙読取が未確認');

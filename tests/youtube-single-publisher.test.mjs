@@ -94,11 +94,11 @@ test('アップロード応答を失ってもR2 intentから同じ動画を二�
 });
 
 test('予約を外した動画は R2 に残った予約の記録を台帳で上書きし、再アップロードせず予約し直す（DN-1064）', async t => {
-  // 表紙の URL は署名が変わる。受理の記録の URL（oldUrl）と今の URL（thumbUrl）が違えば同じ表紙を設定し直す
+  // 受理の記録の表紙（oldUrl）と今の表紙（thumbUrl）のパスが違えば同じ表紙を設定し直す。署名（sqp）だけの違いは同じ表紙と読む（DN-1239）
   const { root, channel } = fixture(t);
   const plan = singlePublishPlan(root, PUB, NOW);
-  const thumbUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault.jpg?sqp=new';
-  const oldUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault.jpg?sqp=old';
+  const thumbUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault_custom_2.jpg?sqp=new';
+  const oldUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault_custom_1.jpg?sqp=old';
   const base = { inputSha256: plan.digest, marker: plan.marker, uploadRequestedAt: '2026-10-25T00:00:00.000Z', videoId: 'existing001',
     processedAt: '2026-10-25T00:01:00.000Z', thumbnailRequestedAt: '2026-10-25T00:01:01.000Z', thumbnailUrls: [oldUrl], thumbnailAcceptedAt: '2026-10-25T00:01:02.000Z' };
   const pub = loadRegistry(root).publications.find(p => p.id === PUB);
