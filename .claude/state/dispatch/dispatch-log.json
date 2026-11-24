@@ -10679,6 +10679,23 @@
       "commit": "b9ef4d9f07af",
       "verification": "node --test tests/regex-control-escape.test.mjs pass 2・node scripts/check-mdx/rules/svg/build-gallery-comment.mjs で categories 9 資格",
       "note": "#1732 で build-gallery-comment.mjs の 64・69 行の /\\content\\/site/ を直した（直す前は資格名がすべて other、直した後は 9 資格が取れる）。\\c＋英字の書き損じを scripts・.claude・src・tests・tools の 2,402 ファイルから探すテスト tests/regex-control-escape.test.mjs を足し、0 件"
+    },
+    {
+      "id": "DN-1060",
+      "at": "2026-11-24",
+      "task": "add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/add-note-utm-split.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5f6c01941769",
+      "verification": "node --test tests/add-note-utm-split.test.mjs pass 1",
+      "note": "#1732 で add-note-utm の原稿の走査を article(-*)?.md にし、フォルダの中の原稿をすべて処理するようにした。分割原稿 2 本のフォルダで utm_source・utm_campaign・utm_term が付くテスト tests/add-note-utm-split.test.mjs を足した"
     }
   ]
 }

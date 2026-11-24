@@ -1057,10 +1057,6 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 - 統合（2026-11-23 の棚卸し・旧カード「YouTube Analytics の2回の定期記録を確認する」から）: data/youtube/analytics/{date}.json に対象数・欠測・平均視聴率・流入元が出ることを金曜の定期取得 2 回で確かめる
 
-### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
-
-scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/note/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
 
 
 
