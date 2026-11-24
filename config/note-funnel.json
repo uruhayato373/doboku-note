@@ -278,7 +278,14 @@
       "bottomCta": {
         "marker": "cta:pe-water-mokuji",
         "text": "<!-- cta:pe-water-mokuji -->\n上下水道部門のほかの記事・科目別の模範解答は「上下水道部門もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/n1f06f66b158e"
-      }
+      },
+      "topCtaOverrides": [
+        {
+          "dirPrefix": "上下水道部門から総監へ-無料",
+          "marker": "cta:pack-top",
+          "text": "<!-- cta:pack-top -->\n> 総監の記述式は、自分の立場に近い模範論文を読むと進みが速くなります。教材の全体は[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)から選べます。"
+        }
+      ]
     }
   }
 }
