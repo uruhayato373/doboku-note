@@ -1108,23 +1108,6 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 **完了条件**: 広げる・広げないの判断と理由がこのカードにあり、広げた場合は約 96 本が develop にある。
 
 
-### [DN-1070] 予約の毎朝の照合が main で動くのを確かめ、status に予約後の段を足す
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10]
-
-**起点**: PR #1491（2026-11-10 マージ）で、予約の照合（youtube-single-publish の reconcile）を毎日 08:40 JST の schedule でも回し、`check-registry-due` を日次の ops に戻した。schedule は main の版で走るので、main へ昇格するまで動かない。その時点で公開日時を過ぎて `scheduled` のままの通常動画は 14 本。計測（youtube-analytics）は `published` だけを測るので、照合が止まると公開済みの動画が計測から漏れる。
-
-**やること**:
-1. main へ昇格した翌朝、youtube-single-publish の schedule の run が成功し、`npm run check-registry-due` の超過が 0 本になったことを確かめる
-2. `video-factory status` に `verify`（予約済みで実体未確認）と `cleanup-pending`（R2 の転送ファイルの後始末待ち）を足す
-
-**追加（2026-11-12・旧 DN-1096 の残り）**: 建設部門の読み修正版 3 本（hissu1-kensetsu-dx 11/11・toan-kousei-template 11/12・hissu1-infra-roukyuuka 11/13）が照合で `published` になったことも確かめる。
-
-**完了条件**: 公開日時を過ぎた行が翌日までに `published` へ照合され、超過が日次の検査で赤になる。status に予約後の 2 段が出る。
-
-**統合（2026-11-10 整理）: 旧 DN-0985「公開済みの通常動画が YouTube の照合記録に無い（V02）」**
-`npm run -s check-video-publication` の V02（公開済みだが照合記録に無い）は、2026-11-04 の 2 本から 2026-11-10 には 16 本に増えた。照合が毎朝動けば消える見込み。動いても残る行は、照合後に公開したのか実査の失敗かを切り分ける。完了条件に「`check-video-publication` が通る」を足す。
-
-**進捗（2026-11-12）**: 1 は済んだ（main の schedule の reconcile が 11/11・11/12 に成功し、公開日時を過ぎた scheduled は 0 本）。2 は PR #1560 で `video-factory status --r2` に verify と cleanup-pending を足した（cleanup-pending 19 本・verify 0 本）。残りは、11/12 公開の toan-kousei-template と 11/13 公開の hissu1-infra-roukyuuka の読み修正版が 11/14 朝の照合で published になったことの確認だけ
 
 ### [DN-1063] YouTube の維持率曲線を取り、場面ごとの離脱を台本の Writer と QA に渡す
 タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10]

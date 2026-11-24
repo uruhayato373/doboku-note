@@ -10516,6 +10516,19 @@
       "commit": "ca93167fe93c",
       "verification": "npm run check-external-links（exit 1・切れ 21・一覧は DN-1298）",
       "note": "report 区分の FAIL は external-links の 1 項目だけ（11/23 の週次・main）。#1607 で官公庁の 403・429 は FAIL から外れたが、本当に切れたリンクが 21 件ある（手元の実行で 対象 5,766・実検査 5,548・切れ 21・確かめられない 218）。21 件は DN-1298 に起票した。#1475 は DN-1298 で切れが 0 になれば次の週次で自動で閉じる"
+    },
+    {
+      "id": "DN-1070",
+      "at": "2026-11-24",
+      "task": "予約の毎朝の照合が main で動くのを確かめ、status に予約後の段を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "359fe07f3090",
+      "verification": "content/registry/publications/youtube/pe-construction.json の 3 本が published・npm run check-registry-due に YouTube の超過 0",
+      "note": "残りの確認済み: 台帳（content/registry/publications/youtube/pe-construction.json）で hissu1-kensetsu-dx の読み修正版（11/11）・hissu1-infra-roukyuuka の読み修正版（11/13）・toan-kousei-template の通常動画（11/12・読み修正の行は stopped で元の ID に反映）が published。check-registry-due の超過は YouTube 0 件。完了条件の『check-video-publication が通る』は満たさない: この検査が読む .claude/state/video-publication-verify.json は、SNS 保留で 2026-10-25 に CI から外した旧い日次実査（verify-video-publication）の記録で、最終更新は 10/24。今の照合は youtube-single-publish の毎朝の reconcile が台帳へ書く（video-content-policy.md の『旧設計（2026-10-25に停止）』）。旧検査の V02 52 件はこの記録が止まっているためで、公開漏れではない"
     }
   ]
 }
