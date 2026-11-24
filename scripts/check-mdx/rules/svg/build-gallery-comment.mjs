@@ -61,12 +61,12 @@ const allFiles = globSync("content/site/**/img/*.svg").map((f) =>
 );
 
 function getCategory(path) {
-  const m = path.match(/\content\/site\/([^/]+)/);
+  const m = path.match(/content\/site\/([^/]+)/);
   return m ? m[1] : "other";
 }
 
 function getSlug(path) {
-  const m = path.match(/\content\/site\/([^/]+)\/([^/]+)\/img\//);
+  const m = path.match(/content\/site\/([^/]+)\/([^/]+)\/img\//);
   if (!m) return null;
   return `${m[1]}-${m[2]}`;
 }
