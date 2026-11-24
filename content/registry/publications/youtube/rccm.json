@@ -86,7 +86,7 @@
       "work": "rccm-mondai3-ronbun-kata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/cover",
         "scene-001": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-001",
@@ -104,7 +104,21 @@
         "video": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/video",
         "subtitles": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform"
+      "copy": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform",
+      "publishAt": "2026-12-09T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-24T12:51:35.521Z",
+          "digest": "5c9050d277cbc04bc80e42ed211c1c05b2ff236ca8696e56971156133ddb4982"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-24T12:51:35.521Z",
+        "contentSha256": "8d7449a0426874c7939e921804cda1527461bf2096cc5d0658f1f107dee40b5e"
+      }
     }
   ]
 }

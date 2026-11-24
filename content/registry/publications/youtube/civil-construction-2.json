@@ -448,7 +448,7 @@
       "work": "keiken-anzen-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-001",
@@ -468,7 +468,21 @@
         "video": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-09T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-24T12:51:36.965Z",
+          "digest": "59281e8835d42deda722b9f3a0b8130238f27a919c98e6cd7ea0dbd509801a80"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-24T12:51:36.965Z",
+        "contentSha256": "a817775507850c69ca3ecfb547dc35c2bb642c55c918f4a664149a0cb6fd2eed"
+      }
     },
     {
       "id": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
@@ -667,7 +681,7 @@
       "work": "keiken-koji-gaiyo-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/scene-001",
@@ -686,7 +700,21 @@
         "video": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-08T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-24T12:51:34.138Z",
+          "digest": "dd40abe76a3bf8cad5fa3911f16efd49ddfb3bc26011a0fc31a97e534eefdfc0"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-24T12:51:34.138Z",
+        "contentSha256": "a36afe8937b1e242ea809e39d9e90fae852862f267016e5b7e0466ab99bdcf7b"
+      }
     },
     {
       "id": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform",
