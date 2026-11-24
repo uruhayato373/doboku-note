@@ -10756,6 +10756,23 @@
       "commit": "c9b803cdf853",
       "verification": "data/ga4/reports/2026-10-02・2026-10-31・2026-11-20.json の cta-clicks / by-label と data/note/sales.json の pe1-* を集計",
       "note": "配置を維持すると決めた（2026-11-24）。GA4 の /exam/pe-first-stage 配下の note CTA は、POP 画像の採用前（9/4〜10/1）1,324 表示・19 クリック（1.44%）→ 採用後（10/3〜10/30）7,167・55（0.77%）→ 最新（10/23〜11/19）16,207・128（0.79%）。CTR は下がったが表示は 12 倍で試験直前に重なり、画像の効果とは切り分けられない。配置別（最新）は ガイド本文内 2.40%・冒頭 0.96%・末尾 1.20%・解説の途中 0.50%・年度ページの本文末 0.26%・商品カード 0.26%（pe1-anki-note のカードは 1,988 表示で 0 クリック）。売上（data/note/sales.json）は 9/4〜10/1 が 1 件 ¥980、10/2 以降が 6 件 ¥11,880（すべて直前パック）。冒頭と本文内は維持。解説の途中（answer_reveal と組み合わせる案）は、試験後に案内が過去問 PDF 合本へ切り替わってから見る（実験の登録はその時）。pe1-anki-note の商品カードは試験後の切り替えで外れる"
+    },
+    {
+      "id": "DN-0832",
+      "at": "2026-11-24",
+      "task": "総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "drive-vault-sync"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2bb69432b243",
+      "verification": "npm run drive-vault-sync -- --group source-transcript --verify --deep exit 0・不一致 0",
+      "note": "Drive をマウントしたこの Mac で npm run drive-vault-sync -- --group source-transcript --verify --deep を回し exit 0（対象 245 件・存在確認 245・sha256 実照合 245・不一致 0）。『総監論文に求められるもの.md』も Drive の版（2026-10-29 に台帳を合わせた 26,554 bytes）で一致"
     }
   ]
 }

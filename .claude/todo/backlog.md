@@ -1779,15 +1779,6 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 
 
-### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる
-タグ: [領域:教材] [時期:2026-12] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
-
-**起点**: 2026-10-24、drive-vault-sync の verify --deep と check-reference-sources --deep（transcript-method）がこのファイルで止まった。Drive の実体は 2026-09-30 に直された版（26,554 bytes）で、ページ画像と照らすと Drive 側が原本どおり、台帳側が誤りだった。
-
-**残り**: 2026-10-29 に原本どおりの Drive の版を正とし（Drive を台帳の版へ戻すと誤りを書き戻すため）、`.claude/config/reference-sources-baseline.json` の legacyVisualOcrTranscripts と `.claude/state/assets/drive-manifest.json` の sha256 を Drive の版（74e2dc62…0437・26,554 bytes）へ更新した。版は Drive API から取り寄せて、git の旧版との差が frontmatter とカードの 2 行だけであることを確かめた。この端末には Drive のマウントが無く、照合はこのファイルだけを置いた一時 vault で行った（verify --deep 1 件一致・check-reference-sources の transcript-method 合格）。
-1. Drive をマウントした端末（Mac）で `npm run drive-vault-sync -- --group source-transcript --verify --deep` を回し、exit 0 を確かめる
-
-**完了条件**: 実マウントで drive-vault-sync --group source-transcript --verify --deep が exit 0。check-reference-sources --deep の別件（civil1-textbook の逐語一致 7 件）は別カードで扱う。
 
 
 
