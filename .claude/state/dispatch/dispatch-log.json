@@ -10910,6 +10910,19 @@
       "commit": "d1044078816c",
       "verification": "公開 API で本文から「0.6m/s」「15m以内」が消えたこと・価格 1980・境界は「機器別の模範解答」の直前を確認。note-update-body の API 実体検証 OK",
       "note": "出典を確認できなかった最小流速 0.6m/s と掃除口の間隔（15m・30m）を外した原稿を、管工事の機器別バンク（n538762ec7f12）へライブ反映。運営者の承認で、未反映だった運営者の資格の記述・受水タンクの点検スペースの直しも同時に反映"
+    },
+    {
+      "id": "DN-1100",
+      "at": "2026-11-24",
+      "task": "Kindle 技術士一次 D 系 4 冊を決めた価格（d-00 ¥1,480・分冊 3 冊 ¥980）に、表紙の審査後に KDP で反映する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "610ac405153d",
+      "verification": "kdp-publish --set-price の dry-run で日本の実効レートが catalog と一致（d-00・d-03 35%、d-02 70%）→ --commit で 3 冊とも OK・catalog 書き戻し／npm run check-kindle-prices 合格。Amazon の表示は最大 72 時間で反映",
+      "note": "表紙の審査の終了（4 冊とも販売中・未出版の変更なし）を確かめ、d-00 ¥1,480・d-02 ¥980・d-03 ¥980 を KDP に保存（d-01 は ¥980 のまま）。spec・catalog・strategy を同じ commit で更新"
     }
   ]
 }
