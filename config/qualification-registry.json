@@ -12,7 +12,8 @@
     "concrete": "コンクリート",
     "consultant": "建設コンサルタント",
     "civil-service": "公務員（土木）",
-    "survey-inspection": "測量・点検・調査"
+    "survey-inspection": "測量・点検・調査",
+    "business-legal": "経営・法務"
   },
   "familyShortLabels": {
     "civil-construction": "1・2級土木 共通"
@@ -88,6 +89,7 @@
     { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "active" },
     { "id": "geological-survey-engineer", "label": "地質調査技士", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "road-bridge-inspector", "label": "道路橋点検士", "family": "survey-inspection", "portfolio": "candidate" },
-    { "id": "steel-structure-diagnostician", "label": "土木鋼構造診断士", "family": "survey-inspection", "portfolio": "candidate" }
+    { "id": "steel-structure-diagnostician", "label": "土木鋼構造診断士", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "sme-management-consultant", "label": "中小企業診断士", "family": "business-legal", "portfolio": "candidate" }
   ]
 }
