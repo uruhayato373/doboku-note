@@ -418,6 +418,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1298] 外部リンクの切れ 21 件（404・DNS 不在）を移転先へ差し替えるか外す（Issue #1475）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-24]
+
+起点: DN-1273（Issue #1475・quality-audit の report 区分の external-links が FAIL）。2026-11-24 に手元で npm run check-external-links を回した結果、対象 5,766 URL・実検査 5,548・切れ 21・確かめられない 218。切れ 21 件（404・410・DNS 不在）: HTTP 404: https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/002026292.pdf�HTTP 404: https://www.jctc.jp/wjctcp/wp-content/uploads/2025/10/20251027d_mondaib1.pdf�HTTP 404: https://leica-geosystems.com/ja�ENOTFOUND: https://www.labor.tokyo/�ENOTFOUND: https://jiban.co.jp/jbn/�HTTP 404: https://www.jpci.or.jp/eeee/v55/550603.pdf�HTTP 404: https://www.mlit.go.jp/toshi/city_plan/content/001880861.pdf�HTTP 404: https://www.eorc.jaxa.jp/ALOS/jp/alos-2/a2_about_j.htm�HTTP 404: https://docs.qgis.org/4.2/en/docs/user_manual/working_with_projections/working_with_projections.html�HTTP 404: https://docs.qgis.org/4.2/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html#intersection�HTTP 404: https://www.mlit.go.jp/page/content/002024029.pdf�HTTP 404: https://www.mlit.go.jp/en/toshi/city_plan/content/001741220.pdf�ENOTFOUND: https://knowledge-makers.com/fishbone-diagram/�ENOTFOUND: https://www.jpc-nd.or.jp/�ENOTFOUND: https://kankyobusiness.jp/content/20240600019698�ENOTFOUND: https://www.jkms.gr.jp/�ENOTFOUND: https://www.jilpt.go.jp/institute/research/2018/179.html�HTTP 404: https://www.ogis-ri.co.jp/column/kr/126.html�ENOTFOUND: https://www.igsap.org/�HTTP 404: https://jvndb.jvn.jp/�HTTP 404: https://www.qsr.mlit.go.jp/kyugi/site_files/file/15_m_rakusekiboshimo(rokkunetto。
+
+やること: 各 URL を使っている記事を grep で探し、移転先の一次資料へ差し替えるか、代わりが無ければリンクを外して出典名だけ残す。ENOTFOUND は手元の DNS の一時的な失敗もあり得るので、先に dig か curl で確かめ直す。
+
+完了条件: npm run check-external-links の『切れ』が 0 件になり、次の週次の report で #1475 が自動で閉じる。
+
+
 ### [DN-1296] 上下水道の無料 note 2 本の冒頭パック・もくじの CTA がライブに未反映（audit-note-funnel D5）
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-24]
 
