@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T07:02:01.556Z",
+  "generated_at": "2026-11-24T08:35:06.065Z",
   "questionToTextbooks": {
     "primary-h18": {
       "問題-6": [
@@ -1624,6 +1624,96 @@
         }
       ]
     },
+    "primary-r08-kouki": {
+      "問題-26": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-49": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-55": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-62": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-63": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-66": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
     "primary-r08-zenki": {
       "問題-12": [
         {
@@ -2493,6 +2583,12 @@
         "score": 1.6
       },
       {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
         "examSlug": "primary-r08-zenki",
         "examTitle": "令和8年度 第1次検定 前期",
         "section": "問題-66",
@@ -2531,12 +2627,6 @@
       {
         "examSlug": "secondary-r07",
         "examTitle": "令和7年度 第2次検定",
-        "section": "問題-7",
-        "score": 0.75
-      },
-      {
-        "examSlug": "secondary-r08",
-        "examTitle": "令和8年度 第2次検定",
         "section": "問題-7",
         "score": 0.75
       }
@@ -2633,6 +2723,12 @@
         "score": 0.75
       },
       {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-49",
+        "score": 0.75
+      },
+      {
         "examSlug": "primary-r03-zenki",
         "examTitle": "令和3年度 第1次検定 前期",
         "section": "問題-54",
@@ -2654,12 +2750,6 @@
         "examSlug": "secondary-r06",
         "examTitle": "令和6年度 第2次検定",
         "section": "問題-2",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r06",
-        "examTitle": "令和6年度 第2次検定",
-        "section": "問題-9",
         "score": 0.6
       }
     ],
@@ -2823,6 +2913,12 @@
         "score": 1.75
       },
       {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.75
+      },
+      {
         "examSlug": "primary-r08-zenki",
         "examTitle": "令和8年度 第1次検定 前期",
         "section": "問題-66",
@@ -2888,6 +2984,12 @@
         "examSlug": "primary-h27",
         "examTitle": "平成27年度 学科試験",
         "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-66",
         "score": 1.6
       },
       {
@@ -2983,6 +3085,12 @@
         "score": 1.6
       },
       {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
         "examSlug": "primary-r08-zenki",
         "examTitle": "令和8年度 第1次検定 前期",
         "section": "問題-66",
@@ -3022,12 +3130,6 @@
         "examSlug": "primary-h26",
         "examTitle": "平成26年度 学科試験",
         "section": "問題-56",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-h26",
-        "examTitle": "平成26年度 学科試験",
-        "section": "問題-57",
         "score": 0.6
       }
     ],
@@ -3069,6 +3171,12 @@
         "score": 1.6
       },
       {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
         "examSlug": "primary-r08-zenki",
         "examTitle": "令和8年度 第1次検定 前期",
         "section": "問題-66",
@@ -3083,6 +3191,12 @@
       {
         "examSlug": "primary-r06-zenki",
         "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-63",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
         "section": "問題-63",
         "score": 0.9
       },
@@ -3138,12 +3252,6 @@
         "examSlug": "secondary-r05",
         "examTitle": "令和5年度 第2次検定",
         "section": "問題-8",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r07",
-        "examTitle": "令和7年度 第2次検定",
-        "section": "問題-1",
         "score": 0.6
       }
     ],
@@ -3939,6 +4047,12 @@
         "score": 0.6
       },
       {
+        "examSlug": "primary-r08-kouki",
+        "examTitle": "令和8年度 第1次検定 後期",
+        "section": "問題-26",
+        "score": 0.6
+      },
+      {
         "examSlug": "primary-r08-zenki",
         "examTitle": "令和8年度 第1次検定 前期",
         "section": "問題-26",
@@ -4090,9 +4204,9 @@
   },
   "meta": {
     "textbookCount": 29,
-    "examCount": 30,
-    "questionsWithMatches": 205,
-    "totalMatches": 392,
+    "examCount": 31,
+    "questionsWithMatches": 214,
+    "totalMatches": 406,
     "threshold": 0.45
   }
 }
