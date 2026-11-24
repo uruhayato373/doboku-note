@@ -86,7 +86,7 @@
       "work": "rccm-mondai3-ronbun-kata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/cover",
         "scene-001": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-001",
@@ -118,6 +118,9 @@
         "by": "policy",
         "at": "2026-11-24T12:51:35.521Z",
         "contentSha256": "8d7449a0426874c7939e921804cda1527461bf2096cc5d0658f1f107dee40b5e"
+      },
+      "times": {
+        "rendered": "2026-11-24T12:57:41.344Z"
       }
     }
   ]

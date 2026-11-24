@@ -448,7 +448,7 @@
       "work": "keiken-anzen-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-001",
@@ -482,6 +482,9 @@
         "by": "policy",
         "at": "2026-11-24T12:51:36.965Z",
         "contentSha256": "a817775507850c69ca3ecfb547dc35c2bb642c55c918f4a664149a0cb6fd2eed"
+      },
+      "times": {
+        "rendered": "2026-11-24T12:57:47.664Z"
       }
     },
     {
@@ -681,7 +684,7 @@
       "work": "keiken-koji-gaiyo-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/scene-001",
@@ -714,6 +717,9 @@
         "by": "policy",
         "at": "2026-11-24T12:51:34.138Z",
         "contentSha256": "a36afe8937b1e242ea809e39d9e90fae852862f267016e5b7e0466ab99bdcf7b"
+      },
+      "times": {
+        "rendered": "2026-11-24T12:57:34.819Z"
       }
     },
     {
