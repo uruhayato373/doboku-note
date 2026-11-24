@@ -684,7 +684,7 @@
       "work": "keiken-koji-gaiyo-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/scene-001",
@@ -719,7 +719,42 @@
         "contentSha256": "a36afe8937b1e242ea809e39d9e90fae852862f267016e5b7e0466ab99bdcf7b"
       },
       "times": {
-        "rendered": "2026-11-24T12:57:34.819Z"
+        "rendered": "2026-11-24T12:57:34.819Z",
+        "uploaded": "2026-11-24T13:01:52.577Z",
+        "scheduled": "2026-11-24T13:02:04.470Z"
+      },
+      "delivery": {
+        "inputSha256": "082f90d96b29279fa7e91a66a75f0aa651a5b4db419b1ce49e45989b283471f9",
+        "marker": "dn-single-d60f1fb5697ebfc8cf8b74ed30b3676ee50baf9f",
+        "uploadRequestedAt": "2026-11-24T13:01:07.755Z",
+        "videoId": "dkXJZ87nUkw",
+        "processedAt": "2026-11-24T13:01:51.654Z",
+        "thumbnailRequestedAt": "2026-11-24T13:01:52.620Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/default.jpg?sqp=CNCUltgG&rs=AOn4CLATyInfYMqup2omcJeB3T8zoeXivg",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/mqdefault.jpg?sqp=CNCUltgG&rs=AOn4CLAQ219JwDm5PE7cGovJtgNVrAhhyQ",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/hqdefault.jpg?sqp=CNCUltgG&rs=AOn4CLBRNTLcak_zFa3sFqV2PnVnAftS2A",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/sddefault.jpg?sqp=CNCUltgG&rs=AOn4CLBZ-feu-RdbIqFqmB2kr9dK-ozQIQ",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/maxresdefault.jpg?sqp=CNCUltgG&rs=AOn4CLB49hLtou0wVRM4Rf-dH94ga7bgPA",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/fhddefault.jpg?sqp=CNCUltgG&rs=AOn4CLCUf-vdcNBmz9vjqvEwP5vICZxcPA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-24T13:01:59.424Z",
+        "scheduleRequestedAt": "2026-11-24T13:02:00.718Z",
+        "scheduleAt": "2026-12-08T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-24T13:02:04.470Z"
+      },
+      "platform": {
+        "id": "dkXJZ87nUkw",
+        "url": "https://www.youtube.com/watch?v=dkXJZ87nUkw",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-24T13:01:59.424Z"
       }
     },
     {
