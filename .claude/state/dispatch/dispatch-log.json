@@ -10585,6 +10585,23 @@
       "commit": "065d4cd07b57",
       "verification": "npm run check-domains 違反 0・文書に比較表と試作規模・品質確認・工数・検証方法がある",
       "note": "企画を docs/products/08_コンクリート3資格iOSアプリ企画.md に書いた（管理画面 /product/design に結線）。結論: 最初は技士（受験 8,629 人で主任技士・診断士の約 3 倍・試験が択一のみ・書き下ろし 48 問が転用可）。試作 160 問（6 分野×約 27 問・新規 112 問）、最新 40 問は無料・全問 ¥980 の買い切り。品質は根拠の条項の記録・書き下ろしの確認・別の採点役・実機確認。工数は約 60〜75 時間。出す時期は 2027 年度の試験の 3 か月前まで。確認未了（主任技士 237 問は市販本由来で転用しない・診断士 98 問は利用範囲の確認記録が未完・競合アプリの価格は制作前に取り直す）を明記した。大量制作と公開は運営者の承認の後"
+    },
+    {
+      "id": "DN-1195",
+      "at": "2026-11-24",
+      "task": "土曜の収集の書き戻しで、1 つの検査の失敗がその回の全部の記録を止めないようにする",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/weekly-collect-commit.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "345d4ceccdca",
+      "verification": "node --test tests/weekly-collect-commit.test.mjs で pass 2",
+      "note": "実装は #1726（37cfe2a66・2026-11-24 マージ）で入った。scripts/lib/weekly-collect-commit.mjs の commitStageRecords が段ごとにその段の記録だけを commit し、検査で落ちたらその段のファイルを退避して段を failed にし、理由を残す。push も段ごと。完了条件のテスト tests/weekly-collect-commit.test.mjs（2 段のうち 1 段だけが検査で落ちても、もう 1 段は commit され、落ちた段は理由つきで退避される）が通る"
     }
   ]
 }
