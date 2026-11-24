@@ -10957,6 +10957,19 @@
       "commit": "8f430ceef2be",
       "verification": "tests/spawn-merged-output.test.mjs 3 件が通過・旧方式で同じずれを再現・PR の CI 全通過",
       "note": "note-sync-routine の子の出力を同じファイル記述子へ集めて順序を保ち（runNodeMerged）、添付の失敗理由に /api/v2/attachments/upload の応答を載せた（PR #1740 を develop へ squash）"
+    },
+    {
+      "id": "DN-1082",
+      "at": "2026-11-25",
+      "task": "note の建設部門の口頭試験教材の公開中の記事へ、令和8年度の設問別の想定問答を反映する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5f9d44836dd5",
+      "verification": "公開 API で価格 1980・境界は paidBoundary の見出しの直前・運営者の check-note-attachments:live 2/2 充足・運営者の内容確認",
+      "note": "令和8年度の設問別の想定問答の節を note の建設部門-口頭試験対策（n5bc0bcde96ac）へ反映済み（2026-11-24・DN-1274 の反映で同時に公開）。運営者が 2026-11-25 に公開中の内容を確認"
     }
   ]
 }
