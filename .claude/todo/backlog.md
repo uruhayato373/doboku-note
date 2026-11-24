@@ -1915,7 +1915,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **進捗（2026-11-12・PR #1564）**: 自社は実装した（`.github/workflows/youtube-own-metrics.yml`・毎月 1 日 09:00 JST・yt-dlp 2026.10.26 を固定・ci-data で data/youtube/own-videos へ書き戻す・失敗は automation-failure Issue・鮮度は own-videos-freshness）。競合は未着手: competitor-scan.yml は DN-0852 で無くなっていたので、同じ workflow の手動入力 `probe_competitors`（1 チャンネル 10 本を一覧するだけで書かない）を足した。残りは、probe を 2 回通してから四半期の競合の取得を足すことと、12/1 の初回の自社取得の成功の確認
 
-
+**進み（2026-11-24）**: probe の手順の不具合（台帳 config.competitors の youtube を .youtube[0] と読んで TypeError で落ちた）を #1733 で直し、手動実行の probe を 2 回通した（run 45350682921・45350915663。どちらも GET研究所の一覧 10 本・失敗 0）。ランナーの IP から yt-dlp の一覧は取れる。残り: 四半期の競合の取得（全チャンネル・data/youtube/competitors へ書き戻し）を workflow に足し、check-competitor-scan-due の youtube を automation: ci にすること。12/1 の自社の初回の取得の成功の確認。
 
 
 ### [DN-0532] 反映済みの変更の効果を、比べられる日が来た順に GSC・GA4 で比べて記録する（11 月）
