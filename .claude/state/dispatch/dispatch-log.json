@@ -10602,6 +10602,19 @@
       "commit": "345d4ceccdca",
       "verification": "node --test tests/weekly-collect-commit.test.mjs で pass 2",
       "note": "実装は #1726（37cfe2a66・2026-11-24 マージ）で入った。scripts/lib/weekly-collect-commit.mjs の commitStageRecords が段ごとにその段の記録だけを commit し、検査で落ちたらその段のファイルを退避して段を failed にし、理由を残す。push も段ごと。完了条件のテスト tests/weekly-collect-commit.test.mjs（2 段のうち 1 段だけが検査で落ちても、もう 1 段は commit され、落ちた段は理由つきで退避される）が通る"
+    },
+    {
+      "id": "DN-1271",
+      "at": "2026-11-24",
+      "task": "週次の点検 egov-drift の差分の条を確かめ、教材の該当箇所を直す（11/21 赤）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "78b2b961f51c",
+      "verification": "node scripts/content/egov-laws.mjs --drift で 写しより後に施行された改正 0 本・npm run egov-laws PASS",
+      "note": "egov-drift の差分は 3 本: 建築基準法施行規則（11/01 施行・国交省令第85号）・電波法施行規則と無線設備規則（11/02 施行・総務省令第126号）。e-Gov API の版（改正前後の law_data）を条ごとに比べた。電波法施行規則で変わったのは第44〜52条（通信設備・指定の申請・書類の提出など）で、site-wireless-communication が引く第6条（免許を要しない無線局）は同じ。無線設備規則で変わったのは第65・66条（妨害波電圧・混信の防止）で、記事の 920MHz 帯の記述の根拠の第49条の14（特定小電力無線局）は同じ。textbook-building-standards は建築基準法施行規則を条なしで手続規定として挙げるだけ。記事の直しは無し。写しを --sync で進めた（76a7de1c8）。--sync が実在する ID 7 本を『無い』と出す件は DN-1299 に起票"
     }
   ]
 }
