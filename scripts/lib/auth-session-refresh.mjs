@@ -53,11 +53,13 @@ export const AUTO_LOGIN = Object.freeze({
   },
   // note・ココナラは doboku-note 専用口座。セレクタは 2026-09-28 にログイン画面の DOM で確認した。
   // ログイン成否の最終判定は statusAuthService（口座名の本文一致 assert）が行う。
+  // note は 2026-11 までに入力欄の name を外し、readonly の欄をクリックで書ける形にした（2026-11-24 に DOM で確認）。
+  // 欄を見つけられず何も入れずに送信して失敗していたので、ラベルに結んだ 2 つの欄を順番で指す。
   note: {
     shared: false,
     loginUrl: 'https://note.com/login',
-    user: 'input[name=login]',
-    password: 'input[name=password]',
+    user: ':nth-match(input[aria-labelledby], 1)',
+    password: ':nth-match(input[aria-labelledby], 2)',
     submit: 'button[type=submit]',
     loggedIn: (url) => /^https:\/\/(editor\.)?note\.com\//.test(url) && !/\/login|\/signup/.test(url),
   },
@@ -154,7 +156,9 @@ export function decideSharedImport({ sharedMtimeMs, localMtimeMs, sharedCookieCo
  */
 export async function submitLoginForm(page, spec, cred) {
   const visible = (sel) => page.locator(sel).first().isVisible().catch(() => false);
+  // readonly で描いて、クリックで外す欄がある（note）。fill は書ける状態を待って止まるので先にクリックする。
   if (await visible(spec.user)) {
+    await page.locator(spec.user).first().click();
     await page.locator(spec.user).first().fill(cred.user);
     if (spec.next && await visible(spec.next)) {
       await page.locator(spec.next).first().click();
@@ -162,6 +166,7 @@ export async function submitLoginForm(page, spec, cred) {
     }
   }
   if (!(await visible(spec.password))) return;
+  await page.locator(spec.password).first().click();
   await page.locator(spec.password).first().fill(cred.password);
   if (spec.remember && await visible(spec.remember)) await page.locator(spec.remember).first().check().catch(() => {});
   await page.locator(spec.submit).first().click();

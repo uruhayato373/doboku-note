@@ -3006,10 +3006,10 @@
       "catalog": {
         "id": "e-01",
         "asin": "B0H8ZZMM7R",
-        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】",
-        "subtitle": "令和3〜7年度 前期・後期 全630問",
+        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜8年度 全期】",
+        "subtitle": "令和3〜8年度 前期・後期 全762問",
         "series": "E 2級土木施工管理技士 択一",
-        "priceJpy": 990,
+        "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
         "submittedDate": "2026-07-15",
@@ -3018,10 +3018,15 @@
         "buildSpec": "content/kindle/books/e-01/spec.json",
         "epub": "kindle-dist/e-01.epub",
         "cover": "kindle-dist/e-01.jpg",
-        "version": "1.0",
+        "version": "1.1",
         "duplicateDraftAsin": "B0H8KH1N6G",
         "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G（下書き・未出版・売上ゼロ）は、ASIN が付いた本のため KDP の操作メニューに削除が無く、2026-11-10 に本棚のアーカイブへ移した。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
         "versionHistory": [
+          {
+            "version": "1.1",
+            "date": "2026-11-24",
+            "change": "令和3〜8年度・12期・762問へ改版（原稿・表紙・詳細を差し替え・ASIN 維持）、¥990 → ¥1,650 で出版申請"
+          },
           {
             "version": "1.0",
             "date": "2026-07-11",
@@ -3036,16 +3041,23 @@
         "draftAsin": "A16UCVNFVPDF8U",
         "uploaded": {
           "epub": {
-            "sha256": "f49d4786b574b87d1767fa93525b5c479f780e81686e4ba85dc180454f017398",
-            "at": "2026-09-29",
-            "via": "baseline"
+            "sha256": "b0173e9b60d948305fb060a35d0d67a67afbd531c16efa80c327de63e2eeb6eb",
+            "at": "2026-11-24T19:41:56+09:00",
+            "via": "update-manuscript"
           },
           "cover": {
-            "sha256": "ee20d4e10e39fefb30ba393c87429a75ddb408c945dc42c861735d2e225dea85",
-            "at": "2026-09-29",
-            "via": "baseline"
+            "sha256": "32e8af97db6307b0c70c256991061b20e8899aee370329a10ce5a1097080605a",
+            "at": "2026-11-24T19:42:52+09:00",
+            "via": "update-cover"
           }
-        }
+        },
+        "priceHistory": [
+          {
+            "date": "2026-11-24",
+            "from": 990,
+            "to": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -8459,11 +8471,11 @@
         "id": "civil-2-takuitsu-pdf",
         "published": true,
         "noteUrl": "https://note.com/dobokunote/n/n4963f45bd6f8",
-        "title": "2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）",
-        "description": "2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。",
-        "price": "¥1,480",
+        "title": "2級土木 第1次検定｜過去問PDF（令和3〜8年度 前期後期 全762問・全選択肢解説）",
+        "description": "2級土木施工管理技士 第1次検定の令和3〜8年度 前期・後期 全762問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。",
+        "price": "¥1,980",
         "badge": "note 限定 PDF教材",
-        "pageMatch": "^civil-construction-2-primary-r0[3-7]-(zenki|kouki)$"
+        "pageMatch": "^civil-construction-2-primary-r0[3-8]-(zenki|kouki)$"
       },
       "members": [],
       "includes": [],
@@ -11639,7 +11651,7 @@
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R06/article.md": 1480,
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R07/article.md": 1480,
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R08/article.md": 1480,
-    "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/article.md": 1480,
+    "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/article.md": 1980,
     "content/note/RCCM/magazines/RCCM問題I-業務経験論文テンプレ/article.md": 1980,
     "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/01-上水道/article.md": 1980,
     "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/02-下水道/article.md": 1980,

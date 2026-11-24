@@ -5,21 +5,21 @@ noteStatus: published
 utmCampaign: civil2-ichiji-takuitsu-pdf
 notePublishedAt: "2026-07-11"
 noteId: "n4963f45bd6f8"
-title: "2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）"
+title: "2級土木 第1次検定｜過去問PDF（令和3〜8年度 前期後期 全762問・全選択肢解説）"
 noteUrl: "https://note.com/dobokunote/n/n4963f45bd6f8"
-price: 1480
+price: 1980
 paidBoundary: "PDF のダウンロードと使い方"
-coverTitle: ["2級土木 第1次検定", "過去問PDF 全630問"]
+coverTitle: ["2級土木 第1次検定", "過去問PDF 全762問"]
 cover:
   variant: crop-safe-v4
   leadIn: "2級土木｜第1次検定"
   headline: "過去問PDF"
-  hi: "630"
+  hi: "762"
   hiSuffix: "問 全解説"
   benefit: "印刷して繰り返し解ける"
   meta: "note限定PDF"
 ---
-# 2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）
+# 2級土木 第1次検定｜過去問PDF（令和3〜8年度 前期後期 全762問・全選択肢解説）
 
 ![](img/figure-author-authority-pop.png)
 
@@ -35,7 +35,7 @@ cover:
 
 **この記事でわかること**
 
-- 令和3〜7年度の前期・後期 全630問を、通し番号つきの1冊で最初から最後まで回せます
+- 令和3〜8年度の前期・後期 全762問を、通し番号つきの1冊で最初から最後まで回せます
 - 正解の肢だけでなく4つの選択肢すべてに正誤の理由が付くので、「なぜ他が誤りか」まで言える状態に仕上げられます
 - A4印刷用なので、電波もアプリも要らず、通勤・昼休み・直前期に紙で高速に反復できます
 
@@ -43,13 +43,13 @@ cover:
 
 市販の過去問集の多くは、正解番号と正解肢の簡単な説明しか載っていません。しかし本試験で問われるのは「適当でないものはどれか」という消去法の判断です。**4つの肢すべての正誤を根拠から説明できて、はじめて本番でどの肢が来ても迷わなくなります。**
 
-この教材は、令和3年度から令和7年度までの前期・後期、**全630問を1問残らず収録し、4つの選択肢すべてに正誤の理由を付けた**A4印刷用PDFです。サイトの無料解説をベースに、紙で回せるよう再編集しました。
+この教材は、令和3年度から令和8年度までの前期・後期、**全762問を1問残らず収録し、4つの選択肢すべてに正誤の理由を付けた**A4印刷用PDFです。サイトの無料解説をベースに、紙で回せるよう再編集しました。
 
 ---
 
 ## 収録内容
 
-- **令和3〜7年度 前期・後期の全10回・全630問**（第1次検定の全分野＝土工・コンクリート・構造・施工管理・法規ほか）
+- **令和3〜8年度 前期・後期の全12回・全762問**（第1次検定の全分野＝土工・コンクリート・構造・施工管理・法規ほか）
 - **全問・全選択肢に正誤の理由を明記**（正解肢だけでなく、誤りの肢がなぜ誤りかまで）
 - 組合せ問題は表で整理、水準測量など計算問題は途中式つき
 - A4・通しページ番号つきの印刷用PDF（印刷しても、タブレットで開いても読める版面）
@@ -81,12 +81,12 @@ cover:
 3. 含水比が施工含水比の範囲外のときは「含水量の調節（曝気乾燥や散水）」を行うのが原則で、空気量の調節は誤り
 4. 締固め効果は土質・含水状態・施工方法で変化する
 
-このように、正解番号を覚えるのではなく「3が誤りなのは含水量調節を空気量調節とすり替えているから」まで言えるようにするのが、本番で崩れない解き方です。全630問がこの粒度で解説されています。
+このように、正解番号を覚えるのではなく「3が誤りなのは含水量調節を空気量調節とすり替えているから」まで言えるようにするのが、本番で崩れない解き方です。全762問がこの粒度で解説されています。
 
 **関連リンク**
 
-- [第2次検定のはじめ方（無料）](https://doboku-note.com/exam/civil-construction-2/secondary/getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil2-ichiji-takuitsu-pdf&utm_content=secondary-start)
-- [学習計画の立て方（無料）](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=civil2-ichiji-takuitsu-pdf&utm_content=study-plan)
+- [第2次検定のはじめ方（無料）](https://doboku-note.com/exam/civil-construction-2/secondary/getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil2-ichiji-takuitsu-pdf&utm_content=secondary-start&utm_term=n4963f45bd6f8)
+- [学習計画の立て方（無料）](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=civil2-ichiji-takuitsu-pdf&utm_content=study-plan&utm_term=n4963f45bd6f8)
 
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
@@ -95,7 +95,7 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 ## PDF のダウンロードと使い方
 
-ここから先で、全630問・全選択肢解説のA4印刷用PDF（この記事の末尾に添付。問題と解説を並べた通し版に加え、問題冊子・解答解説の分冊つき）をダウンロードできます。以下は、直前期までにこのPDFを合格力に変える回し方です。
+ここから先で、全762問・全選択肢解説のA4印刷用PDF（この記事の末尾に添付。問題と解説を並べた通し版に加え、問題冊子・解答解説の分冊つき）をダウンロードできます。以下は、直前期までにこのPDFを合格力に変える回し方です。
 
 **1周目：分野の地図をつくる**（試験2〜3か月前）
 
@@ -109,7 +109,7 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 印のついた肢だけを、移動時間や昼休みに高速で回します。紙のPDFなので、電波もアプリも要りません。試験前日は、各分野の冒頭数問だけを流し読みして「聞かれ方」を思い出せば十分です。
 
-この3周で、過去5年に出た論点はほぼ網羅できます。新しい問題集に手を広げるより、この630問を「全肢説明できる」状態にするほうが、合格に直結します。
+この3周で、過去6年に出た論点はほぼ網羅できます。新しい問題集に手を広げるより、この762問を「全肢説明できる」状態にするほうが、合格に直結します。
 
 ## 出典・免責
 
