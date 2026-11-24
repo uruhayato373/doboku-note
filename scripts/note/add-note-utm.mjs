@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// content/note/{slug}/article.md の doboku-note.com 向けリンクに UTM
-// パラメータを一括付与する。note 公開直前に実行する想定。
+// content/note/{slug}/article.md（と分割原稿 article-II1.md など）の doboku-note.com 向けリンクに UTM
+// パラメータを一括付与する。note 公開直前に実行する想定。フォルダの中の原稿をすべて処理する。
 //
 // 使い方:
 //   node scripts/note/add-note-utm.mjs 総監択一式17年分分析       # slug 1 件、frontmatter.utmCampaign を読む
@@ -14,7 +14,7 @@
 // - それ以外で既に utm_* が含まれているリンクはスキップ（重複付与防止）
 // - フラグメント (#anchor) が末尾にあればその前に挿入
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { listFiles } from '../lib/fs-walk.mjs';
 import matter from 'gray-matter';
@@ -38,10 +38,13 @@ function parseArgs(argv) {
 // content/note 配下の article.md を全部探す（2026-11-03: 資格フォルダを決め打ちの一覧で持っていたため、コンクリート技士・
 // 測量士・舗装などの記事を解決できず、check-note-site-utm の [utm-term] が案内する直し方が動かなかった）。
 // slug はフォルダ名、rel は content/note からの相対。マガジンの中の記事も含める（magazines/<誌>/<記事>）。
+// 原稿は article.md のほか、建設部門などの分割原稿 article-II1.md・article-III.md もある（DN-1060）。
+const ARTICLE_FILE = /^article(-[^/\\]+)?\.md$/;
+
 function resolveDirectory(target) {
-  const all = listFiles(NOTE_DIR, { match: (_p, name) => name === 'article.md', allowMissing: true })
+  const all = [...new Set(listFiles(NOTE_DIR, { match: (_p, name) => ARTICLE_FILE.test(name), allowMissing: true })
     .map((p) => relative(NOTE_DIR, dirname(p)).split('\\').join('/'))
-    .filter((rel) => rel && rel !== '.')
+    .filter((rel) => rel && rel !== '.'))]
     .map((rel) => ({ slug: rel.split('/').pop(), rel }));
   // パスの末尾が一致（"1級・2級土木/xxx" のように親フォルダつきで渡してもよい）
   const byPath = all.filter((a) => a.rel === target || a.rel.endsWith(`/${target}`));
@@ -64,12 +67,17 @@ async function main() {
     process.exit(1);
   }
   const dirName = resolveDirectory(args.target);
-  const articlePath = join(NOTE_DIR, dirName, 'article.md');
+  const files = readdirSync(join(NOTE_DIR, dirName)).filter((name) => ARTICLE_FILE.test(name)).sort();
+  for (const file of files) addUtm(args, dirName, file);
+}
+
+function addUtm(args, dirName, file) {
+  const articlePath = join(NOTE_DIR, dirName, file);
   const raw = readFileSync(articlePath, 'utf-8');
   const { data } = matter(raw);
   const campaign = args.campaign || data.utmCampaign;
   if (!campaign) {
-    console.error(`[error] utmCampaign が frontmatter に未定義かつ --campaign 引数も無い: ${dirName}`);
+    console.error(`[error] utmCampaign が frontmatter に未定義かつ --campaign 引数も無い: ${dirName}/${file}`);
     process.exit(1);
   }
 
@@ -80,7 +88,7 @@ async function main() {
     before.forEach((u, k) => { if (after[k] && after[k] !== u) console.log(`  ${u}\n→ ${after[k]}\n`); });
   }
 
-  console.log(`[add-note-utm] ${dirName}`);
+  console.log(`[add-note-utm] ${dirName}/${file}`);
   console.log(`  campaign: ${campaign}`);
   console.log(`  term: ${data.noteId || '（noteId 未設定＝未公開。公開後にもう一度回す）'}`);
   console.log(`  追加: ${added}件 / スキップ済み(既に UTM あり): ${skipped}件`);
