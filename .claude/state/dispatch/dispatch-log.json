@@ -10743,6 +10743,19 @@
       "commit": "067bec085759",
       "verification": "scheduleShort の restore の行・台帳でショート 11 本が published（11/14〜11/19）",
       "note": "直す候補の (b) が入っている: scripts/youtube/youtube-daily-release.mjs の scheduleShort が、予約（publish-youtube --phase upload）の前に shorts-factory restore で素材を Drive から専用の worktree へ戻す（2026-11-13 の 2 本の失敗を受けた修正・同じ関数のコメント）。通常動画も media pull で戻す。11/14 以降、ショート 11 本が手作業なしで予約・公開されている（台帳 content/registry/publications/youtube の published・11/14〜11/19）"
+    },
+    {
+      "id": "DN-0501",
+      "at": "2026-11-24",
+      "task": "技術士一次試験の note CTA のクリック率を比べ、配置を見直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c9b803cdf853",
+      "verification": "data/ga4/reports/2026-10-02・2026-10-31・2026-11-20.json の cta-clicks / by-label と data/note/sales.json の pe1-* を集計",
+      "note": "配置を維持すると決めた（2026-11-24）。GA4 の /exam/pe-first-stage 配下の note CTA は、POP 画像の採用前（9/4〜10/1）1,324 表示・19 クリック（1.44%）→ 採用後（10/3〜10/30）7,167・55（0.77%）→ 最新（10/23〜11/19）16,207・128（0.79%）。CTR は下がったが表示は 12 倍で試験直前に重なり、画像の効果とは切り分けられない。配置別（最新）は ガイド本文内 2.40%・冒頭 0.96%・末尾 1.20%・解説の途中 0.50%・年度ページの本文末 0.26%・商品カード 0.26%（pe1-anki-note のカードは 1,988 表示で 0 クリック）。売上（data/note/sales.json）は 9/4〜10/1 が 1 件 ¥980、10/2 以降が 6 件 ¥11,880（すべて直前パック）。冒頭と本文内は維持。解説の途中（answer_reveal と組み合わせる案）は、試験後に案内が過去問 PDF 合本へ切り替わってから見る（実験の登録はその時）。pe1-anki-note の商品カードは試験後の切り替えで外れる"
     }
   ]
 }
