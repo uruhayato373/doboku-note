@@ -10662,6 +10662,23 @@
       "commit": "e4bc421479e8",
       "verification": "3 本の commit で pre-commit OK・3 URL が HTTP 200・DN-0427 に URL と基準値",
       "note": "3 本（1級・2級の経験記述・過去問の傾向）の引用と数字 67 件を、建設業振興基金の一次資料（令和7年度の1級・臨時・2級の問題、令和8年度の1級・2級の受検の手引、令和7年度の結果表の PDF 7 本・すべて HTTP 200）で照合した（guide-fact-checker）。OK 62・NG 5・確認不能 0。NG は令和8年度の第二次検定の問題が公開された後で古くなった『令和7年度だけが公開』の 5 か所で、3 本とも直して記事ごとに commit した（令和7年度の引用そのものに誤りは無い）。公開 URL と GSC の基準値（28 日）を DN-0427 に書いた"
+    },
+    {
+      "id": "DN-1181",
+      "at": "2026-11-24",
+      "task": "正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/regex-control-escape.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b9ef4d9f07af",
+      "verification": "node --test tests/regex-control-escape.test.mjs pass 2・node scripts/check-mdx/rules/svg/build-gallery-comment.mjs で categories 9 資格",
+      "note": "#1732 で build-gallery-comment.mjs の 64・69 行の /\\content\\/site/ を直した（直す前は資格名がすべて other、直した後は 9 資格が取れる）。\\c＋英字の書き損じを scripts・.claude・src・tests・tools の 2,402 ファイルから探すテスト tests/regex-control-escape.test.mjs を足し、0 件"
     }
   ]
 }
