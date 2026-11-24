@@ -10923,6 +10923,23 @@
       "commit": "610ac405153d",
       "verification": "kdp-publish --set-price の dry-run で日本の実効レートが catalog と一致（d-00・d-03 35%、d-02 70%）→ --commit で 3 冊とも OK・catalog 書き戻し／npm run check-kindle-prices 合格。Amazon の表示は最大 72 時間で反映",
       "note": "表紙の審査の終了（4 冊とも販売中・未出版の変更なし）を確かめ、d-00 ¥1,480・d-02 ¥980・d-03 ¥980 を KDP に保存（d-01 は ¥980 のまま）。spec・catalog・strategy を同じ commit で更新"
+    },
+    {
+      "id": "DN-1300",
+      "at": "2026-11-25",
+      "task": "下水道の模範解答 8 本の PDF をエディタへ再添付する（下書きに添付なしが残る）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "根本の失敗の記録のずれと応答の未記録は DN-1301 で直す"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "25c408c470dc",
+      "verification": "運営者の check-note-attachments:live 8/8 充足・公開 API で価格 780 と無料部分の末尾を確認・スクリプトの有料維持検証 OK",
+      "note": "下水道の模範解答 8 本へ note-attach-file --commit で PDF を再添付して更新（エディタに残っていた新しい本文＋PDF）。負債台帳は解消済みへ移し、中断記録から外した"
     }
   ]
 }
