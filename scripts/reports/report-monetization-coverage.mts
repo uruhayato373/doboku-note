@@ -74,11 +74,13 @@ function normPath(p: string): string {
 }
 
 // ── アフィリエイト配置の導出（配置ルール config/affiliate-placements.json をサイトと同じ関数で解く） ──
-// 記事は記事末・本文中間・手書きのどれかに転職広告が出るカテゴリなら、その案件の名前（"BuildJob" / "DXConsulting"）。
+// 記事のどこかの枠に転職広告が出るカテゴリなら、その案件の名前（"BuildJob" / "DXConsulting"）。
 // 2026-10-07 まではカテゴリに関係なく全記事に案件名を付けていた（実務・基準の記事も「アフィリあり」に数えていた）。
+// 枠の名前で選ばない: 2026-11-15 に枠が画像バナー（article-banner*・article-rail*）へ替わったあと、旧い枠名
+// （article-end・mid・inline）だけを見ていたので全記事が「アフィリなし」になり、導線のある記事を「導線ゼロ」と出していた（DN-1270）。
 function deriveAffiliate(category: string, isCareer: boolean): string | null {
   const r = resolvePlacements({ pageKind: "doc", category, isCareerDoc: isCareer });
-  const hit = r["article-end"] ?? r["article-mid"] ?? r["article-inline"];
+  const hit = Object.values(r)[0];
   return hit ? hit.trackLabel.replace(/-(sidebar|endbanner)$/, "") : null;
 }
 
