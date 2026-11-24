@@ -1,8 +1,8 @@
 {
   "bookId": "e-01",
-  "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】",
-  "subtitle": "令和3〜7年度 前期・後期 全630問",
-  "price": 990,
+  "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜8年度 全期】",
+  "subtitle": "令和3〜8年度 前期・後期 全762問",
+  "price": 1650,
   "examName": "2級土木施工管理技術検定（第1次検定）",
   "creditIssuer": "一般財団法人 全国建設研修センター",
   "sources": [
@@ -15,7 +15,9 @@
     "content/site/civil-construction-2/primary-r06-zenki/article.mdx",
     "content/site/civil-construction-2/primary-r06-kouki/article.mdx",
     "content/site/civil-construction-2/primary-r07-zenki/article.mdx",
-    "content/site/civil-construction-2/primary-r07-kouki/article.mdx"
+    "content/site/civil-construction-2/primary-r07-kouki/article.mdx",
+    "content/site/civil-construction-2/primary-r08-zenki/article.mdx",
+    "content/site/civil-construction-2/primary-r08-kouki/article.mdx"
   ],
   "frontMatter": "content/kindle/books/e-01/front-matter.md"
 }
