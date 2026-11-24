@@ -65,6 +65,9 @@ test('canonical exam, guide, practice and hub traffic joins; legacy users stay s
     assert.equal(row(legacy).noteClicks, 2);
     assert.ok(row(current).noteCta.includes('pe1-takuitsu-pdf'));
     assert.ok(!row(current).noteCta.includes('civil-1-anki-note'), 'reference-only card is not rendered');
+    // 実務の記事にも転職のバナーが出る。旧い枠名だけを見ると「導線ゼロ」と出る（DN-1270）
+    assert.ok(row(practice).affiliate, 'practice article renders affiliate banners');
+    assert.equal(row(practice).gap, false);
     assert.deepEqual(report.coverage, { trafficRows: 6, matchedTrafficRows: 5, unmatchedTrafficPages: ['/tools/fixture'] });
     assert.equal(report.noteLabelSales[0].salesCount, 2);
     assert.equal(report.noteLabelSales[0].revenue, 500, 'sales share the label click window, inclusive');

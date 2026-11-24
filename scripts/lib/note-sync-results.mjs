@@ -14,8 +14,19 @@ export function parseNoteSyncRun(text) {
   return result;
 }
 
+/**
+ * 空きメモリの関所（scripts/lib/playwright-launch.mjs の LaunchGuardError・code LOW_MEMORY）がブラウザの起動を見送った印。
+ * 子プロセスは記事の行を 1 行も出さずに終わるので、印が無いと全記事が「結果なし」の失敗に見えた（DN-0954）。
+ */
+export function lowMemoryReason(text) {
+  if (!/LaunchGuardError|LOW_MEMORY/.test(text)) return null;
+  const m = text.match(/空きメモリ (\d+)MB < 閾値 (\d+)MB/);
+  return `low-memory: 空きメモリ不足でブラウザを起動しなかった${m ? `（${m[1]}MB < 閾値 ${m[2]}MB）` : ''}`;
+}
+
 export function classifyNoteSyncRun(items, text) {
   const results = parseNoteSyncRun(text);
+  const lowMemory = lowMemoryReason(text);
   const updated = [], failed = [], deferred = [];
   const limitIndex = items.findIndex((item) => results[item.noteId] === 'attachment-daily-limit');
   for (const [index, item] of items.entries()) {
@@ -24,7 +35,8 @@ export function classifyNoteSyncRun(items, text) {
     if (result === 'ok') updated.push(entry);
     else if (limitIndex >= 0 && index >= limitIndex && (!result || result === 'attachment-daily-limit')) {
       deferred.push({ ...entry, reason: 'attachment-daily-limit' });
-    } else failed.push({ ...entry, reason: result || '結果なし（連続失敗で中断された可能性）' });
+    } else if (lowMemory && !result) deferred.push({ ...entry, reason: lowMemory }); // 起動していないので失敗に数えず次回へ
+    else failed.push({ ...entry, reason: result || '結果なし（連続失敗で中断された可能性）' });
   }
-  return { updated, failed, deferred, attempted: Object.keys(results).length, dailyLimit: limitIndex >= 0 };
+  return { updated, failed, deferred, attempted: Object.keys(results).length, dailyLimit: limitIndex >= 0, lowMemory: Boolean(lowMemory) };
 }

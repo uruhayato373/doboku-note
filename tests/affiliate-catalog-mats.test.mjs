@@ -11,7 +11,7 @@ test('台帳の全素材を検査し、未登録だった横長素材も許可�
   assert.ok(r.checked >= 165);
   assert.deepEqual(r.errors, []);
   const entries = affiliateMatEntries(catalog);
-  for (const materialId of ['013', '005']) {
+  for (const materialId of ['013', '016']) {
     const c = catalog.programs['rsg-kensetsu'].creatives.find(c => c.materialId === materialId);
     assert.ok(entries.some(e => c.href.includes(e.mat)), materialId);
   }

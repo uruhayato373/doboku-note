@@ -28,10 +28,10 @@
 // exit 0 = 整合 / exit 1 = 不整合 / exit 2 = 検査不成立（設定が読めない）
 
 import { execFileSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  loadDriveConfig, resolveVaultRoot, loadDriveManifest, vaultRelFor, vaultAbsFor, realBytesAndHashes, routingFor, toVaultRel,
+  loadDriveConfig, resolveVaultRoot, loadDriveManifest, vaultRelFor, vaultAbsFor, realBytesAndHashes, routingFor, toVaultRel, driftDirection,
 } from '../lib/drive-vault.mjs';
 import { loadConfig as loadR2Config, findSecrets, AUDIENCES, AUDIENCE_RULES } from '../lib/asset-storage.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
@@ -145,7 +145,7 @@ async function main() {
   const mount = STAGED_ONLY || METADATA_ONLY
     ? { root: null, reason: `${STAGED_ONLY ? '--staged-only' : '--metadata-only'} はマウントを見ない` }
     : resolveVaultRoot({ cfg: dcfg });
-  let existence = 0, hashed = 0, unsynced = 0, localNewer = 0, pendingUnsynced = 0, unreadable = 0;
+  let existence = 0, hashed = 0, unsynced = 0, localNewer = 0, vaultNewer = 0, pendingUnsynced = 0, unreadable = 0;
   if (mount.root) {
     const step = DEEP ? 1 : Math.max(1, Math.floor(entries.length / SAMPLE));
     for (let i = 0; i < entries.length; i++) {
@@ -182,7 +182,12 @@ async function main() {
           fail('unsynced', 'ローカルにしか無い（台帳未登録）。このマシンを失うと復元不能: node scripts/storage/drive-vault-sync.mjs --group ' + r.driveActive[0] + ' --commit', p);
         } else if (hashed < 500) {
           const l = await realBytesAndHashes(abs);
-          if (l.sha256 !== e.sha256) { localNewer++; warn('local-newer', 'ローカルの実体が台帳（＝vault）と違う。作り直したものを反映する: node scripts/storage/drive-vault-sync.mjs --path "' + p + '" --commit --force', p); }
+          if (l.sha256 !== e.sha256) {
+            // どちらが新しいかで案内を分ける。手元が古いのに --force で上げると、直した vault の版を古い版で上書きする（DN-0770・2026-11-24 に 27 件）
+            const dir = driftDirection(statSync(abs).mtimeMs, e);
+            if (dir === 'vault-newer') { vaultNewer++; warn('vault-newer', 'vault の方が新しい（台帳の記録 ' + (e.verifiedAt ?? e.syncedAt) + ' より手元が古い）。手元を戻す: node scripts/storage/drive-vault-sync.mjs --pull --path "' + p + '" --commit（--force で上げない）', p); }
+            else { localNewer++; warn('local-newer', 'ローカルの実体が台帳（＝vault）と違い、手元の方が新しい' + (dir === 'unknown' ? 'かは日時が無く判断できない（中身を確かめてから）' : '') + '。作り直したものを反映する: node scripts/storage/drive-vault-sync.mjs --path "' + p + '" --commit --force', p); }
+          }
         }
       } else if (r.drivePending.length && !manifest.entries[p]) {
         pendingUnsynced++;
@@ -193,12 +198,12 @@ async function main() {
   const fails = problems.filter((p) => p.severity === 'FAIL');
   const warns = problems.filter((p) => p.severity === 'WARN');
   if (JSON_OUT) {
-    console.log(JSON.stringify({ mount: mount.root ? mount.source : null, metadataOnly: METADATA_ONLY, physicalCheckReason: mount.reason ?? null, audienceChecked, paths: paths.length, routed, conflicts, pendingOverlap, manifestEntries: entries.length, existence, hashed, unsynced, localNewer, fails: fails.length, warns: warns.length, problems }, null, 2));
+    console.log(JSON.stringify({ mount: mount.root ? mount.source : null, metadataOnly: METADATA_ONLY, physicalCheckReason: mount.reason ?? null, audienceChecked, paths: paths.length, routed, conflicts, pendingOverlap, manifestEntries: entries.length, existence, hashed, unsynced, localNewer, vaultNewer, fails: fails.length, warns: warns.length, problems }, null, 2));
   } else {
     console.log('[' + NAME + '] ' + (STAGED_ONLY ? 'staged ' : '') + 'パス ' + paths.length + ' 件を実検査 / いずれかの group に一致 ' + routed + ' / 衝突 ' + conflicts + ' / 移行中(pending)の重なり ' + pendingOverlap);
     console.log('  audience 検査 ' + audienceChecked + ' group（asset-storage.json）/ Drive group active ' + activeDrive.length + '・pending ' + pendingDrive.length + ' / 台帳 ' + entries.length + ' エントリ');
     if (mount.root) {
-      console.log('  mount: ' + mount.root + '（' + mount.source + '）— 実在確認 ' + existence + ' 件 / sha256 実照合 ' + hashed + ' 件' + (unreadable ? '（うち読めず ' + unreadable + '）' : '') + (DEEP ? '（全件）' : '（サンプル。全件は --deep）') + ' / 未同期 ' + unsynced + ' / ローカルが新しい ' + localNewer + (pendingUnsynced ? ' / 移行待ち(pending)の未同期 ' + pendingUnsynced : ''));
+      console.log('  mount: ' + mount.root + '（' + mount.source + '）— 実在確認 ' + existence + ' 件 / sha256 実照合 ' + hashed + ' 件' + (unreadable ? '（うち読めず ' + unreadable + '）' : '') + (DEEP ? '（全件）' : '（サンプル。全件は --deep）') + ' / 未同期 ' + unsynced + ' / ローカルが新しい ' + localNewer + ' / vault が新しい ' + vaultNewer + (pendingUnsynced ? ' / 移行待ち(pending)の未同期 ' + pendingUnsynced : ''));
     } else {
       console.log('  mount 無し・実体検査 0 件（' + mount.reason + '）。(a)〜(d) だけで判定する。');
     }

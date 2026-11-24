@@ -10408,6 +10408,418 @@
       "commit": "d80ac24e4e0a",
       "verification": "公開 API magazines/{key}/notes で 12+3 冊の R08 収録を照合・api/v3/notes/{key} で pack-top 249 本を照合・audit-note-funnel --live（建設部門の単品は対象外・D5 は上下水道の無料 2 本のみ）",
       "note": "R8 本試験の模範解答 34 本が 12 冊すべてに収録済み（公開 API で 12 マガジンの収録記事を照合・欠け 0）。単品 249 本の冒頭導線（cta:pack-top）は note API v3 の本文で 249/249 反映済み（取得失敗 0）。上下水道 3 冊も R08 7 本が公開・収録済み。売り場から外したパックを戻すかは売り場の棚卸しカードの扱い"
+    },
+    {
+      "id": "DN-1180",
+      "at": "2026-11-24",
+      "task": "Dependabot #119（basic-ftp の DoS）を解消する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d120722d0f37",
+      "verification": "gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '[.[]|select(.state==\"open\")]|length' が 0",
+      "note": "main 昇格（bbb3ff1e3・2026-11-24）後に Dependabot の open 警告が 0 件（gh api .../dependabot/alerts）"
+    },
+    {
+      "id": "DN-1272",
+      "at": "2026-11-24",
+      "task": "X の競合の再スキャンを回す（期限超過・W46 時点で 93 日）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "30f92b8d0ec5",
+      "verification": "npm run check-competitor-scan-due が exit 0・[競合再スキャン:x] OK 前回 2026-11-15",
+      "note": "X の競合は 2026-11-15 に再取得済み（#1605・data/x/competitors/2026-11-15.json）。起票時（11/21）の『前回 8-13』は W46 の古い数字だった"
+    },
+    {
+      "id": "DN-1184",
+      "at": "2026-11-24",
+      "task": "本番デプロイでビルドを作り直さず、検査済みの out/ を使えるか決める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9aba9fbbb3e0",
+      "verification": "git rev-parse bbb3ff1e3^{tree} と 976d59eab^{tree} が一致・du -sh out が 1.8G・gh run list ci.yml develop push 7 日 162 件",
+      "note": "やらないと決めた（2026-11-24）。(1) tree は一致する（main のマージ commit bbb3ff1e3 と develop 976d59eab の tree が同じ b7fcfbe）が、ビルドの中身が時刻で変わる: magazine-placement の isAfterExamDay（試験日で商品を切り替え）と affiliate-placement の掲載期間（period from/until を Date.now() で解く）。検査時に作った out/ を後で出すと、その間の切り替えが本番に乗らない。(2) out/ は手元で約 1.8GB・15,022 ファイル（exam 981M・standards 578M）。develop の push の CI は直近 7 日で 162 回あり、毎回の上げと昇格時の下ろしが build 232 秒の節約を食う見込み（実測はしていない）。(3) 公開リポジトリの artifact は誰でも取れる。MAIL_SENDER_ADDRESS（/privacy に出る値だが git に書かない方針）を全 push の CI ビルドへ渡すことになる。PR の E2E へ渡す経路（統合した旧カード）も (1)(2) で同じ。再検討の条件: 時刻で切り替わる CTA をクライアント側の判定へ移したとき"
+    },
+    {
+      "id": "DN-1270",
+      "at": "2026-11-24",
+      "task": "/practice/formwork-removal-timing に収益導線を 1 つ足す（28 日で流入 544 人・導線なし）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "338cb9e4fda9",
+      "verification": "curl https://doboku-note.com/practice/formwork-removal-timing で data-cta=affiliate の placement 6 種・npx tsx scripts/reports/report-monetization-coverage.mts --check で収益導線ゼロ 0・node --test tests/monetization-coverage.test.mjs 3 pass",
+      "note": "起票の前提が誤検知だった。本番の /practice/formwork-removal-timing には転職バナーが 6 枠（article-banner・-2・-3・-end・article-rail・-2）出ている。収益カバレッジの deriveAffiliate が 11/15 の画像バナー化の後も旧い枠名（article-end・mid・inline）だけを見ていて、全記事を『アフィリなし』と数えていた。#1731 で直し、高流入で収益導線ゼロは 0 件。note の CTA は足さない（実務記事は試験・note の案内を置かない＝book-coverage-expansion.md:34）。残る課題はアフィリのクリックが 28 日で 0 件なことで、これは配置の実験の側で見る"
+    },
+    {
+      "id": "DN-1125",
+      "at": "2026-11-24",
+      "task": "Audit performance (PSI) の定期実行が失敗している",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "push の競合 1 回で、翌日の実行で回復した。続けて赤なら workflow-health の automation-failure Issue が拾う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7ef3b1161562",
+      "verification": "gh run list --workflow=psi-audit.yml -L 40 で success 38 / failure 2・直近 8 回 success",
+      "note": "11/10 の失敗は run 42910643947 の最後の git push が develop の同時更新と競合した 1 回（error: failed to push some refs）。直近 40 回は成功 38・失敗 2、11/17 以降の 8 回はすべて成功。automation-failure の workflow-health（#1625 など）は閉じている"
+    },
+    {
+      "id": "DN-0393",
+      "at": "2026-11-24",
+      "task": "国・都道府県の技術図書の整理を共通仕様書の次（施工管理基準から）へ広げる",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9565412da26f",
+      "verification": "data/gsc/reports/2026-11-20.json の page を /standards/mlit/sekou-kanri-kijun と他の /standards で集計",
+      "note": "28 日比較（GSC 2026-10-20〜11-16・本番反映 10/14 から 6〜33 日）: 施工管理基準 /standards/mlit/sekou-kanri-kijun は 28 URL に表示 268・クリック 3（1 URL 平均 9.6 表示）。共通仕様書ほかの /standards は 467 URL に表示 7,093・クリック 199（1 URL 平均 15.2 表示）。施工管理基準の 1 URL 当たりの表示は共通仕様書の約 6 割で、公開 1 か月の共通仕様書（クラスター全体で表示 236）を 1 文書だけで上回った。表示の多い章は 9-4（36）・9-1（23）・トップ（22）・3-7（20）の品質・出来形の規格値。次の図書（九州の施工管理の手引き）へ広げるかは技術図書の企画の判断に回す"
+    },
+    {
+      "id": "DN-1150",
+      "at": "2026-11-24",
+      "task": "建設部門の『論文対策キーワード』6 テーマ集約ページの検索語を見て、テーマ別ページを分けるか決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d0f916fd53f7",
+      "verification": "data/gsc/reports/2026-11-20.json の page と page-query を ronbun-keyword で集計",
+      "note": "分けない（2026-11-24 決定）。GSC 2026-10-20〜11-16 の 28 日で、6 テーマ集約ページの表示は 社会資本 71・担い手DX 63・地域づくり 31・維持管理 7・防災 2・脱炭素 1（計 175・クリック 5）。page×query に出た検索語は社会資本の 1 語（4 表示）だけで、残りは匿名化の閾値未満。テーマ別に分ける根拠になる検索語のまとまりが無く、分けるとページが薄くなり表示も割れる。試験前の山（2027 年 3〜6 月）に検索語のまとまりが出たら、そのとき 1 まとまりずつ分ける"
+    },
+    {
+      "id": "DN-1273",
+      "at": "2026-11-24",
+      "task": "quality-audit の report 区分の FAIL（Issue #1475・11/09〜）の中身を読み、直すか個別に起票する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ca93167fe93c",
+      "verification": "npm run check-external-links（exit 1・切れ 21・一覧は DN-1298）",
+      "note": "report 区分の FAIL は external-links の 1 項目だけ（11/23 の週次・main）。#1607 で官公庁の 403・429 は FAIL から外れたが、本当に切れたリンクが 21 件ある（手元の実行で 対象 5,766・実検査 5,548・切れ 21・確かめられない 218）。21 件は DN-1298 に起票した。#1475 は DN-1298 で切れが 0 になれば次の週次で自動で閉じる"
+    },
+    {
+      "id": "DN-1070",
+      "at": "2026-11-24",
+      "task": "予約の毎朝の照合が main で動くのを確かめ、status に予約後の段を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "359fe07f3090",
+      "verification": "content/registry/publications/youtube/pe-construction.json の 3 本が published・npm run check-registry-due に YouTube の超過 0",
+      "note": "残りの確認済み: 台帳（content/registry/publications/youtube/pe-construction.json）で hissu1-kensetsu-dx の読み修正版（11/11）・hissu1-infra-roukyuuka の読み修正版（11/13）・toan-kousei-template の通常動画（11/12・読み修正の行は stopped で元の ID に反映）が published。check-registry-due の超過は YouTube 0 件。完了条件の『check-video-publication が通る』は満たさない: この検査が読む .claude/state/video-publication-verify.json は、SNS 保留で 2026-10-25 に CI から外した旧い日次実査（verify-video-publication）の記録で、最終更新は 10/24。今の照合は youtube-single-publish の毎朝の reconcile が台帳へ書く（video-content-policy.md の『旧設計（2026-10-25に停止）』）。旧検査の V02 52 件はこの記録が止まっているためで、公開漏れではない"
+    },
+    {
+      "id": "DN-0905",
+      "at": "2026-11-24",
+      "task": "実験の同時上限を、stats47 と同じ「重ねない・始める前に判定日と停止条件を書く」に変えるかを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7f1e61d187a7",
+      "verification": "npm run check-business-direction PASS",
+      "note": "運営者の決定（2026-11-01・変える）どおり、config/business-direction.json・nsm-experiment SKILL の start 手順 4・monthly-review 手順 9・転職アフィリエイト訴求設計.md の 4 か所の『同時実験上限』を『同じページ・同じ指標に重ねない／始める前に指標・判定日・停止条件を書く（件数の上限は置かない）』へ置き換えた。SEO の 7 日観察は変えていない"
+    },
+    {
+      "id": "DN-0491",
+      "at": "2026-11-24",
+      "task": "運営者の行政書士取得を前提に、行政書士（建設業許可・補助金）領域の展開計画を立てる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "947bfdd8193c",
+      "verification": "docs/strategy/02_設計思想.md:18 が『取得予定』・24_ の順番と線引きへのリンク",
+      "note": "運営者の決定（2026-11-01・2027 年 11 月に受験）を 02_設計思想.md に反映し、行政書士を『取得予定』とした（カードの『03』は該当する文書が無く、01_プロダクト戦略.md にも行政書士の記述は無い）。展開する／しないと時期は 24_土木の情報拠点と副業の入口2026-11.md（2026-11-11）で決まっている: 合格前は技術者の要件・経審の記事から施工管理の教材へ送る。受験者向けの教材と書類作成の受託は合格・登録の後。制作カードは合格後に切る（決定どおり）"
+    },
+    {
+      "id": "DN-1199",
+      "at": "2026-11-24",
+      "task": "textbook（/exam/civil-construction-1/textbook/network-schedule）が画面の点検で不合格（content）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "audit-svg"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "542a68bf63d2",
+      "verification": "npm run site-visual-review -- record で 合格 1・3 図の live と repo の sha256 一致",
+      "note": "本番（https://doboku-note.com）を撮り直し（作業票 20261124T064636Z・27 枚）、site-page-visual-auditor が pass と判定、record で台帳に合格を記録した。図 figure-3-17・3-18・3-19 は配信（storage.doboku-note.com）の sha256 がリポジトリの直した版と一致（キャッシュは入れ替わり済み）。EST/LFT 併記図の③の 16 と 12 は重ならない。minor（pass のまま）: w375 で演習図の文字が約 7px、w768 で転職バナーの文言が切れる（DN-1226 と同じ部品）。再発防止は #1604 で audit-svg の P2 に行間の規則を足したこと"
+    },
+    {
+      "id": "DN-0662",
+      "at": "2026-11-24",
+      "task": "コンクリート技士・主任技士・診断士のオリジナル問題による iOS アプリを企画する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "065d4cd07b57",
+      "verification": "npm run check-domains 違反 0・文書に比較表と試作規模・品質確認・工数・検証方法がある",
+      "note": "企画を docs/products/08_コンクリート3資格iOSアプリ企画.md に書いた（管理画面 /product/design に結線）。結論: 最初は技士（受験 8,629 人で主任技士・診断士の約 3 倍・試験が択一のみ・書き下ろし 48 問が転用可）。試作 160 問（6 分野×約 27 問・新規 112 問）、最新 40 問は無料・全問 ¥980 の買い切り。品質は根拠の条項の記録・書き下ろしの確認・別の採点役・実機確認。工数は約 60〜75 時間。出す時期は 2027 年度の試験の 3 か月前まで。確認未了（主任技士 237 問は市販本由来で転用しない・診断士 98 問は利用範囲の確認記録が未完・競合アプリの価格は制作前に取り直す）を明記した。大量制作と公開は運営者の承認の後"
+    },
+    {
+      "id": "DN-1195",
+      "at": "2026-11-24",
+      "task": "土曜の収集の書き戻しで、1 つの検査の失敗がその回の全部の記録を止めないようにする",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/weekly-collect-commit.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "345d4ceccdca",
+      "verification": "node --test tests/weekly-collect-commit.test.mjs で pass 2",
+      "note": "実装は #1726（37cfe2a66・2026-11-24 マージ）で入った。scripts/lib/weekly-collect-commit.mjs の commitStageRecords が段ごとにその段の記録だけを commit し、検査で落ちたらその段のファイルを退避して段を failed にし、理由を残す。push も段ごと。完了条件のテスト tests/weekly-collect-commit.test.mjs（2 段のうち 1 段だけが検査で落ちても、もう 1 段は commit され、落ちた段は理由つきで退避される）が通る"
+    },
+    {
+      "id": "DN-1271",
+      "at": "2026-11-24",
+      "task": "週次の点検 egov-drift の差分の条を確かめ、教材の該当箇所を直す（11/21 赤）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "78b2b961f51c",
+      "verification": "node scripts/content/egov-laws.mjs --drift で 写しより後に施行された改正 0 本・npm run egov-laws PASS",
+      "note": "egov-drift の差分は 3 本: 建築基準法施行規則（11/01 施行・国交省令第85号）・電波法施行規則と無線設備規則（11/02 施行・総務省令第126号）。e-Gov API の版（改正前後の law_data）を条ごとに比べた。電波法施行規則で変わったのは第44〜52条（通信設備・指定の申請・書類の提出など）で、site-wireless-communication が引く第6条（免許を要しない無線局）は同じ。無線設備規則で変わったのは第65・66条（妨害波電圧・混信の防止）で、記事の 920MHz 帯の記述の根拠の第49条の14（特定小電力無線局）は同じ。textbook-building-standards は建築基準法施行規則を条なしで手続規定として挙げるだけ。記事の直しは無し。写しを --sync で進めた（76a7de1c8）。--sync が実在する ID 7 本を『無い』と出す件は DN-1299 に起票"
+    },
+    {
+      "id": "DN-1291",
+      "at": "2026-11-24",
+      "task": "総監の 5 管理 pillar と 1級土木の受験ガイドの出題数の誤りを過去問に合わせて直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "手書きの出題数は記事ごとに書き方が違い、正本の数と機械で突き合わせる形が決まらない。試験日・合格率の照合は DN-1177 で検査にする"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "957a4a0f874d",
+      "verification": "各記事の commit で pre-commit（check-mdx・content-quality ほか 66 本）OK・refresh-indexes exit 0",
+      "note": "過去問の記事で数え直して 10 本を直した（記事ごとに commit）。総監: r01〜r08-primary の Ⅰ-1-1〜40 は 8 年度とも経済性 1〜8・人的資源 9〜16・情報 17〜24・安全 25〜32・社会環境 33〜40 の 8 問ずつで、5 本の pillar を『毎年 8 問・差は無い』に直し、順位の記述を外した。生成 AI は r06・r07 の択一式に 0 件で、R04 Ⅰ-1-29（AI 利活用ガイドライン）と R08 Ⅰ-1-21（AI 事業者ガイドライン）だけ。1級土木 問題 B（R01〜R08・全 35 問）は 共通工学 4・施工計画 5・工程 4・安全 11・品質 7・環境 4 で、4 本のガイドを『サイト集計（公式の内訳は非公開）』と明記して直し、ヒストグラム（R01〜R08 で 0 件）など頻出テーマの年度数も数え直した。coast-port-administrators の『漁港法』6 か所を現行名『漁港及び漁場の整備等に関する法律』（e-Gov 325AC1000000137）に直した"
+    },
+    {
+      "id": "DN-1209",
+      "at": "2026-11-24",
+      "task": "総監「短時間強雨の推移」の図を気象庁の原典と照合して描き直す（目盛が二重で重なる）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "audit-svg"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "933cceee4627",
+      "verification": "npm run audit-svg -- --file=<図> で findings 0（P2 0）・CSV から 76-85 平均 226・16-25 平均 339.7",
+      "note": "気象庁『大雨や猛暑日など（極端現象）のこれまでの変化』の 1 時間降水量 50mm 以上の年間発生回数（CSV amdhour50mm_p.csv・1976〜2025 年の 50 年分・1,300 地点あたり）で描き直した。縦軸は 0〜500 の 1 組、横軸は 1976・1985・1995・2005・2015・2025 を棒の位置に合わせた。最初の 10 年（1976〜85）の平均 226 回と最近 10 年（2016〜25）の平均 339.7≒約340 回を線で示し、約1.5倍（気象庁の本文と一致・CSV から計算して 1.503）。旧図の『約 1.4 倍』は本文に無く図の中だけだったので、図ごと置き換えた。記事の alt を 1976〜2025 に直し出典のキャプションを付けた"
+    },
+    {
+      "id": "DN-1292",
+      "at": "2026-11-24",
+      "task": "建築施工管理の無料ガイド 3 本の引用を原文で照合し、公開 URL を DN-0427 に書いて計測を始める",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e4bc421479e8",
+      "verification": "3 本の commit で pre-commit OK・3 URL が HTTP 200・DN-0427 に URL と基準値",
+      "note": "3 本（1級・2級の経験記述・過去問の傾向）の引用と数字 67 件を、建設業振興基金の一次資料（令和7年度の1級・臨時・2級の問題、令和8年度の1級・2級の受検の手引、令和7年度の結果表の PDF 7 本・すべて HTTP 200）で照合した（guide-fact-checker）。OK 62・NG 5・確認不能 0。NG は令和8年度の第二次検定の問題が公開された後で古くなった『令和7年度だけが公開』の 5 か所で、3 本とも直して記事ごとに commit した（令和7年度の引用そのものに誤りは無い）。公開 URL と GSC の基準値（28 日）を DN-0427 に書いた"
+    },
+    {
+      "id": "DN-1181",
+      "at": "2026-11-24",
+      "task": "正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/regex-control-escape.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b9ef4d9f07af",
+      "verification": "node --test tests/regex-control-escape.test.mjs pass 2・node scripts/check-mdx/rules/svg/build-gallery-comment.mjs で categories 9 資格",
+      "note": "#1732 で build-gallery-comment.mjs の 64・69 行の /\\content\\/site/ を直した（直す前は資格名がすべて other、直した後は 9 資格が取れる）。\\c＋英字の書き損じを scripts・.claude・src・tests・tools の 2,402 ファイルから探すテスト tests/regex-control-escape.test.mjs を足し、0 件"
+    },
+    {
+      "id": "DN-1060",
+      "at": "2026-11-24",
+      "task": "add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/add-note-utm-split.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5f6c01941769",
+      "verification": "node --test tests/add-note-utm-split.test.mjs pass 1",
+      "note": "#1732 で add-note-utm の原稿の走査を article(-*)?.md にし、フォルダの中の原稿をすべて処理するようにした。分割原稿 2 本のフォルダで utm_source・utm_campaign・utm_term が付くテスト tests/add-note-utm-split.test.mjs を足した"
+    },
+    {
+      "id": "DN-0954",
+      "at": "2026-11-24",
+      "task": "note の同期で空きメモリ不足のブラウザ起動の見送りが「結果なし」と誤表示され、待たずに失敗する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-sync-results.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f40cefe0ee68",
+      "verification": "node --test tests/note-sync-results.test.mjs pass 4（low-memory の延期と、印が無いときの従来の失敗）",
+      "note": "#1732 で note-sync-results に lowMemoryReason を足し、子プロセスの出力に LaunchGuardError（LOW_MEMORY）があれば、行の無い記事を『結果なし』の失敗でなく『low-memory: 空きメモリ不足でブラウザを起動しなかった（1055MB < 閾値 1200MB）』の延期にする。note-sync-routine は low-memory の回で残りを次回へ回して止める（失敗に数えない）。やること 3 の閾値 1,200MB は変えていない（延期にしたので、割っても失敗の山にならない）"
+    },
+    {
+      "id": "DN-0298",
+      "at": "2026-11-24",
+      "task": "Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "61acd6b43375",
+      "verification": "17 URL の 9/23 と 11/18 の google_canonical の比較（12 件が新 URL・残り 4 件の内訳は note 張り 3・張りなし 1）",
+      "note": "再公開しないと決めた（2026-11-24）。9/23 の URL 検査（data/metrics/url-inspection/inspection-batch-2026-09-23T06-54-59.json・git a084aeeef）で google_canonical が旧 /docs/ だった 17 URL を、11/18 の URL 検査（data/gsc/url-inspection/2026-11-19T09-44-23.json）と比べた。12 件が新 URL に切り替わり、旧 URL のままは 4 件（labor-tribunal-act・pollution-control-manager・sexual-harassment・h21-secondary）。content/note から張られている 9 件は 6 件が切り替わり 3 件が残る。張られていない 7 件も 6 件が切り替わり 1 件（pollution-control-manager）が残る。両群とも切り替わりが進んでいて、note の被リンクが旧 URL を選ばせている形ではない（カードの決まり『両群とも切り替わるなら再公開しない』）。残る 4 件は 301 の転送のまま次の URL 検査で切り替わるのを待つ"
+    },
+    {
+      "id": "DN-1187",
+      "at": "2026-11-24",
+      "task": "毎晩の YouTube 予約で、worktree に素材が無いショートの予約が失敗する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "素材の取り寄せは予約の手順そのものに入った。失敗すれば youtube-daily が exit 1 で止まり、毎晩のタスクの結果に出る"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "067bec085759",
+      "verification": "scheduleShort の restore の行・台帳でショート 11 本が published（11/14〜11/19）",
+      "note": "直す候補の (b) が入っている: scripts/youtube/youtube-daily-release.mjs の scheduleShort が、予約（publish-youtube --phase upload）の前に shorts-factory restore で素材を Drive から専用の worktree へ戻す（2026-11-13 の 2 本の失敗を受けた修正・同じ関数のコメント）。通常動画も media pull で戻す。11/14 以降、ショート 11 本が手作業なしで予約・公開されている（台帳 content/registry/publications/youtube の published・11/14〜11/19）"
+    },
+    {
+      "id": "DN-0501",
+      "at": "2026-11-24",
+      "task": "技術士一次試験の note CTA のクリック率を比べ、配置を見直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c9b803cdf853",
+      "verification": "data/ga4/reports/2026-10-02・2026-10-31・2026-11-20.json の cta-clicks / by-label と data/note/sales.json の pe1-* を集計",
+      "note": "配置を維持すると決めた（2026-11-24）。GA4 の /exam/pe-first-stage 配下の note CTA は、POP 画像の採用前（9/4〜10/1）1,324 表示・19 クリック（1.44%）→ 採用後（10/3〜10/30）7,167・55（0.77%）→ 最新（10/23〜11/19）16,207・128（0.79%）。CTR は下がったが表示は 12 倍で試験直前に重なり、画像の効果とは切り分けられない。配置別（最新）は ガイド本文内 2.40%・冒頭 0.96%・末尾 1.20%・解説の途中 0.50%・年度ページの本文末 0.26%・商品カード 0.26%（pe1-anki-note のカードは 1,988 表示で 0 クリック）。売上（data/note/sales.json）は 9/4〜10/1 が 1 件 ¥980、10/2 以降が 6 件 ¥11,880（すべて直前パック）。冒頭と本文内は維持。解説の途中（answer_reveal と組み合わせる案）は、試験後に案内が過去問 PDF 合本へ切り替わってから見る（実験の登録はその時）。pe1-anki-note の商品カードは試験後の切り替えで外れる"
+    },
+    {
+      "id": "DN-0832",
+      "at": "2026-11-24",
+      "task": "総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "drive-vault-sync"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2bb69432b243",
+      "verification": "npm run drive-vault-sync -- --group source-transcript --verify --deep exit 0・不一致 0",
+      "note": "Drive をマウントしたこの Mac で npm run drive-vault-sync -- --group source-transcript --verify --deep を回し exit 0（対象 245 件・存在確認 245・sha256 実照合 245・不一致 0）。『総監論文に求められるもの.md』も Drive の版（2026-10-29 に台帳を合わせた 26,554 bytes）で一致"
+    },
+    {
+      "id": "DN-1191",
+      "at": "2026-11-24",
+      "task": "朝の GSC の登録リクエストの記録が commit 前の検査で落ちるのを直す（Issue #1445）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/scheduled/gsc-indexing-daily.sh"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "365977442ead",
+      "verification": "gsc-indexing.log の 11/20〜11/24 が ok・button-not-found 0（11/21〜）・gh issue view 1445 が CLOSED",
+      "note": "朝の登録リクエストは 11/20〜11/24 の 5 日続けて rc=0（~/Library/Logs/doboku-note/gsc-indexing.log）で、記録は develop に入っている。button-not-found は #1689 の後の 11/21 以降 0 件（11/20 は 21 件）。Issue #1445 が閉じなかったのは gsc-indexing-daily.sh に成功時の --resolve が無かったためで、#1733 で足した。同じコマンドで #1445 を復旧クローズした"
+    },
+    {
+      "id": "DN-1260",
+      "at": "2026-11-24",
+      "task": "scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "051b8e6ef06a",
+      "verification": "git grep -l '^// 転送だけ' scripts/ が 0 件・npm run check-main-workflow-paths ✓",
+      "note": "#1733 で最後の転送 scripts/gsc-local-routine.mjs を消した。launchd は元の checkout（このリポジトリ）の scripts/scheduled/gsc-indexing-daily.sh を動かし、それは scripts/search/gsc-local-routine.mjs を呼ぶ（元の checkout は最新）。git grep -l '^// 転送だけ' scripts/ は 0 件、check-main-workflow-paths は通過（無いもの 0）"
+    },
+    {
+      "id": "DN-0918",
+      "at": "2026-11-24",
+      "task": "1級土木の教材（civil1-textbook）を出典にする 3 記事で、市販書籍との逐語一致 7 件が check-reference-sources --deep を止めている",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-reference-sources"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a98dd63a08ef",
+      "verification": "node scripts/checks/check-reference-sources.mjs --deep exit 0・逐語一致 0 件",
+      "note": "Drive をマウントしたこの Mac で check-reference-sources --deep を回し、逐語一致 7 件（3 記事）の文を出して自分の言葉に書き直した（記事ごとに commit）: textbook-cast-in-place-pile の工法の並び 1 件、textbook-construction-business の書類の保存 1 件、textbook-management-subplans の品質管理の展開の手順・原価管理の手順・PDCA・数量の把握 5 件。書き直した後 --deep は逐語一致 0 件・exit 0（同時に出ていた transcript-method の 1 件は、自分の上書きを戻して解消）"
     }
   ]
 }

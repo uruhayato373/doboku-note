@@ -210,6 +210,13 @@ async function syncArticles(items) {
       console.log(`${TAG} 添付の日次上限で停止（更新 ${updated.length}・失敗 ${failed.length}・翌日以降 ${deferred.length}）。残りは次回の反映計画に残す`);
       return { updated, failed, deferred, attempted, stopped: true };
     }
+    if (results.lowMemory) {
+      // 空きメモリの関所が起動を見送った。続けても同じなので、残りを次回へ回して止める（失敗には数えない・DN-0954）
+      defer(items.slice(i), 'low-memory');
+      problems.push('空きメモリ不足でブラウザを起動できず、残りの記事を次回へ回した（Claude Desktop・Chrome を閉じて取り直す）');
+      console.log(`${TAG} 空きメモリ不足で停止（更新 ${updated.length}・失敗 ${failed.length}・次回へ ${deferred.length}）`);
+      return { updated, failed, deferred, attempted, stopped: true };
+    }
     console.log(`${TAG} 記事 ${i}/${items.length}（更新 ${updated.length}・失敗 ${failed.length}・翌週へ ${deferred.length}・1 記事 ${(perArticleMs({ articles: tried, elapsedMs: spentMs }) / 60_000).toFixed(1)} 分）`);
     if (/\[ABORT\] \d+ 本連続で失敗/.test(run.out)) { problems.push('記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）'); return { updated, failed, deferred, attempted, stopped: true }; }
   }

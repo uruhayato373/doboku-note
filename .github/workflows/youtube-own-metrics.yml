@@ -69,7 +69,7 @@ jobs:
       - name: Probe competitor listing (no record)
         if: ${{ inputs.probe_competitors }}
         run: |
-          handle=$(node --input-type=module -e 'import { readDataset } from "./scripts/lib/dataset-io.mjs"; const c = readDataset(process.cwd(), "config.competitors").youtube; console.log(c[0].handle)')
+          handle=$(node --input-type=module -e 'import { readDataset } from "./scripts/lib/dataset-io.mjs"; const c = readDataset(process.cwd(), "config.competitors").youtube.competitors; console.log(c[0].handle)')
           echo "probe 対象: $handle"
           node scripts/youtube/scout-youtube-competitors.mjs --handle "$handle" --limit 10
 

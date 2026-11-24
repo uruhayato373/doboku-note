@@ -184,6 +184,14 @@
       "pages": 2,
       "pass": 2,
       "fail": 0
+    },
+    {
+      "runId": "20261124T064636Z",
+      "at": "2026-11-24T06:48:13.563Z",
+      "base": "https://doboku-note.com",
+      "pages": 1,
+      "pass": 1,
+      "fail": 0
     }
   ],
   "pages": {
@@ -497,25 +505,39 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "f7cd2baf6f0e127dcbb558aba64f0a9c04369184a5f9f65e48ec9cd332b777af",
+      "layoutSha256": "e24df0d9a0bfe291e53565296a372b08ad5652ba47f39957291ba8a25d3feff9",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-24T06:48:13.562Z",
+      "runId": "20261124T064636Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
       "findings": [
         {
           "severity": "minor",
-          "type": "hierarchy",
-          "detail": "本文中の「この続きに読みたい」カードは写真が大きい一方、題名と説明が小さく（説明は 11px 前後）、題名が写真に負けて見える",
-          "viewport": "w768",
-          "shot": "w768-04.png"
+          "type": "typography",
+          "detail": "スマホ幅で「ネットワーク計算の演習」や EST の図が縮小され、図中の文字（A=4・手順の囲み）が 7px 前後でかなり小さい。本文は読めるが図の細部は拡大しないと読みにくい。",
+          "viewport": "w375",
+          "shot": "w375-04.png"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "「テキスト章ナビゲーション」の前後の章は題名が黒の枠だけの行で、他の内部リンクの青い題名と色が異なるが、押せる位置は分かる",
+          "type": "layout",
+          "detail": "最後の区画とフッターの間に約 500px の空のグレー余白が続く（768 では約 200px、1440 では約 80px）。",
           "viewport": "w375",
-          "shot": "w375-05.png"
+          "shot": "w375-06.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "記事内の PR バナー（Constwork・RSG）が横長を切り詰めて表示され、訴求文言の一部が見えない。",
+          "viewport": "w768",
+          "shot": "w768-cta-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "結合点の図で矢線 C のラベルが線に重なり気味に見える（意味は読み取れる）。前回の LFT 計算ルール図・EST/LFT 併記図の重なり（③の 16 と 12）は、今回撮影した範囲では解消している。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         }
       ],
       "deterministic": [],

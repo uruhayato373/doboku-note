@@ -930,7 +930,7 @@
       "work": "owner-eye-kouji-kensa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-001",
@@ -993,11 +993,12 @@
       "platform": {
         "id": "mdx48aakaV8",
         "url": "https://www.youtube.com/watch?v=mdx48aakaV8",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-24T07:06:21.958Z"
+        },
+        "publishedAt": "2026-11-23T11:30:06.000Z"
       },
       "thumbnail": {
         "status": "set",
