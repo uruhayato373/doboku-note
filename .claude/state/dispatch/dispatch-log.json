@@ -10395,6 +10395,19 @@
       "commit": "00a35c0fb58e",
       "verification": "node scripts/fetch/record-net-receipts.mjs --month 2026-10 --when-complete",
       "note": "10 月の netReceipts complete が土曜の収集（2026-11-21 00:51Z・9afed01c21）で 1 件だけ記録された（note ¥57,435・ココナラ ¥0・KDP ¥10,556）。--when-complete の再実行は「同じ値を記録済み。記録しない」で重ね書きしない。固定費の表は items 空で costYen は対象なし"
+    },
+    {
+      "id": "DN-1293",
+      "at": "2026-11-24",
+      "task": "建設部門の模範解答集 12 冊へ R8 本試験の模範解答の収録が完了しているか確かめ、上下水道 3 冊を点検する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d80ac24e4e0a",
+      "verification": "公開 API magazines/{key}/notes で 12+3 冊の R08 収録を照合・api/v3/notes/{key} で pack-top 249 本を照合・audit-note-funnel --live（建設部門の単品は対象外・D5 は上下水道の無料 2 本のみ）",
+      "note": "R8 本試験の模範解答 34 本が 12 冊すべてに収録済み（公開 API で 12 マガジンの収録記事を照合・欠け 0）。単品 249 本の冒頭導線（cta:pack-top）は note API v3 の本文で 249/249 反映済み（取得失敗 0）。上下水道 3 冊も R08 7 本が公開・収録済み。売り場から外したパックを戻すかは売り場の棚卸しカードの扱い"
     }
   ]
 }
