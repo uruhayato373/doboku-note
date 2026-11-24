@@ -10803,6 +10803,23 @@
       "commit": "051b8e6ef06a",
       "verification": "git grep -l '^// 転送だけ' scripts/ が 0 件・npm run check-main-workflow-paths ✓",
       "note": "#1733 で最後の転送 scripts/gsc-local-routine.mjs を消した。launchd は元の checkout（このリポジトリ）の scripts/scheduled/gsc-indexing-daily.sh を動かし、それは scripts/search/gsc-local-routine.mjs を呼ぶ（元の checkout は最新）。git grep -l '^// 転送だけ' scripts/ は 0 件、check-main-workflow-paths は通過（無いもの 0）"
+    },
+    {
+      "id": "DN-0918",
+      "at": "2026-11-24",
+      "task": "1級土木の教材（civil1-textbook）を出典にする 3 記事で、市販書籍との逐語一致 7 件が check-reference-sources --deep を止めている",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-reference-sources"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a98dd63a08ef",
+      "verification": "node scripts/checks/check-reference-sources.mjs --deep exit 0・逐語一致 0 件",
+      "note": "Drive をマウントしたこの Mac で check-reference-sources --deep を回し、逐語一致 7 件（3 記事）の文を出して自分の言葉に書き直した（記事ごとに commit）: textbook-cast-in-place-pile の工法の並び 1 件、textbook-construction-business の書類の保存 1 件、textbook-management-subplans の品質管理の展開の手順・原価管理の手順・PDCA・数量の把握 5 件。書き直した後 --deep は逐語一致 0 件・exit 0（同時に出ていた transcript-method の 1 件は、自分の上書きを戻して解消）"
     }
   ]
 }
