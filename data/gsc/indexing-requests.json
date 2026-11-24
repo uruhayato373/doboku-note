@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-22T22-40-12Z",
-  "collectedAt": "2026-11-22T22:40:12.892Z",
+  "runId": "2026-11-23T22-40-10Z",
+  "collectedAt": "2026-11-23T22:40:10.063Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "139ca646f",
+  "scriptVersion": "dc99be2658",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 45,
+  "targetCount": 35,
   "items": [
     {
-      "slug": "/exam/pe-construction/past-exams/r08-road-iii-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road-iii-2",
+      "slug": "/standards/kinki/common/chapters/3-2/sections/8",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/8",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -30,76 +30,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/guide/koutou-shiken",
-      "url": "https://doboku-note.com/exam/pe-construction/guide/koutou-shiken",
+      "slug": "/standards/kinki/hikkei/chapters/1-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/1-1",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -115,8 +47,93 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/project-request-to-budget",
-      "url": "https://doboku-note.com/practice/project-request-to-budget",
+      "slug": "/standards/kinki/hikkei/chapters/12-11",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-11",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-2",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-3",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-3",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-4",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-4",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-6",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-6",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-7",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-7",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
@@ -132,8 +149,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/road-work-approval-vs-road-use-permit",
-      "url": "https://doboku-note.com/practice/road-work-approval-vs-road-use-permit",
+      "slug": "/standards/kinki/hikkei/chapters/3-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/3-2",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -149,25 +166,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/guide/market-value-check",
-      "url": "https://doboku-note.com/exam/civil-construction-1/guide/market-value-check",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/standards/chubu/special/chapters/6-7",
-      "url": "https://doboku-note.com/standards/chubu/special/chapters/6-7",
+      "slug": "/standards/kinki/hikkei/chapters/4-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-2",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",

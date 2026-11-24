@@ -103,6 +103,11 @@ function mockYoutube(f) {
           const video = items.find(x => x.id === 'newvid00001');
           if (video) { delete video.status.publishAt; mode.staleScheduleReads--; }
         }
+        if (mode.resignThumbnail) {
+          // 非公開動画の表紙は読み返すたびに署名（sqp・rs）とホストが変わる（DN-1239）
+          const video = items.find(x => x.id === 'newvid00001');
+          for (const v of Object.values(video?.snippet.thumbnails ?? {})) v.url = v.url.replace('https://example.test/', 'https://i9.example.test/') + `?sqp=${calls.read}&rs=x${calls.read}`;
+        }
         if (mode.staleTagReads > 0) {
           const video = items.find(x => x.id === 'newvid00001');
           if (video) { delete video.snippet.tags; mode.staleTagReads--; }
@@ -196,6 +201,22 @@ test('APIが制作開示 false を省略しても、他の投稿同一性が合�
   api.mode.afterInsert = () => { delete api.db.get('newvid00001').status.containsSyntheticMedia; };
   assert.equal((await execute(f, api)).result, 'private-ready');
   assert.equal(api.calls.insert, 1);
+});
+
+test('表紙 URL の署名とホストが読み返しで変わっても、同じパスなら表紙を確認済みにして予約する（DN-1239）', async t => {
+  const f = fixture(t), api = mockYoutube(f);
+  api.mode.resignThumbnail = true;
+  assert.equal((await execute(f, api)).result, 'private-ready');
+  assert.equal(rowOf(f.root).thumbnail.status, 'set');
+  assert.equal((await execute(f, api, 'schedule')).result, 'scheduled-verified');
+  assert.equal(api.calls.thumbnail, 1);
+});
+
+test('読み返しの表紙のパスが違えば（別の世代の表紙）確認済みにしない', async t => {
+  const f = fixture(t), api = mockYoutube(f);
+  api.mode.afterThumbnail = () => { api.db.get('newvid00001').snippet.thumbnails = { high: { url: 'https://example.test/old-thumbnail.png' } }; };
+  assert.equal((await execute(f, api)).result, 'private-thumbnail-unverified');
+  await assert.rejects(execute(f, api, 'schedule'), /表紙のAPI応答・読取が未確認/);
 });
 
 test('アップロード直後のタグ反映遅延は再読取し、別動画を投稿しない', async t => {
