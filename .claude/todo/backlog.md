@@ -489,6 +489,79 @@
 
 **完了条件**: 土曜の収集の記録に x-own-metrics と reconcile-x の実行と件数（取得した投稿数・照合の対象・結べた数）が残り、`node scripts/x/x-sync-status.mjs` の「期限超過・公開未確認」が、収集の翌日に前週の予約ぶん 0 件になる。
 
+**進み（2026-11-24）**: 今は入れないと判断した。x-own-metrics が使う twitter CLI の認証先が投稿用の @doboku373 になっている件（DN-1034・X ポリシー §11.7 と違う）が先で、
+> doboku-note@1.0.0 auth:status
+> node scripts/ops/playwright-auth.mjs status
+
+{
+  "ok": false,
+  "command": "status",
+  "results": [
+    {
+      "ok": false,
+      "service": "note",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "coconala",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "kdp",
+      "status": "expired",
+      "reason": "account markerが無くログインフォーム（パスワード欄）が出ている",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "x",
+      "status": "blocked",
+      "reason": "page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at https://x.com/home\nCall log:\n  - navigating to \"https://x.com/home\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "ok": false,
+      "service": "instagram",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "google",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "a8",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "moshimo",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "afb",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    }
+  ]
+} の X も blocked。このまま土曜の収集に自動で入れると、投稿用のアカウントで毎週読みに行くことになる。DN-1034 で運営者の個人アカウントへ認証し直した後に、scripts/lib/weekly-collect-plan.mjs へ段を足し、tests/weekly-collect-plan.test.mjs の『SNS の段は無い』の検査を直す（後段の X の段として x-own-metrics → registry -- reconcile-x --commit）。
+
 
 ### [DN-1262] note の売上の取り込みで、公開中の記事が商品 ID を持たない（article:unknown-…）まま記録される
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
@@ -499,7 +572,7 @@
 
 **完了条件**: 公開中の記事の売上が unknown で記録されないことをテストで確かめる。次の土曜の収集で sales.json に article:unknown- が増えない。
 
-
+**進み（2026-11-24）**: 原因を確かめた。売上の取り込み（scripts/note/note-sales-fetch.mjs → scripts/lib/sales-normalize.mjs の resolveSaleEntry）は、既存の記録の題名・手当表（SINGLE_ARTICLE_TITLE_RULES）・想定工事バンク・マガジンのカタログの順に引き、公開中の記事の台帳（.claude/state/note-published.json）は見ていない。題名は note-published.json と完全に一致する（11/15 の 2 件とも）。ただし題名から productId を決める規則が無い: 『article:<utmCampaign>』は売上の記録と 9 件一致・29 件不一致（civil-1-keiken-pack-24 と utm civil1-keiken-pack-koji24 など）で、使えば初めて売れた記事に誤った id を付ける。決めること（運営者か次の担当）: (1) 記事の frontmatter に売上の productId（例 salesProductId）を持たせて取り込みがそれを引く、(2) 初めて売れた記事は unknown のまま入れず、記事のパスを添えて段を止める、のどちらにするか。(1) なら公開の手順（note-unpublished の点検）に欄の必須を足す。
 
 
 ### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
