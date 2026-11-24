@@ -10880,6 +10880,19 @@
       "commit": "9b8a0ab790fc",
       "verification": "guide-fact-checker で mext.go.jp の報告 PDF と engineer.or.jp の申込み案内 PDF を取得し pdftotext で原文と照合（6 箇所すべて一致）",
       "note": "改訂コンピテンシーの文言（社会、経済及び環境・文化的価値の尊重・持続可能な成果の達成）を、文部科学省の技術士分科会報告（令和5年1月25日改訂・別紙2）と日本技術士会の令和8年度受験申込み案内（15・81ページの新旧対照表）で照合し、口頭試験対策 3 本と業務経歴票の書き方の記述がすべて一致。直しなし"
+    },
+    {
+      "id": "DN-1274",
+      "at": "2026-11-24",
+      "task": "建設部門の口頭試験・自治体職員向け無料記事（nd74226a91a18）のリンクを、建設部門もくじ・L1・口頭試験対策 2 本へ入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "eb892fdf8313",
+      "verification": "note-update-body の API 実体検証 OK（4 本）・audit-note-funnel --live で D5 0 件・check-note-funnel ドリフトなし。有料 2 本は添付復元 1/1・境界は paidBoundary の直前を確認。有料エリア内のリンクは公開 API では見えないためスクリプトの新しい文の一致で確認",
+      "note": "自治体職員向け無料記事（nd74226a91a18）への案内を、建設部門もくじ・L1・口頭試験対策 2 本（n7279ca0d926f・n296a88f64ac2・n5bc0bcde96ac・n1fcaf65dc75b）へライブ反映"
     }
   ]
 }
