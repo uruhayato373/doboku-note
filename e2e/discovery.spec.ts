@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test';
 
 test('テーマの絞り込み解除で全記事リンクが戻る', async ({ page }) => {
   await page.goto('/topics/concrete');
-  const links = () => page.locator('main a').evaluateAll(a => a.map(x => x.getAttribute('href')).sort());
+  // 比べるのは記事へのリンクだけ。右の欄の追従目次はスクロール位置で出す節が入れ替わるので、ページ内の `#…` は外す
+  const links = () => page.locator('main a').evaluateAll(a => a.map(x => x.getAttribute('href')).filter(h => !h?.startsWith('#')).sort());
   const before = await links();
   await page.getByText('絞り込み', { exact: true }).click();
   const category = page.getByLabel('資格・領域');
