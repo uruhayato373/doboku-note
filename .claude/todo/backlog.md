@@ -1909,6 +1909,9 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **進み（2026-11-21・DN-0612 P7）**: X の分は済んだ。下書きの `status.json` は全部消え（PR #1695・#1697）、読み手は台帳の入口（`loadXPosts`）へ切り替わった。残りは Instagram の固定投稿 3 件の `status.json`（`content/sns/instagram/profile-pinned/{pe-first-stage-route,start-guide,concrete-route}/`）と、Drive の旧日付フォルダの採用表紙。
 
+**進み（2026-11-24）**: 残る写しは Instagram の固定投稿 3 件の status.json（content/sns/instagram/profile-pinned/{pe-first-stage-route,start-guide,concrete-route}/）。status.json・posted.json を読むコードは scripts と tools に 20 本以上あり（ig-graph-publish・ig-status・verify-ig-status・fetch-ig-insights・prepare/publish/prune-instagram-video-pack-reels ほか）、Instagram の読み手を台帳の入口へ差し替える作業は一日では済まない。Instagram は SNS の保留中（2026-10-17〜）で投稿の経路が動いていないので、差し替えは再開の判断と合わせて行う。Drive の旧日付フォルダは運営者の了承待ちのまま。
+
+
 ### [DN-0628] iOS 択一アプリ（土木施工管理技士 1級＋2級と、技術士アプリへの総監追加）を App Store で公開する
 タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
 
