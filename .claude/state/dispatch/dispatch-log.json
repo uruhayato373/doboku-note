@@ -11030,6 +11030,19 @@
       "commit": "05e4fd0942ca",
       "verification": "data/gsc/url-inspection 10/21・11/05・11/12・11/19 と data/gsc/ui/2026-11-01 を比較（gsc-index-auditor）",
       "note": "URL 検査で検出・未登録が 206→44・登録率 85.6%→96.0%、/standards 配下は 125→19。判断は効果ありの見込み（施策は同時投入で分けられない）。理由別の書き出しは 11/01 が最新で、未クロール 196 件と /standards-data/ の後の値は欠測（0 と扱わない）。前後の件数と判断と、12/01 の書き出しで確かめる 2 項目を DN-0420 に記録した"
+    },
+    {
+      "id": "DN-1119",
+      "at": "2026-11-25",
+      "task": "55歳までの方向「発注者の目で配線した土木の情報拠点」を戦略文書に反映する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3374480160db",
+      "verification": "check-doc-refs・check-relative-links・check-qualification-ssot・check-exam-calendar・check-datasets・check-qualification-market が通過（05e4fd0942）",
+      "note": "01 に 55 歳までの方向（情報拠点・2 段構え・集める基準・建設 DX を本命にしない・測り方）、02 に長期の方向と中小企業診断士（候補）、18 に情報拠点の中での役割を書いた。測り方は business-direction.json の観測値 2 つ（gscBaselineClicks・docsToExamTransitions・目標値なし）。診断士は qualification-registry に candidate で登録し、試験の 3 台帳と market-scan に足した（一次情報 jf-cmca.jp）"
     }
   ]
 }
