@@ -2708,18 +2708,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 - 統合（2026-11-23 の棚卸し・旧カード「PR と deploy で同じ中身を最大 4 回フルビルドしているのを、ビルドの成果物の使い回しで減らす」から）: PR の E2E（e2e.yml の約 223 秒の build）も ci.yml の artifact を受け取る形にできるか、という経路を足す
 
 
-### [DN-1180] Dependabot #119（basic-ftp の DoS）を解消する
-タグ: [領域:管理] [種類:改善] [起票:2026-11-13]
-
-**起点**: 11/13 の X 返信の台帳を push したとき、GitHub が Dependabot の警告 1 件（#119・moderate）を出した。`basic-ftp` 5.3.1 の MLSD パーサーが `__proto__` という fact 名で例外を投げ、`Client.list()` が落ちる（DoS）。
-
-**現況**: `scope: development` の推移依存（`get-uri` ^5.0.2 ← proxy-agent 系）。`package-lock.json` には残っているが `npm ls basic-ftp` は空で、手元の node_modules には入っていない。サイトの配信コードからは呼ばれない。
-
-**やること**: `npm audit` / `npm update` で `basic-ftp` を修正版へ上げるか、依存元ごと剪定できるか見る。影響がなければ警告を取り下げる。
-
-**進み（2026-11-15）**: `package.json` の overrides で get-uri の下の basic-ftp を 6.2.4 に上げ、#1601 で develop へ入れた。Dependabot の警告は main で判定されるので、残りは main への昇格の後に警告が閉じたかを見ることだけ。
-
-**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '.[] | select(.state=="open")'` が 0 件。
 
 
 
