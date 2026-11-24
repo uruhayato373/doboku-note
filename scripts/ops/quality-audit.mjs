@@ -55,7 +55,9 @@ const JSON_OUT = join(OUT_DIR, 'audit-latest.json');
 const MD_OUT = join(OUT_DIR, 'audit-latest.md');
 const CENSUS = join(OUT_DIR, 'census.json');
 
-const argv = process.argv.slice(2);
+// 引数は CLI として起動したときだけ読む。weekly-collect は CHECKS を import するので、process.argv を読むと
+// 収集側の `--only <段>` を検査の id と取り違え、import の時点で exit 2 になる（2026-11-24・--only の取り直しが全段で止まっていた）。
+const argv = isCliEntry(import.meta.url) ? process.argv.slice(2) : [];
 const CI = argv.includes('--ci');
 /**
  * --report-only: ci:false の検査**だけ**を実行し、FAIL があれば exit 1 にする。
