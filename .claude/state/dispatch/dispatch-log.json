@@ -10867,6 +10867,19 @@
       "commit": "7c9bc0adb16f",
       "verification": "node scripts/checks/audit-note-funnel.mjs --live（公開 136 本）で D5 0 件・ドリフトなし",
       "note": "上下水道の無料 2 本（n1683f37bad7f・n3013d48a2864）へ CTA をライブ反映。残った 1 件は、総監へ進む記事が総監もくじを案内するのが正しいため note-funnel.json に冒頭案内の例外を登録"
+    },
+    {
+      "id": "DN-1275",
+      "at": "2026-11-24",
+      "task": "技術士の改訂コンピテンシーの文言を一次資料で照合し、口頭試験対策 3 本とそろえる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9b8a0ab790fc",
+      "verification": "guide-fact-checker で mext.go.jp の報告 PDF と engineer.or.jp の申込み案内 PDF を取得し pdftotext で原文と照合（6 箇所すべて一致）",
+      "note": "改訂コンピテンシーの文言（社会、経済及び環境・文化的価値の尊重・持続可能な成果の達成）を、文部科学省の技術士分科会報告（令和5年1月25日改訂・別紙2）と日本技術士会の令和8年度受験申込み案内（15・81ページの新旧対照表）で照合し、口頭試験対策 3 本と業務経歴票の書き方の記述がすべて一致。直しなし"
     }
   ]
 }
