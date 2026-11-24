@@ -90053,6 +90053,19 @@
       "verifiedAt": "2026-11-21T03:34:43.609Z",
       "width": 1280,
       "height": 670
+    },
+    "content/site/civil-construction-2/primary-r08-kouki/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/primary-r08-kouki/ogp.png",
+      "sha256": "9a22b01b287383a6d2f0f07533176b314781ab67a0a37b460b65d72e86f30098",
+      "bytes": 664855,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-24T08:47:13.864Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "0a8da72619bddf21"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
