@@ -1082,6 +1082,8 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **完了条件**: 2級の一次 過去問 PDF と e-01 が令和3〜8年度（前期・後期）で note・KDP に反映されたら、このカードを削除する。
 
+**進み（2026-11-24）**: JCTC の過去問ページ（https://www.jctc.jp/mondai/）に 2級土木 令和8年度（後期・10/25 実施）の問題と正答肢が掲載済み（ファイル名の日付 2026-10-26）: https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaia1.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaia2.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaia3.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib1.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib2.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib3.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_seitou.pdf 。止まっていた『掲載待ち』は解けた。残りはやること (1)〜(3)（past-exam-archive で取得・退避 → exam-questions-import で primary-r08-kouki を作り原本と 1 問ずつ照合 → e-01 の spec と過去問 PDF へ足す）と、note・KDP への反映（ログインが要る）。
+
 
 ### [DN-1075] 技術士 建設部門の設問ページを残る 6 科目（R07・R08・約 96 本）へ広げるかを決め、広げる
 タグ: [領域:サイト] [時期:2027-01] [種類:制作] [起票:2026-11-10]
@@ -1414,13 +1416,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **完了条件**: 公開済みの商品が note 導線に入り、`npm run check-home-exam-coverage` が通り、専用のカード写真が本番で出ている。
 
-
-
-
-
-
-
-
+**進み（2026-11-24）**: (1) の公開状態を確かめた。config/products.json の舗装 5 件・測量士 3 件はすべて published:true で noteUrl がある。note 導線（config/note-funnel.json）は資格ごとに L2 のもくじ記事（note に公開した記事）を前提にしていて、content/note/舗装・content/note/測量士 にはもくじ記事が無い。配線するには、もくじ記事を書いて note に公開する（ログインが要る）ことが先。(2) のカード写真はまだ。
 
 
 ### [DN-1153] 技術士の売れ筋 note のタグ先頭 4 個を記事固有にする試験を 1 本で行い、題名変更の前後比較を実験として登録する
