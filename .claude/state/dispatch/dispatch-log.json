@@ -11004,6 +11004,19 @@
       "commit": "7bea9fad52af",
       "verification": "#1726 merged・tests/check-a8-ui-run.test.mjs 6/6 通過（旧版の検算では 1 件落ちる）・現行の検算を 11/21・11/14 の実データに当てて FAIL 0",
       "note": "原因: 11 月は A8 の成果が 0 件で、result-detail は CSV ボタンが出ず noData・0 行・rawFile null で正常終了する（emptyOk の仕様）。旧版の検算 check-a8-ui-run がそれを rawFile の欠落として FAIL にしていた。#1726 で emptyOk の 0 件を INFO に分けた。11/21 分は c3a1d90d07 で記録済み。11/28 の実走は DN-0819 で見る"
+    },
+    {
+      "id": "DN-0999",
+      "at": "2026-11-25",
+      "task": "コンクリート技士の教材の規定値を JIS A 5308:2024 と R 5210:2026 の本文で照合する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7110c324b09f",
+      "verification": "照合の記録はカードと git 履歴・note 反映は note-update-body ok（11/24）",
+      "note": "旧版の本文と改正概要・日建連の手引きで照合し、正答が変わる差は 0 件。正答に関わらない 2 件は原稿と note を直した（11/24）。表の数値そのもの（A 5308:2024・R 5210:2026・A 6204:2026）は本文が読めず未確認のまま、運営者の決定（2026-11-25）で閉じ、JISC の再開後の照合を 🟢 に起票し直した"
     }
   ]
 }
