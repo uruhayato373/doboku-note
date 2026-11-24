@@ -10555,6 +10555,23 @@
       "commit": "947bfdd8193c",
       "verification": "docs/strategy/02_設計思想.md:18 が『取得予定』・24_ の順番と線引きへのリンク",
       "note": "運営者の決定（2026-11-01・2027 年 11 月に受験）を 02_設計思想.md に反映し、行政書士を『取得予定』とした（カードの『03』は該当する文書が無く、01_プロダクト戦略.md にも行政書士の記述は無い）。展開する／しないと時期は 24_土木の情報拠点と副業の入口2026-11.md（2026-11-11）で決まっている: 合格前は技術者の要件・経審の記事から施工管理の教材へ送る。受験者向けの教材と書類作成の受託は合格・登録の後。制作カードは合格後に切る（決定どおり）"
+    },
+    {
+      "id": "DN-1199",
+      "at": "2026-11-24",
+      "task": "textbook（/exam/civil-construction-1/textbook/network-schedule）が画面の点検で不合格（content）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "audit-svg"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "542a68bf63d2",
+      "verification": "npm run site-visual-review -- record で 合格 1・3 図の live と repo の sha256 一致",
+      "note": "本番（https://doboku-note.com）を撮り直し（作業票 20261124T064636Z・27 枚）、site-page-visual-auditor が pass と判定、record で台帳に合格を記録した。図 figure-3-17・3-18・3-19 は配信（storage.doboku-note.com）の sha256 がリポジトリの直した版と一致（キャッシュは入れ替わり済み）。EST/LFT 併記図の③の 16 と 12 は重ならない。minor（pass のまま）: w375 で演習図の文字が約 7px、w768 で転職バナーの文言が切れる（DN-1226 と同じ部品）。再発防止は #1604 で audit-svg の P2 に行間の規則を足したこと"
     }
   ]
 }

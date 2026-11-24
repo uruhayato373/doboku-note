@@ -714,18 +714,6 @@
 **完了条件**: ハブが本番にあり、EXP-045 に公開日と次回日が入っている。
 
 
-### [DN-1199] textbook（/exam/civil-construction-1/textbook/network-schedule）が画面の点検で不合格（content）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review:status] [起票:2026-11-14] [進行中]
-
-**起点**: 2026-11-14 の画面の点検（`npm run site-visual-review`・作業票 20261114T095559Z）で、textbook（/exam/civil-construction-1/textbook/network-schedule）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
-
-- content [w1440]: 図「LFT 計算ルール」の枠内で「手順1: 終了イベントの LFT = プロジェクト工期」の 2 行目が「手順2」の行に重なって読めない。直下の EST/LFT 併記図でも③の「16」と「12」が上下に重なっている。（w1440-03.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys textbook` で撮り直して判定し、record で pass と台帳に記録される。
-
-**進捗（2026-11-15・PR #1604・main a8203cb49）**: 原因は図のソース（行間 8px）で、検出（audit-svg の P2）に行間の規則を足し、全 1,635 図から 34 図を直して本番へ出した。R2 へは 34 図とも上がったが、CDN の purge が 401 で失敗し（DN-0756・r2-sync run 43660863887）、14 図は旧版が配信されている（figure-3-17・3-18・3-19 を含む。キャッシュは 1 日で切れる）。本番を撮り直した画面の点検は旧版が写って不合格（台帳には未記録）。**残り**: キャッシュが入れ替わった後（2026-11-16 10:00 JST 以降、または手動 purge の後）に、14 URL が新しい版を返すことを確かめ、`npm run site-visual-review -- prepare --keys textbook --base https://doboku-note.com` → 判定 → record で合格にして、このカードを閉じる。描き直しが要る 1 図は DN-1209、検出の HIGH 化は DN-1210。
 
 ### [DN-1196] 土曜の収集を軽くし（重い照合の頻度を下げる）、再起動で途中終了した段を自動で回し直す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-14] [進行中]
