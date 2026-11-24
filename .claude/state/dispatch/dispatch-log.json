@@ -10987,6 +10987,23 @@
       "commit": "02a8e265860b",
       "verification": "#1726 merged（2026-11-24）・tests/weekly-collect-plan.test.mjs が通過・原因を runs.json と indexing-history.json で裏付けた",
       "note": "原因: gsc 段は取得に失敗したのではなく、登録リクエストが 20 時間以内（毎朝のジョブが 2 時間前に送信）・理由別 CSV が期限内（次は 12/01）で、やることが無く終わっていた。そこへ取得していない週にも検算 gsc-ui-run を回して実検査 0 で落ちていた。#1726 で、run が増えた回だけ検算を回すようにした（weekly-collect-plan.mjs の verifyIfNewRun）。11/28 の実走は DN-0819 で見る"
+    },
+    {
+      "id": "DN-1266",
+      "at": "2026-11-25",
+      "task": "土曜の収集の a8 段が検算（a8-ui-run）で落ちる（rawFile が null・最後の ok は 10/31）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/check-a8-ui-run.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7bea9fad52af",
+      "verification": "#1726 merged・tests/check-a8-ui-run.test.mjs 6/6 通過（旧版の検算では 1 件落ちる）・現行の検算を 11/21・11/14 の実データに当てて FAIL 0",
+      "note": "原因: 11 月は A8 の成果が 0 件で、result-detail は CSV ボタンが出ず noData・0 行・rawFile null で正常終了する（emptyOk の仕様）。旧版の検算 check-a8-ui-run がそれを rawFile の欠落として FAIL にしていた。#1726 で emptyOk の 0 件を INFO に分けた。11/21 分は c3a1d90d07 で記録済み。11/28 の実走は DN-0819 で見る"
     }
   ]
 }
