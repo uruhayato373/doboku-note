@@ -114,6 +114,7 @@
 - 統合（2026-11-23 の棚卸し・旧カード「PR の E2E の再ビルドをやめる（主要 3 本を ci.yml の build ジョブで回す）」から）: e2e.yml の PR 再ビルド（187〜236 秒）を ci.yml の build ジョブの後段に統合する案。2026-11-13 の実測で律速は ci の build ジョブ（ci 5.5 分・e2e 4.7 分）で、減るのはランナー時間だけ
 
 - 統合（2026-11-23 の棚卸し・旧カード「CI の構成変更（PR #1540）の 1 週間後の計測を取り直す」から）: PR #1540 の 1 週間後に npm run ci:stats -- --limit 500 --failures で取消・失敗・赤の時間を取り直し、pre-commit の穴 3 種（magazine-cta-reachability・media-references・backlog-schema）の赤を記録する。基準は変更前 9 時間で成功 10・取消 18・失敗 8・run 6.9 分・赤 約 4 時間
+- 計測と一手（2026-11-25）: ci:stats（直近 500 件・11/23〜24）で develop のゲート 84 回は成功 47・取消 30・失敗 7、赤の時間 244.7 分。読めた失敗 6 回は generated-indexes 3・dispatch-log 2・kindle-prices 1 で、どれも pre-commit の GATES に無かった。対象のファイルを stage したときだけ回る GATE を 3 つ足した（PR #1741）。PR の E2E はすでに主要導線だけ（smoke・navigation・cta・desktop）。**残り**: 目標値を決める（取消 30/84 の多さ＝同時実行の取消が主因かを先に見る）、夜間の visual・standards-render を止めるか（11/5 の方針）、build の飛ばし・E2E の統合（上の統合 4 項目）。
 
 
 
