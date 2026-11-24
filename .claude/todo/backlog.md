@@ -428,14 +428,6 @@
 完了条件: npm run check-external-links の『切れ』が 0 件になり、次の週次の report で #1475 が自動で閉じる。
 
 
-### [DN-1296] 上下水道の無料 note 2 本の冒頭パック・もくじの CTA がライブに未反映（audit-note-funnel D5）
-タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-24]
-
-**起点**: 2026-11-24、DN-1293 の確認で回した `node scripts/checks/audit-note-funnel.mjs --live`（公開記事 136 本を実検査）が D5 を 2 件出した。「上下水道部門から総監へ-無料」の冒頭パック（コアパック）CTA と、「口頭試験-水道下水道職の業務の語り方-無料」の冒頭パック・末尾もくじ CTA が、原稿にはあるが note のライブに無い。11/24 は note のログインが切れていて反映できなかった。
-
-**やること**: 運営者の `npm run auth:login -- --service note` の後、監査の案内どおり `npm run note-append-cta` か `publish-note --update` で 2 本へ反映する。
-
-**完了条件**: `node scripts/checks/audit-note-funnel.mjs --live` の D5 が 0 件。
 
 
 ### [DN-1294] 1級管工事 第二次の予想の当たり外れと売上・クリックを試験後 14 日以内に記録し、来季の商品設計へ渡す

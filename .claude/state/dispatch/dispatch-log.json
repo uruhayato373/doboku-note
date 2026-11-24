@@ -10850,6 +10850,23 @@
       "commit": "418ac571b154",
       "verification": "kdp-publish --sync-status で e-01 が販売中・¥1,650・未出版の変更なし／note 公開 API で題名・価格 1980・境界／check-note-attachments:live --only n4963f45bd6f8 が充足 1 不足 0（運営者が実行）／deploy:main rc=0",
       "note": "令和8年度 後期の過去問ページを公開（66問・原本照合済み）。Kindle e-01 を令和3〜8年度・762問の v1.1 に差し替えて ¥1,650 で出版申請（本棚で販売中・ASIN 維持）。note の過去問 PDF を 762 問・¥1,980 に差し替え"
+    },
+    {
+      "id": "DN-1296",
+      "at": "2026-11-24",
+      "task": "上下水道の無料 note 2 本の冒頭パック・もくじの CTA がライブに未反映（audit-note-funnel D5）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-funnel"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7c9bc0adb16f",
+      "verification": "node scripts/checks/audit-note-funnel.mjs --live（公開 136 本）で D5 0 件・ドリフトなし",
+      "note": "上下水道の無料 2 本（n1683f37bad7f・n3013d48a2864）へ CTA をライブ反映。残った 1 件は、総監へ進む記事が総監もくじを案内するのが正しいため note-funnel.json に冒頭案内の例外を登録"
     }
   ]
 }
