@@ -10893,6 +10893,23 @@
       "commit": "eb892fdf8313",
       "verification": "note-update-body の API 実体検証 OK（4 本）・audit-note-funnel --live で D5 0 件・check-note-funnel ドリフトなし。有料 2 本は添付復元 1/1・境界は paidBoundary の直前を確認。有料エリア内のリンクは公開 API では見えないためスクリプトの新しい文の一致で確認",
       "note": "自治体職員向け無料記事（nd74226a91a18）への案内を、建設部門もくじ・L1・口頭試験対策 2 本（n7279ca0d926f・n296a88f64ac2・n5bc0bcde96ac・n1fcaf65dc75b）へライブ反映"
+    },
+    {
+      "id": "DN-1238",
+      "at": "2026-11-24",
+      "task": "管工事の機器別バンク（公開中）の掃除口の間隔と最小流速の出典を確かめて直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "出典の取り違えは記事 1 本の執筆時の誤りで、数値の出典を機械で判定する方法が決められない（数値ごとの出典照合は公開前の fact-check で行う運用のまま）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d1044078816c",
+      "verification": "公開 API で本文から「0.6m/s」「15m以内」が消えたこと・価格 1980・境界は「機器別の模範解答」の直前を確認。note-update-body の API 実体検証 OK",
+      "note": "出典を確認できなかった最小流速 0.6m/s と掃除口の間隔（15m・30m）を外した原稿を、管工事の機器別バンク（n538762ec7f12）へライブ反映。運営者の承認で、未反映だった運営者の資格の記述・受水タンクの点検スペースの直しも同時に反映"
     }
   ]
 }
