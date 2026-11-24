@@ -10940,6 +10940,23 @@
       "commit": "25c408c470dc",
       "verification": "運営者の check-note-attachments:live 8/8 充足・公開 API で価格 780 と無料部分の末尾を確認・スクリプトの有料維持検証 OK",
       "note": "下水道の模範解答 8 本へ note-attach-file --commit で PDF を再添付して更新（エディタに残っていた新しい本文＋PDF）。負債台帳は解消済みへ移し、中断記録から外した"
+    },
+    {
+      "id": "DN-1301",
+      "at": "2026-11-25",
+      "task": "note 同期の結果の結び付けが stderr でずれる・添付失敗の応答を残さない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/spawn-merged-output.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8f430ceef2be",
+      "verification": "tests/spawn-merged-output.test.mjs 3 件が通過・旧方式で同じずれを再現・PR の CI 全通過",
+      "note": "note-sync-routine の子の出力を同じファイル記述子へ集めて順序を保ち（runNodeMerged）、添付の失敗理由に /api/v2/attachments/upload の応答を載せた（PR #1740 を develop へ squash）"
     }
   ]
 }
