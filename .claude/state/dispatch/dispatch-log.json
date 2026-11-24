@@ -10447,6 +10447,19 @@
       "commit": "9aba9fbbb3e0",
       "verification": "git rev-parse bbb3ff1e3^{tree} と 976d59eab^{tree} が一致・du -sh out が 1.8G・gh run list ci.yml develop push 7 日 162 件",
       "note": "やらないと決めた（2026-11-24）。(1) tree は一致する（main のマージ commit bbb3ff1e3 と develop 976d59eab の tree が同じ b7fcfbe）が、ビルドの中身が時刻で変わる: magazine-placement の isAfterExamDay（試験日で商品を切り替え）と affiliate-placement の掲載期間（period from/until を Date.now() で解く）。検査時に作った out/ を後で出すと、その間の切り替えが本番に乗らない。(2) out/ は手元で約 1.8GB・15,022 ファイル（exam 981M・standards 578M）。develop の push の CI は直近 7 日で 162 回あり、毎回の上げと昇格時の下ろしが build 232 秒の節約を食う見込み（実測はしていない）。(3) 公開リポジトリの artifact は誰でも取れる。MAIL_SENDER_ADDRESS（/privacy に出る値だが git に書かない方針）を全 push の CI ビルドへ渡すことになる。PR の E2E へ渡す経路（統合した旧カード）も (1)(2) で同じ。再検討の条件: 時刻で切り替わる CTA をクライアント側の判定へ移したとき"
+    },
+    {
+      "id": "DN-1270",
+      "at": "2026-11-24",
+      "task": "/practice/formwork-removal-timing に収益導線を 1 つ足す（28 日で流入 544 人・導線なし）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "338cb9e4fda9",
+      "verification": "curl https://doboku-note.com/practice/formwork-removal-timing で data-cta=affiliate の placement 6 種・npx tsx scripts/reports/report-monetization-coverage.mts --check で収益導線ゼロ 0・node --test tests/monetization-coverage.test.mjs 3 pass",
+      "note": "起票の前提が誤検知だった。本番の /practice/formwork-removal-timing には転職バナーが 6 枠（article-banner・-2・-3・-end・article-rail・-2）出ている。収益カバレッジの deriveAffiliate が 11/15 の画像バナー化の後も旧い枠名（article-end・mid・inline）だけを見ていて、全記事を『アフィリなし』と数えていた。#1731 で直し、高流入で収益導線ゼロは 0 件。note の CTA は足さない（実務記事は試験・note の案内を置かない＝book-coverage-expansion.md:34）。残る課題はアフィリのクリックが 28 日で 0 件なことで、これは配置の実験の側で見る"
     }
   ]
 }

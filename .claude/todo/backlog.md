@@ -2626,14 +2626,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 
 
-### [DN-1270] /practice/formwork-removal-timing に収益導線を 1 つ足す（28 日で流入 544 人・導線なし）
-タグ: [収益化] [領域:サイト] [種類:改善] [起票:2026-11-21]
-
-起点: 週次レビュー（2026-11-16〜2026-11-22）。計測ダイジェスト 2026-W46 の OPP-40eb9c315c。/practice/formwork-removal-timing は 28 日で流入 544 人なのに収益導線が無い（note・アフィリ・ココナラのいずれも無い）。
-
-やること: ページの現物と既存の CTA の部品を確かめ、読者の悩みに合う導線を 1 つ足す（資格の入口・note の商品・アフィリのどれが合うかを選ぶ）。内容は content-site のルールと商品の正本 config/products.json に従う。
-
-完了条件: 導線が本番で表示され、28 日後に表示あたりのクリックを記録して比べた記録がある。
 
 
 
