@@ -1031,22 +1031,6 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 **完了条件**: 比べた日と結果、広げる・直す・やめるの判断がこのカードか後継カードに書いてある。
 
 
-### [DN-1076] 2級土木 令和8年度 第1次検定（後期）の公式問題が掲載されたら取り込み、一次の過去問 PDF を令和8年度（前期・後期）まで足す
-タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-11-10]
-
-**起点**: 2026-11-10、1級・2級土木で展開できる商品をすべて進める判断（運営者）。2級の一次（後期・2026-10-25 実施）の問題・正答肢は、11-10 時点で JCTC の過去問ページ（https://www.jctc.jp/mondai/）に未掲載。前期は試験の約 2 週間後に掲載されていた。
-
-**判断理由（共通事業方針）**: 読者の課題＝2027 年の 2級一次を過去問中心に仕上げたい受験者（A: 資格）。支払う理由＝最新年度まで入った全問を手元で解ける。需要の証拠＝2級一次の流入はあるが PDF の販売は未検証（DN-0957）。次の検証＝2027 年の前期の山の販売。
-
-**やること**: (1) 掲載を確かめたら past-exam-archive の手順で後期の問題・正答肢を取得し、Drive vault へ退避 (2) exam-questions-import で content/site/civil-construction-2/primary-r08-kouki を作り、原本と 1 問ずつ照合、問題台帳に記録 (3) content/kindle/books/e-01/spec.json に primary-r08-zenki・primary-r08-kouki を足して 2級の一次 過去問 PDF（content/note/1級・2級土木/2級土木/一次択一-過去問PDF）と Kindle e-01 を令和8年度版にする（前期だけで先に作り直さない＝note の添付の上限と再反映の手間を 1 回にする）
-
-**完了条件**: 2級の一次 過去問 PDF と e-01 が令和3〜8年度（前期・後期）で note・KDP に反映されたら、このカードを削除する。
-
-**進み（2026-11-24）**: JCTC の過去問ページ（https://www.jctc.jp/mondai/）に 2級土木 令和8年度（後期・10/25 実施）の問題と正答肢が掲載済み（ファイル名の日付 2026-10-26）: https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaia1.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaia2.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaia3.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib1.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib2.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib3.pdf https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_seitou.pdf 。止まっていた『掲載待ち』は解けた。残りはやること (1)〜(3)（past-exam-archive で取得・退避 → exam-questions-import で primary-r08-kouki を作り原本と 1 問ずつ照合 → e-01 の spec と過去問 PDF へ足す）と、note・KDP への反映（ログインが要る）。
-
-**進み（2026-11-24・やること (1)(2) は済み）**: (1) 後期の第一次検定・正答肢・第二次検定の原本 3 本を在庫台帳に足し、公式から取得して Drive へ退避した（c2e17c049・check-past-exam-inventory WARN 0）。(2) content/site/civil-construction-2/primary-r08-kouki を作り、本番に出した（10d25de27・main 712389740・/exam/civil-construction-2/primary/r08-kouki が HTTP 200・66 問・図 12 枚）。正答は公式の正答肢と 66 問すべて一致。書き手と別のエージェント 2 体が原本のページ画像と 1 問ずつ照合し、設問文・選択肢・正解・図はすべて一致、解説の誤り 1 か所（No.30）と言い回し 2 か所を直した。問題台帳に 66 問の照合済みと公式正答を記録（check-past-exam-ledger FAIL 0）。残り: (3) e-01 と note の過去問 PDF を令和3〜8年度（762 問）へ広げること。e-01 の前書きの出題傾向は令和3〜7年度の 630 問から集計した文なので、spec.json に令和8年度を足すときは kindle-book-composer で前書きを集計し直す（spec だけ変えると本と前書きが食い違う）。note の商品 civil-2-takuitsu-pdf の題名・pageMatch（r0[3-7]）も、PDF を差し替えるときに合わせる。反映には note・KDP のログインが要る。
-
-価格の決定（2026-11-24・運営者）: 令和3〜8年度へ広げるときに、Kindle e-01 は 1 冊のまま ¥990 → ¥1,650（分冊しない）、note の過去問 PDF（civil-2-takuitsu-pdf）は ¥1,480 → ¥1,980 に変える。config/products.json と note-magazines.ts の価格は、KDP・note に反映した時点で書き換える（先に書くと実物と食い違う）。根拠は content/kindle/strategy.md の推奨価格の節。
 
 
 ### [DN-1075] 技術士 建設部門の設問ページを残る 6 科目（R07・R08・約 96 本）へ広げるかを決め、広げる
