@@ -10773,6 +10773,23 @@
       "commit": "2bb69432b243",
       "verification": "npm run drive-vault-sync -- --group source-transcript --verify --deep exit 0・不一致 0",
       "note": "Drive をマウントしたこの Mac で npm run drive-vault-sync -- --group source-transcript --verify --deep を回し exit 0（対象 245 件・存在確認 245・sha256 実照合 245・不一致 0）。『総監論文に求められるもの.md』も Drive の版（2026-10-29 に台帳を合わせた 26,554 bytes）で一致"
+    },
+    {
+      "id": "DN-1191",
+      "at": "2026-11-24",
+      "task": "朝の GSC の登録リクエストの記録が commit 前の検査で落ちるのを直す（Issue #1445）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/scheduled/gsc-indexing-daily.sh"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "365977442ead",
+      "verification": "gsc-indexing.log の 11/20〜11/24 が ok・button-not-found 0（11/21〜）・gh issue view 1445 が CLOSED",
+      "note": "朝の登録リクエストは 11/20〜11/24 の 5 日続けて rc=0（~/Library/Logs/doboku-note/gsc-indexing.log）で、記録は develop に入っている。button-not-found は #1689 の後の 11/21 以降 0 件（11/20 は 21 件）。Issue #1445 が閉じなかったのは gsc-indexing-daily.sh に成功時の --resolve が無かったためで、#1733 で足した。同じコマンドで #1445 を復旧クローズした"
     }
   ]
 }
