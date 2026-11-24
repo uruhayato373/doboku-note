@@ -3133,6 +3133,8 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **追記（2026-11-08）**: 公務員（土木）は運営者の決定で DN-1049 で立ち上げるので、このカードの対象から外す。
 
+**計測する URL（2026-11-24・建築の無料ガイド 3 本）**: 建築は対象から外したが、昇格の後の需要の記録として残す。引用は建設業振興基金の一次資料で照合済み（67 件中 62 件一致・令和8年度の公開に合わせて 5 か所を直した）。GSC 2026-10-20〜11-16（28 日・ページ単位）の基準値: `/exam/building-construction/guide/2kyu-keiken-kijutsu` 表示 804・クリック 66・平均 8.3 位、`/exam/building-construction/guide/niji-kakomon-keikou` 表示 423・クリック 19・8.1 位、`/exam/building-construction/guide/1kyu-keiken-kijutsu` 表示 34・クリック 2・6.9 位。
+
 **完了条件**: qualification-registry.json の portfolio を更新し、判断と理由を 06_多資格展開戦略.md の判断の記録へ書いたら、このカードを削除する。
 
 ### [DN-0428] 総監・建設部門の直前期（試験前）の価格と品揃えを確定する
