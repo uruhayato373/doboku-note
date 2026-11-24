@@ -10726,6 +10726,23 @@
       "commit": "61acd6b43375",
       "verification": "17 URL の 9/23 と 11/18 の google_canonical の比較（12 件が新 URL・残り 4 件の内訳は note 張り 3・張りなし 1）",
       "note": "再公開しないと決めた（2026-11-24）。9/23 の URL 検査（data/metrics/url-inspection/inspection-batch-2026-09-23T06-54-59.json・git a084aeeef）で google_canonical が旧 /docs/ だった 17 URL を、11/18 の URL 検査（data/gsc/url-inspection/2026-11-19T09-44-23.json）と比べた。12 件が新 URL に切り替わり、旧 URL のままは 4 件（labor-tribunal-act・pollution-control-manager・sexual-harassment・h21-secondary）。content/note から張られている 9 件は 6 件が切り替わり 3 件が残る。張られていない 7 件も 6 件が切り替わり 1 件（pollution-control-manager）が残る。両群とも切り替わりが進んでいて、note の被リンクが旧 URL を選ばせている形ではない（カードの決まり『両群とも切り替わるなら再公開しない』）。残る 4 件は 301 の転送のまま次の URL 検査で切り替わるのを待つ"
+    },
+    {
+      "id": "DN-1187",
+      "at": "2026-11-24",
+      "task": "毎晩の YouTube 予約で、worktree に素材が無いショートの予約が失敗する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "素材の取り寄せは予約の手順そのものに入った。失敗すれば youtube-daily が exit 1 で止まり、毎晩のタスクの結果に出る"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "067bec085759",
+      "verification": "scheduleShort の restore の行・台帳でショート 11 本が published（11/14〜11/19）",
+      "note": "直す候補の (b) が入っている: scripts/youtube/youtube-daily-release.mjs の scheduleShort が、予約（publish-youtube --phase upload）の前に shorts-factory restore で素材を Drive から専用の worktree へ戻す（2026-11-13 の 2 本の失敗を受けた修正・同じ関数のコメント）。通常動画も media pull で戻す。11/14 以降、ショート 11 本が手作業なしで予約・公開されている（台帳 content/registry/publications/youtube の published・11/14〜11/19）"
     }
   ]
 }
