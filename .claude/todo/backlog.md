@@ -2882,6 +2882,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 止まっている所（2026-10-26）: 本体 Mac の PDF 1,472 本を洗い出した。930 本は Drive 台帳と sha256 一致、71 本（content/note の配布 PDF。再生成で sha256 が必ず変わる）は台帳の版と手元が違い、470 本は台帳外（.tmp の作業用 433 本・.local/cache 37 本）。
 71 本の上書きと .tmp の扱い（Drive へ上げるか捨てるか）は判断が要り、「ローカルに原本を残さない」は削除を伴うので未着手。check-local-data は PDF 以外の申告外 171 件、check-drive-vault は .tmp/video-render の 37 件で落ちており、PDF では落ちていない。
 
+進み（2026-11-24）: 作り直した note の配布 PDF・カバーなど 95 件を Drive へ反映し（--force）、Instagram のハイライト画像 10 枚を登録した。check-drive-vault は FAIL 0・WARN 0。content/ など原本の置き場で台帳にも git にも無い PDF は 0 件。手元にしか無い PDF は 384 本（681MB）で、すべて .tmp（347 本・うち 11/10 以降 23 本）と .local/cache（37 本）の作業用・取得の控え。残りは (1) これらを消すかの運営者の判断（消すと戻せない）(2) check-local-data の PDF 以外の申告外 185 件（config/ogp/backgrounds・.claude/pdfs など）を local-data.json に区分するか置き場へ移すこと。
+
 
 
 
