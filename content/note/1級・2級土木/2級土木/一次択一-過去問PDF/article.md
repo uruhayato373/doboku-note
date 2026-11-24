@@ -7,7 +7,7 @@ notePublishedAt: "2026-07-11"
 noteId: "n4963f45bd6f8"
 title: "2級土木 第1次検定｜過去問PDF（令和3〜8年度 前期後期 全762問・全選択肢解説）"
 noteUrl: "https://note.com/dobokunote/n/n4963f45bd6f8"
-price: 1480
+price: 1980
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["2級土木 第1次検定", "過去問PDF 全762問"]
 cover:
