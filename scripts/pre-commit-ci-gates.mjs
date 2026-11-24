@@ -43,6 +43,8 @@ export const UNIT_TEST_RULES = [
   { match: (f) => /^content\/site\/.+\.mdx$/.test(f), tests: ['tests/career-funnel-report.test.mjs', 'tests/career-pathways.test.mjs'] },
   // 展開の判断材料・シリーズ企画の実データ（8 回・8 回）
   { match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f), tests: ['tests/qualification-market.test.mjs'] },
+  // 資格を足すと、色（パレット）の対応が落ちる（2026-11-25 に中小企業診断士の登録で develop が赤くなった・DN-0998）
+  { match: (f) => f === datasetPath('config.qualification-registry'), tests: ['tests/qualification-keys.test.mjs'] },
   { match: (f) => ['config.competitor-positions', 'config.competitors', 'config.market-scan'].map((id) => datasetPath(id)).includes(f), tests: ['tests/competitor-positions.test.mjs'] },
   { match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f), tests: ['tests/content-series.test.mjs'] },
   // 通常動画の台本・メタデータ（8 回）

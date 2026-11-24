@@ -89,6 +89,7 @@ test('unit-tests は staged に関係する実データのテストだけを回�
   assert.ok(unitTestsFor(['content/note/x/y/article.md']).includes('tests/content-theme.test.mjs'));
   assert.ok(unitTestsFor(['data/coconala/orders.json']).includes('tests/dataset-schemas.test.mjs'));
   assert.ok(unitTestsFor(['docs/strategy/x.md']).includes('tests/project-task-refs.test.mjs'));
+  assert.ok(unitTestsFor(['config/qualification-registry.json']).includes('tests/qualification-keys.test.mjs'), '資格を足したら色の対応を回す（2026-11-25）');
   assert.deepEqual(unitTestsFor(['README.md']), []);
   const all = [...new Set(UNIT_TEST_RULES.flatMap((r) => r.tests))];
   assert.deepEqual(all.filter((t) => !existsSync(t)), [], 'テストを消したら規則からも外す');
