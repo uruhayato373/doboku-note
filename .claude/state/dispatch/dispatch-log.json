@@ -10696,6 +10696,23 @@
       "commit": "5f6c01941769",
       "verification": "node --test tests/add-note-utm-split.test.mjs pass 1",
       "note": "#1732 で add-note-utm の原稿の走査を article(-*)?.md にし、フォルダの中の原稿をすべて処理するようにした。分割原稿 2 本のフォルダで utm_source・utm_campaign・utm_term が付くテスト tests/add-note-utm-split.test.mjs を足した"
+    },
+    {
+      "id": "DN-0954",
+      "at": "2026-11-24",
+      "task": "note の同期で空きメモリ不足のブラウザ起動の見送りが「結果なし」と誤表示され、待たずに失敗する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-sync-results.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f40cefe0ee68",
+      "verification": "node --test tests/note-sync-results.test.mjs pass 4（low-memory の延期と、印が無いときの従来の失敗）",
+      "note": "#1732 で note-sync-results に lowMemoryReason を足し、子プロセスの出力に LaunchGuardError（LOW_MEMORY）があれば、行の無い記事を『結果なし』の失敗でなく『low-memory: 空きメモリ不足でブラウザを起動しなかった（1055MB < 閾値 1200MB）』の延期にする。note-sync-routine は low-memory の回で残りを次回へ回して止める（失敗に数えない）。やること 3 の閾値 1,200MB は変えていない（延期にしたので、割っても失敗の山にならない）"
     }
   ]
 }
