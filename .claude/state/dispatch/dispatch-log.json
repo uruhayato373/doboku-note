@@ -10529,6 +10529,19 @@
       "commit": "359fe07f3090",
       "verification": "content/registry/publications/youtube/pe-construction.json の 3 本が published・npm run check-registry-due に YouTube の超過 0",
       "note": "残りの確認済み: 台帳（content/registry/publications/youtube/pe-construction.json）で hissu1-kensetsu-dx の読み修正版（11/11）・hissu1-infra-roukyuuka の読み修正版（11/13）・toan-kousei-template の通常動画（11/12・読み修正の行は stopped で元の ID に反映）が published。check-registry-due の超過は YouTube 0 件。完了条件の『check-video-publication が通る』は満たさない: この検査が読む .claude/state/video-publication-verify.json は、SNS 保留で 2026-10-25 に CI から外した旧い日次実査（verify-video-publication）の記録で、最終更新は 10/24。今の照合は youtube-single-publish の毎朝の reconcile が台帳へ書く（video-content-policy.md の『旧設計（2026-10-25に停止）』）。旧検査の V02 52 件はこの記録が止まっているためで、公開漏れではない"
+    },
+    {
+      "id": "DN-0905",
+      "at": "2026-11-24",
+      "task": "実験の同時上限を、stats47 と同じ「重ねない・始める前に判定日と停止条件を書く」に変えるかを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7f1e61d187a7",
+      "verification": "npm run check-business-direction PASS",
+      "note": "運営者の決定（2026-11-01・変える）どおり、config/business-direction.json・nsm-experiment SKILL の start 手順 4・monthly-review 手順 9・転職アフィリエイト訴求設計.md の 4 か所の『同時実験上限』を『同じページ・同じ指標に重ねない／始める前に指標・判定日・停止条件を書く（件数の上限は置かない）』へ置き換えた。SEO の 7 日観察は変えていない"
     }
   ]
 }
