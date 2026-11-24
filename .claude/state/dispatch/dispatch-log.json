@@ -10970,6 +10970,23 @@
       "commit": "5f9d44836dd5",
       "verification": "公開 API で価格 1980・境界は paidBoundary の見出しの直前・運営者の check-note-attachments:live 2/2 充足・運営者の内容確認",
       "note": "令和8年度の設問別の想定問答の節を note の建設部門-口頭試験対策（n5bc0bcde96ac）へ反映済み（2026-11-24・DN-1274 の反映で同時に公開）。運営者が 2026-11-25 に公開中の内容を確認"
+    },
+    {
+      "id": "DN-1267",
+      "at": "2026-11-25",
+      "task": "土曜の収集の gsc 段が 2 秒で終わり実検査 0 で failed になる（最後の ok は 11/14）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/weekly-collect-plan.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "02a8e265860b",
+      "verification": "#1726 merged（2026-11-24）・tests/weekly-collect-plan.test.mjs が通過・原因を runs.json と indexing-history.json で裏付けた",
+      "note": "原因: gsc 段は取得に失敗したのではなく、登録リクエストが 20 時間以内（毎朝のジョブが 2 時間前に送信）・理由別 CSV が期限内（次は 12/01）で、やることが無く終わっていた。そこへ取得していない週にも検算 gsc-ui-run を回して実検査 0 で落ちていた。#1726 で、run が増えた回だけ検算を回すようにした（weekly-collect-plan.mjs の verifyIfNewRun）。11/28 の実走は DN-0819 で見る"
     }
   ]
 }
