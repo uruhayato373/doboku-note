@@ -1046,6 +1046,8 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **進み（2026-11-24・やること (1)(2) は済み）**: (1) 後期の第一次検定・正答肢・第二次検定の原本 3 本を在庫台帳に足し、公式から取得して Drive へ退避した（c2e17c049・check-past-exam-inventory WARN 0）。(2) content/site/civil-construction-2/primary-r08-kouki を作り、本番に出した（10d25de27・main 712389740・/exam/civil-construction-2/primary/r08-kouki が HTTP 200・66 問・図 12 枚）。正答は公式の正答肢と 66 問すべて一致。書き手と別のエージェント 2 体が原本のページ画像と 1 問ずつ照合し、設問文・選択肢・正解・図はすべて一致、解説の誤り 1 か所（No.30）と言い回し 2 か所を直した。問題台帳に 66 問の照合済みと公式正答を記録（check-past-exam-ledger FAIL 0）。残り: (3) e-01 と note の過去問 PDF を令和3〜8年度（762 問）へ広げること。e-01 の前書きの出題傾向は令和3〜7年度の 630 問から集計した文なので、spec.json に令和8年度を足すときは kindle-book-composer で前書きを集計し直す（spec だけ変えると本と前書きが食い違う）。note の商品 civil-2-takuitsu-pdf の題名・pageMatch（r0[3-7]）も、PDF を差し替えるときに合わせる。反映には note・KDP のログインが要る。
 
+価格の決定（2026-11-24・運営者）: 令和3〜8年度へ広げるときに、Kindle e-01 は 1 冊のまま ¥990 → ¥1,650（分冊しない）、note の過去問 PDF（civil-2-takuitsu-pdf）は ¥1,480 → ¥1,980 に変える。config/products.json と note-magazines.ts の価格は、KDP・note に反映した時点で書き換える（先に書くと実物と食い違う）。根拠は content/kindle/strategy.md の推奨価格の節。
+
 
 ### [DN-1075] 技術士 建設部門の設問ページを残る 6 科目（R07・R08・約 96 本）へ広げるかを決め、広げる
 タグ: [領域:サイト] [時期:2027-01] [種類:制作] [起票:2026-11-10]
