@@ -10434,6 +10434,19 @@
       "commit": "30f92b8d0ec5",
       "verification": "npm run check-competitor-scan-due が exit 0・[競合再スキャン:x] OK 前回 2026-11-15",
       "note": "X の競合は 2026-11-15 に再取得済み（#1605・data/x/competitors/2026-11-15.json）。起票時（11/21）の『前回 8-13』は W46 の古い数字だった"
+    },
+    {
+      "id": "DN-1184",
+      "at": "2026-11-24",
+      "task": "本番デプロイでビルドを作り直さず、検査済みの out/ を使えるか決める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9aba9fbbb3e0",
+      "verification": "git rev-parse bbb3ff1e3^{tree} と 976d59eab^{tree} が一致・du -sh out が 1.8G・gh run list ci.yml develop push 7 日 162 件",
+      "note": "やらないと決めた（2026-11-24）。(1) tree は一致する（main のマージ commit bbb3ff1e3 と develop 976d59eab の tree が同じ b7fcfbe）が、ビルドの中身が時刻で変わる: magazine-placement の isAfterExamDay（試験日で商品を切り替え）と affiliate-placement の掲載期間（period from/until を Date.now() で解く）。検査時に作った out/ を後で出すと、その間の切り替えが本番に乗らない。(2) out/ は手元で約 1.8GB・15,022 ファイル（exam 981M・standards 578M）。develop の push の CI は直近 7 日で 162 回あり、毎回の上げと昇格時の下ろしが build 232 秒の節約を食う見込み（実測はしていない）。(3) 公開リポジトリの artifact は誰でも取れる。MAIL_SENDER_ADDRESS（/privacy に出る値だが git に書かない方針）を全 push の CI ビルドへ渡すことになる。PR の E2E へ渡す経路（統合した旧カード）も (1)(2) で同じ。再検討の条件: 時刻で切り替わる CTA をクライアント側の判定へ移したとき"
     }
   ]
 }

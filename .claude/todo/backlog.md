@@ -2688,16 +2688,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 
 
-### [DN-1184] 本番デプロイでビルドを作り直さず、検査済みの out/ を使えるか決める
-タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
-
-**起点**: 2026-11-13 の実測。本番デプロイは中央値 6.4 分で、内訳は npm ci 21 秒・build 232 秒・Pages へのアップロード 79 秒。build は develop の Pre-merge check が同じ tree で作ったもの（158 秒）の作り直し。.next/cache を足した後の初回（2026-11-14・run 43519490080）は build 239 秒で、キャッシュは復元できたが縮んだのはコンパイルの 9.9 秒 → 5.8 秒だけ。build の大半は静的生成 2,462 ページの 120 秒と Pagefind（DN-1185）で、キャッシュでは縮まない。
-
-**やること**: ci.yml の build ジョブの out/ を artifact にして、昇格時はアップロードだけにできるかを決める。先に確かめること: (1) deploy:main が作る main の commit の tree が、検査済みの develop の commit の tree と同じになる条件。(2) デプロイ側だけが渡している NEXT_PUBLIC_GA_ID と MAIL_SENDER_ADDRESS を CI のビルドへ渡してよいか（公開リポジトリの artifact は誰でも取れる。MAIL_SENDER_ADDRESS は公開リポジトリに書かない方針）。(3) artifact の大きさ（12,529 ファイル）と上げ下ろしの秒数、保持日数。
-
-**完了条件**: デプロイの run の所要時間が前後で比べられている。または、やらないと決めた理由（秘密の扱い・tree の不一致など）が残っている。
-
-- 統合（2026-11-23 の棚卸し・旧カード「PR と deploy で同じ中身を最大 4 回フルビルドしているのを、ビルドの成果物の使い回しで減らす」から）: PR の E2E（e2e.yml の約 223 秒の build）も ci.yml の artifact を受け取る形にできるか、という経路を足す
 
 
 
