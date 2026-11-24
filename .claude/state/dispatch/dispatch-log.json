@@ -10460,6 +10460,23 @@
       "commit": "338cb9e4fda9",
       "verification": "curl https://doboku-note.com/practice/formwork-removal-timing で data-cta=affiliate の placement 6 種・npx tsx scripts/reports/report-monetization-coverage.mts --check で収益導線ゼロ 0・node --test tests/monetization-coverage.test.mjs 3 pass",
       "note": "起票の前提が誤検知だった。本番の /practice/formwork-removal-timing には転職バナーが 6 枠（article-banner・-2・-3・-end・article-rail・-2）出ている。収益カバレッジの deriveAffiliate が 11/15 の画像バナー化の後も旧い枠名（article-end・mid・inline）だけを見ていて、全記事を『アフィリなし』と数えていた。#1731 で直し、高流入で収益導線ゼロは 0 件。note の CTA は足さない（実務記事は試験・note の案内を置かない＝book-coverage-expansion.md:34）。残る課題はアフィリのクリックが 28 日で 0 件なことで、これは配置の実験の側で見る"
+    },
+    {
+      "id": "DN-1125",
+      "at": "2026-11-24",
+      "task": "Audit performance (PSI) の定期実行が失敗している",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "push の競合 1 回で、翌日の実行で回復した。続けて赤なら workflow-health の automation-failure Issue が拾う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7ef3b1161562",
+      "verification": "gh run list --workflow=psi-audit.yml -L 40 で success 38 / failure 2・直近 8 回 success",
+      "note": "11/10 の失敗は run 42910643947 の最後の git push が develop の同時更新と競合した 1 回（error: failed to push some refs）。直近 40 回は成功 38・失敗 2、11/17 以降の 8 回はすべて成功。automation-failure の workflow-health（#1625 など）は閉じている"
     }
   ]
 }
