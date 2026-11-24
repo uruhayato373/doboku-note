@@ -406,6 +406,15 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1301] note 同期の結果の結び付けが stderr でずれる・添付失敗の応答を残さない
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-25]
+
+- note-sync-routine の `node()`（scripts/note/note-sync-routine.mjs 84 行）は、子プロセスの stdout と stderr を `stdout + stderr` でつないでいる。note-update-body は ABORT を stderr に出すので、エラーの行がすべて最後の `[article]` の後ろに回り、parseNoteSyncRun が失敗を違う記事に結び付ける。
+- 実例: 2026-11-24 の同期のログで、R01/article-III.md の失敗理由が R01-II-1 の PDF になり、実際に失敗した 8 本のうち 6 本が「結果なし（連続失敗で中断された可能性）」と出た（子のログ .tmp/note-sync-routine/list-2026-11-24T12-46-36-154Z.log では 8 本すべてが ABORT）。
+- 直し方の案: 子の stdout と stderr を同じファイル記述子（ログファイル）へ向けて、行の順序を保つ。parseNoteSyncRun の回帰テストで、stderr に出た ABORT がその記事に結び付くことを確かめる。
+- あわせて: 添付の失敗時に `/api/v2/attachments/upload` の応答（状態と本文の先頭）を記録する（scripts/lib/note-attach.mjs の attachFileInEditor）。11/24 の失敗が上限なのか一時的な障害なのかを判別できなかった。
+
+
 ### [DN-1298] 外部リンクの切れ 21 件（404・DNS 不在）を移転先へ差し替えるか外す（Issue #1475）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-24]
 
