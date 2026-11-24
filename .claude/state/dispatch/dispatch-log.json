@@ -10421,6 +10421,19 @@
       "commit": "d120722d0f37",
       "verification": "gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '[.[]|select(.state==\"open\")]|length' が 0",
       "note": "main 昇格（bbb3ff1e3・2026-11-24）後に Dependabot の open 警告が 0 件（gh api .../dependabot/alerts）"
+    },
+    {
+      "id": "DN-1272",
+      "at": "2026-11-24",
+      "task": "X の競合の再スキャンを回す（期限超過・W46 時点で 93 日）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "30f92b8d0ec5",
+      "verification": "npm run check-competitor-scan-due が exit 0・[競合再スキャン:x] OK 前回 2026-11-15",
+      "note": "X の競合は 2026-11-15 に再取得済み（#1605・data/x/competitors/2026-11-15.json）。起票時（11/21）の『前回 8-13』は W46 の古い数字だった"
     }
   ]
 }
