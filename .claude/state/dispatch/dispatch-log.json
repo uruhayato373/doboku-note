@@ -10649,6 +10649,130 @@
       "commit": "933cceee4627",
       "verification": "npm run audit-svg -- --file=<図> で findings 0（P2 0）・CSV から 76-85 平均 226・16-25 平均 339.7",
       "note": "気象庁『大雨や猛暑日など（極端現象）のこれまでの変化』の 1 時間降水量 50mm 以上の年間発生回数（CSV amdhour50mm_p.csv・1976〜2025 年の 50 年分・1,300 地点あたり）で描き直した。縦軸は 0〜500 の 1 組、横軸は 1976・1985・1995・2005・2015・2025 を棒の位置に合わせた。最初の 10 年（1976〜85）の平均 226 回と最近 10 年（2016〜25）の平均 339.7≒約340 回を線で示し、約1.5倍（気象庁の本文と一致・CSV から計算して 1.503）。旧図の『約 1.4 倍』は本文に無く図の中だけだったので、図ごと置き換えた。記事の alt を 1976〜2025 に直し出典のキャプションを付けた"
+    },
+    {
+      "id": "DN-1292",
+      "at": "2026-11-24",
+      "task": "建築施工管理の無料ガイド 3 本の引用を原文で照合し、公開 URL を DN-0427 に書いて計測を始める",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e4bc421479e8",
+      "verification": "3 本の commit で pre-commit OK・3 URL が HTTP 200・DN-0427 に URL と基準値",
+      "note": "3 本（1級・2級の経験記述・過去問の傾向）の引用と数字 67 件を、建設業振興基金の一次資料（令和7年度の1級・臨時・2級の問題、令和8年度の1級・2級の受検の手引、令和7年度の結果表の PDF 7 本・すべて HTTP 200）で照合した（guide-fact-checker）。OK 62・NG 5・確認不能 0。NG は令和8年度の第二次検定の問題が公開された後で古くなった『令和7年度だけが公開』の 5 か所で、3 本とも直して記事ごとに commit した（令和7年度の引用そのものに誤りは無い）。公開 URL と GSC の基準値（28 日）を DN-0427 に書いた"
+    },
+    {
+      "id": "DN-1181",
+      "at": "2026-11-24",
+      "task": "正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/regex-control-escape.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b9ef4d9f07af",
+      "verification": "node --test tests/regex-control-escape.test.mjs pass 2・node scripts/check-mdx/rules/svg/build-gallery-comment.mjs で categories 9 資格",
+      "note": "#1732 で build-gallery-comment.mjs の 64・69 行の /\\content\\/site/ を直した（直す前は資格名がすべて other、直した後は 9 資格が取れる）。\\c＋英字の書き損じを scripts・.claude・src・tests・tools の 2,402 ファイルから探すテスト tests/regex-control-escape.test.mjs を足し、0 件"
+    },
+    {
+      "id": "DN-1060",
+      "at": "2026-11-24",
+      "task": "add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/add-note-utm-split.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5f6c01941769",
+      "verification": "node --test tests/add-note-utm-split.test.mjs pass 1",
+      "note": "#1732 で add-note-utm の原稿の走査を article(-*)?.md にし、フォルダの中の原稿をすべて処理するようにした。分割原稿 2 本のフォルダで utm_source・utm_campaign・utm_term が付くテスト tests/add-note-utm-split.test.mjs を足した"
+    },
+    {
+      "id": "DN-0954",
+      "at": "2026-11-24",
+      "task": "note の同期で空きメモリ不足のブラウザ起動の見送りが「結果なし」と誤表示され、待たずに失敗する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-sync-results.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f40cefe0ee68",
+      "verification": "node --test tests/note-sync-results.test.mjs pass 4（low-memory の延期と、印が無いときの従来の失敗）",
+      "note": "#1732 で note-sync-results に lowMemoryReason を足し、子プロセスの出力に LaunchGuardError（LOW_MEMORY）があれば、行の無い記事を『結果なし』の失敗でなく『low-memory: 空きメモリ不足でブラウザを起動しなかった（1055MB < 閾値 1200MB）』の延期にする。note-sync-routine は low-memory の回で残りを次回へ回して止める（失敗に数えない）。やること 3 の閾値 1,200MB は変えていない（延期にしたので、割っても失敗の山にならない）"
+    },
+    {
+      "id": "DN-0298",
+      "at": "2026-11-24",
+      "task": "Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "61acd6b43375",
+      "verification": "17 URL の 9/23 と 11/18 の google_canonical の比較（12 件が新 URL・残り 4 件の内訳は note 張り 3・張りなし 1）",
+      "note": "再公開しないと決めた（2026-11-24）。9/23 の URL 検査（data/metrics/url-inspection/inspection-batch-2026-09-23T06-54-59.json・git a084aeeef）で google_canonical が旧 /docs/ だった 17 URL を、11/18 の URL 検査（data/gsc/url-inspection/2026-11-19T09-44-23.json）と比べた。12 件が新 URL に切り替わり、旧 URL のままは 4 件（labor-tribunal-act・pollution-control-manager・sexual-harassment・h21-secondary）。content/note から張られている 9 件は 6 件が切り替わり 3 件が残る。張られていない 7 件も 6 件が切り替わり 1 件（pollution-control-manager）が残る。両群とも切り替わりが進んでいて、note の被リンクが旧 URL を選ばせている形ではない（カードの決まり『両群とも切り替わるなら再公開しない』）。残る 4 件は 301 の転送のまま次の URL 検査で切り替わるのを待つ"
+    },
+    {
+      "id": "DN-1187",
+      "at": "2026-11-24",
+      "task": "毎晩の YouTube 予約で、worktree に素材が無いショートの予約が失敗する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "素材の取り寄せは予約の手順そのものに入った。失敗すれば youtube-daily が exit 1 で止まり、毎晩のタスクの結果に出る"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "067bec085759",
+      "verification": "scheduleShort の restore の行・台帳でショート 11 本が published（11/14〜11/19）",
+      "note": "直す候補の (b) が入っている: scripts/youtube/youtube-daily-release.mjs の scheduleShort が、予約（publish-youtube --phase upload）の前に shorts-factory restore で素材を Drive から専用の worktree へ戻す（2026-11-13 の 2 本の失敗を受けた修正・同じ関数のコメント）。通常動画も media pull で戻す。11/14 以降、ショート 11 本が手作業なしで予約・公開されている（台帳 content/registry/publications/youtube の published・11/14〜11/19）"
+    },
+    {
+      "id": "DN-0501",
+      "at": "2026-11-24",
+      "task": "技術士一次試験の note CTA のクリック率を比べ、配置を見直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c9b803cdf853",
+      "verification": "data/ga4/reports/2026-10-02・2026-10-31・2026-11-20.json の cta-clicks / by-label と data/note/sales.json の pe1-* を集計",
+      "note": "配置を維持すると決めた（2026-11-24）。GA4 の /exam/pe-first-stage 配下の note CTA は、POP 画像の採用前（9/4〜10/1）1,324 表示・19 クリック（1.44%）→ 採用後（10/3〜10/30）7,167・55（0.77%）→ 最新（10/23〜11/19）16,207・128（0.79%）。CTR は下がったが表示は 12 倍で試験直前に重なり、画像の効果とは切り分けられない。配置別（最新）は ガイド本文内 2.40%・冒頭 0.96%・末尾 1.20%・解説の途中 0.50%・年度ページの本文末 0.26%・商品カード 0.26%（pe1-anki-note のカードは 1,988 表示で 0 クリック）。売上（data/note/sales.json）は 9/4〜10/1 が 1 件 ¥980、10/2 以降が 6 件 ¥11,880（すべて直前パック）。冒頭と本文内は維持。解説の途中（answer_reveal と組み合わせる案）は、試験後に案内が過去問 PDF 合本へ切り替わってから見る（実験の登録はその時）。pe1-anki-note の商品カードは試験後の切り替えで外れる"
+    },
+    {
+      "id": "DN-0832",
+      "at": "2026-11-24",
+      "task": "総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "drive-vault-sync"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2bb69432b243",
+      "verification": "npm run drive-vault-sync -- --group source-transcript --verify --deep exit 0・不一致 0",
+      "note": "Drive をマウントしたこの Mac で npm run drive-vault-sync -- --group source-transcript --verify --deep を回し exit 0（対象 245 件・存在確認 245・sha256 実照合 245・不一致 0）。『総監論文に求められるもの.md』も Drive の版（2026-10-29 に台帳を合わせた 26,554 bytes）で一致"
     }
   ]
 }

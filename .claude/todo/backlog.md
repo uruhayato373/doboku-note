@@ -448,14 +448,6 @@
 **完了条件**: 2026-12-06 より前に note で公開され、サイトの管工事ガイドの CTA から届く。試験後 14 日以内に結果を記録する。
 
 
-### [DN-1292] 建築施工管理の無料ガイド 3 本の引用を原文で照合し、公開 URL を DN-0427 に書いて計測を始める
-タグ: [収益化] [領域:サイト] [時期:2026-11..2027-01] [種類:制作] [起票:2026-11-23]
-
-**起点**: 2026-11-23 の棚卸しで、題名が残作業と離れていたカード（旧「1級・2級建築施工管理の無料記事を数本公開し、2027年の二次検定に向けて需要を測る」）を残作業だけで起こし直した。
-
-**やること**: 記事 3 本は PR #777 でマージ済み。残りは引用の照合（checkedBy: self）と公開 URL の記録だけ
-
-**完了条件**: 記事を公開して refresh-indexes まで済ませ、検索表示とクリックを見る URL を DN-0427 に書いたら、このカードを削除する。
 
 
 
@@ -497,6 +489,79 @@
 
 **完了条件**: 土曜の収集の記録に x-own-metrics と reconcile-x の実行と件数（取得した投稿数・照合の対象・結べた数）が残り、`node scripts/x/x-sync-status.mjs` の「期限超過・公開未確認」が、収集の翌日に前週の予約ぶん 0 件になる。
 
+**進み（2026-11-24）**: 今は入れないと判断した。x-own-metrics が使う twitter CLI の認証先が投稿用の @doboku373 になっている件（DN-1034・X ポリシー §11.7 と違う）が先で、
+> doboku-note@1.0.0 auth:status
+> node scripts/ops/playwright-auth.mjs status
+
+{
+  "ok": false,
+  "command": "status",
+  "results": [
+    {
+      "ok": false,
+      "service": "note",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "coconala",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "kdp",
+      "status": "expired",
+      "reason": "account markerが無くログインフォーム（パスワード欄）が出ている",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "x",
+      "status": "blocked",
+      "reason": "page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at https://x.com/home\nCall log:\n  - navigating to \"https://x.com/home\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "ok": false,
+      "service": "instagram",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "google",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "a8",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "moshimo",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    },
+    {
+      "ok": false,
+      "service": "afb",
+      "status": "expired",
+      "reason": "login画面へredirect",
+      "attemptsUsed": 1
+    }
+  ]
+} の X も blocked。このまま土曜の収集に自動で入れると、投稿用のアカウントで毎週読みに行くことになる。DN-1034 で運営者の個人アカウントへ認証し直した後に、scripts/lib/weekly-collect-plan.mjs へ段を足し、tests/weekly-collect-plan.test.mjs の『SNS の段は無い』の検査を直す（後段の X の段として x-own-metrics → registry -- reconcile-x --commit）。
+
 
 ### [DN-1262] note の売上の取り込みで、公開中の記事が商品 ID を持たない（article:unknown-…）まま記録される
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-21]
@@ -507,7 +572,7 @@
 
 **完了条件**: 公開中の記事の売上が unknown で記録されないことをテストで確かめる。次の土曜の収集で sales.json に article:unknown- が増えない。
 
-
+**進み（2026-11-24）**: 原因を確かめた。売上の取り込み（scripts/note/note-sales-fetch.mjs → scripts/lib/sales-normalize.mjs の resolveSaleEntry）は、既存の記録の題名・手当表（SINGLE_ARTICLE_TITLE_RULES）・想定工事バンク・マガジンのカタログの順に引き、公開中の記事の台帳（.claude/state/note-published.json）は見ていない。題名は note-published.json と完全に一致する（11/15 の 2 件とも）。ただし題名から productId を決める規則が無い: 『article:<utmCampaign>』は売上の記録と 9 件一致・29 件不一致（civil-1-keiken-pack-24 と utm civil1-keiken-pack-koji24 など）で、使えば初めて売れた記事に誤った id を付ける。決めること（運営者か次の担当）: (1) 記事の frontmatter に売上の productId（例 salesProductId）を持たせて取り込みがそれを引く、(2) 初めて売れた記事は unknown のまま入れず、記事のパスを添えて段を止める、のどちらにするか。(1) なら公開の手順（note-unpublished の点検）に欄の必須を足す。
 
 
 ### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
@@ -725,30 +790,12 @@
 
 
 
-### [DN-1187] 毎晩の YouTube 予約で、worktree に素材が無いショートの予約が失敗する
-タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
-
-毎晩の YouTube 予約（scheduled task `doboku-youtube-daily-release`）は専用 worktree `.claude/worktrees/yt-release` で `npm run youtube-daily -- run` を流す。投稿済みショートの予約（`registry.mjs publish-youtube`）は `.tmp/media/<資格>/<作品>/<pub>/video.<hash>.mp4` を読むが、`.tmp/media` は Git 管理外で、メインの作業ツリーで作った素材は worktree に無い。
-
-2026-11-13 の実行で、老朽化のショート 2 本（`pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1`・`point-funding-2`）の schedule-short がファイル無しで失敗した。メイン側の同じハッシュの実体を手でコピーして再実行し、予約できた。
-
-直す候補: (a) worktree の `.tmp/media` をメイン側へのリンクにする（.env.local と同じ扱い） (b) youtube-daily が無い素材をメイン側から取り寄せる (c) 予約だけなら動画ファイルを読まないようにする。どれにするか決めて、scheduled task の手順か実装へ反映する。
-
-完了条件: メイン側だけに素材があるショートが、worktree からの `youtube-daily -- run` で手作業なしに予約される。
 
 
 
 
 
 
-### [DN-1181] 正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
-
-**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/checks/check-table-references.mjs と scripts/checks/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
-
-**やること**: build-gallery-comment.mjs の 2 か所を直し、直す前後で出力がどう変わるかを確かめる。正規表現の中のバックスラッシュ＋英字の書き損じ（\c・\p など意図しないエスケープ）を scripts・.claude/scripts・.claude/skills から探す検査を、決まった合格条件で書けるなら tests に足す。
-
-**完了条件**: 残り 2 か所が直り、同じ書き損じが 0 件であることを機械で確かめられる。
 
 
 ### [DN-1177] 記事本文に手書きした試験日・合格率を正本と突き合わせる
@@ -1073,14 +1120,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 - 統合（2026-11-23 の棚卸し・旧カード「YouTube Analytics の2回の定期記録を確認する」から）: data/youtube/analytics/{date}.json に対象数・欠測・平均視聴率・流入元が出ることを金曜の定期取得 2 回で確かめる
 
-### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
-
-scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/note/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
-
-
-
-
+**進み（2026-11-24）**: CI（毎週金曜）で維持率曲線は取れている。最新 data/youtube の 2026-11-20 は 59 本中 21 本の曲線（38 本は行なし・失敗 0）、50 再生を超えた 13 本のうち 12 本に曲線がある。Writer と QA の定義に読む手順もある。残り: (1) 手元の check-youtube-analytics が exit 1（対象 68 本・記録 59 本＝11/20 より後に公開した 9 本が未計測）。次の金曜の取得で通るか確かめる。(2) youtube-retention-summary で場面ごとの離脱が出たのは 3 本だけで、50 回を超えた残り 10 本が要約から外れる理由（ショートの型・storyboard の有無）を確かめる。
 
 
 ### [DN-1054] 東北の参考資料 16-1 の保安施設の標準図（横向きの 1 ページ 1 図）を原本から切り出して入れる
@@ -1447,20 +1487,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 **完了条件**: 建設部門版が note に公開され、発送後 4 週の販売が記録されている。
 
 
-### [DN-0954] note の同期で空きメモリ不足のブラウザ起動の見送りが「結果なし」と誤表示され、待たずに失敗する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-11-03]
-
-**起点**: 2026-11-03、note のキャリア記事 24 本を前倒しで同期（`note-sync-routine --only <記事> --max 1` を運営者のターミナルで 1 本ずつ）したところ、5 本が `結果なし（連続失敗で中断された可能性）` で失敗した。実際の原因は、子プロセス `note-update-body` のブラウザ起動を `scripts/lib/playwright-launch.mjs` の空きメモリの関所が見送ったこと（`LaunchGuardError: 空きメモリ 1055MB < 閾値 1200MB`）。理由は `.tmp/note-sync-routine/list-*.log` にしか残らず、作業用の worktree を片付けると消える。同じ日の `affiliate:status` も同じ関所で 2 回見送られた（1147MB・1172MB）。
-
-**困ること**: (1) 失敗の理由が「連続失敗で中断された可能性」と誤って表示され、メモリ不足だと分からない (2) 土曜の収集（weekly-collect）の note-sync 段でも同じことが起きうる。weekly-collect の段の前の待ち（guardBrowserLaunch・最大 5 分）は段の頭だけで、note-sync-routine の中で記事ごとに起動する子プロセスは待たずに落ちる (3) 1,200MB の閾値は Claude Desktop・Chrome を開いた Mac では日常的に割る。
-
-**やること**:
-1. `scripts/lib/note-sync-results.mjs` で、子プロセスの出力に `LaunchGuardError`（code LOW_MEMORY）があれば理由を「空きメモリ不足でブラウザを起動しなかった（<MB>）」にする。`結果なし` は本当に結果が無いときだけにする
-2. note-sync-routine の記事ごとの起動の前にも guardBrowserLaunch の待ち（数回・間隔つき）を入れるか、LOW_MEMORY の記事を「翌週へ（deferred）」に回して失敗に数えない
-3. 閾値 1,200MB が実測に合うかを決める（2026-11-03 の実行では 1,055〜1,172MB でも、閾値を 1,000MB に下げた affiliate:status は正常に完走した）。変えるなら `DOBOKU_PW_MIN_FREE_MB` の既定と理由を playwright-launch.mjs に書く
-4. 回帰テスト（note-sync-results の理由の判定）
-
-**完了条件**: LOW_MEMORY の失敗がその理由で記録され、失敗ではなく延期として扱われる（または待ってから起動する）ことをテストで確かめている。
 
 
 ### [DN-0952] EXP-055 の8週・40クリックを待ち、技術士（建設部門）の転職案件を決める
@@ -1679,6 +1705,8 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 **完了条件**: 1級 H25 と 2級 H21・H25 の該当する問が共通仕様書の章へつながって本番に出ていて、リンク先の実在を止める検査が CI で動いている。広げるかの判断が記録されている。
 
+**進み（2026-11-24）**: 過去問 → /standards/ の遷移は計測できていない（解説のリンクは MDX の素のリンクで data-cta が無く、AnalyticsProvider は data-cta の付いたリンクだけ送る）。リンク元の過去問のセッションは 2級 h21 の 6 だけ（GA4 10/23〜11/19）。結んだ章のセッションは 55 → 411、/standards/ 全体も 650 → 2,759 に増えたが、リンク元が 1 桁なので今回のリンクの効果とは言えない。残り: 広げるかを決める前に、解説から章へのリンクに data-cta（nav・ラベル past-exam-standards）を付けて 28 日測る。あわせて 1級 h25-a の 3 か所で文が『関東地方整備局版』・リンク先が近畿版だった食い違いを直した（近畿に統一）。
+
 
 ### [DN-0877] 合格発表の前に、合格者向け記事へ転職の本文カードを寄せる
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-12..2027-03] [種類:改善] [起票:2026-10-27]
@@ -1751,15 +1779,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 
 
-### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる
-タグ: [領域:教材] [時期:2026-12] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
-
-**起点**: 2026-10-24、drive-vault-sync の verify --deep と check-reference-sources --deep（transcript-method）がこのファイルで止まった。Drive の実体は 2026-09-30 に直された版（26,554 bytes）で、ページ画像と照らすと Drive 側が原本どおり、台帳側が誤りだった。
-
-**残り**: 2026-10-29 に原本どおりの Drive の版を正とし（Drive を台帳の版へ戻すと誤りを書き戻すため）、`.claude/config/reference-sources-baseline.json` の legacyVisualOcrTranscripts と `.claude/state/assets/drive-manifest.json` の sha256 を Drive の版（74e2dc62…0437・26,554 bytes）へ更新した。版は Drive API から取り寄せて、git の旧版との差が frontmatter とカードの 2 行だけであることを確かめた。この端末には Drive のマウントが無く、照合はこのファイルだけを置いた一時 vault で行った（verify --deep 1 件一致・check-reference-sources の transcript-method 合格）。
-1. Drive をマウントした端末（Mac）で `npm run drive-vault-sync -- --group source-transcript --verify --deep` を回し、exit 0 を確かめる
-
-**完了条件**: 実マウントで drive-vault-sync --group source-transcript --verify --deep が exit 0。check-reference-sources --deep の別件（civil1-textbook の逐語一致 7 件）は別カードで扱う。
 
 
 
@@ -1880,6 +1899,9 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 **完了条件**: `find content/sns -name status.json -o -name posted.json` が 0 件。check-information-architecture・check-content-registry・test が緑。Drive に日付フォルダの採用カバーが残らない。
 
 **進み（2026-11-21・DN-0612 P7）**: X の分は済んだ。下書きの `status.json` は全部消え（PR #1695・#1697）、読み手は台帳の入口（`loadXPosts`）へ切り替わった。残りは Instagram の固定投稿 3 件の `status.json`（`content/sns/instagram/profile-pinned/{pe-first-stage-route,start-guide,concrete-route}/`）と、Drive の旧日付フォルダの採用表紙。
+
+**進み（2026-11-24）**: 残る写しは Instagram の固定投稿 3 件の status.json（content/sns/instagram/profile-pinned/{pe-first-stage-route,start-guide,concrete-route}/）。status.json・posted.json を読むコードは scripts と tools に 20 本以上あり（ig-graph-publish・ig-status・verify-ig-status・fetch-ig-insights・prepare/publish/prune-instagram-video-pack-reels ほか）、Instagram の読み手を台帳の入口へ差し替える作業は一日では済まない。Instagram は SNS の保留中（2026-10-17〜）で投稿の経路が動いていないので、差し替えは再開の判断と合わせて行う。Drive の旧日付フォルダは運営者の了承待ちのまま。
+
 
 ### [DN-0628] iOS 択一アプリ（土木施工管理技士 1級＋2級と、技術士アプリへの総監追加）を App Store で公開する
 タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
@@ -2050,6 +2072,9 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 - r04: seoTitle「令和 4 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】」、末尾の解答の後に通年教材の CTA なし（問題 1 の経験記述 CTA のみ）。変更後は「1級土木施工管理技士 2次試験 解答例 令和4年度｜経験記述（安全管理）・盛土・土留め・ひび割れ【第2次検定 全11問】」と、全解答の後に学科記述の通年教材（civil-1-gakka-kijutsu）の MagazineCard を追加。
 - 反映日は deploy の日。比べる日は「deploy 日＋28 日」（上の表）。
 
+**進み（2026-11-24）**: 比べる日が来た分を手元の GSC・GA4 で比べた。コンクリ技士 overview『試験日・日程』42 表示 0 クリック（6.5 位）→ 3・1（3.0 位）。主任技士 essay『小論文』6・0（13.0 位）→ 最新 62・8（12.9%・5.5 位）。主任技士の資格トップ『過去』1・0 → 最新 550・179（32.6%・3.9 位。試験前の需要と切り分けられない）。DN-0640 コストドライバー 72・0（8.8 位）→ 290・1（6.5 位）。DN-0423 /topics/* 11 → 112 表示。DN-0679 建設部門の過去問は同じ 96 本で登録 95→96、新しい 84 本は登録 52・検出未登録 19・未認識 13。DN-0814 一次過去問のスマホの INP 良好率 68.9% → 83.0%（good）。DN-0641 2級 r05 の note CTA 0.33% → 0.92%、exam-overview 0.25% → 0.92%、guide/overview 0.32% → 0.25%。DN-0827 本文中の転職アフィリ 0.14% → 0.10%。残り: 10/26 反映の 4 件（品質規定方式・工程能力図・余力管理・r04 解答例）と DN-0641 leveling・getting-started は 10/27〜11/23 の窓（次の GSC・GA4 の取得）待ち。DN-0703 と essay の先頭カードは 11/30 以降。
+
+
 ### [DN-0525] note カバー・マガジンカバーの未退避と R2 台帳との不一致を、Drive をマウントした Mac で保全する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-10-03]
 
@@ -2072,16 +2097,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 
 
-### [DN-0501] 技術士一次試験の note CTA のクリック率を比べ、配置を見直す
-タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-02]
-
-**起点**: 一次試験ページの note CTA は表示約 1,300・クリック約 16（約 1.2%、GA4 by-label 10/2 取得）、note 3 商品（過去問PDF 合本・直前暗記ノート・直前パック）の売上記録は 0 件。過去問ページの平均セッション時間は 5〜10 分。2026-10-02 の運営者指示で一次試験の過去問PDF CTA に生成済みの本文用・サイドバー用 POP 画像を採用するため、変更後の反応を比較する。
-
-**やること**:
-1. 変更前後の表示・クリックを、既存の `data-cta-label`・`data-cta-placement` で比較する。変更後の 2〜3 週間を測り、note 売上も確認する。
-2. `answer_reveal` の開封計測と合わせ、解説の途中を含む配置候補を検討する。配置を試す場合は `data/business/experiments.json` に登録する。
-
-**完了条件**: 配置別の表示・クリックと売上を記録し、配置を維持するか変更するかを決めた。
 
 ### [DN-1148] 副業・独立ガイド（fukugyou-dokuritsu）の副業・独立の検索語の表示有無を 12 月末に GSC・Bing で確かめる
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-12]
@@ -2209,6 +2224,7 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 
 **完了条件**: 1 の比較が記録され、2 の扱いが決まって反映されている。
 
+**進み（2026-11-24）**: 1 の比較（GSC 28 日。変更前 data/gsc/reports/2026-09-27.json＝8/28〜9/24、変更後 2026-11-20.json＝10/20〜11/16）。ページ: scraper クリック 2/表示 533（0.38%・7.2 位）→ 21/2,163（0.97%・6.2 位）、network-schedule 0/122（16.6 位）→ 13/371（3.50%・6.6 位）、中国 local 4.17%→4.10%・part-01 の表示 113→22（食い合いは縮んだ）。クエリ: 『スクレープドーザ』0/58→4/337（1.19%）、『スクレーパとは』1/292（0.34%）→0/187（8.6 位・別に要対応）、『インターフェアリングフロートとは』2/806（0.25%）→2/25（1.6 位・表示が減り CTR は判定に使えない）。カードの基準 0.16%（35 日）は手元のファイルから出せない。2 は GA4（2026-11-20.json・10/23〜11/19）で記事サイドバーの note もくじ（*-docs-sb）が 11,887 表示・24 クリック（0.20%）。もくじ型の civil-2・civil-1 は 0.00〜0.03% で表示の約 4 割、時期の訴求（seasonal・after-result）と pe-construction のもくじは 0.4〜1.6%。枠は今も描画されている（ArticleSidebar.tsx）が、11/15 から転職バナーの後ろへ下がった（DN-1215）。残り: もくじ型の文言を時期の訴求に寄せる（文言の変更）。位置の判断は 11/15 の並べ替えから 28 日後（12/13 以降）。
 
 
 ### [DN-0418] 被リンク獲得の声かけ（アウトリーチ）を始める
@@ -2246,16 +2262,6 @@ scripts/note/add-note-utm.mjs の resolveDirectory は name === 'article.md' だ
 **完了条件**: 合格発表に合わせた投稿が予約・公開されたら、このカードを削除する。
 
 
-### [DN-0298] Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-09-24]
-
-**起点**: 2026-09-23 の URL 検査 batch で 17 URL が「重複（Google が旧 `/docs/` を正規に選択）」だった。#598 は note の被リンクが旧 URL を正規に選ばせる一因と見て張り替えたが、17 件のうち 7 件は note から張られていないのに同じ状態で、note の寄与は未検証。note から張られている 10 件を指す公開 note 記事は 18 本（PDF 付き 0）。
-
-**やること**: 次の URL 検査 batch 以降で 17 件の `google_canonical` を比べる。note から張られていない 7 件が新 URL へ切り替わり、張られている 10 件が旧 URL のまま残るなら、その 18 本を `node scripts/note/note-update-body.mjs --list <list> --commit` で再公開する（PDF 付きが無いので `--reattach-pdf` は不要）。両群とも切り替わる、または両群とも残るなら再公開しない。
-
-**追記（2026-09-27）**: 旧 DN-0387 を統合。`/docs/pe-construction-r07-railway`（「技術士鉄道」）と `/docs/pe-construction-hissu-kamoku-kaitourei`（「技術士模範解答」）は 1 回の 301 で新 URL へ転送され、サイト内リンクも直した。次の GSC 集計で同じ検索語に新 URL が出るかも同じ比較で確かめる。
-
-**完了条件**: 上の比較を 1 回行い、18 本を再公開した（`check-note-republish` の drift から消えた）か、再公開しないと決めて本カードを削除した。
 
 
 
@@ -3132,6 +3138,8 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **追記（2026-11-04）**: 建築は運営者の決定で active へ昇格したので、このカードの対象から外す。
 
 **追記（2026-11-08）**: 公務員（土木）は運営者の決定で DN-1049 で立ち上げるので、このカードの対象から外す。
+
+**計測する URL（2026-11-24・建築の無料ガイド 3 本）**: 建築は対象から外したが、昇格の後の需要の記録として残す。引用は建設業振興基金の一次資料で照合済み（67 件中 62 件一致・令和8年度の公開に合わせて 5 か所を直した）。GSC 2026-10-20〜11-16（28 日・ページ単位）の基準値: `/exam/building-construction/guide/2kyu-keiken-kijutsu` 表示 804・クリック 66・平均 8.3 位、`/exam/building-construction/guide/niji-kakomon-keikou` 表示 423・クリック 19・8.1 位、`/exam/building-construction/guide/1kyu-keiken-kijutsu` 表示 34・クリック 2・6.9 位。
 
 **完了条件**: qualification-registry.json の portfolio を更新し、判断と理由を 06_多資格展開戦略.md の判断の記録へ書いたら、このカードを削除する。
 
