@@ -448,7 +448,7 @@
       "work": "keiken-anzen-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-001",
@@ -484,7 +484,42 @@
         "contentSha256": "a817775507850c69ca3ecfb547dc35c2bb642c55c918f4a664149a0cb6fd2eed"
       },
       "times": {
-        "rendered": "2026-11-24T12:57:47.664Z"
+        "rendered": "2026-11-24T12:57:47.664Z",
+        "uploaded": "2026-11-24T13:06:06.069Z",
+        "scheduled": "2026-11-24T13:06:16.300Z"
+      },
+      "delivery": {
+        "inputSha256": "f175626cc2b57f1cde46815ecd052f5653da627ad0d05923c8c55d3c2efbc54f",
+        "marker": "dn-single-48c2f01f32fadb30a5d42472a5d05733caba530c",
+        "uploadRequestedAt": "2026-11-24T13:05:23.634Z",
+        "videoId": "FWh4D27aDdA",
+        "processedAt": "2026-11-24T13:06:05.462Z",
+        "thumbnailRequestedAt": "2026-11-24T13:06:06.102Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/default.jpg?sqp=CPyWltgG&rs=AOn4CLAR-4rZRjkfF4Gg_A9t3ymKG4jp4Q",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/mqdefault.jpg?sqp=CPyWltgG&rs=AOn4CLAnwBEODZCJ78GozEpxn2_UZRrMhg",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/hqdefault.jpg?sqp=CPyWltgG&rs=AOn4CLDezbKSM8dl8zYzD0wh7jDj3e0bxw",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/sddefault.jpg?sqp=CPyWltgG&rs=AOn4CLB-t7ale2hBmfOHevBTAPfdcEK3Gg",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/maxresdefault.jpg?sqp=CPyWltgG&rs=AOn4CLBoUINaTeswQ7SlOUktF5b6n7A8Xw",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/fhddefault.jpg?sqp=CPyWltgG&rs=AOn4CLBz8AKrNB2GHGsdfSHYHVjQCXXvCg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-24T13:06:12.083Z",
+        "scheduleRequestedAt": "2026-11-24T13:06:13.068Z",
+        "scheduleAt": "2026-12-09T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-24T13:06:16.300Z"
+      },
+      "platform": {
+        "id": "FWh4D27aDdA",
+        "url": "https://www.youtube.com/watch?v=FWh4D27aDdA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-24T13:06:12.083Z"
       }
     },
     {
