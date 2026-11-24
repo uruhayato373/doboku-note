@@ -575,18 +575,6 @@
 **進み（2026-11-24）**: 原因を確かめた。売上の取り込み（scripts/note/note-sales-fetch.mjs → scripts/lib/sales-normalize.mjs の resolveSaleEntry）は、既存の記録の題名・手当表（SINGLE_ARTICLE_TITLE_RULES）・想定工事バンク・マガジンのカタログの順に引き、公開中の記事の台帳（.claude/state/note-published.json）は見ていない。題名は note-published.json と完全に一致する（11/15 の 2 件とも）。ただし題名から productId を決める規則が無い: 『article:<utmCampaign>』は売上の記録と 9 件一致・29 件不一致（civil-1-keiken-pack-24 と utm civil1-keiken-pack-koji24 など）で、使えば初めて売れた記事に誤った id を付ける。決めること（運営者か次の担当）: (1) 記事の frontmatter に売上の productId（例 salesProductId）を持たせて取り込みがそれを引く、(2) 初めて売れた記事は unknown のまま入れず、記事のパスを添えて段を止める、のどちらにするか。(1) なら公開の手順（note-unpublished の点検）に欄の必須を足す。
 
 
-### [DN-1260] scripts/ 直下の整理で残した転送 57 本を、main へ deploy したあとで消す
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
-
-**起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
-
-同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に、用途のフォルダ（storage・build・reports・fetch）へ分けたときも 17 本に、残りの CLI（ops・local・maint）を分けたときも 6 本に同じ転送を残した。Mac の launchd（gsc-indexing-daily.sh）は元の checkout の古い版のまま origin/develop の worktree で `scripts/gsc-local-routine.mjs` を呼ぶので、これにも転送を置いた（元の checkout を新しい版にしたあとで消す）。
-
-**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 57 本（main のワークフロー用 56・launchd 用 1）を消す。
-
-**進み（2026-11-20）**: main へ deploy（11db54460）したあと、main のワークフロー用の 56 本を消した（`check-main-workflow-paths` は転送なしで通過）。launchd の 3 本を見直し、旧パスに頼るのは gsc-indexing-daily.sh が呼ぶ `scripts/gsc-local-routine.mjs` だけと確かめた（土曜の収集は origin/develop の weekly-review.sh を取り出して動き、disk-hygiene は元の checkout の中で完結する）。残りはこの 1 本で、元の checkout を新しい版にしてから消す。
-
-**完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
 
 
