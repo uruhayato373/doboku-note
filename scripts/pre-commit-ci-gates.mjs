@@ -43,6 +43,8 @@ export const UNIT_TEST_RULES = [
   { match: (f) => /^content\/site\/.+\.mdx$/.test(f), tests: ['tests/career-funnel-report.test.mjs', 'tests/career-pathways.test.mjs'] },
   // 展開の判断材料・シリーズ企画の実データ（8 回・8 回）
   { match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f), tests: ['tests/qualification-market.test.mjs'] },
+  // 資格を足すと、色（パレット）の対応が落ちる（2026-11-25 に中小企業診断士の登録で develop が赤くなった・DN-0998）
+  { match: (f) => f === datasetPath('config.qualification-registry'), tests: ['tests/qualification-keys.test.mjs'] },
   { match: (f) => ['config.competitor-positions', 'config.competitors', 'config.market-scan'].map((id) => datasetPath(id)).includes(f), tests: ['tests/competitor-positions.test.mjs'] },
   { match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f), tests: ['tests/content-series.test.mjs'] },
   // 通常動画の台本・メタデータ（8 回）
@@ -212,6 +214,25 @@ export const GATES = [
       f === 'src/lib/note-magazines.ts' ||
       f === datasetPath('config.note-magazine-membership'),
     cmd: () => ['node', 'scripts/build/build-note-published-index.mjs', '--check', '--staged'],
+  },
+  {
+    id: 'generated-indexes',
+    // 1級・2級土木の過去問 MDX から作る演習データ（src/config/civil-{1,2}-exam-questions.json）。MDX だけ直して作り直しを忘れ、
+    // 2026-11-24 に develop が 3 回赤くなった（DN-0998）。全量の refresh-indexes は CI に残し、ここはパーサ 2 本（0.4 秒）だけ
+    match: (f) => /^content\/site\/civil-construction-[12]\/.+\/article\.mdx$/.test(f) || /^src\/config\/civil-[12]-exam-questions\.json$/.test(f),
+    cmd: () => ['node', 'scripts/checks/check-exam-question-data-fresh.mjs'],
+  },
+  {
+    id: 'kindle-prices',
+    // spec.price と catalog.priceJpy（config/products.json）の一致。2026-11-24 に e-01 の spec だけ 1,650 へ上げて CI が赤くなった。全量 0.2 秒
+    match: (f) => /^content\/kindle\/books\/[^/]+\/spec\.json$/.test(f) || f === datasetPath('config.products'),
+    cmd: () => ['node', 'scripts/checks/check-kindle-prices.mjs'],
+  },
+  {
+    id: 'dispatch-log',
+    // dispatch-log.json の id・at・outcome・不具合の prevention。2026-11-23 に台帳の棚卸しの commit が通って CI が赤くなった。全量 0.2 秒
+    match: (f) => f === datasetPath('state.dispatch-log'),
+    cmd: () => ['node', 'scripts/checks/check-dispatch-log.mjs'],
   },
 ];
 
