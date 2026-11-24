@@ -10713,6 +10713,19 @@
       "commit": "f40cefe0ee68",
       "verification": "node --test tests/note-sync-results.test.mjs pass 4（low-memory の延期と、印が無いときの従来の失敗）",
       "note": "#1732 で note-sync-results に lowMemoryReason を足し、子プロセスの出力に LaunchGuardError（LOW_MEMORY）があれば、行の無い記事を『結果なし』の失敗でなく『low-memory: 空きメモリ不足でブラウザを起動しなかった（1055MB < 閾値 1200MB）』の延期にする。note-sync-routine は low-memory の回で残りを次回へ回して止める（失敗に数えない）。やること 3 の閾値 1,200MB は変えていない（延期にしたので、割っても失敗の山にならない）"
+    },
+    {
+      "id": "DN-0298",
+      "at": "2026-11-24",
+      "task": "Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "61acd6b43375",
+      "verification": "17 URL の 9/23 と 11/18 の google_canonical の比較（12 件が新 URL・残り 4 件の内訳は note 張り 3・張りなし 1）",
+      "note": "再公開しないと決めた（2026-11-24）。9/23 の URL 検査（data/metrics/url-inspection/inspection-batch-2026-09-23T06-54-59.json・git a084aeeef）で google_canonical が旧 /docs/ だった 17 URL を、11/18 の URL 検査（data/gsc/url-inspection/2026-11-19T09-44-23.json）と比べた。12 件が新 URL に切り替わり、旧 URL のままは 4 件（labor-tribunal-act・pollution-control-manager・sexual-harassment・h21-secondary）。content/note から張られている 9 件は 6 件が切り替わり 3 件が残る。張られていない 7 件も 6 件が切り替わり 1 件（pollution-control-manager）が残る。両群とも切り替わりが進んでいて、note の被リンクが旧 URL を選ばせている形ではない（カードの決まり『両群とも切り替わるなら再公開しない』）。残る 4 件は 301 の転送のまま次の URL 検査で切り替わるのを待つ"
     }
   ]
 }
