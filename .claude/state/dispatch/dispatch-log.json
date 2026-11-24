@@ -10820,6 +10820,23 @@
       "commit": "a98dd63a08ef",
       "verification": "node scripts/checks/check-reference-sources.mjs --deep exit 0・逐語一致 0 件",
       "note": "Drive をマウントしたこの Mac で check-reference-sources --deep を回し、逐語一致 7 件（3 記事）の文を出して自分の言葉に書き直した（記事ごとに commit）: textbook-cast-in-place-pile の工法の並び 1 件、textbook-construction-business の書類の保存 1 件、textbook-management-subplans の品質管理の展開の手順・原価管理の手順・PDCA・数量の把握 5 件。書き直した後 --deep は逐語一致 0 件・exit 0（同時に出ていた transcript-method の 1 件は、自分の上書きを戻して解消）"
+    },
+    {
+      "id": "DN-1226",
+      "at": "2026-11-24",
+      "task": "standards-chapter（/standards/kinki/common/chapters/1-3）が画面の点検で不合格（cta）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/affiliate-catalog-mats.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "abb815cba754",
+      "verification": "npm run site-visual-review -- record で 合格 2・本番のページに RSG 016 の素材（s00000021947001016000）",
+      "note": "原因は CSS の切り詰めではなく素材そのもの: RSG のスマホ用 320x50（素材 005）は 640x100 の動く GIF で、止まった画面ではロゴと背景だけになる。#1732 で 005 を avoid にし、文字で訴求が読める 016（順位表示なし）を選ぶようにした。本番（6f6f11ab7）で standards-chapter（/standards/kinki/common/chapters/1-3）と past-exam（/exam/civil-construction-1/secondary/r06）を撮り直し（作業票 20261124T082315Z・54 枚）、site-page-visual-auditor が両方 pass、record で台帳に合格を記録した。コンストワークの 320x50 は文字の切れは無いが『施工管理職／詳しくはこちら』だけで、転職サービスと分かる語が無い（minor・素材を替えるなら次の候補）"
     }
   ]
 }

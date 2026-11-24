@@ -624,18 +624,6 @@
 
 
 
-### [DN-1226] standards-chapter（/standards/kinki/common/chapters/1-3）が画面の点検で不合格（cta）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review:status] [起票:2026-11-16]
-
-**起点**: 2026-11-16 の画面の点検（`npm run site-visual-review`・作業票 20261116T122139Z）で、standards-chapter（/standards/kinki/common/chapters/1-3）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
-
-- cta [w375]: スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）（w375-cta-02.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys standards-chapter` で撮り直して判定し、record で pass と台帳に記録される。
-
-- 統合（2026-11-23 の棚卸し・旧カード「past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（cta）」から）: /exam/civil-construction-1/secondary/r06（past-exam）でも同じ崩れ。完了条件に npm run site-visual-review -- prepare --keys past-exam の撮り直しと pass を加える
 
 
 
@@ -2737,30 +2725,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 進み（2026-11-24）: 作り直した note の配布 PDF・カバーなど 95 件を Drive へ反映し（--force）、Instagram のハイライト画像 10 枚を登録した。check-drive-vault は FAIL 0・WARN 0。content/ など原本の置き場で台帳にも git にも無い PDF は 0 件。手元にしか無い PDF は 384 本（681MB）で、すべて .tmp（347 本・うち 11/10 以降 23 本）と .local/cache（37 本）の作業用・取得の控え。(1) は運営者の承認で同日に 384 本を消し、手元にしか無い PDF は 0 件になった。残りは check-local-data の PDF 以外の申告外 185 件（config/ogp/backgrounds・.claude/pdfs など）を local-data.json に区分するか置き場へ移すこと。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**訂正（2026-11-24）**: 上の『95 件を Drive へ反映』のうち 27 件は手元の方が古く、直した vault の版を古い版で上書きしていた（check-drive-vault の local-newer が向きを見ていなかった）。27 件は同じ日に上書き前の版へ戻した（Drive の版の履歴から 24 件・生成器で作り直して 3 件・台帳は上書き前の sha256 と一致・a98dd63a0）。検査は #1735 で vault の方が新しい差分を vault-newer として分け、--pull を案内する。正しく反映したのは 68 件。
 
 
 ### [DN-0600] YouTube の再開でやること（総まとめと図解版の公開判断と 28 日比較・新形式の動画パック）
