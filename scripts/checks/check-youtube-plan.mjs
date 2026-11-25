@@ -11,15 +11,14 @@
 import { parseCliArgs } from '../lib/cli-args.mjs';
 import { todayJst } from '../lib/jst-date.mjs';
 import { REPO_ROOT } from '../lib/repository-paths.mjs';
-import { scriptQueue } from '../lib/youtube-longform-audit.mjs';
-import { loadPlanAudit } from '../lib/youtube-longform-plan.mjs';
+import { loadPlanAudit, loadScriptQueue } from '../lib/youtube-longform-plan.mjs';
 
 const args = parseCliArgs({ inventory: { type: 'boolean' }, json: { type: 'boolean' }, due: { type: 'boolean' } });
 const { plan, audit, inventory, publications } = loadPlanAudit(REPO_ROOT);
 
 // --due は台本待ち・内容QAで止まった行のうち確認期限（ready）を過ぎたものだけを見る。壁時計に依存するので週次の ops（DN-1069）
 if (args.due) {
-  const queue = scriptQueue(plan, publications);
+  const queue = loadScriptQueue(REPO_ROOT, plan, publications);
   const overdue = queue.filter((r) => r.overdue);
   console.log(`check-youtube-plan --due: 台本待ち ${queue.filter((r) => r.state === 'script').length} 本・QA で停止 ${queue.filter((r) => r.state === 'qa-blocked').length} 本を検査 / 確認期限の超過 ${overdue.length} 本`);
   for (const r of overdue) console.log(`  [超過] ${r.id}（${r.state === 'script' ? '台本待ち' : 'QA で停止'}）ready ${r.ready}・公開目標 ${r.target}：${r.title}`);

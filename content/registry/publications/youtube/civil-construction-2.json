@@ -448,7 +448,7 @@
       "work": "keiken-anzen-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-001",
@@ -468,7 +468,59 @@
         "video": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-09T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-24T12:51:36.965Z",
+          "digest": "59281e8835d42deda722b9f3a0b8130238f27a919c98e6cd7ea0dbd509801a80"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-24T12:51:36.965Z",
+        "contentSha256": "a817775507850c69ca3ecfb547dc35c2bb642c55c918f4a664149a0cb6fd2eed"
+      },
+      "times": {
+        "rendered": "2026-11-24T12:57:47.664Z",
+        "uploaded": "2026-11-24T13:06:06.069Z",
+        "scheduled": "2026-11-24T13:06:16.300Z"
+      },
+      "delivery": {
+        "inputSha256": "f175626cc2b57f1cde46815ecd052f5653da627ad0d05923c8c55d3c2efbc54f",
+        "marker": "dn-single-48c2f01f32fadb30a5d42472a5d05733caba530c",
+        "uploadRequestedAt": "2026-11-24T13:05:23.634Z",
+        "videoId": "FWh4D27aDdA",
+        "processedAt": "2026-11-24T13:06:05.462Z",
+        "thumbnailRequestedAt": "2026-11-24T13:06:06.102Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/default.jpg?sqp=CPyWltgG&rs=AOn4CLAR-4rZRjkfF4Gg_A9t3ymKG4jp4Q",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/mqdefault.jpg?sqp=CPyWltgG&rs=AOn4CLAnwBEODZCJ78GozEpxn2_UZRrMhg",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/hqdefault.jpg?sqp=CPyWltgG&rs=AOn4CLDezbKSM8dl8zYzD0wh7jDj3e0bxw",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/sddefault.jpg?sqp=CPyWltgG&rs=AOn4CLB-t7ale2hBmfOHevBTAPfdcEK3Gg",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/maxresdefault.jpg?sqp=CPyWltgG&rs=AOn4CLBoUINaTeswQ7SlOUktF5b6n7A8Xw",
+          "https://i9.ytimg.com/vi/FWh4D27aDdA/fhddefault.jpg?sqp=CPyWltgG&rs=AOn4CLBz8AKrNB2GHGsdfSHYHVjQCXXvCg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-24T13:06:12.083Z",
+        "scheduleRequestedAt": "2026-11-24T13:06:13.068Z",
+        "scheduleAt": "2026-12-09T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-24T13:06:16.300Z"
+      },
+      "platform": {
+        "id": "FWh4D27aDdA",
+        "url": "https://www.youtube.com/watch?v=FWh4D27aDdA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-24T13:06:12.083Z"
+      }
     },
     {
       "id": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
@@ -640,7 +692,7 @@
       "work": "keiken-hinshitsu-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-001",
@@ -660,14 +712,66 @@
         "video": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-10T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T12:51:11.438Z",
+          "digest": "b750410c01c013739fcb094c3a3bc0ea057e76fa9342a5c74d4aa7c6a64f2092"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T12:51:11.438Z",
+        "contentSha256": "98850b01f4be5b912e41c2bcee59b0ebda5707b3ac6958fc69b85fe618025530"
+      },
+      "times": {
+        "rendered": "2026-11-25T12:54:02.131Z",
+        "uploaded": "2026-11-25T12:56:04.028Z",
+        "scheduled": "2026-11-25T12:56:14.840Z"
+      },
+      "delivery": {
+        "inputSha256": "bf703356f77489abd493451cd952fcc5b1b10407871e89928febe281c1402911",
+        "marker": "dn-single-0bd6695351d3c9b6618476da91d91c67e2128f2a",
+        "uploadRequestedAt": "2026-11-25T12:55:14.817Z",
+        "videoId": "eCTNdutdD7w",
+        "processedAt": "2026-11-25T12:56:03.363Z",
+        "thumbnailRequestedAt": "2026-11-25T12:56:04.087Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/default.jpg?sqp=CKS1m9gG&rs=AOn4CLAy7NvughnluO869CxILJoe_9I7rQ",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/mqdefault.jpg?sqp=CKS1m9gG&rs=AOn4CLDquA8dBjb8Dp0IsVKVQWLADoyq1Q",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/hqdefault.jpg?sqp=CKS1m9gG&rs=AOn4CLCP-ntLN1CafqtIf2f1fV6F630kBw",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/sddefault.jpg?sqp=CKS1m9gG&rs=AOn4CLC3eVW1EjPrFC5rFSICaYE_JvSyjw",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/maxresdefault.jpg?sqp=CKS1m9gG&rs=AOn4CLA4drlrVYWZJSgH5Kl5bM_1cKZgWA",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/fhddefault.jpg?sqp=CKS1m9gG&rs=AOn4CLBERti8S8U6M74ymXDCMs4AuaPPBA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-25T12:56:07.820Z",
+        "scheduleRequestedAt": "2026-11-25T12:56:11.318Z",
+        "scheduleAt": "2026-12-10T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-25T12:56:14.840Z"
+      },
+      "platform": {
+        "id": "eCTNdutdD7w",
+        "url": "https://www.youtube.com/watch?v=eCTNdutdD7w",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-25T12:56:07.820Z"
+      }
     },
     {
       "id": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform",
       "work": "keiken-koji-gaiyo-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/scene-001",
@@ -686,14 +790,66 @@
         "video": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-08T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-24T12:51:34.138Z",
+          "digest": "dd40abe76a3bf8cad5fa3911f16efd49ddfb3bc26011a0fc31a97e534eefdfc0"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-24T12:51:34.138Z",
+        "contentSha256": "a36afe8937b1e242ea809e39d9e90fae852862f267016e5b7e0466ab99bdcf7b"
+      },
+      "times": {
+        "rendered": "2026-11-24T12:57:34.819Z",
+        "uploaded": "2026-11-24T13:01:52.577Z",
+        "scheduled": "2026-11-24T13:02:04.470Z"
+      },
+      "delivery": {
+        "inputSha256": "082f90d96b29279fa7e91a66a75f0aa651a5b4db419b1ce49e45989b283471f9",
+        "marker": "dn-single-d60f1fb5697ebfc8cf8b74ed30b3676ee50baf9f",
+        "uploadRequestedAt": "2026-11-24T13:01:07.755Z",
+        "videoId": "dkXJZ87nUkw",
+        "processedAt": "2026-11-24T13:01:51.654Z",
+        "thumbnailRequestedAt": "2026-11-24T13:01:52.620Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/default.jpg?sqp=CNCUltgG&rs=AOn4CLATyInfYMqup2omcJeB3T8zoeXivg",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/mqdefault.jpg?sqp=CNCUltgG&rs=AOn4CLAQ219JwDm5PE7cGovJtgNVrAhhyQ",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/hqdefault.jpg?sqp=CNCUltgG&rs=AOn4CLBRNTLcak_zFa3sFqV2PnVnAftS2A",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/sddefault.jpg?sqp=CNCUltgG&rs=AOn4CLBZ-feu-RdbIqFqmB2kr9dK-ozQIQ",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/maxresdefault.jpg?sqp=CNCUltgG&rs=AOn4CLB49hLtou0wVRM4Rf-dH94ga7bgPA",
+          "https://i9.ytimg.com/vi/dkXJZ87nUkw/fhddefault.jpg?sqp=CNCUltgG&rs=AOn4CLCUf-vdcNBmz9vjqvEwP5vICZxcPA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-24T13:01:59.424Z",
+        "scheduleRequestedAt": "2026-11-24T13:02:00.718Z",
+        "scheduleAt": "2026-12-08T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-24T13:02:04.470Z"
+      },
+      "platform": {
+        "id": "dkXJZ87nUkw",
+        "url": "https://www.youtube.com/watch?v=dkXJZ87nUkw",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-24T13:01:59.424Z"
+      }
     },
     {
       "id": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform",
       "work": "keiken-teishutsumae-tenken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-001",
@@ -713,7 +869,30 @@
         "video": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken/youtube.json#longform",
+      "publishAt": "2026-12-11T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T12:51:12.355Z",
+          "digest": "3198ae9d136d8a8b36c9ec94953334b02a42479fcfe6f1bb028ce68811e6db5e"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T12:51:12.355Z",
+        "contentSha256": "a877520852bc1627c17530195fe06992d443b5cfe586a39be9e589f520ef8021"
+      },
+      "times": {
+        "rendered": "2026-11-25T12:54:06.526Z"
+      },
+      "delivery": {
+        "inputSha256": "14bc0d37f702cbc95689a205f83007bddc095d211efa17fda0936cd4dc7635fa",
+        "marker": "dn-single-1ccdcac1992442f6a09cb7c3f8604d5b4e3fe3fa",
+        "uploadRequestedAt": "2026-11-25T12:57:18.155Z",
+        "videoId": "LIv0qIKNP-w"
+      }
     }
   ]
 }

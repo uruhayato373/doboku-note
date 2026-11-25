@@ -4,15 +4,36 @@
     {
       "sceneId": "cover",
       "start": 0,
-      "end": 8,
-      "narration": "総監の口頭試験で、立場ごとに聞かれることと、答え方を整理します。",
-      "caption": "立場ごとに聞かれることと、答え方",
+      "end": 3,
+      "narration": "総監の口頭試験で、",
+      "caption": "総監の口頭試験",
       "visual": {
         "kind": "cover",
         "heading": "総監 口頭｜立場ごとに聞かれることと答え方",
         "items": [
           "技術士 総合技術監理部門・口頭試験"
         ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "intro",
+      "start": 3,
+      "end": 8,
+      "narration": "立場ごとに聞かれることと、答え方を整理します。",
+      "caption": "立場ごとに聞かれることと、答え方",
+      "visual": {
+        "kind": "points",
+        "heading": "立場ごとの、聞かれることと答え方",
+        "items": [
+          "聞かれること\n立場ごとに違う",
+          "答え方\n自分の立場で整理する"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監",
+          "note": "この動画で整理すること"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
     },
@@ -80,8 +101,8 @@
     {
       "sceneId": "axis",
       "start": 66,
-      "end": 102,
-      "narration": "立場の違いが効くのは、経歴及び応用能力の側です。同じ5管理でも、自分の立場でどの管理の核が前に出るかが変わります。核は、経済性は原価と工期の最適化、人的資源は人の確保と育成、情報は守りつつ活用、安全は人命と健康と第三者影響の回避、社会環境は環境と地域の合意です。",
+      "end": 82,
+      "narration": "立場の違いが効くのは、経歴及び応用能力の側です。同じ5管理でも、自分の立場でどの管理の核が前に出るかが変わります。",
       "caption": "立場で、前に出る管理の核が変わる",
       "visual": {
         "kind": "points",
@@ -90,9 +111,32 @@
         "art": {
           "type": "diagram",
           "section": "口頭試験対策／総監",
-          "note": "管理の核を、立場ごとの材料に結び付ける",
           "diagram": "five-management",
           "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "axis-core",
+      "start": 82,
+      "end": 102,
+      "narration": "核は、経済性は原価と工期の最適化、人的資源は人の確保と育成、情報は守りつつ活用、安全は人命と健康と第三者影響の回避、社会環境は環境と地域の合意です。",
+      "caption": "5管理それぞれの核",
+      "visual": {
+        "kind": "points",
+        "heading": "5管理それぞれの核",
+        "items": [
+          "経済性\n原価と工期の最適化",
+          "人的資源\n人の確保と育成",
+          "情報\n守りつつ活用",
+          "安全\n人命と健康と第三者影響の回避",
+          "社会環境\n環境と地域の合意"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監",
+          "note": "5管理それぞれの核の整理"
         }
       },
       "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
@@ -121,8 +165,8 @@
     {
       "sceneId": "owner",
       "start": 128,
-      "end": 158,
-      "narration": "発注者の立場で整理すると、想定される切り口はこうです。予算と工期の制約は、経済性管理。住民や第三者への影響は、安全管理と社会環境管理。受注者の働き方への配慮は、人的資源管理。これは想定であり、実際の試問の再現ではありません。",
+      "end": 146,
+      "narration": "発注者の立場で整理すると、想定される切り口はこうです。予算と工期の制約は、経済性管理。住民や第三者への影響は、安全管理と社会環境管理。",
       "caption": "発注者の立場の、想定される切り口",
       "visual": {
         "kind": "points",
@@ -141,10 +185,31 @@
       "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
     },
     {
+      "sceneId": "owner-b",
+      "start": 146,
+      "end": 158,
+      "narration": "受注者の働き方への配慮は、人的資源管理。これは想定であり、実際の試問の再現ではありません。",
+      "caption": "受注者の働き方への配慮と、想定であること",
+      "visual": {
+        "kind": "points",
+        "heading": "受注者の働き方への配慮",
+        "items": [
+          "受注者の働き方への配慮",
+          "人的資源管理"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "口頭試験対策／総監",
+          "note": "これは想定であり、実際の試問の再現ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
       "sceneId": "others",
       "start": 158,
-      "end": 190,
-      "narration": "設計、施工、維持管理の立場は、自分の立場に置き換えて使ってください。設計なら、設計条件と費用、安全の確保。施工なら、工程と費用、作業員の確保と現場の安全。維持管理なら、点検の頻度と費用、記録の活用です。これも想定です。",
+      "end": 172,
+      "narration": "設計、施工、維持管理の立場は、自分の立場に置き換えて使ってください。設計なら、設計条件と費用、安全の確保。",
       "caption": "設計・施工・維持管理は、置き換えて使う",
       "visual": {
         "kind": "points",
@@ -154,6 +219,27 @@
           "施工\n工程と費用・作業員の確保と現場の安全",
           "維持管理\n点検の頻度と費用・記録の活用",
           "自分の立場\n何を決めたか"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監",
+          "note": "語り手の経験ではなく、置き換えの例。想定であり、実際の試問の再現ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg"
+    },
+    {
+      "sceneId": "others-b",
+      "start": 172,
+      "end": 190,
+      "narration": "施工なら、工程と費用、作業員の確保と現場の安全。維持管理なら、点検の頻度と費用、記録の活用です。これも想定です。",
+      "caption": "施工と維持管理の置き換え例",
+      "visual": {
+        "kind": "points",
+        "heading": "施工と維持管理の置き換え（想定）",
+        "items": [
+          "施工\n工程と費用・作業員の確保と現場の安全",
+          "維持管理\n点検の頻度と費用・記録の活用"
         ],
         "art": {
           "type": "grid",
@@ -279,8 +365,8 @@
   "imageDesign": {
     "mode": "codex-pop",
     "scope": "all-body",
-    "revision": "body-diagram-20261110",
-    "coverRevision": "cover-pop-20261110",
+    "revision": "body-diagram-20261125",
+    "coverRevision": "cover-pop-20261125",
     "layout": "diagram-led"
   }
 }

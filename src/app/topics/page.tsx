@@ -4,6 +4,7 @@ import TopicIcon from '@/components/topics/TopicIcon';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import IndexRail, { indexRailData } from '@/components/layout/IndexRail';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -67,15 +68,17 @@ export default function TopicsPage() {
           />
         )}
       >
+        {/* 左の列を 1 枚の白い面にする（資格トップ・基準書・テーマの個別ページと同じ。2026-11-23 まで背景の上に直に載っていた） */}
+        <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
         <PageHeader
           variant="inline"
           titleSize="lg"
           breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Topics' }]}
           title="土木技術のテーマ別索引"
           lead="資格名や資料名ではなく、現場で調べたい技術テーマから試験対策・実務ノート・公的基準を横断できます。"
-          className="mb-6"
+          className="border-b border-(--rule-soft) py-5 sm:py-6 dark:border-(--rule-soft)"
         />
-        <nav aria-label="テーマの区分" className="mb-8 flex flex-wrap gap-3">
+        <nav aria-label="テーマの区分" className="mt-6 mb-8 flex flex-wrap gap-3">
           {sections.map((s) => (
             <a key={s.id} href={`#topics-${s.id}`} className="focus-ring rounded-card-inline border border-(--rule-soft) dark:border-(--rule-soft) px-4 py-3 text-sm text-(--ink)">
               {s.label} <span className="text-(--ink-muted)">{s.items.length}</span>
@@ -92,6 +95,7 @@ export default function TopicsPage() {
         ))}
         {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
         <AffiliateSlot page={{ pageKind: 'topic' }} slot="topic-end" alignStart />
+        </MetaCard>
       </TwoColumnShell>
     </PageShell>
   );

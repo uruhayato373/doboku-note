@@ -226,16 +226,17 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
 }
 
 /**
- * 台本を書く前の企画の行（公開行が無い new）と、内容QAで止まった行（qa_blocked）を、確認期限（ready）の近い順に返す。
+ * 台本を書く前の企画の行（公開行が無い new、または下書きの公開行でパックに台本が無い new）と、内容QAで止まった行（qa_blocked）を、確認期限（ready）の近い順に返す。
  * video-factory status が「次にどの台本を書くか」を出し、check-youtube-plan --due が期限超過を週次で赤にする（DN-1069）。
+ * hasScript(公開ID) は、その公開のパックに script.md があるか。渡さなければ下書きは全部台本待ちに数える（企画だけのパックを台帳に登録すると公開行ができるため・2026-11-23）
  */
-export function scriptQueue(plan, publications, today = todayJst()) {
+export function scriptQueue(plan, publications, today = todayJst(), { hasScript = () => false } = {}) {
   const byId = new Map(publications.map((p) => [p.id, p]));
   const rows = [];
   for (const e of plan.entries) {
     if (e.action !== 'new') continue;
     const p = e.publicationId ? byId.get(e.publicationId) : null;
-    const state = !e.publicationId ? 'script' : p?.status === 'qa_blocked' ? 'qa-blocked' : null;
+    const state = !e.publicationId || (p?.status === 'draft' && !hasScript(p.id)) ? 'script' : p?.status === 'qa_blocked' ? 'qa-blocked' : null;
     if (!state) continue;
     rows.push({ id: e.id, exam: e.exam, title: e.title, ready: e.ready, target: e.target, state, overdue: e.ready < today, publicationId: e.publicationId ?? null });
   }

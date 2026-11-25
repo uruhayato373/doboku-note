@@ -28,6 +28,10 @@
   },
   "maxPublishPerDay": 4,
   "uploadPriority": "longform",
+  "retireSuperseded": {
+    "enabled": true,
+    "decidedBy": "運営者（2026-11-25 のチャット・DN-1239）。改訂版が予約済みか公開済みになった旧通常動画の行は、まだ非公開なら人の操作なしで superseded として止める"
+  },
   "hold": [],
   "audio": {
     "model": "~/.cache/whisper/ggml-small.bin",

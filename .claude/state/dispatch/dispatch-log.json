@@ -10837,6 +10837,225 @@
       "commit": "abb815cba754",
       "verification": "npm run site-visual-review -- record で 合格 2・本番のページに RSG 016 の素材（s00000021947001016000）",
       "note": "原因は CSS の切り詰めではなく素材そのもの: RSG のスマホ用 320x50（素材 005）は 640x100 の動く GIF で、止まった画面ではロゴと背景だけになる。#1732 で 005 を avoid にし、文字で訴求が読める 016（順位表示なし）を選ぶようにした。本番（6f6f11ab7）で standards-chapter（/standards/kinki/common/chapters/1-3）と past-exam（/exam/civil-construction-1/secondary/r06）を撮り直し（作業票 20261124T082315Z・54 枚）、site-page-visual-auditor が両方 pass、record で台帳に合格を記録した。コンストワークの 320x50 は文字の切れは無いが『施工管理職／詳しくはこちら』だけで、転職サービスと分かる語が無い（minor・素材を替えるなら次の候補）"
+    },
+    {
+      "id": "DN-1076",
+      "at": "2026-11-24",
+      "task": "2級土木 令和8年度 第1次検定（後期）の公式問題が掲載されたら取り込み、一次の過去問 PDF を令和8年度（前期・後期）まで足す",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "418ac571b154",
+      "verification": "kdp-publish --sync-status で e-01 が販売中・¥1,650・未出版の変更なし／note 公開 API で題名・価格 1980・境界／check-note-attachments:live --only n4963f45bd6f8 が充足 1 不足 0（運営者が実行）／deploy:main rc=0",
+      "note": "令和8年度 後期の過去問ページを公開（66問・原本照合済み）。Kindle e-01 を令和3〜8年度・762問の v1.1 に差し替えて ¥1,650 で出版申請（本棚で販売中・ASIN 維持）。note の過去問 PDF を 762 問・¥1,980 に差し替え"
+    },
+    {
+      "id": "DN-1296",
+      "at": "2026-11-24",
+      "task": "上下水道の無料 note 2 本の冒頭パック・もくじの CTA がライブに未反映（audit-note-funnel D5）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-funnel"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7c9bc0adb16f",
+      "verification": "node scripts/checks/audit-note-funnel.mjs --live（公開 136 本）で D5 0 件・ドリフトなし",
+      "note": "上下水道の無料 2 本（n1683f37bad7f・n3013d48a2864）へ CTA をライブ反映。残った 1 件は、総監へ進む記事が総監もくじを案内するのが正しいため note-funnel.json に冒頭案内の例外を登録"
+    },
+    {
+      "id": "DN-1275",
+      "at": "2026-11-24",
+      "task": "技術士の改訂コンピテンシーの文言を一次資料で照合し、口頭試験対策 3 本とそろえる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9b8a0ab790fc",
+      "verification": "guide-fact-checker で mext.go.jp の報告 PDF と engineer.or.jp の申込み案内 PDF を取得し pdftotext で原文と照合（6 箇所すべて一致）",
+      "note": "改訂コンピテンシーの文言（社会、経済及び環境・文化的価値の尊重・持続可能な成果の達成）を、文部科学省の技術士分科会報告（令和5年1月25日改訂・別紙2）と日本技術士会の令和8年度受験申込み案内（15・81ページの新旧対照表）で照合し、口頭試験対策 3 本と業務経歴票の書き方の記述がすべて一致。直しなし"
+    },
+    {
+      "id": "DN-1274",
+      "at": "2026-11-24",
+      "task": "建設部門の口頭試験・自治体職員向け無料記事（nd74226a91a18）のリンクを、建設部門もくじ・L1・口頭試験対策 2 本へ入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "eb892fdf8313",
+      "verification": "note-update-body の API 実体検証 OK（4 本）・audit-note-funnel --live で D5 0 件・check-note-funnel ドリフトなし。有料 2 本は添付復元 1/1・境界は paidBoundary の直前を確認。有料エリア内のリンクは公開 API では見えないためスクリプトの新しい文の一致で確認",
+      "note": "自治体職員向け無料記事（nd74226a91a18）への案内を、建設部門もくじ・L1・口頭試験対策 2 本（n7279ca0d926f・n296a88f64ac2・n5bc0bcde96ac・n1fcaf65dc75b）へライブ反映"
+    },
+    {
+      "id": "DN-1238",
+      "at": "2026-11-24",
+      "task": "管工事の機器別バンク（公開中）の掃除口の間隔と最小流速の出典を確かめて直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "出典の取り違えは記事 1 本の執筆時の誤りで、数値の出典を機械で判定する方法が決められない（数値ごとの出典照合は公開前の fact-check で行う運用のまま）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d1044078816c",
+      "verification": "公開 API で本文から「0.6m/s」「15m以内」が消えたこと・価格 1980・境界は「機器別の模範解答」の直前を確認。note-update-body の API 実体検証 OK",
+      "note": "出典を確認できなかった最小流速 0.6m/s と掃除口の間隔（15m・30m）を外した原稿を、管工事の機器別バンク（n538762ec7f12）へライブ反映。運営者の承認で、未反映だった運営者の資格の記述・受水タンクの点検スペースの直しも同時に反映"
+    },
+    {
+      "id": "DN-1100",
+      "at": "2026-11-24",
+      "task": "Kindle 技術士一次 D 系 4 冊を決めた価格（d-00 ¥1,480・分冊 3 冊 ¥980）に、表紙の審査後に KDP で反映する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "610ac405153d",
+      "verification": "kdp-publish --set-price の dry-run で日本の実効レートが catalog と一致（d-00・d-03 35%、d-02 70%）→ --commit で 3 冊とも OK・catalog 書き戻し／npm run check-kindle-prices 合格。Amazon の表示は最大 72 時間で反映",
+      "note": "表紙の審査の終了（4 冊とも販売中・未出版の変更なし）を確かめ、d-00 ¥1,480・d-02 ¥980・d-03 ¥980 を KDP に保存（d-01 は ¥980 のまま）。spec・catalog・strategy を同じ commit で更新"
+    },
+    {
+      "id": "DN-1300",
+      "at": "2026-11-25",
+      "task": "下水道の模範解答 8 本の PDF をエディタへ再添付する（下書きに添付なしが残る）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "根本の失敗の記録のずれと応答の未記録は DN-1301 で直す"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "25c408c470dc",
+      "verification": "運営者の check-note-attachments:live 8/8 充足・公開 API で価格 780 と無料部分の末尾を確認・スクリプトの有料維持検証 OK",
+      "note": "下水道の模範解答 8 本へ note-attach-file --commit で PDF を再添付して更新（エディタに残っていた新しい本文＋PDF）。負債台帳は解消済みへ移し、中断記録から外した"
+    },
+    {
+      "id": "DN-1301",
+      "at": "2026-11-25",
+      "task": "note 同期の結果の結び付けが stderr でずれる・添付失敗の応答を残さない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/spawn-merged-output.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8f430ceef2be",
+      "verification": "tests/spawn-merged-output.test.mjs 3 件が通過・旧方式で同じずれを再現・PR の CI 全通過",
+      "note": "note-sync-routine の子の出力を同じファイル記述子へ集めて順序を保ち（runNodeMerged）、添付の失敗理由に /api/v2/attachments/upload の応答を載せた（PR #1740 を develop へ squash）"
+    },
+    {
+      "id": "DN-1082",
+      "at": "2026-11-25",
+      "task": "note の建設部門の口頭試験教材の公開中の記事へ、令和8年度の設問別の想定問答を反映する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5f9d44836dd5",
+      "verification": "公開 API で価格 1980・境界は paidBoundary の見出しの直前・運営者の check-note-attachments:live 2/2 充足・運営者の内容確認",
+      "note": "令和8年度の設問別の想定問答の節を note の建設部門-口頭試験対策（n5bc0bcde96ac）へ反映済み（2026-11-24・DN-1274 の反映で同時に公開）。運営者が 2026-11-25 に公開中の内容を確認"
+    },
+    {
+      "id": "DN-1267",
+      "at": "2026-11-25",
+      "task": "土曜の収集の gsc 段が 2 秒で終わり実検査 0 で failed になる（最後の ok は 11/14）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/weekly-collect-plan.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "02a8e265860b",
+      "verification": "#1726 merged（2026-11-24）・tests/weekly-collect-plan.test.mjs が通過・原因を runs.json と indexing-history.json で裏付けた",
+      "note": "原因: gsc 段は取得に失敗したのではなく、登録リクエストが 20 時間以内（毎朝のジョブが 2 時間前に送信）・理由別 CSV が期限内（次は 12/01）で、やることが無く終わっていた。そこへ取得していない週にも検算 gsc-ui-run を回して実検査 0 で落ちていた。#1726 で、run が増えた回だけ検算を回すようにした（weekly-collect-plan.mjs の verifyIfNewRun）。11/28 の実走は DN-0819 で見る"
+    },
+    {
+      "id": "DN-1266",
+      "at": "2026-11-25",
+      "task": "土曜の収集の a8 段が検算（a8-ui-run）で落ちる（rawFile が null・最後の ok は 10/31）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/check-a8-ui-run.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7bea9fad52af",
+      "verification": "#1726 merged・tests/check-a8-ui-run.test.mjs 6/6 通過（旧版の検算では 1 件落ちる）・現行の検算を 11/21・11/14 の実データに当てて FAIL 0",
+      "note": "原因: 11 月は A8 の成果が 0 件で、result-detail は CSV ボタンが出ず noData・0 行・rawFile null で正常終了する（emptyOk の仕様）。旧版の検算 check-a8-ui-run がそれを rawFile の欠落として FAIL にしていた。#1726 で emptyOk の 0 件を INFO に分けた。11/21 分は c3a1d90d07 で記録済み。11/28 の実走は DN-0819 で見る"
+    },
+    {
+      "id": "DN-0999",
+      "at": "2026-11-25",
+      "task": "コンクリート技士の教材の規定値を JIS A 5308:2024 と R 5210:2026 の本文で照合する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7110c324b09f",
+      "verification": "照合の記録はカードと git 履歴・note 反映は note-update-body ok（11/24）",
+      "note": "旧版の本文と改正概要・日建連の手引きで照合し、正答が変わる差は 0 件。正答に関わらない 2 件は原稿と note を直した（11/24）。表の数値そのもの（A 5308:2024・R 5210:2026・A 6204:2026）は本文が読めず未確認のまま、運営者の決定（2026-11-25）で閉じ、JISC の再開後の照合を 🟢 に起票し直した"
+    },
+    {
+      "id": "DN-0984",
+      "at": "2026-11-25",
+      "task": "未クロールの改善の効果を次の URL 検査で確かめる",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "05e4fd0942ca",
+      "verification": "data/gsc/url-inspection 10/21・11/05・11/12・11/19 と data/gsc/ui/2026-11-01 を比較（gsc-index-auditor）",
+      "note": "URL 検査で検出・未登録が 206→44・登録率 85.6%→96.0%、/standards 配下は 125→19。判断は効果ありの見込み（施策は同時投入で分けられない）。理由別の書き出しは 11/01 が最新で、未クロール 196 件と /standards-data/ の後の値は欠測（0 と扱わない）。前後の件数と判断と、12/01 の書き出しで確かめる 2 項目を DN-0420 に記録した"
+    },
+    {
+      "id": "DN-1119",
+      "at": "2026-11-25",
+      "task": "55歳までの方向「発注者の目で配線した土木の情報拠点」を戦略文書に反映する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3374480160db",
+      "verification": "check-doc-refs・check-relative-links・check-qualification-ssot・check-exam-calendar・check-datasets・check-qualification-market が通過（05e4fd0942）",
+      "note": "01 に 55 歳までの方向（情報拠点・2 段構え・集める基準・建設 DX を本命にしない・測り方）、02 に長期の方向と中小企業診断士（候補）、18 に情報拠点の中での役割を書いた。測り方は business-direction.json の観測値 2 つ（gscBaselineClicks・docsToExamTransitions・目標値なし）。診断士は qualification-registry に candidate で登録し、試験の 3 台帳と market-scan に足した（一次情報 jf-cmca.jp）"
+    },
+    {
+      "id": "DN-0477",
+      "at": "2026-11-25",
+      "task": "合格ラボを畳む（note 側の後始末）: 22 記事の会員限定を外し、旧プランと加入ページの実状を確かめる",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cb7ecb62afdc",
+      "verification": "公開 API で 22 本の is_limited・circle_plans・価格を実測（2026-11-25）",
+      "note": "運営者の決定（2026-11-25）で実害なしとして閉じた。合格ラボの会員専用マガジン・添削つきプラン・勧誘記事は削除済み（11/04）、有料の特典誌は紐づけを外して単品販売を継続。22 記事は is_limited=true のまま（circle_plans・belonging_magazine_keys は空、価格 0）で、隠れているのは末尾の「以上、〜でした。」だけ。公開設定の画面に外す操作は見当たらなかった。原稿の memberTrial: bottom は試し読みラインを末尾直前に置く指定として残す"
     }
   ]
 }

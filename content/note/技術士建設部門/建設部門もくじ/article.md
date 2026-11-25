@@ -47,6 +47,7 @@ cover:
 
 - [筆記合格発表の後にやること（無料）](https://note.com/dobokunote/n/ne13d3e917c06)
 - [建設部門 口頭試験対策](https://note.com/dobokunote/n/n5bc0bcde96ac)
+- [口頭試験で自治体職員（発注者）が業務をどう語るか（無料）](https://note.com/dobokunote/n/nd74226a91a18)
 - [口頭試験対策 全部門共通](https://note.com/dobokunote/n/n1fcaf65dc75b)
 
 ---
@@ -146,6 +147,7 @@ https://note.com/dobokunote/m/m0f3bc3933454
 - **選択科目が道路** → 必須Iとセットの [道路 まるごと合格パック](https://note.com/dobokunote/m/mebca45bcc745) が割安
 - **選択科目が土質及び基礎** → 必須Iとセットの [土質基礎 まるごと合格パック](https://note.com/dobokunote/m/m621daa62a087) が割安
 - **自分の選択科目の模範解答がほしい** → 上の「選択科目の模範解答」から該当科目を
+- **自治体職員として口頭試験を語りたい** → [口頭試験で自治体職員（発注者）が業務をどう語るか（無料）](https://note.com/dobokunote/n/nd74226a91a18)
 - **発注者・合格者視点の解答を読みたい** → 道路・河川・都市計画は合格者解答、他科目は発注者監修
 - **まだ第一次試験の前** → 上の「これから第一次試験を受ける人へ」から過去問PDFと無料の演習を
 

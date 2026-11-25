@@ -261,3 +261,13 @@ test('インフィード広告: 1 ページ 3 枠まで・前後が一覧の項�
   const many = `<html><body><main><ul>${[1, 2, 3, 4, 5].map(i => row(i) + ad).join('')}${row(9)}</ul></main></body></html>`;
   assert.ok(inspectHtml(many, 'exam/civil-construction-1').violations.some(v => v.rule === 'feed-ad-total'), '4 枠以上は違反');
 });
+
+test('右の欄のある 2 列のページは、本文の列を白い面に載せる（main-without-surface・2026-11-23）', () => {
+  const rail = '<aside class="w-[316px]"><div data-rail-stack><div data-rail-kind="nav">ナビ</div></div></aside>';
+  const page = (body) => `<div class="flex gap-10"><div class="flex-1">${body}</div>${rail}</div>`;
+  const check = (body, slug = 'topics/railways') => inspectHtml(page(body), slug).violations.map(v => v.rule).filter(r => r === 'main-without-surface');
+  assert.deepEqual(check('<div class="card-surface-section px-5">本文</div>'), [], '資格トップ・基準書・テーマの白い面');
+  assert.deepEqual(check('<article class="bg-(--paper) border">本文</article>'), [], '記事の白い面');
+  assert.deepEqual(check('<div><h1>見出し</h1><section>本文</section></div>'), ['main-without-surface'], '背景の上に直に載った本文');
+  assert.deepEqual(check('<div><h1>検索</h1></div>', 'search'), [], '検索は結果が 1 件ずつのカードなので除く');
+});

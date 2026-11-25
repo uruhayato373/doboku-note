@@ -56,6 +56,7 @@
     "assistant-surveyor": { "keywords": ["測量士補 試験 対策"], "titleMatch": "測量士補", "coconala": ["測量士補"] },
     "geological-survey-engineer": { "keywords": ["地質調査技士 試験"], "titleMatch": "地質調査", "coconala": ["地質調査技士"] },
     "road-bridge-inspector": { "keywords": ["道路橋点検士"], "titleMatch": "道路橋点検|橋梁点検|橋梁調査会", "coconala": ["道路橋点検士"] },
-    "steel-structure-diagnostician": { "keywords": ["土木鋼構造診断士"], "titleMatch": "鋼構造診断士", "coconala": ["土木鋼構造診断士"] }
+    "steel-structure-diagnostician": { "keywords": ["土木鋼構造診断士"], "titleMatch": "鋼構造診断士", "coconala": ["土木鋼構造診断士"] },
+    "sme-management-consultant": { "keywords": ["中小企業診断士"], "titleMatch": "中小企業診断士", "coconala": ["中小企業診断士"] }
   }
 }

@@ -65,6 +65,15 @@ test('指示: 『』を描かせず、注記を字幕の帯へ置かせない（
   assert.ok(body.includes('字幕の帯より上に『注記'));
 });
 
+test('指示: 15字を超える注記は消さずに2行に分けて図の幅に収めさせる', () => {
+  const withNote = (note) => buildBodyPrompt(scene('a', { visual: { heading: 'h', items: [], art: { type: 'steps', note } } }), 'pe-construction');
+  const fifteen = '一二三四五六七八九十一二三四五';
+  assert.ok(withNote(fifteen).includes(`『${fifteen}』`) && !withNote(fifteen).includes('2行に分け'), '15字ちょうどは1行のまま');
+  const long = `${fifteen}六`;
+  assert.ok(withNote(long).includes(`『${long}』`), '長い注記も全文を描かせる（出典を消さない）');
+  assert.ok(withNote(long).includes('2行に分け'), '16字からは2行に分けさせる');
+});
+
 test('機械検査: 比率と字幕の帯を止める', async () => {
   assert.deepEqual(await inspectImage(await png(1920, 1080), 'body'), []);
   assert.match((await inspectImage(await png(1536, 1024), 'body'))[0], /16:9/);

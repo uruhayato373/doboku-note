@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="現場の入口に掲げる四つの掲示物と、それぞれの根拠。許可票・施工体系図・労災保険関係成立票は法令、建退共標識は制度の依頼">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #222; }
+      .t-text { font-size: 13px; fill: #555; }
+      .t-small { font-size: 12px; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .tag-brand { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+      .tag-warn { fill: #ffffff; stroke: #d4a017; stroke-width: 1; }
+    </style>
+  </defs>
+  <!-- 1 許可票 brand -->
+  <rect class="box-brand" x="20" y="20" width="360" height="100" rx="8"/>
+  <text class="t-title" x="36" y="48">建設業の許可票</text>
+  <text class="t-text" x="36" y="72">技術者の氏名と専任の有無を載せる</text>
+  <text class="t-text" x="36" y="94">縦25cm以上・横35cm以上</text>
+  <rect class="tag-brand" x="262" y="32" width="104" height="24" rx="3"/>
+  <text class="t-small" x="314" y="49" text-anchor="middle">建設業法 第40条</text>
+  <!-- 2 施工体系図 brand -->
+  <rect class="box-brand" x="20" y="140" width="360" height="100" rx="8"/>
+  <text class="t-title" x="36" y="168">施工体系図</text>
+  <text class="t-text" x="36" y="192">工事関係者と公衆の両方が見る所</text>
+  <text class="t-text" x="36" y="214">下請契約があれば金額を問わない</text>
+  <rect class="tag-brand" x="236" y="152" width="130" height="24" rx="3"/>
+  <text class="t-small" x="301" y="169" text-anchor="middle">入札契約適正化法 第15条</text>
+  <!-- 3 労災 brand -->
+  <rect class="box-brand" x="20" y="260" width="360" height="100" rx="8"/>
+  <text class="t-title" x="36" y="288">労災保険関係成立票</text>
+  <text class="t-text" x="36" y="312">建設の事業の保険関係成立の標識</text>
+  <text class="t-text" x="36" y="334">見やすい場所に掲げる</text>
+  <rect class="tag-brand" x="236" y="272" width="130" height="24" rx="3"/>
+  <text class="t-small" x="301" y="289" text-anchor="middle">徴収法施行規則 第77条</text>
+  <!-- 4 建退共 warn -->
+  <rect class="box-warn" x="20" y="380" width="360" height="100" rx="8"/>
+  <text class="t-title" x="36" y="408">建退共の現場標識</text>
+  <text class="t-text" x="36" y="432">現場事務所や出入口に掲示を求める</text>
+  <text class="t-text" x="36" y="454">民間工事の現場にも掲示する</text>
+  <rect class="tag-warn" x="262" y="392" width="104" height="24" rx="3"/>
+  <text class="t-small" x="314" y="409" text-anchor="middle">制度の依頼</text>
+</svg>

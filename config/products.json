@@ -2768,7 +2768,7 @@
         "title": "技術士第一次試験 基礎・適性・専門（建設部門）過去問7年分完全解説【合本】",
         "subtitle": "令和元〜7年度 基礎210問＋適性105問＋専門245問 計560問",
         "series": "D 技術士一次 科目別",
-        "priceJpy": 1250,
+        "priceJpy": 1480,
         "royalty": 0.35,
         "status": "live",
         "submittedDate": "2026-07-16",
@@ -2814,6 +2814,11 @@
             "date": "2026-10-26",
             "from": 990,
             "to": 1250
+          },
+          {
+            "date": "2026-11-24",
+            "from": 1250,
+            "to": 1480
           }
         ]
       },
@@ -2892,7 +2897,7 @@
         "title": "技術士第一次試験 適性科目 過去問7年分完全解説",
         "subtitle": "令和元〜7年度 105問",
         "series": "D 技術士一次 科目別",
-        "priceJpy": 590,
+        "priceJpy": 980,
         "royalty": 0.7,
         "status": "live",
         "submittedDate": "2026-07-12",
@@ -2927,7 +2932,14 @@
             "at": "2026-11-10T17:06:26+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "priceHistory": [
+          {
+            "date": "2026-11-24",
+            "from": 590,
+            "to": 980
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -2948,7 +2960,7 @@
         "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説",
         "subtitle": "令和元〜7年度 245問",
         "series": "D 技術士一次 科目別",
-        "priceJpy": 490,
+        "priceJpy": 980,
         "royalty": 0.35,
         "status": "live",
         "submittedDate": "2026-07-16",
@@ -2988,7 +3000,14 @@
             "at": "2026-11-10T17:07:04+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "priceHistory": [
+          {
+            "date": "2026-11-24",
+            "from": 490,
+            "to": 980
+          }
+        ]
       },
       "members": [],
       "includes": [],

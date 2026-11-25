@@ -80,6 +80,24 @@
       "supply": "ci"
     },
     {
+      "id": "gscBaselineClicks",
+      "stage": "集客",
+      "label": "平常時のGoogle検索クリック",
+      "unit": "回",
+      "definition": "gscClicks から試験の当日ページ（解答速報・採点）を除いた値。季節の山を除いた情報拠点の育ち具合を見る観測値で、目標値は置かない（2026-11-25・DN-1119・docs/strategy/24 §6）。",
+      "channel": "GSC",
+      "supply": "human"
+    },
+    {
+      "id": "docsToExamTransitions",
+      "stage": "送客",
+      "label": "文書ページから資格・教材ページへの遷移",
+      "unit": "回",
+      "definition": "/standards・/docs・/laws のページから /exam/ と note の教材へ流れた数。文書ページ自体のクリックでは測らない観測値で、目標値は置かない（2026-11-25・DN-1119・docs/strategy/24 §6）。",
+      "channel": "GA4",
+      "supply": "human"
+    },
+    {
       "id": "quizStarts",
       "stage": "学習",
       "label": "演習開始",

@@ -86,7 +86,7 @@
       "work": "rccm-mondai3-ronbun-kata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/cover",
         "scene-001": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-001",
@@ -104,7 +104,59 @@
         "video": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/video",
         "subtitles": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform"
+      "copy": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform",
+      "publishAt": "2026-12-09T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-24T12:51:35.521Z",
+          "digest": "5c9050d277cbc04bc80e42ed211c1c05b2ff236ca8696e56971156133ddb4982"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-24T12:51:35.521Z",
+        "contentSha256": "8d7449a0426874c7939e921804cda1527461bf2096cc5d0658f1f107dee40b5e"
+      },
+      "times": {
+        "rendered": "2026-11-24T12:57:41.344Z",
+        "uploaded": "2026-11-24T13:03:59.267Z",
+        "scheduled": "2026-11-24T13:04:07.996Z"
+      },
+      "delivery": {
+        "inputSha256": "ddba6aeb347482d9ef7647eec62b8e092483f1f3e4ab5f3cd0ec3e323c804ff1",
+        "marker": "dn-single-72ff217c604b195e698c7eed706826b22a11468d",
+        "uploadRequestedAt": "2026-11-24T13:03:05.808Z",
+        "videoId": "xg9WXibhZ_8",
+        "processedAt": "2026-11-24T13:03:58.241Z",
+        "thumbnailRequestedAt": "2026-11-24T13:03:59.312Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/xg9WXibhZ_8/default.jpg?sqp=CNCUltgG&rs=AOn4CLBM5L1fbBRnDf3ge7jd3qT-4Oe7wA",
+          "https://i9.ytimg.com/vi/xg9WXibhZ_8/mqdefault.jpg?sqp=CNCUltgG&rs=AOn4CLDHeG5llAgvuVzu4VtVRcx6GLy-Qg",
+          "https://i9.ytimg.com/vi/xg9WXibhZ_8/hqdefault.jpg?sqp=CNCUltgG&rs=AOn4CLDDXGRA7bQ27GwlpGlwMFM_yTwQQA",
+          "https://i9.ytimg.com/vi/xg9WXibhZ_8/sddefault.jpg?sqp=CNCUltgG&rs=AOn4CLDeAor3u5ML8NTdF9bSNfgUKrMleQ",
+          "https://i9.ytimg.com/vi/xg9WXibhZ_8/maxresdefault.jpg?sqp=CNCUltgG&rs=AOn4CLCNOx29r58iVAbyCP952HEajfUfSg",
+          "https://i9.ytimg.com/vi/xg9WXibhZ_8/fhddefault.jpg?sqp=CNCUltgG&rs=AOn4CLBHqcuF6nAD6J-j9R7zgrkPMMIrrQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-24T13:04:02.905Z",
+        "scheduleRequestedAt": "2026-11-24T13:04:04.171Z",
+        "scheduleAt": "2026-12-09T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-24T13:04:07.996Z"
+      },
+      "platform": {
+        "id": "xg9WXibhZ_8",
+        "url": "https://www.youtube.com/watch?v=xg9WXibhZ_8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-24T13:04:02.905Z"
+      }
     }
   ]
 }

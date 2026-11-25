@@ -1,6 +1,290 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-24T12:15:49.344Z",
+      "finishedAt": "2026-11-24T13:07:34.737Z",
+      "plan": {
+        "synced": 709,
+        "ready": 357,
+        "blocked": 12,
+        "blockers": {
+          "aborted": 10,
+          "meta": 1,
+          "boundary": 1
+        }
+      },
+      "articles": {
+        "selected": 80,
+        "attempted": 35,
+        "updated": [
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "[4.6] ABORT: 添付の復元に失敗（上下水道部門-下水道-R01-II-1-模範解答.pdf: アップロード後にカードが現れない（embeds 4→4 / pdf件数 0））→ 保存しない: n1ac55ee1a455"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "[4.6] ABORT: 添付の復元に失敗（上下水道部門-下水道-R02-II-1-模範解答.pdf: アップロード後にカードが現れない（embeds 4→4 / pdf件数 0））→ 保存しない: n4e7630883217"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": [
+        "記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）"
+      ]
+    },
+    {
       "startedAt": "2026-11-21T02:05:29.977Z",
       "finishedAt": "2026-11-21T03:34:43.704Z",
       "plan": {
@@ -5911,37 +6195,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/工事経験の伝え方-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:26:20.169Z",
-      "finishedAt": "2026-11-03T09:27:17.734Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
             "parts": [
               "body"
             ]

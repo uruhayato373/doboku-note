@@ -1,13 +1,10 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-24T07:06:21.958Z",
+  "checkedAt": "2026-11-25T05:41:11.017Z",
   "channel": "youtube",
-  "targets": 93,
-  "checked": 93,
-  "observed": 93,
-  "advanced": [
-    "civil-construction-1/owner-eye-kouji-kensa/youtube.longform",
-    "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform"
-  ],
+  "targets": 98,
+  "checked": 98,
+  "observed": 98,
+  "advanced": [],
   "findings": []
 }

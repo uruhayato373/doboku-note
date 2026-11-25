@@ -408,10 +408,39 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-toshiyomi-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/video",
+        "cover": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/subtitles"
+      },
+      "publishAt": "2026-11-27T08:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T13:01:03.124Z",
+          "digest": "d4c689c437d83a824960a82657999886fe66bc7193dceecf69cf0fe87c4bb670"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T13:01:03.124Z",
+        "contentSha256": "cc9a2f85fd8a9f2ed98db111590b396499c28cba04017561c7cc240a5ac722c6"
+      },
+      "times": {
+        "rendered": "2026-11-25T13:01:03.352Z"
+      },
+      "delivery": {
+        "inputSha256": "18c4869b9a17c31d45b1c66bb24bfed4b6d11a3a9377f0ca770bf36ccb9235af",
+        "marker": "dn-single-45c4aa9fd368c2058f4e922207358f569c4f68fd",
+        "uploadRequestedAt": "2026-11-25T13:02:51.754Z",
+        "videoId": "KLruwGv6vx4"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2",
@@ -419,10 +448,39 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-youso-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/video",
+        "cover": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/subtitles"
+      },
+      "publishAt": "2026-11-27T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T13:03:23.015Z",
+          "digest": "2bb6eef220a14051192e58fee39b00196b705c7ce703efcf03e3fc8caaca1dd2"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T13:03:23.015Z",
+        "contentSha256": "10f4f89918ef6e3a93afbda1f36f9e80fcd9668b784fa8cf3917914b886ac18a"
+      },
+      "times": {
+        "rendered": "2026-11-25T13:03:23.223Z"
+      },
+      "delivery": {
+        "inputSha256": "22b10b3fe9d6e131c5c1a7d80ade95317b11805b37ea58beddeb9f45d377e1b3",
+        "marker": "dn-single-5015c35249b80c8006bd24e4465daa00946337fc",
+        "uploadRequestedAt": "2026-11-25T13:05:00.617Z",
+        "videoId": "f-UHf-lgfJE"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
@@ -1332,7 +1390,7 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
@@ -1395,6 +1453,94 @@
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform"
         }
+      },
+      "stopReason": "superseded"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish",
+      "work": "sokan-kojutsu-tachiba",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "republish",
+      "revisionOf": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
+      "status": "scheduled",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.revision-republish.json",
+      "media": {
+        "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-cover",
+        "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-001",
+        "scene-002": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-002",
+        "scene-003": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-003",
+        "scene-004": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-004",
+        "scene-005": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-005",
+        "scene-006": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-006",
+        "scene-007": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-007",
+        "scene-008": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-008",
+        "scene-009": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-009",
+        "scene-010": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-010",
+        "scene-011": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-011",
+        "scene-012": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-012",
+        "scene-013": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-013",
+        "scene-014": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-014",
+        "scene-015": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-015",
+        "scene-016": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-016",
+        "scene-017": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-017",
+        "subtitles": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-subtitles",
+        "video": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-video",
+        "preview": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/preview",
+        "scene-sheet": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/scene-sheet",
+        "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/preview-metrics",
+        "contact-sheet": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/contact-sheet"
+      },
+      "publishAt": "2026-12-10T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T05:09:00.269Z",
+          "digest": "ec55467124a445d878ff839b7090bead38e3af0e0ecb43a7ec43c3915ae6eaa4"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T05:09:00.269Z",
+        "contentSha256": "2a44da6758acd2c1675229218a9c04587be0f79432f61ef88d390857af2c9cac"
+      },
+      "delivery": {
+        "inputSha256": "49a97c2b6ccdd9be79baecae18c12372cea1ce77e4057191956a3fa8ef2487fc",
+        "marker": "dn-revision-4f0ea3b1317f9536cf5454a739c935d47a87433c",
+        "uploadRequestedAt": "2026-11-25T05:10:32.576Z",
+        "videoId": "Eo_YxLM9mlg",
+        "processedAt": "2026-11-25T05:11:21.837Z",
+        "thumbnailRequestedAt": "2026-11-25T05:11:21.893Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/Eo_YxLM9mlg/default.jpg?sqp=CKjbmdgG&rs=AOn4CLC1Dkj9Z3HRbJ6dHtGKlqxBuBBYPA",
+          "https://i9.ytimg.com/vi/Eo_YxLM9mlg/mqdefault.jpg?sqp=CKjbmdgG&rs=AOn4CLCcmWf_o2Qbs1AW-iRd-g1WNcfOkQ",
+          "https://i9.ytimg.com/vi/Eo_YxLM9mlg/hqdefault.jpg?sqp=CKjbmdgG&rs=AOn4CLBZQ40GN_99pHZbHHmHugmn_-LFvA",
+          "https://i9.ytimg.com/vi/Eo_YxLM9mlg/sddefault.jpg?sqp=CKjbmdgG&rs=AOn4CLDHd1uTZ0V9dCd_tn0n1m2dyrioPQ",
+          "https://i9.ytimg.com/vi/Eo_YxLM9mlg/maxresdefault.jpg?sqp=CKjbmdgG&rs=AOn4CLCXfU0xEUU_r05leiLNwZoU1lZ_Sg",
+          "https://i9.ytimg.com/vi/Eo_YxLM9mlg/fhddefault.jpg?sqp=CKjbmdgG&rs=AOn4CLB_EnrHnPKmo-vbGtRZyELmkiK8Kg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-25T05:11:24.652Z",
+        "scheduleRequestedAt": "2026-11-25T05:11:24.934Z",
+        "scheduleAt": "2026-12-10T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-25T05:11:28.390Z"
+      },
+      "platform": {
+        "id": "Eo_YxLM9mlg",
+        "url": "https://www.youtube.com/watch?v=Eo_YxLM9mlg",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.revision-republish.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-25T05:11:21.837Z",
+        "scheduled": "2026-11-25T05:11:28.390Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-25T05:11:24.652Z"
       }
     },
     {

@@ -28,6 +28,9 @@ const rules = loadImageRules();
 // 18% を検査すると、余白を 13〜15% 空けた図の枠や締めの帯を拾い、1 便 16 本中 7 本が打ち切られた（2026-11-11）
 export const SUBTITLE_CHECK_ZONE = 0.13;
 const { coverStyle: COVER_STYLE, character: CHARACTER, bodyStyle: BODY_STYLE } = rules.references;
+// 図の下の注記を 1 行で描かせるのはこの字数まで。長い注記（出典・断り書きが多い）は 1 行だと横に伸びて左右の安全域を越え、
+// 1 枚目の不合格の主因になっていた（2026-11-25 DN-1239）。消すと出典が画面から消えるので、2 行に分けて図の幅に収めさせる
+export const NOTE_MAX_CHARS = 15;
 const COMPOSITION = {
   compare: '左右2つの枠を比べ、右を強調する構図',
   grid: '同じ大きさの枠を並べる構図',
@@ -78,7 +81,7 @@ export function buildBodyPrompt(scene, exam) {
     COMPOSITION[art.type] ? `構図: ${COMPOSITION[art.type]}。` : '',
     words.length ? `図に入れる文字: ${words.map((w) => `『${w}』`).join(' ')}。` : '',
     art.center ? `図の中央に『${oneLine(art.center)}』。` : '',
-    art.note ? `図の下、下端の字幕の帯より上に『${oneLine(art.note)}』の全文を省かずに入れる。` : '',
+    art.note ? `図の下、下端の字幕の帯より上に『${oneLine(art.note)}』の全文を省かずに入れる。${oneLine(art.note).length > NOTE_MAX_CHARS ? 'この注記は2行に分け、横幅を図の幅の内側に収めて、左右の端に近づけない。' : ''}` : '',
     `この場面の説明（文字にしない）: ${oneLine(scene.narration)}`,
   ].filter(Boolean).join(' ');
 }

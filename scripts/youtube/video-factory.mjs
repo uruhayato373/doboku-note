@@ -20,6 +20,7 @@
  *   npm run video-factory -- save --pack <exam>/<work>                   止まったパックの台帳と原稿の変更を commit（push は親）
  *   npm run video-factory -- qa-check --pack <exam>/<work>               台帳の QA が今の原稿で合格なら exit 0
  *   npm run video-factory -- auto-approve --pack <exam>/<work>           関門を通ったら方針の承認を台帳へ書く
+ *   npm run video-factory -- retire-superseded --pub <旧通常動画の公開 ID>    改訂版が予約・公開へ進んだ旧行（まだ非公開）を方針で superseded として止める
  *   npm run video-factory -- unapprove --pack <exam>/<work>              予約へ進んでいない承認を外し、wire で日時を付け直せるようにする
  *   npm run video-factory -- produce --pack <exam>/<work>                採用・音声・動画・AI 台帳を続けて回す
  *   npm run video-factory -- finish --packs <a,b>                        音声照合・方針の承認・コミットを 1 本ずつ回す
@@ -28,6 +29,7 @@
  *   npm run video-factory -- cleanup --packs <a,b>                       予約済みの転送用ファイルを消す（要 R2 の環境変数）
  *
  * 運営者の approve・stop は別の入口。auto-approve は config/video-auto-publish.json の方針で動き、関門の全項目を通ったときだけ書く。
+ * retire-superseded も同じ方針の retireSuperseded で動き、代わりの改訂版が予約・公開済みで、旧行がまだ非公開のときだけ止める。
  *
  * npm run video-factory -- status — 全動画パックの次の工程を出す。末尾に台本待ちの企画を確認期限の順に出す（--all で全部）。制作の入口（手順 → video-factory.md。承認・公開はしない）
  *
@@ -39,7 +41,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { loadRegistry } from '../lib/content-registry.mjs';
+import { canTransition, loadRegistry, loadRegistryConfig } from '../lib/content-registry.mjs';
 import { upsertPublications, upsertWorks } from '../lib/content-registry-write.mjs';
 import { readDataset } from '../lib/dataset-io.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
@@ -54,9 +56,9 @@ import { todayJst } from '../lib/jst-date.mjs';
 import { applyReadingDict } from '../lib/sns-common/reading-dict.mjs';
 import { stagedRenderWorks } from '../lib/youtube-single-r2.mjs';
 import { assertCleanTree, dispatchAndWatch, pullRebaseResolvingManifest } from '../lib/publish-sync.mjs';
-import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, tokenMisreads, uploadsLeft } from '../lib/video-publish-gate.mjs';
-import { scriptQueue, slotProblems, weekLimit } from '../lib/youtube-longform-audit.mjs';
-import { loadPlanAudit } from '../lib/youtube-longform-plan.mjs';
+import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, supersededRetirement, tokenMisreads, uploadsLeft } from '../lib/video-publish-gate.mjs';
+import { slotProblems, weekLimit } from '../lib/youtube-longform-audit.mjs';
+import { loadPlanAudit, loadScriptQueue } from '../lib/youtube-longform-plan.mjs';
 import { loadSiteRoutes, siteArticleUrl } from '../lib/site-links.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, preflightProblems, recordAudit, retryItems, summarize, unapprovedRow } from '../lib/video-factory.mjs';
 
@@ -64,7 +66,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     stock: { type: 'boolean' }, retry: { type: 'string' }, all: { type: 'boolean' },
-    pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' }, r2: { type: 'boolean' },
+    pack: { type: 'string' }, pub: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' }, r2: { type: 'boolean' },
     concurrency: { type: 'string' }, 'max-minutes': { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
 });
@@ -135,7 +137,7 @@ async function status() {
   const checked = rows.filter((r) => r.stage !== 'unregistered').length;
   // 最上流の「次にどの台本を書くか」。パックがまだ無い企画の行は上の走査に出ないので、年間計画から出す（DN-1069）
   const { plan, publications } = loadPlanAudit(ROOT);
-  const queue = scriptQueue(plan, publications).filter((r) => !args.exam || r.exam === args.exam);
+  const queue = loadScriptQueue(ROOT, plan, publications).filter((r) => !args.exam || r.exam === args.exam);
   if (args.json) { console.log(JSON.stringify({ scanned, checked, counts, rows, scriptQueue: queue }, null, 2)); return; }
   console.log(`パック ${scanned} 件のうち、公開行のある ${checked} 件を判定（台帳未登録 ${scanned - checked} 件は registry -- import-video-pack で載せる）`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
@@ -451,6 +453,18 @@ function autoApprove() {
   console.log(`方針の承認を書いた: ${pub.id}（digest ${state.final.current.slice(0, 12)}…）`);
 }
 
+/** 改訂版が予約・公開へ進んだ旧通常動画の行を、方針で superseded として止める（運営者の stop の代わり・2026-11-25 DN-1239） */
+function retireSuperseded() {
+  if (!args.pub) throw new Error('--pub <旧通常動画の公開 ID> が要る');
+  const reg = loadRegistry(ROOT);
+  const result = supersededRetirement(reg.publications, args.pub, readPolicy(ROOT));
+  if (!result.ok) { console.error(JSON.stringify(result.problems, null, 2)); process.exit(1); }
+  const { pub } = result;
+  if (!canTransition(loadRegistryConfig(ROOT), pub.status, 'stopped', pub.channel)) throw new Error(`${pub.status} → stopped は遷移に無い`);
+  upsertPublications(ROOT, 'youtube', pub.exam, [{ ...stripRow(pub), status: 'stopped', stopReason: 'superseded' }]);
+  console.log(`方針で止めた: ${pub.id}（${pub.status} → stopped・superseded。代わりの改訂版 ${result.revision}）`);
+}
+
 /**
  * 承認済みで予約の段へ進んでいない行の承認を外し、wire で日時を付け直せる状態（qa_passed）へ戻す（DN-1066）。
  * 公開日時の 24 時間前を過ぎると関門で予約できず、wire は承認済みの行を受け付けないので、ここ以外に戻す経路が無い。
@@ -612,6 +626,7 @@ const commands = {
   wire,
   gate,
   'auto-approve': autoApprove,
+  'retire-superseded': retireSuperseded,
   unapprove,
   produce,
   finish,
@@ -619,5 +634,5 @@ const commands = {
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|audit-verify|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|audit-verify|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|retire-superseded|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();

@@ -42,6 +42,15 @@ export async function saveAttachmentDraft(page, { noteId, expectedFile }) {
   return { ok: files.includes(expectedFile), reason: files.includes(expectedFile) ? null : '再読込後に対象PDFがない', files };
 }
 
+/** note の添付アップロードの API（attachFileInEditor が応答を控える） */
+export const UPLOAD_API = /\/api\/v\d+\/attachments\/upload/;
+
+/** 控えたアップロードの応答を失敗理由の一部にする（pure）。応答が無ければ送信されていない。 */
+export function describeUploads(uploads) {
+  if (!uploads.length) return 'アップロードの応答なし';
+  return uploads.map((u) => `アップロードの応答 ${u.status}${u.body ? ` ${u.body}` : ''}`).join(' / ');
+}
+
 /** エディタ内の埋め込み（figure / embedded-service / data-name）の数。添付成否の判定に使う。 */
 export async function countEmbeds(page) {
   return await page.evaluate(() =>
@@ -96,6 +105,16 @@ export async function attachFileInEditor(page, fileAbs, { anchor = null, timeout
   const fileItem = page.getByText('ファイル', { exact: true });
   if (!(await fileItem.count())) return { ok: false, reason: 'メニューに「ファイル」未検出', embedsBefore, embedsAfter: embedsBefore };
 
+  // アップロードの API の応答を控える。カードが出ないとき、上限・一時障害・未送信のどれかを見分ける材料にする
+  // （2026-11-24 の下水道の 8 本は応答を残しておらず、原因を決められなかった・DN-1301）
+  const uploads = [];
+  const onResponse = async (res) => {
+    if (!UPLOAD_API.test(res.url())) return;
+    let body = '';
+    try { body = (await res.text()).replace(/\s+/g, ' ').slice(0, 200); } catch { /* 本文を読めない応答は状態だけ残す */ }
+    uploads.push({ status: res.status(), body });
+  };
+  page.on('response', onResponse);
   const [chooser] = await Promise.all([
     page.waitForEvent('filechooser', { timeout: 12000 }),
     fileItem.first().click(),
@@ -124,9 +143,10 @@ export async function attachFileInEditor(page, fileAbs, { anchor = null, timeout
       };
     }, head);
     embedsAfter = st.embeds;
-    if (st.embeds > embedsBefore || st.pdfCount > pdfCountBefore || st.hasHead) return { ok: true, embedsBefore, embedsAfter };
+    if (st.embeds > embedsBefore || st.pdfCount > pdfCountBefore || st.hasHead) { page.off('response', onResponse); return { ok: true, embedsBefore, embedsAfter }; }
   }
-  return { ok: false, reason: `アップロード後にカードが現れない（embeds ${embedsBefore}→${embedsAfter} / pdf件数 ${pdfCountBefore}）`, embedsBefore, embedsAfter };
+  page.off('response', onResponse);
+  return { ok: false, reason: `アップロード後にカードが現れない（embeds ${embedsBefore}→${embedsAfter} / pdf件数 ${pdfCountBefore} / ${describeUploads(uploads)}）`, embedsBefore, embedsAfter, uploads };
 }
 
 /**

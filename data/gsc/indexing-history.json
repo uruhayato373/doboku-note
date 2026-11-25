@@ -2769,6 +2769,18 @@
         "/standards/kinki/hikkei/chapters/3-2",
         "/standards/kinki/hikkei/chapters/4-2"
       ]
+    },
+    {
+      "runId": "2026-11-24T22-40-10Z",
+      "collectedAt": "2026-11-24T22:40:10.170Z",
+      "mode": "commit",
+      "status": "not-signed-in",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "slugs": [],
+      "acceptedSlugs": []
     }
   ]
 }

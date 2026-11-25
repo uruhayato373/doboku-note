@@ -532,6 +532,18 @@
       "warningsByCode": {
         "jsonld_recommended_missing": 407
       }
+    },
+    {
+      "date": "2026-11-25",
+      "generatedAt": "2026-11-25T13:31:15.562Z",
+      "sitemapUrls": 2136,
+      "checked": 2136,
+      "errors": 0,
+      "warnings": 407,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 407
+      }
     }
   ]
 }

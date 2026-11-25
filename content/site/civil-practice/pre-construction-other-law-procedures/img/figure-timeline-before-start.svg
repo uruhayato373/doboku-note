@@ -1,0 +1,35 @@
+<!-- authored 2026-11-25 doboku-note 自作。論点は着工前の手続の時期。根拠は文化財保護法第94条、景観法第16条、土壌汚染対策法第4条、建設リサイクル法第10条・第11条、航空法第132条の85。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="着工前の手続の時期を上から下へ並べた図。計画の段階で文化財の通知と景観の通知。許可が要るものは得てから着手。着手の30日前までに土壌汚染対策法の届出。建設リサイクル法は民間なら7日前の届出、自治体はあらかじめ通知。ドローンは飛行の前に許可・承認。最後が着工。">
+  <g font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif" font-size="11" fill="#555">
+    <path d="M40,40V452" stroke="#2e6da4" stroke-width="2" fill="none"/>
+    <g stroke-width="1.5">
+      <circle cx="40" cy="40" r="10" fill="#e8f0fe" stroke="#2e6da4"/>
+      <circle cx="40" cy="122" r="10" fill="#f8d7da" stroke="#b22234"/>
+      <circle cx="40" cy="204" r="10" fill="#fff3cd" stroke="#d4a017"/>
+      <circle cx="40" cy="286" r="10" fill="#e8f0fe" stroke="#2e6da4"/>
+      <circle cx="40" cy="368" r="10" fill="#fff3cd" stroke="#d4a017"/>
+      <circle cx="40" cy="450" r="10" fill="#d0e8d0" stroke="#3a7d44"/>
+    </g>
+    <g font-size="13" font-weight="bold" fill="#1a3a5c">
+      <text x="66" y="38">事業計画の策定のとき</text>
+      <text x="66" y="120">許可が要るものは、得てから</text>
+      <text x="66" y="202">着手の30日前まで</text>
+      <text x="66" y="284">着手の7日前（民間の届出）</text>
+      <text x="66" y="366">飛行させる前</text>
+      <text x="66" y="448">着工</text>
+    </g>
+    <g fill="#555">
+      <text x="66" y="58">文化財保護法 第94条の通知</text>
+      <text x="66" y="76">景観法 第16条の通知（あらかじめ）</text>
+      <text x="66" y="140">保安林・自然公園の特別地域</text>
+      <text x="66" y="158">規制区域の盛土は許可か協議</text>
+      <text x="66" y="176">許可が下りるまで日数は読めない</text>
+      <text x="66" y="222">土壌汚染対策法 第4条の届出</text>
+      <text x="66" y="240">3,000㎡以上の形質変更が対象</text>
+      <text x="66" y="302">自治体は第11条により、あらかじめ</text>
+      <text x="66" y="320">知事へ通知（日数の定めはない）</text>
+      <text x="66" y="384">航空法 第132条の85・第132条の86の</text>
+      <text x="66" y="402">許可・承認（空域と飛ばし方による）</text>
+    </g>
+  </g>
+</svg>

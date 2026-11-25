@@ -1,0 +1,30 @@
+<!-- authored 2026-11-25 doboku-note 自作。論点は届出・許可・通知・協議の違い。根拠は土壌汚染対策法第4条、森林法第34条、建設リサイクル法第11条、景観法第16条、盛土規制法第15条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="届出・許可・通知・協議の違いを並べた図。届出は期限までに出すだけで承諾は要らない。許可は得るまで着手できない。通知は自治体があらかじめ出し、協議や勧告が来ることがある。協議は成立すると許可があったものとみなされる。">
+  <g font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif" font-size="11" fill="#555">
+    <rect x="10" y="12" width="380" height="110" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <rect x="10" y="130" width="380" height="110" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+    <rect x="10" y="248" width="380" height="110" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+    <rect x="10" y="366" width="380" height="122" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+    <g font-size="14" font-weight="bold" fill="#1a3a5c">
+      <text x="24" y="38">届出</text>
+      <text x="24" y="156">許可</text>
+      <text x="24" y="274">通知</text>
+      <text x="24" y="392">協議</text>
+    </g>
+    <g fill="#1a3a5c">
+      <text x="24" y="62">いつ　　工事の前に、法令ごとの期限までに</text>
+      <text x="24" y="82">返事　　承諾は要らない</text>
+      <text x="24" y="102">例　　　土壌汚染対策法 第4条（30日前）</text>
+      <text x="24" y="180">いつ　　着手の前に、得るまで始められない</text>
+      <text x="24" y="200">返事　　許可の通知が要る</text>
+      <text x="24" y="220">例　　　保安林・自然公園・規制区域の盛土</text>
+      <text x="24" y="298">いつ　　あらかじめ（自治体や国の工事）</text>
+      <text x="24" y="318">返事　　協議や勧告が来ることがある</text>
+      <text x="24" y="338">例　　　建設リサイクル法 第11条・景観法 第16条</text>
+      <text x="24" y="416">いつ　　成立するまで着手しない</text>
+      <text x="24" y="436">返事　　成立すると許可があったものとみなす</text>
+      <text x="24" y="456">例　　　盛土規制法 第15条（都道府県・指定都市・</text>
+      <text x="24" y="474">　　　　中核市が行う工事。市町村は文言にない）</text>
+    </g>
+  </g>
+</svg>

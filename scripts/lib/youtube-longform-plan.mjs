@@ -5,7 +5,7 @@ import { readJson } from './json-io.mjs';
 import { loadRoadmap } from './annual-roadmap.mjs';
 import { ConfigChannelAnnualPlan } from './dataset-schemas-content.mjs';
 import { jstDayOf, jstLabel, todayJst } from './jst-date.mjs';
-import { auditLongformPlan, summarizeInventory } from './youtube-longform-audit.mjs';
+import { auditLongformPlan, scriptQueue, summarizeInventory } from './youtube-longform-audit.mjs';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -75,6 +75,12 @@ export function targetChecker(root) {
     if (!cache.has(kind)) cache.set(kind, readFileSync(join(root, catalogs[kind]), 'utf8'));
     return new RegExp(`id:\\s*['"]${id}['"]`).test(cache.get(kind));
   };
+}
+
+/** 台本待ちの行（scriptQueue）を、公開のパック（content/sns/video-packs/{資格}/{作品}）の script.md の有無つきで出す。video-factory status と check-youtube-plan --due が共有する */
+export function loadScriptQueue(root, plan, publications, today = todayJst()) {
+  const hasScript = (pubId) => existsSync(join(root, 'content/sns/video-packs', ...pubId.split('/').slice(0, 2), 'script.md'));
+  return scriptQueue(plan, publications, today, { hasScript });
 }
 
 /** 年間の枠と台帳の照合。管理画面・check-youtube-plan・関門が読む */

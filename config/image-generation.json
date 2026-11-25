@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": ".claude/knowledge/reference/pop-image-policy.md",
-  "codexModel": null,
+  "codexModel": "gpt-5.6-sol",
   "teacher": {
     "identity": "先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。",
     "body": "手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。"
