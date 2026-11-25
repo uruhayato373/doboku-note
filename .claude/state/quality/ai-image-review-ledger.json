@@ -7520,116 +7520,140 @@
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-cover": {
       "sha": "805b445fb9217465",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 805b445fb9217465）の公開行素材の判定ok（2026-11-10）を引き継ぐ。文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
-      "reviewedAt": "2026-11-24T22:33:21.916Z"
+      "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-001": {
       "sha": "805b445fb9217465",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 805b445fb9217465）の公開行素材の判定ok（2026-11-10）を引き継ぐ。文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-002": {
-      "sha": "9f0322b7ef0e2260",
+      "sha": "24def0df8279ad67",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 9f0322b7ef0e2260）の公開行素材の判定ok（2026-11-10）を引き継ぐ。見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し・2枠の文言・『この動画で整理すること』が prompt と一字一致、括弧なし／図: 聞かれること→答え方の2枠で語りと整合／安全域: 文字は左右5%・上5%内側、下端18%は無地（枠線のみ左端約3.5%だが意味のある文字ではない）",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-003": {
-      "sha": "4cf41269a251c43e",
+      "sha": "9f0322b7ef0e2260",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 4cf41269a251c43e）の公開行素材の判定ok（2026-11-10）を引き継ぐ。見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-004": {
-      "sha": "8c0631db4934be14",
+      "sha": "4cf41269a251c43e",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 8c0631db4934be14）の公開行素材の判定ok（2026-11-10）を引き継ぐ。見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-005": {
-      "sha": "84df09bb4a588c38",
+      "sha": "8c0631db4934be14",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 84df09bb4a588c38）の公開行素材の判定ok（2026-11-10）を引き継ぐ。見出しと下の文が指定どおり。5つのアイコン（費用と時間・人材・情報の盾・人の保護・地域と環境）が5管理の核と合い、文字崩れもない。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-006": {
-      "sha": "21a16d1e0565e20f",
+      "sha": "f2da7cc3d724cfd1",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 21a16d1e0565e20f）の公開行素材の判定ok（2026-11-10）を引き継ぐ。3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し『同じ5管理でも、前に出る核が違う』が一字一致、字形の崩れ・余計な文字なし／図: 同じ5点の五角形2つで強調の点だけを変え、語りと矛盾しない。人物・箇条書きカード・POP風なし／安全域: 濃色画素の外接矩形は左7.0%・右7.0%・上5.1%・下28.4%で、左右5%・上5%・下18%を満たす",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-007": {
-      "sha": "3190477cf4a7d7cf",
+      "sha": "9d6bf0f9dc76e85e",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 3190477cf4a7d7cf）の公開行素材の判定ok（2026-11-10）を引き継ぐ。3つの枠の文字と管理名の対応、注記が指定どおりで、アイコンも内容と合い誤字がない。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し『5管理それぞれの核』、5枠の見出し(経済性・人的資源・情報・安全・社会環境)と説明文、下の『5管理それぞれの核の整理』が prompt と一字一致、誤字・余計な文言・括弧なし／図: 同じ大きさの5枠で語りの核の対応(原価と工期の最適化、人の確保と育成、守りつつ活用、人命と健康と第三者影響の回避、環境と地域の合意)と一致／安全域: 実測で外接が左右5.0%・上9.0%・下19.0%、枠線が5%にちょうど触れる程度で文字は内側、下端18%は無地",
+      "reviewedAt": "2026-11-25T03:30:46.925Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-008": {
-      "sha": "b47cacefff97531b",
+      "sha": "21a16d1e0565e20f",
       "verdict": "ok",
-      "reason": "同一バイト列（sha b47cacefff97531b）の公開行素材の判定ok（2026-11-10）を引き継ぐ。設計・施工・維持管理・自分の立場の4枠の文字と注記が指定と一致し、橋・ショベル・点検表のアイコンも妥当。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-009": {
-      "sha": "8c44eea1e03a8541",
+      "sha": "b345b3651b2a30bc",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 8c44eea1e03a8541）の公開行素材の判定ok（2026-11-10）を引き継ぐ。自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し『発注者の立場で、聞かれそうな切り口（想定）』、3枠の問い・矢印先(経済性管理／安全管理・社会環境管理／人的資源管理)、下の『想定であり、実際の試問の再現ではない。本動画の整理』が prompt と一字一致、括弧そのものの描き足しなし（想定の全角括弧は見出しの一部）／図: 予算と工期の制約→経済性管理、住民・第三者への影響→安全管理・社会環境管理で語りと一致／安全域: 実測で左5.8%・右5.6%・上7.9%・下18.3%、文字は内側で下端18%は無地(下注記は下端付近だがぎりぎり内側)",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-010": {
-      "sha": "7b9595e16a06d517",
+      "sha": "4200347b4082cbd1",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 7b9595e16a06d517）の公開行素材の判定ok（2026-11-10）を引き継ぐ。5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し『受注者の働き方への配慮』、吹き出し内の同文、円内の『人的資源管理』、下の『これは想定であり、実際の試問の再現ではない』が prompt と一字一致、余計な文言なし／図: 左の問いから右の行動へ矢印で結ぶ対応で語り(働き方への配慮は人的資源管理)と合う。黄色の放射線は小さな飾りで意味を変えない／安全域: 実測で左7.7%・右7.5%・上8.2%・下20.5%で全て内側、下端18%は無地",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-011": {
-      "sha": "02a8982104418678",
+      "sha": "1b52101a507a2ba0",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 02a8982104418678）の公開行素材の判定ok（2026-11-10）を引き継ぐ。3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し『自分の立場に置き換える（想定）』、4枠(設計・施工・維持管理・自分の立場)の見出しと説明文、下の2行『語り手の経験ではなく、置き換えの例。想定であり、実際の試問の再現ではない』が prompt と一字一致、誤字・余計な文言なし／図: 設計は設計条件と費用・安全の確保など語りと一致、同じ大きさの4枠／安全域: 実測で左右4.8%(枠線がわずかに触れる程度で文字は枠内)・上5.3%・下20.6%、下端18%は無地",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-012": {
-      "sha": "51aed5ba2258fb76",
+      "sha": "5ccc8fa1ac5dd290",
       "verdict": "ok",
-      "reason": "同一バイト列（sha 51aed5ba2258fb76）の公開行素材の判定ok（2026-11-10）を引き継ぐ。4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "文字: 見出し『施工と維持管理の置き換え（想定）』、2枠(施工 工程と費用・作業員の確保と現場の安全／維持管理 点検の頻度と費用・記録の活用)、下の2行注記が prompt と一字一致、誤字・余計な文言なし／図: 語り(施工は工程と費用・作業員の確保と現場の安全、維持管理は点検の頻度と費用・記録の活用)と対応／安全域: 実測で左右6.2%・上7.2%・下19.3%で全て内側、下端18%は無地",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-013": {
+      "sha": "8c44eea1e03a8541",
+      "verdict": "ok",
+      "reason": "自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-014": {
+      "sha": "7b9595e16a06d517",
+      "verdict": "ok",
+      "reason": "5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-015": {
+      "sha": "02a8982104418678",
+      "verdict": "ok",
+      "reason": "3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-016": {
+      "sha": "51aed5ba2258fb76",
+      "verdict": "ok",
+      "reason": "4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-017": {
       "sha": "f0ad02965bb0a461",
       "verdict": "ok",
-      "reason": "同一バイト列（sha f0ad02965bb0a461）の公開行素材の判定ok（2026-11-10）を引き継ぐ。ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
-      "reviewedAt": "2026-11-24T22:33:21.917Z"
+      "reason": "ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover": {
       "sha": "805b445fb9217465",
       "verdict": "ok",
       "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
-      "reviewedAt": "2026-11-10T12:41:34.769Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001": {
       "sha": "805b445fb9217465",
       "verdict": "ok",
       "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-002": {
       "sha": "9f0322b7ef0e2260",
       "verdict": "ok",
       "reason": "見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-003": {
       "sha": "4cf41269a251c43e",
       "verdict": "ok",
       "reason": "見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-004": {
       "sha": "8c0631db4934be14",
       "verdict": "ok",
       "reason": "見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-005": {
       "sha": "84df09bb4a588c38",
@@ -7641,7 +7665,7 @@
       "sha": "21a16d1e0565e20f",
       "verdict": "ok",
       "reason": "3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-007": {
       "sha": "3190477cf4a7d7cf",
@@ -7659,31 +7683,31 @@
       "sha": "8c44eea1e03a8541",
       "verdict": "ok",
       "reason": "自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-010": {
       "sha": "7b9595e16a06d517",
       "verdict": "ok",
       "reason": "5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-011": {
       "sha": "02a8982104418678",
       "verdict": "ok",
       "reason": "3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-012": {
       "sha": "51aed5ba2258fb76",
       "verdict": "ok",
       "reason": "4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-013": {
       "sha": "f0ad02965bb0a461",
       "verdict": "ok",
       "reason": "ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/cover": {
       "sha": "dbccc9e5c7f7f4da",

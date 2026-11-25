@@ -1404,7 +1404,7 @@
       "format": "longform",
       "variant": "republish",
       "revisionOf": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
-      "status": "qa_passed",
+      "status": "draft",
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.revision-republish.json",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-cover",
@@ -1421,12 +1421,16 @@
         "scene-011": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-011",
         "scene-012": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-012",
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-013",
+        "scene-014": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-014",
+        "scene-015": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-015",
+        "scene-016": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-016",
+        "scene-017": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-017",
         "subtitles": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-subtitles",
         "video": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-video",
         "preview": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/preview",
-        "contact-sheet": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/contact-sheet",
         "scene-sheet": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/scene-sheet",
-        "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/preview-metrics"
+        "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/preview-metrics",
+        "contact-sheet": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/contact-sheet"
       },
       "publishAt": "2026-12-10T03:15:00Z"
     },
