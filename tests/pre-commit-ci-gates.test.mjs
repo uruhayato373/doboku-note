@@ -197,3 +197,15 @@ test('DN-0998: develop を赤くした 3 つの検査（演習データの作り
   // 2026-11-23 台帳の棚卸しの commit が不具合の prevention 欠落を持ち込んだ
   assert.ok(ids(['.claude/state/dispatch/dispatch-log.json']).includes('dispatch-log'));
 });
+
+test('DN-0998: 動画パックと台帳を stage したら、台帳・表紙・表紙の受け渡しの検査を commit 前に回す', () => {
+  const ids = (files) => planGates(files).map((g) => g.id);
+  const VIDEO = ['content-registry', 'youtube-covers', 'youtube-cover-handoff'];
+  // 2026-11-25 DN-1239 の作り直しで、動画パックと台帳の直 push が develop を 03:31 から赤くした
+  for (const f of ['content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/cover-design.json', 'content/registry/publications/youtube/pe-comprehensive-management.json']) {
+    for (const id of VIDEO) assert.ok(ids([f]).includes(id), `${f} → ${id}`);
+  }
+  assert.deepEqual(ids(['content/registry/publications/x/a.json']).filter((id) => VIDEO.includes(id)), ['content-registry'], 'X の台帳は表紙を見ない');
+  assert.deepEqual(ids(['.claude/state/assets/drive-manifest.json']).filter((id) => VIDEO.includes(id)), ['youtube-cover-handoff']);
+  assert.deepEqual(ids(['content/sns/x/review.json']).filter((id) => VIDEO.includes(id)), [], '動画パックの外は回さない');
+});
