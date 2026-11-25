@@ -112,6 +112,14 @@ export function inspectHtml(html, slug) {
   // 手書きの入れ物・台帳に無い種類が戻ったら止める（2026-11-17 に右の欄を共通化）。
   const rails = dom.querySelectorAll('aside').filter(n => hasClass(n, 'w-[316px]'));
   let railUnits = 0;
+  // 右の欄のある 2 列のページは、本文の列を 1 枚の白い面（card-surface-section か、記事の bg-(--paper) の article）に載せる。
+  // テーマのページ（個別・索引）が背景の上に直に載っていた（2026-11-23 運営者指摘）。検索は結果が 1 件ずつのカードなので除く
+  for (const rail of rails) {
+    const body = rail.parentNode.childNodes.filter(n => n.tagName && n !== rail)[0];
+    const first = body?.childNodes.filter(n => n.tagName)[0];
+    const onSurface = first && (hasClass(first, 'card-surface-section') || hasClass(first, 'bg-(--paper)') || first.querySelector(':scope > article.bg-\\(--paper\\), :scope > .card-surface-section'));
+    if (body && !onSurface && slug !== 'search') add('main-without-surface', 1, 0, [], ['layout']);
+  }
   for (const rail of rails) {
     if (!rail.querySelector('[data-rail-stack]')) { add('rail-without-stack', 1, 0, [], ['layout']); continue; }
     const units = rail.querySelectorAll('[data-rail-stack], [data-article-sidebar-group]').flatMap(box => box.childNodes.filter(n => n.tagName));
