@@ -35,6 +35,7 @@
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
+ * 例外は方針の入口だけ（video-factory の auto-approve・retire-superseded。config/video-auto-publish.json）。
  *
  * npm run registry -- prepare-youtube --pub <公開ID> --publish-at <ISO日時> — 同じ日時の youtube.json を確認し、未承認の通常動画へ文面と予定を結線する。既定 dry-run、--commit で台帳へ書く。承認・状態は変更しない
  *

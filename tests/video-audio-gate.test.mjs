@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { audioProblems, readingRiskTokens, sceneSimilarity, speechSimilarity, tokenMisreads } from '../scripts/lib/video-publish-gate.mjs';
+import { audioProblems, readingRiskTokens, sceneSimilarity, speechSimilarity, supersededRetirement, tokenMisreads } from '../scripts/lib/video-publish-gate.mjs';
 
 // 合成した読みの代わりの文字列（VOICEVOX を使わない）。12 場面のうち 1 場面だけが短い想定で、場面ごとの内容は互いに違う
 const SCENES = [
@@ -83,4 +83,27 @@ test('maxTokenMisreads が null の間は数字の外れを記録だけにして
   const audio = { ...POLICY.audio, maxTokenMisreads: null };
   assert.deepEqual(audioProblems(check, sha, { audio }), []);
   assert.match(audioProblems(check, sha, POLICY).join(), /誤読/);
+});
+
+test('方針で止める: 改訂版が予約・公開済みで、旧通常動画がまだ非公開のときだけ', () => {
+  const policy = { retireSuperseded: { enabled: true, decidedBy: 't' } };
+  const old = { id: 'e/w/youtube.longform', channel: 'youtube', account: 'youtube:main', format: 'longform', status: 'uploaded_private', platform: { id: 'x', privacy: 'private' } };
+  const rev = { id: 'e/w/youtube.longform.republish', channel: 'youtube', account: 'youtube:main', format: 'longform', revisionOf: old.id, status: 'scheduled' };
+  const ok = supersededRetirement([old, rev], old.id, policy);
+  assert.ok(ok.ok, ok.problems.join('/'));
+  assert.equal(ok.revision, rev.id);
+  // 代わりの改訂版がまだ予約前なら止めない
+  assert.ok(!supersededRetirement([old, { ...rev, status: 'qa_passed' }], old.id, policy).ok);
+  // 方針が無効・未設定なら止めない
+  assert.ok(!supersededRetirement([old, rev], old.id, { retireSuperseded: { enabled: false, decidedBy: 't' } }).ok);
+  assert.ok(!supersededRetirement([old, rev], old.id, {}).ok);
+  // 公開中・予約中・公開範囲が private でない旧行は止めない
+  for (const patch of [{ status: 'published' }, { status: 'scheduled' }, { platform: { id: 'x', privacy: 'public' } }]) {
+    assert.ok(!supersededRetirement([{ ...old, ...patch }, rev], old.id, policy).ok, JSON.stringify(patch));
+  }
+  // 改訂版の行そのもの・ショート・別アカウントの改訂は対象外
+  assert.ok(!supersededRetirement([old, rev], rev.id, policy).ok);
+  assert.ok(!supersededRetirement([{ ...old, format: 'short' }, { ...rev, format: 'short' }], old.id, policy).ok);
+  assert.ok(!supersededRetirement([old, { ...rev, account: 'youtube:other' }], old.id, policy).ok);
+  assert.ok(!supersededRetirement([old, rev], 'missing', policy).ok);
 });
