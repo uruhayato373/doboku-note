@@ -17,7 +17,7 @@
  */
 import { execFileSync, spawn } from 'node:child_process';
 import { availableParallelism } from 'node:os';
-import { datasetPath } from './lib/datasets.mjs';
+import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { runPool } from './lib/worker-pool.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 
@@ -233,6 +233,29 @@ export const GATES = [
     // dispatch-log.json の id・at・outcome・不具合の prevention。2026-11-23 に台帳の棚卸しの commit が通って CI が赤くなった。全量 0.2 秒
     match: (f) => f === datasetPath('state.dispatch-log'),
     cmd: () => ['node', 'scripts/checks/check-dispatch-log.mjs'],
+  },
+  // ---- 2026-11-25 に足した動画の台帳と表紙（DN-0998）。11/24〜25 の develop の失敗 12 回のうち content-registry 7・
+  // youtube-covers 3・youtube-cover-handoff 2 で、どれも動画パックと台帳の直 push で CI に初めて出た。外部通信なし・全量で各 0.5 秒
+  {
+    id: 'content-registry',
+    // 台帳と制作入力の食い違い（R12 など）。比較元（REGISTRY_BASE）は CI だけが用意するので、手元は形と整合だけを見る
+    match: (f) => f.startsWith('content/registry/') || f.startsWith('content/sns/video-packs/'),
+    cmd: () => ['node', 'scripts/checks/check-content-registry.mjs'],
+  },
+  {
+    id: 'youtube-covers',
+    // 表紙の設計と、投稿へ進んだ通常動画の採用画像の一致
+    match: (f) => f.startsWith('content/sns/video-packs/') || f.startsWith(`${datasetDir('registry.youtube')}/`),
+    cmd: () => ['node', 'scripts/checks/check-youtube-covers.mjs'],
+  },
+  {
+    id: 'youtube-cover-handoff',
+    // 採用した表紙の Drive のファイル ID と読み戻しの検証（台帳だけを見る）
+    match: (f) =>
+      f.startsWith('content/sns/video-packs/') ||
+      f.startsWith(`${datasetDir('registry.youtube')}/`) ||
+      f === datasetPath('state.drive-manifest'),
+    cmd: () => ['node', 'scripts/checks/check-youtube-cover-handoff.mjs'],
   },
 ];
 

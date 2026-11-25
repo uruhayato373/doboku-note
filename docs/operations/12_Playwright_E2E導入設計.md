@@ -63,10 +63,10 @@
 
 - `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時。実行は desktop の `smoke`・`navigation`・`cta`・`desktop` だけ（待ち時間を約 5 分に抑える。デザインを変えた PR がその場で気づけるよう、デザインの確認の `desktop` を含める・2026-11-23。本文の空白区間を見る `ad-coverage` は、本文の広告を自動広告に任せたので同日に削除）
 - `workflow_dispatch`
-- `schedule`（毎日 JST 23:17・checkout は develop。毎時 0 分の指定は起動が 3.5〜7 時間遅れ、失敗が朝に出ていたので 2026-11-13 に移した）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。全 spec は夜間と手動で回す。確認は 2 組に分ける（2026-11-23 運営者判断「デプロイを止めるのは壊れた類だけ」）。
+- `schedule`（毎日 JST 23:17・checkout は develop。毎時 0 分の指定は起動が 3.5〜7 時間遅れ、失敗が朝に出ていたので 2026-11-13 に移した）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。全 spec は手動で回し、夜間は基準書の描画（`standards-render`）とアクセシビリティ（`a11y`）を除く（2026-11-25 運営者判断・サイトがある程度完成するまで。再開の手順は `e2e.yml` の schedule の注記）。確認は 2 組に分ける（2026-11-23 運営者判断「デプロイを止めるのは壊れた類だけ」）。
   - 壊れた類（表示・本文・リンク・操作・基準書の描画）: 失敗は `automation-failure` Issue（channel `e2e-nightly`）で、`deploy:main` は未解決のこの Issue があると止まる
   - デザインの類（タグ `@layout`：広告の枠数・空きの上限・幅のそろい）: 別の段で回し、失敗は channel `e2e-layout-nightly` の Issue に記録するだけ。デプロイは止めない。デザインの数値は検査に写さず、壊れていないこと（枠が出る・はみ出さない）を見る
-  - 公的基準の全文書の描画（`STANDARDS_RENDER_SCOPE=all`）は日曜の夜間と手動で all を選んだときだけ（月〜土は比較の内の文書だけ）。timeout は 60 分
+  - 公的基準の全文書の描画（`STANDARDS_RENDER_SCOPE=all`）は手動で all を選んだときだけ。timeout は 60 分
 
 手順の正本は `.github/workflows/e2e.yml`（Node のセットアップ・依存の復元・`npm run build`・`npm run check-e2e-targets`・`npm run test:e2e`・失敗時の artifact）。ここには手順を写さない。設計で決めたのは次の 2 点だけ。
 
