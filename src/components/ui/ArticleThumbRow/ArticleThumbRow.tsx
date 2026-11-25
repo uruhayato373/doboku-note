@@ -91,8 +91,9 @@ export default function ArticleThumbRow({ href, title, caption, image, ctaLabel,
     >
       {thumbnail}
       <span className="min-w-0 flex-1">
-        <span className="line-clamp-2 block text-sm font-semibold text-brand group-hover:underline">{title}</span>
-        {caption && <span className="mt-0.5 line-clamp-2 block text-xs text-(--ink-muted)">{caption}</span>}
+        <span className="line-clamp-2 text-sm font-semibold text-brand group-hover:underline">{title}</span>
+        {/* line-clamp は display:-webkit-box を使う。block を足すと打ち消され 2 行で切れない（2026-11-26） */}
+        {caption && <span className="mt-0.5 line-clamp-2 text-xs text-(--ink-muted)">{caption}</span>}
       </span>
     </Link>
   );
