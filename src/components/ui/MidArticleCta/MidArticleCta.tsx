@@ -2,7 +2,7 @@ import type { DocMeta } from '@/lib/docs';
 import type { MagazineId } from '@/lib/note-magazines';
 import type { CareerArticleEndCard } from '@/config/affiliate-creatives';
 import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
-import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import { articleCardProps } from '@/lib/article-card';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
@@ -17,7 +17,9 @@ import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
  *  - career モード: 転職アフィリの**ネイティブカード**（PR バッジ＋見出し＋説明＋points＋CTA）。
  *    href のみ＝計測ピクセルはサイドバー 1 発火のまま（1 ページ 1 ピクセル）。
  *    2026-07-28 に 1 行テキストリンクから格上げ（訴求カードは記事末ではなく本文中が正しい配置）。
- *  - related モード: ArticleCard（OGP サムネ）1 枚に「この続きに読みたい」見出し。
+ *  - related モード: 左に小さなサムネイル・右に題名と説明の 1 行（ArticleThumbRow の card・記事末の次のステップと同じ型）に「この続きに読みたい」見出し。
+ *    2026-11-26 に本文幅いっぱいの写真カード（ArticleCard）から替えた（本文の流れを写真 1 枚が大きく切っていた）。
+ *    feed 型は題名が h3/h4 になり、本文の見出しの装飾と目次に混ざるので使わない。
  */
 type MidArticleCtaProps =
   | {
@@ -47,10 +49,11 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
     // emphasis: 本文フローでは白背景だと本文カードに溶け込むため地色＋左ラインで視認性を上げる。
     return <CareerAffiliate {...props.card} placement="article-mid" emphasis managedPixels={props.managedPixels} />;
   }
+  const { href, title, description, image } = articleCardProps(props.doc);
   return (
     <div className={`not-prose my-8 ${CTA_STACK_WIDTH}`} data-cta="nav" data-cta-label="article-mid-related">
       <div className="mb-2 text-sm font-semibold text-(--ink-muted)">この続きに読みたい</div>
-      <ArticleCard {...articleCardProps(props.doc)} />
+      <ArticleThumbRow href={href} title={title} caption={description} image={image} />
     </div>
   );
 }
