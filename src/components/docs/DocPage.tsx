@@ -323,7 +323,7 @@ export async function renderDocPage(slugStr: string) {
             {/* Editorial article card: 12px radius, soft border + shadow。
                 横 padding = タブレット40(px-10) / デスクトップ44(zenn-desktop:px-11)。
                 ≤576px は角丸・左右枠を外し px = var(--article-gutter-sp)（設問カード details のフルブリード相殺と連動） */}
-            <article className="bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-(--article-gutter-sp)">
+            <article data-question-column={isQuestionSeries || undefined} className="bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-(--article-gutter-sp)">
               {/* 記事ヘッダー: breadcrumb + H1 + description リード + byline を集約 */}
               <ArticleHeader
                 title={doc.meta.title}
