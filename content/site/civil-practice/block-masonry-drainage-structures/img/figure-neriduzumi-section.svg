@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="練積ブロック積の断面。胴込め、裏込めコンクリート、裏込め砕石、水抜き孔、基礎と、隠れる前に確認する六つの点の位置を番号で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .n { font-size: 11px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .l { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+  <text class="s" x="20" y="22">練積ブロック積の断面（左が表、右が地山）</text>
+  <rect x="240" y="60" width="140" height="165" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="s" x="310" y="150" text-anchor="middle">地山</text>
+  <polygon points="180,225 205,75 245,75 240,225" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="s" x="224" y="205" text-anchor="middle">裏込め</text>
+  <polygon points="160,225 190,75 205,75 180,225" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <polygon points="120,225 150,75 190,75 160,225" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="s" x="150" y="122" text-anchor="middle">胴込め</text>
+  <rect x="100" y="225" width="160" height="25" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="s" x="180" y="242" text-anchor="middle">基礎</text>
+  <line x1="136" y1="172" x2="222" y2="165" stroke="#b22234" stroke-width="4"/>
+  <text class="n" x="60" y="62">1</text>
+  <line class="l" x1="68" y1="60" x2="150" y2="75"/>
+  <text class="n" x="95" y="140">2</text>
+  <line class="l" x1="103" y1="138" x2="138" y2="138"/>
+  <text class="n" x="95" y="185">3</text>
+  <line class="l" x1="103" y1="183" x2="134" y2="173"/>
+  <text class="n" x="262" y="95">4</text>
+  <line class="l" x1="256" y1="93" x2="196" y2="100"/>
+  <text class="n" x="262" y="50">5</text>
+  <line class="l" x1="256" y1="48" x2="226" y2="75"/>
+  <text class="n" x="80" y="260">6</text>
+  <line class="l" x1="88" y1="258" x2="108" y2="245"/>
+  <line x1="15" y1="272" x2="385" y2="272" stroke="#d7d7d7" stroke-width="1"/>
+  <g>
+    <text x="20" y="300"><tspan font-weight="bold" fill="#1a3a5c">1</tspan>　丁張りで法勾配と天端の高さ</text>
+    <text x="20" y="335"><tspan font-weight="bold" fill="#1a3a5c">2</tspan>　合端を合わせ、胴込めに空隙なし</text>
+    <text x="20" y="370"><tspan font-weight="bold" fill="#1a3a5c">3</tspan>　水抜き孔は位置と約2%の勾配</text>
+    <text x="20" y="405"><tspan font-weight="bold" fill="#1a3a5c">4</tspan>　裏込めは裏型枠で設計の厚さ</text>
+    <text x="20" y="440"><tspan font-weight="bold" fill="#1a3a5c">5</tspan>　端部で裏込め材が流れ出ない</text>
+    <text x="20" y="475"><tspan font-weight="bold" fill="#1a3a5c">6</tspan>　基礎の沈下・壁面の変形なし</text>
+  </g>
+</svg>
