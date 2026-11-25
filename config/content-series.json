@@ -195,6 +195,37 @@
                   "figKey": "civil-practice/budget-and-funding-sources/img/figure-subsidy-grant-flow"
                 }
               ]
+            },
+            {
+              "id": "A-58",
+              "title": "着工前に確かめるほかの法令の手続き — 埋蔵文化財・リサイクル・土壌・保安林・盛土・景観・ドローン",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/pre-construction-other-law-procedures/article.mdx"
+              ],
+              "sources": [
+                "construction-recycling-act",
+                "soil-contamination-act",
+                "waste-management-act",
+                "road-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-75",
+              "title": "土木の技術基準の体系 — 共通仕様書・施工管理基準・示方書・指針のどれを、どの版で当てるか",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/technical-standards-system/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard",
+                "road-bridge-spec",
+                "mlit-river-sabo-technical-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
             }
           ]
         },
@@ -423,6 +454,33 @@
                   "figKey": "civil-practice/arterial-road-network-tolls/img/figure-smart-ic-boundary"
                 }
               ]
+            },
+            {
+              "id": "A-56",
+              "title": "橋の定期点検と健全性の判定 — 5年に1回の点検結果から補修設計へ",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/bridge-periodic-inspection/article.mdx"
+              ],
+              "sources": [
+                "road-act-rules",
+                "road-bridge-inspection"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-57",
+              "title": "舗装の構造と修繕の選び方 — 交通量と路床から構造を決め、傷み方から工法を選ぶ",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/pavement-structure-repair/article.mdx"
+              ],
+              "sources": [
+                "road-structure-order"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
             }
           ]
         },
@@ -621,6 +679,20 @@
                   "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
                 }
               ]
+            },
+            {
+              "id": "A-65",
+              "title": "護岸の形式と根入れ — 流速と場所から形式を選び、洗掘に負けない深さを取る",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/revetment-type-embedment/article.mdx"
+              ],
+              "sources": [
+                "river-facility-structure-order",
+                "mlit-river-sabo-technical-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
             }
           ]
         },
@@ -917,6 +989,125 @@
               "sources": [
                 "board-of-audit-act"
               ]
+            },
+            {
+              "id": "A-68",
+              "title": "監督職員の仕事 — 指示・承諾・協議の違い、段階確認、工事書類の体系",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-supervisor-duties/article.mdx"
+              ],
+              "sources": [
+                "standard-contract-terms"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-51",
+              "title": "工事成績評定のつけ方 — 考査項目と評定点、技術提案の履行確認",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-performance-rating/article.mdx"
+              ],
+              "sources": [
+                "public-works-quality-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-52",
+              "title": "施工体制と技術者の配置を確かめる — 施工体制台帳・専任と兼任・現場代理人",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/site-organization-engineer-assignment/article.mdx"
+              ],
+              "sources": [
+                "construction-business-act",
+                "public-works-bidding-fairness-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-53",
+              "title": "工事中の協議の型 — 三者会議・ワンデーレスポンス・工事の一時中止",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/owner-contractor-consultation/article.mdx"
+              ],
+              "sources": [
+                "standard-contract-terms"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-59",
+              "title": "工事の代金の払い方 — 前払金・中間前払金・部分払・スライド条項",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/contract-advance-partial-payment-slide/article.mdx"
+              ],
+              "sources": [
+                "standard-contract-terms",
+                "local-autonomy-act-order"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-60",
+              "title": "積算の実務 — 予定価格の組み立て、歩掛と単価、数量の拾い方、違算の防ぎ方",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/cost-estimation-practice/article.mdx"
+              ],
+              "sources": [
+                "mlit-cost-estimation"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-61",
+              "title": "出来形管理 — 規格値の読み方と、検査で出来形を確かめる手順",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/as-built-management/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-63",
+              "title": "働き方改革と工事書類 — 週休2日・書類の簡素化・情報共有システム・電子納品",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/work-style-reform-documents/article.mdx"
+              ],
+              "sources": [
+                "construction-business-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-69",
+              "title": "ICT活用工事を発注者として扱う — 発注の方式から3次元データの監督・検査まで",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/ict-construction-owner-role/article.mdx"
+              ],
+              "sources": [
+                "mlit-i-construction-guideline"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
             }
           ]
         },
@@ -1255,6 +1446,148 @@
           ]
         },
         {
+          "title": "現場で確かめる（監督職員の目）",
+          "items": [
+            {
+              "id": "A-62",
+              "title": "現場へ行く前に — 見る点、掲示する標識、標尺と野帳、建設機械",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/site-visit-basics/article.mdx"
+              ],
+              "sources": [
+                "construction-business-act",
+                "survey-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-70",
+              "title": "土工の段階確認で見る点 — 準備工・盛土・切土・構造物の掘削と裏込め・法面",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/earthwork-supervision-checkpoints/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-66",
+              "title": "ブロック積と排水構造物 — 丁張り・水抜き・胴込めと、流れを切らない接続",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/block-masonry-drainage-structures/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-71",
+              "title": "鉄筋・型枠・コンクリートの立会いで見る点",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/concrete-supervision-checkpoints/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-72",
+              "title": "杭の施工で見る点 — 受入れ・打込み・打止め・場所打ち杭のスライムとトレミー",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/pile-installation-checkpoints/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-73",
+              "title": "舗装と道路付属物の施工で見る点 — 路床から交通開放、標識・防護柵・区画線",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/pavement-roadside-installation-checkpoints/article.mdx"
+              ],
+              "sources": [
+                "mlit-construction-control-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-74",
+              "title": "堤防の断面と施工 — 高さ・天端幅・余盛・法勾配、仮締切りと樋門の改築",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/levee-cross-section-construction/article.mdx"
+              ],
+              "sources": [
+                "river-facility-structure-order",
+                "river-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            }
+          ]
+        },
+        {
+          "title": "調査と設計を頼む（業務委託）",
+          "items": [
+            {
+              "id": "A-54",
+              "title": "測量と地質調査の成果を読む — 基準点の等級・用地測量・柱状図・支持層・岩級",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/survey-geotechnical-results-reading/article.mdx"
+              ],
+              "sources": [
+                "survey-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-55",
+              "title": "設計業務の監督と成果品の確認 — 業務の流れ、照査、図面と数量の見方",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/design-consultant-supervision/article.mdx"
+              ],
+              "sources": [
+                "standard-contract-terms"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            },
+            {
+              "id": "A-67",
+              "title": "工損調査 — 工事による建物の損害を、事前と事後の調査で確かめる",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-damage-survey/article.mdx"
+              ],
+              "sources": [
+                "civil-code-act"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
+            }
+          ]
+        },
+        {
           "title": "災害に備える",
           "items": [
             {
@@ -1366,6 +1699,22 @@
                   "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow"
                 }
               ]
+            },
+            {
+              "id": "A-64",
+              "title": "砂防堰堤・地すべり防止・急傾斜地の施設 — 種類と構造、工事で確かめる点",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/sabo-landslide-steep-slope-facilities/article.mdx"
+              ],
+              "sources": [
+                "sabo-act",
+                "landslide-prevention-act",
+                "steep-slope-act",
+                "mlit-river-sabo-technical-standard"
+              ],
+              "wave": 5,
+              "note": "2026-11-25 の照合で見つけた穴（content/sources/series/municipal-civil-engineer-gap-review-2026-11.md）"
             }
           ]
         },
