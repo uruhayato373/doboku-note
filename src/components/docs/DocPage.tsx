@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getDoc, getAllDocsMeta, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import PageShell from '@/components/layout/PageShell';
 import QuestionJumpNav from '@/components/docs/QuestionJumpNav';
+import { questionJumpLinks } from '@/lib/question-jump-links';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
@@ -340,7 +341,7 @@ export async function renderDocPage(slugStr: string) {
                 </div>
               )}
               {/* 年度別過去問: 問1へのリンクと折りたたみ番号一覧（5 問以上） */}
-              {isQuestionSeries && <QuestionJumpNav headings={headings} />}
+              {isQuestionSeries && <QuestionJumpNav headings={headings} {...questionJumpLinks(slugStr, category, categoryArticles)} />}
               {/* 記事冒頭 CTA。全ページで小さめ表示（左に小さな表紙・右に商品名とボタン）。752×376 の画像が最初の画面の
                   4 割を占めて本文の書き出しを押し下げていた（2026-11-15 運営者指摘）。未公開は非表示 */}
               {topSlot && topMagazine && (

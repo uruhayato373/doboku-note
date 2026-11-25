@@ -19,10 +19,26 @@ export function parseQuestionNo(text: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-/** 設問の並ぶページの見出し（H2）のうち、番号の取れるものだけを順に返す */
-export function questionHeadings<H extends { id: string; text: string; level: number }>(headings: readonly H[]): { id: string; no: number }[] {
-  return headings
-    .filter((h) => h.level === 2)
-    .map((h) => ({ id: h.id, no: parseQuestionNo(h.text) }))
-    .filter((q): q is { id: string; no: number } => q.no !== null);
+/** 技術士第一次の見出し（「Ⅰ-1-1」「Ⅲ-12」「I-2-3」）。Ⅰ は群と番号、Ⅱ・Ⅲ・Ⅳ は番号だけ。全角のハイフンも受ける */
+const ROMAN_QUESTION = /^\s*(Ⅰ|Ⅱ|Ⅲ|Ⅳ|IV|III|II|I)\s*[-－‐]\s*(\d{1,3})(?:\s*[-－‐]\s*(\d{1,3}))?(?!\d)/;
+
+/** 設問の並ぶページの見出し（H2）のうち、番号の取れるものだけを順に返す。
+ *  label はボタンに出す文字（「Ⅰ-1-1」なら「1-1」、「Ⅲ-12」なら「12」、ほかは番号）。group は Ⅰ の群（1〜5）。
+ *  2026-11-26: 技術士第一次の 80 ページは見出しが「Ⅰ-1-1」「Ⅲ-1」の形で番号が取れず、目次も PC の設問一覧も出ていなかった */
+export function questionHeadings<H extends { id: string; text: string; level: number }>(headings: readonly H[]): { id: string; no: number; label: string; group?: number }[] {
+  const out: { id: string; no: number; label: string; group?: number }[] = [];
+  for (const h of headings) {
+    if (h.level !== 2) continue;
+    const roman = toHalfWidth(h.text).match(ROMAN_QUESTION);
+    if (roman) {
+      const no = out.length + 1;
+      const [, numeral, first, second] = roman;
+      if (second && (numeral === 'Ⅰ' || numeral === 'I')) out.push({ id: h.id, no, label: `${first}-${second}`, group: Number(first) });
+      else out.push({ id: h.id, no, label: second ? `${first}-${second}` : first! });
+      continue;
+    }
+    const n = parseQuestionNo(h.text);
+    if (n !== null) out.push({ id: h.id, no: n, label: String(n) });
+  }
+  return out;
 }
