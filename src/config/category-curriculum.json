@@ -725,7 +725,9 @@
             "social-infrastructure-overview",
             "how-to-read-laws-and-notices",
             "national-prefecture-municipal-roles",
-            "budget-and-funding-sources"
+            "budget-and-funding-sources",
+            "pre-construction-other-law-procedures",
+            "technical-standards-system"
           ]
         },
         {
@@ -741,6 +743,8 @@
             "road-fixtures-precast",
             "road-structure-standards",
             "arterial-road-network-tolls",
+            "bridge-periodic-inspection",
+            "pavement-structure-repair",
             "river-act-framework",
             "river-area-permits",
             "river-crossing-structure-review",
@@ -800,6 +804,15 @@
           ]
         },
         {
+          "id": "municipal-consultant",
+          "label": "自治体の土木担当（調査と設計を頼む）",
+          "slugs": [
+            "survey-geotechnical-results-reading",
+            "design-consultant-supervision",
+            "construction-damage-survey"
+          ]
+        },
+        {
           "id": "municipal-town",
           "label": "自治体の土木担当（まちをつくる）",
           "slugs": [
@@ -822,7 +835,8 @@
             "weather-information-reading",
             "disaster-recovery-assessment",
             "regional-disaster-plan-flood-fighting",
-            "sediment-disaster-erosion-control"
+            "sediment-disaster-erosion-control",
+            "sabo-landslide-steep-slope-facilities"
           ]
         },
         {
