@@ -692,7 +692,7 @@
       "work": "keiken-hinshitsu-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-001",
@@ -712,7 +712,21 @@
         "video": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform",
+      "publishAt": "2026-12-10T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T12:51:11.438Z",
+          "digest": "b750410c01c013739fcb094c3a3bc0ea057e76fa9342a5c74d4aa7c6a64f2092"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T12:51:11.438Z",
+        "contentSha256": "98850b01f4be5b912e41c2bcee59b0ebda5707b3ac6958fc69b85fe618025530"
+      }
     },
     {
       "id": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform",
@@ -797,7 +811,7 @@
       "work": "keiken-teishutsumae-tenken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-001",
@@ -817,7 +831,21 @@
         "video": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/video",
         "subtitles": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken/youtube.json#longform",
+      "publishAt": "2026-12-11T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T12:51:12.355Z",
+          "digest": "3198ae9d136d8a8b36c9ec94953334b02a42479fcfe6f1bb028ce68811e6db5e"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T12:51:12.355Z",
+        "contentSha256": "a877520852bc1627c17530195fe06992d443b5cfe586a39be9e589f520ef8021"
+      }
     }
   ]
 }
