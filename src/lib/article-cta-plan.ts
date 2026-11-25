@@ -69,18 +69,15 @@ export function planArticleCtas(doc: { meta: DocMeta; content: string }, related
 
   // 中身を優先順に用意する（各種別 1 記事 1 回まで＝同じ広告を 2 度出さない）。
   const midRenderers: Array<'note' | 'related' | 'career'> = [];
-  let relatedTop: DocMeta | undefined;
   // 1) note 中間 CTA（最優先）。冒頭・本文直後・手書きと異なる商品を選ぶ。
   const midSlot = resolveArticleMidNoteSlot(magazinePlacement, docGroup, strippedContent, isCivilSecondary);
   if (midSlot) {
     midRenderers.push('note');
   }
   const endNoteSlot = resolveEndNoteSlot(magazinePlacement, strippedContent);
-  // 2) 関連記事。長文記事では収益 CTA に枠を使い切らず、サイト内回遊を最低 1 枠確保する。
-  if (midEnabled) {
-    relatedTop = rankRelated(doc.meta, relatedArticles, 1)[0];
-    if (relatedTop) midRenderers.push('related');
-  }
+  // 2) 関連記事の枠。2026-11-26 に本文の途中の関連記事は出すのをやめた（表示 365・クリック 2。記事末の関連記事は 8.7%）。
+  //    枠は数と位置の計算にだけ残して空けておき、転職カードを繰り上げない（空いた所は AdSense の自動広告に任せる）。
+  if (midEnabled && rankRelated(doc.meta, relatedArticles, 1)[0]) midRenderers.push('related');
   // 3) 転職ネイティブカード（1 記事 1 枚まで＝広告密度を抑える）
   let careerMidIndex = -1;
   if (careerMidCard) {
@@ -95,18 +92,21 @@ export function planArticleCtas(doc: { meta: DocMeta; content: string }, related
   const careerMidExtra =
     careerMidIndex >= midSlotCapacity && midSlotCapacity < 3 && midH2Count - 2 > midSlotCapacity;
   // 実際に使う枠＝用意できた中身と容量の小さい方（あふれた転職カードを足すときは末尾に置く）。
-  const midSlots = careerMidExtra
+  const allMidSlots = careerMidExtra
     ? [...midRenderers.slice(0, midSlotCapacity), midRenderers[careerMidIndex]!]
     : midRenderers.slice(0, midSlotCapacity);
-  
+
   // 位置: h2 境界に均等配分。先頭セクション直後（0）と最終 h2（まとめ）直前は避ける。
-  const midPositions = midSlots.map((_, i) =>
+  const allMidPositions = allMidSlots.map((_, i) =>
     Math.min(
-      Math.max(1, Math.round(((i + 1) * midH2Count) / (midSlots.length + 1))),
+      Math.max(1, Math.round(((i + 1) * midH2Count) / (allMidSlots.length + 1))),
       midH2Count - 2,
     ),
   );
-  const effectiveMidPositions = midSlots.length > 0 ? midPositions : [];
+  // 関連記事の枠は空けたまま捨てる（位置はほかの枠と同じ計算のまま）
+  const kept = allMidSlots.flatMap((kind, i) => (kind === 'related' ? [] : [{ kind, position: allMidPositions[i]! }]));
+  const midSlots = kept.map((k) => k.kind);
+  const effectiveMidPositions = kept.map((k) => k.position);
 
   const candidates = planArticleInlineSlots(body, { midPositions: effectiveMidPositions, reservedStudySlot, questionSeries: isQuestionSeries });
   // 手書き preset 専用カードは article-inline の実験面ではない。存在しない面からピクセルを出さない。
@@ -122,7 +122,7 @@ export function planArticleCtas(doc: { meta: DocMeta; content: string }, related
     return Boolean(c.pc || c.mobile);
   });
   return { body, strippedContent, references, headings, isQuestionSeries, magazinePlacement, careerPlacements,
-    inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds: midSlots, effectiveMidPositions,
+    inlineCareerAd, careerMidCard, midSlot, endNoteSlot, midKinds: midSlots, effectiveMidPositions,
     renderedCareerSlots, reservedStudySlot, inline, candidates, docGroup,
     inlineReason: inline.length ? null : candidates.insertAt.length ? '適合する画像素材・配置ルールなし' : '既存 CTA と設問を避けた安全な区切りなし',
   };

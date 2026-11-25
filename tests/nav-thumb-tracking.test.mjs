@@ -11,7 +11,6 @@ const read = (rel) => readFileSync(join(REPO_ROOT, rel), 'utf8');
 
 const SURFACES = [
   { file: 'src/components/ui/RelatedArticles/RelatedArticles.tsx', label: 'trackNav="related-articles"' },
-  { file: 'src/components/ui/MidArticleCta/MidArticleCta.tsx', label: 'data-cta-label="article-mid-related"' },
   { file: 'src/components/category/CategorySections.tsx', label: 'data-cta-label="category-rows"' },
   { file: 'src/components/category/CurriculumSections.tsx', label: 'data-cta-label="curriculum-thumbs"' },
   { file: 'src/components/home/LatestArticles.tsx', label: 'data-cta-label="home-latest"' },
@@ -80,4 +79,9 @@ test('文字の面は50%で1回、サムネイル面はカードだけを数え�
     ['internal_nav_impression','rail-related','thumb-photo'],
   ]);
   assert.ok(!observer.targets.includes(text) && !observer.targets.includes(card));
+});
+
+test('本文の途中に関連記事のカードを出さない（2026-11-26・表示 365 に対しクリック 2。記事末の関連記事に任せる）', () => {
+  assert.doesNotMatch(read('src/components/ui/MidArticleCta/MidArticleCta.tsx'), /article-mid-related|mode: 'related'/);
+  assert.doesNotMatch(read('src/components/docs/DocPage.tsx'), /mode="related"/);
 });

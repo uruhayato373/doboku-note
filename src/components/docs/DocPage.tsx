@@ -258,10 +258,9 @@ export async function renderDocPage(slugStr: string) {
   const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
   const showTableOfContents = !isQuestionSeries && headings.some((h) => h.level === 2);
 
-  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
+  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
   const midSlots = midKinds.map(kind => () => {
     if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
-    if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
     return <MidArticleCta mode="career" card={careerMidCard!} managedPixels />;
   });
   // 多列データ表（ふるい分け 9 列・圧縮試験 5 列等）はモバイル 375px で画面外へはみ出し、
