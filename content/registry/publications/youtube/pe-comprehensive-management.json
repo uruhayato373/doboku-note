@@ -448,10 +448,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-youso-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/video",
+        "cover": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/subtitles"
+      },
+      "publishAt": "2026-11-27T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T13:03:23.015Z",
+          "digest": "2bb6eef220a14051192e58fee39b00196b705c7ce703efcf03e3fc8caaca1dd2"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T13:03:23.015Z",
+        "contentSha256": "10f4f89918ef6e3a93afbda1f36f9e80fcd9668b784fa8cf3917914b886ac18a"
+      },
+      "times": {
+        "rendered": "2026-11-25T13:03:23.223Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
