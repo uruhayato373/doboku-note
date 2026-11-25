@@ -766,8 +766,23 @@
             "ppp-pfi-selection",
             "construction-inspection-types",
             "cost-and-design-change",
+            "contract-advance-partial-payment-slide",
+            "cost-estimation-practice",
             "owner-safety-responsibility",
             "board-of-audit-inspection"
+          ]
+        },
+        {
+          "id": "municipal-supervision",
+          "label": "自治体の土木担当（工事を監督する）",
+          "slugs": [
+            "construction-supervisor-duties",
+            "site-organization-engineer-assignment",
+            "owner-contractor-consultation",
+            "as-built-management",
+            "construction-performance-rating",
+            "work-style-reform-documents",
+            "ict-construction-owner-role"
           ]
         },
         {
