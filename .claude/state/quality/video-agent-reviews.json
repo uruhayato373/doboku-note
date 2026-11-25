@@ -814,6 +814,14 @@
       "visualDigest": "dd40abe76a3bf8cad5fa3911f16efd49ddfb3bc26011a0fc31a97e534eefdfc0",
       "finalDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb",
       "contentDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish": {
+      "verdict": "fail",
+      "note": "表紙（candidate-cover、冒頭場面1と同一画像）の題名『口頭試験』の「験」の旁（馬の下の四点）が小さな斜線に崩れ、誤字に見える。公開サムネイルの題名の字の崩れなので差し戻し。表紙の題名を描き直す。場面2〜17・字幕・文面（題名・CTA・リンク・出典・制作注記）には、既知の『』・五角形ラベル無し以外に欠陥なし、字幕と図の重なりなし。音声は未確認。",
+      "at": "2026-11-25T04:19:06.752Z",
+      "visualDigest": "a71ab5354cfbbbaa10e8028293b3b6706f1fc2ccfaca868e7b531b4ac4a56c6d",
+      "finalDigest": "484af14677acafd93d188e07e9ca5edbf4160dae5657b04f1bf34cf54da4361a",
+      "contentDigest": "09a0ae49a31693bc9402755f178ee2be2408a311ed771e52b06b424d0f679b67"
     }
   }
 }
