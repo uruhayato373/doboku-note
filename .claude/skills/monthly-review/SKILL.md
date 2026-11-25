@@ -35,10 +35,11 @@ domain: strategy
 6. `snapshot --monthly --commit` を保存し、`review` の判断・理由・次の一手・実験参照・次回日を記録する。データ不足時はprovisional。重点は最大3件。変更しない判断にも理由を残す。
 7. 目標を変える場合は対象資格・指標のcompleteな実測snapshotと理由を `target` 記録へ追記する。数字を仮置きして達成指標にしない。収益・費用・時間から継続/集中/縮小を判断し、重点資格変更は機械SSOTへ反映する。
 8. **バックログの関門**: `npm run backlog-gate -- --monthly` で、時期の無い 🟢 を全件（月を付けるか削除する）と、起票から 90 日を超えたカード（残すか削除する）を運営者に諮って台帳を直す。今月の 🔴🟡 の件数が多ければ、中身で選んで来月へ回す（件数の上限は設けない）。
+   **改善の候補（2026-11-23〜2027-01-31 の片付けの期間）**: 起票を不具合と期日ものに絞っているあいだ（`todo-standards.md` §1-3）、週次で `defer`（理由「月次で採否」）にした計測の機会と、`→ 振り分け: 月次` の申し送りと、棚卸しで台帳から外したカード（`.claude/state/dispatch/dispatch-log.json` の outcome `dropped` で、note が「月次の改善の候補」で始まるもの。2026-11-23 の棚卸しで 70 枚）をここで一覧にし、採るものだけを起票する。採らないものは理由を 1 行残して捨てる。
    年間の重点はバックログのカードの `[時期:]` が正本（管理画面 計画 ＞ 年間ロードマップ）。今月・来月の行が現状と合っているかを確かめ、ずれていればカードの `[時期:]` を直す。月間計画（monthly.md）の選択タスクは `[時期:]` が今月を含むカードから選ぶ。時期を過ぎて残るカードは `npm run check-backlog-health` の S15 に出る。月の件数は絞らず、終わったカードは削除し、残りは `npm run roll-backlog-when -- --write` で翌月へ回す（`[時期:]` の終わりを今月へ延ばす）。月次レビューを回し忘れると毎月 3 日以降に `check-monthly-review-due` が SessionStart で知らせる。
 8b. **点検と Issue**: `npm run review-checks -- --cadence monthly --run YYYY-MM --write` で月次の点検（`review-wiring.json` の `checks`。`npm run check-workflow-health`・`npm run check-r2-orphans` ほか）を実行し、開いている GitHub Issue・Dependabot の脆弱性と一緒に回ごとに保存する。失敗・検査不成立の点検と開いている Issue・脆弱性の**全件**を、レポートの「点検と Issue」に `- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先が無い項目が残る回は「実施できた」にならない（管理画面のレビュー手順が数える）。起票するカードの起点は「月次レビュー（開始日〜終了日）」。`check-r2-orphans` の孤児は `-- --write` で候補を出し、git 履歴か private への退避で戻せることを確かめてから削除リストへ足す（参照ありは消さずにリポジトリへ戻す）。復旧済みで開いたままの Issue は閉じる。
 8c. **イシューマップ**: 管理画面 戦略 ＞ イシューマップ（`/strategy/issues`・正本 `config/issue-map.json`）で、前月の実測を踏まえて各マップの主イシュー（`question`）・主張（`stance`・ストーリーラインの `claim`）・分岐を見直す。変える・変えないの判断と理由を月次レポートの「## イシューマップ」に書く（節が無いと月次の完了にならない）。今月の重点のサブイシューの `focusMonth` を今月に付け替える。承認待ちの `proposedMetrics` は運営者に諮り、承認されたものを `business-direction.json` へ移す。`npm run check-issue-map` を通す。
-9. 改善は既存 `experiments.json` と `/nsm-experiment` へ接続する。running の実験で `next_check_date` が今月内または過去のものは、判定（close/継続の理由）か延長理由のどちらかを `actions` に必ず1行残す。判定せずに日付だけ後ろへずらさない（2026-09 に EXP-008 が再計測前の追加展開で判定を一度も経ずに 9/18→10/20 へ延びた）。SEOは7日観察・同時実験上限・専用判定を保つ。単発実装はbacklog、monthly/weeklyはそのID参照。`npm run check-business-direction` を通し、変更したJSONだけ明示してGitにコミットする。
+9. 改善は既存 `experiments.json` と `/nsm-experiment` へ接続する。running の実験で `next_check_date` が今月内または過去のものは、判定（close/継続の理由）か延長理由のどちらかを `actions` に必ず1行残す。判定せずに日付だけ後ろへずらさない（2026-09 に EXP-008 が再計測前の追加展開で判定を一度も経ずに 9/18→10/20 へ延びた）。SEOは7日観察・専用判定を保ち、同じページ・同じ指標に実験を重ねない（件数の上限は置かない）。単発実装はbacklog、monthly/weeklyはそのID参照。`npm run check-business-direction` を通し、変更したJSONだけ明示してGitにコミットする。
 
 ## 月次レポート（証拠を残す）
 
@@ -59,6 +60,7 @@ domain: strategy
 ## イシューマップ
 ## 実験の判定
 ## バックログの関門
+## 改善の候補（採否）
 ## 時期付け
 ## 点検と Issue
 ## 来月への申し送り

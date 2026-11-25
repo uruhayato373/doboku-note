@@ -184,6 +184,22 @@
       "pages": 2,
       "pass": 2,
       "fail": 0
+    },
+    {
+      "runId": "20261124T064636Z",
+      "at": "2026-11-24T06:48:13.563Z",
+      "base": "https://doboku-note.com",
+      "pages": 1,
+      "pass": 1,
+      "fail": 0
+    },
+    {
+      "runId": "20261124T082315Z",
+      "at": "2026-11-24T08:25:23.487Z",
+      "base": "https://doboku-note.com",
+      "pages": 2,
+      "pass": 2,
+      "fail": 0
     }
   ],
   "pages": {
@@ -386,18 +402,31 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "671be94a776e14a47dae896b9e51f82cccb8e6211411937fdd20724878667823",
+      "layoutSha256": "26e5c5ba47407a35e045518196643745ec0c5b2264d4c9c9691bf3d751d06c43",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T04:59:33.545Z",
-      "runId": "20261117T045600Z",
+      "reviewedAt": "2026-11-24T08:25:23.485Z",
+      "runId": "20261124T082315Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "右の欄に「この試験で扱われた教材」「（続き）」「同じ資格のよく読まれている記事」「（続き）」が分かれて並び、題名「同じ資格のよく読まれている記事（続き）」は 2 行に折り返す。枠・題名の大きさは揃っていて読める。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "type": "cta",
+          "detail": "スマホ幅の転職バナーのうち RSG は「年収1000万を目指せる 建設専門の転職サイト／まずは転職無料相談」と読め、何のサービスか分かる（前回の指摘は解消）。一方コンストワークの 320x50 は「施工管理職／詳しくはこちら」だけで、転職サービスだと分かる語が無く、得られるものが読み取りにくい（w768 も同じ素材。PC 幅の大きい素材は「土日休み・研修充実」まで読める）。",
+          "viewport": "w375",
+          "shot": "w375-03.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "1級土木 教材パックの note 導線が記事冒頭・問題7の後・記事末尾の 3 回出る。連続はしていないが、スマホ幅では同じ画像バナーが何度も目に入る。",
+          "viewport": "w375",
+          "shot": "w375-cta-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "パンくず（11px）など補助の文字が 12px 未満。",
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
@@ -447,25 +476,31 @@
       "ticket": null
     },
     "standards-chapter": {
-      "layoutSha256": "929219d662b9c31432e50a0b264abc6dd26ef79aeaff04f139d82a2923eb7b04",
+      "layoutSha256": "f3ec548d1c2899b8faf68309bfb4bc98c3ca5a1469471748447212acdbd2eb21",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T05:04:01.200Z",
-      "runId": "20261117T050221Z",
+      "reviewedAt": "2026-11-24T08:25:23.485Z",
+      "runId": "20261124T082315Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "右の欄の「同じ文書の前後の章（続き）」は題名の意味が分かりにくく、リンク文字も小さい",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "type": "cta",
+          "detail": "スマホ幅の転職バナーは RSG（「建設専門の転職サイト／転職無料相談」）・ビルドジョブ（「建設業界に特化した転職支援サービス」）は何のサービスか読める。コンストワークは「施工管理職／詳しくはこちら」で転職と分かる語が無く、やや分かりにくい。",
+          "viewport": "w375",
+          "shot": "w375-cta-02.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "本文の下の方で右の欄に広告枠だけが残り、周囲に大きな余白ができる（開発用の枠表示）",
+          "type": "cta",
+          "detail": "最初の画面にビルドジョブ系のバナーが、右上のサイドバー・本文中・目次下の建設JOBs の 3 つ同時に見え、同じ転職導線が重なって見える。",
           "viewport": "w1440",
-          "shot": "w1440-04.png"
+          "shot": "w1440-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "パンくずなど補助の文字が 12px 未満。",
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
@@ -497,25 +532,39 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "f7cd2baf6f0e127dcbb558aba64f0a9c04369184a5f9f65e48ec9cd332b777af",
+      "layoutSha256": "e24df0d9a0bfe291e53565296a372b08ad5652ba47f39957291ba8a25d3feff9",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-24T06:48:13.562Z",
+      "runId": "20261124T064636Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
       "findings": [
         {
           "severity": "minor",
-          "type": "hierarchy",
-          "detail": "本文中の「この続きに読みたい」カードは写真が大きい一方、題名と説明が小さく（説明は 11px 前後）、題名が写真に負けて見える",
-          "viewport": "w768",
-          "shot": "w768-04.png"
+          "type": "typography",
+          "detail": "スマホ幅で「ネットワーク計算の演習」や EST の図が縮小され、図中の文字（A=4・手順の囲み）が 7px 前後でかなり小さい。本文は読めるが図の細部は拡大しないと読みにくい。",
+          "viewport": "w375",
+          "shot": "w375-04.png"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "「テキスト章ナビゲーション」の前後の章は題名が黒の枠だけの行で、他の内部リンクの青い題名と色が異なるが、押せる位置は分かる",
+          "type": "layout",
+          "detail": "最後の区画とフッターの間に約 500px の空のグレー余白が続く（768 では約 200px、1440 では約 80px）。",
           "viewport": "w375",
-          "shot": "w375-05.png"
+          "shot": "w375-06.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "記事内の PR バナー（Constwork・RSG）が横長を切り詰めて表示され、訴求文言の一部が見えない。",
+          "viewport": "w768",
+          "shot": "w768-cta-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "結合点の図で矢線 C のラベルが線に重なり気味に見える（意味は読み取れる）。前回の LFT 計算ルール図・EST/LFT 併記図の重なり（③の 16 と 12）は、今回撮影した範囲では解消している。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         }
       ],
       "deterministic": [],

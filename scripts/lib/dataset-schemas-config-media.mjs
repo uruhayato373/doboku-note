@@ -570,7 +570,7 @@ export const ConfigXReplyTrial = z
           .int()
           .positive()
           .describe('送信の間隔のばらつきの上限。minIntervalMinutes〜この値の間で毎回変える（2026-11-17 スパム判定のタグの後に運営者の判断）'),
-        maxPerDay: z.number().int().positive().describe('1 日（JST）に送る返信の上限。質問への答えも数える（2026-11-17 運営者の判断）'),
+        maxPerDay: z.number().int().positive().describe('1 日（JST）に送る返信の上限。質問への答えも数える（2026-11-17 運営者の判断で 5 件、2026-11-23 に 10 件へ引き上げ）'),
         candidatesPerRun: z.number().int().positive(),
         lookbackHours: z.number().int().positive(),
         perTopic: z.number().int().positive().describe('1 つの話題（資格）から出す候補の上限。偏りを防ぐ'),
@@ -940,7 +940,7 @@ export const ConfigImageGeneration = z
   .object({
     schemaVersion: schemaVersion1,
     policy: z.string().min(1).describe('方針の文書'),
-    codexModel: z.string().min(1).nullable().describe('codex exec に渡す既定のモデル（-m）。null なら codex の設定（~/.codex/config.toml）に任せる。設定のモデルがアカウントで使えないときだけ指定する（DN-0991）'),
+    codexModel: z.string().min(1).nullable().describe('codex exec に渡す既定のモデル（-m）。null なら codex の設定（~/.codex/config.toml）に任せる。設定のモデルがアカウントで使えないとき（DN-0991）と、画像を描くのは画像ツールなので軽いモデルで足りるとき（2026-11-25・利用上限の節約）に指定する'),
     teacher: z.object({ identity: z.string().min(1), body: z.string().min(1) }).strict().describe('先生の同一性と身体の指示'),
     popStyle: z.string().min(1).describe('POP の画風'),
     textRule: z.string().min(1).describe('文字の禁止事項'),
@@ -1469,5 +1469,9 @@ export const ConfigVideoAutoPublish = z.object({
   maxPublishPerDay: z.number().int().positive().describe('通常動画とショートを合わせた 1 日の公開の上限'),
   hold: z.array(z.object({ pack: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/), reason: z.string().min(1), card: z.string().regex(/^DN-\d{4}$/) }).strict()).describe('毎日の予約で出さない作品（直すまでの保留）。直したら行を消す'),
   uploadPriority: z.enum(['longform', 'balanced']).describe('投稿の割当の配り方。longform＝在庫の通常動画が尽きるまで割当を全部通常動画に使う（先の日付の予約を早く埋める・2026-11-12 運営者の決定）、balanced＝通常動画は 1 日 slot.maxPerDay 本まで'),
+  retireSuperseded: z.object({
+    enabled: z.boolean().describe('改訂版が予約・公開へ進んだ旧通常動画（まだ非公開）の行を、方針で superseded として止める（video-factory retire-superseded）'),
+    decidedBy: z.string().min(1),
+  }).strict().optional(),
   audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minSceneSimilarity: z.number(), maxTokenMisreads: z.number().int().min(0).nullable(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
 }).strict();

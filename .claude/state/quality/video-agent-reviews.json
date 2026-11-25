@@ -814,6 +814,14 @@
       "visualDigest": "dd40abe76a3bf8cad5fa3911f16efd49ddfb3bc26011a0fc31a97e534eefdfc0",
       "finalDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb",
       "contentDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish": {
+      "verdict": "pass",
+      "note": "表紙「口頭試問」は字形に崩れ無し、題名と冒頭一致。17場面の順序は台本どおり、文字の切れ・重なり・誤字・字幕と図の重なり無し。説明文CTAは tankan-oral-complete の1つで noteUrl 一致、無料リンクは実在記事。試験の記述は合否決定基準の2項目60%以上で台本と一致、口頭は日付未発表の扱いも矛盾無し。運営者承知の項目(場面14/16/17の『』・場面6の五角形ラベル無し・表紙ヘルメット上端)は理由にしていない。音声は未確認。完成mp4は再生せずプレビューの場面シートと表紙で確認。",
+      "at": "2026-11-25T05:08:49.810Z",
+      "visualDigest": "ec55467124a445d878ff839b7090bead38e3af0e0ecb43a7ec43c3915ae6eaa4",
+      "finalDigest": "2a44da6758acd2c1675229218a9c04587be0f79432f61ef88d390857af2c9cac",
+      "contentDigest": "3c314e6432cc7197ef0b57ed7e8d7c1b0cf7cc51e39ced938f10bfb76ba9c904"
     }
   }
 }

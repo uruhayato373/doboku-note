@@ -80,6 +80,24 @@
       "supply": "ci"
     },
     {
+      "id": "gscBaselineClicks",
+      "stage": "集客",
+      "label": "平常時のGoogle検索クリック",
+      "unit": "回",
+      "definition": "gscClicks から試験の当日ページ（解答速報・採点）を除いた値。季節の山を除いた情報拠点の育ち具合を見る観測値で、目標値は置かない（2026-11-25・DN-1119・docs/strategy/24 §6）。",
+      "channel": "GSC",
+      "supply": "human"
+    },
+    {
+      "id": "docsToExamTransitions",
+      "stage": "送客",
+      "label": "文書ページから資格・教材ページへの遷移",
+      "unit": "回",
+      "definition": "/standards・/docs・/laws のページから /exam/ と note の教材へ流れた数。文書ページ自体のクリックでは測らない観測値で、目標値は置かない（2026-11-25・DN-1119・docs/strategy/24 §6）。",
+      "channel": "GA4",
+      "supply": "human"
+    },
+    {
       "id": "quizStarts",
       "stage": "学習",
       "label": "演習開始",
@@ -462,6 +480,6 @@
     "販売チャネル内の集客とサイト送客を区別し、異期間・異対象の数値を割ってCVRにしない。",
     "目標値は実測の期間・対象・理由を添えて設定し、過去の目標は追記履歴に残す。",
     "重点資格外の既存教材を一律削除せず、保守・需要に応じて判断する。",
-    "改善状態は既存experiments.json、単発の実装タスクはbacklogを正とする。SEOの7日観察と同時実験上限を守る。"
+    "改善状態は既存experiments.json、単発の実装タスクはbacklogを正とする。SEOの7日観察を守り、同じページ・同じ指標に実験を重ねず、始める前に指標・判定日・停止条件を書く（件数の上限は置かない・2026-11-01 決定）。"
   ]
 }

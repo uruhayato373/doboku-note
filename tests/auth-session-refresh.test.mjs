@@ -10,6 +10,7 @@ import {
   maskLoginText,
   parseKeychainAccount,
   sharedStatePath,
+  submitLoginForm,
 } from '../scripts/lib/auth-session-refresh.mjs';
 
 test('共用口座だけ stats47 のキーチェーン項目を代わりに使う（KDP は doboku-note 専用のみ）', () => {
@@ -91,4 +92,31 @@ test('失敗印は error だけ7日後に再試行し、人の確認・口座不
   assert.equal(failMarkDecision({ markText: 'date error timeout', markMtimeMs: 0, nowMs: AUTH_RETRY_MS - 1 }).retry, false);
   assert.equal(failMarkDecision({ markText: 'date error timeout', markMtimeMs: 0, nowMs: AUTH_RETRY_MS }).retry, true);
   assert.equal(failMarkDecision({ markText: '', markMtimeMs: 0, nowMs: AUTH_RETRY_MS }).retry, false);
+});
+
+// note は 2026-11 に入力欄の name を外し、readonly の欄をクリックで書ける形にした。
+// 旧セレクタ（input[name=login]）は何も指さず、空のまま送信して自動ログインが失敗していた。
+test('note の自動ログイン: ラベルに結んだ欄を指し、書く前に欄をクリックする', async () => {
+  const spec = AUTO_LOGIN.note;
+  assert.ok(!/name=/.test(spec.user) && !/name=/.test(spec.password), 'note の欄は name を持たない');
+  assert.notEqual(spec.user, spec.password);
+  const calls = [];
+  const page = {
+    locator: (sel) => ({
+      first: () => ({
+        isVisible: async () => true,
+        click: async () => { calls.push(['click', sel]); },
+        fill: async (v) => { calls.push(['fill', sel, v]); },
+        check: async () => {},
+      }),
+    }),
+    waitForSelector: async () => {},
+    waitForLoadState: async () => {},
+    waitForTimeout: async () => {},
+  };
+  await submitLoginForm(page, spec, { user: 'u', password: 'p' });
+  const at = (op, sel) => calls.findIndex(([o, s]) => o === op && s === sel);
+  assert.ok(at('click', spec.user) >= 0 && at('click', spec.user) < at('fill', spec.user), 'ID 欄はクリックしてから書く');
+  assert.ok(at('click', spec.password) >= 0 && at('click', spec.password) < at('fill', spec.password), 'パスワード欄はクリックしてから書く');
+  assert.ok(at('click', spec.submit) > at('fill', spec.password), '書いてから送信する');
 });

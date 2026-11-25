@@ -39,6 +39,8 @@ fi
 
 if (cd "$WT" && node scripts/search/gsc-local-routine.mjs) >> "$LOG_FILE" 2>&1; then
   echo "=== $(date -Iseconds) [gsc-indexing] ok ===" >> "$LOG_FILE"
+  # 失敗で立てた Issue（channel gsc-indexing-local）を、次の成功で閉じる（開いていなければ何もしない・DN-1191）
+  (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --resolve --channel gsc-indexing-local --body "復旧: 朝の GSC の登録リクエストが成功した") >> "$LOG_FILE" 2>&1 || true
 else
   rc=$?
   echo "=== $(date -Iseconds) [gsc-indexing] FAILED rc=${rc} ===" >> "$LOG_FILE"

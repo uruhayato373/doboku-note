@@ -10,6 +10,7 @@
  *   id・title・phase（pre|post）・timeoutMin・browser（起動前にブラウザの空きを待つ）・selfCommits（自分で commit・push する）
  *   verify: 取った記録の検算（scripts/ops/quality-audit.mjs の cadence:'collect' の点検 id。コマンドはそちらの定義を使う）。
  *     取る月が無くて skip した週も回し、落ちたら段を failed にする。同じ点検を毎日 ops で繰り返さない（DN-0847）
+ *   verifyIfNewRun: { 検算 id: run の置き場の台帳 id }。取得の 1 回分を見る検算は、この回に run が増えたときだけ回す（DN-1267）
  *   addPaths: data/ の外に書く段が commit する置き場（note-audit の題名・価格のずれの印）
  *   commands: [{ argv, ok, warn, onlyIfPrev }]
  *     ok   = 成功とみなす終了コード（既定 [0]）
@@ -53,9 +54,22 @@ export const NOTE_AUDIT_INTERVAL_DAYS = 27;
  * 「月の最初の土曜」と決めると、その土曜に Mac が動かなかった月に丸ごと抜ける。
  * @param {{ today: string, lastAt?: string | null }} input lastAt は ISO 8601 の日時
  */
+const daysSince = ({ today, lastAt }) => (Date.parse(`${today}T00:00:00Z`) - Date.parse(`${String(lastAt).slice(0, 10)}T00:00:00Z`)) / 86_400_000;
+
 export function noteAuditDue({ today, lastAt = null }) {
   if (!lastAt) return true;
-  return (Date.parse(`${today}T00:00:00Z`) - Date.parse(`${String(lastAt).slice(0, 10)}T00:00:00Z`)) / 86_400_000 >= NOTE_AUDIT_INTERVAL_DAYS;
+  return daysSince({ today, lastAt }) >= NOTE_AUDIT_INTERVAL_DAYS;
+}
+
+/**
+ * 回さない週の理由（pure）。27 は経過日数ではなく間隔。「27 日たっていない」だけでは経過日数と読まれた（2026-11-21・DN-1269）ので、
+ * 経過日数・間隔・次に回る日を並べる。27 日＝4 週に 1 日の余裕を持たせた値（土曜が 1 日ずれても 4 週目に回る）
+ * @param {{ today: string, lastAt: string }} input
+ */
+export function noteAuditSkipReason({ today, lastAt }) {
+  const last = String(lastAt).slice(0, 10);
+  const next = new Date(Date.parse(`${last}T00:00:00Z`) + NOTE_AUDIT_INTERVAL_DAYS * 86_400_000).toISOString().slice(0, 10);
+  return `月 1 回（${NOTE_AUDIT_INTERVAL_DAYS} 日ごと）の照合で、前回（${last}）から ${daysSince({ today, lastAt })} 日。次は ${next} 以降の土曜`;
 }
 
 /**
@@ -183,6 +197,9 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
       commands: [{ argv: ['scripts/search/gsc-local-routine.mjs'] }],
       verify: ['gsc-ui-due', 'gsc-indexing-due', 'gsc-ui-run'],
+      // 理由別 CSV は月 1 回（期限内なら取らない）。取らなかった週は見る run が無いので gsc-ui-run を回さない（2026-11-21 に実検査 0 で failed・DN-1267）。
+      // 取り忘れは gsc-ui-due が見る
+      verifyIfNewRun: { 'gsc-ui-run': 'gsc.ui-raw' },
     },
     {
       id: 'note-status', phase: 'pre', title: 'note の公開状態・マガジン・題名と価格の照合（毎週）', timeoutMin: 30, browser: false,
@@ -205,7 +222,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 旧 note-live-audit.yml（CI・月曜・平均 40 分・19 回中 13 回赤）の残り 5 本。どれも全記事の公開 API を 1 本ずつ呼ぶ（前段 2 時間のうち 58 分を占めた）。
       // 土曜の収集へ移してからの検出は注意 1〜2 件だったので、NOTE_AUDIT_INTERVAL_DAYS ごとに下げた（2026-11-14・DN-1196）。
       // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/ops/weekly-collect.mjs --only note-audit で回す。
-      skip: noteAuditDue({ today, lastAt: noteAuditLastAt }) ? null : `前回（${String(noteAuditLastAt).slice(0, 10)}）から ${NOTE_AUDIT_INTERVAL_DAYS} 日たっていない`,
+      skip: noteAuditDue({ today, lastAt: noteAuditLastAt }) ? null : noteAuditSkipReason({ today, lastAt: noteAuditLastAt }),
       commands: [
         { argv: ['scripts/checks/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
         { argv: ['scripts/checks/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },

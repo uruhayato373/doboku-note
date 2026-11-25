@@ -48,6 +48,7 @@ import { datasetPath } from '../lib/datasets.mjs';
 import { NOTE_CREATOR } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { lastLines, runAccountGated, runWithRetry } from '../lib/note-sync-save.mjs';
+import { runNodeMerged } from '../lib/spawn-merged-output.mjs';
 import { DRIVE_FAIL_LIMIT, driveState, fitCount, isTransientFailure, perArticleMs } from '../lib/note-sync-budget.mjs';
 
 const TAG = '[note-sync]';
@@ -81,12 +82,11 @@ for (const sig of ['SIGTERM', 'SIGINT']) {
   process.on(sig, () => { if (!stopping) console.error(`${TAG} ${sig} を受けた。次の記事を始めずに記録して終わる`); stopping = true; });
 }
 const git = (a) => spawnSync('git', a, { cwd: ROOT, encoding: 'utf8' });
+// stdout と stderr は書かれた順のまま集める（つなぐと ABORT が最後の記事に結び付く・DN-1301）
 const node = (a, log, timeout) => {
-  const r = spawnSync(process.execPath, a, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, env: process.env, ...(timeout ? { timeout, killSignal: 'SIGKILL' } : {}) });
-  if (r.error?.code === 'ETIMEDOUT') return { status: 124, out: `${(r.stdout || '') + (r.stderr || '')}\n[note-sync] ${Math.round(timeout / 1000)} 秒で打ち切り（Drive の読み取りの停滞を疑う）` };
-  const out = (r.stdout || '') + (r.stderr || '');
-  if (log) { mkdirSync(dirname(log), { recursive: true }); writeFileSync(log, out); }
-  return { status: r.status ?? 1, out };
+  const r = runNodeMerged(a, { cwd: ROOT, log, timeout });
+  if (r.timedOut) return { status: 124, out: `${r.out}\n[note-sync] ${Math.round(timeout / 1000)} 秒で打ち切り（Drive の読み取りの停滞を疑う）` };
+  return { status: r.status ?? 1, out: r.out };
 };
 const stamp = () => new Date().toISOString().replace(/[:.]/g, '-');
 function notify(message) {
@@ -208,6 +208,13 @@ async function syncArticles(items) {
     if (results.dailyLimit) {
       defer(items.slice(i), 'attachment-daily-limit');
       console.log(`${TAG} 添付の日次上限で停止（更新 ${updated.length}・失敗 ${failed.length}・翌日以降 ${deferred.length}）。残りは次回の反映計画に残す`);
+      return { updated, failed, deferred, attempted, stopped: true };
+    }
+    if (results.lowMemory) {
+      // 空きメモリの関所が起動を見送った。続けても同じなので、残りを次回へ回して止める（失敗には数えない・DN-0954）
+      defer(items.slice(i), 'low-memory');
+      problems.push('空きメモリ不足でブラウザを起動できず、残りの記事を次回へ回した（Claude Desktop・Chrome を閉じて取り直す）');
+      console.log(`${TAG} 空きメモリ不足で停止（更新 ${updated.length}・失敗 ${failed.length}・次回へ ${deferred.length}）`);
       return { updated, failed, deferred, attempted, stopped: true };
     }
     console.log(`${TAG} 記事 ${i}/${items.length}（更新 ${updated.length}・失敗 ${failed.length}・翌週へ ${deferred.length}・1 記事 ${(perArticleMs({ articles: tried, elapsedMs: spentMs }) / 60_000).toFixed(1)} 分）`);

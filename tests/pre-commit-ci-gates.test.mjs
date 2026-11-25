@@ -28,7 +28,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   // 記事の画像はサイズ上限を先に見る（2026-10-09 に 10KB 超えの図 2 枚が CI で初めて落ちた）
   assert.deepEqual(planGates(['content/site/a/img/x.svg']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(planGates(['content/site/a/img/photo-x.webp']).map((g) => g.id), ['image-assets']);
-  assert.deepEqual(only(['config/products.json']), ['products']);
+  assert.deepEqual(only(['config/products.json']), ['products', 'kindle-prices'], '商品の正本は Kindle の価格の写し（spec）とも突き合わせる（DN-0998）');
   assert.deepEqual(only(['src/lib/coconala-services.ts']), ['products']);
   // 転職アフィリエイトの配置ルールと、それが突き合わせる正本
   for (const f of ['config/affiliate-placements.json', 'config/affiliate-mats.json', 'config/cta-placements.json', 'data/affiliate/catalog.json', 'src/config/affiliate-creatives.ts']) {
@@ -89,6 +89,7 @@ test('unit-tests は staged に関係する実データのテストだけを回�
   assert.ok(unitTestsFor(['content/note/x/y/article.md']).includes('tests/content-theme.test.mjs'));
   assert.ok(unitTestsFor(['data/coconala/orders.json']).includes('tests/dataset-schemas.test.mjs'));
   assert.ok(unitTestsFor(['docs/strategy/x.md']).includes('tests/project-task-refs.test.mjs'));
+  assert.ok(unitTestsFor(['config/qualification-registry.json']).includes('tests/qualification-keys.test.mjs'), '資格を足したら色の対応を回す（2026-11-25）');
   assert.deepEqual(unitTestsFor(['README.md']), []);
   const all = [...new Set(UNIT_TEST_RULES.flatMap((r) => r.tests))];
   assert.deepEqual(all.filter((t) => !existsSync(t)), [], 'テストを消したら規則からも外す');
@@ -178,4 +179,33 @@ test('runPlan: 検査を並行で回し、結果は計画の順に返す（直�
   assert.match(thrown[0].out, /spawn ENOENT/);
   assert.equal(thrown[1].status, 0);
   assert.ok(GATE_CONCURRENCY >= 1 && GATE_CONCURRENCY <= 4);
+});
+
+test('DN-0998: develop を赤くした 3 つの検査（演習データの作り直し・Kindle の価格・dispatch-log）は commit 前に回る', () => {
+  const ids = (files) => planGates(files).map((g) => g.id);
+  // 2026-11-24 過去問 MDX だけ直して演習データの作り直しを忘れた（generated-indexes が 3 回赤）
+  assert.ok(ids(['content/site/civil-construction-1/primary-h25-a/article.mdx']).includes('generated-indexes'));
+  assert.ok(ids(['content/site/civil-construction-2/primary-r08-kouki/article.mdx']).includes('generated-indexes'));
+  assert.ok(ids(['src/config/civil-2-exam-questions.json']).includes('generated-indexes'));
+  assert.ok(!ids(['content/site/building-construction/guide-x/article.mdx']).includes('generated-indexes'), '土木の過去問以外では回さない');
+  const exam = planGates(['content/site/civil-construction-1/primary-h25-a/article.mdx']).find((g) => g.id === 'generated-indexes');
+  assert.deepEqual(exam.cmd([]), ['node', 'scripts/checks/check-exam-question-data-fresh.mjs']);
+  // 2026-11-24 e-01 の spec.price だけ上げて catalog（products.json）と食い違った
+  assert.ok(ids(['content/kindle/books/e-01/spec.json']).includes('kindle-prices'));
+  assert.ok(ids(['config/products.json']).includes('kindle-prices'));
+  assert.ok(!ids(['content/kindle/books/e-01/front-matter.md']).includes('kindle-prices'));
+  // 2026-11-23 台帳の棚卸しの commit が不具合の prevention 欠落を持ち込んだ
+  assert.ok(ids(['.claude/state/dispatch/dispatch-log.json']).includes('dispatch-log'));
+});
+
+test('DN-0998: 動画パックと台帳を stage したら、台帳・表紙・表紙の受け渡しの検査を commit 前に回す', () => {
+  const ids = (files) => planGates(files).map((g) => g.id);
+  const VIDEO = ['content-registry', 'youtube-covers', 'youtube-cover-handoff'];
+  // 2026-11-25 DN-1239 の作り直しで、動画パックと台帳の直 push が develop を 03:31 から赤くした
+  for (const f of ['content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/cover-design.json', 'content/registry/publications/youtube/pe-comprehensive-management.json']) {
+    for (const id of VIDEO) assert.ok(ids([f]).includes(id), `${f} → ${id}`);
+  }
+  assert.deepEqual(ids(['content/registry/publications/x/a.json']).filter((id) => VIDEO.includes(id)), ['content-registry'], 'X の台帳は表紙を見ない');
+  assert.deepEqual(ids(['.claude/state/assets/drive-manifest.json']).filter((id) => VIDEO.includes(id)), ['youtube-cover-handoff']);
+  assert.deepEqual(ids(['content/sns/x/review.json']).filter((id) => VIDEO.includes(id)), [], '動画パックの外は回さない');
 });

@@ -21,6 +21,8 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
   if (shape.length) throw new Error(shape.join('; '));
   const id = pubIdOf({ exam: source.exam, work: source.work, channel: 'youtube', format: source.format, variant });
   if (id === source.id) throw new Error('旧公開IDは上書きしない');
+  // 下書きの更新で予定を渡さなければ、既存の行の予定を引き継ぐ（render の自動更新は --publish-at を渡さない。2026-11-25 DN-1239）
+  if (refreshDraft && !publishAt) publishAt = reg.publications.find(p => p.id === id)?.publishAt;
   if (publishAt && (!/(?:Z|[+-]\d\d:\d\d)$/.test(publishAt) || !(Date.parse(publishAt) > now))) throw new Error('予定はタイムゾーン付きの未来の日時が必要');
   if (source.format === 'short') {
     const target = reg.publications.find(p => p.id === relatedTo);
@@ -71,7 +73,8 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
     if (!changed && ['qa_passed', 'qa_blocked'].includes(existing.status)) row.status = existing.status;
   }
   const comparedExisting = refreshDraft && changed && ['draft', 'qa_passed', 'qa_blocked'].includes(existing?.status)
-    ? { ...existing, status: 'draft', ...(publishAt ? { publishAt } : {}) } : existing;
+    // 未承認の下書きは、場面の分割・統合で候補の素材の並びが変わっても更新できる（承認・外部 ID・実行の記録が残る行は下の比較で止まる）
+    ? { ...existing, status: 'draft', media: row.media, ...(publishAt ? { publishAt } : {}) } : existing;
   if (existing && canonicalJson(strip(comparedExisting)) !== canonicalJson(row)) throw new Error('既存の改訂公開行と異なる。上書きせず別のvariantで準備する');
   if (refreshDraft && (!existing || !saved)) throw new Error('下書き更新には既存の未承認draftと保存済み入力が必要');
   if (changed && !refreshDraft) throw new Error('既存の改訂投稿入力と異なる。上書きしない');

@@ -167,7 +167,7 @@
           {
             "job": "会員の維持",
             "by": "parent",
-            "reason": "メンバーシップの撤退判断（DN-0477）待ち。専任の役は作らない"
+            "reason": "メンバーシップは撤退済み（2026-11-25 に後始末を完了）。専任の役は作らない"
           }
         ]
       }
@@ -649,7 +649,8 @@
       "docs/editorial/01_記述式コンテンツ戦略.md",
       "docs/editorial/pe-essay-quality-matrix.md",
       "docs/products/06_PWA過去問アプリ設計方針.md",
-      "docs/products/07_iOS択一アプリ試作方針.md"
+      "docs/products/07_iOS択一アプリ試作方針.md",
+      "docs/products/08_コンクリート3資格iOSアプリ企画.md"
     ],
     "/content/ledger": [
       "docs/editorial/記述式分析/README.md",

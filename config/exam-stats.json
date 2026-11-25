@@ -860,6 +860,36 @@
         "pending": [],
         "notPublished": []
       }
+    },
+    "sme-management-consultant": {
+      "label": "中小企業診断士試験",
+      "issuer": "日本中小企業診断士協会連合会（経済産業大臣指定試験機関）",
+      "source": "https://www.jf-cmca.jp/contents/010_c_/001_shiken_kakokekka.html",
+      "latest": {
+        "year": "R8",
+        "fiscalYear": 2026,
+        "stages": {
+          "first": { "label": "第1次試験", "applicants": 25512, "examinees": 17829, "passers": 4099, "passRate": 23.0 }
+        }
+      },
+      "history": [
+        {
+          "year": "R7",
+          "fiscalYear": 2025,
+          "stages": {
+            "first": { "applicants": 26211, "examinees": 18360, "passers": 4344, "passRate": 23.7 },
+            "second": { "applicants": 7355, "examinees": 7044, "passers": 1240, "passRate": 17.6 }
+          }
+        }
+      ],
+      "note": "examinees は連合会の「受験者数②」（欠席した科目がひとつもない者。合格率の分母）で、1科目でも受けた「受験者数①」（R8 第1次 21,147・R7 第1次 21,678・R7 第2次 7,070）ではない。R8 第2次の結果は 2027-01-13 発表予定のため未掲載。R7 第2次は口述試験を含む最終合格（口述対象 1,241 人）。令和8年度から口述は廃止。2026-11-25 に連合会の R8 第1次統計資料と申込者数・合格率等の推移で照合。",
+      "verification": {
+        "checkedAt": "2026-11-25",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": ["R8 第2次試験の統計（2027-01-13 合格発表後）"],
+        "notPublished": []
+      }
     }
   },
   "peSecondaryDivisions": {

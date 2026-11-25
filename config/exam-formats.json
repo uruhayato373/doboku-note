@@ -1277,6 +1277,41 @@
         "pending": [],
         "notPublished": []
       }
+    },
+    "sme-management-consultant": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第1次試験",
+          "types": [
+            "mcq"
+          ],
+          "detail": "多肢選択式（筆記）。2日間で7科目（経済学・経済政策／財務・会計／企業経営理論／運営管理／経営法務／経営情報システム／中小企業経営・中小企業政策）。各100点・60〜90分。科目合格制"
+        },
+        {
+          "key": "second",
+          "label": "第2次試験（筆記）",
+          "types": [
+            "written"
+          ],
+          "detail": "中小企業の診断及び助言に関する実務の事例I〜IVの4事例を1日で筆記（各100点・各80分）。令和8年度から口述試験は廃止"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "partial",
+        "note": "連合会が第1次・第2次の問題PDFを複数年度分掲載し、第1次は正解と配点も公開。第2次の解答（模範解答）は連合会のページでは確認していない",
+        "source": "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      },
+      "verification": {
+        "checkedAt": "2026-11-25",
+        "checkedBy": "agent",
+        "unresolved": [
+          "第2次試験の解答・採点基準の公開有無（連合会の問題ページでは第2次の解答を確認できず）"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
     }
   }
 }

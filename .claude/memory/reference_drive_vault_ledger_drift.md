@@ -20,3 +20,6 @@ Google Drive のアプリが不調だと、保存庫のファイルの読み取�
 
 ## 素材を消すときの巻き込み（2026-11-07）
 作品ごとのフォルダで Drive の素材を消すと、残す動画の `pop-image.json` などが別の作品の素材を指しているものまで消える（25 件をゴミ箱から戻した）。消す一覧を作ったら、`git ls-files` の文書を `.tmp/media/` の参照で検索して除く。`rclone backend untrash` はフォルダ単位で、一覧に無い過去のゴミ箱の分も戻るので、戻したあとで実物を一覧して再度ゴミ箱へ移す。`rclone config` の scope が `drive.readonly` だと削除は 1 件ずつ失敗するので、先に 1 件で試す。
+
+## local-newer の --force は向きを確かめてから（2026-11-24）
+check-drive-vault の local-newer（手元と台帳の sha256 が違う）は「どちらが新しいか」を見ていなかった。案内どおり 95 件を `--path … --commit --force` で上げたら、27 件は手元の方が古く、直した vault の版（総監の文字起こし・マガジンのカバー 24 枚・配布 PDF など）を古い版で上書きした。上げる前に、手元の更新日時と台帳の `verifiedAt`／`syncedAt` を比べる（#1735 で検査が vault-newer を分けて `--pull` を案内する）。戻し方: 上書き前の台帳（`git show <commit>~1:.claude/state/assets/drive-manifest.json`）の md5 と一致する版を、Drive API の版の履歴（`files/<id>/revisions?fields=revisions(id,md5Checksum)` → `revisions/<id>?alt=media`）から取り寄せる。トークンは `rclone config dump` の doboku-gdrive。ファイル ID は `rclone lsjson doboku-gdrive:doboku-note/<vaultRel>`。Drive MCP の download は過去の版に未対応。rclone の共有の窓口は 1 分あたりの上限が低いので、1 回 4 秒空け、403 は待ってやり直す。

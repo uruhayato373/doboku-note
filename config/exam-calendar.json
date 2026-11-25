@@ -1752,6 +1752,61 @@
         "pending": [],
         "notPublished": []
       }
+    },
+    "sme-management-consultant": {
+      "label": "中小企業診断士試験",
+      "year": 2026,
+      "source": "https://www.jf-cmca.jp/contents/010_c_/010_c_r08_shiken/R08_nittei.html",
+      "events": {
+        "firstApplicationOpen": {
+          "label": "第1次試験 受験申込受付 開始",
+          "date": "2026-04-23",
+          "kind": "application"
+        },
+        "firstApplicationDeadline": {
+          "label": "第1次試験 受験申込受付 締切",
+          "date": "2026-05-27",
+          "kind": "application"
+        },
+        "first": {
+          "label": "第1次試験（8/1・8/2の2日間）",
+          "date": "2026-08-01",
+          "kind": "exam"
+        },
+        "firstResult": {
+          "label": "第1次試験 合格発表",
+          "date": "2026-09-01",
+          "kind": "result"
+        },
+        "secondApplicationOpen": {
+          "label": "第2次試験 受験申込受付 開始",
+          "date": "2026-09-01",
+          "kind": "application"
+        },
+        "secondApplicationDeadline": {
+          "label": "第2次試験 受験申込受付 締切",
+          "date": "2026-09-18",
+          "kind": "application"
+        },
+        "second": {
+          "label": "第2次試験（筆記）",
+          "date": "2026-10-25",
+          "kind": "exam"
+        },
+        "secondResult": {
+          "label": "第2次試験 合格発表（最終合格）",
+          "date": "2027-01-13",
+          "kind": "result"
+        }
+      },
+      "note": "令和8年度から第2次試験の口述試験は廃止（筆記のみ。合格発表日が最終合格）。実施団体は経済産業大臣指定試験機関の日本中小企業診断士協会連合会（jf-cmca.jp）。2026-11-25 に連合会の令和8年度の試験日程・第1次/第2次試験案内の概要・改正点の各ページで照合。",
+      "verification": {
+        "checkedAt": "2026-11-25",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": ["令和9年度（2027年）の日程（令和8年度の案内のみ公表）"],
+        "notPublished": []
+      }
     }
   }
 }

@@ -8,6 +8,27 @@ import { mondayOf, slotProblems } from './youtube-longform-audit.mjs';
 
 export const readPolicy = (root) => readDataset(root, 'config.video-auto-publish');
 
+/** 方針で superseded として止めてよい旧通常動画の段階（公開・予約前のもの。公開中・予約中の行は視聴者に見えるので止めない） */
+export const SUPERSEDABLE = ['draft', 'qa_blocked', 'qa_passed', 'approved', 'rendered', 'uploaded_private'];
+
+/**
+ * 改訂版が予約・公開へ進んだ旧通常動画の行を、方針で superseded として止めてよいか（2026-11-25 運営者の決定・DN-1239）。
+ * 運営者の stop と違い、対象は改訂元（revisionOf を持たない）の YouTube 通常動画で、まだ公開していない行だけ。
+ * 同じアカウント・形式の改訂版が scheduled か published になっていることを条件にする（代わりが無い行は止めない）。
+ */
+export function supersededRetirement(publications, oldId, policy) {
+  const old = publications.find((p) => p.id === oldId);
+  if (!old) return { ok: false, problems: [`台帳に無い: ${oldId}`], pub: null, revision: null };
+  const problems = [];
+  if (!policy?.retireSuperseded?.enabled) problems.push('方針（retireSuperseded）が無効');
+  if (old.channel !== 'youtube' || old.format !== 'longform' || old.revisionOf) problems.push('改訂元の YouTube 通常動画ではない');
+  if (!SUPERSEDABLE.includes(old.status)) problems.push(`${old.status} の行は方針では止めない`);
+  if (old.platform?.privacy && old.platform.privacy !== 'private') problems.push(`YouTube 側が ${old.platform.privacy}`);
+  const revision = publications.find((p) => p.revisionOf === old.id && p.channel === old.channel && p.account === old.account && p.format === old.format && ['scheduled', 'published'].includes(p.status));
+  if (!revision) problems.push('予約済みか公開済みの改訂版が無い');
+  return { ok: problems.length === 0, problems, pub: old, revision: revision?.id ?? null };
+}
+
 /** 年間の枠に入っているか。これからの公開日時があればその日で、在庫なら計画の目標日で見る */
 export function planProblems(root, pub) {
   return slotProblems(readDataset(root, 'config.channel-annual-plan'), pub, Date.parse(pub.publishAt) > Date.now() ? jstDayOf(pub.publishAt) : null).problems;

@@ -5891,6 +5891,18 @@
       "reason": "『点検から、作り直しへ』、三つの文字が指示と一致し、価格・URLなし、ノート中央の構図で崩れなし",
       "reviewedAt": "2026-11-11T00:58:30.835Z"
     },
+    "media:pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1/cover": {
+      "sha": "6ed7e6a4b7e438d1",
+      "verdict": "ok",
+      "reason": "見出し『勉強量／不足』？が指示と一字一句一致し左右11%以上の余白、紙は上48%以内、✕・肩書き帯なし。型は誤解を壊す、手のひらで止める仕草で指5本、胴体は下端まで続く",
+      "reviewedAt": "2026-11-11T23:31:35.760Z"
+    },
+    "media:pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2/cover": {
+      "sha": "d94f212a50e53679",
+      "verdict": "ok",
+      "reason": "見出し『落ちた原因』『見る3点』と上部『技術士 総監』が指示どおりで誤字なく、左右の余白は7%前後。チェック欄の空の四角3つが縦に並ぶ『N点チェック』の型で、人差し指1本・もう片手は腰、胴体は下端まで続き、肩書き帯や余計な記号は無い。",
+      "reviewedAt": "2026-11-11T23:30:58.403Z"
+    },
     "media:pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/cover": {
       "sha": "e15340735e4d3dcf",
       "verdict": "ok",
@@ -7505,35 +7517,143 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-cover": {
+      "sha": "f75502f82c7eb33b",
+      "verdict": "ok",
+      "reason": "運営者の判断で採用（2026-11-25 のチャット「3回目を採用」）。文字（総監が制作・口頭試問・立場で変わる質問）は崩れなし、先生は参照と同一、左11.0%・右97%・下端18%は合格。ヘルメット上端が約4.3%で上5%を約0.7ポイント侵す点は、運営者が承知のうえで許した",
+      "reviewedAt": "2026-11-25T05:07:13.066Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-001": {
+      "sha": "f75502f82c7eb33b",
+      "verdict": "ok",
+      "reason": "運営者の判断で採用（2026-11-25 のチャット「3回目を採用」）。文字（総監が制作・口頭試問・立場で変わる質問）は崩れなし、先生は参照と同一、左11.0%・右97%・下端18%は合格。ヘルメット上端が約4.3%で上5%を約0.7ポイント侵す点は、運営者が承知のうえで許した",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-002": {
+      "sha": "24def0df8279ad67",
+      "verdict": "ok",
+      "reason": "文字: 見出し・2枠の文言・『この動画で整理すること』が prompt と一字一致、括弧なし／図: 聞かれること→答え方の2枠で語りと整合／安全域: 文字は左右5%・上5%内側、下端18%は無地（枠線のみ左端約3.5%だが意味のある文字ではない）",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-003": {
+      "sha": "9f0322b7ef0e2260",
+      "verdict": "ok",
+      "reason": "見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-004": {
+      "sha": "4cf41269a251c43e",
+      "verdict": "ok",
+      "reason": "見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-005": {
+      "sha": "8c0631db4934be14",
+      "verdict": "ok",
+      "reason": "見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-006": {
+      "sha": "f2da7cc3d724cfd1",
+      "verdict": "ok",
+      "reason": "文字: 見出し『同じ5管理でも、前に出る核が違う』が一字一致、字形の崩れ・余計な文字なし／図: 同じ5点の五角形2つで強調の点だけを変え、語りと矛盾しない。人物・箇条書きカード・POP風なし／安全域: 濃色画素の外接矩形は左7.0%・右7.0%・上5.1%・下28.4%で、左右5%・上5%・下18%を満たす",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-007": {
+      "sha": "9d6bf0f9dc76e85e",
+      "verdict": "ok",
+      "reason": "文字: 見出し『5管理それぞれの核』、5枠の見出し(経済性・人的資源・情報・安全・社会環境)と説明文、下の『5管理それぞれの核の整理』が prompt と一字一致、誤字・余計な文言・括弧なし／図: 同じ大きさの5枠で語りの核の対応(原価と工期の最適化、人の確保と育成、守りつつ活用、人命と健康と第三者影響の回避、環境と地域の合意)と一致／安全域: 実測で外接が左右5.0%・上9.0%・下19.0%、枠線が5%にちょうど触れる程度で文字は内側、下端18%は無地",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-008": {
+      "sha": "21a16d1e0565e20f",
+      "verdict": "ok",
+      "reason": "3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-009": {
+      "sha": "b345b3651b2a30bc",
+      "verdict": "ok",
+      "reason": "文字: 見出し『発注者の立場で、聞かれそうな切り口（想定）』、3枠の問い・矢印先(経済性管理／安全管理・社会環境管理／人的資源管理)、下の『想定であり、実際の試問の再現ではない。本動画の整理』が prompt と一字一致、括弧そのものの描き足しなし（想定の全角括弧は見出しの一部）／図: 予算と工期の制約→経済性管理、住民・第三者への影響→安全管理・社会環境管理で語りと一致／安全域: 実測で左5.8%・右5.6%・上7.9%・下18.3%、文字は内側で下端18%は無地(下注記は下端付近だがぎりぎり内側)",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-010": {
+      "sha": "4200347b4082cbd1",
+      "verdict": "ok",
+      "reason": "文字: 見出し『受注者の働き方への配慮』、吹き出し内の同文、円内の『人的資源管理』、下の『これは想定であり、実際の試問の再現ではない』が prompt と一字一致、余計な文言なし／図: 左の問いから右の行動へ矢印で結ぶ対応で語り(働き方への配慮は人的資源管理)と合う。黄色の放射線は小さな飾りで意味を変えない／安全域: 実測で左7.7%・右7.5%・上8.2%・下20.5%で全て内側、下端18%は無地",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-011": {
+      "sha": "1b52101a507a2ba0",
+      "verdict": "ok",
+      "reason": "文字: 見出し『自分の立場に置き換える（想定）』、4枠(設計・施工・維持管理・自分の立場)の見出しと説明文、下の2行『語り手の経験ではなく、置き換えの例。想定であり、実際の試問の再現ではない』が prompt と一字一致、誤字・余計な文言なし／図: 設計は設計条件と費用・安全の確保など語りと一致、同じ大きさの4枠／安全域: 実測で左右4.8%(枠線がわずかに触れる程度で文字は枠内)・上5.3%・下20.6%、下端18%は無地",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-012": {
+      "sha": "5ccc8fa1ac5dd290",
+      "verdict": "ok",
+      "reason": "文字: 見出し『施工と維持管理の置き換え（想定）』、2枠(施工 工程と費用・作業員の確保と現場の安全／維持管理 点検の頻度と費用・記録の活用)、下の2行注記が prompt と一字一致、誤字・余計な文言なし／図: 語り(施工は工程と費用・作業員の確保と現場の安全、維持管理は点検の頻度と費用・記録の活用)と対応／安全域: 実測で左右6.2%・上7.2%・下19.3%で全て内側、下端18%は無地",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-013": {
+      "sha": "8c44eea1e03a8541",
+      "verdict": "ok",
+      "reason": "自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-014": {
+      "sha": "7b9595e16a06d517",
+      "verdict": "ok",
+      "reason": "5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-015": {
+      "sha": "02a8982104418678",
+      "verdict": "ok",
+      "reason": "3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-016": {
+      "sha": "51aed5ba2258fb76",
+      "verdict": "ok",
+      "reason": "4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-scene-017": {
+      "sha": "f0ad02965bb0a461",
+      "verdict": "ok",
+      "reason": "ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
+    },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover": {
       "sha": "805b445fb9217465",
       "verdict": "ok",
       "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
-      "reviewedAt": "2026-11-10T12:41:34.769Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001": {
       "sha": "805b445fb9217465",
       "verdict": "ok",
       "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T03:30:46.926Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-002": {
       "sha": "9f0322b7ef0e2260",
       "verdict": "ok",
       "reason": "見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-003": {
       "sha": "4cf41269a251c43e",
       "verdict": "ok",
       "reason": "見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-004": {
       "sha": "8c0631db4934be14",
       "verdict": "ok",
       "reason": "見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-005": {
       "sha": "84df09bb4a588c38",
@@ -7545,7 +7665,7 @@
       "sha": "21a16d1e0565e20f",
       "verdict": "ok",
       "reason": "3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-007": {
       "sha": "3190477cf4a7d7cf",
@@ -7563,31 +7683,31 @@
       "sha": "8c44eea1e03a8541",
       "verdict": "ok",
       "reason": "自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-010": {
       "sha": "7b9595e16a06d517",
       "verdict": "ok",
       "reason": "5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-011": {
       "sha": "02a8982104418678",
       "verdict": "ok",
       "reason": "3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-012": {
       "sha": "51aed5ba2258fb76",
       "verdict": "ok",
       "reason": "4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-013": {
       "sha": "f0ad02965bb0a461",
       "verdict": "ok",
       "reason": "ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
-      "reviewedAt": "2026-11-10T12:41:34.770Z"
+      "reviewedAt": "2026-11-25T05:07:13.067Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/cover": {
       "sha": "dbccc9e5c7f7f4da",
@@ -8549,6 +8669,12 @@
       "reason": "見出し・ノート表紙・吹き出しの文字が指示と一致、価格やURLなし、建設部門を示す絵も妥当",
       "reviewedAt": "2026-11-10T12:49:32.813Z"
     },
+    "media:pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cover": {
+      "sha": "302e69ef5b5404d4",
+      "verdict": "ok",
+      "reason": "文字『様々な/課題』で/いい？と上部『技術士 建設部門』が指示と1字ずつ一致し、左右余白は約10%以上で切れ無し。紙の文字は上60%内、字幕帯に文字無し、肩書き帯・✕・重なる記号無し。先生は首をかしげ片手あご・片手腰で指5本、胴体は下端まで続く。誤解を壊す型の引用+？の見出しで、？横の赤い小さな強調線は重ならない意匠として許容",
+      "reviewedAt": "2026-11-12T00:27:08.690Z"
+    },
     "media:pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/cover": {
       "sha": "a843f12abd64ab22",
       "verdict": "ok",
@@ -8626,6 +8752,18 @@
       "verdict": "ok",
       "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
       "reviewedAt": "2026-11-11T03:07:23.712Z"
+    },
+    "media:pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-kazu-1/cover": {
+      "sha": "0d86826a2368f8c4",
+      "verdict": "ok",
+      "reason": "見出し3行『公式を/覚えれば/書ける』？と上部『技術士 建設部門』が指示と一字ずつ一致し、左右余白も5%以上。✕や記号の重なり・肩書き帯なし、紙は画面の上50%まで。先生は人差し指1本と腰の手、胴体が下端まで続き破綻なし。誤解を壊す型の問いかけ図になっている",
+      "reviewedAt": "2026-11-11T23:44:25.092Z"
+    },
+    "media:pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/cover": {
+      "sha": "56c372905d264575",
+      "verdict": "ok",
+      "reason": "見出し「IIIは/最後に/何を書く？」と紙の文字（1）（2）が指示と一字一句一致し、左右10%以上の余白で切れなし。記号の重なり・肩書き帯なし、紙は字幕帯の外。先生は指1本で紙を指し左手は腰、指5本・胴体は下端まで続き、型「1問で確かめる」の図になっている",
+      "reviewedAt": "2026-11-11T23:46:55.393Z"
     },
     "media:pe-construction/pe-gyoumu-shousai-720/youtube.longform/cover": {
       "sha": "7be4fef36e36f996",
@@ -9659,6 +9797,18 @@
       "reason": "見出し・ノートの表紙『道路 選択科目の模範解答集』・『収録内容は概要欄から』が一致。価格・URLは描かれていない",
       "reviewedAt": "2026-11-11T03:09:36.837Z"
     },
+    "media:pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover": {
+      "sha": "22b40711b532364d",
+      "verdict": "ok",
+      "reason": "見出し『どこに／線を引く？』と上部『技術士 建設部門』の文字が指示と一致し、左右余白は約5%以上で切れなし。紙は問題文の一文のみで記号の重なり無し、肩書き帯無し、紙は上から約55%以内。先生は指1本で紙を指し、手指・胴体に破綻なし。",
+      "reviewedAt": "2026-11-11T23:18:54.713Z"
+    },
+    "media:pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1/cover": {
+      "sha": "6a9e5ec82610e700",
+      "verdict": "ok",
+      "reason": "文字は指定どおり(技術士 建設部門/『テーマ名を』『覚えれば』『書ける』？)で誤字・欠けなし、見出しは左右9%以上内側で幅約80%。型は誤解を壊す(引用と？のみ、✕なし)。先生は手のひら5本指を前に向け逆の手を腰に当て、胴体は下端まで続き破綻なし",
+      "reviewedAt": "2026-11-11T22:45:18.244Z"
+    },
     "media:pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/cover": {
       "sha": "e338436444262408",
       "verdict": "ok",
@@ -9742,6 +9892,12 @@
       "verdict": "ok",
       "reason": "見出し『書かない／用語は／どれ？』と紙の『開削底面の安定 ○○○○○ は回答の対象としない』が指示と一字一致。左右余白は約9%、記号の重なり・肩書き帯なし、字幕帯に紙の文字なし、手指5本で胴体は下端まで続く",
       "reviewedAt": "2026-11-12T00:19:06.487Z"
+    },
+    "media:pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/cover": {
+      "sha": "d4c120f912f7bb57",
+      "verdict": "ok",
+      "reason": "見出し『テーマ名を/覚えれば/書ける』？と上部の資格名が指示と一字一句一致し左右余白5%以上、記号の重なり・肩書き帯なし、首かしげ・あごに手・腰に手で指5本、胴体は下端まで続く",
+      "reviewedAt": "2026-11-11T22:53:07.332Z"
     },
     "media:pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/cover": {
       "sha": "d0b7894ac9bf854e",
@@ -27064,54 +27220,6 @@
       "reason": "8項目すべてを確認し、題材・実物・安全・人物・文字・AI感・切れ・明るさに問題がない（codexの指摘は当たらない、または許容範囲）",
       "reviewer": "codex+ai-image-fidelity-auditor",
       "reviewedAt": "2026-11-13T03:10:08.314Z"
-    },
-    "media:pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/cover": {
-      "sha": "d4c120f912f7bb57",
-      "verdict": "ok",
-      "reason": "見出し『テーマ名を/覚えれば/書ける』？と上部の資格名が指示と一字一句一致し左右余白5%以上、記号の重なり・肩書き帯なし、首かしげ・あごに手・腰に手で指5本、胴体は下端まで続く",
-      "reviewedAt": "2026-11-11T22:53:07.332Z"
-    },
-    "media:pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover": {
-      "sha": "22b40711b532364d",
-      "verdict": "ok",
-      "reason": "見出し『どこに／線を引く？』と上部『技術士 建設部門』の文字が指示と一致し、左右余白は約5%以上で切れなし。紙は問題文の一文のみで記号の重なり無し、肩書き帯無し、紙は上から約55%以内。先生は指1本で紙を指し、手指・胴体に破綻なし。",
-      "reviewedAt": "2026-11-11T23:18:54.713Z"
-    },
-    "media:pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1/cover": {
-      "sha": "6a9e5ec82610e700",
-      "verdict": "ok",
-      "reason": "文字は指定どおり(技術士 建設部門/『テーマ名を』『覚えれば』『書ける』？)で誤字・欠けなし、見出しは左右9%以上内側で幅約80%。型は誤解を壊す(引用と？のみ、✕なし)。先生は手のひら5本指を前に向け逆の手を腰に当て、胴体は下端まで続き破綻なし",
-      "reviewedAt": "2026-11-11T22:45:18.244Z"
-    },
-    "media:pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-kazu-1/cover": {
-      "sha": "0d86826a2368f8c4",
-      "verdict": "ok",
-      "reason": "見出し3行『公式を/覚えれば/書ける』？と上部『技術士 建設部門』が指示と一字ずつ一致し、左右余白も5%以上。✕や記号の重なり・肩書き帯なし、紙は画面の上50%まで。先生は人差し指1本と腰の手、胴体が下端まで続き破綻なし。誤解を壊す型の問いかけ図になっている",
-      "reviewedAt": "2026-11-11T23:44:25.092Z"
-    },
-    "media:pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/cover": {
-      "sha": "56c372905d264575",
-      "verdict": "ok",
-      "reason": "見出し「IIIは/最後に/何を書く？」と紙の文字（1）（2）が指示と一字一句一致し、左右10%以上の余白で切れなし。記号の重なり・肩書き帯なし、紙は字幕帯の外。先生は指1本で紙を指し左手は腰、指5本・胴体は下端まで続き、型「1問で確かめる」の図になっている",
-      "reviewedAt": "2026-11-11T23:46:55.393Z"
-    },
-    "media:pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1/cover": {
-      "sha": "6ed7e6a4b7e438d1",
-      "verdict": "ok",
-      "reason": "見出し『勉強量／不足』？が指示と一字一句一致し左右11%以上の余白、紙は上48%以内、✕・肩書き帯なし。型は誤解を壊す、手のひらで止める仕草で指5本、胴体は下端まで続く",
-      "reviewedAt": "2026-11-11T23:31:35.760Z"
-    },
-    "media:pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2/cover": {
-      "sha": "d94f212a50e53679",
-      "verdict": "ok",
-      "reason": "見出し『落ちた原因』『見る3点』と上部『技術士 総監』が指示どおりで誤字なく、左右の余白は7%前後。チェック欄の空の四角3つが縦に並ぶ『N点チェック』の型で、人差し指1本・もう片手は腰、胴体は下端まで続き、肩書き帯や余計な記号は無い。",
-      "reviewedAt": "2026-11-11T23:30:58.403Z"
-    },
-    "media:pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cover": {
-      "sha": "302e69ef5b5404d4",
-      "verdict": "ok",
-      "reason": "文字『様々な/課題』で/いい？と上部『技術士 建設部門』が指示と1字ずつ一致し、左右余白は約10%以上で切れ無し。紙の文字は上60%内、字幕帯に文字無し、肩書き帯・✕・重なる記号無し。先生は首をかしげ片手あご・片手腰で指5本、胴体は下端まで続く。誤解を壊す型の引用+？の見出しで、？横の赤い小さな強調線は重ならない意匠として許容",
-      "reviewedAt": "2026-11-12T00:27:08.690Z"
     }
   }
 }

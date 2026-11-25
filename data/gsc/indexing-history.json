@@ -2731,6 +2731,56 @@
         "/exam/civil-construction-1/guide/market-value-check",
         "/standards/chubu/special/chapters/6-7"
       ]
+    },
+    {
+      "runId": "2026-11-23T22-40-10Z",
+      "collectedAt": "2026-11-23T22:40:10.063Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/kinki/common/chapters/3-2/sections/8",
+        "/standards/kinki/hikkei/chapters/1-1",
+        "/standards/kinki/hikkei/chapters/12-11",
+        "/standards/kinki/hikkei/chapters/12-2",
+        "/standards/kinki/hikkei/chapters/12-3",
+        "/standards/kinki/hikkei/chapters/12-4",
+        "/standards/kinki/hikkei/chapters/12-6",
+        "/standards/kinki/hikkei/chapters/12-7",
+        "/standards/kinki/hikkei/chapters/3-2",
+        "/standards/kinki/hikkei/chapters/4-2"
+      ],
+      "acceptedSlugs": [
+        "/standards/kinki/common/chapters/3-2/sections/8",
+        "/standards/kinki/hikkei/chapters/1-1",
+        "/standards/kinki/hikkei/chapters/12-11",
+        "/standards/kinki/hikkei/chapters/12-2",
+        "/standards/kinki/hikkei/chapters/12-3",
+        "/standards/kinki/hikkei/chapters/12-4",
+        "/standards/kinki/hikkei/chapters/12-6",
+        "/standards/kinki/hikkei/chapters/12-7",
+        "/standards/kinki/hikkei/chapters/3-2",
+        "/standards/kinki/hikkei/chapters/4-2"
+      ]
+    },
+    {
+      "runId": "2026-11-24T22-40-10Z",
+      "collectedAt": "2026-11-24T22:40:10.170Z",
+      "mode": "commit",
+      "status": "not-signed-in",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "slugs": [],
+      "acceptedSlugs": []
     }
   ]
 }

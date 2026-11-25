@@ -946,6 +946,72 @@
         "expected": 593,
         "heard": 561
       }
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish": {
+      "videoSha256": "55f37cc1baaaf73a018edb4585b7993e0b66e69270b94a2edef66d1ab1f1047b",
+      "at": "2026-11-25T05:08:07.430Z",
+      "similarity": 0.982,
+      "sceneSimilarityMin": 0.957,
+      "sceneSimilarityMinScene": 11,
+      "sceneCount": 17,
+      "tokenMisreads": [
+        {
+          "scene": 2,
+          "token": "3",
+          "expected": "サン"
+        },
+        {
+          "scene": 7,
+          "token": "3",
+          "expected": "サン"
+        },
+        {
+          "scene": 7,
+          "token": "1",
+          "expected": "イチ"
+        },
+        {
+          "scene": 7,
+          "token": "2",
+          "expected": "ニ"
+        },
+        {
+          "scene": 7,
+          "token": "3",
+          "expected": "サン"
+        },
+        {
+          "scene": 7,
+          "token": "3",
+          "expected": "サン"
+        },
+        {
+          "scene": 13,
+          "token": "5",
+          "expected": "ゴ"
+        },
+        {
+          "scene": 13,
+          "token": "3",
+          "expected": "サン"
+        },
+        {
+          "scene": 14,
+          "token": "3",
+          "expected": "サン"
+        },
+        {
+          "scene": 15,
+          "token": "3",
+          "expected": "サン"
+        }
+      ],
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1103,
+        "heard": 1045
+      }
     }
   }
 }

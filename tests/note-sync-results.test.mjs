@@ -21,3 +21,19 @@ test('missing output and ordinary failure are never turned into quota deferral o
   assert.equal(result.deferred.length, 0);
   assert.equal(result.dailyLimit, false);
 });
+
+test('空きメモリの関所で起動しなかった回は、全記事を失敗でなく low-memory の延期にする（DN-0954）', () => {
+  const out = 'LaunchGuardError: 空きメモリ 1055MB < 閾値 1200MB。Claude Desktop / ChatGPT / Chrome のタブを閉じてから再実行\n    at guardBrowserLaunch\n';
+  const result = classifyNoteSyncRun(items, out);
+  assert.equal(result.lowMemory, true);
+  assert.equal(result.failed.length, 0);
+  assert.equal(result.deferred.length, 4);
+  assert.match(result.deferred[0].reason, /^low-memory: 空きメモリ不足でブラウザを起動しなかった（1055MB < 閾値 1200MB）$/);
+});
+
+test('空きメモリの印が無ければ、記事の行の無い記事は従来どおり「結果なし」の失敗', () => {
+  const result = classifyNoteSyncRun(items, '');
+  assert.equal(result.lowMemory, false);
+  assert.equal(result.failed.length, 4);
+  assert.match(result.failed[0].reason, /^結果なし/);
+});

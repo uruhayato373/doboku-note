@@ -520,6 +520,30 @@
       "warningsByCode": {
         "jsonld_recommended_missing": 407
       }
+    },
+    {
+      "date": "2026-11-24",
+      "generatedAt": "2026-11-24T08:43:53.649Z",
+      "sitemapUrls": 2111,
+      "checked": 2111,
+      "errors": 0,
+      "warnings": 407,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 407
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "generatedAt": "2026-11-24T21:25:01.905Z",
+      "sitemapUrls": 2111,
+      "checked": 2111,
+      "errors": 0,
+      "warnings": 407,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 407
+      }
     }
   ]
 }

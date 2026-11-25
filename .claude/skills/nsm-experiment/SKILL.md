@@ -181,7 +181,7 @@ abandoned  abandoned  running (re-measure)
 1. experiments.jsonから指定IDを取得し、存在を確認する
 2. status が `proposed` であることを確認
 3. **baseline を確定**: この時点のメトリクス（target_metric に対応する値）を取得して experiment.baseline に保存
-4. SEOの本番反映待ちを含め既存の同時実験上限を確認し、空きがある場合だけstatusをrunningへ変更する。日付・根拠を履歴へ残す
+4. SEOの本番反映待ちを含め、同じページ・同じ指標に running の実験が無いことを確認し、指標・判定日・停止条件を書いてからstatusをrunningへ変更する（件数の上限は置かない・2026-11-01 決定）。日付・根拠を履歴へ残す
 5. 実行アクションリスト（experiment.actions）を表示
 6. 担当の実装スキルで依頼範囲の変更を実装・検証し、実際に行った内容と再計測日を記録する。実装前を改善済みにしない
 
