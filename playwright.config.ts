@@ -5,8 +5,12 @@ const isCI = Boolean(process.env.CI);
 // ポートを分けているのは、dev が起動中でも reuseExistingServer が取り違えないようにするため。
 const useDevServer = Boolean(process.env.E2E_DEV);
 const port = useDevServer ? 3020 : 3025;
-// 夜間はアクセシビリティを週 1 回だけ回す（.github/workflows/e2e.yml）。project の testIgnore は上書きなので各 project に入れる
-const skipA11y = process.env.E2E_SKIP_A11Y ? ['**/a11y.spec.ts'] : [];
+// 夜間はアクセシビリティと基準書の描画を回さない（.github/workflows/e2e.yml・2026-11-25 DN-0998）。test.skip は check-e2e-execution が
+// スキップとして落とすので、ファイルごと外す。project の testIgnore は上書きなので各 project に入れる
+const skipA11y = [
+  ...(process.env.E2E_SKIP_A11Y ? ['**/a11y.spec.ts'] : []),
+  ...(process.env.E2E_SKIP_STANDARDS_RENDER ? ['**/standards-render.spec.ts'] : []),
+];
 
 export default defineConfig({
   testDir: './e2e',

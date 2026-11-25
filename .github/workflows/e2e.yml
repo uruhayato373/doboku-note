@@ -71,8 +71,11 @@ on:
   schedule:
     # 毎時 0 分を外し、JST 23:17 に置く（2026-11-13）。UTC 18:00（JST 03:00）の指定では実際の起動が JST 06:27〜10:12 で
     # （11/02〜11/13 の 12 回）、失敗 Issue が朝の作業時間に立って deploy:main を止めていた。
-    - cron: "17 14 * * 1-6" # 月〜土の JST 23:17。a11y を除く
-    - cron: "17 14 * * 0" # 日の JST 23:17。a11y を含む全件
+    # 毎日 JST 23:17。基準書の描画（standards-render）とアクセシビリティ（a11y）は夜間に回さない（2026-11-25 運営者判断・DN-0998。
+    # サイトがある程度完成するまで止める。直近 14 回の夜間は 5 回失敗し、1 回 12〜26 分かかっていた）。
+    # 再開するときは下の Run E2E の E2E_SKIP_A11Y・E2E_SKIP_STANDARDS_RENDER を schedule でも空にし、日曜だけ全文書を描く分岐を戻す。
+    # 手動の実行（workflow_dispatch）は今も全件を回す。
+    - cron: "17 14 * * *"
   workflow_dispatch:
     inputs:
       standards_scope:
@@ -88,7 +91,7 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    # 夜間・手動は全 spec を回し、日曜は公的基準の全文書も描画する（STANDARDS_RENDER_SCOPE=all・DN-0850）ので長めに取る
+    # 手動は全 spec を回し、公的基準の全文書も描画できる（STANDARDS_RENDER_SCOPE=all・DN-0850）ので長めに取る
     timeout-minutes: ${{ github.event_name == 'pull_request' && 30 || 60 }}
 
     steps:
@@ -145,10 +148,11 @@ jobs:
         env:
           PLAYWRIGHT_JSON_OUTPUT_NAME: .tmp/e2e-report.json
           PLAYWRIGHT_HTML_OPEN: never
-          # 比較の外の文書（必携・マニュアル・特記など）の全ページ描画は、日曜の夜間と手動で all を選んだときだけ（月〜土は distinct）
-          STANDARDS_RENDER_SCOPE: ${{ (github.event.schedule == '17 14 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.standards_scope == 'all')) && 'all' || 'distinct' }}
-          # アクセシビリティは週 1 回だけ回す（毎日の夜間は除く）
-          E2E_SKIP_A11Y: ${{ github.event.schedule == '17 14 * * 1-6' && '1' || '' }}
+          # 比較の外の文書（必携・マニュアル・特記など）の全ページ描画は、手動で all を選んだときだけ
+          STANDARDS_RENDER_SCOPE: ${{ (github.event_name == 'workflow_dispatch' && inputs.standards_scope == 'all') && 'all' || 'distinct' }}
+          # 夜間は基準書の描画とアクセシビリティを回さない（上の schedule の注記・playwright.config.ts の testIgnore）
+          E2E_SKIP_A11Y: ${{ github.event_name == 'schedule' && '1' || '' }}
+          E2E_SKIP_STANDARDS_RENDER: ${{ github.event_name == 'schedule' && '1' || '' }}
         run: npm run test:e2e -- --reporter=line,html,json ${{ github.event_name == 'pull_request' && '--project=desktop-chromium e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/cta.spec.ts e2e/desktop.spec.ts' || '--grep-invert @layout' }}
 
       # 夜間・手動のデザインの確認（@layout）。落ちても job は緑のまま（continue-on-error）で、下の段が別の Issue にする。
