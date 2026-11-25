@@ -1404,7 +1404,7 @@
       "format": "longform",
       "variant": "republish",
       "revisionOf": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
-      "status": "draft",
+      "status": "approved",
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.revision-republish.json",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/work/candidate-cover",
@@ -1432,7 +1432,20 @@
         "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/preview-metrics",
         "contact-sheet": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish/contact-sheet"
       },
-      "publishAt": "2026-12-10T03:15:00Z"
+      "publishAt": "2026-12-10T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T05:09:00.269Z",
+          "digest": "ec55467124a445d878ff839b7090bead38e3af0e0ecb43a7ec43c3915ae6eaa4"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T05:09:00.269Z",
+        "contentSha256": "2a44da6758acd2c1675229218a9c04587be0f79432f61ef88d390857af2c9cac"
+      }
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.short.point-tachiba-1",

@@ -816,12 +816,12 @@
       "contentDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb"
     },
     "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform.republish": {
-      "verdict": "fail",
-      "note": "表紙（candidate-cover、冒頭場面1と同一画像）の題名『口頭試験』の「験」の旁（馬の下の四点）が小さな斜線に崩れ、誤字に見える。公開サムネイルの題名の字の崩れなので差し戻し。表紙の題名を描き直す。場面2〜17・字幕・文面（題名・CTA・リンク・出典・制作注記）には、既知の『』・五角形ラベル無し以外に欠陥なし、字幕と図の重なりなし。音声は未確認。",
-      "at": "2026-11-25T04:19:06.752Z",
-      "visualDigest": "a71ab5354cfbbbaa10e8028293b3b6706f1fc2ccfaca868e7b531b4ac4a56c6d",
-      "finalDigest": "484af14677acafd93d188e07e9ca5edbf4160dae5657b04f1bf34cf54da4361a",
-      "contentDigest": "09a0ae49a31693bc9402755f178ee2be2408a311ed771e52b06b424d0f679b67"
+      "verdict": "pass",
+      "note": "表紙「口頭試問」は字形に崩れ無し、題名と冒頭一致。17場面の順序は台本どおり、文字の切れ・重なり・誤字・字幕と図の重なり無し。説明文CTAは tankan-oral-complete の1つで noteUrl 一致、無料リンクは実在記事。試験の記述は合否決定基準の2項目60%以上で台本と一致、口頭は日付未発表の扱いも矛盾無し。運営者承知の項目(場面14/16/17の『』・場面6の五角形ラベル無し・表紙ヘルメット上端)は理由にしていない。音声は未確認。完成mp4は再生せずプレビューの場面シートと表紙で確認。",
+      "at": "2026-11-25T05:08:49.810Z",
+      "visualDigest": "ec55467124a445d878ff839b7090bead38e3af0e0ecb43a7ec43c3915ae6eaa4",
+      "finalDigest": "2a44da6758acd2c1675229218a9c04587be0f79432f61ef88d390857af2c9cac",
+      "contentDigest": "3c314e6432cc7197ef0b57ed7e8d7c1b0cf7cc51e39ced938f10bfb76ba9c904"
     }
   }
 }
