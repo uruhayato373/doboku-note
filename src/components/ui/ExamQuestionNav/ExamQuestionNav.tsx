@@ -28,9 +28,9 @@ export default function ExamQuestionNav({ headings }: ExamQuestionNavProps) {
           key={q.id}
           href={`#${q.id}`}
           className="focus-ring flex h-11 min-w-11 items-center justify-center rounded-card-inline border border-(--rule-soft) px-2 text-sm tabular-nums text-brand transition-colors hover:border-brand hover:bg-brand-fill hover:text-brand-deep dark:border-(--rule-soft)"
-          aria-label={`問題 ${q.no} へ移動`}
+          aria-label={`問題 ${q.label} へ移動`}
         >
-          {q.no}
+          {q.label}
         </a>
       ))}
     </div>
