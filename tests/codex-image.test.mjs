@@ -3,14 +3,18 @@ import assert from 'node:assert/strict';
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { askCodexAboutImages, codexArgs, codexLaunch, CodexLaunchError, forgetCodexRun, generateWithCodex, generateWithCodexAsync, runCodex, spawnCodex } from '../scripts/lib/codex-image.mjs';
+import { askCodexAboutImages, codexArgs, codexLaunch, defaultCodexModel, CodexLaunchError, forgetCodexRun, generateWithCodex, generateWithCodexAsync, runCodex, spawnCodex } from '../scripts/lib/codex-image.mjs';
 import { EventEmitter } from 'node:events';
 
 test('codexArgs: 作業フォルダ・モデル・指示文を渡す', () => {
   const a = codexArgs('/d', 'PROMPT', 'm1');
   assert.deepEqual(a.slice(0, 8), ['exec', '--json', '--skip-git-repo-check', '--sandbox', 'workspace-write', '-C', '/d', '-m']);
   assert.ok(a.at(-1).includes('PROMPT'));
-  assert.ok(!codexArgs('/d', 'P', null).includes('-m'));
+  // モデルを渡さなければ config/image-generation.json の codexModel、それも null なら -m を付けない
+  const fallback = codexArgs('/d', 'P', null);
+  const configured = defaultCodexModel();
+  if (configured) assert.equal(fallback[fallback.indexOf('-m') + 1], configured);
+  else assert.ok(!fallback.includes('-m'));
 });
 
 const thread = (id) => `{"type":"thread.started","thread_id":"${id}"}\n`;

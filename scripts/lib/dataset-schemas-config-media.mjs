@@ -940,7 +940,7 @@ export const ConfigImageGeneration = z
   .object({
     schemaVersion: schemaVersion1,
     policy: z.string().min(1).describe('方針の文書'),
-    codexModel: z.string().min(1).nullable().describe('codex exec に渡す既定のモデル（-m）。null なら codex の設定（~/.codex/config.toml）に任せる。設定のモデルがアカウントで使えないときだけ指定する（DN-0991）'),
+    codexModel: z.string().min(1).nullable().describe('codex exec に渡す既定のモデル（-m）。null なら codex の設定（~/.codex/config.toml）に任せる。設定のモデルがアカウントで使えないとき（DN-0991）と、画像を描くのは画像ツールなので軽いモデルで足りるとき（2026-11-25・利用上限の節約）に指定する'),
     teacher: z.object({ identity: z.string().min(1), body: z.string().min(1) }).strict().describe('先生の同一性と身体の指示'),
     popStyle: z.string().min(1).describe('POP の画風'),
     textRule: z.string().min(1).describe('文字の禁止事項'),
