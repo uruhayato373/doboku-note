@@ -963,10 +963,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-tejun-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-tejun-2",
       "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/video",
+        "cover": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/cover",
+        "contact-sheet": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/contact-sheet",
+        "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/subtitles"
+      },
+      "publishAt": "2026-11-26T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-25T12:58:33.817Z",
+          "digest": "55d91a12e3f8ec797e13c15165551207209fc3ba877a8562385b3f745bc482ad"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-25T12:58:33.817Z",
+        "contentSha256": "d5b07a1d3e25fccc2e71199e379ae4f4f491170bb9414867fa2ee385a3171a32"
+      },
+      "times": {
+        "rendered": "2026-11-25T12:58:34.016Z"
+      }
     },
     {
       "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
