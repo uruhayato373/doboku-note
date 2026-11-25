@@ -692,7 +692,7 @@
       "work": "keiken-hinshitsu-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-001",
@@ -726,6 +726,9 @@
         "by": "policy",
         "at": "2026-11-25T12:51:11.438Z",
         "contentSha256": "98850b01f4be5b912e41c2bcee59b0ebda5707b3ac6958fc69b85fe618025530"
+      },
+      "times": {
+        "rendered": "2026-11-25T12:54:02.131Z"
       }
     },
     {
@@ -811,7 +814,7 @@
       "work": "keiken-teishutsumae-tenken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-001",
@@ -845,6 +848,9 @@
         "by": "policy",
         "at": "2026-11-25T12:51:12.355Z",
         "contentSha256": "a877520852bc1627c17530195fe06992d443b5cfe586a39be9e589f520ef8021"
+      },
+      "times": {
+        "rendered": "2026-11-25T12:54:06.526Z"
       }
     }
   ]
