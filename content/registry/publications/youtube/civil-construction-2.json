@@ -692,7 +692,7 @@
       "work": "keiken-hinshitsu-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
         "scene-001": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-001",
@@ -728,7 +728,42 @@
         "contentSha256": "98850b01f4be5b912e41c2bcee59b0ebda5707b3ac6958fc69b85fe618025530"
       },
       "times": {
-        "rendered": "2026-11-25T12:54:02.131Z"
+        "rendered": "2026-11-25T12:54:02.131Z",
+        "uploaded": "2026-11-25T12:56:04.028Z",
+        "scheduled": "2026-11-25T12:56:14.840Z"
+      },
+      "delivery": {
+        "inputSha256": "bf703356f77489abd493451cd952fcc5b1b10407871e89928febe281c1402911",
+        "marker": "dn-single-0bd6695351d3c9b6618476da91d91c67e2128f2a",
+        "uploadRequestedAt": "2026-11-25T12:55:14.817Z",
+        "videoId": "eCTNdutdD7w",
+        "processedAt": "2026-11-25T12:56:03.363Z",
+        "thumbnailRequestedAt": "2026-11-25T12:56:04.087Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/default.jpg?sqp=CKS1m9gG&rs=AOn4CLAy7NvughnluO869CxILJoe_9I7rQ",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/mqdefault.jpg?sqp=CKS1m9gG&rs=AOn4CLDquA8dBjb8Dp0IsVKVQWLADoyq1Q",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/hqdefault.jpg?sqp=CKS1m9gG&rs=AOn4CLCP-ntLN1CafqtIf2f1fV6F630kBw",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/sddefault.jpg?sqp=CKS1m9gG&rs=AOn4CLC3eVW1EjPrFC5rFSICaYE_JvSyjw",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/maxresdefault.jpg?sqp=CKS1m9gG&rs=AOn4CLA4drlrVYWZJSgH5Kl5bM_1cKZgWA",
+          "https://i9.ytimg.com/vi/eCTNdutdD7w/fhddefault.jpg?sqp=CKS1m9gG&rs=AOn4CLBERti8S8U6M74ymXDCMs4AuaPPBA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-25T12:56:07.820Z",
+        "scheduleRequestedAt": "2026-11-25T12:56:11.318Z",
+        "scheduleAt": "2026-12-10T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-25T12:56:14.840Z"
+      },
+      "platform": {
+        "id": "eCTNdutdD7w",
+        "url": "https://www.youtube.com/watch?v=eCTNdutdD7w",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-25T12:56:07.820Z"
       }
     },
     {
