@@ -247,3 +247,27 @@ test('未承認のQA済み改訂は未来の公開日を前倒しでき、旧入
   assert.equal(pub.status, 'draft');
   assert.equal(pub.publishAt, earlier.publishAt);
 });
+
+test('未承認draftは場面が増えても素材の並びを更新し、予定を渡さなければ既存の予定を引き継ぐ', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const publishAt = '2099-12-10T12:15:00+09:00';
+  const initial = prepareYoutubeRevision(root, { ...options, publishAt });
+  prepareYoutubeRevision(root, { ...options, publishAt, commit: true, expect: initial.digest });
+  recordYoutubeRevisionQa(root, { pubId: initial.publicationId, avg: 2.5, blocks: 0, commit: true });
+  const bytes = Buffer.from('new-scene'), sha256 = createHash('sha256').update(bytes).digest('hex');
+  const path = `.tmp/media/${EXAM}/${WORK}/work/candidate-scene-001.${sha256.slice(0, 8)}.png`;
+  writeFileSync(join(root, path), bytes);
+  upsertMedia(root, EXAM, [{ id: `${EXAM}/${WORK}/work/candidate-scene-001`, role: 'candidate-scene-001', type: 'image/png',
+    sha256, bytes: bytes.length, store: { tier: 'drive', path }, provenance: { kind: 'render', by: 'test' } }]);
+  assert.throws(() => planYoutubeRevision(root, options), /既存の改訂公開行/);
+  const preview = prepareYoutubeRevision(root, { ...options, refreshDraft: true });
+  prepareYoutubeRevision(root, { ...options, refreshDraft: true, commit: true, expect: preview.digest });
+  const row = loadRegistry(root).publications.find(p => p.id === initial.publicationId);
+  assert.equal(row.media['scene-001'], `${EXAM}/${WORK}/work/candidate-scene-001`);
+  assert.equal(row.publishAt, publishAt);
+  assert.equal(row.status, 'draft');
+  assert.equal(JSON.parse(readFileSync(join(root, preview.input))).publishAt, publishAt);
+  const approved = loadRegistry(root);
+  approved.publications.find(p => p.id === row.id).approval = { by: 'user', contentSha256: '0'.repeat(64) };
+  assert.throws(() => planYoutubeRevision(root, { ...options, refreshDraft: true }, approved), /既存の改訂公開行/);
+});
