@@ -746,6 +746,8 @@
             "river-crossing-structure-review",
             "river-facility-inspection-operation",
             "flood-control-facilities",
+            "levee-cross-section-construction",
+            "revetment-type-embedment",
             "nature-oriented-river-works",
             "coast-port-administrators",
             "satomichi-suiro-management"
@@ -783,6 +785,18 @@
             "construction-performance-rating",
             "work-style-reform-documents",
             "ict-construction-owner-role"
+          ]
+        },
+        {
+          "id": "municipal-site-check",
+          "label": "自治体の土木担当（現場で確かめる）",
+          "slugs": [
+            "site-visit-basics",
+            "earthwork-supervision-checkpoints",
+            "block-masonry-drainage-structures",
+            "concrete-supervision-checkpoints",
+            "pile-installation-checkpoints",
+            "pavement-roadside-installation-checkpoints"
           ]
         },
         {
