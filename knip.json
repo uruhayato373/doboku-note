@@ -15,8 +15,10 @@
     ".claude/workflows/**"
   ],
   "ignoreBinaries": [
+    "dwebp",
     "ffmpeg",
     "ffprobe",
+    "identify",
     "magick",
     "netstat",
     "osascript",
