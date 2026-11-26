@@ -2830,7 +2830,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-shugo-2",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-shugo-2",
       "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -2856,7 +2856,8 @@
       },
       "times": {
         "rendered": "2026-11-26T12:58:11.768Z",
-        "uploaded": "2026-11-26T13:00:33.371Z"
+        "uploaded": "2026-11-26T13:00:33.371Z",
+        "scheduled": "2026-11-26T13:07:21.421Z"
       },
       "delivery": {
         "inputSha256": "598c04d7817ce1926ffc415bb3ff0d23bfe41dffc89292091840baa12578ed0a",
@@ -2873,7 +2874,10 @@
           "https://i9.ytimg.com/vi/B6vcyayiQZg/maxresdefault.jpg?sqp=CNDaoNgG&rs=AOn4CLBpLHOUhkclVpOGuDrIridEjYPtKA",
           "https://i9.ytimg.com/vi/B6vcyayiQZg/sardefault.jpg?sqp=CNDaoNgG&rs=AOn4CLAxHZcwY5UAI1vtnKUZhMF3E25XJw"
         ],
-        "thumbnailAcceptedAt": "2026-11-26T13:00:39.508Z"
+        "thumbnailAcceptedAt": "2026-11-26T13:00:39.508Z",
+        "scheduleRequestedAt": "2026-11-26T13:07:17.790Z",
+        "scheduleAt": "2026-11-28T22:30:00Z",
+        "scheduledVerifiedAt": "2026-11-26T13:07:21.421Z"
       },
       "platform": {
         "id": "B6vcyayiQZg",
