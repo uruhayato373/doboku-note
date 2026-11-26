@@ -1,82 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
-    <rect width="1280" height="760" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  <!-- 背景 #ffffff -->
+  <rect width="1200" height="980" fill="#ffffff"/>
 
-    <!-- タイトル -->
-    <text x="60" y="54" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">B / C 判定別 再受験戦略マトリクス</text>
-    <text x="60" y="82" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">判定が異なれば対策も根本的に変わる — 同じ勉強を繰り返さないために</text>
+  <!-- タイトル -->
+  <text x="40" y="64" font-size="34" font-weight="700" fill="#222222">記述式の水準別 再受験戦略マトリクス</text>
+  <text x="40" y="104" font-size="22" fill="#555555">水準が異なれば対策も根本的に変わる ― 同じ勉強を繰り返さないために</text>
 
-    <rect x="60" y="100" width="1160" height="40" rx="6" fill="#e8f0fe"/>
-    <text x="80" y="126" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="600" fill="#1a3a5c">前提: 記述式成績通知のB/C判定を確認してから対策を決める</text>
+  <!-- 前提 -->
+  <rect x="40" y="136" width="1120" height="64" rx="8" fill="#e8f0fe"/>
+  <text x="64" y="176" font-size="22" fill="#1a3a5c">前提：択一式の自己採点と必須科目の評価から、記述式の水準を見積もって選ぶ</text>
 
-    <!-- 列ヘッダ -->
-    <rect x="280" y="148" width="470" height="52" rx="8" fill="#2e6da4"/>
-    <text x="515" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">B 判定</text>
+  <!-- 列ヘッダ（B: brand #2e6da4 / C: danger #b22234） -->
+  <rect x="280" y="240" width="430" height="72" rx="8" fill="#2e6da4"/>
+  <text x="495" y="286" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">B判定（あと一歩）</text>
+  <rect x="730" y="240" width="430" height="72" rx="8" fill="#b22234"/>
+  <text x="945" y="286" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">C判定（大きく不足）</text>
 
-    <rect x="760" y="148" width="470" height="52" rx="8" fill="#b22234"/>
-    <text x="995" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">C 判定</text>
+  <!-- 行（y0 = 352、行高 100、間隔 16） -->
+  <!-- 行1 現状診断 -->
+  <rect x="40" y="352" width="220" height="100" rx="8" fill="#1a3a5c"/>
+  <text x="150" y="410" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">現状診断</text>
+  <rect x="280" y="352" width="430" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="304" y="394" font-size="24" font-weight="700" fill="#1a3a5c">視点は合っている</text>
+  <text x="304" y="430" font-size="20" fill="#1a3a5c">分析の深みが足りない</text>
+  <rect x="730" y="352" width="430" height="100" rx="8" fill="#fdecee" stroke="#b22234" stroke-width="1.5"/>
+  <text x="754" y="394" font-size="24" font-weight="700" fill="#8f1b2a">方向性が根本的にずれている</text>
+  <text x="754" y="430" font-size="20" fill="#8f1b2a">一般部門の思考が残っている</text>
 
-    
-      <!-- 行ラベル -->
-      <rect x="40" y="184" width="210" height="90" rx="6" fill="#1a3a5c"/>
-      <text x="145" y="235" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">現状診断</text>
+  <!-- 行2 優先施策 -->
+  <rect x="40" y="468" width="220" height="100" rx="8" fill="#1a3a5c"/>
+  <text x="150" y="526" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">優先施策</text>
+  <rect x="280" y="468" width="430" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="304" y="510" font-size="24" font-weight="700" fill="#1a3a5c">トレードオフの深化</text>
+  <text x="304" y="546" font-size="20" fill="#1a3a5c">第三の管理の視点で解決する</text>
+  <rect x="730" y="468" width="430" height="100" rx="8" fill="#fdecee" stroke="#b22234" stroke-width="1.5"/>
+  <text x="754" y="510" font-size="24" font-weight="700" fill="#8f1b2a">基本フレームの再構築</text>
+  <text x="754" y="546" font-size="20" fill="#8f1b2a">過去問の模範解答を精読する</text>
 
-      <!-- B判定セル -->
-      <rect x="280" y="184" width="470" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
-      <text x="294" y="222" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">視点は合っている</text><text x="294" y="252" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c">深みが足りない</text>
+  <!-- 行3 練習方法 -->
+  <rect x="40" y="584" width="220" height="100" rx="8" fill="#1a3a5c"/>
+  <text x="150" y="642" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">練習方法</text>
+  <rect x="280" y="584" width="430" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="304" y="626" font-size="24" font-weight="700" fill="#1a3a5c">月2本ペースで模擬論文</text>
+  <text x="304" y="662" font-size="20" fill="#1a3a5c">第三者の添削を受ける</text>
+  <rect x="730" y="584" width="430" height="100" rx="8" fill="#fdecee" stroke="#b22234" stroke-width="1.5"/>
+  <text x="754" y="626" font-size="24" font-weight="700" fill="#8f1b2a">5管理を日常業務に当てはめる</text>
+  <text x="754" y="662" font-size="20" fill="#8f1b2a">週1回の習慣にする</text>
 
-      <!-- C判定セル -->
-      <rect x="760" y="184" width="470" height="90" rx="6" fill="#fde8eb" stroke="#b22234" stroke-width="1"/>
-      <text x="774" y="222" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">方向性が根本的にずれ</text><text x="774" y="252" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#b22234">一般部門の思考が残っている</text>
-    
-      <!-- 行ラベル -->
-      <rect x="40" y="284" width="210" height="90" rx="6" fill="#1a3a5c"/>
-      <text x="145" y="335" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">優先施策</text>
+  <!-- 行4 避けるべき罠 -->
+  <rect x="40" y="700" width="220" height="100" rx="8" fill="#1a3a5c"/>
+  <text x="150" y="758" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">避けるべき罠</text>
+  <rect x="280" y="700" width="430" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="304" y="742" font-size="24" font-weight="700" fill="#1a3a5c">量だけ増やす</text>
+  <text x="304" y="778" font-size="20" fill="#1a3a5c">前回と同じ勉強を繰り返す</text>
+  <rect x="730" y="700" width="430" height="100" rx="8" fill="#fdecee" stroke="#b22234" stroke-width="1.5"/>
+  <text x="754" y="742" font-size="24" font-weight="700" fill="#8f1b2a">いきなり論文を書く</text>
+  <text x="754" y="778" font-size="20" fill="#8f1b2a">フレームの習得が先</text>
 
-      <!-- B判定セル -->
-      <rect x="280" y="284" width="470" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
-      <text x="294" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">トレードオフ深化</text><text x="294" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c">（第三の管理で解決）</text>
+  <!-- 行5 目安期間 -->
+  <rect x="40" y="816" width="220" height="100" rx="8" fill="#1a3a5c"/>
+  <text x="150" y="874" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">目安期間</text>
+  <rect x="280" y="816" width="430" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="304" y="858" font-size="24" font-weight="700" fill="#1a3a5c">弱点克服：3〜4ヶ月</text>
+  <text x="304" y="894" font-size="20" fill="#1a3a5c">トレードオフの精度を上げる</text>
+  <rect x="730" y="816" width="430" height="100" rx="8" fill="#fdecee" stroke="#b22234" stroke-width="1.5"/>
+  <text x="754" y="858" font-size="24" font-weight="700" fill="#8f1b2a">基礎再構築：4〜5ヶ月</text>
+  <text x="754" y="894" font-size="20" fill="#8f1b2a">フレームの体得を最優先</text>
 
-      <!-- C判定セル -->
-      <rect x="760" y="284" width="470" height="90" rx="6" fill="#fde8eb" stroke="#b22234" stroke-width="1"/>
-      <text x="774" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">基本フレームの再構築</text><text x="774" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#b22234">（過去問模範解答の精読）</text>
-    
-      <!-- 行ラベル -->
-      <rect x="40" y="384" width="210" height="90" rx="6" fill="#1a3a5c"/>
-      <text x="145" y="435" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">練習方法</text>
-
-      <!-- B判定セル -->
-      <rect x="280" y="384" width="470" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
-      <text x="294" y="422" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">月2本ペースで模擬論文</text><text x="294" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c">第三者添削 必須</text>
-
-      <!-- C判定セル -->
-      <rect x="760" y="384" width="470" height="90" rx="6" fill="#fde8eb" stroke="#b22234" stroke-width="1"/>
-      <text x="774" y="422" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">5管理を日常業務に当てはめる</text><text x="774" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#b22234">習慣づけ（週1回）</text>
-    
-      <!-- 行ラベル -->
-      <rect x="40" y="484" width="210" height="90" rx="6" fill="#1a3a5c"/>
-      <text x="145" y="535" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">避けるべき罠</text>
-
-      <!-- B判定セル -->
-      <rect x="280" y="484" width="470" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
-      <text x="294" y="522" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">量だけ増やす</text><text x="294" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c">（前回と同じ勉強）</text>
-
-      <!-- C判定セル -->
-      <rect x="760" y="484" width="470" height="90" rx="6" fill="#fde8eb" stroke="#b22234" stroke-width="1"/>
-      <text x="774" y="522" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">いきなり論文を書く</text><text x="774" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#b22234">（フレーム習得が先）</text>
-    
-      <!-- 行ラベル -->
-      <rect x="40" y="584" width="210" height="90" rx="6" fill="#1a3a5c"/>
-      <text x="145" y="635" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">目安期間</text>
-
-      <!-- B判定セル -->
-      <rect x="280" y="584" width="470" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
-      <text x="294" y="622" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">弱点克服: 3〜4ヶ月</text><text x="294" y="652" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c">（トレードオフ精度向上）</text>
-
-      <!-- C判定セル -->
-      <rect x="760" y="584" width="470" height="90" rx="6" fill="#fde8eb" stroke="#b22234" stroke-width="1"/>
-      <text x="774" y="622" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">基礎再構築: 4〜5ヶ月</text><text x="774" y="652" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#b22234">（フレーム体得が最優先）</text>
-    
-
-    <!-- フッター -->
-    <text x="1220" y="736" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
-  </svg>
+  <!-- ブランド -->
+  <text x="1160" y="956" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

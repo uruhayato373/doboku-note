@@ -23,7 +23,7 @@ cover:
 **この記事でわかること**
 
 - 不合格の3パターンと、それぞれの自己分析方法
-- 記述式B判定とC判定で対策が根本的に異なる理由
+- 記述式の水準（B判定・C判定）の見積もり方と、それぞれで対策が根本的に異なる理由
 - 再受験のための4フェーズと「前回と同じ勉強をしない」ためのチェックリスト
 
 ---
@@ -49,15 +49,17 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 不合格の3パターン
 
-総監の不合格は、大きく3つのパターンに分類できます。成績通知を手元に置きながら、自分がどの分岐に当てはまるかを確認してみてください。
+総監の不合格は、大きく3つのパターンに分類できます。成績通知と択一式の自己採点を手元に置きながら、自分がどの分岐に当てはまるかを確認してみてください。
+
+なお、この記事は必須科目（択一式・記述式）と口頭試験を扱います。選択科目が免除されない方（総監とあわせて選択科目を受ける方）は、選択科目の評価も別に確認してください。
 
 ![不合格の3パターン分析フロー](img/figure-1-patterns.png)
 
 **パターン1: 択一式の得点が不足**
-筆記試験（択一式+記述式の合計で60%以上）に到達しなかった場合で、主に択一式の得点不足が原因です。択一式が20問以下（50%以下）だと、記述式でカバーするのは極めて困難になります。
+必須科目の合格基準（択一式と記述式の合計で60%以上）に届かなかった場合で、主に択一式の得点不足が原因です。択一式が20問以下（50%以下）だと、記述式でカバーするのは極めて困難になります。
 
 **パターン2: 記述式の得点が不足**
-択一式はそこそこ取れたものの、記述式の評価が低く合計で60%に届かなかった場合です。記述式の成績通知はA〜Cの3段階で返ってきますが、B判定とC判定では対策が根本的に異なります。
+択一式はそこそこ取れたものの、記述式の得点が低く、合計で60%に届かなかった場合です。成績通知で分かるのは必須科目（択一式と記述式の合計）の評価で、記述式だけの判定は通知されません。そこでこの記事では、記述式の水準を見積もって「B判定」「C判定」の2つに分け、それぞれで対策を変えます。
 
 **パターン3: 口頭試験で不合格**
 筆記試験は合格したものの、口頭試験（約20分）で不合格になった場合です。口頭試験の合格率は80〜90%と高いのですが、不合格になると翌年は筆記試験からやり直しになるため、精神的なダメージが大きくなります。
@@ -93,15 +95,21 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 **弱点分野を特定したら、その分野のキーワード集を重点的に学習しましょう。** 5分野を均等に勉強するのではなく、弱点に時間を集中させるのがポイントです。17年分の過去問を分野別に解いてみると、出題パターンが見えてきます。
 
-弱点分野のキーワード補強には、doboku-noteの[キーワード集2026 全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=keyword-2026)が役立ちます。650項目を分野別に絞り込んで読めるので、「情報管理が弱い」とわかった時点から集中インプットに入れます。分野別の出題傾向については、[択一式17年分分析](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=exam-passing-strategy)で詳しく解説しています。毎年出る鉄板テーマ10選を押さえるだけでも、10問以上を安定して確保できます。
+弱点分野のキーワード補強には、doboku-noteの[キーワード集2026 全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=keyword-2026&utm_term=n4b679c8da64e)が役立ちます。650項目を分野別に絞り込んで読めるので、「情報管理が弱い」とわかった時点から集中インプットに入れます。分野別の出題傾向については、[択一式17年分分析](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=exam-passing-strategy&utm_term=n4b679c8da64e)で詳しく解説しています。毎年出る鉄板テーマ10選を押さえるだけでも、10問以上を安定して確保できます。
 
 ### パターン2: 記述式 — B判定とC判定の違い
 
-記述式の成績通知は、A（合格相当）、B、Cの3段階で返ってきます。BとCでは対策の方向性が全く異なります。
+成績通知には、記述式だけの判定は載りません。載るのは、択一式と記述式を合わせた必須科目の評価です。そこで、記述式の水準は次の手順で見積もります。
+
+1. **択一式を自己採点する。** 日本技術士会は、択一式の正答を筆記試験の終了後すぐに公表しています。自分の解答を控えていれば、筆記試験の合格発表の時点で択一式の得点が分かります。
+2. **必須科目の評価と照らし合わせる。** 必須科目は択一式と記述式の合計で判定されるので、択一式が取れていたのに評価が低ければ、記述式で点を落としています。
+3. **得点の開示を受けた場合は、計算で確かめる。** 合計点から択一式の得点を差し引けば、記述式の点が分かります。開示の手続きと時期は、日本技術士会の案内で確認してください。
+
+評価と自己採点だけでは、記述式の点は幅でしか分かりません。この記事では、見積もった水準が「あと一歩」の場合をB判定、「大きく足りない」場合をC判定と呼びます。どちらか迷う場合は、前回の再現答案を読み返し、下に挙げる傾向のどちらに近いかで判断してください。BとCでは対策の方向性が全く異なります。
 
 **B判定: 方向性は合っているが深みが足りない**
 
-B判定は「総監の視点」自体は持っているものの、分析や提言の深さが不足していることを意味します。具体的には以下の傾向があります。
+B判定に当たるのは、「総監の視点」自体は持っているものの、分析や提言の深さが不足している場合です。具体的には以下の傾向があります。
 
 - 5つの管理を列挙しているが、トレードオフの分析が表面的
 - 問題点の指摘はできているが、解決策が一般論にとどまる
@@ -111,7 +119,7 @@ B判定の対策は、**トレードオフの分析を深めること**に尽き
 
 **C判定: 方向性自体がずれている**
 
-C判定は、総監が求めている回答の方向性自体を外していることを意味します。深刻ではありますが、原因を特定できれば対策は明確になります。
+C判定に当たるのは、総監が求めている回答の方向性自体を外している場合です。深刻ではありますが、原因を特定できれば対策は明確になります。
 
 - 一般部門の視点で書いている（専門技術の深掘りに終始し、管理間の統合がない）
 - 5つの管理のうち1〜2つしか触れていない
@@ -120,11 +128,11 @@ C判定は、総監が求めている回答の方向性自体を外している�
 
 C判定の場合は、まず**総監の記述式で何が求められているかを根本から理解し直す**ことが必要です。過去問の模範解答を読み、「5つの管理を俯瞰的に把握し、トレードオフを改善する」という基本フレームを体に染み込ませることが先決になります。自分の業務を5つの管理で分析する練習を日常的に行うことで、試験時にも自然に総監の視点が出てくるようになります。
 
-B判定とC判定では、目指すべきゴールも練習方法も大きく異なります。自分の判定を確認したうえで、下表を参考に対策の優先順位を決めてください。
+B判定とC判定では、目指すべきゴールも練習方法も大きく異なります。自分の水準を見積もったうえで、下表を参考に対策の優先順位を決めてください。
 
-![B/C 判定別 再受験戦略マトリクス](img/figure-2-bc-matrix.png)
+![記述式の水準（B判定・C判定）別 再受験戦略マトリクス](img/figure-2-bc-matrix.png)
 
-この「トレードオフ思考」の具体像は、doboku-noteの[5管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=management-tradeoffs)で10ペアのパターンと解決フレームとともに解説しています。記述式対策の深め方については、[記述式戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=essay-exam-strategy)も合わせて参照してください。
+この「トレードオフ思考」の具体像は、doboku-noteの[5管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=management-tradeoffs&utm_term=n4b679c8da64e)で10ペアのパターンと解決フレームとともに解説しています。記述式対策の深め方については、[記述式戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=essay-exam-strategy&utm_term=n4b679c8da64e)も合わせて参照してください。
 
 ### パターン3: 口頭試験 — 業務経歴の語り方を見直す
 
@@ -149,9 +157,9 @@ B判定とC判定では、目指すべきゴールも練習方法も大きく異
 
 最も重要なフェーズです。不合格のショックが残っているうちに、冷静に自己分析を行いましょう。
 
-- 成績通知を確認し、3パターンのどれに該当するか特定する
+- 成績通知と択一式の自己採点から、3パターンのどれに該当するか特定する
 - 択一式は分野別正答率を計算し、弱点分野を特定する
-- 記述式はB/C判定のどちらかを確認し、対策の方向性を決める
+- 記述式は、択一式の自己採点と必須科目の評価から水準を見積もり、B判定・C判定のどちらに近いかで対策の方向性を決める
 - 口頭試験不合格の場合は、質問への回答を振り返り、不十分だった点を書き出す
 
 **フェーズ2: 弱点克服**（分析後〜受験申込）
@@ -159,8 +167,8 @@ B判定とC判定では、目指すべきゴールも練習方法も大きく異
 要因分析で特定した弱点に集中して対策します。前回の合格ライン到達に足りなかった要素を集中的に補強する期間です。
 
 - 択一式の弱点分野のキーワードを集中学習
-- 記述式B判定の場合: トレードオフ分析の深化練習（月2本のペースで模擬論文を書く）
-- 記述式C判定の場合: 過去問の模範解答を読み込み、総監の記述式フレームを体得
+- 記述式がB判定に近い場合: トレードオフ分析の深化練習（月2本のペースで模擬論文を書く）
+- 記述式がC判定に近い場合: 過去問の模範解答を読み込み、総監の記述式フレームを体得
 - 口頭試験不合格の場合: 業務経歴を5つの管理の視点で書き直す
 
 **フェーズ3: 総仕上げ**（受験申込〜筆記試験）
@@ -220,14 +228,14 @@ B判定とC判定では、目指すべきゴールも練習方法も大きく異
 
 その経験こそが、記述式と口頭試験における最大の武器になります。前回の不合格は、その武器の使い方を知らなかっただけかもしれません。不合格要因を正確に分析し、対策の方向性を変えれば、次の試験では実務経験がそのまま得点に変わっていきます。
 
-日常業務でのトレードオフ思考の実践方法については、doboku-noteの[合格戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=exam-passing-strategy)で具体的なフレームワークとともに解説しています。
+日常業務でのトレードオフ思考の実践方法については、doboku-noteの[合格戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=exam-passing-strategy&utm_term=n4b679c8da64e)で具体的なフレームワークとともに解説しています。
 
 ---
 
 ## 関連リソース
 
 **doboku-note — 17 年分の過去問 + 650 キーワード解説**（無料）
-https://doboku-note.com/category/pe-comprehensive-management
+https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_term=n4b679c8da64e
 
 - 17 年分の択一式過去問（全問解答解説付き）
 - 650 以上のキーワード解説ページ
@@ -241,13 +249,13 @@ https://doboku-note.com/category/pe-comprehensive-management
 
 https://note.com/dobokunote/m/m607bf095b02a
 
-**記述式がC判定だった**
+**記述式がC判定に近かった**
 
 型・設問(3)・実戦演習をまとめてやり直します。
 
 https://note.com/dobokunote/m/m6e7de5e4ea3d
 
-**記述式がB判定だった**
+**記述式がB判定に近かった**
 
 施策の具体性を補い、[総監マガジンの歩き方](https://note.com/dobokunote/n/nc874692256bb)から自分の立場に近い模範論文を選びます。
 
