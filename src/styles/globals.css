@@ -594,6 +594,34 @@
     @apply pb-4;
   }
 
+  /* ===== 過去問の「解答・解説」（2026-11-26） =====
+     rehype-answer-reveal.ts が summary が「解答」で始まる details に data-answer、中の「**正答：N**」の段落に data-answer-key を付ける。
+     閉じているときは押せるボタンに見せ（目次の行と同じ細い枠では見分けがつかなかった）、開いたら正答をバッジで先頭に出す。
+     解答の開閉は過去問ページで一番使われる操作（r07-basic で 1 セッション約 5 回・GA4 answer_reveal）。 */
+  & details[data-answer] {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--rule-soft));
+  }
+  & details[data-answer] > summary {
+    @apply flex min-h-11 items-center;
+    background: var(--accent-fill);
+  }
+  & details[data-answer] > summary:hover {
+    background: color-mix(in srgb, var(--accent-fill) 70%, var(--accent) 12%);
+  }
+  & details[data-answer]:not([open]) > summary::after {
+    content: '開く';
+    @apply ml-auto pl-3 text-xs font-normal;
+    color: var(--ink-muted);
+  }
+  & details[data-answer][open] > summary {
+    background: var(--paper);
+  }
+  & details[data-answer] p[data-answer-key] strong {
+    @apply inline-flex items-center rounded-card-inline px-3 py-1 text-base font-bold;
+    background: var(--accent);
+    color: var(--paper);
+  }
+
   /* ===== 画面外の本文を描かない（年度別過去問・DN-0814） =====
      過去問 1 年度分は DOM 1 万要素・KaTeX 160 個超になり、スマホでは「解答・解説」の開閉や本文のタップの
      たびにページ全体のスタイル・レイアウト・描画が走って応答が遅れていた（GA4 のスマホ INP 良好率 52%）。
