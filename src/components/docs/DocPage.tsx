@@ -23,6 +23,7 @@ import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
+import rehypeAnswerReveal from '@/lib/rehype-answer-reveal';
 import rehypeMidCta from '@/lib/rehype-mid-cta';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -69,6 +70,7 @@ function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInl
     rehypeKatex,
     rehypeScrollableFocus,
     rehypeExamReferences,
+    rehypeAnswerReveal,
     // 本文中の外部リンク。note.com だけ referrer を渡す（判定は external-link-rel.ts に集約）
     [rehypeExternalLinks, { target: '_blank', rel: (el) => externalLinkRel(String(el.properties?.href ?? '')) }] satisfies Pluggable,
   ];

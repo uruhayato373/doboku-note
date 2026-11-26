@@ -25,12 +25,12 @@ export default function QuestionJumpNav({ headings, older, newer, quiz }: { head
       aria-label="問題番号へ移動"
       data-cta="nav"
       data-cta-label="question-jump"
-      className="mb-6 rounded-card-section border border-(--rule-soft) bg-(--paper) p-3 dark:border-(--rule-soft)"
+      className="mb-6 rounded-card-section border border-(--rule-soft) border-l-4 border-l-(--accent) bg-(--paper) p-3 dark:border-(--rule-soft) dark:border-l-(--accent)"
     >
       <Disclosure
         variant="plain"
         summaryClassName="text-[13px] font-bold text-(--ink)"
-        summary={<>{isGrouped(items) ? '群・問題番号を選ぶ' : '問題番号を選ぶ'} <span className="font-normal text-(--ink-muted)">（全{items.length}問）</span></>}
+        summary={<><span aria-hidden="true" className="mr-1.5 font-mono text-(--accent)">#</span>{isGrouped(items) ? '群・問題番号を選ぶ' : '問題番号を選ぶ'} <span className="font-normal text-(--ink-muted)">（全{items.length}問）</span></>}
       >
         <div className="mt-2">
           <QuestionChipList items={items} />
