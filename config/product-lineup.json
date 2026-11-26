@@ -174,7 +174,7 @@
         ]
       },
       {
-        "match": "^coconala-sokan-",
+        "match": "^coconala-(sokan-|pe-sokan-)",
         "cells": [
           "pe-comprehensive-management:written"
         ]
