@@ -479,7 +479,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-youso-2",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -505,7 +505,8 @@
       },
       "times": {
         "rendered": "2026-11-25T13:03:23.223Z",
-        "uploaded": "2026-11-26T12:55:13.664Z"
+        "uploaded": "2026-11-26T12:55:13.664Z",
+        "scheduled": "2026-11-26T13:06:02.138Z"
       },
       "delivery": {
         "inputSha256": "22b10b3fe9d6e131c5c1a7d80ade95317b11805b37ea58beddeb9f45d377e1b3",
@@ -522,7 +523,10 @@
           "https://i9.ytimg.com/vi/f-UHf-lgfJE/maxresdefault.jpg?sqp=CKTYoNgG&rs=AOn4CLCxOXIyo9FLJUjonnItty66OtjLag",
           "https://i9.ytimg.com/vi/f-UHf-lgfJE/sardefault.jpg?sqp=CKTYoNgG&rs=AOn4CLAN41Pftidb0iQyk83XPGzewSu8NQ"
         ],
-        "thumbnailAcceptedAt": "2026-11-26T12:55:18.857Z"
+        "thumbnailAcceptedAt": "2026-11-26T12:55:18.857Z",
+        "scheduleRequestedAt": "2026-11-26T13:05:58.610Z",
+        "scheduleAt": "2026-11-27T22:30:00Z",
+        "scheduledVerifiedAt": "2026-11-26T13:06:02.138Z"
       },
       "platform": {
         "id": "f-UHf-lgfJE",
