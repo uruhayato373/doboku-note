@@ -344,6 +344,37 @@
     padding-left: 1.25em;
   }
 
+  /* ===== 年度の過去問一覧をチップに（2026-11-26） =====
+     rehype-year-links.ts が、項目がすべて「過去問へのリンク 1 本＋（N問）」の 5 項目以上の箇条書きに data-year-links を付ける。
+     16 年度分を縦に並べるとスマホで 1 画面を超えていた。過去問ページの問題番号のチップ（QuestionChips）と同じ大きさで横に並べ、
+     項目全体を押せるようにする（リンクの ::after を項目いっぱいに広げる）。 */
+  & ul[data-year-links] {
+    @apply flex flex-wrap gap-2 pl-0;
+    list-style: none;
+  }
+  & ul[data-year-links] > li {
+    @apply relative m-0 inline-flex min-h-11 items-center gap-1 rounded-card-inline border px-3 text-[13px];
+    border-color: var(--rule-soft);
+    color: var(--ink-muted);
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  & ul[data-year-links] > li:hover {
+    border-color: var(--accent);
+    background: var(--accent-fill);
+  }
+  & ul[data-year-links] > li a {
+    @apply font-semibold no-underline;
+    color: var(--ink-body);
+  }
+  & ul[data-year-links] > li a::after {
+    content: '';
+    @apply absolute inset-0 rounded-card-inline;
+  }
+  & ul[data-year-links] > li a:focus-visible::after {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   /* 見出し直後の段落: Zenn実測値0.3emでほぼ密着させる */
   & h1 + p {
     margin-top: 0.3em;

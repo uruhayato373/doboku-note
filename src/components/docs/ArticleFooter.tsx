@@ -38,6 +38,8 @@ import NextInSeries from '@/components/ui/NextInSeries/NextInSeries';
 import ExamTopicBridge from '@/components/ui/ExamTopicBridge/ExamTopicBridge';
 import { resolveExamTopicQuestion } from '@/lib/exam-topic-bridge';
 import { resolveExamStepBridge } from '@/lib/exam-step-bridge';
+import { resolveArticleSeriesNav } from '@/lib/next-in-series';
+import { resolveNextSteps } from '@/lib/next-step';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { isCivilConstructionCategory } from '@/lib/qualification-names';
@@ -106,6 +108,14 @@ export default function ArticleFooter({
   const examTopic = category === 'civil-practice' ? resolveExamTopicQuestion(slugStr) : null;
   // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
   const { lawSiblings, lawTopics, lawPageLinks, lawPage, topicLinks, shownSlugs } = resolveArticleEnd(meta, laws.map((law) => law.lawId), relatedArticles);
+  const showSeries = Boolean(slugStr) && !isCareer && docGroup !== 'textbook';
+  const seriesOwnGroup = category === 'laws' ? lawSeriesGroup(categoryArticles) : undefined;
+  const showNextStep = docGroup === 'guide' && Boolean(category) && !isCareer;
+  // 関連記事は、記事末の先の枠（前の記事・次に読む、次のステップ、根拠法令・テーマ）で出した記事を外す。
+  // 同じ記事が「次に読む」と関連記事の先頭に 2 度並んでいた（2026-11-26・2級の採点ガイドの「令和8年度 二次の解答例」）
+  const series = showSeries ? resolveArticleSeriesNav(category, slugStr, categoryArticles, seriesOwnGroup) : null;
+  const nextStepDocs = showNextStep ? resolveNextSteps(category!, categoryArticles, slugStr).flatMap((s) => (s.doc ? [s.doc.slug] : [])) : [];
+  const relatedExclude = new Set([...shownSlugs, ...[series?.prev?.slug, series?.next?.slug].filter((s): s is string => Boolean(s)), ...nextStepDocs]);
   const endBanner = endBannerAd ? (
     <ProgramSplitBanner
       alternate={endBannerAd.alternate}
@@ -129,9 +139,9 @@ export default function ArticleFooter({
     <>
       {slugStr && <ExamYearNav currentSlug={slugStr} categoryArticles={categoryArticles} />}
       {/* 前の記事・次に読む 1 本（資格ページと同じ並び＝category-curriculum.json）。教科書・過去問は上の前後ナビが担う */}
-      {slugStr && !isCareer && docGroup !== 'textbook' && (
+      {showSeries && (
         <div className="mt-8">
-          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} ownGroup={category === 'laws' ? lawSeriesGroup(categoryArticles) : undefined} />
+          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} ownGroup={seriesOwnGroup} />
         </div>
       )}
       {lawPage && <LawPageSections data={lawPage} />}
@@ -142,6 +152,20 @@ export default function ArticleFooter({
         </div>
       )}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
+      {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。どちらも実務記事にだけ出る。
+          2026-11-26: 参考資料・根拠法令・転職バナーの下（本文の終わりから約 1,100px）にあり、表示がセッションの 4 分の 1（1,099 / 4,355）
+          だったので、前後の記事・関連ツールのすぐ下へ上げた。 */}
+      {shouldShowQualificationBridge(category, slugStr) && (
+        <div className="mt-8">
+          <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
+        </div>
+      )}
+      {/* 実務記事: 読んだ論点が出る 1級土木の過去問を 1 問（exam-topic-bridge.ts）。EXP-012 の橋渡しの下に並べる（2026-11-12〜） */}
+      {examTopic && (
+        <div className="mt-8">
+          <ExamTopicBridge question={examTopic} />
+        </div>
+      )}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (
         <div className="mt-8">
@@ -157,18 +181,6 @@ export default function ArticleFooter({
 
       {imageBanner}
 
-      {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。 */}
-      {shouldShowQualificationBridge(category, slugStr) && (
-        <div className="mt-8">
-          <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
-        </div>
-      )}
-      {/* 実務記事: 読んだ論点が出る 1級土木の過去問を 1 問（exam-topic-bridge.ts）。EXP-012 の橋渡しの下に並べる（2026-11-12〜） */}
-      {examTopic && (
-        <div className="mt-8">
-          <ExamTopicBridge question={examTopic} />
-        </div>
-      )}
 
       {/* PE pillar（5 管理）: この管理の過去問（直近 3 年度の設問へ直接・DN-1220） */}
       {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
@@ -309,7 +321,7 @@ export default function ArticleFooter({
 
       {/* guide（キャリア記事を除く）: 次のステップ導線（演習・テキスト・分野へ）。全ビューポート。
           要点記事の行き止まりを解消し、カテゴリ hub の sec-* アンカー（直前期 note CTA と同居）へ送る。 */}
-      {docGroup === 'guide' && category && !isCareer && (
+      {showNextStep && category && (
         <div className="mt-8">
           <NextStepNav category={category} docs={categoryArticles} currentSlug={slugStr} />
         </div>
@@ -334,7 +346,7 @@ export default function ArticleFooter({
 
       {/* 関連記事（全記事共通・記事末 AuthorCard の前）。関連 2 件未満なら自動で非表示。上の 2 枚で出した記事は外す */}
       <div className="mt-8">
-        <RelatedArticles currentMeta={meta} categoryArticles={relatedArticles} exclude={shownSlugs} />
+        <RelatedArticles currentMeta={meta} categoryArticles={relatedArticles} exclude={relatedExclude} />
       </div>
 
       {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}

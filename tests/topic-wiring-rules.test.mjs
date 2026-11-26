@@ -170,7 +170,8 @@ test('記事末の配線: 法令 → テーマ → 関連記事の順に、先�
   const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.ok(footer.includes('<TopicHubLinks links={topicLinks} />'), '記事末に「この記事のテーマ」が無い');
   assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />'), '根拠法令のカードに同じ法令の記事・関わるテーマ・法令ページが渡っていない');
-  assert.ok(footer.includes('exclude={shownSlugs}'), '関連記事が先のカードの記事を外していない');
+  // 2026-11-26: 前の記事・次に読む（series）と次のステップで出した記事も外す（relatedExclude は shownSlugs を含む）
+  assert.ok(footer.includes('exclude={relatedExclude}') && /relatedExclude = new Set\(\[\.\.\.shownSlugs\b/.test(footer), '関連記事が先のカードの記事を外していない');
   assert.ok(footer.indexOf('<ArticleLaws') < footer.indexOf('<TopicHubLinks') && footer.indexOf('<TopicHubLinks') < footer.indexOf('<RelatedArticles'),
     '記事末の並び（法令 → テーマ → 関連記事）が崩れている');
 });
@@ -244,4 +245,15 @@ test('計画・施策・審議会の台帳: 根拠法は e-Gov の写しに、�
   }
   const page = read('src/app/topics/[slug]/page.tsx');
   assert.ok(page.includes('getTopicPolicies(topic.slug)') && page.includes('<PolicyList'), 'テーマのページに計画・施策・審議会の節が無い');
+});
+
+// 実務記事の橋渡し（業務経験 → 資格）と過去問 1 問は、前後の記事・関連ツールのすぐ下。参考資料・根拠法令・転職バナーより上（2026-11-26・
+// 本文の終わりから約 1,100px 下にあり、表示がセッションの 4 分の 1 だった）
+test('記事末の配線: 実務記事の橋渡しと過去問 1 問は、参考資料・根拠法令・転職バナーより上', () => {
+  const footer = read('src/components/docs/ArticleFooter.tsx');
+  const at = (s) => { const i = footer.indexOf(s); assert.ok(i >= 0, `${s} が無い`); return i; };
+  const bridge = at('<QualificationBridge');
+  assert.ok(at('<NextInSeries') < bridge && at('<RelatedTools') < bridge, '橋渡しが前後の記事・関連ツールより上にある');
+  assert.ok(bridge < at('<ExamTopicBridge'), '過去問 1 問は橋渡しの下');
+  for (const later of ['<ExternalReferences', '<ArticleLaws', '{imageBanner}']) assert.ok(at('<ExamTopicBridge') < at(later), `${later} が橋渡しより上にある`);
 });

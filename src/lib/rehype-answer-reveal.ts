@@ -7,6 +7,11 @@
  *   - その中の、太字の「正答：」で始まる段落に data-answer-key を付ける → 正答のバッジの見た目
  *
  * MDX の <details> は JSX（mdxJsxFlowElement）として届くので、hast の element と両方を見る。
+ *
+ * gate: true のページ（src/config/answer-gate.json・2026-11-26）は、解説を正答の選択肢の理由だけに絞る。
+ *   解答の中の 5 項目の番号つきリストから正答の項目だけを残し（番号は start で保つ）、<ExamPoint> を外して
+ *   <answerupsell> を置く（DocPage の components が導線の部品に解決する）。途中式などリスト以外の段落は残す。
+ *   正答が番号で取れない・5 項目のリストが無い問題は何も消さない（正答の無い採点対象外の問題など）。
  */
 import { visit } from 'unist-util-visit';
 import type { Root, Properties } from 'hast';
@@ -44,7 +49,27 @@ function mark(node: AnyNode, name: 'data-answer' | 'data-answer-key'): void {
   node.attributes = [...(node.attributes ?? []), { type: 'mdxJsxAttribute', name, value: '' }];
 }
 
-export default function rehypeAnswerReveal() {
+const ANSWER_NUMBER = /^正答\s*[：:]\s*(\d)/;
+
+/** 正答の選択肢の理由だけを残し、ExamPoint を導線に替える。絞れたら true */
+function gateAnswer(node: AnyNode, key: AnyNode | undefined): boolean {
+  const correct = Number(ANSWER_NUMBER.exec(key ? textOf(key).trim() : '')?.[1] ?? 0);
+  if (!correct) return false;
+  const children = node.children ?? [];
+  const list = children.find((c) => tagOf(c) === 'ol' && (c.children ?? []).filter((li) => tagOf(li) === 'li').length === 5);
+  if (!list) return false;
+  const items = (list.children ?? []).filter((li) => tagOf(li) === 'li');
+  list.children = [items[correct - 1]!];
+  if (list.type === 'element') list.properties = { ...(list.properties ?? {}), start: correct };
+  else list.attributes = [...(list.attributes ?? []), { type: 'mdxJsxAttribute', name: 'start', value: String(correct) }];
+  const upsell: AnyNode = { type: 'element', tagName: 'answerupsell', properties: {}, children: [] };
+  const point = children.findIndex((c) => tagOf(c) === 'ExamPoint');
+  if (point >= 0) children.splice(point, 1, upsell);
+  else children.push(upsell);
+  return true;
+}
+
+export default function rehypeAnswerReveal(options: { gate?: boolean } = {}) {
   return (tree: Root) => {
     visit(tree, (raw) => {
       const node = raw as unknown as AnyNode;
@@ -55,6 +80,7 @@ export default function rehypeAnswerReveal() {
       mark(node, 'data-answer');
       const key = children.find((c) => tagOf(c) === 'p' && ANSWER_KEY.test(textOf(c).trim()));
       if (key) mark(key, 'data-answer-key');
+      if (options.gate) gateAnswer(node, key);
     });
   };
 }

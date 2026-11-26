@@ -24,6 +24,9 @@ import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
 import rehypeAnswerReveal from '@/lib/rehype-answer-reveal';
+import rehypeYearLinks from '@/lib/rehype-year-links';
+import { isAnswerGated } from '@/lib/answer-gate';
+import AnswerUpsell from '@/components/ui/AnswerUpsell/AnswerUpsell';
 import rehypeMidCta from '@/lib/rehype-mid-cta';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -64,13 +67,16 @@ type ArticleInlineSlot = { line: number; slot: string; afterLabel: string };
  * MDX コンパイルオプションを組み立てる。midCtaPositions が空でないときのみ
  * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を挿入する（1〜3 個）。
  */
-function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInlineSlot[] = []) {
+function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInlineSlot[] = [], answerGate = false) {
   const rehypePlugins: Pluggable[] = [
     rehypeHeadingIds,
     rehypeKatex,
     rehypeScrollableFocus,
     rehypeExamReferences,
-    rehypeAnswerReveal,
+    // 解説を絞るページ（src/config/answer-gate.json）は正答の選択肢の理由だけを残す
+    [rehypeAnswerReveal, { gate: answerGate }] satisfies Pluggable,
+    // 年度の過去問一覧（5 項目以上のリンクだけの箇条書き）をチップに見せる目印
+    rehypeYearLinks,
     // 本文中の外部リンク。note.com だけ referrer を渡す（判定は external-link-rel.ts に集約）
     [rehypeExternalLinks, { target: '_blank', rel: (el) => externalLinkRel(String(el.properties?.href ?? '')) }] satisfies Pluggable,
   ];
@@ -96,13 +102,15 @@ function SafeMDXRemote({
   components,
   midCtaPositions,
   inline,
+  answerGate,
 }: {
   source: string;
   components: React.ComponentProps<typeof MDXProvider>['components'];
   midCtaPositions?: readonly number[] | undefined;
   inline: ArticleInlineSlot[];
+  answerGate: boolean;
 }) {
-  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions, inline)} />;
+  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions, inline, answerGate)} />;
 }
 
 /**
@@ -288,6 +296,8 @@ export async function renderDocPage(slugStr: string) {
       if (p.program && inlineCareerCardsRendered++ > 0) return null;
       return <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} managedPixels />;
     },
+    // 解説を絞ったページで、ExamPoint の位置に置いた導線（rehype-answer-reveal.ts）
+    answerupsell: () => <AnswerUpsell slug={slugStr} />,
   };
   const componentsWithMid =
     midSlots.length > 0
@@ -367,6 +377,7 @@ export async function renderDocPage(slugStr: string) {
                   components={componentsWithMid}
                   midCtaPositions={effectiveMidPositions}
                   inline={inline}
+                  answerGate={isAnswerGated(slugStr)}
                 />
               </div>
               {endNoteSlot && <MagazineHeroCta id={endNoteSlot.magazineId}
