@@ -27,3 +27,15 @@ test('対象のページの問題は正答の理由だけ残し、ほかの理�
   assert.equal(unscored, dataset.questions[2]);
   assert.equal(dataset.questions[0].examPoint.summary, '要点');
 });
+
+test('解説を絞るページは、導線の先の合本（content/kindle/books/d-00/spec.json の sources）に収録している', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { REPO_ROOT } = await import('../scripts/lib/repository-paths.mjs');
+  const gate = JSON.parse(readFileSync(`${REPO_ROOT}/src/config/answer-gate.json`, 'utf8'));
+  const spec = JSON.parse(readFileSync(`${REPO_ROOT}/content/kindle/books/d-00/spec.json`, 'utf8'));
+  assert.equal(gate.productId, 'pe1-takuitsu-pdf', '導線の商品を変えたら、収録元の spec もここで差し替える');
+  const sources = new Set(spec.sources.map((s) => (typeof s === 'string' ? s : s.path ?? s.file)));
+  const missing = gate.slugs.filter((slug) => !sources.has(`content/site/pe-first-stage/${slug.replace(/^pe-first-stage-/, '')}/article.mdx`));
+  assert.ok(gate.slugs.length > 0);
+  assert.deepEqual(missing, [], '合本に入っていないページの解説を絞ると、導線の先で読めない');
+});

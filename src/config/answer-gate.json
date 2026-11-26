@@ -1,10 +1,9 @@
 {
   "_doc": "docs/products/09_技術士一次_有料商品とサイトの線引き.md",
-  "description": "解説を正答の選択肢の理由だけに絞る過去問ページ（記事の slug。演習アプリは pe-first-stage- ＋記事のディレクトリ名で引く）。ほかの選択肢の理由と ExamPoint はサイトと演習アプリ（Web）から外し、導線を置く。外せば元に戻る。MDX は書き換えない。",
+  "description": "解説を正答の選択肢の理由だけに絞る過去問ページ（記事の slug。演習アプリは pe-first-stage- ＋記事のディレクトリ名で引く）。ほかの選択肢の理由と ExamPoint はサイトと演習アプリ（Web）から外し、導線を置く。外せば元に戻る。導線の先の合本に収録していない年度（R01 再試験など）は入れない。MDX は書き換えない。",
   "productId": "pe1-takuitsu-pdf",
   "slugs": [
     "pe-first-stage-r01-construction",
-    "pe-first-stage-r01-retry-construction",
     "pe-first-stage-r02-construction",
     "pe-first-stage-r03-construction",
     "pe-first-stage-r04-construction",
