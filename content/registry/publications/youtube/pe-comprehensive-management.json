@@ -408,7 +408,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-toshiyomi-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -433,13 +433,38 @@
         "contentSha256": "cc9a2f85fd8a9f2ed98db111590b396499c28cba04017561c7cc240a5ac722c6"
       },
       "times": {
-        "rendered": "2026-11-25T13:01:03.352Z"
+        "rendered": "2026-11-25T13:01:03.352Z",
+        "uploaded": "2026-11-26T12:53:49.923Z"
       },
       "delivery": {
         "inputSha256": "18c4869b9a17c31d45b1c66bb24bfed4b6d11a3a9377f0ca770bf36ccb9235af",
         "marker": "dn-single-45c4aa9fd368c2058f4e922207358f569c4f68fd",
         "uploadRequestedAt": "2026-11-25T13:02:51.754Z",
-        "videoId": "KLruwGv6vx4"
+        "videoId": "KLruwGv6vx4",
+        "processedAt": "2026-11-26T12:53:49.150Z",
+        "thumbnailRequestedAt": "2026-11-26T12:53:49.954Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/KLruwGv6vx4/default.jpg?sqp=CPjVoNgG&rs=AOn4CLBazHnNwr5nOO0SD2b2O30XzQDlPg",
+          "https://i9.ytimg.com/vi/KLruwGv6vx4/mqdefault.jpg?sqp=CPjVoNgG&rs=AOn4CLArSk3jWOfCtd1PJ3JdhZ5D4JkRfg",
+          "https://i9.ytimg.com/vi/KLruwGv6vx4/hqdefault.jpg?sqp=CPjVoNgG&rs=AOn4CLCjhl1xalhSQ4XuEnOBVUoBR83o0Q",
+          "https://i9.ytimg.com/vi/KLruwGv6vx4/sddefault.jpg?sqp=CPjVoNgG&rs=AOn4CLAuRfmfC91LP1R9tUM99niwSqjpSg",
+          "https://i9.ytimg.com/vi/KLruwGv6vx4/maxresdefault.jpg?sqp=CPjVoNgG&rs=AOn4CLAn21gaHF1qQ6PxL8-wYT0e250DOA",
+          "https://i9.ytimg.com/vi/KLruwGv6vx4/sardefault.jpg?sqp=CPjVoNgG&rs=AOn4CLAlKjwsZ2wzknOIDijqYTmza023GA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-26T12:53:53.413Z"
+      },
+      "platform": {
+        "id": "KLruwGv6vx4",
+        "url": "https://www.youtube.com/watch?v=KLruwGv6vx4",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-26T12:53:53.413Z"
       }
     },
     {
