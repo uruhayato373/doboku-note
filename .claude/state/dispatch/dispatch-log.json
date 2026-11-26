@@ -11056,6 +11056,19 @@
       "commit": "cb7ecb62afdc",
       "verification": "公開 API で 22 本の is_limited・circle_plans・価格を実測（2026-11-25）",
       "note": "運営者の決定（2026-11-25）で実害なしとして閉じた。合格ラボの会員専用マガジン・添削つきプラン・勧誘記事は削除済み（11/04）、有料の特典誌は紐づけを外して単品販売を継続。22 記事は is_limited=true のまま（circle_plans・belonging_magazine_keys は空、価格 0）で、隠れているのは末尾の「以上、〜でした。」だけ。公開設定の画面に外す操作は見当たらなかった。原稿の memberTrial: bottom は試し読みラインを末尾直前に置く指定として残す"
+    },
+    {
+      "id": "DN-1304",
+      "at": "2026-11-26",
+      "task": "技術士一次 建設専門の解説で未確認の肢を一次情報で確かめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1797df9f5ad1",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
