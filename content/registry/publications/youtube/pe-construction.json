@@ -2830,10 +2830,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-shugo-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-shugo-2",
       "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/video",
+        "cover": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cover",
+        "contact-sheet": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/contact-sheet",
+        "subtitles": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/subtitles"
+      },
+      "publishAt": "2026-11-28T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-26T12:58:11.575Z",
+          "digest": "987058b9e770a0fc6c261c7c322f4dc9c5b0afbb041880af840a8b4262deb10b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-26T12:58:11.575Z",
+        "contentSha256": "6bb5cb49c94fa11040ec4d384888b5137cf9d4de7758b0d5b8c03a93ca76e4c1"
+      },
+      "times": {
+        "rendered": "2026-11-26T12:58:11.768Z"
+      }
     },
     {
       "id": "pe-construction/toan-kousei-template/youtube.longform",
