@@ -219,7 +219,8 @@ async function preprocess(body, articleDir, images, imageSrc) {
 }
 
 // ---- 最小 markdown → XHTML レンダラ ---------------------------------------
-const inlineMd = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+// 本文の Markdown リンク（e-Gov の条文など）は Kindle では押して確かめる先にならず、生の記法が見えるので文字だけにする（2026-11-26）
+const inlineMd = (s) => xesc(s.replace(/\[([^\]\n]+)\]\([^)\s]+\)/g, '$1')).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
 
 function mdToXhtml(text) {
   const lines = text.split('\n')
