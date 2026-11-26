@@ -2882,7 +2882,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-shugo-2"
-        }
+        },
+        "relatedVideoId": "pFA-tQYJQTs",
+        "desiredRelatedVideoId": "pFA-tQYJQTs"
       },
       "thumbnail": {
         "status": "set",
