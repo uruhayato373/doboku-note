@@ -180,6 +180,12 @@
         ]
       },
       {
+        "match": "^coconala-pe-construction-",
+        "cells": [
+          "pe-construction:written"
+        ]
+      },
+      {
         "match": "^coconala-rccm-",
         "cells": [
           "rccm:written"
