@@ -408,7 +408,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-toshiyomi-1",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -434,7 +434,8 @@
       },
       "times": {
         "rendered": "2026-11-25T13:01:03.352Z",
-        "uploaded": "2026-11-26T12:53:49.923Z"
+        "uploaded": "2026-11-26T12:53:49.923Z",
+        "scheduled": "2026-11-26T13:04:43.449Z"
       },
       "delivery": {
         "inputSha256": "18c4869b9a17c31d45b1c66bb24bfed4b6d11a3a9377f0ca770bf36ccb9235af",
@@ -451,7 +452,10 @@
           "https://i9.ytimg.com/vi/KLruwGv6vx4/maxresdefault.jpg?sqp=CPjVoNgG&rs=AOn4CLAn21gaHF1qQ6PxL8-wYT0e250DOA",
           "https://i9.ytimg.com/vi/KLruwGv6vx4/sardefault.jpg?sqp=CPjVoNgG&rs=AOn4CLAlKjwsZ2wzknOIDijqYTmza023GA"
         ],
-        "thumbnailAcceptedAt": "2026-11-26T12:53:53.413Z"
+        "thumbnailAcceptedAt": "2026-11-26T12:53:53.413Z",
+        "scheduleRequestedAt": "2026-11-26T13:04:38.758Z",
+        "scheduleAt": "2026-11-27T08:30:00Z",
+        "scheduledVerifiedAt": "2026-11-26T13:04:43.449Z"
       },
       "platform": {
         "id": "KLruwGv6vx4",
