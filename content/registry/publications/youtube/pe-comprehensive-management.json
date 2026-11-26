@@ -473,7 +473,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-youso-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -498,13 +498,38 @@
         "contentSha256": "10f4f89918ef6e3a93afbda1f36f9e80fcd9668b784fa8cf3917914b886ac18a"
       },
       "times": {
-        "rendered": "2026-11-25T13:03:23.223Z"
+        "rendered": "2026-11-25T13:03:23.223Z",
+        "uploaded": "2026-11-26T12:55:13.664Z"
       },
       "delivery": {
         "inputSha256": "22b10b3fe9d6e131c5c1a7d80ade95317b11805b37ea58beddeb9f45d377e1b3",
         "marker": "dn-single-5015c35249b80c8006bd24e4465daa00946337fc",
         "uploadRequestedAt": "2026-11-25T13:05:00.617Z",
-        "videoId": "f-UHf-lgfJE"
+        "videoId": "f-UHf-lgfJE",
+        "processedAt": "2026-11-26T12:55:13.082Z",
+        "thumbnailRequestedAt": "2026-11-26T12:55:13.697Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/f-UHf-lgfJE/default.jpg?sqp=CKTYoNgG&rs=AOn4CLD3lRge1moAcYmJDSMPDVWcwkqd7w",
+          "https://i9.ytimg.com/vi/f-UHf-lgfJE/mqdefault.jpg?sqp=CKTYoNgG&rs=AOn4CLCM6ZmvIti_l0-MvBUeDuz8y2T1Kg",
+          "https://i9.ytimg.com/vi/f-UHf-lgfJE/hqdefault.jpg?sqp=CKTYoNgG&rs=AOn4CLDNXU5EMcvPN2Ab6KQa2ey8ebEfkg",
+          "https://i9.ytimg.com/vi/f-UHf-lgfJE/sddefault.jpg?sqp=CKTYoNgG&rs=AOn4CLBbwuf0OCyqIyjFvkTWtPAW4DqzBA",
+          "https://i9.ytimg.com/vi/f-UHf-lgfJE/maxresdefault.jpg?sqp=CKTYoNgG&rs=AOn4CLCxOXIyo9FLJUjonnItty66OtjLag",
+          "https://i9.ytimg.com/vi/f-UHf-lgfJE/sardefault.jpg?sqp=CKTYoNgG&rs=AOn4CLAN41Pftidb0iQyk83XPGzewSu8NQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-26T12:55:18.857Z"
+      },
+      "platform": {
+        "id": "f-UHf-lgfJE",
+        "url": "https://www.youtube.com/watch?v=f-UHf-lgfJE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-26T12:55:18.857Z"
       }
     },
     {
