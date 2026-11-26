@@ -1913,7 +1913,7 @@
       "work": "pe-kojutsu-fukabori",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-construction/pe-kojutsu-fukabori/youtube.longform/cover",
         "scene-001": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001",
@@ -1974,11 +1974,12 @@
       "platform": {
         "id": "2T3NCge7Rcs",
         "url": "https://www.youtube.com/watch?v=2T3NCge7Rcs",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-26T05:28:08.707Z"
+        },
+        "publishedAt": "2026-11-25T11:30:27.000Z"
       },
       "thumbnail": {
         "status": "set",

@@ -1,10 +1,12 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-25T05:41:11.017Z",
+  "checkedAt": "2026-11-26T05:28:08.707Z",
   "channel": "youtube",
-  "targets": 98,
-  "checked": 98,
-  "observed": 98,
-  "advanced": [],
+  "targets": 99,
+  "checked": 99,
+  "observed": 99,
+  "advanced": [
+    "pe-construction/pe-kojutsu-fukabori/youtube.longform"
+  ],
   "findings": []
 }
