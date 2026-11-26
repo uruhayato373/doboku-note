@@ -1,5 +1,12 @@
 import Image from "next/image";
 import { toR2Url } from "@/lib/r2-image-loader";
+import displayWidths from "@/config/figure-display-width.json";
+import ZoomableFigure from "./ZoomableFigure";
+
+/** 文字が本文と同じくらいに見える表示幅（scripts/content/measure-figure-text-size.mjs が書く）。上限にだけ使い、広げない */
+const DISPLAY_WIDTHS = displayWidths as Record<string, number>;
+/** 縮めすぎない下限（px） */
+const MIN_DISPLAY_PX = 320;
 
 interface ArticleImageProps {
   src: string;
@@ -33,9 +40,11 @@ export default function ArticleImage({
   const isSvg = src.endsWith(".svg");
   const containerClass = isSvg ? "w-full max-w-2xl mx-auto px-6" : sizeClasses[size];
 
+  const cap = isSvg ? undefined : DISPLAY_WIDTHS[src];
   return (
     <figure
       className={`my-8 ${containerClass} ${className}`}
+      style={cap ? { maxWidth: Math.max(cap, MIN_DISPLAY_PX) } : undefined}
     >
       <div className="w-full">
         {isSvg ? (
@@ -55,6 +64,7 @@ export default function ArticleImage({
             }}
           />
         ) : (
+          <ZoomableFigure src={src} alt={alt}>
           <Image
             src={src}
             alt={alt}
@@ -68,6 +78,7 @@ export default function ArticleImage({
               borderRadius: "2px",
             }}
           />
+          </ZoomableFigure>
         )}
       </div>
       {caption && (
