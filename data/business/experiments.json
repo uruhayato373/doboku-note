@@ -10978,6 +10978,71 @@
           "summary": "前提の変更: 当初は「手動だけで 3 週の基準を取り 12/14 ごろに自動広告を足して比べる」計画だったが、手動の枠が多すぎて AdSense が上から約 19 枠しか処理しないと分かり、運営者判断で本文の手動の枠を自動広告に置き換える PR #1720 を出した。比較を「置き換えの前後」に書き換える"
         }
       ]
+    },
+    {
+      "id": "EXP-067",
+      "title": "技術士一次 建設専門 R01〜R05 の過去問ページの解説を正答の理由だけにし、合本 PDF への導線を置く",
+      "hypothesis": "過去問ページの流入は「試験名＋年度＋過去問／解説」の検索と繰り返しの利用で、解説の本文で来ていない（GSC 851 クリック中、論点語は 5）。建設専門の全選択肢の理由と要点は無料でどこにも無い。正答の理由だけを無料に残し、ほかの選択肢の理由と要点を合本 PDF に寄せれば、閲覧を大きく落とさずに合本・直前パックの売上か建設専門の Kindle の既読が増える",
+      "target_metric": "対象（R01〜R05 建設専門）と比べる相手（R06・R07 建設専門）の GA4 セッションの比・合本（pe1-takuitsu-pdf）と直前パック（pe1-chokuzen-pack）の note 売上・Kindle d-03 の売上と既読・導線のクリック（note_cta_click の label pe1-takuitsu-pdf:<slug>-answer・placement answer）",
+      "target_delta": "本番反映から 28 日で、続ける＝セッションの比が基準 0.822 から 2 割以上落ちず（0.658 以上）、かつ合本・直前パックの売上か d-03 の売上・既読が基準より増える。戻す＝比が 3 割以上落ち（0.575 未満）、売上も増えない（src/config/answer-gate.json から slug を外すだけで戻る）。それ以外は期間を延ばして再計測",
+      "status": "running",
+      "created_at": "2026-11-26",
+      "started_at": "2026-11-26",
+      "next_check_date": "2026-12-24",
+      "updated_at": "2026-11-26T10:33:21.293Z",
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "技術士一次の建設専門の過去問を解いたあと、誤りの選択肢がなぜ誤りかと問題の引っかけまで確かめたい（対象は重点 4 資格の外の pe-first-stage だが、確かめるのは「無料の解説の深さと有料の中身の線引き」で、効けばほかの資格の過去問にも当てる判断材料になるので all）",
+        "verifiedGap": "建設専門の全選択肢の誤りの理由は無料の競合（過去問.com・SUKIYAKI塾 PDF・個人ブログ）に無く、有料だけにある（2026-11-26 実ページで確認）。一方サイトは全問の全選択肢の理由を無料で出し、同じ中身の合本 PDF の単品は売上 0 件（docs/products/09_技術士一次_有料商品とサイトの線引き.md）",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-11-21T04-37-45-265Z-d2f725dc-9d00-4b85-8415-484d8387e5ef.json"
+      },
+      "baseline": {
+        "measured_at": "2026-11-26",
+        "source": "data/ga4/reports/2026-11-20.json の page（2026-10-23〜11-19）・data/note/sales.json・data/kdp/royalties.json",
+        "period": {
+          "startDate": "2026-10-23",
+          "endDate": "2026-11-19"
+        },
+        "sessionsTarget": 737,
+        "sessionsTargetByYear": {
+          "r01": 55,
+          "r02": 84,
+          "r03": 200,
+          "r04": 170,
+          "r05": 228
+        },
+        "sessionsControl": 897,
+        "sessionsControlByYear": {
+          "r06": 314,
+          "r07": 583
+        },
+        "sessionRatio": 0.822,
+        "noteSales": "合本 単品 0 件・直前パック 6 件（10/22〜11/18）",
+        "kindleD03": "11 月の既読 ¥39・購入は 8 月だけ",
+        "note": "基準期間は試験（11/22）の直前で、反映後は試験直後の閑散期になる。絶対数ではなく対象と比べる相手の比で読む。AdSense のページ別は 11/23 に GA4 とつないだばかりで基準が無い。欠測は 0 と扱わない。R01 再試験は合本に無いので対象から外した（PR #1763）"
+      },
+      "pending_user_actions": [],
+      "history": [
+        {
+          "at": "2026-11-26T10:33:21.293Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-26T10:33:21.293Z",
+          "event": "implemented",
+          "change": "建設専門 8 ページの解説を直して裏取りし（DN-1304）、合本 PDF に分野別索引と頻出論点表を足して note を差し替え、Kindle d-03 を差し替え。サイトと演習アプリ（Web）の R01〜R05 は正答の理由だけにし、要点の位置に合本への導線（#1762・#1763）"
+        },
+        {
+          "at": "2026-11-26T10:33:21.293Z",
+          "event": "deployed",
+          "deploy": {
+            "sha": "001522108",
+            "at": "2026-11-26",
+            "run": "https://github.com/uruhayato373/doboku-note/actions/runs/45800784056"
+          }
+        }
+      ]
     }
   ]
 }
