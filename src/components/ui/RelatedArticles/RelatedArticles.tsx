@@ -10,10 +10,13 @@
  * 2026-07: テキストリンクから OGP サムネイル カードグリッドへ刷新（クリック誘発）。
  * 自己抑制: 関連が 2 件未満なら何も描画しない（タグが薄い過去問ページ等で薄いセクションや
  * 既存の RelatedTextbooks / RelatedKeywords との重複を避ける）。
+ *
+ * 2026-11-26: 写真の大きいカード（スマホで 6 枚 約 1,800px）から、左に小さい写真の行（ArticleThumbRow）へ。
+ * 記事末の回遊がスマホで本文の半分の長さになり、次の 1 本が目に入らなかった。次のステップ・前後の記事と同じ形にそろえる。
  */
 import type { DocMeta } from '@/lib/docs';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
+import ArticleThumbRow from '@/components/ui/ArticleThumbRow/ArticleThumbRow';
 import { articleCardProps } from '@/lib/article-card';
 import { rankRelated } from '@/lib/related-score';
 
@@ -30,12 +33,15 @@ export default function RelatedArticles({ currentMeta, categoryArticles, exclude
 
   return (
     <MetaCard trackNav="related-articles" title="関連記事" lead={`同じテーマの記事 (${related.length} 件)`}>
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 zenn-desktop:grid-cols-3">
-        {related.map((doc) => (
-          <li key={doc.slug}>
-            <ArticleCard {...articleCardProps(doc)} />
-          </li>
-        ))}
+      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {related.map((doc) => {
+          const card = articleCardProps(doc);
+          return (
+            <li key={doc.slug}>
+              <ArticleThumbRow href={card.href} title={doc.shortTitle ?? card.title} caption={card.description} image={card.image} />
+            </li>
+          );
+        })}
       </ul>
     </MetaCard>
   );

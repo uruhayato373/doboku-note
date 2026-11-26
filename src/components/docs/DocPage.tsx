@@ -24,6 +24,7 @@ import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
 import rehypeAnswerReveal from '@/lib/rehype-answer-reveal';
+import rehypeYearLinks from '@/lib/rehype-year-links';
 import { isAnswerGated } from '@/lib/answer-gate';
 import AnswerUpsell from '@/components/ui/AnswerUpsell/AnswerUpsell';
 import rehypeMidCta from '@/lib/rehype-mid-cta';
@@ -74,6 +75,8 @@ function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInl
     rehypeExamReferences,
     // 解説を絞るページ（src/config/answer-gate.json）は正答の選択肢の理由だけを残す
     [rehypeAnswerReveal, { gate: answerGate }] satisfies Pluggable,
+    // 年度の過去問一覧（5 項目以上のリンクだけの箇条書き）をチップに見せる目印
+    rehypeYearLinks,
     // 本文中の外部リンク。note.com だけ referrer を渡す（判定は external-link-rel.ts に集約）
     [rehypeExternalLinks, { target: '_blank', rel: (el) => externalLinkRel(String(el.properties?.href ?? '')) }] satisfies Pluggable,
   ];
