@@ -172,6 +172,17 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1306] Kindle 合本 d-00 の出版を停止して台帳を直す
+タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-11-26]
+
+技術士一次の商品を 7 本から 6 本に減らす判断（docs/products/09_技術士一次_有料商品とサイトの線引き.md・2026-11-26）で、Kindle 合本 d-00（ASIN B0H96JKYCX・¥1,480・8〜11 月で購入 0）の販売を止める。運営者が 2026-11-26 に「今止める」と承認し、操作は「あとで押す」とした。
+
+1. 運営者が KDP の本棚で ASIN B0H96JKYCX を検索し、行の「…」から「出版を停止」を押す（kdp-publish.mjs に停止の手順は無い）。
+2. エージェントが `npm run product -- set kindle-d-00 catalog.status '"unpublished"'` で正本を直し、`node scripts/kindle/kdp-publish.mjs --sync-status` で本棚の表示と照合する。
+
+完了条件: 本棚の d-00 が出版停止の表示で、config/products.json の kindle-d-00 の catalog.status が unpublished。
+
+
 ### [DN-1305] コンクリート技士 施工の章：暑中の35℃を示方書の荷卸し時と誤記
 タグ: [領域:教材] [時期:2026-11] [種類:不具合] [起票:2026-11-26]
 

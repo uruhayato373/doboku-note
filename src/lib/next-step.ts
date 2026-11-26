@@ -54,8 +54,21 @@ const STEPS: Record<string, StepSpec[]> = {
   ],
 };
 
+// 第2次検定（記述）のガイドは、第1次の過去問・分野別の要点ではなく第2次検定の節へ送る（2026-11-26・
+// 2級の採点ガイドの「過去問で実力をためす」が第1次検定の過去問に、「他の分野の要点」が盛土の要点に行っていた）。
+// 資格ページに #sec-secondary がある資格だけ。どのガイドが第2次かは分野別の並び（category-curriculum.json）の secondary の塊で決める。
+const SECONDARY_STEP: StepSpec = { anchor: 'secondary', label: '第2次検定の過去問で答案を練習する', hint: '年度別の経験記述・学科記述' };
+const SECONDARY_CATEGORIES = new Set(['civil-construction-1', 'civil-construction-2']);
+
+/** 現在のガイドが第2次検定の塊に入っているか */
+function isSecondaryGuide(category: string, currentSlug: string | undefined): boolean {
+  if (!currentSlug) return false;
+  const block = getCategoryCurriculum(category)?.fields?.blocks.find((b) => b.id === 'secondary');
+  return Boolean(block?.slugs.some((suffix) => `${category}-${suffix}` === currentSlug));
+}
+
 /** アンカー（節の id）→ 記事型。`fields` は型でなく分野別の並び（category-curriculum.json）の先頭を使う */
-const ANCHOR_GROUP: Record<string, DocGroupKey> = { primary: 'primary', textbook: 'textbook', pastExam: 'pastExam', keyword: 'keyword' };
+const ANCHOR_GROUP: Record<string, DocGroupKey> = { primary: 'primary', secondary: 'secondary', textbook: 'textbook', pastExam: 'pastExam', keyword: 'keyword' };
 
 /** 行き先の節の代表の記事。教科書は章順の先頭、ほかは最新の年度（年度の無い記事は一覧の並びの先頭）。現在の記事・転職記事は除く */
 function representativeDoc(category: string, anchor: string, docs: readonly DocMeta[], currentSlug: string | undefined): DocMeta | undefined {
@@ -73,7 +86,9 @@ function representativeDoc(category: string, anchor: string, docs: readonly DocM
 }
 
 export function resolveNextSteps(category: string, docs: readonly DocMeta[] = [], currentSlug?: string): NextStep[] {
-  const steps = STEPS[category];
+  const steps = SECONDARY_CATEGORIES.has(category) && isSecondaryGuide(category, currentSlug)
+    ? [SECONDARY_STEP, ...(STEPS[category] ?? []).filter((s) => !['primary', 'fields', SECONDARY_STEP.anchor].includes(s.anchor))]
+    : STEPS[category];
   if (!steps) return [];
   return steps.map((s) => {
     const doc = representativeDoc(category, s.anchor, docs, currentSlug);

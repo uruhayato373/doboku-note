@@ -170,7 +170,8 @@ test('記事末の配線: 法令 → テーマ → 関連記事の順に、先�
   const footer = read('src/components/docs/ArticleFooter.tsx');
   assert.ok(footer.includes('<TopicHubLinks links={topicLinks} />'), '記事末に「この記事のテーマ」が無い');
   assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />'), '根拠法令のカードに同じ法令の記事・関わるテーマ・法令ページが渡っていない');
-  assert.ok(footer.includes('exclude={shownSlugs}'), '関連記事が先のカードの記事を外していない');
+  // 2026-11-26: 前の記事・次に読む（series）と次のステップで出した記事も外す（relatedExclude は shownSlugs を含む）
+  assert.ok(footer.includes('exclude={relatedExclude}') && /relatedExclude = new Set\(\[\.\.\.shownSlugs\b/.test(footer), '関連記事が先のカードの記事を外していない');
   assert.ok(footer.indexOf('<ArticleLaws') < footer.indexOf('<TopicHubLinks') && footer.indexOf('<TopicHubLinks') < footer.indexOf('<RelatedArticles'),
     '記事末の並び（法令 → テーマ → 関連記事）が崩れている');
 });
