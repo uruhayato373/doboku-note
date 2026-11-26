@@ -410,6 +410,7 @@
     "dev": "node scripts/local/dev-server.mjs",
     "diff-r2": "node scripts/diff-r2/diff-r2.mjs",
     "download-images": "node scripts/sync-r2-images/download-images-from-r2.mjs",
+    "measure-figure-text-size": "node scripts/content/measure-figure-text-size.mjs",
     "fetch-ga4-cta-clicks": "node scripts/search/fetch-ga4-cta-clicks.mjs",
     "fetch-ga4-data": "node scripts/search/fetch-ga4-data.mjs",
     "fetch-ga4-web-vitals": "node scripts/search/fetch-ga4-web-vitals.mjs",

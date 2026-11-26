@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getDoc, getAllDocsMeta, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import PageShell from '@/components/layout/PageShell';
 import QuestionJumpNav from '@/components/docs/QuestionJumpNav';
+import { questionJumpLinks } from '@/lib/question-jump-links';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
@@ -22,6 +23,9 @@ import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
+import rehypeAnswerReveal from '@/lib/rehype-answer-reveal';
+import { isAnswerGated } from '@/lib/answer-gate';
+import AnswerUpsell from '@/components/ui/AnswerUpsell/AnswerUpsell';
 import rehypeMidCta from '@/lib/rehype-mid-cta';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -62,12 +66,14 @@ type ArticleInlineSlot = { line: number; slot: string; afterLabel: string };
  * MDX コンパイルオプションを組み立てる。midCtaPositions が空でないときのみ
  * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を挿入する（1〜3 個）。
  */
-function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInlineSlot[] = []) {
+function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInlineSlot[] = [], answerGate = false) {
   const rehypePlugins: Pluggable[] = [
     rehypeHeadingIds,
     rehypeKatex,
     rehypeScrollableFocus,
     rehypeExamReferences,
+    // 解説を絞るページ（src/config/answer-gate.json）は正答の選択肢の理由だけを残す
+    [rehypeAnswerReveal, { gate: answerGate }] satisfies Pluggable,
     // 本文中の外部リンク。note.com だけ referrer を渡す（判定は external-link-rel.ts に集約）
     [rehypeExternalLinks, { target: '_blank', rel: (el) => externalLinkRel(String(el.properties?.href ?? '')) }] satisfies Pluggable,
   ];
@@ -93,13 +99,15 @@ function SafeMDXRemote({
   components,
   midCtaPositions,
   inline,
+  answerGate,
 }: {
   source: string;
   components: React.ComponentProps<typeof MDXProvider>['components'];
   midCtaPositions?: readonly number[] | undefined;
   inline: ArticleInlineSlot[];
+  answerGate: boolean;
 }) {
-  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions, inline)} />;
+  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions, inline, answerGate)} />;
 }
 
 /**
@@ -258,10 +266,9 @@ export async function renderDocPage(slugStr: string) {
   const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
   const showTableOfContents = !isQuestionSeries && headings.some((h) => h.level === 2);
 
-  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
+  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
   const midSlots = midKinds.map(kind => () => {
     if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
-    if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
     return <MidArticleCta mode="career" card={careerMidCard!} managedPixels />;
   });
   // 多列データ表（ふるい分け 9 列・圧縮試験 5 列等）はモバイル 375px で画面外へはみ出し、
@@ -286,6 +293,8 @@ export async function renderDocPage(slugStr: string) {
       if (p.program && inlineCareerCardsRendered++ > 0) return null;
       return <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} managedPixels />;
     },
+    // 解説を絞ったページで、ExamPoint の位置に置いた導線（rehype-answer-reveal.ts）
+    answerupsell: () => <AnswerUpsell slug={slugStr} />,
   };
   const componentsWithMid =
     midSlots.length > 0
@@ -323,7 +332,7 @@ export async function renderDocPage(slugStr: string) {
             {/* Editorial article card: 12px radius, soft border + shadow。
                 横 padding = タブレット40(px-10) / デスクトップ44(zenn-desktop:px-11)。
                 ≤576px は角丸・左右枠を外し px = var(--article-gutter-sp)（設問カード details のフルブリード相殺と連動） */}
-            <article className="bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-(--article-gutter-sp)">
+            <article data-question-column={isQuestionSeries || undefined} className="bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-(--article-gutter-sp)">
               {/* 記事ヘッダー: breadcrumb + H1 + description リード + byline を集約 */}
               <ArticleHeader
                 title={doc.meta.title}
@@ -341,7 +350,7 @@ export async function renderDocPage(slugStr: string) {
                 </div>
               )}
               {/* 年度別過去問: 問1へのリンクと折りたたみ番号一覧（5 問以上） */}
-              {isQuestionSeries && <QuestionJumpNav headings={headings} />}
+              {isQuestionSeries && <QuestionJumpNav headings={headings} {...questionJumpLinks(slugStr, category, categoryArticles)} />}
               {/* 記事冒頭 CTA。全ページで小さめ表示（左に小さな表紙・右に商品名とボタン）。752×376 の画像が最初の画面の
                   4 割を占めて本文の書き出しを押し下げていた（2026-11-15 運営者指摘）。未公開は非表示 */}
               {topSlot && topMagazine && (
@@ -365,6 +374,7 @@ export async function renderDocPage(slugStr: string) {
                   components={componentsWithMid}
                   midCtaPositions={effectiveMidPositions}
                   inline={inline}
+                  answerGate={isAnswerGated(slugStr)}
                 />
               </div>
               {endNoteSlot && <MagazineHeroCta id={endNoteSlot.magazineId}

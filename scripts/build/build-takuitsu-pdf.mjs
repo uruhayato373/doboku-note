@@ -15,7 +15,7 @@
 //   - MDX→XHTML 変換ロジック（preprocess/mdToXhtml/ExamPoint/年度スコープ画像/sanitizeMathml）は
 //     build-pe1-kindle.mjs から複製（共通 lib 化は前回 mdToXhtml 統合で回帰したため意図的に避ける）
 //
-// npm run build-takuitsu-pdf — 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
+// npm run build-takuitsu-pdf — 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き、任意`fieldIndex`（分野と論点の JSON）で専門科目の分野別索引と頻出論点の表を足す。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve, basename, dirname } from 'node:path'
@@ -320,6 +320,53 @@ ${answerGrid('適性科目（全15問必須）', 15, '15問すべてに解答し
 ${answerGrid('専門科目（全35問から25問を選択）', 35, '解答した25問の番号だけ記入し、未選択10問は空欄にします。')}</section>`
 }
 
+// ---- 専門科目の分野別索引・頻出論点（spec.fieldIndex・2026-11-26） ----------------
+// 合本 PDF にだけ入れる中身（サイトの過去問ページには無い）。spec.fieldIndex は
+// { fields: [11 分野], questions: [{ year, no, field, topic, summary }] } の JSON（年度は r01・r02…）。
+// 索引は spec.sources に入っている年度の問題だけを出す（収録していない年度を載せない）。
+// 頻出論点の表は要点（ExamPoint の summary）が答えの手がかりになるので、問題冊子には付けない。
+function yearLabel(year) {
+  const m = /^r(\d{2})(-retry)?$/.exec(year)
+  if (!m) return year
+  const n = Number(m[1])
+  return `${n === 1 ? '令和元' : `令和${n}`}年度${m[2] ? '（再試験）' : ''}`
+}
+/** 頻出論点の表の「出題」の欄は短く（r01 → R1、r01-retry → R1再）。長いと年度と番号が 2 行に折り返す */
+function shortYear(year) {
+  const m = /^r(\d{2})(-retry)?$/.exec(year)
+  return m ? `R${Number(m[1])}${m[2] ? '再' : ''}` : year
+}
+function buildFieldIndex(spec, edition) {
+  if (!spec.fieldIndex) return ''
+  const data = JSON.parse(readFileSync(resolve(REPO, spec.fieldIndex), 'utf8'))
+  const included = new Set(spec.sources.map((s) => (/pe-first-stage\/([a-z0-9-]+?)-construction\//.exec(s) || [])[1]).filter(Boolean))
+  const qs = data.questions.filter((q) => included.has(q.year))
+  if (qs.length === 0) throw new Error(`fieldIndex に収録年度の問題が無い: ${spec.fieldIndex}`)
+  const rows = (list) => list.map((q) => `<tr><td>${xesc(yearLabel(q.year))}</td><td>${xesc(q.no)}</td><td>${xesc(q.topic)}</td></tr>`).join('')
+  const byField = data.fields.map((f) => [f, qs.filter((q) => q.field === f)]).filter(([, list]) => list.length)
+  let html = `<section class="worksheet"><h1>専門科目（建設部門） 分野別索引</h1>
+<p class="lead">専門科目は35問から25問を選んで解きます。得意な分野と捨てる分野を決めるときに、分野ごとの出題（${qs.length}問）をここから引いてください。</p>
+<table class="sheet-table"><thead><tr><th>分野</th><th>問題数</th></tr></thead><tbody>${byField.map(([f, list]) => `<tr><td>${xesc(f)}</td><td>${list.length}</td></tr>`).join('')}</tbody></table>
+${byField.map(([f, list]) => `<h2>${xesc(f)}（${list.length}問）</h2><table class="sheet-table"><thead><tr><th>年度</th><th>番号</th><th>論点</th></tr></thead><tbody>${rows(list)}</tbody></table>`).join('\n')}</section>`
+  if (edition !== 'problem') {
+    const byTopic = new Map()
+    for (const q of qs) {
+      const t = byTopic.get(q.topic) || { field: q.field, items: [] }
+      t.items.push(q)
+      byTopic.set(q.topic, t)
+    }
+    const frequent = [...byTopic.entries()]
+      .filter(([, t]) => new Set(t.items.map((q) => q.year)).size >= 2)
+      .sort((a, b) => b[1].items.length - a[1].items.length || a[0].localeCompare(b[0], 'ja'))
+    if (frequent.length) {
+      html += `<section class="worksheet"><h1>専門科目 頻出論点（2年度以上で出題）</h1>
+<p class="lead">年度をまたいで繰り返し出ている論点と、その問題の要点です。直前期はここから見直してください。出題の R1 は令和元年度です。</p>
+<table class="sheet-table"><thead><tr><th>論点</th><th>分野</th><th style="white-space:nowrap">回数</th><th style="white-space:nowrap">出題</th><th>要点</th></tr></thead><tbody>${frequent.map(([topic, t]) => `<tr><td>${xesc(topic)}</td><td>${xesc(t.field)}</td><td>${t.items.length}</td><td>${t.items.map((q) => `${xesc(shortYear(q.year))}&nbsp;${xesc(q.no)}`).join('<br/>')}</td><td>${t.items.map((q) => xesc(q.summary || '')).filter(Boolean).join('<br/>')}</td></tr>`).join('')}</tbody></table></section>`
+    }
+  }
+  return html
+}
+
 // ---- 問題冊子／解答解説への分割 ----------------------------------------------
 // 1問 = `## ` 見出しから次の見出しまで。解答は各問の <details>…</details>。
 // 1級土木などは要点（ExamPoint）を </details> の後ろに置くため、details の外にある
@@ -390,7 +437,7 @@ async function buildHtml(spec, edition) {
 
   // 答案記入シートは解く側の冊子にだけ付ける
   const sheets = edition === 'answer' ? '' : buildStudySheets(spec)
-  let bodyHtml = coverHtml + creditHtml + sheets + chapters.join('\n')
+  let bodyHtml = coverHtml + creditHtml + sheets + buildFieldIndex(spec, edition) + chapters.join('\n')
   // 画像 href → base64 data URI に差し替え（単一 HTML 埋め込み）
   for (const [href, dataUri] of images) bodyHtml = bodyHtml.split(`src="${href}"`).join(`src="${dataUri}"`)
 

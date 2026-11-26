@@ -34,8 +34,13 @@ export type QualificationBridgeSurface = 'practice-footer' | 'standards-chapter-
 
 export interface QualificationBridgeOption {
   readonly key: QualificationBridgeKey;
+  /** 読み手の立場（カードでは題名の上の小さな行・右の欄では題名） */
   readonly title: string;
+  /** 選ぶと何ができるか（カードの題名。2026-11-26 に立場の題名から替えた・表示 1,687 に対しクリック 8） */
+  readonly headline: string;
   readonly reason: string;
+  /** 行き先のガイドの資格（写真サムネイルを引くのに使う） */
+  readonly category: string;
   readonly slug: string;
 }
 
@@ -43,6 +48,8 @@ const QUALIFICATION_BRIDGE_OPTIONS: readonly QualificationBridgeOption[] = [
   {
     key: 'orderer',
     title: '発注者として工事監督・検査をしている',
+    headline: '監督・検査の経験で、1級土木を受ける',
+    category: 'civil-construction-1',
     reason:
       '発注工事の施工を指導・監督した経験は、1級土木の実務経験の対象になります（要件は個別に確認）。取る意味と経験の棚卸しへ。',
     slug: 'civil-construction-1-public-servant-merit',
@@ -50,12 +57,16 @@ const QUALIFICATION_BRIDGE_OPTIONS: readonly QualificationBridgeOption[] = [
   {
     key: 'contractor',
     title: '施工会社で現場を担当している',
+    headline: '19歳から、1級土木の第一次検定を受ける',
+    category: 'civil-construction-1',
     reason: '1級土木の第一次検定は、年度末に満19歳以上なら実務経験を問わず受検できます。試験の全体像へ。',
     slug: 'civil-construction-1-guide-exam-overview',
   },
   {
     key: 'qualification-map',
     title: 'どの資格から取るか迷っている',
+    headline: '1級土木・技術士・RCCMを、業務で比べる',
+    category: 'pe-comprehensive-management',
     reason: '1級土木・技術士・RCCM を、担当業務と取得順で比べます。',
     slug: 'pe-comprehensive-management-public-engineer-qualification-map',
   },
@@ -65,6 +76,8 @@ const QUALIFICATION_BRIDGE_OPTIONS: readonly QualificationBridgeOption[] = [
 const MUNICIPAL_OPTION: QualificationBridgeOption = {
   key: 'public-pe',
   title: '技術士を目指したい',
+  headline: '土木公務員が技術士を取る意味を知る',
+  category: 'pe-construction',
   reason: '技術士（建設部門）を土木公務員が取る意味と、受験で気をつけることへ。',
   slug: 'pe-construction-public-servant-merit',
 };
