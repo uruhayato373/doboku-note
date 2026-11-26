@@ -1883,14 +1883,14 @@
         "minVolume": 1,
         "note": "カード由来のイベントなので全ページを対象にする。事前窓は 0 が正常。クリック率（impression 比）と立場別の内訳は fetch-ga4-cta-clicks --by-label / --by-placement で週次レビューが見る。anchor は起票日で、本番反映が遅れたら反映日に直す"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-09-25T00:00:00.000Z",
       "started_at": "2026-09-25T00:00:00.000Z",
       "paused_at": null,
       "paused_reason": null,
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "partial: クリック 21 件で目標（20 件）は越えたが、クリック率は約 0.77% で基準（1.5%）に届かない。基準の「0.5〜1.5% は文言か位置を 1 つ変えて再計測」に当たる。後半はクリック率が 1.27% → 0.47% に落ちた（10/22 の自治体向けの出し分け・11/12 の過去問 1 問の併設と重なる）",
+      "learnings": "カードは実務記事の記事末で、本文の終わりから約 1,100px 下（前後の記事・参考資料・根拠法令・転職バナーの下）にあり、表示は実務記事のセッションの約 4 分の 1（1,099 / 4,326）にとどまった。押される率より、まず見られていないことが効いている。選ばれた立場は発注者（orderer）が多く、自治体の担当者に向けた入口は効いている。次は位置を 1 つ変える（前後の記事・関連ツールのすぐ下へ上げた・2026-11-26 本番反映）＝ EXP-068 で再計測する",
+      "closed_at": "2026-11-26",
       "actions": [
         "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）",
         "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）",
@@ -2127,8 +2127,19 @@
           "at": "2026-11-12T00:00:00.000Z",
           "event": "note",
           "note": "本番反映から実務記事 19 本の記事末に ExamTopicBridge（論点が出る 1級土木の過去問 1 問）を橋渡しカードの下に併設（運営者の決定 2026-11-12）。判定ではカードのクリック（qualification_bridge_click）だけを比べ、併設後の期間は exam-topic（internal_nav_click）・answer_reveal と分けて読む"
+        },
+        {
+          "at": "2026-11-26T13:25:39.456Z",
+          "event": "measure",
+          "note": "事後窓（〜11/16）は終わった。GA4 の CI 取得 2 回分: 9/24〜10/21 表示 1,026・クリック 13（1.27%）、10/23〜11/19 表示 1,687・クリック 8（0.47%・うち実務記事 1,099 表示・8 クリック）。合計 表示 2,713・クリック 21・約 0.77%（10/22 の 1 日は欠ける）。自動計測（10/02〜11/16）は 11 クリック"
+        },
+        {
+          "at": "2026-11-26T13:25:39.456Z",
+          "event": "close",
+          "note": "運営者の判断（2026-11-26「橋渡しを上げる」）で、位置を変える前の数字で区切った。位置を上げた版は EXP-068"
         }
-      ]
+      ],
+      "updated_at": "2026-11-26T13:25:39.456Z"
     },
     {
       "id": "EXP-013",
@@ -11040,6 +11051,68 @@
             "sha": "001522108",
             "at": "2026-11-26",
             "run": "https://github.com/uruhayato373/doboku-note/actions/runs/45800784056"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EXP-068",
+      "title": "実務記事の資格への橋渡しを前後の記事のすぐ下へ上げ、本文の転職バナーを 1 枚にし、関連ツールを広げて、橋渡しの表示と回遊を増やす",
+      "hypothesis": "実務記事の橋渡しカードは本文の終わりから約 1,100px 下にあり、表示がセッションの 4 分の 1 だった（EXP-012）。前後の記事・関連ツールのすぐ下へ上げ、本文中の転職バナーを 3 枚から 1 枚に減らせば、記事末まで届く読者と橋渡しの表示が増え、資格の入口へのクリックと回遊も増える。合う計算ツールを記事末に出せば、ツールへの回遊も増える",
+      "target_metric": "実務記事（/practice/）の qualification_bridge_impression と click（placement practice-footer）・クリック率、internal_nav_click、1 セッションあたりのページ数、関連ツールの導線（internal_nav の label article-tools）",
+      "target_delta": "本番反映から 28 日で、橋渡しの表示がセッションあたり 0.25 → 0.4 以上、かつクリックが基準（8 件）より増える。回遊のクリックが 100 セッションあたり 3.4 → 4 以上。続けない基準: 表示の比が 0.3 未満のまま、またはクリックが 8 件以下のまま。転職バナーの表示が減るのは意図どおり（本文 3 → 1 枚）で、判定に入れない",
+      "status": "running",
+      "created_at": "2026-11-26",
+      "started_at": "2026-11-26",
+      "next_check_date": "2026-12-24",
+      "updated_at": "2026-11-26T13:25:39.456Z",
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "資格を意識していない土木公務員・現場技術者が、いまの業務経験が受検に使えると知り、自分の立場に合う資格の入口へ進む",
+        "verifiedGap": "橋渡しカードは本文の終わりから約 1,100px 下で、表示は実務記事のセッションの約 4 分の 1（1,099 / 4,326・GA4 2026-10-23〜11-19）。本文中の転職バナー 3 枚は 4 週で表示 6,358・クリック 1。関連ツールは 189 本中 7 本にしか出ていなかった（EXP-012 の close・PR #1766）",
+        "metricId": "organicUsers",
+        "reviewRecord": "data/business/records/review-2026-11-21T04-37-45-265Z-d2f725dc-9d00-4b85-8415-484d8387e5ef.json"
+      },
+      "baseline": {
+        "measured_at": "2026-11-26",
+        "source": "data/ga4/reports/2026-11-20.json の page・cta-clicks・cta-clicks-by-label（2026-10-23〜11-19・/practice/ の合計）",
+        "period": {
+          "startDate": "2026-10-23",
+          "endDate": "2026-11-19"
+        },
+        "sessions": 4326,
+        "pagesPerSession": 1.056,
+        "bridgeImpressions": 1099,
+        "bridgeClicks": 8,
+        "bridgeImpressionsPerSession": 0.254,
+        "internalNavClicks": 145,
+        "internalNavClicksPer100Sessions": 3.35,
+        "affiliateImpressions": 6358,
+        "affiliateClicks": 1,
+        "articleToolsSitewide": {
+          "impressions": 1491,
+          "clicks": 50
+        },
+        "note": "基準期間は試験（11/22）の前で、反映後は年末の閑散期に入る。絶対数より、セッションあたりの比で読む。関連ツールの基準はサイト全体の値（実務記事だけの内訳は無い）"
+      },
+      "pending_user_actions": [],
+      "history": [
+        {
+          "at": "2026-11-26T13:25:39.456Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-26T13:25:39.456Z",
+          "event": "implemented",
+          "change": "PR #1766: 橋渡しと過去問 1 問を前後の記事・関連ツールのすぐ下へ（本文の終わりから 1,121px → 713px）、本文 2・3 枚目の転職バナー（PL-0085・PL-0086）を終了、関連ツールを実務記事 7 本に追加"
+        },
+        {
+          "at": "2026-11-26T13:25:39.456Z",
+          "event": "deployed",
+          "deploy": {
+            "sha": "ace205731",
+            "at": "2026-11-26",
+            "run": "https://github.com/uruhayato373/doboku-note/actions/runs/45827882669"
           }
         }
       ]
