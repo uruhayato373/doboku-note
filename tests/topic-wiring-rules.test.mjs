@@ -246,3 +246,14 @@ test('計画・施策・審議会の台帳: 根拠法は e-Gov の写しに、�
   const page = read('src/app/topics/[slug]/page.tsx');
   assert.ok(page.includes('getTopicPolicies(topic.slug)') && page.includes('<PolicyList'), 'テーマのページに計画・施策・審議会の節が無い');
 });
+
+// 実務記事の橋渡し（業務経験 → 資格）と過去問 1 問は、前後の記事・関連ツールのすぐ下。参考資料・根拠法令・転職バナーより上（2026-11-26・
+// 本文の終わりから約 1,100px 下にあり、表示がセッションの 4 分の 1 だった）
+test('記事末の配線: 実務記事の橋渡しと過去問 1 問は、参考資料・根拠法令・転職バナーより上', () => {
+  const footer = read('src/components/docs/ArticleFooter.tsx');
+  const at = (s) => { const i = footer.indexOf(s); assert.ok(i >= 0, `${s} が無い`); return i; };
+  const bridge = at('<QualificationBridge');
+  assert.ok(at('<NextInSeries') < bridge && at('<RelatedTools') < bridge, '橋渡しが前後の記事・関連ツールより上にある');
+  assert.ok(bridge < at('<ExamTopicBridge'), '過去問 1 問は橋渡しの下');
+  for (const later of ['<ExternalReferences', '<ArticleLaws', '{imageBanner}']) assert.ok(at('<ExamTopicBridge') < at(later), `${later} が橋渡しより上にある`);
+});
