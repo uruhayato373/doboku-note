@@ -2,6 +2,7 @@ import { getCategoryCurriculum } from '@/config/category-curriculum';
 import type { DocMeta } from '@/lib/docs';
 import { isCareerDoc } from '@/lib/doc-classifier';
 import { groupDocs } from '@/lib/category-groups';
+import { findYearSiblings } from '@/lib/exam-year-nav.mjs';
 
 /**
  * next-in-series.ts — 記事末の「前の記事・次の記事」を、資格ページの並び（category-curriculum.json）から決める。
@@ -119,4 +120,20 @@ export function resolveGroupSeriesNav(
   const next = idx >= 0 && idx < items.length - 1 ? titleOf(items[idx + 1]!) : null;
   if (!prev && !next) return null;
   return { heading, prev, next };
+}
+
+/**
+ * 記事末の「前の記事・次に読む」（NextInSeries）が出す前後。並びの設定に無い記事は資格ページと同じ並べ方の前後へ。
+ * 年度違いのある過去問は年度ナビ（ExamYearNav）が受けるので出さない。記事末の関連記事が同じ記事を 2 度並べないよう、ArticleFooter も同じ結果を使う。
+ */
+export function resolveArticleSeriesNav(
+  category: string | undefined,
+  currentSlug: string,
+  categoryArticles: readonly DocMeta[],
+  ownGroup?: SeriesGroupOf,
+): SeriesNav | null {
+  const available = new Map(categoryArticles.map((m) => [m.slug, m.shortTitle ?? m.title] as const));
+  const years = findYearSiblings(currentSlug, categoryArticles.map((m) => m.slug));
+  return resolveSeriesNav(category, currentSlug, available)
+    ?? (years.older || years.newer ? null : resolveGroupSeriesNav(category, currentSlug, categoryArticles, ownGroup ? { ownGroup } : {}));
 }
