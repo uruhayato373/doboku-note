@@ -9,7 +9,7 @@ export interface QuestionChipItem {
   readonly group?: number | undefined;
 }
 
-export interface QuestionJumpLink {
+interface QuestionJumpLink {
   readonly href: string;
   readonly label: string;
 }
