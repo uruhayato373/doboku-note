@@ -84,12 +84,20 @@ export const TOOLS = [
 /** 表示名とURLはツール一覧と共有し、記事・資格との対応だけをここで管理する。 */
 const ARTICLE_TOOLS: Record<string, string[]> = {
   'civil-practice-concrete-finishing-curing': ['concrete-maturity'],
-  'civil-practice-concrete-pump-capacity': ['concrete-pump-plan'],
+  'civil-practice-concrete-pump-capacity': ['concrete-pump-plan', 'concrete-time-check'],
   'civil-practice-concrete-placement-timing': ['concrete-time-check'],
   'civil-practice-concrete-placement-order': ['concrete-time-check'],
   'civil-practice-trench-excavation-safety': ['trench-legal-check'],
   'civil-practice-sling-work-wire-rope': ['sling-tension'],
   'civil-practice-rebar-splice-selection': ['rebar-splice-check'],
+  // 2026-11-26: 実務記事のうち、本文がツールの計算・判定をそのまま使う節を持つ記事へ広げた（流入上位の型枠の記事に出ていなかった）
+  'civil-practice-formwork-removal-timing': ['concrete-maturity', 'concrete-time-check'],
+  'civil-practice-concrete-compaction-numbers': ['concrete-time-check'],
+  'civil-practice-special-concrete-selection': ['concrete-maturity'],
+  'civil-practice-concrete-hydration-basics': ['water-content', 'concrete-maturity'],
+  'civil-practice-concrete-mix-acceptance': ['water-content'],
+  'civil-practice-cost-and-design-change': ['cost-structure'],
+  'civil-practice-cost-estimation-practice': ['cost-structure'],
   'civil-construction-1-textbook-concrete-mix-design': ['water-content'],
   'civil-construction-1-textbook-concrete-placement': ['concrete-time-check', 'concrete-pump-plan'],
   'concrete-engineer-textbook-mix-design': ['water-content'],

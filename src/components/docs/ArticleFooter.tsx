@@ -152,6 +152,20 @@ export default function ArticleFooter({
         </div>
       )}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
+      {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。どちらも実務記事にだけ出る。
+          2026-11-26: 参考資料・根拠法令・転職バナーの下（本文の終わりから約 1,100px）にあり、表示がセッションの 4 分の 1（1,099 / 4,355）
+          だったので、前後の記事・関連ツールのすぐ下へ上げた。 */}
+      {shouldShowQualificationBridge(category, slugStr) && (
+        <div className="mt-8">
+          <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
+        </div>
+      )}
+      {/* 実務記事: 読んだ論点が出る 1級土木の過去問を 1 問（exam-topic-bridge.ts）。EXP-012 の橋渡しの下に並べる（2026-11-12〜） */}
+      {examTopic && (
+        <div className="mt-8">
+          <ExamTopicBridge question={examTopic} />
+        </div>
+      )}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (
         <div className="mt-8">
@@ -167,18 +181,6 @@ export default function ArticleFooter({
 
       {imageBanner}
 
-      {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。 */}
-      {shouldShowQualificationBridge(category, slugStr) && (
-        <div className="mt-8">
-          <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
-        </div>
-      )}
-      {/* 実務記事: 読んだ論点が出る 1級土木の過去問を 1 問（exam-topic-bridge.ts）。EXP-012 の橋渡しの下に並べる（2026-11-12〜） */}
-      {examTopic && (
-        <div className="mt-8">
-          <ExamTopicBridge question={examTopic} />
-        </div>
-      )}
 
       {/* PE pillar（5 管理）: この管理の過去問（直近 3 年度の設問へ直接・DN-1220） */}
       {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
