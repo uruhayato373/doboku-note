@@ -40,6 +40,11 @@ function visibleAt(node, desktop) {
 }
 const signature = (node) => ['href', 'data-cta', 'data-cta-label', 'data-cta-placement'].map(k => attr(node, k)).join('\n');
 
+// 解説を絞った過去問の「解答・解説」の中の導線（AnswerUpsell・placement answer・2026-11-26）は、読者が解答を開いたときだけ見える
+// 1 問 1 行の別の面。本文の note の枚数・商品の重複・広告との隣り合いには数えず、「解答の開閉の中にだけ・1 問 1 つまで」を別に見る。
+const inAnswer = (node) => attr(node, 'data-cta-placement') === 'answer'
+  && Boolean(ancestor(node, p => p.tagName === 'DETAILS' && p.hasAttribute('data-answer')));
+
 /** ページ全体で同じ商品をまとめない。直隣の対になった実験案だけを畳む。 */
 function visibleNotes(dom) {
   const ignored = new Set();
@@ -54,7 +59,7 @@ function visibleNotes(dom) {
       if (i >= 0) { ignored.add(node); unmatched.splice(i, 1); }
     }
   }
-  return dom.querySelectorAll('[data-cta="note"]').filter(n => !ignored.has(n));
+  return dom.querySelectorAll('[data-cta="note"]').filter(n => !ignored.has(n) && !inAnswer(n));
 }
 
 function productUrl(node) {
@@ -140,6 +145,12 @@ export function inspectHtml(html, slug) {
   const bodyAds = prose ? prose.querySelectorAll('[data-adsense]').length : 0;
   if (bodyAds) add('body-adsense-manual', bodyAds, 0, [], ['adsense']);
   if (notes.length > 30) add('note-total', notes.length, 30, notes);
+  // 解答の中の導線は、解答の開閉の外に出たり 1 問に 2 つ以上並んだりしたら止める
+  const answerCtas = dom.querySelectorAll('[data-cta-placement="answer"]');
+  const strayAnswer = answerCtas.filter(n => !inAnswer(n)).length;
+  if (strayAnswer) add('note-answer-outside', strayAnswer, 0, [], ['manual']);
+  const answerBoxes = dom.querySelectorAll('details[data-answer]').filter(d => d.querySelectorAll('[data-cta-placement="answer"]').length > 1);
+  if (answerBoxes.length) add('note-answer-multiple', answerBoxes.length, 0, [], ['manual']);
   if (article) {
     const bodyNotes = notes.filter(n => within(n.node, article));
     if (bodyNotes.length > 3) add('note-non-footer', bodyNotes.length, 3, bodyNotes);
@@ -225,7 +236,7 @@ export function inspectHtml(html, slug) {
         const siblings = wrapper.parentNode.childNodes.filter(n => n.tagName);
         const index = siblings.indexOf(wrapper);
         for (const neighbor of [siblings[index-1], siblings[index+1]]) {
-          if (neighbor?.querySelector('[data-cta="affiliate"], [data-cta="note"]')) add('affiliate-image-adjacent', 1, 0, [], ['affiliate'], { viewport });
+          if (neighbor?.querySelectorAll('[data-cta="affiliate"], [data-cta="note"]').some(c => !inAnswer(c))) add('affiliate-image-adjacent', 1, 0, [], ['affiliate'], { viewport });
         }
       }
     }

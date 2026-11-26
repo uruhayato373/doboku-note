@@ -271,3 +271,11 @@ test('右の欄のある 2 列のページは、本文の列を白い面に載�
   assert.deepEqual(check('<div><h1>見出し</h1><section>本文</section></div>'), ['main-without-surface'], '背景の上に直に載った本文');
   assert.deepEqual(check('<div><h1>検索</h1></div>', 'search'), [], '検索は結果が 1 件ずつのカードなので除く');
 });
+
+test('解答の開閉の中の導線（placement answer）は本文の枚数・重複・広告との隣り合いに数えず、外に出たり 1 問 2 つ並んだりしたら止める', () => {
+  const answer = (n = 1) => `<details data-answer=""><summary>解答・解説</summary>${note('pdf', 'answer').repeat(n)}</details>`;
+  const banner = `<div data-article-affiliate="inline">${affiliate('article-banner')}</div>`;
+  assert.deepEqual(rules(article(`<h2>本文</h2>${note('pdf', 'article-top')}${answer()}${answer()}${answer()}${answer()}${banner}${answer()}`)), []);
+  assert.deepEqual(rules(article(`<h2>本文</h2>${note('pdf', 'answer')}`)), ['note-answer-outside']);
+  assert.deepEqual(rules(article(`<h2>本文</h2>${answer(2)}`)), ['note-answer-multiple']);
+});

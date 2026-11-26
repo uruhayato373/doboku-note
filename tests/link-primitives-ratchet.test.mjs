@@ -27,6 +27,7 @@ const ALLOW = new Map([
   // 商品・外部の導線（note・アフィリエイト・ココナラ）。幅と配置は CTA の規則（CTA_STACK_CLASS・check-cta-density）が見る
   ['src/components/ui/CareerAffiliate/CareerAffiliate.tsx', '転職の広告'],
   ['src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx', '転職の広告'],
+  ['src/components/ui/AnswerUpsell/AnswerUpsell.tsx', '解説を絞った過去問の解答の中の note の導線'],
   ['src/components/ui/HubCtaBanner/HubCtaBanner.tsx', 'note の導線'],
   ['src/components/ui/LinkCard/LinkCard.tsx', 'MDX の外部リンクカード'],
   ['src/components/ui/MagazineInlineCard/MagazineInlineCard.tsx', 'note のマガジンの導線'],

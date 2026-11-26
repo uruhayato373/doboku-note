@@ -513,11 +513,34 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   };
 }
 
+// 解説を絞る過去問ページ（src/config/answer-gate.json・2026-11-26）。サイトと同じく、Web の演習アプリでも
+// 正答の選択肢の理由だけを残し、ほかの選択肢の理由と要点を外す（残すとここが抜け道になる）。iOS アプリの束（有料）には当てない。
+const ANSWER_GATE = JSON.parse(readFileSync(resolve(ROOT, 'src/config/answer-gate.json'), 'utf8'));
+const GATED_REASON = 'この選択肢の理由と問題の要点は、過去問 PDF 合本に収録しています。';
+
+/** 対象のページの問題だけ、正答以外の選択肢の理由と要点を外した dataset を返す（元は変えない） */
+export function applyAnswerGate(dataset, gate = ANSWER_GATE) {
+  const slugs = new Set(gate.slugs);
+  let gated = 0;
+  const questions = dataset.questions.map((q) => {
+    const slug = `${dataset.exam}-${(q.articlePath || '').split('/').at(-1)}`;
+    if (!slugs.has(slug) || q.correct == null) return q;
+    gated += 1;
+    return {
+      ...q,
+      explanations: q.explanations.map((e) => (e.isAnswer ? e : { ...e, text: GATED_REASON, html: '' })),
+      examPoint: null,
+    };
+  });
+  return { dataset: { ...dataset, questions }, gated };
+}
+
 function main() {
   let totalQ = 0;
   const summary = {};
   for (const source of SOURCES.filter((s) => s.web !== false)) {
-    const dataset = buildDataset(source);
+    const { dataset, gated } = applyAnswerGate(buildDataset(source));
+    if (gated) console.log(`[build-quiz-data] ${source.exam}: 解説を絞った問題 ${gated}問（src/config/answer-gate.json）`);
     summary[source.exam] = quizSummary(dataset);
     const outPath = resolve(OUT_DIR, `${source.exam}.json`);
     mkdirSync(dirname(outPath), { recursive: true });
