@@ -2790,7 +2790,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-setsumei-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-setsumei-1",
       "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -2815,13 +2815,38 @@
         "contentSha256": "78910317809d71a092893c076fc2110378d92c3bb71d07d3b457017e255717c3"
       },
       "times": {
-        "rendered": "2026-11-26T12:55:47.094Z"
+        "rendered": "2026-11-26T12:55:47.094Z",
+        "uploaded": "2026-11-26T13:08:27.809Z"
       },
       "delivery": {
         "inputSha256": "a87e377d2b9f849b72610a7e334a28c83f0f07b85188d5b943cb65c736459abf",
         "marker": "dn-single-f008fc8000162e05212d10f08e076f9bb185e9a7",
         "uploadRequestedAt": "2026-11-26T12:57:26.117Z",
-        "videoId": "RzYF5hFOvrk"
+        "videoId": "RzYF5hFOvrk",
+        "processedAt": "2026-11-26T13:08:27.058Z",
+        "thumbnailRequestedAt": "2026-11-26T13:08:28.022Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/RzYF5hFOvrk/default.jpg?sqp=CPzcoNgG&rs=AOn4CLBrcECgjr9yqDHUB85XGtOsfPadvw",
+          "https://i9.ytimg.com/vi/RzYF5hFOvrk/mqdefault.jpg?sqp=CPzcoNgG&rs=AOn4CLBJra5FpirQpx5y9S3W6gszC4PMgA",
+          "https://i9.ytimg.com/vi/RzYF5hFOvrk/hqdefault.jpg?sqp=CPzcoNgG&rs=AOn4CLBVDIrbQLmPQP-9NG3Pfd7K7wc-jg",
+          "https://i9.ytimg.com/vi/RzYF5hFOvrk/sddefault.jpg?sqp=CPzcoNgG&rs=AOn4CLBQcAYf_AFMLqqvvQZPcj60vc02Dg",
+          "https://i9.ytimg.com/vi/RzYF5hFOvrk/maxresdefault.jpg?sqp=CPzcoNgG&rs=AOn4CLDiKnb-9WjX8FEruQlLXaM5fFW3sg",
+          "https://i9.ytimg.com/vi/RzYF5hFOvrk/sardefault.jpg?sqp=CPzcoNgG&rs=AOn4CLBiA5K0VKqxpp1Ryb6eGxMt5uaiGQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-26T13:08:31.487Z"
+      },
+      "platform": {
+        "id": "RzYF5hFOvrk",
+        "url": "https://www.youtube.com/watch?v=RzYF5hFOvrk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-setsumei-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-26T13:08:31.487Z"
       }
     },
     {
