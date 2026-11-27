@@ -67,7 +67,9 @@
  *
  * 注意: --sync / --parts なしの従来モードは本文だけ（カバー・タグは変えない）。タイトルは frontmatter に title があれば差し替える（--no-title で抑止）。
  * 会員特典マガジン内の無料記事は frontmatter の memberTrial（bottom＝ラインを末尾直前に置く / lock＝全文会員限定のまま）で
- * 公開範囲を記事ごとに決める（--trial-line-bottom / --keep-member-lock の記事単位版）。
+ * 公開範囲を記事ごとに決める（--trial-line-bottom / --keep-member-lock の記事単位版・--article の単発でも読む）。
+ * memberTrial を書いた記事で試し読みの画面が見つからなければ、「更新する」を押さずに中断する（DN-1309・2026-11-27）。
+ * [5g] は見える文の差に加えて、公開範囲のリンク先（href）の差でも反映を確かめる。公開 API の更新日時はリンクだけの変更では動かない。
  * 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（channel:'chrome'）。
  * ---------------------------------------------------------------------------
  */
@@ -84,8 +86,8 @@ import { renderNoteCharacterCover } from '../lib/note-character-cover.mjs';
 import { designVersions, readLedger, recordCover, sameImage, writeLedger } from '../lib/note-cover-live.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from '../lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages, settleAbortReason } from '../lib/note-images.mjs';
-import { assertLiveBody, expectedFreePreviewMin, extractSourceUrls, formatLiveIssues, fetchNoteBody, liveBodyText, visibleProbeLines, pickUpdateProbes, updateVerdict } from '../lib/note-live-check.mjs';
-import { publishLive } from '../lib/note-live-publish.mjs';
+import { assertLiveBody, expectedFreePreviewMin, extractSourceUrls, formatLiveIssues, fetchNoteBody, liveBodyText, visibleProbeLines, pickUpdateProbes, visibleHrefs, pickUpdateHrefs, updateVerdict } from '../lib/note-live-check.mjs';
+import { publishLive, resolveMemberTrial } from '../lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from '../lib/note-attach.mjs';
 import { todayJst } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
@@ -258,10 +260,13 @@ function parseArticle(articlePath) {
   const bodyH1 = (raw.match(/^#\s+(.+)$/m) || [])[1]?.trim() ?? '';
   const minFreeChars = isPaid ? expectedFreePreviewMin(tokenBody, boundary) : 0;
   // 会員特典マガジン内の無料記事の公開範囲（記事ごと）。未指定なら従来どおりフラグに従う。
+  // --article の単発でも --list でも同じ解決を通す（DN-1309）。値の誤りは保存前に止める。
   const memberTrial = fmField('memberTrial');
+  const trial = resolveMemberTrial({ memberTrial, trialLineBottomFlag: TRIAL_LINE_BOTTOM, keepMemberLockFlag: KEEP_MEMBER_LOCK });
+  if (trial.error) throw new Error(trial.error);
   const suffix = (abs.match(/article(-[^/\\]+)\.md$/) || [])[1] || '';
   const tagsFile = [suffix && join(dirname(abs), `hashtags${suffix}.txt`), join(dirname(abs), 'hashtags.txt')].filter(Boolean).find(existsSync) || null;
-  return { abs, rel: relative(ROOT, abs).split('\\').join('/'), noteId, title, bodyH1, body: tokenBody, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars, memberTrial, tagsFile };
+  return { abs, rel: relative(ROOT, abs).split('\\').join('/'), noteId, title, bodyH1, body: tokenBody, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars, memberTrial, trial, tagsFile };
 }
 
 /**
@@ -434,15 +439,19 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
       return ok;
     } catch (e) { console.log('[4.7] title set skip:', e.message.split('\n')[0]); return false; }
   };
-  const trialLineBottom = TRIAL_LINE_BOTTOM || article.memberTrial === 'bottom';
-  const memberLock = KEEP_MEMBER_LOCK || article.memberTrial === 'lock';
+  const { trialLineBottom, memberLock, expectTrial } = article.trial;
+  if (article.memberTrial) console.log(`[trial] frontmatter memberTrial=${article.memberTrial} → ${trialLineBottom ? 'ラインを末尾直前に置く' : '全文会員限定のまま'}`);
   // [5g] の材料: 更新前の公開本文に無く、新しい原稿の公開範囲にある文（DN-0542）。
   // 「更新する」を押しても note 側で確定しないことがあり、[5e] の構造検査だけでは旧版のままでも OK になる。
-  let updateProbes = [];
+  // 見える文が変わらない更新（リンクの URL だけの変更など）は、変わったリンク先が公開本文に出たかで確かめる（DN-1309）。
+  let updateProbes = []; let updateHrefs = []; let preFetched = false;
   if (doBody && COMMIT && !IMAGES_ONLY) {
     const pre = await fetchNoteBody(noteId);
     if (!pre.error && !pre.unmeasurable) {
-      updateProbes = pickUpdateProbes(visibleProbeLines(body, { isPaid, boundary, trialTail: trialLineBottom }), liveBodyText(pre.body));
+      preFetched = true;
+      const range = { isPaid, boundary, trialTail: trialLineBottom };
+      updateProbes = pickUpdateProbes(visibleProbeLines(body, range), liveBodyText(pre.body));
+      updateHrefs = pickUpdateHrefs(visibleHrefs(body, range), pre.body);
     }
   }
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}${parts.join(',') === 'body' ? '' : `（${parts.join('・')}）`}`);
@@ -490,6 +499,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
       keepBoundary: KEEP_BOUNDARY,
       trialLineBottom,
       membershipLock: isMembership || memberLock,
+      expectTrial,
     });
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
     const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars, sourceUrls: extractSourceUrls(body) });
@@ -741,6 +751,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
     keepBoundary: KEEP_BOUNDARY,
     trialLineBottom,
     membershipLock: isMembership || memberLock,
+    expectTrial,
     preserveLines: !doBody,
     report,
     onSettings: tagPlan?.changed ? async (pg) => {
@@ -795,21 +806,23 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   }
   // 5g. 本文が実際に新しくなったか（DN-0542）。新しい文が 1 つも公開本文に出なければ、更新は確定していない。
   if (!chk.fetchError) {
-    let verdict = updateVerdict(updateProbes, '');
+    let verdict = updateVerdict(updateProbes, '', { hrefProbes: updateHrefs });
     for (let i = 0; i < 3 && verdict === 'not-updated'; i++) {
       if (i) await sleep(5000);
       const post = await fetchNoteBody(noteId);
       if (post.error || post.unmeasurable) { verdict = 'unknown'; break; }
-      verdict = updateVerdict(updateProbes, liveBodyText(post.body));
+      verdict = updateVerdict(updateProbes, liveBodyText(post.body), { hrefProbes: updateHrefs, postHtml: post.body });
     }
+    const what = `新しい文 ${updateProbes.length} 件・新しいリンク先 ${updateHrefs.length} 件`;
     if (verdict === 'not-updated') {
-      console.error(`[5g] FAIL: 公開本文が新しくなっていない（新しい原稿の文 ${updateProbes.length} 件がどれも出ていない）。`
+      console.error(`[5g] FAIL: 公開本文が新しくなっていない（${what}のどれも出ていない）。`
         + ' note 側で更新が確定していない。.tmp の nu-done スクリーンショットで公開設定の画面を確かめて再実行する: ' + noteId);
       return false;
     }
-    if (verdict === 'updated') console.log(`[5g] 本文の更新を確認（新しい文 ${updateProbes.length} 件のうち一致あり）`);
+    if (verdict === 'updated') console.log(`[5g] 本文の更新を確認（${what}のうち一致あり）`);
     else if (verdict === 'unknown') console.log('[5g] WARN: 更新後の公開本文を取得できず、更新を確かめられない → 手動確認');
-    else console.log('[5g] 公開範囲に新しい文が無い更新（見える本文は変わらない）→ 更新確認は省略');
+    else if (!preFetched) console.log('[5g] WARN: 更新前の公開本文を取得できず、確認に使う文・リンクを選べなかった → 手動確認');
+    else console.log('[5g] 公開範囲に新しい文も新しいリンク先も無い更新（見える本文は変わらない）→ 確かめる材料が無い');
   }
   console.log(`[OK] ${noteId} ライブ反映完了`);
   return true;

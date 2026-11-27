@@ -40,3 +40,37 @@ test('「試し読みエリアを設定」ボタンが出たときは従来ど�
   assert.equal(trialSettingsAction({ hasTrialButton: true }), 'abort');
   assert.equal(trialSettingsAction({ hasTrialButton: true, trialLineBottom: true }), 'line-bottom');
 });
+
+// 2026-11-27 DN-1309: memberTrial: bottom の無料記事を --article で更新したとき、試し読みの画面を検出できないまま
+// 「更新する」を押し、note 側で確定しなかった。--article でも frontmatter を読み、宣言した記事で画面が無ければ止める。
+import { resolveMemberTrial } from '../scripts/lib/note-live-publish.mjs';
+
+test('frontmatter の memberTrial を読む（bottom＝ラインを末尾直前・lock＝全文会員限定）', () => {
+  assert.deepEqual(resolveMemberTrial({ memberTrial: 'bottom' }), { trialLineBottom: true, memberLock: false, expectTrial: true });
+  assert.deepEqual(resolveMemberTrial({ memberTrial: 'lock' }), { trialLineBottom: false, memberLock: true, expectTrial: true });
+  assert.deepEqual(resolveMemberTrial({ memberTrial: '' }), { trialLineBottom: false, memberLock: false, expectTrial: false });
+});
+
+test('フラグは frontmatter より優先し、フラグだけでは「画面が出るはず」としない（バッチ全体に掛かるため）', () => {
+  assert.deepEqual(resolveMemberTrial({ memberTrial: 'lock', trialLineBottomFlag: true }), { trialLineBottom: true, memberLock: false, expectTrial: true });
+  assert.deepEqual(resolveMemberTrial({ memberTrial: 'bottom', keepMemberLockFlag: true }), { trialLineBottom: false, memberLock: true, expectTrial: true });
+  assert.deepEqual(resolveMemberTrial({ trialLineBottomFlag: true }), { trialLineBottom: true, memberLock: false, expectTrial: false });
+});
+
+test('memberTrial の値の誤り・フラグの同時指定は保存前に止める', () => {
+  assert.ok(resolveMemberTrial({ memberTrial: 'Bottom' }).error);
+  assert.ok(resolveMemberTrial({ memberTrial: 'yes' }).error);
+  assert.ok(resolveMemberTrial({ trialLineBottomFlag: true, keepMemberLockFlag: true }).error);
+});
+
+test('memberTrial を宣言した記事で試し読みの画面が見つからなければ、更新せず止める', () => {
+  const { trialLineBottom, memberLock, expectTrial } = resolveMemberTrial({ memberTrial: 'bottom' });
+  assert.equal(trialSettingsAction({ hasTrialButton: false, trialLineButtons: 0, trialLineBottom, membershipLock: memberLock, expectTrial }), 'abort-missing');
+  assert.equal(trialSettingsAction({ hasTrialButton: false, trialLineButtons: 52, trialLineBottom, membershipLock: memberLock, expectTrial }), 'line-bottom');
+});
+
+test('指定の無い無料記事で試し読みの画面が出たら中断する（「更新する」を押さない）', () => {
+  const { trialLineBottom, memberLock, expectTrial } = resolveMemberTrial({ memberTrial: '' });
+  assert.equal(trialSettingsAction({ hasTrialButton: false, trialLineButtons: 52, trialLineBottom, membershipLock: memberLock, expectTrial }), 'abort');
+  assert.equal(trialSettingsAction({ hasTrialButton: true, trialLineBottom, membershipLock: memberLock, expectTrial }), 'abort');
+});

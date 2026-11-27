@@ -69,3 +69,43 @@ test('リンクカードの URL 行・コメント・画像は確認に使わな
   const lines = visibleProbeLines(NEW_MD);
   assert.ok(lines.every((l) => !/https?:|<!--|〔〔IMG/.test(l)));
 });
+
+// 2026-11-27 DN-1309: リンクに utm_term だけを足した更新で、[5g] が「新しい文が無い」として確認を省略し [OK] を出したが、
+// 公開本文のリンクは旧いままだった。見える文が変わらない更新は、変わったリンク先（href）が公開本文に出たかで確かめる。
+// 公開 API の更新日時はリンクだけの変更では動かないので使わない。
+import { visibleHrefs, liveHrefs, pickUpdateHrefs } from '../scripts/lib/note-live-check.mjs';
+
+const LINK_OLD = 'https://doboku-note.com/exam/cce/?utm_source=note&utm_medium=article';
+const LINK_NEW = `${LINK_OLD}&utm_term=essay-trend`;
+const amp = (u) => u.replace(/&/g, '&amp;');
+const PRE_HTML = `<p>過去問は<a href="${amp(LINK_OLD)}">サイトの過去問ページ</a>で確かめられます。十分な長さの段落です。</p>`;
+const LINK_MD = `過去問は[サイトの過去問ページ](${LINK_NEW})で確かめられます。十分な長さの段落です。`;
+
+test('リンクの URL だけを変えた更新は、文の断片が無くてもリンク先で確かめる（省略しない）', () => {
+  const probes = pickUpdateProbes(visibleProbeLines(LINK_MD), liveBodyText(PRE_HTML));
+  assert.deepEqual(probes, [], '見える文は変わらない');
+  const hrefProbes = pickUpdateHrefs(visibleHrefs(LINK_MD), PRE_HTML);
+  assert.deepEqual(hrefProbes, [LINK_NEW]);
+  assert.equal(updateVerdict(probes, liveBodyText(PRE_HTML), { hrefProbes, postHtml: PRE_HTML }), 'not-updated', '旧いリンクのままなら FAIL');
+  const postHtml = PRE_HTML.replace(amp(LINK_OLD), amp(LINK_NEW));
+  assert.equal(updateVerdict(probes, liveBodyText(postHtml), { hrefProbes, postHtml }), 'updated');
+});
+
+test('公開本文のリンク先は href とリンクカードの data-src から読み、&amp; を戻す', () => {
+  const html = '<a href="https://a.example/x?p=1&amp;q=2">a</a><figure embedded-service="external-article" data-src="https://doboku-note.com/exam/"></figure>';
+  assert.deepEqual(liveHrefs(html), ['https://a.example/x?p=1&q=2', 'https://doboku-note.com/exam/']);
+});
+
+test('リンク先も境界より後ろ・試し読みの尻尾のものは確認に使わない', () => {
+  const md = '## 導入\n\n[無料の案内](https://a.example/free)を読んでください。\n\n## 予想問題1\n\n[有料の案内](https://a.example/paid)';
+  assert.deepEqual(visibleHrefs(md, { isPaid: true, boundary: '予想問題1' }), ['https://a.example/free']);
+  const tail = '本文の段落です。\n\n[入口](https://a.example/head)\n\n[尻尾1](https://a.example/tail1)\n\n[尻尾2](https://a.example/tail2)';
+  assert.deepEqual(visibleHrefs(tail, { trialTail: true }), ['https://a.example/head']);
+});
+
+test('文もリンク先も変わらない更新は no-visible-change のまま', () => {
+  const md = `過去問は[サイトの過去問ページ](${LINK_OLD})で確かめられます。十分な長さの段落です。`;
+  const hrefProbes = pickUpdateHrefs(visibleHrefs(md), PRE_HTML);
+  assert.deepEqual(hrefProbes, []);
+  assert.equal(updateVerdict([], '', { hrefProbes }), 'no-visible-change');
+});
