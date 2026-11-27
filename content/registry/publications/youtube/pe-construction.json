@@ -963,7 +963,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-tejun-2",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-tejun-2",
       "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1015,13 +1015,14 @@
       "platform": {
         "id": "Ekpoa2V9SJI",
         "url": "https://www.youtube.com/watch?v=Ekpoa2V9SJI",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-tejun-2"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-27T05:21:25.601Z"
         },
         "relatedVideoId": "VQ0OLSQQCgc",
-        "desiredRelatedVideoId": "VQ0OLSQQCgc"
+        "desiredRelatedVideoId": "VQ0OLSQQCgc",
+        "publishedAt": "2026-11-26T22:30:16.000Z"
       },
       "thumbnail": {
         "status": "set",
