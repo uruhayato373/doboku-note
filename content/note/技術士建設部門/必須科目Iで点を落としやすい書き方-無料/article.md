@@ -3,6 +3,10 @@ notePricing: free
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-hissu-shitten
+noteStatus: published
+notePublishedAt: "2026-11-27"
+noteId: "n4193ff4bbc81"
+noteUrl: "https://note.com/dobokunote/n/n4193ff4bbc81"
 title: "技術士 建設部門 必須科目I｜再現答案で点を落としやすい4つの書き方と、設問(3)の問い方（令和元〜8年度）"
 coverTitle: ["技術士 建設部門 必須科目I", "点を落としやすい4つの書き方"]
 cover:
@@ -63,7 +67,7 @@ cover:
 
 それぞれに、専門技術を踏まえた対応策を対で書きます。(3)は字数が足りなくなりやすい設問なので、構成を考える段階で答案用紙1枚の半分ほどを確保しておくと安全です。
 
-各設問の書き方の全体像は、doboku-noteの[必須科目I 答案の書き方](https://doboku-note.com/exam/pe-construction/guide/required-essay?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-shitten&utm_content=required-essay)で整理しています。
+各設問の書き方の全体像は、doboku-noteの[必須科目I 答案の書き方](https://doboku-note.com/exam/pe-construction/guide/required-essay?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-shitten&utm_content=required-essay&utm_term=n4193ff4bbc81)で整理しています。
 
 ## 設問(3)の問い方は年度と問題で違う
 
@@ -112,7 +116,7 @@ cover:
 4つの書き方は、どれも知識の量ではなく、書き方の習慣で直せるものです。少ない時間で効く練習を2つ挙げます。
 
 **1. 過去の問題で、設問(3)だけを書く**
-上の3つの問い方から1問ずつ選び、(2)の解決策を自分で決めたうえで、(3)だけを答案用紙1枚の半分で書きます。全文を書くより1回が短いので、問い方を変えて回数を重ねられます。令和8年度I-1の論点と答案の骨子は、[令和8年度 必須科目I I-1 の解説](https://doboku-note.com/exam/pe-construction/past-exams/r08-required-i-1?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-shitten&utm_content=r08-required-i-1)で確かめられます。
+上の3つの問い方から1問ずつ選び、(2)の解決策を自分で決めたうえで、(3)だけを答案用紙1枚の半分で書きます。全文を書くより1回が短いので、問い方を変えて回数を重ねられます。令和8年度I-1の論点と答案の骨子は、[令和8年度 必須科目I I-1 の解説](https://doboku-note.com/exam/pe-construction/past-exams/r08-required-i-1?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-shitten&utm_content=r08-required-i-1&utm_term=n4193ff4bbc81)で確かめられます。
 
 **2. 課題を「現状 → なぜ問題か」の2文で書く**
 維持管理、防災、担い手、DX、環境、国土・地域づくりのように、必須科目Iで繰り返し出ている分野ごとに、「現状の事実1つ」「目標との差1つ」の2文で課題を書く練習をします。課題の書き方が変わると、(2)の解決策も課題と対応した形で書きやすくなります。

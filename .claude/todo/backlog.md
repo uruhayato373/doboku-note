@@ -179,6 +179,8 @@
 
 note-api-verification.md の記述では「notePricing: free の記事は --trial-line-bottom か --keep-member-lock を指定しないと保存せず中断する」はずで、また cmd の説明では frontmatter の memberTrial で公開範囲を決めるとある。--article の単発実行では frontmatter の memberTrial が読まれず、中断もせずに「更新する」まで進んでいる。
 
+同じ日にもう1件: 公開直後の無料記事（n4193ff4bbc81）のリンクに utm_term だけを足して `--article --commit --force-retry` で更新すると、[5g] が「公開範囲に新しい文が無い更新 → 更新確認は省略」として [OK] を出したが、公開 API の更新日時は公開時刻のままで、リンクにも utm_term が入っていなかった（1回目は「公開設定ページに到達せず」で保存せず終了）。見える文の差が無い更新でも、更新日時かリンクの URL で反映を確かめる。
+
 直すこと: --article でも frontmatter の memberTrial（bottom→--trial-line-bottom 相当、lock→--keep-member-lock 相当）を読む。読めない・指定が無い無料記事で試し読みの画面が出たら、「更新する」を押さずに中断する。回帰テストを付ける。
 
 
