@@ -770,10 +770,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-shibori-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#shorts/point-shibori-1",
       "relatedTo": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-shibori-1/video",
+        "cover": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-shibori-1/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-shibori-1/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-shibori-1/subtitles"
+      },
+      "publishAt": "2026-11-30T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-27T12:57:21.628Z",
+          "digest": "6b4194aa12d2834072d965c85cc2f5dd5d3ab311a3a929eafd3a78ce47f9ef8f"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-27T12:57:21.628Z",
+        "contentSha256": "fa5872ad64355d1a01e0064cb2b5e44f53d96c883312e1adc4b87767083737c1"
+      },
+      "times": {
+        "rendered": "2026-11-27T12:57:21.815Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform",
