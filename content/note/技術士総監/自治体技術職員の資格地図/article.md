@@ -63,7 +63,7 @@ cover:
 
 この層は「特定分野の高度な技術者」であることを示します。代表的なのが技術士の一般部門とRCCMです。
 
-**技術士**（建設部門などの一般部門） — 科学技術分野の高度な専門技術者を国が認定する資格です。二次試験は難関として知られますが、そのぶん分野を問わず通用する強い資格で、自治体でも高く評価されます。発注者として設計の妥当性を判断したり、技術的な根拠を持って住民や議会に説明したりする場面で、この資格の裏づけが効きます。
+**技術士**（建設部門などの一般部門） — 科学技術分野の高度な専門技術者を国が認定する資格です。二次試験は難関として知られますが、そのぶん分野を問わず通用する強い資格で、自治体でも評価されやすい資格です。発注者として設計の妥当性を判断したり、技術的な根拠を持って住民や議会に説明したりする場面で、この資格の裏づけが効きます。
 
 **RCCM** — 建設コンサルタント業務に関わる技術者の資格です。建設コンサルタント業界で重視される一方、性格としては技術士より建設コンサルタント業務に寄った資格と言えます。
 
@@ -105,7 +105,7 @@ cover:
 
 ## 受けてみようと思ったら
 
-総監に関心が向いてきたら、まず試験の中身を眺めてみることをおすすめします。doboku-note では総監の択一式過去問17年分と[キーワード集2026の全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications)を無料で公開しています。学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications)にまとめています。
+総監に関心が向いてきたら、まず試験の中身を眺めてみることをおすすめします。doboku-note では総監の択一式過去問17年分と[キーワード集2026の全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications&utm_term=nb052deac97b1)を無料で公開しています。学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications&utm_term=nb052deac97b1)にまとめています。
 
 https://doboku-note.com
 

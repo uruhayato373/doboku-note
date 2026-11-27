@@ -76,7 +76,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 ## 一次（択一）の独学 — 過去問中心で範囲を絞る
 
-一次は範囲が広いので、テキストを最初から通読すると時間が足りません。**過去問を起点に、出るところから固める**のが鉄則です。
+一次は範囲が広いので、テキストを最初から通読すると時間が足りません。**過去問を起点に、出るところから固める**のが近道です。
 
 過去問を解き、間違えた選択肢について「なぜ誤りか」を確認する。これを繰り返すと、頻出分野とそうでない分野が見えてきます。
 
@@ -101,7 +101,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 **施工経験記述 出題傾向と対策**（無料・doboku-note）
 
-https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide
+https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=2c-study-design&utm_term=n0d6a78c48cef
 
 **2級土木施工管理技士の過去問解説・テキスト**（無料・doboku-note）
 
@@ -111,7 +111,7 @@ https://doboku-note.com
 
 https://note.com/dobokunote/m/m1881a9578027
 
-週単位の配分まで落とし込みたい方は[2級土木の学習計画の立て方](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-study-design&utm_content=study-plan)もあわせてご覧ください。
+週単位の配分まで落とし込みたい方は[2級土木の学習計画の立て方](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-study-design&utm_content=study-plan&utm_term=n0d6a78c48cef)もあわせてご覧ください。
 
 ---
 

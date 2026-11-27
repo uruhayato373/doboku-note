@@ -57,7 +57,7 @@ cover:
 
 ## 頻出分野に時間を寄せる
 
-一次は出題分野が広い一方で、毎年よく問われる分野とそうでない分野があります。**頻出分野を確実にし、出題の薄い分野に深入りしない**のが時間配分の鉄則です。
+一次は出題分野が広い一方で、毎年よく問われる分野とそうでない分野があります。**頻出分野を確実にし、出題の薄い分野に深入りしない**のが、時間配分の基本です。
 
 合格は満点ではなく基準点を超えること。取れるところを確実に取り、難問は割り切る。
 
@@ -86,13 +86,13 @@ cover:
 
 ## 関連リソース
 
-[2級土木施工管理技士の過去問解説・テキスト（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/guide/exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=exam-overview)
+[2級土木施工管理技士の過去問解説・テキスト（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/guide/exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=exam-overview&utm_term=nffa7e4e03391)
 
 **2級土木 施工経験記述 完成答案集**（二次対策のフル答案）
 
 https://note.com/dobokunote/m/m1881a9578027
 
-独学で進めるときの時間配分は[2級土木の学習計画の立て方](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=study-plan)にまとめています。
+独学で進めるときの時間配分は[2級土木の学習計画の立て方](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=study-plan&utm_term=nffa7e4e03391)にまとめています。
 
 ---
 
