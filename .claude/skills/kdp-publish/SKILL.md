@@ -56,11 +56,11 @@ node scripts/kindle/kdp-publish.mjs --id <id>
 ```
 node scripts/kindle/kdp-publish.mjs --id <id> --publish-only --commit-publish
 ```
-→ draftAsin の価格ページへ直行して「Kindle本を出版」。価格/ロイヤリティが期待値と不一致なら出版せず停止。
+→ draftAsin の content で「回答が正しいことを確認」を付け直し、「保存して続行」で価格ページへ進んで「Kindle本を出版」。価格/ロイヤリティが期待値と不一致なら出版せず停止。`--commit-publish` が無ければ出版しない。
 
 > **`--publish-only` を付ける**（2026-07-27 の実運用で確立）。`--commit-publish` 単独は
 > **全フローを最初からやり直す**ため約1分では終わらない。`--publish-only` は詳細/カテゴリーに
-> 触れず価格ページへ直行する。
+> 触れず content から価格ページへ進む（2026-11-27 から価格ページへの直行はやめた・DN-1310）。
 >
 > 全フローのやり直し自体は 2026-08-03 に通るようにした（下記「途中で落ちた本の再開」）。
 
@@ -166,12 +166,17 @@ node scripts/kindle/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 
 ### 既刊の原稿・表紙の差し替え
 ```
-node scripts/kindle/kdp-publish.mjs --id <id> --update-manuscript [--commit]                 # 原稿(EPUB)だけ・下書き保存まで
+node scripts/kindle/kdp-publish.mjs --id <id> --update-manuscript [--commit [--commit-publish]] # 原稿(EPUB)だけ
 node scripts/kindle/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publish]]    # 表紙だけ・既定 scripts/kindle-dist/<id>.jpg
 ```
 
+**販売ページへ出す手順（2026-11-27・DN-1310）**: 差し替えは `--commit` で下書き保存まで、`--commit-publish` を足すと同じ実行で再出版まで進む（原稿・表紙のどちらも同じ）。
+1. `--commit` だけで実行し、下書き保存と再読込での確認（原稿は「原稿チェックが完了しました」とファイル名、表紙はサムネイルの版）を通す
+2. 運営者の承認後に `--commit --commit-publish` を付けて実行する。content で「回答が正しいことを確認」のチェックを付け直し、「保存して続行」で価格ページへ進み、JP 価格が catalog の priceJpy と一致したら出版を押す（スクリプトの `republishFromContent`）。このチェックは運営者の申告への同意なので、出版の承認を得てから付ける
+3. 下書き保存だけ済ませて後から出す場合は `--publish-only --commit-publish`。これも価格ページへ直行せず content を経由してチェックを付け直す（直行すると「この項目は必須です」×2 で止まる・2026-11-27 c-I）
+
 **上げた版の記録（2026-09-29）**: 新規の下書き保存・出版・原稿の差し替え・表紙の差し替えが成功すると、上げた EPUB・表紙の sha256 と日時を `catalog.json` の各冊の `uploaded` に書く（`scripts/lib/kindle-uploaded.mjs`）。管理画面のコンテンツ台帳（`/content/ledger?c=kindle`）は、手元でビルドしてある版とこの記録を比べて「本文（EPUB）・画像（表紙）」の済・ずれを出す。KDP の公開ページは機械で照合しないので、ずれ＝「手元を直したがまだ入稿していない」の意味。公開中・審査中の48冊は 2026-09-29 の手元の版を上げた版とみなして記録した（`via: baseline`）。
-両モードとも catalog の live＋ASIN、本棚の「販売中」行、コンテンツページのタイトル/ASIN を照合してから触る（details/pricing は触らない。表紙の再出版だけ pricing で価格一致を確かめて出版ボタンを押す）。修正版は**既存差し替え**（新規作成禁止・[[kindle-dup-prevention]]）。編集ページは Amazon の再認証（/ap/signin）を挟むことがあり、パスワードは人がブラウザで入れる。
+両モードとも catalog の live＋ASIN、本棚の「販売中」行、コンテンツページのタイトル/ASIN を照合してから触る（details/pricing は触らない。再出版するときだけ pricing で価格一致を確かめて出版ボタンを押す）。修正版は**既存差し替え**（新規作成禁止・[[kindle-dup-prevention]]）。編集ページは Amazon の再認証（/ap/signin）を挟むことがあり、パスワードは人がブラウザで入れる。
 
 ## kdp-operator への委譲
 

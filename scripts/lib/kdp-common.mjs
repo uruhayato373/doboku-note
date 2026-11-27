@@ -199,3 +199,18 @@ export function partitionDraftDeletion(asins, catalogBooks) {
   }
   return { deletable, protected: kept }
 }
+
+/**
+ * 出版（不可逆）を押す前の価格ページの検証（DN-1310）。表紙差し替え・原稿差し替え・--publish-only の再出版で共用する。
+ * 価格ページに着いていて、JP 価格が期待どおり（expectRoyalty を渡したときはロイヤリティも）なら null、違えば理由を返す。
+ * @param {{ url: string, price: string, royalty?: string }} page 価格ページで読んだ値
+ * @param {{ expectPrice: number|string, expectRoyalty?: string|null }} expect
+ * @returns {string|null}
+ */
+export function publishPreflightIssue({ url, price, royalty = '' }, { expectPrice, expectRoyalty = null }) {
+  if (!/\/pricing/i.test(url || '')) return `価格ページに到達できない（URL=${url || '不明'}）`
+  if (expectPrice == null || expectPrice === '') return '期待する価格が無い（catalog / spec を確かめる）'
+  if (String(price ?? '') !== String(expectPrice)) return `JP 価格 ${price || '(読めず)'} が期待 ${expectPrice} と違う`
+  if (expectRoyalty && royalty !== expectRoyalty) return `ロイヤリティ ${royalty || '(読めず)'} が期待 ${expectRoyalty} と違う`
+  return null
+}

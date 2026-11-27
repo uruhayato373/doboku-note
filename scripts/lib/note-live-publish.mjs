@@ -20,6 +20,7 @@ import { sleep } from './sleep.mjs';
  *   preserveLines: 本文を触っていない更新（カバー・タグだけ）。有料境界も試し読みラインも動かさず、存在だけ確かめて更新する。
  *     「更新する」が設定画面に既に出ていれば試し読みに入らない（入るとタグの入力状態が失われる・2026-07-23 実測）。
  *   onSettings: 設定画面に着いた直後（境界処理の前）に呼ぶ追加手順（タグの入力など）。false を返したら保存しない。
+ *   expectTrial: frontmatter の memberTrial を宣言した無料記事。試し読みの画面が見つからなければ更新せず中断する（DN-1309）。
  *   report: 中断したとき report.reason に理由の語（'trial-guard' など）を書く。呼び出し側が中断台帳に残す。
  *   paidLineBottom: 有料記事の境界 line を本文の末尾へ置き直す（本文はほぼ全部無料・末尾だけ有料の記事用。2026-09-24 DN-0271）。
  *     下書きの line 位置は全文貼り替えで冒頭側へずれていることがある（序章 n3eb135ebdff7 で実測）ので、動かした後に
@@ -46,11 +47,33 @@ export function trialFlowAction({ trialLineBottom = false, membershipLock = fals
  * 直接開く場合がある。後者を境界の無い無料記事と扱うと、ラインを引かずに「更新する」を押し、note 側で確定しないまま
  * 「反映完了」と出ていた（主任技士の出題傾向分析 n39ce3c33eaa8 で実測。画面の出方は実行ごとに変わる）。
  * @param {{hasTrialButton?: boolean, trialLineButtons?: number, trialLineBottom?: boolean, membershipLock?: boolean}} state
- * @returns {'none'|'abort'|'line-bottom'|'keep-locked'} none＝試し読みの設定が無い記事
+ * @returns {'none'|'abort'|'abort-missing'|'line-bottom'|'keep-locked'} none＝試し読みの設定が無い記事。abort-missing＝expectTrial なのに画面が見つからない
  */
-export function trialSettingsAction({ hasTrialButton = false, trialLineButtons = 0, trialLineBottom = false, membershipLock = false } = {}) {
-  if (!hasTrialButton && trialLineButtons < 2) return 'none';
+export function trialSettingsAction({ hasTrialButton = false, trialLineButtons = 0, trialLineBottom = false, membershipLock = false, expectTrial = false } = {}) {
+  if (!hasTrialButton && trialLineButtons < 2) return expectTrial ? 'abort-missing' : 'none';
   return trialFlowAction({ trialLineBottom, membershipLock });
+}
+
+/**
+ * 原稿 frontmatter の memberTrial と CLI のフラグから、試し読みラインの扱いを決める（DN-1309）。
+ * --article の単発でも --list でも同じ関数を通す。フラグ（--trial-line-bottom / --keep-member-lock）は frontmatter より優先する。
+ * expectTrial は frontmatter で宣言した記事だけ true（＝会員特典マガジンに入っていて試し読みの画面が出るはず）。
+ * フラグはバッチ全体に掛かるので、宣言の代わりにはしない。
+ * 2026-11-27、memberTrial: bottom の無料記事で試し読みの画面を検出できないまま「更新する」を押し、note 側で確定しなかった。
+ * 宣言した記事で画面が見つからなければ、更新せずに止める（trialSettingsAction の 'abort-missing'）。
+ * @returns {{ trialLineBottom: boolean, memberLock: boolean, expectTrial: boolean, error?: string }}
+ */
+export function resolveMemberTrial({ memberTrial = '', trialLineBottomFlag = false, keepMemberLockFlag = false } = {}) {
+  const mt = String(memberTrial || '').trim();
+  if (mt && mt !== 'bottom' && mt !== 'lock') {
+    return { trialLineBottom: false, memberLock: false, expectTrial: false, error: `frontmatter の memberTrial は bottom か lock（受け取った値: ${mt}）` };
+  }
+  if (trialLineBottomFlag && keepMemberLockFlag) {
+    return { trialLineBottom: false, memberLock: false, expectTrial: false, error: '--trial-line-bottom と --keep-member-lock は同時に指定できない' };
+  }
+  const trialLineBottom = trialLineBottomFlag || (!keepMemberLockFlag && mt === 'bottom');
+  const memberLock = keepMemberLockFlag || (!trialLineBottomFlag && mt === 'lock');
+  return { trialLineBottom, memberLock, expectTrial: Boolean(mt) };
 }
 
 /** 試し読みラインの候補ボタン（「ラインをこの場所に変更」）の数。2 つ以上あれば試し読みの画面が開いている。 */
@@ -87,7 +110,7 @@ export async function publishLive(
   boundary = '試験問題|予想問題',
   isPaid = true,
   { keepBoundary = false, trialLineBottom = false, membershipLock = false, paidLineBottom = false, screenshotPrefix = 'nu',
-    preserveLines = false, onSettings = null, report = {} } = {},
+    preserveLines = false, onSettings = null, report = {}, expectTrial = false } = {},
 ) {
   const shot = (name) => join(ROOT, `.tmp/${screenshotPrefix}-${name}-${noteId}.png`);
 
@@ -144,7 +167,7 @@ export async function publishLive(
 
   // 無料記事では note 側にボタンが見えても有料境界へ入らない。
   const area = isPaid ? page.getByRole('button', { name: '有料エリア設定' }) : { count: async () => 0 };
-  if (!isPaid) console.log('[5b] 無料記事 → 有料境界の設定・検証をスキップ');
+  if (!isPaid) console.log('[5b] 無料記事 → 有料境界の設定・検証をスキップ（試し読みの画面は続けて確かめる）');
   if (await area.count() && paidLineBottom) {
     console.log('[5b] 有料記事フロー（境界 line を本文の末尾へ置く）');
     await area.first().click(); await sleep(3500);
@@ -259,9 +282,24 @@ export async function publishLive(
       return false;
     }
   } else {
-    const hasTrialButton = (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) > 0;
-    const trialLineButtons = hasTrialButton ? 0 : await countTrialLineButtons(page);
-    const action = trialSettingsAction({ hasTrialButton, trialLineButtons, trialLineBottom, membershipLock });
+    // 試し読みの画面は設定画面より遅れて開くことがある（2026-11-27）。1 回の読み取りで「無い」と決めず、少し待って読み直す。
+    // memberTrial を宣言した記事は出るはずなので長めに待つ。
+    let hasTrialButton = false; let trialLineButtons = 0;
+    for (let i = 0; i < (expectTrial ? 8 : 3); i++) {
+      if (i) await sleep(1500);
+      hasTrialButton = (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) > 0;
+      trialLineButtons = hasTrialButton ? 0 : await countTrialLineButtons(page);
+      if (hasTrialButton || trialLineButtons >= 2) break;
+    }
+    const action = trialSettingsAction({ hasTrialButton, trialLineButtons, trialLineBottom, membershipLock, expectTrial });
+    if (action === 'abort-missing') {
+      report.reason = 'trial-missing';
+      console.error('[5b] ABORT: frontmatter に memberTrial があるのに、試し読みの画面（「試し読みエリアを設定」かライン候補）が見つからない。'
+        + 'ラインを置けないまま「更新する」を押すと note 側で確定しない（2026-11-27）。保存せず中断。'
+        + '記事を会員特典マガジンから外したのなら frontmatter の memberTrial を消して再実行する。');
+      await page.screenshot({ path: shot('trialmissing') });
+      return false;
+    }
     if (action === 'none') {
       console.log('[5b] 無料記事（有料エリア設定ボタンなし）→ 境界処理をスキップ');
     } else if (action === 'abort') {

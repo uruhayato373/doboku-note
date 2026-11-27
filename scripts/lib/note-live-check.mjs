@@ -395,14 +395,22 @@ export function liveBodyText(html) {
  * 有料記事は境界の H2 より前、試し読みラインを末尾直前に置く記事は最後の数行（会員限定の尻尾）を除く。
  * URL だけの行（リンクカード）・画像・コメント・表は公開本文で形が変わるので使わない。
  */
+/** 原稿の行のうち、有料記事なら境界の H2 より前（未購入者に見える範囲）。 */
+function linesBeforeBoundary(markdown, { isPaid = false, boundary = null } = {}) {
+  const lines = (markdown || '').split(/\r?\n/);
+  if (!isPaid || !boundary) return lines;
+  // boundary は「試験問題|予想問題」のような見出しの書き出しの候補（| 区切り）。正規表現として組み立てず、
+  // 文字列の前方一致で比べる（コマンドラインの値から正規表現を作らない・CodeQL js/regex-injection）。
+  const heads = String(boundary).split('|').map((s) => s.trim()).filter(Boolean);
+  const idx = lines.findIndex((l) => {
+    const m = /^##\s+(.*)$/.exec(l.trim());
+    return !!m && heads.some((h) => m[1].startsWith(h));
+  });
+  return idx >= 0 ? lines.slice(0, idx) : lines;
+}
+
 export function visibleProbeLines(markdown, { isPaid = false, boundary = null, trialTail = false } = {}) {
-  let lines = (markdown || '').split(/\r?\n/);
-  if (isPaid && boundary) {
-    let re = null;
-    try { re = new RegExp('^##\\s+(' + boundary + ')'); } catch { re = null; }
-    const idx = re ? lines.findIndex((l) => re.test(l.trim())) : -1;
-    if (idx >= 0) lines = lines.slice(0, idx);
-  }
+  const lines = linesBeforeBoundary(markdown, { isPaid, boundary });
   const out = lines
     .map((l) => l.trim())
     .filter((l) => l && !/^(<!--|https?:\/\/|\||〔〔IMG|!\[|---|```|\$\$|<)/.test(l))
@@ -437,11 +445,39 @@ export function pickUpdateProbes(lines, preText, limit = 3) {
 }
 
 /**
- * @returns {'no-visible-change'|'updated'|'not-updated'}
- *   no-visible-change: 公開範囲に新しい文が無い（見える部分は変わらない更新）＝確かめようがない
+ * 原稿の公開範囲にある URL（本文リンク・リンクカード）。範囲は visibleProbeLines と同じ
+ * （有料記事は境界の H2 より前・試し読みラインを末尾直前に置く記事は最後の 2 行を除く）。
+ * リンクの URL だけを変えた更新（utm の付け足しなど）は見える文が変わらないので、[5g] はこれで反映を確かめる（DN-1309）。
  */
-export function updateVerdict(probes, postText) {
-  if (!probes.length) return 'no-visible-change';
+export function visibleHrefs(markdown, { isPaid = false, boundary = null, trialTail = false } = {}) {
+  let lines = linesBeforeBoundary(markdown, { isPaid, boundary }).map((l) => l.trim()).filter((l) => l && !/^<!--/.test(l));
+  if (trialTail) lines = lines.slice(0, -2);
+  return extractSourceUrls(lines.join('\n'));
+}
+
+/** 公開 API の本文 HTML のリンク先（href とリンクカードの data-src）。実体参照（&amp;）は戻す。 */
+export function liveHrefs(html) {
+  return [...new Set([...decodeEntities(html || '').matchAll(/(?:href|data-src)="([^"]+)"/g)].map((m) => m[1]))];
+}
+
+/** 原稿の公開範囲の URL のうち、更新前の公開本文に無いもの（＝この更新で変わったリンク）。 */
+export function pickUpdateHrefs(hrefs, preHtml, limit = 3) {
+  const pre = new Set(liveHrefs(preHtml));
+  return [...new Set(hrefs)].filter((h) => !pre.has(h)).slice(0, limit);
+}
+
+/**
+ * @param {string[]} probes 新しい文の断片（pickUpdateProbes）
+ * @param {string} postText 更新後の公開本文のテキスト（liveBodyText）
+ * @param {{ hrefProbes?: string[], postHtml?: string }} [links] 変わったリンク先（pickUpdateHrefs）と更新後の公開本文 HTML
+ * @returns {'no-visible-change'|'updated'|'not-updated'}
+ *   no-visible-change: 公開範囲に新しい文も新しいリンク先も無い（見える部分は変わらない更新）＝確かめようがない
+ *   updated: 新しい文かリンク先のどれかが公開本文に出た。公開 API の更新日時はリンクだけの変更では動かないので使わない（2026-11-27）
+ */
+export function updateVerdict(probes, postText, { hrefProbes = [], postHtml = '' } = {}) {
+  if (!probes.length && !hrefProbes.length) return 'no-visible-change';
   const post = squashText(postText);
-  return probes.some((p) => post.includes(p)) ? 'updated' : 'not-updated';
+  if (probes.some((p) => post.includes(p))) return 'updated';
+  const hrefs = new Set(liveHrefs(postHtml));
+  return hrefProbes.some((h) => hrefs.has(h)) ? 'updated' : 'not-updated';
 }

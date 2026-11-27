@@ -16,7 +16,10 @@
  *   node scripts/kindle/kdp-publish.mjs --id <id>                    # 新規提出(下書き保存まで・出版せず)＋チェックリスト
  *   node scripts/kindle/kdp-publish.mjs --id <id> --commit-publish   # 上記＋出版(不可逆)＋出版後検証
  *   node scripts/kindle/kdp-publish.mjs --sync-status                # catalog 各冊を本棚でタイトル検索し {asin,status,提出日} を突合
- *   node scripts/kindle/kdp-publish.mjs --id <id> --update-manuscript [--commit] # LIVE本の原稿だけを差し替え
+ *   node scripts/kindle/kdp-publish.mjs --id <id> --update-manuscript [--commit [--commit-publish]]
+ *                                                             # LIVE本の原稿だけを差し替え(--commit-publish で再出版)
+ *   node scripts/kindle/kdp-publish.mjs --id <id> --publish-only --commit-publish
+ *                                                             # 下書き保存済みの本を出版。content で「回答が正しいことを確認」を付け直してから価格ページへ
  *   node scripts/kindle/kdp-publish.mjs --id <id> --update-cover [--cover <jpg>] [--commit [--commit-publish]]
  *                                                             # LIVE本の表紙だけを差し替え(既定 scripts/kindle-dist/<id>.jpg・--commit-publish で再出版)
  *   node scripts/kindle/kdp-publish.mjs --list-drafts               # 本棚を .tmp へダンプ(読み取り)。下書き表示を削除候補と保護(catalog の出版停止・ASIN あり)に分けて出す
@@ -24,6 +27,8 @@
  *   node scripts/kindle/kdp-publish.mjs --dump --asin <ASIN> --page <details|content|pricing>  # UI変更時の較正
  *   node scripts/kindle/kdp-publish.mjs --diag-category --asin <ASIN>  # カテゴリーカスケードの候補実測(A/E系較正)
  *
+ * 罠: 原稿・表紙を上げると出る「回答が正しいことを確認」のチェックは下書き保存で残らない。出版はどのモードも
+ *   republishFromContent（content でチェック→保存して続行→価格を検証→出版）を通す（価格ページ直行は「この項目は必須です」×2・DN-1310）。
  * 再開性(重複防止): 新規提出で発番したドラフト ASIN を商品の正本（config/products.json）の書籍の行の draftAsin に永続化し、
  *   次回 --id 実行時に draftAsin があれば新規作成せず既存ドラフトへ直行する([[kindle-dup-prevention]])。
  * ---------------------------------------------------------------------------
@@ -37,7 +42,7 @@ import { fileSha256, recordUploaded } from '../lib/kindle-uploaded.mjs';
 import { datasetPath } from '../lib/datasets.mjs';
 import { fetchFailDominant } from '../lib/inconclusive-gate.mjs';
 import { selectShelfRow } from '../lib/kdp-shelf-match.mjs';
-import { resolveBook, validateBook, getDefaults, hasSpec, partitionDraftDeletion } from '../lib/kdp-common.mjs';
+import { resolveBook, validateBook, getDefaults, hasSpec, partitionDraftDeletion, publishPreflightIssue } from '../lib/kdp-common.mjs';
 import { resolveProfileDir } from '../lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from '../lib/playwright-launch.mjs';
 import { jstClock, todayJst } from '../lib/jst-date.mjs';
@@ -238,6 +243,46 @@ async function gotoTitleSetup(page, url) {
     if (/kdp\.amazon\.co\.jp\/.*title-setup\/kindle\//.test(page.url())) { await page.waitForLoadState('domcontentloaded').catch(() => {}); return true; }
   }
   return false;
+}
+
+// content ページを経由して価格ページで出版する（不可逆・DN-1310）。表紙差し替え・原稿差し替え・--publish-only で共用。
+// 「回答が正しいことを確認」のチェックは下書き保存では残らず、再読込で未チェックに戻る（2026-09-28 c-07・2026-11-27 c-I 実測・
+// 出版で「この項目は必須です」×2）。content でチェックし直して「保存して続行」で pricing へ進む（URL 直行では確認が付かない）。
+// 原稿・表紙を保存すると KDP が処理し直し、終わるまで pricing は content へ戻される（2026-09-28 A-01 実測）。最大 10 分待つ。
+// 戻り値: { ok: true, url } / { ok: false, code, reason }（code は呼び手の exit code: 3＝出版前に止めた・4＝押したが出版を確かめられない）
+async function republishFromContent(page, contentUrl, { expectPrice, expectRoyalty = null, tag }) {
+  for (let t = 0; t < 20; t++) {
+    if (t > 0) { console.log(`[${tag}] 原稿の再処理待ち（価格ページがまだ開けない）… ${t * 30}s`); await sleep(24000); }
+    if (!(await gotoTitleSetup(page, contentUrl))) continue;
+    await page.waitForSelector('#save-and-continue-announce', { state: 'attached', timeout: 30000 }).catch(() => {});
+    await sleep(3000);
+    const aff = await affirmUploadAnswers(page);
+    if (t === 0) console.log(`[${tag}] 出版前の回答の確認チェック: ${aff.found} 欄（今回チェック ${aff.clicked}）`);
+    await sleep(1000);
+    await page.locator('#save-and-continue-announce').click({ timeout: 10000 }).catch(() => {});
+    for (let w = 0; w < 6 && !/\/pricing/i.test(page.url()); w++) await sleep(2500);
+    if (/\/pricing/i.test(page.url())) { await sleep(4000); break; }
+  }
+  const read = await page.evaluate(() => ({
+    price: document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]')?.value || '',
+    royalty: document.querySelector('input[name="data[digital][royalty_rate]-radio"]:checked')?.value || '',
+  })).catch(() => ({ price: '', royalty: '' }));
+  const issue = publishPreflightIssue({ url: page.url(), ...read }, { expectPrice, expectRoyalty });
+  console.log(`[${tag}] 出版前の検証: JP 価格=${read.price || '?'} / ロイヤリティ=${read.royalty || '?'} / 期待=¥${expectPrice}${expectRoyalty ? `・${expectRoyalty}` : ''}`);
+  if (issue) { await shot(page, `${tag}-pub-preflight-fail`); return { ok: false, code: 3, reason: `${issue} → 出版せず停止` }; }
+  console.log(`[${tag}] ★出版: 「Kindle本を出版」クリック…`);
+  let clicked = false;
+  for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) {
+    try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {}
+  }
+  if (!clicked) { await shot(page, `${tag}-pub-btn-fail`); return { ok: false, code: 3, reason: '出版ボタンが見つからない' }; }
+  const outcome = await readPublishOutcome(page);
+  await shot(page, `${tag}-published`);
+  if (!outcome.ok) {
+    for (const f of outcome.fields) console.error(`  欄: ${f.name || '(名前なし)'} … ${f.near}`);
+    return { ok: false, code: 4, reason: `出版されていない（URL=${outcome.url}）${outcome.errors.length ? ' エラー: ' + outcome.errors.join(' / ') : ''}` };
+  }
+  return { ok: true, url: outcome.url };
 }
 
 // 保存に成功した原稿・表紙のハッシュを catalog の uploaded に書く（管理画面の台帳が手元の版とのずれを出す・lib/kindle-uploaded.mjs）。
@@ -469,45 +514,11 @@ try {
         await ctx.close(); process.exit(0);
       }
 
-      // 再出版（不可逆）。価格ページで価格が catalog と一致することを確かめてから押す。
-      // 表紙を保存すると KDP が原稿を処理し直し、終わるまで pricing は content へ戻される
-      // （2026-09-28 A-01 実測:「ファイルを処理しています…」・コンテンツ=設定中）。最大 10 分待つ。
-      // 「回答が正しいことを確認」のチェックは下書き保存では残らず、再読込で未チェックに戻る
-      // （2026-09-28 c-07 実測・出版で「この項目は必須です」×2）。content でチェックし直して
-      // 「保存して続行」で pricing へ進む（URL 直行では確認が付かない）。
-      for (let t = 0; t < 20; t++) {
-        if (t > 0) { console.log(`[cover] 原稿の再処理待ち（価格ページがまだ開けない）… ${t * 30}s`); await sleep(24000); }
-        if (!(await gotoTitleSetup(page, contentUrl))) continue;
-        await page.waitForSelector('#save-and-continue-announce', { state: 'attached', timeout: 30000 }).catch(() => {});
-        await sleep(3000);
-        const aff = await affirmUploadAnswers(page);
-        if (t === 0) console.log(`[cover] 出版前の回答の確認チェック: ${aff.found} 欄（今回チェック ${aff.clicked}）`);
-        await sleep(1000);
-        await page.locator('#save-and-continue-announce').click({ timeout: 10000 }).catch(() => {});
-        for (let w = 0; w < 6 && !/\/pricing/i.test(page.url()); w++) await sleep(2500);
-        if (/\/pricing/i.test(page.url())) { await sleep(4000); break; }
-      }
-      if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'cover-pub-nav-fail'); await ctx.close(); process.exit(3); }
-      const price = await page.evaluate(() => document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]')?.value || '');
-      if (String(price) !== String(catalogBook.priceJpy)) {
-        console.error(`ABORT: 価格ページの JP 価格 ${price || '(読めず)'} が catalog.priceJpy ${catalogBook.priceJpy} と違う → 出版せず停止（表紙は下書き保存済み）`);
-        await shot(page, 'cover-pub-price-fail'); await ctx.close(); process.exit(3);
-      }
-      console.log('[cover] ★再出版: 「Kindle本を出版」クリック…');
-      let clicked = false;
-      for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) {
-        try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {}
-      }
-      if (!clicked) { console.error('ABORT: 出版ボタンが見つからない（表紙は下書き保存済み）'); await shot(page, 'cover-pub-btn-fail'); await ctx.close(); process.exit(3); }
-      const outcome = await readPublishOutcome(page);
-      await shot(page, 'cover-published');
-      if (!outcome.ok) {
-        console.error(`FAIL: 再出版されていない（URL=${outcome.url}）${outcome.errors.length ? '\n  エラー: ' + outcome.errors.join(' / ') : ''}`);
-        for (const f of outcome.fields) console.error(`  欄: ${f.name || '(名前なし)'} … ${f.near}`);
-        await ctx.close(); process.exit(4);
-      }
+      // 再出版（不可逆）。content で確認チェックを付け直し、価格ページで価格が catalog と一致することを確かめてから押す。
+      const pub = await republishFromContent(page, contentUrl, { expectPrice: catalogBook.priceJpy, tag: 'cover' });
+      if (!pub.ok) { console.error(`${pub.code === 4 ? 'FAIL' : 'ABORT'}: ${pub.reason}（表紙は下書き保存済み）`); await ctx.close(); process.exit(pub.code); }
       writeCatalogUploaded(ID, { cover: book.cover }, 'update-cover');
-      console.log(`[done] 表紙差し替えを再出版: ${ID} / ${catalogBook.asin} / sha256=${sha256}（変更事項のレビューへ・反映まで最大 72h） URL=${outcome.url}`);
+      console.log(`[done] 表紙差し替えを再出版: ${ID} / ${catalogBook.asin} / sha256=${sha256}（変更事項のレビューへ・反映まで最大 72h） URL=${pub.url}`);
       await ctx.close(); process.exit(0);
     }
 
@@ -516,7 +527,7 @@ try {
     console.log(`[update] 本棚照合 OK: ${ID} / ${catalogBook.asin} / 販売中 / titleId=${titleId}`);
     console.log(`[update] 現在の原稿=${current.filename || '(不明)'} / 新原稿=${basename(book.epub)} / ${bytes} bytes / sha256=${sha256}`);
     if (!COMMIT) {
-      console.log('[update] dry-run 完了（--commit で原稿だけをアップロードして下書き保存）');
+      console.log('[update] dry-run 完了（--commit で原稿だけをアップロードして下書き保存、--commit-publish を足すと再出版まで）');
       await shot(page, 'update-dry-run'); await ctx.close(); process.exit(0);
     }
 
@@ -597,7 +608,14 @@ try {
     }
     await shot(page, 'update-verified');
     writeCatalogUploaded(ID, { epub: book.epub }, 'update-manuscript');
-    console.log(`[done] 原稿差し替え完了: ${ID} / ${catalogBook.asin} / ${verified.filename} / sha256=${sha256}`);
+    if (!COMMIT_PUBLISH) {
+      console.log(`[done] 原稿差し替えを下書き保存: ${ID} / ${catalogBook.asin} / ${verified.filename} / sha256=${sha256}（販売ページへの反映は --commit-publish で再出版）`);
+      await ctx.close(); process.exit(0);
+    }
+    // 再出版（不可逆）。表紙差し替えと同じ手順（content で確認チェック → 価格の検証 → 出版）。DN-1310
+    const pub = await republishFromContent(page, contentUrl, { expectPrice: catalogBook.priceJpy, tag: 'update' });
+    if (!pub.ok) { console.error(`${pub.code === 4 ? 'FAIL' : 'ABORT'}: ${pub.reason}（原稿は下書き保存済み）`); await ctx.close(); process.exit(pub.code); }
+    console.log(`[done] 原稿差し替えを再出版: ${ID} / ${catalogBook.asin} / ${verified.filename} / sha256=${sha256}（変更事項のレビューへ・反映まで最大 72h） URL=${pub.url}`);
     await ctx.close(); process.exit(0);
   }
 
@@ -959,26 +977,18 @@ try {
   if (MODE_PUBLISH_ONLY) {
     const asin = getArg('--asin') || getDraftAsin(ID);
     if (!asin) { console.error(`ABORT: --publish-only には draftAsin が必要（catalog に ${ID} の draftAsin 無し／--asin 指定可）`); await ctx.close(); process.exit(1); }
-    await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${asin}/pricing`, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.waitForLoadState('domcontentloaded').catch(() => {});
-    await sleep(5000);
-    if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'pub-nav-fail'); await ctx.close(); process.exit(3); }
-    // 出版前検証（価格/ロイヤリティが期待値か。未設定なら出版せず停止＝目視で直す）
-    let st = {};
-    try { st = await page.evaluate(() => ({ roy: (document.querySelector('input[name="data[digital][royalty_rate]-radio"]:checked') || {}).value || '', price: (document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]') || {}).value || '' })); } catch {}
-    console.log(`[pub] ${ID} (${asin}) 検証: ロイヤリティ=${st.roy} / JP価格=${st.price} / 期待=70_PERCENT・${book.price}`);
-    if (st.roy !== '70_PERCENT' || String(st.price) !== String(book.price)) { console.error('ABORT: 価格/ロイヤリティ不一致 → 出版せず停止（ドラフトを目視で直す）'); await shot(page, 'pub-verify-fail'); await ctx.close(); process.exit(3); }
-    // 出版（不可逆）
-    console.log('[pub] ★出版: 「Kindle本を出版」クリック…');
-    let clicked = false;
-    for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {} }
-    if (!clicked) { console.error('ABORT: 出版ボタンが見つからない'); await shot(page, 'pub-btn-fail'); await ctx.close(); process.exit(3); }
-    const outcome = await readPublishOutcome(page);
-    await shot(page, 'pub-published');
-    if (!outcome.ok) console.error(`FAIL: 出版されていない（URL=${outcome.url}）${outcome.errors.length ? ' エラー: ' + outcome.errors.join(' / ') : ''}`);
-    else console.log(`[pub] OK 出版リクエスト送信（審査へ・通常72h） URL=${outcome.url}`);
+    // 価格ページへ直行せず content を経由する。原稿・表紙を下書き保存したまま未出版の本は、content で
+    // 「回答が正しいことを確認」を付け直さないと出版で「この項目は必須です」×2 になる（2026-11-27 c-I・DN-1310）。
+    // 変更の無い下書きでは確認欄が 0 件で、「保存して続行」でそのまま価格ページへ進む。
+    if (!COMMIT_PUBLISH) {
+      console.log('[pub] --publish-only は --commit-publish が無いと出版しない（不可逆のため）。終了');
+      await ctx.close(); process.exit(0);
+    }
+    const pub = await republishFromContent(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${asin}/content`, { expectPrice: book.price, expectRoyalty: '70_PERCENT', tag: 'pub' });
+    if (!pub.ok) console.error(`${pub.code === 4 ? 'FAIL' : 'ABORT'}: ${pub.reason}`);
+    else console.log(`[pub] OK 出版リクエスト送信（審査へ・通常72h） URL=${pub.url}`);
     await ctx.close();
-    process.exit(outcome.ok ? 0 : 4);
+    process.exit(pub.ok ? 0 : pub.code);
   }
 
   // ═══════════════ 新規提出フロー（既定 / --commit-publish で出版）═══════════════
