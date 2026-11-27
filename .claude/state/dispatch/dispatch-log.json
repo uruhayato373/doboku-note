@@ -11103,6 +11103,57 @@
       "commit": "ee90edd54afb",
       "verification": "lint-mdx-mobile PASS・refresh-indexes exit 0・pre-commit OK",
       "note": "サイトの論文戦略ガイド（essay-exam-strategy）に R3〜R8 のその年だけの条件の表・条件を一覧にする手順・東京圏の組織の受け手の決め方・取組×テーマの言い換え表を追加（ee90edd54a）。総監 Kindle f-01〜16 の前書き（be8072c332）とココナラ添削 PDF にも反映済み"
+    },
+    {
+      "id": "DN-1308",
+      "at": "2026-11-28",
+      "task": "note-comment-reply がスレッド返信の UI に対応しておらず、--submit で投稿されない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-comment-thread.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "657de32a22fe",
+      "verification": "PR #1770 の CI test 緑（tests/note-comment-thread.test.mjs）",
+      "note": "PR #1770 で note-comment-reply をスレッド返信の UI（コメント ID 指定→吹き出し→返信欄→送信）に対応させた"
+    },
+    {
+      "id": "DN-1309",
+      "at": "2026-11-28",
+      "task": "note-update-body の --article 実行が frontmatter の memberTrial を読まず、試し読みラインを置かずに更新を押す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-trial-flow.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "657de32a22fe",
+      "verification": "PR #1770 の CI test 緑（tests/note-trial-flow.test.mjs・note-live-update-verify.test.mjs）",
+      "note": "PR #1770 で --article 実行でも frontmatter の memberTrial を読み、試し読み画面を待って読み直す。反映の確認を本文で行う"
+    },
+    {
+      "id": "DN-1310",
+      "at": "2026-11-28",
+      "task": "kdp-publish の原稿差し替えに再出版の手順が無く、--publish-only では「この項目は必須です」で止まる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/kdp-republish-preflight.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "657de32a22fe",
+      "verification": "PR #1770 の CI test 緑（tests/kdp-republish-preflight.test.mjs）",
+      "note": "PR #1770 で原稿差し替え後の再出版の前に確認のチェックを入れ直すようにした"
     }
   ]
 }

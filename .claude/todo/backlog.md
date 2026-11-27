@@ -213,32 +213,10 @@
 完了条件: 基準線が「お詫びと訂正」の引用 4 件だけになる。採点者視点の節に前置きの 1 文が入っている。手順は .claude/knowledge/reference/note-correction-procedure.md。
 
 
-### [DN-1310] kdp-publish の原稿差し替えに再出版の手順が無く、--publish-only では「この項目は必須です」で止まる
-タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-27]
-
-2026-11-27、販売中の c-I の原稿を `kdp-publish.mjs --id c-I --update-manuscript --commit` で差し替えて下書き保存したあと、`--publish-only --commit-publish` で出版すると「続行するには、強調表示されている項目のエラーを修正してください。この項目は必須です。」×2 で出版できなかった。原因は、原稿や表紙を上げると出る「回答が正しいことを確認」のチェックが下書き保存では残らず、--publish-only は価格ページへ直行するためチェックし直さないこと（表紙差し替えの流れは content でチェックし直してから出版する・2026-09-28 c-07 で既知）。今回は同じ表紙で `--update-cover --commit --commit-publish` を通して再出版した（表紙は同一 sha256 a06a3eaa…）。
-
-直すこと: `--update-manuscript` にも `--commit-publish` を付けられるようにし、表紙差し替えと同じく content で回答の確認をチェックし直してから価格ページで出版する。--publish-only でも、未出版の原稿・表紙の変更がある本は content を経由する。kdp-publish の SKILL.md の「既刊の原稿・表紙の差し替え」に手順を書く。
 
 
-### [DN-1309] note-update-body の --article 実行が frontmatter の memberTrial を読まず、試し読みラインを置かずに更新を押す
-タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-27]
-
-2026-11-27、`npm run note-update-body -- --article <主任技士 小論文の出題傾向記事> --commit`（frontmatter に `notePricing: free`・`memberTrial: bottom`）が、試し読みラインの画面で「[5b] 無料記事 → 有料境界の設定・検証をスキップ」としてラインを置かずに「更新する」を押し、note 側で確定しないまま [5g] で FAIL した（公開本文は旧版のまま・事故はなし）。`--trial-line-bottom --force-retry` を明示すると [5b] メンバーシップ試し読みフローに入り反映できた。
-
-note-api-verification.md の記述では「notePricing: free の記事は --trial-line-bottom か --keep-member-lock を指定しないと保存せず中断する」はずで、また cmd の説明では frontmatter の memberTrial で公開範囲を決めるとある。--article の単発実行では frontmatter の memberTrial が読まれず、中断もせずに「更新する」まで進んでいる。
-
-同じ日にもう1件: 公開直後の無料記事（n4193ff4bbc81）のリンクに utm_term だけを足して `--article --commit --force-retry` で更新すると、[5g] が「公開範囲に新しい文が無い更新 → 更新確認は省略」として [OK] を出したが、直後の公開 API ではリンクに utm_term が入っていなかった（1回目は「公開設定ページに到達せず」で保存せず終了）。同日夕方に同じ更新をもう一度実行した後は、リンクに utm_term が入っていた。公開 API の更新日時は、どちらの後も公開時刻のまま変わらなかった（リンクだけの変更では更新日時が動かないので、反映の確認に使えない）。見える文の差が無い更新は、[5g] で省略せず、公開本文のリンクの URL で反映を確かめる。
-
-直すこと: --article でも frontmatter の memberTrial（bottom→--trial-line-bottom 相当、lock→--keep-member-lock 相当）を読む。読めない・指定が無い無料記事で試し読みの画面が出たら、「更新する」を押さずに中断する。回帰テストを付ける。
 
 
-### [DN-1308] note-comment-reply がスレッド返信の UI に対応しておらず、--submit で投稿されない
-タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-27]
-
-2026-11-27、`node scripts/note/note-comment-reply.mjs n4b679c8da64e <txt> --submit` が「[3] コメント送信（矢印アイコン）: clicked」→「[4] 本文がページ上に存在=false」で FAIL し、実際に投稿されていなかった（記事のコメント欄に返信 0 件のまま）。note のコメントが「返信はスレッドにまとまり、相手にだけ通知が届く」UI に変わっており、個別コメントの吹き出しアイコンで開く返信欄（`@<相手>さんに返信` の下の textarea[placeholder="コメントする"]、ページ内の 2 つ目）を使わないと返信にならない。今回は内部ブラウザでその返信欄に入れて投稿した（返信 1 件・497 字一致を確認）。
-
-直すこと: 対象コメントの ID（通知 URL の `c=` の値）を引数で受け、そのコメントの吹き出しアイコン → 返信欄 → 送信ボタンの順に操作する。投稿の検証は、対象コメントの「返信N件」の増加と本文の一致で行う。送信ボタンが無反応だったときに二重投稿しないよう、再送は返信件数を読み直してから。
 
 
 
