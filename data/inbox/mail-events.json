@@ -1,8 +1,56 @@
 {
   "schemaVersion": 1,
   "description": "obsidian の mail-triage（毎日 cron）がメールから拾ったイベント。売上の正本ではない——正本は各リポのスクレイパーが取るログ。辞書は obsidian .claude/mail-rules.json",
-  "updatedAt": "2026-11-26T04:21:09.156Z",
+  "updatedAt": "2026-11-27T04:31:12.420Z",
   "events": [
+    {
+      "id": "1a21a3cfdcb6b521",
+      "receivedAt": "2026-11-26T23:42:13.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18661633"
+    },
+    {
+      "id": "1a2185c71151ba09",
+      "receivedAt": "2026-11-26T14:57:19.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18661633"
+    },
+    {
+      "id": "1a218580e5737035",
+      "receivedAt": "2026-11-26T14:52:33.000Z",
+      "account": "doboku",
+      "kind": "coconala-order",
+      "label": "ココナラ 新規購入",
+      "talkroomId": "18661633"
+    },
+    {
+      "id": "1a217bd18b31d417",
+      "receivedAt": "2026-11-26T12:03:17.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18660481"
+    },
+    {
+      "id": "1a217bc37c037099",
+      "receivedAt": "2026-11-26T12:02:19.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18660481"
+    },
+    {
+      "id": "1a21791bb0bb9393",
+      "receivedAt": "2026-11-26T11:15:56.000Z",
+      "account": "doboku",
+      "kind": "coconala-order",
+      "label": "ココナラ 新規購入",
+      "talkroomId": "18660481"
+    },
     {
       "id": "1a215adc149bb37a",
       "receivedAt": "2026-11-26T02:27:17.000Z",
