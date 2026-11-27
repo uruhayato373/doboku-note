@@ -88,6 +88,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
 | `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
 | `coconala-pe-oral-qa` | 技術士 口頭試験 想定質問作成（業務内容の詳細720字＋経歴 → 想定質問20問＋回答の骨子・テキスト完結・¥5,000・週2枠）。捏造禁止＝事実が足りない箇所は確認事項で返す。ヒアリングシートと納品の型→ `content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` |
+| `coconala-pe-sokan-tensaku` | 技術士 総監 記述式の添削（1問・3日・質問1往復込み）。2026-11-26 初受注（R8 再現論文）。購入直後の文・納品 PDF の構成（総評→直す順番→枚ごとの判定→引用つき赤入れ→組み直しの例→その年の条件→来年度に向けて）・送信前の自己点検 → `content/coconala/products/coconala-pe-sokan-tensaku/運用テンプレ.md` |
+| `coconala-pe-construction-tensaku` | 技術士 建設部門の論文添削（必須I・選択II・IIIのうち1問・3日・質問1往復込み）。2026-11-26 初受注（R8 必須I-1 再現論文）。必須Iで指摘になりやすい型と(3)の問い方の型 → `content/coconala/products/coconala-pe-construction-tensaku/運用テンプレ.md` |
 
 **サイト内動線（記事内 CTA）**: `/links` ハブに加え、二次系の高適合記事の末尾にサービスを文脈 CTA として出す。配線 SoT は `src/lib/offsite-cta.ts`（slug→listed サービス・note の magazine-placement.ts と直交）、描画は `OffsiteCta` コンポーネント。listed のみ発火・外部 URL に UTM 非付与・クリックは `data-cta="coconala"`（AnalyticsProvider）・1ページ最大3枚・1級/2級は slug prefix で PDF を出し分け。対応表:
 
