@@ -730,10 +730,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-kokufuku-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#shorts/point-kokufuku-2",
       "relatedTo": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-kokufuku-2/video",
+        "cover": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-kokufuku-2/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-kokufuku-2/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-kokufuku-2/subtitles"
+      },
+      "publishAt": "2026-11-30T08:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-27T12:55:43.369Z",
+          "digest": "a4011e582e4b63b6f92fedf9e5eb0c1e03eddc0044b50593ac56893134ca6771"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-27T12:55:43.369Z",
+        "contentSha256": "ef97402136004a78862438356744f259847198c84138ed64ad595c98d376376b"
+      },
+      "times": {
+        "rendered": "2026-11-27T12:55:43.582Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-shibori-1",
