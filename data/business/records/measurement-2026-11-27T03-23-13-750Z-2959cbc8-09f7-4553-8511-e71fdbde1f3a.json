@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-11-16",
+    "endDate": "2026-11-22"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・太平洋時間。dimensions=[]・aggregation=byProperty・取得1行。全プロパティ集計。",
+  "values": {
+    "gscClicks": 9249
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-11-27T03:23:13.750Z",
+  "strategyHash": "f243cf4fd3ee9e9c43c7d54ab7f0ba85cf3730f50249cfb5efa62acc83316dc6"
+}

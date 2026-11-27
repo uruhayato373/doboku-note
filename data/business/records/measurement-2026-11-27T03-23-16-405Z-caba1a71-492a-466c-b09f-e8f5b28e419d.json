@@ -1,0 +1,20 @@
+{
+  "kind": "measurement",
+  "qualification": "pe-construction",
+  "period": {
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。AdSense 推定収益は国で絞らず、GA4 とのリンク（2026-11-23）以降に始まり広告の表示が 1 回以上ある期間だけ載せる。",
+  "values": {
+    "organicUsers": 304,
+    "noteCtaClicks": 20
+  },
+  "supersedes": "data/business/records/measurement-2026-11-15T00-36-52-642Z-5ae2e41d-5301-4b85-8f36-fc0a150e1e6b.json",
+  "schemaVersion": 1,
+  "createdAt": "2026-11-27T03:23:16.405Z",
+  "strategyHash": "f243cf4fd3ee9e9c43c7d54ab7f0ba85cf3730f50249cfb5efa62acc83316dc6"
+}
