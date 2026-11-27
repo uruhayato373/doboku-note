@@ -11069,6 +11069,40 @@
       "commit": "1797df9f5ad1",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1305",
+      "at": "2026-11-27",
+      "task": "コンクリート技士 施工の章：暑中の35℃を示方書の荷卸し時と誤記",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "単発の誤記。主任技士版（:318）は打込み時で正しく、同種の誤記の横展開は無い"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b1deb2247635",
+      "verification": "refresh-indexes exit 0・U+FFFD 0",
+      "note": "施工の章:230 を打込み時・上限の標準35℃に直し、2023年制定版の35℃超の扱いの追加を書き添えた（b1deb22476）。根拠は土木学会 2023-10-03 改訂発表"
+    },
+    {
+      "id": "DN-1307",
+      "at": "2026-11-27",
+      "task": "総監 記述式: 問題文の新しい条件を拾って型に落とす手順を教材にする（R8 地方創生の事例から）",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "制作カード"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ee90edd54afb",
+      "verification": "lint-mdx-mobile PASS・refresh-indexes exit 0・pre-commit OK",
+      "note": "サイトの論文戦略ガイド（essay-exam-strategy）に R3〜R8 のその年だけの条件の表・条件を一覧にする手順・東京圏の組織の受け手の決め方・取組×テーマの言い換え表を追加（ee90edd54a）。総監 Kindle f-01〜16 の前書き（be8072c332）とココナラ添削 PDF にも反映済み"
     }
   ]
 }
