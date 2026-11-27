@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-26T05:28:08.707Z",
+  "checkedAt": "2026-11-27T05:21:25.601Z",
   "channel": "youtube",
-  "targets": 99,
-  "checked": 99,
-  "observed": 99,
+  "targets": 103,
+  "checked": 103,
+  "observed": 103,
   "advanced": [
-    "pe-construction/pe-kojutsu-fukabori/youtube.longform"
+    "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
+    "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2"
   ],
   "findings": []
 }
