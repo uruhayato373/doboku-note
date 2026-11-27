@@ -1667,10 +1667,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-joken-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#shorts/point-joken-2",
       "relatedTo": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/video",
+        "cover": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/cover",
+        "contact-sheet": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/contact-sheet",
+        "subtitles": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/subtitles"
+      },
+      "publishAt": "2026-11-29T08:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-27T12:51:52.483Z",
+          "digest": "ffa992a56f5151644d496cfe293c84bc95e1c9ef1f72211a351fb070ceb0af7c"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-27T12:51:52.483Z",
+        "contentSha256": "4734d4f3337fdc185cce30dcd1c167bb2d5e4d3b7e95171a2e454ef86d634487"
+      },
+      "times": {
+        "rendered": "2026-11-27T12:51:52.675Z"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1",
