@@ -1707,10 +1707,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-junban-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#shorts/point-junban-1",
       "relatedTo": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1/video",
+        "cover": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1/cover",
+        "contact-sheet": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1/contact-sheet",
+        "subtitles": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1/subtitles"
+      },
+      "publishAt": "2026-11-29T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-27T12:53:48.229Z",
+          "digest": "61d19aa354f54d699f0a489a8c82f4141708386d7f832e8199aa3aa8f83dc97b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-27T12:53:48.229Z",
+        "contentSha256": "9e70a81db5920dda46857432c8024a3fba356bd52aac19c2942d6a6e12fba297"
+      },
+      "times": {
+        "rendered": "2026-11-27T12:53:48.420Z"
+      }
     },
     {
       "id": "pe-construction/pe-ii1-kakikata/youtube.longform",
