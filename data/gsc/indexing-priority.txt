@@ -1,61 +1,22 @@
-# gsc-indexing priority (generated 2026-11-19T09:48:49.596Z)
-# batch=data/gsc/url-inspection/2026-11-19T09-44-23.json gsc-page=data/gsc/reports/2026-11-19.json#page
-# inspected=2109 indexed=2024 candidates=75 withDemand=2 cooledDown=10
+# gsc-indexing priority (generated 2026-11-27T10:30:34.459Z)
+# batch=data/gsc/url-inspection/2026-11-27T10-25-30.json gsc-page=data/gsc/reports/2026-11-27.json#page
+# inspected=2137 indexed=2094 candidates=38 withDemand=3 cooledDown=5
 # order=表示あり（表示降順）→ 型の期待値（降順）→ 重点資格 → パス昇順（根拠は indexing-priority.json の types）
-/exam/pe-first-stage/primary/h28-basic
-/exam/civil-construction-1/secondary/earthwork-basics
-/exam/surveyor/guide/assistant-keisan
-/exam/surveyor/guide/difficulty
-/exam/surveyor/guide/gogo-kotaekata
-/laws/coast-act
-/laws/port-act
-/exam/pe-construction/past-exams/r07-required-i-2
-/exam/pe-construction/past-exams/r07-steel-concrete-ii-2-2
-/exam/pe-construction/past-exams/r08-construction-planning-ii-1-3
-/exam/pe-construction/past-exams/r08-construction-planning-ii-1-4
-/exam/pe-construction/past-exams/r08-construction-planning-ii-2-2
-/exam/pe-construction/past-exams/r08-construction-planning-iii-1
-/exam/pe-construction/past-exams/r08-geotechnical-ii-1-1
-/exam/pe-construction/past-exams/r08-geotechnical-ii-1-2
-/exam/pe-construction/past-exams/r08-geotechnical-ii-1-4
-/exam/pe-construction/past-exams/r08-geotechnical-ii-2-2
-/exam/pe-construction/past-exams/r08-geotechnical-iii-2
-/exam/pe-construction/past-exams/r08-required-i-1
-/exam/pe-construction/past-exams/r08-required-i-2
-/exam/pe-construction/past-exams/r08-river-coast-ii-1-1
-/exam/pe-construction/past-exams/r08-river-coast-ii-2-1
-/exam/pe-construction/past-exams/r08-river-coast-ii-2-2
-/exam/pe-construction/past-exams/r08-road-ii-1-1
-/exam/pe-construction/past-exams/r08-road-ii-1-2
-/exam/pe-construction/past-exams/r08-road-ii-1-3
-/exam/pe-construction/past-exams/r08-road-ii-2-1
-/exam/pe-construction/past-exams/r08-road-ii-2-2
-/exam/pe-construction/past-exams/r08-road-iii-1
-/exam/pe-construction/past-exams/r08-road-iii-2
-/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2
-/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4
-/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1
-/exam/pe-construction/past-exams/r08-steel-concrete-iii-1
-/exam/pe-construction/past-exams/r08-steel-concrete-iii-2
-/exam/pe-construction/guide/koutou-shiken
-/practice/project-request-to-budget
-/practice/road-work-approval-vs-road-use-permit
-/exam/civil-construction-1/guide/market-value-check
-/standards/chubu/special/chapters/6-7
-/standards/kinki/common/chapters/3-2/sections/8
-/standards/kinki/hikkei/chapters/1-1
-/standards/kinki/hikkei/chapters/12-11
-/standards/kinki/hikkei/chapters/12-2
-/standards/kinki/hikkei/chapters/12-3
-/standards/kinki/hikkei/chapters/12-4
-/standards/kinki/hikkei/chapters/12-6
-/standards/kinki/hikkei/chapters/12-7
-/standards/kinki/hikkei/chapters/3-2
-/standards/kinki/hikkei/chapters/4-2
+/exam/pe-first-stage/primary/r01-basic
+/exam/concrete-diagnostician/guide/essay
+/exam/pe-comprehensive-management/past-exams/h24-secondary
+/laws/landslide-prevention-act
+/laws/sabo-act
+/exam/civil-construction-2/primary/r08-kouki
+/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword
+/exam/civil-construction-1/primary/h28-b
+/standards/kinki/common/chapters/10-14
 /standards/kinki/hikkei/chapters/4-4
 /standards/kinki/hikkei/chapters/4-7
 /standards/kinki/hikkei/chapters/5-2
 /standards/kinki/hikkei/chapters/8-3
+/standards/kyushu/hikkei-common-08/chapters/2-1
+/standards/kyushu/hikkei-common-08/chapters/2-3
 /standards/kyushu/hikkei-common-10/chapters/1-4
 /standards/kyushu/hikkei-common-10/chapters/1-7
 /standards/kyushu/hikkei-common-10/chapters/2-5
@@ -76,4 +37,6 @@
 /standards/tohoku/reference/chapters/44-1
 /standards/tohoku/special/chapters/10-4
 /standards/tohoku/special/chapters/7-1
-/topics/concrete
+/exam/pe-comprehensive-management/keywords/labor-tribunal-act
+/exam/pe-comprehensive-management/keywords/pollution-control-manager
+/exam/pe-comprehensive-management/keywords/sexual-harassment
