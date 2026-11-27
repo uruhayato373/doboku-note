@@ -399,9 +399,13 @@ export function liveBodyText(html) {
 function linesBeforeBoundary(markdown, { isPaid = false, boundary = null } = {}) {
   const lines = (markdown || '').split(/\r?\n/);
   if (!isPaid || !boundary) return lines;
-  let re = null;
-  try { re = new RegExp('^##\\s+(' + boundary + ')'); } catch { re = null; }
-  const idx = re ? lines.findIndex((l) => re.test(l.trim())) : -1;
+  // boundary は「試験問題|予想問題」のような見出しの書き出しの候補（| 区切り）。正規表現として組み立てず、
+  // 文字列の前方一致で比べる（コマンドラインの値から正規表現を作らない・CodeQL js/regex-injection）。
+  const heads = String(boundary).split('|').map((s) => s.trim()).filter(Boolean);
+  const idx = lines.findIndex((l) => {
+    const m = /^##\s+(.*)$/.exec(l.trim());
+    return !!m && heads.some((h) => m[1].startsWith(h));
+  });
   return idx >= 0 ? lines.slice(0, idx) : lines;
 }
 
