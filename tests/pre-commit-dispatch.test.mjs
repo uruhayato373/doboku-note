@@ -80,6 +80,8 @@ const LEGACY = [
   ['scripts/checks/check-note-intro-benefit.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-note-attachments.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-note-boundary.mjs', ['--staged'], 'always'],
+  // 旧フックには無い（2026-11-27 に足した）
+  ['scripts/checks/check-note-overclaim.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-rccm-essay.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-cce-essay.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-note-frontmatter-dup.mjs', ['--staged'], 'always'],
@@ -166,8 +168,8 @@ const makeCtx = ({ staged = [], status = 'M', env = {}, missing = [], contentQua
 });
 const planned = (ctx) => planSteps(ctx).map(({ step, argv }) => [step.script, argv]);
 
-test('LEGACY の表と STEPS が同じ件数・同じ順（旧フックの node 行 72 本＋DN-0554・DN-0802 の 2 本）', () => {
-  assert.equal(LEGACY.length, 74);
+test('LEGACY の表と STEPS が同じ件数・同じ順（旧フックの node 行 72 本＋DN-0554・DN-0802 の 2 本＋check-note-overclaim）', () => {
+  assert.equal(LEGACY.length, 75);
   assert.deepEqual(STEPS.map((s) => s.script), LEGACY.map(([s]) => s));
 });
 
@@ -352,7 +354,7 @@ test('inProcess の検査はすべて run() を export し、import しただけ
   }
   // 子プロセスのままなのは npx tsx の 1 本だけ（検査ゼロを PASS と呼ばない）
   assert.deepEqual(STEPS.filter((s) => !s.inProcess).map((s) => s.id), ['check-magazine-cta-reachability']);
-  assert.equal(checked, 73);
+  assert.equal(checked, 74);
 });
 
 test('cli-run: runBody は process.exit を ExitSignal に、process.argv / exitCode を引数に読み替える', async () => {

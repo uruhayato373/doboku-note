@@ -1,0 +1,23 @@
+{
+  "_doc": "check-note-overclaim の基準線（note 記事のリポジトリ相対パス → 根拠の無い言い切りの件数）。増やさない。記事を直したら npm run check-note-overclaim -- --update で下げる（0 件なら行が消える）。基準線に無い記事は 0 件が条件。語の一覧は scripts/lib/note-overclaim.mjs。2026-11-27 に作成。",
+  "files": {
+    "content/note/1級・2級土木/2級土木/2級土木 独学合格の学習設計/article.md": 1,
+    "content/note/1級・2級土木/2級土木/第一次検定の独学突破/article.md": 1,
+    "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-II2.md": 1,
+    "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-II2.md": 1,
+    "content/note/技術士建設部門/勉強時間とスケジュール/article.md": 1,
+    "content/note/技術士総監/4フェーズ学習法/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/Society5AIガバナンス/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/カーボンニュートラルGX/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/人口減少少子高齢化/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/循環経済資源安全保障/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/担い手不足労働供給制約/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/気候変動適応国土強靱化/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/物流危機2024年問題/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/経済安全保障サプライチェーン/article.md": 1,
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/食料安全保障/article.md": 1,
+    "content/note/技術士総監/トレードオフ思考/article.md": 4,
+    "content/note/技術士総監/自治体技術職員の資格地図/article.md": 1,
+    "content/note/技術士総監/記述式の書き方/article.md": 1
+  }
+}
