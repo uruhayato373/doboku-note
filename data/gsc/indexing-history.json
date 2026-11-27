@@ -2793,6 +2793,18 @@
       },
       "slugs": [],
       "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-11-27T23-41-24Z",
+      "collectedAt": "2026-11-27T23:41:24.549Z",
+      "mode": "commit",
+      "status": "not-signed-in",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "slugs": [],
+      "acceptedSlugs": []
     }
   ]
 }
