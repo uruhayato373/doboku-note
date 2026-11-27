@@ -213,6 +213,11 @@ const StatePathLiteralBaseline = z
   .object({ _doc: note('説明'), files: z.record(relPath, z.number().int().positive()) })
   .strict();
 
+/** note 記事の根拠の無い言い切りの基準線（scripts/lib/note-overclaim.mjs・check-note-overclaim） */
+const NoteOverclaimBaseline = z
+  .object({ _doc: note('説明'), files: z.record(relPath, z.number().int().positive()).describe('記事 → 件数（増やせない。直したら下げる）') })
+  .strict();
+
 /** 書き手が未記入のデータセットの基準線（DN-1240・scripts/lib/dataset-writers.mjs・check-datasets） */
 const DatasetWriterBaseline = z
   .object({ _doc: note('説明'), missing: z.array(z.string().regex(/^[a-z0-9]+(\.[a-z0-9-]+)+$/, 'データセットの id')).describe('書き手が未記入のデータセットの id（増やせない。書いたら消す）') })
@@ -249,6 +254,7 @@ export const AGENT_CONFIG_SCHEMAS = {
   'note-attachments-allow.json': NoteAttachmentsAllow,
   'note-intro-benefit-allow.json': NoteIntroBenefitAllow,
   'note-live-tags-allow.json': NoteLiveTagsAllow,
+  'note-overclaim-baseline.json': NoteOverclaimBaseline,
   'note-public-view.json': NotePublicView,
   'note-structure-allow.json': NoteStructureAllow,
   'playwright-auth-profiles.json': PlaywrightAuthProfiles,

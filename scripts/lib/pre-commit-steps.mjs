@@ -256,6 +256,9 @@ export const STEPS = [
   s('check-note-attachments'),
   // note 有料記事の有料境界(paidBoundary)が解決可能か（全ロック/漏洩の温床＝RULE_GAP 再発防止）
   s('check-note-boundary'),
+  // note 記事の根拠の無い言い切り（「鉄則」「減点必至」など筆者の目安を採点基準のように書く語）が基準線より増えていないか
+  // （2026-11-27 に読者を不安にさせた。語の一覧は scripts/lib/note-overclaim.mjs）
+  s('check-note-overclaim'),
   // RCCM 問題III 模範論文の出題条件（1,200〜1,600 字・指定用語「」4 語以上・問題再現節なし）
   s('check-rccm-essay'),
   // コンクリート主任技士 小論文テーマ別教材の型と出題履歴ブロックの SSOT 一致

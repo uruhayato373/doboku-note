@@ -289,6 +289,7 @@
     "check-production-sweep": "node scripts/checks/check-production-sweep.mjs",
     "check-rendered-pages": "node scripts/checks/check-rendered-pages.mjs",
     "check-note-paid-cta": "node scripts/note/wire-note-paid-cta.mjs --check",
+    "check-note-overclaim": "node scripts/checks/check-note-overclaim.mjs",
     "check-note-price-consistency": "node scripts/checks/check-note-price-consistency.mjs",
     "check-note-republish": "node scripts/checks/check-note-republish.mjs",
     "check-note-site-utm": "node scripts/checks/check-note-site-utm.mjs",
