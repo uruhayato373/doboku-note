@@ -172,6 +172,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1309] note-update-body の --article 実行が frontmatter の memberTrial を読まず、試し読みラインを置かずに更新を押す
+タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-27]
+
+2026-11-27、`npm run note-update-body -- --article <主任技士 小論文の出題傾向記事> --commit`（frontmatter に `notePricing: free`・`memberTrial: bottom`）が、試し読みラインの画面で「[5b] 無料記事 → 有料境界の設定・検証をスキップ」としてラインを置かずに「更新する」を押し、note 側で確定しないまま [5g] で FAIL した（公開本文は旧版のまま・事故はなし）。`--trial-line-bottom --force-retry` を明示すると [5b] メンバーシップ試し読みフローに入り反映できた。
+
+note-api-verification.md の記述では「notePricing: free の記事は --trial-line-bottom か --keep-member-lock を指定しないと保存せず中断する」はずで、また cmd の説明では frontmatter の memberTrial で公開範囲を決めるとある。--article の単発実行では frontmatter の memberTrial が読まれず、中断もせずに「更新する」まで進んでいる。
+
+直すこと: --article でも frontmatter の memberTrial（bottom→--trial-line-bottom 相当、lock→--keep-member-lock 相当）を読む。読めない・指定が無い無料記事で試し読みの画面が出たら、「更新する」を押さずに中断する。回帰テストを付ける。
+
+
 ### [DN-1308] note-comment-reply がスレッド返信の UI に対応しておらず、--submit で投稿されない
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-27]
 
