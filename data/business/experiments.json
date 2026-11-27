@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-23T03:03:56.109Z",
+  "updated_at": "2026-11-27T03:25:13.583Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1795,6 +1795,28 @@
           "salesLedgerThrough": "2026-11-13",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:08.475Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-11-23",
+            "value": 32860,
+            "volume": 13
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-11-18",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -3054,6 +3076,28 @@
           },
           "complete": false,
           "salesLedgerThrough": "2026-11-13",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:08.475Z",
+          "specHash": "8bf703a65759",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-11-23",
+            "value": 41780,
+            "volume": 11
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-11-18",
           "deltaPct": null,
           "verdictHint": "in-progress"
         }
@@ -8194,6 +8238,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:09.225Z",
+          "specHash": "ef0f6b09a6db",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-25",
+            "endDate": "2026-10-22",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-26",
+            "endDate": "2026-11-22",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": true,
+          "deltaPct": null,
+          "verdictHint": "insufficient-data"
         }
       ]
     },
@@ -8461,6 +8526,27 @@
           "complete": false,
           "deltaPct": -36.8,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:09.812Z",
+          "specHash": "6b7a5ed39a49",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 13.6,
+            "volume": 63
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-23",
+            "value": 8.8,
+            "volume": 28
+          },
+          "complete": true,
+          "deltaPct": -35.3,
+          "verdictHint": "improved"
         }
       ],
       "actions": [
@@ -8647,6 +8733,27 @@
           "complete": false,
           "deltaPct": 362.5,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:10.345Z",
+          "specHash": "064300830106",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 16,
+            "volume": 23
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-23",
+            "value": 74,
+            "volume": 1
+          },
+          "complete": true,
+          "deltaPct": 362.5,
+          "verdictHint": "insufficient-data"
         }
       ]
     },
@@ -8851,6 +8958,27 @@
           "complete": false,
           "deltaPct": 2.7,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:10.841Z",
+          "specHash": "1f900c18e556",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 14.6,
+            "volume": 31
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-23",
+            "value": 18,
+            "volume": 17
+          },
+          "complete": true,
+          "deltaPct": 23.3,
+          "verdictHint": "worse"
         }
       ]
     },
@@ -9663,6 +9791,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:11.250Z",
+          "specHash": "f1f7a25df97f",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 11.6,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-23",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -9819,6 +9968,27 @@
           "post": {
             "startDate": "2026-11-04",
             "endDate": "2026-11-16",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:11.743Z",
+          "specHash": "d5c7c2ad533d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 14.7,
+            "volume": 18
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-23",
             "value": null,
             "volume": 0
           },
@@ -9986,6 +10156,27 @@
           },
           "complete": false,
           "deltaPct": -17.4,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:12.187Z",
+          "specHash": "1ad8bd757b35",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 13.2,
+            "volume": 24
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-23",
+            "value": 10.6,
+            "volume": 26
+          },
+          "complete": false,
+          "deltaPct": -19.7,
           "verdictHint": "in-progress"
         }
       ]
@@ -10540,6 +10731,27 @@
           "complete": false,
           "deltaPct": -65.5,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:12.659Z",
+          "specHash": "31cfe26bb7fa",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-12",
+            "endDate": "2026-11-08",
+            "value": 13.9,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-11-12",
+            "endDate": "2026-11-23",
+            "value": 4.4,
+            "volume": 66
+          },
+          "complete": false,
+          "deltaPct": -68.3,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -10695,6 +10907,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:13.120Z",
+          "specHash": "468d433eddfa",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-12",
+            "endDate": "2026-11-08",
+            "value": 14.4,
+            "volume": 16
+          },
+          "post": {
+            "startDate": "2026-11-12",
+            "endDate": "2026-11-23",
+            "value": 9.3,
+            "volume": 3
+          },
+          "complete": false,
+          "deltaPct": -35.4,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -10818,6 +11051,27 @@
             "endDate": "2026-11-16",
             "value": 7.8,
             "volume": 4
+          },
+          "complete": false,
+          "deltaPct": 13,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-27T03:25:13.582Z",
+          "specHash": "eb944b78c4da",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-12",
+            "endDate": "2026-11-08",
+            "value": 6.9,
+            "volume": 15
+          },
+          "post": {
+            "startDate": "2026-11-12",
+            "endDate": "2026-11-23",
+            "value": 7.8,
+            "volume": 6
           },
           "complete": false,
           "deltaPct": 13,

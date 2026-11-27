@@ -1,0 +1,745 @@
+{
+  "schemaVersion": 1,
+  "week": "2026-W47",
+  "period": {
+    "startDate": "2026-11-16",
+    "endDate": "2026-11-22"
+  },
+  "baseline": {
+    "startDate": "2026-10-19",
+    "endDate": "2026-11-15",
+    "days": 28
+  },
+  "generatedAt": "2026-11-27T03:25:14.149Z",
+  "pack": "data/analysis/growth/pack-2026-W47.json",
+  "inputs": [
+    {
+      "name": "growth-pack",
+      "file": "data/analysis/growth/pack-2026-W47.json",
+      "coverage": "complete",
+      "note": null
+    },
+    {
+      "name": "monetization-coverage",
+      "file": "data/analysis/monetization/coverage-2026-11-27T03-24-45.json",
+      "coverage": "complete",
+      "note": null
+    },
+    {
+      "name": "bing-webmaster",
+      "file": "data/bing/snapshots/2026-11-27.json",
+      "coverage": "complete",
+      "note": null
+    }
+  ],
+  "kpis": {
+    "ga4": {
+      "google": {
+        "sessions": 6989,
+        "baseWeeklySessions": 2457,
+        "deltaPct": 184.5,
+        "engagementRatePct": 80.4,
+        "keyEvents": 208,
+        "baseWeeklyKeyEvents": 101.5
+      },
+      "bing": {
+        "sessions": 3538,
+        "baseWeeklySessions": 3972.3,
+        "deltaPct": -10.9,
+        "engagementRatePct": 78.9,
+        "keyEvents": 129,
+        "baseWeeklyKeyEvents": 129.3
+      },
+      "yahoo": {
+        "sessions": 1239,
+        "baseWeeklySessions": 696.8,
+        "deltaPct": 77.8,
+        "engagementRatePct": 79.4,
+        "keyEvents": 52,
+        "baseWeeklyKeyEvents": 24
+      },
+      "direct": {
+        "sessions": 1917,
+        "baseWeeklySessions": 773.5,
+        "deltaPct": 147.8,
+        "engagementRatePct": 40.8,
+        "keyEvents": 56,
+        "baseWeeklyKeyEvents": 32
+      },
+      "referral": {
+        "sessions": 188,
+        "baseWeeklySessions": 136.5,
+        "deltaPct": 37.7,
+        "engagementRatePct": 78.7,
+        "keyEvents": 26,
+        "baseWeeklyKeyEvents": 13.3
+      },
+      "ai-assistant": {
+        "sessions": 120,
+        "baseWeeklySessions": 79.5,
+        "deltaPct": 50.9,
+        "engagementRatePct": 75,
+        "keyEvents": 12,
+        "baseWeeklyKeyEvents": 4.3
+      },
+      "organic-other": {
+        "sessions": 164,
+        "baseWeeklySessions": 127,
+        "deltaPct": 29.1,
+        "engagementRatePct": 79.9,
+        "keyEvents": 2,
+        "baseWeeklyKeyEvents": 0
+      },
+      "unassigned": {
+        "sessions": 47,
+        "baseWeeklySessions": 18.5,
+        "deltaPct": 154.1,
+        "engagementRatePct": 83,
+        "keyEvents": 2,
+        "baseWeeklyKeyEvents": 0
+      },
+      "organic-social": {
+        "sessions": 17,
+        "baseWeeklySessions": 16.8,
+        "deltaPct": 1.5,
+        "engagementRatePct": 70.6,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 3.5
+      },
+      "organic-video": {
+        "sessions": 38,
+        "baseWeeklySessions": 21,
+        "deltaPct": 81,
+        "engagementRatePct": 39.5,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0.5
+      },
+      "email": {
+        "sessions": 2,
+        "baseWeeklySessions": 0,
+        "deltaPct": null,
+        "engagementRatePct": 100,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0
+      }
+    },
+    "gsc": {
+      "basis": "property-total",
+      "clicks": 9249,
+      "baseWeeklyClicks": 2218.3,
+      "deltaPct": 317,
+      "impressions": 43831,
+      "baseWeeklyImpressions": 26215,
+      "ctrPct": 21.1,
+      "pageRows": {
+        "scope": "all-countries",
+        "count": 1670,
+        "clicks": 9277,
+        "impressions": 91975,
+        "byPageTotalClicks": 9268,
+        "byPageTotalImpressions": 91019
+      }
+    },
+    "cta": {
+      "note_cta_click": {
+        "week": 178,
+        "baseWeekly": 200.8,
+        "deltaPct": -11.3
+      },
+      "affiliate_cta_click": {
+        "week": 24,
+        "baseWeekly": 6.3,
+        "deltaPct": 284
+      },
+      "coconala_cta_click": {
+        "week": 7,
+        "baseWeekly": 2,
+        "deltaPct": 250
+      },
+      "quiz_cta_click": {
+        "week": 4,
+        "baseWeekly": 0.3,
+        "deltaPct": 1500
+      },
+      "note_cta_impression": {
+        "week": 22649,
+        "baseWeekly": 19932.8,
+        "deltaPct": 13.6
+      },
+      "affiliate_cta_impression": {
+        "week": 58798,
+        "baseWeekly": 6829,
+        "deltaPct": 761
+      },
+      "coconala_cta_impression": {
+        "week": 1057,
+        "baseWeekly": 428,
+        "deltaPct": 147
+      },
+      "quiz_start": {
+        "week": 432,
+        "baseWeekly": 135,
+        "deltaPct": 220
+      },
+      "quiz_complete": {
+        "week": 53,
+        "baseWeekly": 22.5,
+        "deltaPct": 135.6
+      },
+      "standards_data_download": {
+        "week": 2,
+        "baseWeekly": 3,
+        "deltaPct": -33.3
+      }
+    }
+  },
+  "bingReconciliation": {
+    "ga4Sessions": 3538,
+    "wmtClicks": 2674,
+    "days": 7,
+    "ratio": 1.3,
+    "note": null
+  },
+  "topMovers": {
+    "gainers": [
+      {
+        "page": "/exam/pe-first-stage/guide/r08-answers",
+        "week": 4355,
+        "baseWeekly": 9.5,
+        "delta": 4345.5
+      },
+      {
+        "page": "(not set)",
+        "week": 333,
+        "baseWeekly": 138,
+        "delta": 195
+      },
+      {
+        "page": "/exam/pe-first-stage/primary/r07-construction",
+        "week": 93,
+        "baseWeekly": 11.8,
+        "delta": 81.2
+      },
+      {
+        "page": "/exam/pe-first-stage",
+        "week": 107,
+        "baseWeekly": 28.5,
+        "delta": 78.5
+      },
+      {
+        "page": "/exam/pe-first-stage/primary/r06-basic",
+        "week": 88,
+        "baseWeekly": 15.5,
+        "delta": 72.5
+      }
+    ],
+    "losers": [
+      {
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+        "week": 7,
+        "baseWeekly": 1125.5,
+        "delta": -1118.5
+      },
+      {
+        "page": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+        "week": 4,
+        "baseWeekly": 79.8,
+        "delta": -75.8
+      },
+      {
+        "page": "/exam/civil-construction-2/secondary/experience-writing-guide",
+        "week": 0,
+        "baseWeekly": 17.3,
+        "delta": -17.3
+      },
+      {
+        "page": "/exam/building-construction/guide/2kyu-keiken-kijutsu",
+        "week": 0,
+        "baseWeekly": 16.3,
+        "delta": -16.3
+      },
+      {
+        "page": "/tools/keiken-charcount",
+        "week": 0,
+        "baseWeekly": 12.5,
+        "delta": -12.5
+      }
+    ]
+  },
+  "candidates": 241,
+  "suppressed": 34,
+  "notSurfaced": {
+    "seo": 33,
+    "revenue": 93
+  },
+  "surfaced": [
+    {
+      "id": "OPP-099b11dfc5",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-055",
+        "reasons": "MEASURE_DUE"
+      },
+      "title": "EXP-055（技術士（建設部門）の読者に、施工管理の転職（ビルドジョブ）とハイクラス転職（ハイクラス DX・コンサル転職）を訪問者ごとに出し分ける）: next_check_date 2026-11-21 を超過",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-21"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-055"
+    },
+    {
+      "id": "OPP-0f1d5188ca",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-066",
+        "reasons": "PENDING"
+      },
+      "title": "EXP-066（本文の手動の AdSense の枠を自動広告のページ内広告に置き換え、右の欄を追従ブロック 1 枠にして、ページあたりの AdSense 収益が落ちないかを比べる）: 要人手 1 件: PR #1720（feat/rail-follow-auto-ads）を本番へ出すのと同時に、AdSense の管理画面の「サイトごと」で自動広告のページ内広告を有効にし（ページあたりの最大広告数と広告どうしの最小距離を決める）、サイドレールを切る。設定の変更なので運営者の操作。deploy の日を start の基準日にする",
+      "metrics": {
+        "status": "proposed",
+        "nextCheckDate": "2026-12-28"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-066"
+    },
+    {
+      "id": "OPP-20a1d42c96",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-041",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-041（資格名: /exam/civil-construction-2/guide/overview の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 16→74・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-27"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-041 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-35597ba2b3",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-046",
+        "reasons": "PENDING"
+      },
+      "title": "EXP-046（立場のテーマ「建設コンサルタントの技術者」を育成中（noindex）で作り、記事末の回遊と教材の枠を測る）: 要人手 1 件: 決まった立場について、記事に立場のタグを付け、topics.json に facet: audience のテーマを育成中で作り、教材の枠を置く。running にして反映日を history に書き、demand-map.json の position を live にする",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2027-02-28"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-046"
+    },
+    {
+      "id": "OPP-5237e9a20d",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-039",
+        "reasons": "MEASURE_DUE+VERDICT_DUE"
+      },
+      "title": "EXP-039（1級土木 二次 令和3年度のページで、経験記述の教材カードを解答の折りたたみの外へ出し、試験後に自分の答案を見直す読者のクリックを増やす）: next_check_date 2026-11-23 を超過 / 自動計測の事後窓が完了（ga4.event:note_cta_click 0→0・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-23"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment close EXP-039"
+    },
+    {
+      "id": "OPP-6a79a25561",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-021",
+        "reasons": "MEASURE_DUE+VERDICT_DUE"
+      },
+      "title": "EXP-021（総監の定型題名（｜ 技術士 総合技術監理部門 キーワード集）を、表示の多い 5 本で「語とは｜区別点【技術士総監】」に変えて CTR を上げる）: next_check_date 2026-11-21 を超過 / 自動計測の事後窓が完了（gsc.clicks 3→10・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-21"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment close EXP-021"
+    },
+    {
+      "id": "OPP-6cf9589757",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-040",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-040（資格名: /exam/civil-construction-2/guide/r08-secondary-answers の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.6→8.8・目安 improved）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-27"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-040 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-73f87644d2",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-052",
+        "reasons": "MEASURE_DUE"
+      },
+      "title": "EXP-052（技術士一次の直前パック（pe1-chokuzen-pack）で、案内の表示 → 販売先へのクリック → 販売を同じ商品 ID で 6 週記録する）: next_check_date 2026-11-21 を超過",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-21"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-052"
+    },
+    {
+      "id": "OPP-808d81041a",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-020",
+        "reasons": "MEASURE_DUE+VERDICT_DUE"
+      },
+      "title": "EXP-020（2級土木 二次の 4 本（r06・r07・経験記述の例文・書き方）の題名と説明を検索語の語順に合わせ、冒頭に答えと試験概要への導線を足して、Google の CTR とクリックを上げる）: next_check_date 2026-11-21 を超過 / 自動計測の事後窓が完了（gsc.clicks 9→38・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-21"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment close EXP-020"
+    },
+    {
+      "id": "OPP-8b1471e1a1",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-054",
+        "reasons": "MEASURE_DUE"
+      },
+      "title": "EXP-054（「まず市場価値を確かめる——転職サイトに 2〜3 社登録して比べる」記事と動線で、転職アフィリの発生を増やす）: next_check_date 2026-11-21 を超過",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-21"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-054"
+    },
+    {
+      "id": "OPP-8d9c970239",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-045",
+        "reasons": "PENDING"
+      },
+      "title": "EXP-045（悩みのハブ「施工管理から発注者側へ移りたい人の地図」を作り、キャリア記事と教材をつなぐ）: 要人手 1 件: キャリア記事 45 本を移る先 × 要る資格で並べたハブの候補を運営者に出し、決まったら noindex で作る（DN-1200 で制作）。転職アフィリの枠は EXP-043 と重ねない",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2027-03-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-045"
+    },
+    {
+      "id": "OPP-902c585952",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-042",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-042（資格名: /exam/rccm/guide/difference-pe の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 14.6→18・目安 worse）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-27"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-042 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-bf798d71e1",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-053",
+        "reasons": "MEASURE_DUE+PENDING"
+      },
+      "title": "EXP-053（本文中の note 案内を POP 画像（image）と商品名・説明の文字のカード（text）で同時に出し分け、表示あたりのクリックを比べる）: next_check_date 2026-11-21 を超過 / 要人手 1 件: 判定し、本文中の note 案内の既定を決めて負けた側の案のコード（src/lib/note-body-experiment.mjs ほか）を消す。集計は npm run report-note-body-experiment",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-21"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-053"
+    },
+    {
+      "id": "OPP-e24a0c81ae",
+      "category": "seo",
+      "type": "seo-cannibalization",
+      "key": {
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+        "query": "2級土木施工管理技士 2次試験 解答例"
+      },
+      "title": "「2級土木施工管理技士 2次試験 解答例」で 3 ページが競合（/exam/civil-construction-2/guide/r08-secondary-answers / /exam/civil-construction-2/secondary/r08 / /exam/civil-construction-2/secondary/r07）",
+      "metrics": {
+        "impressions35d": 13294,
+        "clicks35d": 504,
+        "pages": [
+          {
+            "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+            "impressions": 12929,
+            "position": 8.3
+          },
+          {
+            "page": "/exam/civil-construction-2/secondary/r08",
+            "impressions": 230,
+            "position": 3
+          },
+          {
+            "page": "/exam/civil-construction-2/secondary/r07",
+            "impressions": 135,
+            "position": 5.6
+          }
+        ]
+      },
+      "expectedWeeklyGain": {
+        "value": 165.1,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-50a426a6a5",
+      "category": "seo",
+      "type": "seo-traffic-drop",
+      "key": {
+        "page": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+        "query": null
+      },
+      "title": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit の検索クリックが週 3（基線の週平均 86・-96.5%）",
+      "metrics": {
+        "weekClicks": 3,
+        "baseWeeklyClicks": 86,
+        "deltaPct": -96.5
+      },
+      "expectedWeeklyGain": {
+        "value": 83,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx",
+      "suggest": [
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-4d2d1ae380",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/pe-comprehensive-management/keywords/blind-drill",
+        "query": "ブラインド訓練とは"
+      },
+      "title": "「ブラインド訓練とは」は平均 3.1 位なのに CTR 0.33%（期待 10%）",
+      "metrics": {
+        "impressions35d": 914,
+        "clicks35d": 3,
+        "ctr": 0.33,
+        "position": 3.1
+      },
+      "expectedWeeklyGain": {
+        "value": 17.7,
+        "unit": "searchClicks"
+      },
+      "qualification": "pe-comprehensive-management",
+      "contentPath": "content/site/pe-comprehensive-management/blind-drill/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-acfa195f69",
+      "category": "seo",
+      "type": "seo-traffic-drop",
+      "key": {
+        "page": "/exam/building-construction/guide/2kyu-keiken-kijutsu",
+        "query": null
+      },
+      "title": "/exam/building-construction/guide/2kyu-keiken-kijutsu の検索クリックが週 0（基線の週平均 16.8・-100%）",
+      "metrics": {
+        "weekClicks": 0,
+        "baseWeeklyClicks": 16.8,
+        "deltaPct": -100
+      },
+      "expectedWeeklyGain": {
+        "value": 16.8,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/building-construction/guide-2kyu-keiken-kijutsu/article.mdx",
+      "suggest": [
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-88625200d2",
+      "category": "seo",
+      "type": "seo-traffic-drop",
+      "key": {
+        "page": "/exam/civil-construction-2/secondary/r07",
+        "query": null
+      },
+      "title": "/exam/civil-construction-2/secondary/r07 の検索クリックが週 1（基線の週平均 13.5・-92.6%）",
+      "metrics": {
+        "weekClicks": 1,
+        "baseWeeklyClicks": 13.5,
+        "deltaPct": -92.6
+      },
+      "expectedWeeklyGain": {
+        "value": 12.5,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-construction-2/secondary-r07/article.mdx",
+      "suggest": [
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-c39495dd46",
+      "category": "revenue",
+      "type": "revenue-page-cta-rate",
+      "key": {
+        "page": "/exam/pe-first-stage/guide/r08-answers"
+      },
+      "title": "/exam/pe-first-stage/guide/r08-answers の CTA クリック率 0.13%（サイト平均 0.55%）",
+      "metrics": {
+        "ctaImpressions35d": 22089,
+        "ctaClicks35d": 29,
+        "ctrPct": 0.13,
+        "siteCtrPct": 0.55
+      },
+      "expectedWeeklyGain": {
+        "value": 18.5,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "backlog",
+        "experiment"
+      ]
+    },
+    {
+      "id": "OPP-1cf635f123",
+      "category": "revenue",
+      "type": "revenue-placement-ctr",
+      "key": {
+        "placement": "article-banner-2"
+      },
+      "title": "配置 article-banner-2 は表示 18002（28 日）で CTR 0.02%（配置の中央値 0.08%）",
+      "metrics": {
+        "impressions28d": 18002,
+        "clicks28d": 3,
+        "ctrPct": 0.02,
+        "medianCtrPct": 0.08
+      },
+      "expectedWeeklyGain": {
+        "value": 3.1,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-bf44200ed1",
+      "category": "revenue",
+      "type": "revenue-placement-ctr",
+      "key": {
+        "placement": "article-rail-2"
+      },
+      "title": "配置 article-rail-2 は表示 10512（28 日）で CTR 0.02%（配置の中央値 0.08%）",
+      "metrics": {
+        "impressions28d": 10512,
+        "clicks28d": 2,
+        "ctrPct": 0.02,
+        "medianCtrPct": 0.08
+      },
+      "expectedWeeklyGain": {
+        "value": 1.7,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    }
+  ]
+}
