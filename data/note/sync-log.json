@@ -1,6 +1,594 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-28T01:33:59.841Z",
+      "finishedAt": "2026-11-28T01:45:06.131Z",
+      "plan": {
+        "synced": 102,
+        "ready": 952,
+        "blocked": 25,
+        "blockers": {
+          "aborted": 11,
+          "meta": 13,
+          "boundary": 1
+        }
+      },
+      "articles": {
+        "selected": 80,
+        "attempted": 0,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/技術士建設部門/必須科目Iで点を落としやすい書き方-無料/article.md",
+            "parts": [
+              "cover"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/1級・2級土木/一次二次ブリッジ磁石-LINE/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-業務経験論文テンプレ/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/01-インフラ老朽化/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/02-安全安心国土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/03-SDGs/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/04-AI品質/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/05-国際競争力/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/06-BIM-CIM/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/RCCMもくじ/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/RCCM/RCCM問題III-指定語の使い方-無料/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/01-下水処理施設-化学的侵食/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/02-道路トンネル覆工-漏水凍害/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/03-立体駐車場-火害/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/04-PC橋-グラウト不良鋼材腐食/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/05-配水池-ひび割れ漏水/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/06-港湾桟橋-塩害マクロセル/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/07-RC橋脚-地震損傷/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/08-擁壁-初期欠陥中性化/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/管工事/R8予想-1級第二次/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/管工事/施工記述-機器別模範解答バンク/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-1_道路空間再配分/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-2_インフラDX維持管理/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-3_道路啓開災害復旧/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-4_床版取替施工/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-1_脱炭素/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-2_4車線化/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-3_事前防災/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-4_xROAD/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-24T12:15:49.344Z",
       "finishedAt": "2026-11-24T13:07:34.737Z",
       "plan": {
@@ -6164,37 +6752,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/2級土木の次の職場選び-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:27:32.760Z",
-      "finishedAt": "2026-11-03T09:28:27.507Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/工事経験の伝え方-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/工事経験の伝え方-無料/article.md",
             "parts": [
               "body"
             ]
