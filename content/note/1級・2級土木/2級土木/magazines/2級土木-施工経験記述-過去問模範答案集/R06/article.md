@@ -38,9 +38,9 @@ cover:
 
 - 令和6年度 問題1 の試験問題（公式・再掲）— 設問1=品質管理／設問2=工程管理
 - 3工事のフル模範答案（主任技術者レベル）
-  - 想定工事①：プレキャストボックスカルバート据付工事
-  - 想定工事②：地盤改良工（深層混合処理工法）
-  - 想定工事③：河川 床固め・根固めブロック工
+- 想定工事①：プレキャストボックスカルバート据付工事
+- 想定工事②：地盤改良工（深層混合処理工法）
+- 想定工事③：河川 床固め・根固めブロック工
 - 設問1と設問2の書き分け／置換ガイド／読み手の視点
 
 ---
@@ -215,8 +215,8 @@ R06 は品質管理（設問1）＋工程管理（設問2）の2テーマ必答�
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r06&utm_content=civil-construction-2-secondary-experience-writing-guide)
-- 令和6年度 第2次検定（無料・doboku-note）: [令和6年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r06?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r06&utm_content=civil-construction-2-secondary-r06)
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r06&utm_content=civil-construction-2-secondary-experience-writing-guide&utm_term=n66ad9f2e4630)
+- 令和6年度 第2次検定（無料・doboku-note）: [令和6年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r06?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r06&utm_content=civil-construction-2-secondary-r06&utm_term=n66ad9f2e4630)
 
 ---
 

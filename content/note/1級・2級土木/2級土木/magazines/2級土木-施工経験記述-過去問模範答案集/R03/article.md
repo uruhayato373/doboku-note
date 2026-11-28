@@ -37,9 +37,9 @@ cover:
 
 - 令和3年度 問題1 の試験問題（公式・再掲）
 - 安全管理・品質管理の**両テーマのフル模範答案**（3工事・主任技術者レベル）
-  - 想定工事①：宅地造成 土工事
-  - 想定工事②：場所打ち杭＋橋台躯体工事
-  - 想定工事③：軟弱地盤上の道路盛土工事
+- 想定工事①：宅地造成 土工事
+- 想定工事②：場所打ち杭＋橋台躯体工事
+- 想定工事③：軟弱地盤上の道路盛土工事
 - 自分の現場への置換ガイド／読み手の視点での自己点検
 
 ---
@@ -236,8 +236,8 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r03&utm_content=civil-construction-2-secondary-experience-writing-guide)
-- 令和3年度 第2次検定（無料・doboku-note）: [令和3年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r03?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r03&utm_content=civil-construction-2-secondary-r03)
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r03&utm_content=civil-construction-2-secondary-experience-writing-guide&utm_term=nb9f0937b7773)
+- 令和3年度 第2次検定（無料・doboku-note）: [令和3年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r03?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r03&utm_content=civil-construction-2-secondary-r03&utm_term=nb9f0937b7773)
 
 ---
 

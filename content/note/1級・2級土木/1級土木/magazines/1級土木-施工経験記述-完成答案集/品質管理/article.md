@@ -122,7 +122,7 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 ## もう一方の管理項目との組合せ早見表（R06-R07 対策）
 
-令和6年度以降は設問1・設問2で異なる管理項目が固定で出題される（例: 品質×環境対策）。品質管理を設問1で書く場合、設問2で問われやすい管理項目との「同一工事内での切り分け」を準備しておく。
+令和6年度以降は設問1・設問2で別の管理項目が問われる（令和6年度は安全管理＋施工計画、令和7年度は品質管理＋環境対策）。品質管理を設問1で書く場合、設問2で問われやすい管理項目との「同一工事内での切り分け」を準備しておく。
 
 - **環境対策**：場所打ち杭の安定液・泥水・余剰土の適正処理／濁水処理（→環境対策の記事へ）
 - **工程管理**：段階施工に伴う載荷期間をネットワークに織り込み工期を確保（→工程管理の記事へ）
@@ -190,8 +190,8 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-quality&utm_content=civil-construction-1-secondary-experience-writing-guide)
-- 施工経験記述 改善例（無料・doboku-note）: [施工経験記述 改善例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-quality&utm_content=civil-construction-1-secondary-experience-writing-examples)
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-quality&utm_content=civil-construction-1-secondary-experience-writing-guide&utm_term=n00a296b3089f)
+- 施工経験記述 改善例（無料・doboku-note）: [施工経験記述 改善例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-quality&utm_content=civil-construction-1-secondary-experience-writing-examples&utm_term=n00a296b3089f)
 
 ---
 

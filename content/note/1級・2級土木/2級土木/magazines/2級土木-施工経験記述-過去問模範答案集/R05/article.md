@@ -37,9 +37,9 @@ cover:
 
 - 令和5年度 問題1 の試験問題（公式・再掲）
 - 安全管理・工程管理の**両テーマのフル模範答案**（3工事・主任技術者レベル）
-  - 想定工事①：農業用水路改修工事
-  - 想定工事②：道路法面保護工（吹付枠・グラウンドアンカー）
-  - 想定工事③：樋門工（鋼矢板仮締切）
+- 想定工事①：農業用水路改修工事
+- 想定工事②：道路法面保護工（吹付枠・グラウンドアンカー）
+- 想定工事③：樋門工（鋼矢板仮締切）
 - 自分の現場への置換ガイド／読み手の視点での自己点検
 
 ---
@@ -236,8 +236,8 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r05&utm_content=civil-construction-2-secondary-experience-writing-guide)
-- 令和5年度 第2次検定（無料・doboku-note）: [令和5年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r05?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r05&utm_content=civil-construction-2-secondary-r05)
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r05&utm_content=civil-construction-2-secondary-experience-writing-guide&utm_term=ndfd0f5df9caa)
+- 令和5年度 第2次検定（無料・doboku-note）: [令和5年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r05?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r05&utm_content=civil-construction-2-secondary-r05&utm_term=ndfd0f5df9caa)
 
 ---
 

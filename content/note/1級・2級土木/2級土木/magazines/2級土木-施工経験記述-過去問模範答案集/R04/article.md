@@ -37,9 +37,9 @@ cover:
 
 - 令和4年度 問題1 の試験問題（公式・再掲）
 - 品質管理・工程管理の**両テーマのフル模範答案**（3工事・主任技術者レベル）
-  - 想定工事①：道路 路盤・舗装工事
-  - 想定工事②：上水道 配水管布設工（開削）
-  - 想定工事③：重力式コンクリート擁壁工
+- 想定工事①：道路 路盤・舗装工事
+- 想定工事②：上水道 配水管布設工（開削）
+- 想定工事③：重力式コンクリート擁壁工
 - 自分の現場への置換ガイド／読み手の視点での自己点検
 
 ---
@@ -237,8 +237,8 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r04&utm_content=civil-construction-2-secondary-experience-writing-guide)
-- 令和4年度 第2次検定（無料・doboku-note）: [令和4年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r04?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r04&utm_content=civil-construction-2-secondary-r04)
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r04&utm_content=civil-construction-2-secondary-experience-writing-guide&utm_term=n9779e8f69932)
+- 令和4年度 第2次検定（無料・doboku-note）: [令和4年度 第2次検定](https://doboku-note.com/exam/civil-construction-2/secondary/r04?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-past-r04&utm_content=civil-construction-2-secondary-r04&utm_term=n9779e8f69932)
 
 ---
 

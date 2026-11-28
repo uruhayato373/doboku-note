@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T05:20:56.387Z",
+  "generated_at": "2026-11-28T07:43:56.712Z",
   "questionToTextbooks": {
     "primary-h18-a": {
       "問題-1": [
@@ -12469,7 +12469,7 @@
         {
           "slug": "textbook-soft-ground-drainage",
           "title": "軟弱地盤対策・排水工法",
-          "score": 0.75
+          "score": 0.9
         }
       ],
       "問題-47": [
@@ -22791,6 +22791,12 @@
         "score": 0.9
       },
       {
+        "examSlug": "primary-r02-a",
+        "examTitle": "令和2年度 第1次検定 問題A",
+        "section": "問題-46",
+        "score": 0.9
+      },
+      {
         "examSlug": "secondary-r07",
         "examTitle": "令和7年度 第2次検定",
         "section": "問題-4",
@@ -22812,12 +22818,6 @@
         "examSlug": "primary-r02-a",
         "examTitle": "令和2年度 第1次検定 問題A",
         "section": "問題-22",
-        "score": 0.75
-      },
-      {
-        "examSlug": "primary-r02-a",
-        "examTitle": "令和2年度 第1次検定 問題A",
-        "section": "問題-46",
         "score": 0.75
       },
       {
