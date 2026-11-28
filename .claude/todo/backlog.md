@@ -65,6 +65,28 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1329] 資格をまたぐ添削の下書き役と確認役（tensaku-drafter・tensaku-qa と資格別プロファイル）を作る
+タグ: [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-28]
+
+**起点**: 2026-11-26〜28 の総監 添削・建設部門 添削・主任技士 診断×2 は、対応するエージェントが無く毎回手作業だった（既存の `civil-keiken-tensaku-drafter` / `-qa` は土木の施工経験記述専用）。運営者が都度直した点: 判定が厳しすぎる（C→B・B→A）、専門外（建築行政）の制度を断定する、答案に無い事実で例を埋める、note・サイトの名前を書きかける（外部誘導）、採点者を名乗る言い方。
+
+**やること**:
+1. `essay-writer` / `essay-qa`（資格別プロファイルを読む型）と同じ形で、次の 2 体を作る。
+   - `tensaku-drafter`（role: writer・target: tensaku）: 答案と課題文から、判定・優先して直したい箇所（引用と行番号）・観点表・次の一歩・（添削なら）答案の事実だけで組んだ組み直し例を下書きする。
+   - `tensaku-qa`（role: qa・tools は Read/Glob/Grep/Bash/WebSearch/WebFetch のみ）: 下書きを採点する。
+2. 資格別の設定を `.claude/agents/profiles/tensaku/{cem,pe-construction,cce,civil-keiken}.md` に置く。中身は設問の型・行数/字数の指定・観点表・A/B/C の典型例・専門外になりやすい分野・使ってよい一次情報。
+3. 確認役に機械で見させる検査（決定的ゲート。スクリプトは `scripts/checks/check-tensaku-draft.mjs` に置き、回帰テストを付ける）:
+   - 採点を断定する言い方が無い（`scripts/lib/note-overclaim.mjs` の語を流用）
+   - 外への誘導が無い（note・doboku-note・URL）
+   - 引用した文が答案の書き起こしに実在する（文字列の一致）
+   - 判定と観点表がそろっている（5 観点すべてに A/B/C と理由）
+   - 足りない事実が〇〇の空欄になっている（組み直し例に答案に無い数値が無い）
+4. 土木の既存 2 体（`civil-keiken-tensaku-drafter` / `-qa`）を、新しい 2 体の civil-keiken プロファイルに統合するか、残すかを決める（`npm run check-domains` の役割の重複に従う）。
+5. `coconala-order` スキルの分岐（K 主任技士・総監・建設部門）と、各運用テンプレ（`content/coconala/products/*/運用テンプレ.md`）を新しい 2 体に向ける。`npm run build-capability-index`・`npm run check-domains`・`npm run sync-codex-compat` を通す。
+
+**完了条件**: 2026-11 の 4 件の答案（`.tmp/coconala/talkrooms/18658304`・`18660481`・`18661633`・`18667322`）で、下書き → 確認が回る。確認役の機械検査に、上の 5 項目それぞれの通る例・落ちる例の回帰テストがある。
+
+
 ### [DN-1316] 土曜の収集で、doboku-note のプロファイルを使う Chrome が残っていると 8 段が起動を見送って失敗する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-28]
 
