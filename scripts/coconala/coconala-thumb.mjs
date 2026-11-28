@@ -165,7 +165,7 @@ const THUMB_COPY = {
   'coconala-shindan': {
     eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
     title: ['経験記述', '合格診断'],
-    hook: '元自治体土木（発注者側）が\n減点ポイント ワースト3 を即指摘',
+    hook: '元自治体土木（発注者側）が\n直したい箇所 ワースト3 を即指摘',
     priceLabel: '1テーマ診断',
   },
   'coconala-tensaku-set': {
