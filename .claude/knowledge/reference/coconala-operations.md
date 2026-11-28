@@ -317,10 +317,14 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
       └ orders.json へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
   → npm run check-coconala-orders（記録漏れ・金額ズレ・返信期限を機械で確認）
   → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信
+      （運営者がチャットで「送って」と言ったときだけ、エージェントが npm run coconala-send -- --talkroom <id> --message <本文.txt> --attach <PDF> で確認だけ流してから --send。
+       同じ本文がすでにあれば送らない・送信後に本文がちょうど 1 件あることを確かめる。正式な納品のチェックはしない）
   → orders.json を delivered へ・deliveredAt/artifacts（送った版の sha256）・tensakuMinutes 記録
   → （書き直し依頼時）/keiken-tensaku を前回下書きと再実行し差分中心に再チェック → status: revised（1回まで）
   → 共通の誤りは匿名化して添削事例アーカイブへ
 ```
+
+出品の内容修正（`npm run coconala-edit -- --commit`）は、保存後に編集画面を開き直して、入れた文字の欄（題名・キャッチ・本文・購入時のお願い・FAQ）が正本どおりかを確かめる。送信が成功と出ても欄が古いままのことがある（2026-11-28 に FAQ だけ保存されなかった・DN-1315）。食い違いは exit 2 で欄の名前を出す。
 
 納品の実務メモ: 複数冊を **ZIP でまとめて送るときは解凍手順を一文添える**（2026-08-07 に購入者が実際につまずいた）。
 購入時メッセージには**納品形態（PDF か・何冊か）を明記**する——初回の質問はここに集中した。

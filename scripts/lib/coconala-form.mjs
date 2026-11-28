@@ -473,3 +473,40 @@ export async function submitForm(page, { commit = false, dryRun = false, tag = '
   const errors = published ? err : [...err, '公開の完了画面へ進んでいない（必須欄・画像を確認）'];
   return { ok: errors.length === 0, action: name, url: page.url(), errors };
 }
+
+/**
+ * 保存後に編集画面を開き直して読んだ値（readServiceForm）と、入れたはずの値（fields）の食い違い（純関数）。
+ * なぜ要るか: 2026-11-28、経験記述 合格診断の FAQ の回答が、送信は「成功」と出るのに保存されていなかった
+ * （本文は新しい文になり、FAQ だけ古いまま・DN-1315）。送信の成否だけでは更新できたと言えない。
+ * 比べるのは文字の欄（title・catchphrase・body・purchaseNote・FAQ）。空白と改行の差は無視する。
+ */
+export function diffServiceFields(fields, read) {
+  const norm = (s) => String(s ?? '').replace(/\r\n/g, '\n').replace(/[ \t　]+/g, ' ').replace(/\s*\n\s*/g, '\n').trim();
+  const out = [];
+  const cmp = (label, want, got) => { if (want !== undefined && norm(want) !== norm(got)) out.push({ field: label, want: norm(want).slice(0, 40), got: norm(got).slice(0, 40) }); };
+  if (fields.title !== undefined) cmp('title', String(fields.title).replace(/ます$/, ''), read.title);
+  cmp('catchphrase', fields.catchphrase, read.catchphrase);
+  cmp('body', fields.body, read.body);
+  cmp('purchaseNote', fields.purchaseNote, read.purchaseNote);
+  if (fields.faq?.length) {
+    if ((read.faq || []).length !== fields.faq.length) out.push({ field: 'faq', want: `${fields.faq.length} 件`, got: `${(read.faq || []).length} 件` });
+    else fields.faq.forEach((f, i) => { cmp(`faq[${i}].q`, f.q, read.faq[i].q); cmp(`faq[${i}].a`, f.a, read.faq[i].a); });
+  }
+  return out;
+}
+
+/** 編集画面の文字の欄を読む（保存はしない）。欄の見つけ方は fillVueServiceForm と同じ。 */
+export async function readServiceForm(page) {
+  return page.evaluate(() => {
+    const v = (sel) => document.querySelector(sel)?.value ?? null;
+    const qs = [...document.querySelectorAll('textarea[placeholder="よくある質問を入力する"]')].map((t) => t.value);
+    const as = [...document.querySelectorAll('textarea[placeholder="質問の回答を入力する"]')].map((t) => t.value);
+    return {
+      title: v('textarea[placeholder^="例）小さいお子さん向け"]'),
+      catchphrase: v('textarea[placeholder="キャッチコピーを入力してください"]'),
+      body: v('textarea[placeholder^="サービスの内容、ユーザーのメリット"]'),
+      purchaseNote: v('textarea[placeholder^="ユーザーに必ず書いて欲しい情報"]'),
+      faq: qs.map((q, i) => ({ q, a: as[i] ?? '' })),
+    };
+  });
+}

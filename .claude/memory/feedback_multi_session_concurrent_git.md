@@ -36,3 +36,9 @@ doboku-note では**複数の Claude Code セッションが同じワークツ�
 ## カードの着手記録は PR に入れず develop へ直接 commit する
 2026-10-20 に拡張性のカード 15 枚を PR で並行して進めたとき、1 本目の PR に `todo:claim` の変更（backlog の [進行中]・todo-claims.json）を入れたため、後から develop に積んだ他のカードの着手記録と todo-claims.json で 2 回衝突した。
 - **How to apply:** 着手記録は main checkout の develop で `todo:claim` → pathspec commit → push し、PR のブランチには実装だけを入れる。完了（`todo:complete`）も PR のマージ後に develop で行う。
+
+## 他セッションの未コミットで取り込めないときの push（2026-11-28）
+
+共有の作業ツリーに別セッションの未コミット（`.claude/memory/MEMORY.md` など）があり、`git merge origin/develop` が「上書きされる」で止まった。stash・restore はしない（他人の作業を壊す）。
+
+**How to apply:** `git worktree add .claude/worktrees/push-tmp origin/develop` → 自分のコミットを 1 つずつ `cherry-pick -x` → 生成物の検査（`npm run product -- gen` 後に差分なし・`check-datasets`）→ `git push origin push-tmp:develop` → worktree と枝を消す。共有ツリーの develop は、相手の未コミットが片づいてから取り込む。

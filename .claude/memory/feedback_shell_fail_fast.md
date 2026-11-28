@@ -32,3 +32,9 @@ YouTube の毎日の予約で `( cd <worktree> && git fetch && s=$(git status �
 
 ## 大きな HTML を変数に入れて数えない（2026-11-22）
 デプロイ後の本番確認で `h=$(curl …); echo "$h" | grep -o … | wc -l` と数えたら、1.5MB の過去問ページが途中で切れて読め、「右の欄が無い・本文の広告が 6 枠」と誤認しかけた（ファイルに保存すると `</html>` まであり、17 枠・右の欄もあった）。本番の HTML は `curl -o <file> -w '%{size_download}'` で保存し、`</html>` の有無を見てから数える。
+
+## zsh は変数を空白で分けない（2026-11-28）
+
+Bash ツールのシェルは zsh。`IDS="a b c"; cmd $IDS` は 1 つの引数 "a b c" として渡る（bash と違う）。Kindle 58 冊の作り直しが「0 冊」で終わり、cherry-pick も 3 件をまとめた 1 引数で失敗した。
+
+**How to apply:** 複数の値は配列 `IDS=(a b c); cmd "${IDS[@]}"` で渡すか、1 行ずつ書く。`for x in $VAR` も分かれない。

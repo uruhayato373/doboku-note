@@ -28,13 +28,14 @@
 - [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
 - [IGパック記録](feedback_ig_pack_posted_json.md) — posted.json・配色は現物確認
 - [Kindle重複防止](feedback_kindle_dup_prevention.md) — 差替えでASIN維持
-- [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認
+- [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認・zshは変数を空白で分けない
 - [CLI を import しない](feedback_cli_import_executes.md) — 読み込み確認で実行が始まる・ログイン済みブラウザが開く
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR・引用符なしheredoc禁止
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
 - [競合の空きの確かめ方](feedback_competitor_ledger_before_claims.md) — 立ち位置の台帳・市場の検索・報告も裏取り
 - [計測の仕組みの前に](feedback_measure_before_building_tracking.md) — 既存データと規模を先に見る
-- [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
+- [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止・取り込めなければ一時worktreeでcherry-pick
+- [承認済み画像は上書きしない](feedback_approved_asset_no_overwrite.md) — 案は別名・承認台帳は運営者の指示で
 - [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
 - [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
 - [他人の未コミット作業](feedback_commit_others_wip_run_ci_gate.md) — 拾う前にaudit:ci・state取りこぼし・破棄せずブランチに積む
@@ -138,7 +139,7 @@
 - [hookのgit変数](reference_hook_env_leaks_into_tests.md) — pre-commit内のテストがcommit用indexを壊す
 - [Win Bash罠](reference_git_show_ref_path_false_pass.md) — git show偽PASS・gh jq
 - [容量・速度](reference_mac_disk_reclaim.md) — check-disk-hygiene・EDRビルド
-- [長時間ジョブ](reference_background_jobs_die_with_session.md) — launchctl submit・スリープ遅延
+- [長時間ジョブ](reference_background_jobs_die_with_session.md) — launchctl submit・スリープ遅延・すぐ失敗すると再起動し続ける
 - [CI/workflow罠](reference_ci_quality_gate_fixes.md) — quality:audit赤・actionlint・npm ci
 - [CI暗号state](reference_ci_encrypted_state_gotchas.md) — rclone・symlink・redact
 - [品質検査基盤](reference_quality_audit_system.md) — audit・census・旧URL参照
