@@ -498,6 +498,7 @@
     "note-magazine-delete": "node scripts/note/note-magazine-delete.mjs",
     "note-swap-author-banner": "node scripts/note/note-swap-author-banner.mjs",
     "note-update-body": "node scripts/note/note-update-body.mjs",
+    "note-patch-body": "node scripts/note/note-patch-body.mjs",
     "ogp": "node scripts/ogp-create/ogp-create.mjs",
     "ogp-backgrounds": "node scripts/build/generate-ogp-backgrounds.mjs",
     "ogp-gallery": "node scripts/storage/ogp-gallery.mjs",
