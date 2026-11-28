@@ -23,7 +23,7 @@ cover:
 
 この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。1級・2級土木施工管理技士にも自分で合格しており、受験者と同じ答案を書いた当事者です。
 
-総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「評価される書き方」を整理しています。
+総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「伝わりやすい書き方」を整理しています。
 
 **この記事でわかること**
 
@@ -63,7 +63,7 @@ AIに「経験記述を書いて」と頼むと、工事名も、工期も、施
 
 ## 落ちない答案の骨格
 
-1級でも2級でも、評価される答案の骨格は共通です。
+1級でも2級でも、伝わりやすい答案の骨格は共通です。
 
 - 現場状況（固有の条件・数値）
 - 技術的課題（なぜ難しいか）
@@ -79,9 +79,9 @@ AIに「経験記述を書いて」と頼むと、工事名も、工期も、施
 
 「事実は本人・構成と検証はAI」という手順で組んだ答案でも、最後に残るのは、読み手が読んだときに事実どうしがつながって見えるかという点です。ここは AI が「問題なし」と返しても、人が読むと引っかかることがあります。
 
-設問ごとの書き方・過去の出題傾向・留意事項のまとめは、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-guide)に無料で公開しています。AI に下書きさせる前に、評価される型を先に押さえてください。
+設問ごとの書き方・過去の出題傾向・留意事項のまとめは、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-guide)に無料で公開しています。AI に下書きさせる前に、伝わりやすい型を先に押さえてください。
 
-評価される文章の型を具体例で確認したい方は[施工経験記述の記述例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-examples)もあわせてご覧ください。
+伝わりやすい文章の型を具体例で確認したい方は[施工経験記述の記述例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-examples)もあわせてご覧ください。
 
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
