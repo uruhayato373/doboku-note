@@ -108,6 +108,11 @@ async function preprocess(body, articleDir, images, imageSrc) {
   // RelatedKeywords（関連キーワードリンク）は items={[...]} を含む自己完結タグで、
   // 未処理だと解説末尾に生の JSX/JSON が露出する（全 D/B 本で漏出を QA が検出）。
   out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
+  // サイトの別ページへの導線だけの節と段落は Kindle では行き先が無いので除く（サイトの原稿には残す）。
+  // 「## 論点の出題傾向」は頻出論点ランキングへの案内の節で、残すと章の問題数（h2 の数）も 1 つ多くなる。
+  // 解答速報の案内（令和8年度の自己採点ページへ送る段落）も同じ扱い（2026-11-28 Kindle 再編の QA で検出）
+  out = out.replace(/^## 論点の出題傾向\n[\s\S]*?(?=^## |(?![\s\S]))/m, '')
+  out = out.replace(/^[^\n]*解答速報[^\n]*\n?/gm, '')
   // 関連記事の導線（サイトの別ページへのリンク集）。Kindle では行き先が無いので除く（2026-11-28 に g-01 の元記事へ入り、ビルドが止まった）
   out = out.replace(/<SeeAlso[\s\S]*?\/>/g, '')
   // CareerAffiliate（転職アフィリの広告枠）はサイト専用。未処理だと生 JSX が本文に露出し、
