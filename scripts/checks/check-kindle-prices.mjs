@@ -5,7 +5,7 @@
  * Kindle の価格台帳の整合を検査する。
  *   - spec.price（content/kindle/books/<id>/spec.json・提出と改定の目標値）と
  *     catalog.priceJpy（商品の正本 config/products.json の Kindle の書籍の行）が一致しているか
- *   - royalty 0.7 の本が 70% 帯（¥250〜¥1,250）に収まっているか
+ *   - royalty 0.7 の本が 70% 帯（¥250〜¥1,650）に収まっているか（2026-11-28 から全巻セレクト・1 冊 ¥1,650 以下。content/kindle/strategy.md §1）
  *
  * 背景（2026-09-23）: 3段階の価格改定で spec と catalog の片側だけが古いまま残ると、
  * kdp-publish.mjs --set-price が旧値へ戻す、または台帳が実売価格と食い違う。

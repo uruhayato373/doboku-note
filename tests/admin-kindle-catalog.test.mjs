@@ -178,3 +178,54 @@ test('joinRoyalties: 同一 bookId が複数行に分かれていても合算し
   assert.equal(r.perBook[0].kenp, 67)
   assert.equal(r.perBook[0].royalty, 67)
 })
+
+// ---- 台帳の欄（2026-11-28: 予定・置き換え・収録記事・受取の推移）----
+import {
+  KINDLE_STATUSES, KINDLE_PLAN_ACTIONS, plansOf, nextPlanOf, supersedeErrors, specContents, royaltyHistoryOf,
+} from '../scripts/lib/kindle-catalog.mjs'
+
+test('plansOf は日付の順、nextPlanOf は今日以降の最初の予定・無ければ過ぎた最後の予定', () => {
+  const book = { plans: [{ action: 'reprice', date: '2027-03-01' }, { action: 'publish', date: '2026-12-01' }, { action: 'unpublish', date: '2027-05-01' }] }
+  assert.deepEqual(plansOf(book).map((p) => p.date), ['2026-12-01', '2027-03-01', '2027-05-01'])
+  assert.equal(nextPlanOf(book, '2026-12-02').date, '2027-03-01')
+  assert.equal(nextPlanOf(book, '2027-06-01').date, '2027-05-01')
+  assert.equal(nextPlanOf({}, '2026-12-01'), null)
+})
+
+test('supersedeErrors: 相手が無い・逆向きの記録が無いものを出し、対応していれば 0 件', () => {
+  const ok = [{ id: 'c-04', supersededBy: ['c-04-r03'] }, { id: 'c-04-r03', supersedes: ['c-04'] }]
+  assert.deepEqual(supersedeErrors(ok), [])
+  const bad = [{ id: 'c-04', supersededBy: ['c-04-r03', 'c-04-r99'] }, { id: 'c-04-r03' }]
+  const errs = supersedeErrors(bad)
+  assert.equal(errs.length, 2)
+  assert.ok(errs.some((e) => e.includes('c-04-r99 が正本に無い')))
+  assert.ok(errs.some((e) => e.includes('supersedes に c-04 が無い')))
+})
+
+test('specContents: 見出しは frontmatter の title → # 見出し → パス。字数は frontmatter を除いた空白以外の文字数', () => {
+  const files = {
+    'a.md': '---\ntitle: "令和3年度 問題III"\n---\n# 見出し\n本文 です',
+    'b.md': '# 第一章\nあいう',
+  }
+  const rows = specContents({ sources: ['a.md', 'b.md', 'c.md'] }, (rel) => files[rel] ?? null)
+  assert.deepEqual(rows.map((r) => r.heading), ['令和3年度 問題III', '第一章', 'c.md'])
+  assert.equal(rows[0].chars, '#見出し本文です'.length)
+  assert.equal(rows[2].missing, true)
+  assert.deepEqual(specContents(null, () => null), [])
+})
+
+test('royaltyHistoryOf: 同じ月の同じ本の行を合算し、月の順に累計を出す', () => {
+  const json = { months: {
+    '2026-09': { estimated: false, books: [{ bookId: 'c-04', ebook: 795, kenp: 10, royalty: 805 }] },
+    '2026-11': { estimated: true, books: [{ bookId: 'c-04', ebook: 1049, kenp: 0, royalty: 1049 }, { bookId: 'c-04', ebook: 0, kenp: 5, royalty: 5 }, { bookId: 'x', royalty: 1 }] },
+  } }
+  const h = royaltyHistoryOf('c-04', json)
+  assert.deepEqual(h.months.map((m) => [m.month, m.royalty, m.estimated]), [['2026-09', 805, false], ['2026-11', 1054, true]])
+  assert.equal(h.total, 1859)
+  assert.deepEqual(royaltyHistoryOf('none', json), { months: [], total: 0 })
+})
+
+test('状態と予定の語彙: 正本の型が受け付ける値', () => {
+  assert.ok(KINDLE_STATUSES.includes('draft') && KINDLE_STATUSES.includes('unpublished'))
+  assert.deepEqual(KINDLE_PLAN_ACTIONS, ['publish', 'unpublish', 'reprice', 'select-enroll', 'replace-manuscript'])
+})

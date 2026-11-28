@@ -39,6 +39,90 @@ export function kindleSpecIds() {
   return readdirSync(KINDLE_BOOKS_ROOT).filter((d) => existsSync(join(KINDLE_BOOKS_ROOT, d, 'spec.json'))).sort()
 }
 
+/**
+ * 書籍の状態の語彙。draft=作っている途中（EPUB・表紙・販売文・QA がそろっていない）、ready=出品できる状態（KDP には未提出）、
+ * in_review=KDP の審査中、live=販売中、unpublished=販売停止、rejected=KDP に差し戻された
+ */
+export const KINDLE_STATUSES = ['draft', 'ready', 'in_review', 'live', 'unpublished', 'rejected']
+export const KINDLE_STATUS_LABELS = {
+  draft: '制作中', ready: '出品できる', in_review: '審査中', live: '販売中', unpublished: '販売停止', rejected: '差し戻し',
+}
+
+/**
+ * 公開の予定（catalog.plans[]）の action の語彙。KDP への操作は人の承認を得てから行うので、ここは予定を書くだけ。
+ * publish=新しく出版する、unpublish=販売を止める、reprice=価格を変える、select-enroll=KDP セレクトに入れる、
+ * replace-manuscript=販売中の本の原稿を差し替える
+ */
+export const KINDLE_PLAN_ACTIONS = ['publish', 'unpublish', 'reprice', 'select-enroll', 'replace-manuscript']
+export const KINDLE_PLAN_LABELS = {
+  publish: '出版', unpublish: '販売停止', reprice: '価格変更', 'select-enroll': 'セレクト加入', 'replace-manuscript': '原稿差し替え',
+}
+
+/** 書籍の予定を日付の順に返す（純粋）。日付の無い予定は末尾 */
+export function plansOf(book) {
+  return [...(Array.isArray(book?.plans) ? book.plans : [])].sort((a, b) => String(a.date ?? '9999').localeCompare(String(b.date ?? '9999')))
+}
+
+/** まだ来ていない最初の予定（todayKey 以降）。無ければ過ぎた予定のうち最後のもの（遅れとして見せる）。無ければ null（純粋） */
+export function nextPlanOf(book, todayKey) {
+  const plans = plansOf(book).filter((p) => p.date)
+  return plans.find((p) => p.date >= todayKey) ?? plans.at(-1) ?? null
+}
+
+/**
+ * 正本の Kindle の行どうしの参照の検査（純粋）: supersedes / supersededBy の id が実在し、互いに対応すること。
+ * @param {Array} books catalog の配列
+ * @returns {string[]} 問題の一覧
+ */
+export function supersedeErrors(books) {
+  const byId = new Map((books ?? []).map((b) => [b.id, b]))
+  const errors = []
+  for (const b of books ?? []) {
+    for (const [field, back] of [['supersedes', 'supersededBy'], ['supersededBy', 'supersedes']]) {
+      for (const other of b[field] ?? []) {
+        const o = byId.get(other)
+        if (!o) errors.push(`${b.id}.${field}: ${other} が正本に無い`)
+        else if (!(o[back] ?? []).includes(b.id)) errors.push(`${b.id}.${field}: ${other} の ${back} に ${b.id} が無い`)
+      }
+    }
+  }
+  return errors
+}
+
+/**
+ * spec.json の sources を、収録記事の一覧（パス・見出し・字数）にする（純粋）。
+ * 見出しは frontmatter の title、無ければ最初の # 見出し、無ければファイルのパス。字数は frontmatter を除いた本文の文字数
+ * @param {{sources?: string[]}|null} spec
+ * @param {(rel: string) => string|null} readText リポジトリ相対パスの本文を返す（無ければ null）
+ */
+export function specContents(spec, readText) {
+  return (spec?.sources ?? []).map((rel) => {
+    const text = readText(rel)
+    if (text == null) return { path: rel, heading: rel, chars: 0, missing: true }
+    const fm = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/.exec(text)
+    const body = fm ? text.slice(fm[0].length) : text
+    const title = fm && /^title:\s*["']?(.+?)["']?\s*$/m.exec(fm[1])?.[1]
+    const h = /^#\s+(.+)$/m.exec(body)?.[1]
+    return { path: rel, heading: (title || h || rel).trim(), chars: body.replace(/\s/g, '').length, missing: false }
+  })
+}
+
+/**
+ * 1 冊の月ごとの受取（royalties.json の全月・同じ bookId の行は合算）と累計（純粋）
+ * @returns {{ months: Array<{month: string, ebook: number, kenp: number, royalty: number, estimated: boolean}>, total: number }}
+ */
+export function royaltyHistoryOf(bookId, royaltiesJson) {
+  const months = []
+  for (const month of Object.keys(royaltiesJson?.months ?? {}).sort()) {
+    const m = royaltiesJson.months[month]
+    const rows = (m.books ?? []).filter((r) => r.bookId === bookId)
+    if (!rows.length) continue
+    const sum = (k) => rows.reduce((s, r) => s + (r[k] || 0), 0)
+    months.push({ month, ebook: sum('ebook'), kenp: sum('kenp'), royalty: sum('royalty'), estimated: Boolean(m.estimated) })
+  }
+  return { months, total: months.reduce((s, m) => s + m.royalty, 0) }
+}
+
 /** 商品の配列から Kindle 書籍の行を order の順に取り出す（純粋） */
 export function kindleBooksOf(products) {
   return (products ?? []).filter((p) => p.channel === 'kindle').sort((a, b) => a.order - b.order).map((p) => p.catalog)

@@ -46,7 +46,7 @@ import { youtubePublications } from './registry-youtube-view.mjs';
 import { loadVideoState } from './registry-video-state.mjs';
 import { loadXPosts } from './registry-x-store.mjs';
 import { parseTweetBlocks } from './x-tweets-md.mjs';
-import { KINDLE_CATALOG_SOURCE, loadKindleCatalog } from './kindle-catalog.mjs';
+import { KINDLE_CATALOG_SOURCE, KINDLE_PLAN_LABELS, loadKindleCatalog, plansOf } from './kindle-catalog.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
@@ -458,8 +458,11 @@ export function mapNoteArticles(entries, todayKey) {
   return events;
 }
 
-/** Kindle の書籍の行 → 提出日・公開日（商品）。 */
-export function mapKindleCatalog(books, relPath) {
+/**
+ * Kindle の書籍の行 → 提出日・公開日（実績）と、catalog.plans[] の予定（出版・販売停止・価格変更・セレクト加入・原稿差し替え）。
+ * 予定は KDP への操作を人が承認して行うまでの計画なので、過ぎても実績と呼ばず overdue にする。
+ */
+export function mapKindleCatalog(books, relPath, todayKey) {
   const events = [];
   for (const b of books ?? []) {
     for (const [field, verb] of [['submittedDate', '提出'], ['publishedDate', '公開']]) {
@@ -470,6 +473,17 @@ export function mapKindleCatalog(books, relPath) {
         label: `Kindle ${verb}: ${b.title}`, detail: null, sourceId: 'kindle-catalog', sourcePath: relPath, ref: `${b.id}/${field}`,
       });
     }
+    plansOf(b).forEach((p, i) => {
+      const date = toJstDate(p.date);
+      if (!date) return;
+      const price = p.price ? ` ¥${p.price.toLocaleString('ja-JP')}` : '';
+      events.push({
+        id: `kindle-catalog:${b.id}:plan:${i}`, date, time: null, channel: 'kindle', kind: 'publish',
+        status: todayKey && date < todayKey ? 'overdue' : 'planned',
+        label: `Kindle ${KINDLE_PLAN_LABELS[p.action] ?? p.action}${price}: ${b.title}`, detail: p.note ?? null,
+        sourceId: 'kindle-catalog', sourcePath: relPath, ref: `${b.id}/plans/${i}`,
+      });
+    });
   }
   return events;
 }
@@ -779,9 +793,9 @@ function readNoteArticles(rootDir, todayKey) {
   });
 }
 
-function readKindleCatalog(rootDir) {
+function readKindleCatalog(rootDir, todayKey) {
   const relPath = KINDLE_CATALOG_SOURCE;
-  return readSource('kindle-catalog', 'kindle', relPath, () => mapKindleCatalog(loadKindleCatalog(rootDir), relPath));
+  return readSource('kindle-catalog', 'kindle', relPath, () => mapKindleCatalog(loadKindleCatalog(rootDir), relPath, todayKey));
 }
 
 async function readCoconalaCatalog(rootDir) {
@@ -835,7 +849,7 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
   const youtube = readYoutubeSchedule(rootDir, nowMs);
   const backlog = readBacklogDue(rootDir, todayKey);
   const note = readNoteArticles(rootDir, todayKey);
-  const kindle = readKindleCatalog(rootDir);
+  const kindle = readKindleCatalog(rootDir, todayKey);
   const coconala = await readCoconalaCatalog(rootDir);
   const video = readVideoStatus(rootDir, todayKey);
   const experiments = readExperiments(rootDir, todayKey);

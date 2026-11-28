@@ -10,7 +10,32 @@ function statusTone(status: string): Tone {
   if (status === 'in_review') return 'warn';
   if (status === 'ready') return 'neutral';
   if (status === 'rejected') return 'bad';
+  if (status === 'unpublished') return 'neutral';
   return 'info';
+}
+
+/** 予定の 1 行（例: 2027-05-01 出版 ¥1,650） */
+function planText(p: KindleBookView['plans'][number]): string {
+  return `${p.date} ${p.actionLabel}${p.price ? ` ${yen(p.price)}` : ''}${p.note ? `（${p.note}）` : ''}`;
+}
+
+function contentsList(b: KindleBookView) {
+  if (!b.contents) return <span className="text-muted-foreground">spec なし（ビルダーの theme で作る本）</span>;
+  if (!b.contents.length) return <span className="text-muted-foreground">0 本</span>;
+  const total = b.contents.reduce((s, c) => s + c.chars, 0);
+  return (
+    <div className="text-xs">
+      <p>{b.contents.length} 本・{total.toLocaleString('ja-JP')} 字</p>
+      <ol className="list-decimal pl-5">
+        {b.contents.map((c) => (
+          <li key={c.path} className={c.missing ? 'project-warning-text' : undefined}>
+            {c.heading}（{c.missing ? 'ファイルが無い' : `${c.chars.toLocaleString('ja-JP')} 字`}）<br />
+            <span className="text-muted-foreground">{c.path}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
 }
 
 function freshnessTone(f: KindleBookView['freshness']): Tone {
@@ -33,9 +58,11 @@ function fmtBytes(n: number): string {
 const BOOK_COLUMNS: DataTableColumn[] = [
   { key: 'cover', label: '表紙', sortable: false },
   { key: 'book', label: '書籍' },
+  { key: 'volume', label: '巻', num: true },
   { key: 'price', label: '価格', num: true },
   { key: 'status', label: '状態' },
-  { key: 'date', label: '提出日' },
+  { key: 'plan', label: '次の予定' },
+  { key: 'royalty', label: '受取の累計', num: true },
   { key: 'freshness', label: '鮮度' },
 ];
 
@@ -50,10 +77,12 @@ function bookRow(b: KindleBookView): DataTableRow {
     id: b.id,
     values: {
       cover: null,
-      book: `${b.title || b.id} ${b.id}${b.series ? `・${b.series}` : ''}`,
+      book: `${b.title || b.id} ${b.id}${b.seriesName ? `・${b.seriesName}` : ''}`,
+      volume: b.seriesVolume,
       price: b.priceJpy ?? null,
-      status: b.status,
-      date: b.submittedDate ?? b.publishedDate ?? null,
+      status: b.statusLabel,
+      plan: b.nextPlan ? `${b.nextPlan.date} ${b.nextPlan.actionLabel}` : null,
+      royalty: b.royaltyMonths.length ? b.royaltyTotal : null,
       freshness: freshnessLabel(b.freshness),
     },
     cells: {
@@ -67,8 +96,25 @@ function bookRow(b: KindleBookView): DataTableRow {
         <DetailSheet trigger={b.title || b.id} title={b.title || b.id} description={b.id}>
           <DetailList
             items={[
-              { label: 'シリーズ', value: b.series },
+              { label: 'シリーズ', value: b.seriesName ? `${b.seriesName}${b.seriesVolume != null ? `（第${b.seriesVolume}巻）` : ''}` : null },
+              { label: '状態', value: `${b.statusLabel}（${b.status}）` },
+              { label: '価格・受取率', value: `${yen(b.priceJpy)}${b.royaltyRate != null ? `・${Math.round(b.royaltyRate * 100)}%` : ''}` },
+              { label: '予定', value: b.plans.length ? <ul className="text-xs">{b.plans.map((p, i) => <li key={i}>{planText(p)}</li>)}</ul> : null },
+              { label: '置き換え（この本が引き継ぐ旧本）', value: b.supersedes.length ? b.supersedes.join(', ') : null },
+              { label: '置き換え（この本を引き継ぐ巻）', value: b.supersededBy.length ? b.supersededBy.join(', ') : null },
+              { label: '収録記事', value: contentsList(b) },
+              {
+                label: '月ごとの受取',
+                value: b.royaltyMonths.length ? (
+                  <ul className="text-xs">
+                    {b.royaltyMonths.map((m) => <li key={m.month}>{m.month}: {yen(m.royalty)}（電子書籍 {yen(m.ebook)}・KENP {yen(m.kenp)}）{m.estimated ? '・推計' : ''}</li>)}
+                    <li>累計 {yen(b.royaltyTotal)}</li>
+                  </ul>
+                ) : null,
+              },
               { label: '版', value: b.version },
+              { label: '版の履歴', value: b.versionHistory.length ? <ul className="text-xs">{b.versionHistory.map((v, i) => <li key={i}>{v.date} v{v.version}: {v.change}</li>)}</ul> : null },
+              { label: '価格の履歴', value: b.priceHistory.length ? <ul className="text-xs">{b.priceHistory.map((v, i) => <li key={i}>{Object.entries(v).map(([k, x]) => `${k}=${String(x)}`).join('・')}</li>)}</ul> : null },
               { label: 'ASIN', value: b.amazonUrl ? <a href={b.amazonUrl} target="_blank" rel="noreferrer">{b.asin}</a> : (b.asin ?? b.draftAsin) },
               { label: 'EPUB', value: b.epubExists ? fmtBytes(b.epubBytes) : null },
               { label: '提出日', value: b.submittedDate },
@@ -78,17 +124,23 @@ function bookRow(b: KindleBookView): DataTableRow {
           />
         </DetailSheet>
       ),
+      volume: <span className="text-xs">{b.seriesVolume ?? '—'}</span>,
       price: yen(b.priceJpy),
-      status: <StatusBadge tone={statusTone(b.status)}>{b.status}</StatusBadge>,
-      date: <span className="text-xs">{b.submittedDate ?? b.publishedDate ?? '—'}</span>,
+      status: <StatusBadge tone={statusTone(b.status)}>{b.statusLabel}</StatusBadge>,
+      plan: b.nextPlan ? (
+        <span className={`text-xs${b.nextPlan.overdue ? ' project-warning-text' : ''}`}>{planText(b.nextPlan)}{b.nextPlan.overdue ? '・予定日を過ぎた' : ''}</span>
+      ) : (
+        <span className="text-muted-foreground">—</span>
+      ),
+      royalty: b.royaltyMonths.length ? yen(b.royaltyTotal) : <span className="text-muted-foreground">—</span>,
       freshness: <StatusBadge tone={freshnessTone(b.freshness)}>{freshnessLabel(b.freshness)}</StatusBadge>,
     },
   };
 }
 
 /**
- * /content/kindle — KDP で販売する Kindle 本 45 冊の状態・価格・ASIN・ロイヤリティ・鮮度を
- * 横断する read-only 画面。
+ * /content/kindle — KDP の Kindle 本の台帳（状態・価格・次の予定・置き換え関係・収録記事・受取の推移・ASIN・鮮度）を
+ * シリーズと巻の順に並べる read-only 画面。予定は正本の catalog.plans[] を出すだけで、KDP への操作はしない。
  *
  * 判定ロジックは scripts/lib/kindle-catalog.mjs（このページ専用の pure module）。
  * 再ビルド・提出・状態同期・任意 CLI 実行は一切追加しない（運用規約カードで CLI コマンドを
@@ -110,8 +162,12 @@ export async function KindlePanel({ tab }: { tab?: string }) {
     <>
       <Stack>
       <div className="grid cols-4">
-        <StatCard label="live" value={summary.byStatus.live ?? 0} />
-        <StatCard label="in_review" value={summary.byStatus.in_review ?? 0} />
+        <StatCard label="販売中" value={summary.byStatus.live ?? 0} />
+        <StatCard label="出品できる" value={summary.byStatus.ready ?? 0} />
+        <StatCard label="制作中" value={summary.byStatus.draft ?? 0} />
+        <StatCard label="販売停止" value={summary.byStatus.unpublished ?? 0} />
+        <StatCard label="審査中" value={summary.byStatus.in_review ?? 0} />
+        <StatCard label="予定あり（過ぎた）" value={`${summary.plannedCount}（${summary.overdueCount}）`} />
         <StatCard label="鮮度 stale" value={freshnessOk ? summary.staleCount : '検査不成立'} />
         <StatCard label="直近月ロイヤリティ" value={royalties?.ok ? `${yen(royalties.total?.royalty)}${royalties.estimated ? '(推計)' : ''}` : '未取得'} />
       </div>
