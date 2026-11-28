@@ -1037,6 +1037,216 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "pre",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-28T00:30:16.943Z",
+      "finishedAt": "2026-11-28T01:24:31.181Z",
+      "stages": [
+        {
+          "id": "drive",
+          "title": "Drive の読み取り（note 同期の配布 PDF）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [],
+          "durationSec": 3
+        },
+        {
+          "id": "auth",
+          "title": "ログインの確認と入り直し",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note / 検算 auth-freshness: [auth-freshness] FAIL 対象 5 件 / 実検査 5 件 / 要ログイン 4 件 / 要確認 4 件",
+          "exits": [],
+          "verify": [
+            {
+              "id": "auth-freshness",
+              "exit": 1
+            }
+          ],
+          "durationSec": 241
+        },
+        {
+          "id": "a8",
+          "title": "A8 の成果（前月と当月）",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 2516: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-",
+          "exits": [],
+          "verify": [
+            {
+              "id": "a8-report-due",
+              "exit": 0
+            },
+            {
+              "id": "a8-ui-run",
+              "exit": 0
+            }
+          ],
+          "durationSec": 241
+        },
+        {
+          "id": "moshimo",
+          "title": "もしもの成果（前月と当月）",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note",
+          "exits": [],
+          "verify": [
+            {
+              "id": "moshimo-report-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 242
+        },
+        {
+          "id": "kdp",
+          "title": "KDP のロイヤリティ",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note",
+          "exits": [],
+          "verify": [
+            {
+              "id": "kdp-report-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 241
+        },
+        {
+          "id": "note-traffic",
+          "title": "note のアクセス（月と 2026-11-16〜2026-11-22）",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note",
+          "exits": [],
+          "verify": [],
+          "durationSec": 241
+        },
+        {
+          "id": "note-sales",
+          "title": "note の売上",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note",
+          "exits": [],
+          "verify": [
+            {
+              "id": "sales-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 241
+        },
+        {
+          "id": "coconala",
+          "title": "ココナラの取引・出品分析・売上履歴",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note",
+          "exits": [],
+          "verify": [
+            {
+              "id": "coconala-analytics",
+              "exit": 0
+            }
+          ],
+          "durationSec": 241
+        },
+        {
+          "id": "product-sales",
+          "title": "商品別の月次販売の台帳（前月と当月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [],
+          "durationSec": 0
+        },
+        {
+          "id": "business-records",
+          "title": "月の受取額と固定費の記録（前々月と前月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 1
+        },
+        {
+          "id": "gsc",
+          "title": "GSC の登録リクエスト 10 件と月次の理由別 CSV",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 13200: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 13206: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note",
+          "exits": [],
+          "verify": [
+            {
+              "id": "gsc-ui-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-indexing-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-ui-run",
+              "exit": null,
+              "skipped": "この回は取得していない"
+            }
+          ],
+          "durationSec": 240
+        },
+        {
+          "id": "note-status",
+          "title": "note の公開状態・マガジン・題名と価格の照合（毎週）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 1095
+        },
+        {
+          "id": "note-audit",
+          "title": "note の全記事の照合（構造・タグ・本文・カード・導線。月 1 回）",
+          "status": "skipped",
+          "reason": "月 1 回（27 日ごと）の照合で、前回（2026-11-14）から 14 日。次は 2026-12-11 以降の土曜",
+          "exits": [],
+          "verify": [],
+          "durationSec": 0
+        },
+        {
+          "id": "note-public-view",
+          "title": "note の公開画面の照合（公開 API・全件）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [],
+          "durationSec": 200
+        },
+        {
+          "id": "competitors",
+          "title": "競合の公開データ（四半期）",
+          "status": "skipped",
+          "reason": "今の四半期の取得が済んでいる（note 2026-11-06・ココナラ 2026-10-01）",
+          "exits": [],
+          "verify": [],
+          "durationSec": 0
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
