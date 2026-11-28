@@ -1,7 +1,7 @@
 {
   "bookId": "j-01",
-  "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集",
-  "subtitle": "令和3〜7年度 年度別5回分の模範答案と書き方",
+  "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案＋完成答案集",
+  "subtitle": "年度別の模範答案5回分＋品質・安全・工程の完成答案",
   "price": 1980,
   "examName": "2級土木施工管理技術検定 第2次検定",
   "creditIssuer": "一般財団法人 全国建設研修センター",
@@ -11,7 +11,11 @@
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R04/article.md",
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R05/article.md",
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R06/article.md",
-    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R07/article.md"
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R07/article.md",
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md",
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md",
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md",
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-小規模地域インフラ4工事/article.md"
   ],
   "dropLines": [
     "^この教材は、技術士（総合技術監理部門）を持つ",
@@ -70,5 +74,6 @@
       "当サイト掲載の",
       ""
     ]
-  ]
+  ],
+  "description": "2級土木施工管理技術検定 第2次検定「年度別の模範答案5回分＋品質・安全・工程の完成答案」の模範解答を収録した演習書。"
 }

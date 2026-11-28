@@ -1,0 +1,35 @@
+{
+  "bookId": "j-11b",
+  "background": "content/kindle/cover-backgrounds/a-03.png",
+  "accent": "#2A7050",
+  "kicker": "2級土木施工管理技士 第2次検定",
+  "titleLines": [
+    {
+      "text": "施工経験記述",
+      "size": 225
+    },
+    {
+      "text": "土工・コンクリート・基礎編",
+      "size": 103
+    }
+  ],
+  "subLines": [
+    "想定工事 完成答案集",
+    "16工事×品質・安全・工程の記入例"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-2",
+    "kicker": "2級土木施工管理技士 第2次検定",
+    "title": "施工経験記述",
+    "titleSub": "土工・コンクリート・基礎編",
+    "badge": [
+      "8工事",
+      "下巻"
+    ],
+    "redBand": "品質・安全・工程の記入例",
+    "navyBand": "擁壁・杭・基礎ほか",
+    "scene": "場所打ち杭の掘削機とコンクリート打設を行っている橋台の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
+}

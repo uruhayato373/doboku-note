@@ -17,5 +17,19 @@
     "想定工事 完成答案集",
     "16工事×品質・安全・工程の記入例"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-2",
+    "kicker": "2級土木施工管理技士 第2次検定",
+    "title": "施工経験記述",
+    "titleSub": "土工・コンクリート・基礎編",
+    "badge": [
+      "8工事",
+      "上巻"
+    ],
+    "redBand": "品質・安全・工程の記入例",
+    "navyBand": "盛土・法面・補強土壁ほか",
+    "scene": "盛土を転圧ローラーで締め固め、法面を整形している道路改良の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }
