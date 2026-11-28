@@ -54005,7 +54005,7 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.393Z",
+      "verifiedAt": "2026-11-28T07:04:55.931Z",
       "width": 1600,
       "height": 2560,
       "logicalPath": "scripts/kindle-dist/c-05.jpg",
@@ -54367,7 +54367,7 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:54.637Z",
+      "verifiedAt": "2026-11-28T07:04:56.972Z",
       "width": 1600,
       "height": 2560,
       "logicalPath": "scripts/kindle-dist/e-01.jpg",
@@ -54423,12 +54423,12 @@
     "scripts/kindle-dist/e-01.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/e-01.epub",
-      "sha256": "90acb34e98f64f03dbeb50c172e91cf273c488a5e34d9a0dbda2771a2b433774",
-      "bytes": 1354801,
+      "sha256": "1171f496b4ee129fe5b4917e06f6f354744eb6f1bd94933f394052a057570cb9",
+      "bytes": 1354745,
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:54.627Z",
+      "verifiedAt": "2026-11-28T07:04:56.558Z",
       "logicalPath": "scripts/kindle-dist/e-01.epub",
       "mime": "application/epub+zip",
       "generator": "npm run sync-kindle-dist",
@@ -90426,7 +90426,7 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.212Z",
+      "verifiedAt": "2026-11-28T07:04:56.591Z",
       "width": 1600,
       "height": 2560
     },
@@ -90438,19 +90438,19 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.267Z",
+      "verifiedAt": "2026-11-28T07:04:55.791Z",
       "width": 1600,
       "height": 2560
     },
     "scripts/kindle-dist/e-01-r06.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/e-01-r06.epub",
-      "sha256": "1fa2254eaa063468f2d2a24cf8cdc34347f7f516a6b78f943efbe18f516f3f14",
-      "bytes": 948751,
+      "sha256": "e1d9d1ac6362168133f03c5c596f7c15591bbac8af0a9aa7b2aaba53b1d66908",
+      "bytes": 948690,
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.329Z"
+      "verifiedAt": "2026-11-28T07:04:56.056Z"
     },
     "scripts/kindle-dist/e-01-r05.jpg": {
       "bucket": "private",
@@ -90460,29 +90460,29 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.572Z",
+      "verifiedAt": "2026-11-28T07:04:55.968Z",
       "width": 1600,
       "height": 2560
     },
     "scripts/kindle-dist/e-01-r04.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/e-01-r04.epub",
-      "sha256": "d9695fa1b102ed625761d7b8531373fcc77bcbd270b5913a24955b1ffc1feb7c",
-      "bytes": 393762,
+      "sha256": "bb9381e2fca7c38f8efb854a3d147f959d57019528ff24cf47e2f0ca51291a95",
+      "bytes": 393707,
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.584Z"
+      "verifiedAt": "2026-11-28T07:04:55.834Z"
     },
     "scripts/kindle-dist/e-01-r05.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/e-01-r05.epub",
-      "sha256": "a04427ca6cd954320e4712691f9d614c0faa6b145c3fa52a06d042a47f5948a1",
-      "bytes": 481655,
+      "sha256": "6c46c5c37437ec2acda9ebf881ff412dc9b74184a6ab44eb15c11d2a5096f9ff",
+      "bytes": 481597,
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:53.605Z"
+      "verifiedAt": "2026-11-28T07:04:55.937Z"
     },
     "scripts/kindle-dist/e-01-r06.jpg": {
       "bucket": "private",
@@ -90492,7 +90492,7 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:54.084Z",
+      "verifiedAt": "2026-11-28T07:04:56.403Z",
       "width": 1600,
       "height": 2560
     },
@@ -90504,29 +90504,29 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:54.110Z",
+      "verifiedAt": "2026-11-28T07:04:56.512Z",
       "width": 1600,
       "height": 2560
     },
     "scripts/kindle-dist/e-01-r03.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/e-01-r03.epub",
-      "sha256": "1f25d5ce7e255dedb9a893b2bf905af61c2264cdaf13d45005a6dc50813f8083",
-      "bytes": 555644,
+      "sha256": "e03e3910f13e390f70a2534d154e1d09aba5c6e974855bb99f66c0389d8d7781",
+      "bytes": 555619,
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:54.573Z"
+      "verifiedAt": "2026-11-28T07:04:55.785Z"
     },
     "scripts/kindle-dist/e-01-r07.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/e-01-r07.epub",
-      "sha256": "fcf6131c5f46b2359e87c53f111acac64a258ef4bec8fcbaa2e5ea93c08fdb07",
-      "bytes": 953544,
+      "sha256": "1952980e86a074b3ab5788c3a44a0aa6dda76388b2adeb2fc09f378a561f5402",
+      "bytes": 953486,
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-11-28T06:59:56.443Z"
+      "verifiedAt": "2026-11-28T07:04:56.454Z"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
