@@ -108,6 +108,11 @@ async function preprocess(body, articleDir, images, imageSrc) {
   // RelatedKeywords（関連キーワードリンク）は items={[...]} を含む自己完結タグで、
   // 未処理だと解説末尾に生の JSX/JSON が露出する（全 D/B 本で漏出を QA が検出）。
   out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
+  // サイトの別ページへの導線だけの節と段落は Kindle では行き先が無いので除く（サイトの原稿には残す）。
+  // 「## 論点の出題傾向」は頻出論点ランキングへの案内の節で、残すと章の問題数（h2 の数）も 1 つ多くなる。
+  // 解答速報の案内（令和8年度の自己採点ページへ送る段落）も同じ扱い（2026-11-28 Kindle 再編の QA で検出）
+  out = out.replace(/^## 論点の出題傾向\n[\s\S]*?(?=^## |(?![\s\S]))/m, '')
+  out = out.replace(/^[^\n]*解答速報[^\n]*\n?/gm, '')
   // 関連記事の導線（サイトの別ページへのリンク集）。Kindle では行き先が無いので除く（2026-11-28 に g-01 の元記事へ入り、ビルドが止まった）
   out = out.replace(/<SeeAlso[\s\S]*?\/>/g, '')
   // CareerAffiliate（転職アフィリの広告枠）はサイト専用。未処理だと生 JSX が本文に露出し、
@@ -124,6 +129,10 @@ async function preprocess(body, articleDir, images, imageSrc) {
     const title = (props.match(/title="((?:[^"\\]|\\.)*)"/) || [])[1] || ''
     return `\n\n${title ? `**${title}**\n\n` : ''}${inner.trim()}\n\n`
   })
+
+  // 図のキャプション（<p className="text-center">図 …</p>）は中央寄せの段落へ。未処理だと JSX の文字列がそのまま本文に出る
+  // （2026-11-28 1級土木 第1次検定の年度別の巻の QA で検出・81 か所）
+  out = out.replace(/<p className="text-center">([\s\S]*?)<\/p>/g, (_, t) => push(`<p class="cap">${xesc(t.trim())}</p>`))
 
   // 画像 → img（webp/png/svg は sharp で JPEG 化して同梱）。
   // `<ArticleImage .../>`（総監・技術士系）と生の `<img .../>`（1級土木 primary-* 等）の
@@ -237,8 +246,9 @@ function mdToXhtml(text) {
   const flushTable = () => {
     if (!table.length) return
     const rows = table
-      .filter((r) => !/^\|[\s:-]+\|/.test(r))
-      .filter((r) => !/^[|\s:-]+$/.test(r))
+      // 区切り行（|---|:---:|）だけを除く。先頭のセルが空の見出し行（|  | (ア) | (イ) |）を区切り行と
+      // 取り違えて落とすと、組合せ問題の列名が消えて解けなくなる（2026-11-28 総監 択一 b-r02〜r06 の QA で検出）
+      .filter((r) => !r.replace(/^\||\|$/g, '').split('|').every((c) => /^\s*:?-+:?\s*$/.test(c)))
       .map((r) => r.replace(/^\||\|$/g, '').split('|').map((c) => `<td>${inlineMd(c.trim())}</td>`).join(''))
       .map((cells) => `<tr>${cells}</tr>`)
     html.push(`<table class="tbl">${rows.join('')}</table>`)
@@ -298,6 +308,7 @@ ol.opts li { margin-bottom: 0.3em; }
   padding: 0.4em 0.7em; margin: 0.6em 0; }
 .ep-head { margin: 0 0 0.3em; }
 .fig { text-align: center; margin: 0.8em 0; }
+.cap { text-align: center; font-size: 0.9em; color: #555; margin: 0.2em 0 0.8em; }
 .fig img { max-width: 100%; }
 .math { text-align: center; margin: 0.6em 0; }
 table.tbl { border-collapse: collapse; margin: 0.6em 0; }
@@ -376,7 +387,7 @@ async function main() {
     const articleDir = resolve(srcPath, '..')
 
     const pre = await preprocess(body, articleDir, images, imageSrc)
-    const qCount = (body.match(/^## /gm) || []).length
+    const qCount = (pre.text.match(/^## /gm) || []).length // 前処理で除いた節（論点の出題傾向など）を数えない
     qTotal += qCount
     if (pre.hasMath) mathPages++
 
