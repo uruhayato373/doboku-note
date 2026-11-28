@@ -38,7 +38,7 @@ essay-writer と essay-qa が、資格 `cem` で呼ばれたときに最初に�
 | `setsumon3` | `総監記述式-設問3国家施策バンク` | 将来課題テーマ別（国家施策案×600字） | 同マガジン既存記事 |
 | `crosstradeoff` | `総監記述式-5管理クロストレードオフ` | 5管理ペア別 | 同マガジン既存記事 |
 
-- `persona` 過去問: `## 試験問題` → `## A 案`・`## B 案`（各「（前提条件）」付き）→ 各案 設問（１）(２)(３)→ `## 採点者視点でのチェックポイント`。設問(2)(3)の各施策は **`### 施策 X-N:` 見出し**で区切り、本文は散文。
+- `persona` 過去問: `## 試験問題` → `## A 案`・`## B 案`（各「（前提条件）」付き）→ 各案 設問（１）(２)(３)→ `## 読み手の視点での自己点検`。設問(2)(3)の各施策は **`### 施策 X-N:` 見出し**で区切り、本文は散文。
 - 新規の過去問専用ペルソナは `.claude/config/cem-essay-structure.json` の `pastExamOnlyPersonas` に理由付きで登録されたものに限り、R03-R07 の5記事を必須とする。終了済みのR8予想を追加生成しない。既存の予想付き商品は上記構成を維持する。
 - `persona` R8予想: 予想テーマ2つ（例 気候変動適応／資源循環）を **`R08-yosou-1`/`-2` の2記事**に分け、各記事に A 案・B 案を収録。本文は過去問形式＋`### 出題予想根拠`。
 
@@ -167,3 +167,5 @@ grep -nc "^> " "<path>"                                                  # block
 - `.claude/knowledge/reference/note-essay-review-checklist.md`（評価軸・しきい値・横展開ランブックの SSOT）
 - 字数ゲート: `scripts/content/essay-shisaku-charcount.mjs` / 見出し: `scripts/checks/check-essay-heading-structure.mjs` / note 互換: `scripts/note/note-lint.mjs`
 - メモリ: [[feedback_essay_char_limit]] / [[feedback_essay_q2_prose]] / [[feedback_essay_q3_general_level]] / [[feedback_essay_persona_authentic_seat]] / [[feedback_essay_persona_field_label]] / [[feedback_no_price_in_mdx_body]]
+
+自己点検の節（`答案の自己点検ポイント`・`読み手の視点での自己点検`）は、節の頭に「採点基準は公表されていません。以下は、筆者が読み手の立場で見た自己点検の観点です。」を置く。採点基準は公表されていないので、「採点者は〜を評価する」「減点される」と断定しない（`npm run check-note-overclaim` が止める）。
