@@ -38,6 +38,7 @@
  *   --reattach-pdf            全文置換で消える PDF 添付を、同じセッションで貼り直す（保存前に復元＋実体確認）。
  *                             ローカルに実ファイルが揃わなければ本文を触らず中断する
  *   --max-consecutive-fail N  --list バッチで N 本連続失敗したら残りを実行せず中断（既定 3）
+ *   --article-timeout-min N   1 記事の上限（分・既定 12）。超えたら中断として記録し、残りを流さない（DN-1313）
  *   --attach-daily-limit N    添付アップロードの日次上限（既定 90）。本文変更前に止め、残りを翌日以降へ保留する
  *   exit: 0 完了 / 1 失敗 / 2 account 不一致 / 3 添付日次上限で保留
  *
@@ -119,6 +120,8 @@ const ALLOW_ATTACH_LOSS = argv.includes('--allow-attachment-loss');
 // 壊れた更新を量産する（2026-07-31 に有料2本の無料プレビューを壊した反省）。
 // 既定 3 連続で中断。走り切らせたいときだけ明示的に緩める。
 const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
+// 1 記事あたりの上限（分）。画像 10 枚の記事でも通常 6 分ほどで終わる（DN-1313）。
+const ARTICLE_TIMEOUT_MS = Number(getArg('--article-timeout-min') || 12) * 60000;
 // 全文置換で消える PDF 添付を、同じセッションで貼り直す。ローカルに実ファイルが揃っている
 // ときだけ有効で、1つでも解決できなければ本文を触らず中断する（消して戻せない状態を作らない）。
 const REATTACH_PDF = argv.includes('--reattach-pdf') || argv.includes('--sync');
@@ -904,7 +907,19 @@ try {
         if (articles.length > 1 && consecFail >= MAX_CONSEC_FAIL) { console.error('\n[ABORT] 連続 SKIP/失敗で中断'); break; }
         continue;
       }
-      const result = await updateArticle(page, parsed, probe, want.parts, sync);
+      // 1 記事の上限時間。エディタの操作が応答せず無言で止まると、バッチ全体が止まったまま誰も気づかない
+      // （2026-11-27 に 4フェーズ学習法で 15 分以上止まった・DN-1313）。上限を超えたら中断として記録し、
+      // ページの状態が分からないので残りの記事は流さない。
+      let timer;
+      const timedOut = new Promise((r) => { timer = setTimeout(() => r('timeout'), ARTICLE_TIMEOUT_MS); });
+      const result = await Promise.race([updateArticle(page, parsed, probe, want.parts, sync), timedOut]);
+      clearTimeout(timer);
+      if (result === 'timeout') {
+        recordAbort(parsed.noteId, 'article-timeout');
+        console.error(`[TIMEOUT] ${parsed.noteId} が ${ARTICLE_TIMEOUT_MS / 60000} 分で終わらない → 中断として記録し、残りを流さない（エディタの状態を確かめてから --force-retry）`);
+        fail++;
+        break;
+      }
       if (result) {
         clearAbort(parsed.noteId);
         ok++;
