@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T07:43:56.712Z",
+  "generated_at": "2026-11-28T08:17:06.247Z",
   "questionToTextbooks": {
     "primary-h18-a": {
       "問題-1": [
@@ -7125,7 +7125,7 @@
         {
           "slug": "guide-environment-management",
           "title": "環境保全管理の重要ポイント",
-          "score": 0.75
+          "score": 0.9
         },
         {
           "slug": "textbook-byproduct-guideline",
@@ -7133,8 +7133,8 @@
           "score": 0.75
         },
         {
-          "slug": "textbook-construction-byproduct-recycle",
-          "title": "建設副産物とリサイクル法・建設リサイクル法",
+          "slug": "textbook-waste-disposal-manifest",
+          "title": "廃棄物処理法と適正処理（マニフェスト・最終処分）",
           "score": 0.75
         }
       ],
@@ -7653,11 +7653,6 @@
           "score": 0.75
         },
         {
-          "slug": "guide-allowance",
-          "title": "施工管理の資格手当で年収を上げる — 手当の仕組みと、確認すべきポイント",
-          "score": 0.6
-        },
-        {
           "slug": "guide-career",
           "title": "施工管理の転職 — 悩みから「次に読むページ」を決める入口",
           "score": 0.6
@@ -7665,6 +7660,11 @@
         {
           "slug": "guide-career-cases",
           "title": "土木資格で年収を上げる3つの王道パターン — 1級土木・技術士の転職モデルケース",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-consultant",
+          "title": "施工管理から建設コンサルタント・設計への転職 — 上流に回るキャリアの選び方",
           "score": 0.6
         }
       ],
@@ -9405,7 +9405,7 @@
         {
           "slug": "textbook-soft-ground-drainage",
           "title": "軟弱地盤対策・排水工法",
-          "score": 1.05
+          "score": 1.2
         },
         {
           "slug": "guide-earthwork-key-points",
@@ -9420,13 +9420,13 @@
           "score": 1.75
         },
         {
-          "slug": "textbook-concrete-mix-design",
-          "title": "配合設計とレディーミクストコンクリート",
-          "score": 0.75
-        },
-        {
           "slug": "textbook-concrete-properties",
           "title": "コンクリートの性質・耐久性・維持管理",
+          "score": 1.75
+        },
+        {
+          "slug": "textbook-concrete-mix-design",
+          "title": "配合設計とレディーミクストコンクリート",
           "score": 0.75
         },
         {
@@ -9486,11 +9486,6 @@
           "score": 1.6
         },
         {
-          "slug": "guide-construction-plan",
-          "title": "施工計画の重要ポイント",
-          "score": 1.45
-        },
-        {
           "slug": "textbook-concrete-mix-design",
           "title": "配合設計とレディーミクストコンクリート",
           "score": 0.9
@@ -9505,7 +9500,7 @@
         {
           "slug": "guide-concrete-key-points",
           "title": "コンクリートの重要ポイント",
-          "score": 1.9
+          "score": 1.6
         },
         {
           "slug": "textbook-special-concrete-inspection",
@@ -10257,7 +10252,7 @@
         {
           "slug": "textbook-safety-industrial-safety-law",
           "title": "労働安全衛生法の体系と計画の届出",
-          "score": 0.6
+          "score": 0.75
         }
       ],
       "問題-23": [
@@ -10328,7 +10323,7 @@
         {
           "slug": "textbook-histogram",
           "title": "ヒストグラム・工程能力図",
-          "score": 1.6
+          "score": 1.45
         },
         {
           "slug": "textbook-quality-overview",
@@ -10372,7 +10367,7 @@
         {
           "slug": "textbook-road-earthwork-subbase",
           "title": "道路土工・路床・路盤",
-          "score": 0.9
+          "score": 0.75
         }
       ],
       "問題-28": [
@@ -10497,11 +10492,6 @@
           "score": 2
         },
         {
-          "slug": "guide-concrete-key-points",
-          "title": "コンクリートの重要ポイント",
-          "score": 1.45
-        },
-        {
           "slug": "guide-demolition",
           "title": "解体工事の重要ポイント",
           "score": 1.45
@@ -10514,7 +10504,12 @@
         {
           "slug": "textbook-byproduct-guideline",
           "title": "建設副産物適正処理推進要綱 — 発生土と廃棄物の行き先を誰がどう確かめるか",
-          "score": 0.9
+          "score": 0.75
+        },
+        {
+          "slug": "guide-environment-management",
+          "title": "環境保全管理の重要ポイント",
+          "score": 0.6
         }
       ],
       "問題-35": [
@@ -11420,19 +11415,9 @@
       ],
       "問題-11": [
         {
-          "slug": "textbook-work-scheduling",
-          "title": "工程計画",
-          "score": 2
-        },
-        {
           "slug": "guide-schedule-management",
           "title": "工程管理の重要ポイント",
-          "score": 1.6
-        },
-        {
-          "slug": "textbook-schedule-overview",
-          "title": "工程管理の概説",
-          "score": 0.6
+          "score": 1.45
         }
       ],
       "問題-12": [
@@ -11560,11 +11545,6 @@
         }
       ],
       "問題-23": [
-        {
-          "slug": "textbook-labor-standards",
-          "title": "労働基準法",
-          "score": 2
-        },
         {
           "slug": "textbook-safety-risk-assessment",
           "title": "リスクアセスメントと安全施工サイクル",
@@ -11835,13 +11815,13 @@
           "score": 1.3
         },
         {
-          "slug": "textbook-waste-disposal-manifest",
-          "title": "廃棄物処理法と適正処理（マニフェスト・最終処分）",
-          "score": 0.75
-        },
-        {
           "slug": "guide-environment-management",
           "title": "環境保全管理の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "textbook-concrete-placement",
+          "title": "コンクリートの運搬・打込み・締固め・養生",
           "score": 0.6
         }
       ]
@@ -12943,11 +12923,6 @@
           "slug": "textbook-loader",
           "title": "積込機械",
           "score": 1.15
-        },
-        {
-          "slug": "textbook-safety-machinery-crane",
-          "title": "建設機械・クレーン等の作業安全",
-          "score": 0.6
         }
       ],
       "問題-22": [
@@ -21705,6 +21680,12 @@
     ],
     "textbook-concrete-properties": [
       {
+        "examSlug": "primary-h30-a",
+        "examTitle": "平成30年度 第1次検定 問題A",
+        "section": "問題-6",
+        "score": 1.75
+      },
+      {
         "examSlug": "primary-h18-a",
         "examTitle": "平成18年度 第1次検定 問題A",
         "section": "問題-18",
@@ -21816,12 +21797,6 @@
         "examSlug": "primary-r07-a",
         "examTitle": "令和7年度 第1次検定 問題A",
         "section": "問題-25",
-        "score": 1.05
-      },
-      {
-        "examSlug": "primary-r07-b",
-        "examTitle": "令和7年度 第1次検定 問題B",
-        "section": "問題-16",
         "score": 1.05
       }
     ],
@@ -22770,7 +22745,7 @@
         "examSlug": "primary-h30-a",
         "examTitle": "平成30年度 第1次検定 問題A",
         "section": "問題-5",
-        "score": 1.05
+        "score": 1.2
       },
       {
         "examSlug": "primary-r06-a",
@@ -23889,6 +23864,12 @@
         "score": 0.75
       },
       {
+        "examSlug": "primary-h30-b",
+        "examTitle": "平成30年度 第1次検定 問題B",
+        "section": "問題-21",
+        "score": 0.75
+      },
+      {
         "examSlug": "primary-r01-b",
         "examTitle": "令和元年度 第1次検定 問題B",
         "section": "問題-15",
@@ -23904,12 +23885,6 @@
         "examSlug": "primary-r02-a",
         "examTitle": "令和2年度 第1次検定 問題A",
         "section": "問題-53",
-        "score": 0.75
-      },
-      {
-        "examSlug": "primary-r03-b",
-        "examTitle": "令和3年度 第1次検定 問題B",
-        "section": "問題-7",
         "score": 0.75
       }
     ],
@@ -25879,12 +25854,6 @@
         "score": 0.6
       },
       {
-        "examSlug": "primary-r01-b",
-        "examTitle": "令和元年度 第1次検定 問題B",
-        "section": "問題-11",
-        "score": 0.6
-      },
-      {
         "examSlug": "primary-r02-b",
         "examTitle": "令和2年度 第1次検定 問題B",
         "section": "問題-11",
@@ -26003,12 +25972,6 @@
       {
         "examSlug": "primary-r01-b",
         "examTitle": "令和元年度 第1次検定 問題B",
-        "section": "問題-11",
-        "score": 2
-      },
-      {
-        "examSlug": "primary-r01-b",
-        "examTitle": "令和元年度 第1次検定 問題B",
         "section": "問題-13",
         "score": 2
       },
@@ -26021,6 +25984,12 @@
       {
         "examSlug": "primary-r03-b",
         "examTitle": "令和3年度 第1次検定 問題B",
+        "section": "問題-25",
+        "score": 2
+      },
+      {
+        "examSlug": "primary-r04-b",
+        "examTitle": "令和4年度 第1次検定 問題B",
         "section": "問題-25",
         "score": 2
       }
@@ -27323,14 +27292,14 @@
         "score": 0.9
       },
       {
-        "examSlug": "primary-h30-b",
-        "examTitle": "平成30年度 第1次検定 問題B",
-        "section": "問題-34",
-        "score": 0.9
-      },
-      {
         "examSlug": "primary-h27-b",
         "examTitle": "平成27年度 第1次検定 問題B",
+        "section": "問題-34",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h30-b",
+        "examTitle": "平成30年度 第1次検定 問題B",
         "section": "問題-34",
         "score": 0.75
       },
@@ -27429,12 +27398,6 @@
       {
         "examSlug": "primary-h22-b",
         "examTitle": "平成22年度 第1次検定 問題B",
-        "section": "問題-34",
-        "score": 0.75
-      },
-      {
-        "examSlug": "primary-h27-b",
-        "examTitle": "平成27年度 第1次検定 問題B",
         "section": "問題-34",
         "score": 0.75
       },
@@ -28005,6 +27968,12 @@
         "score": 1.05
       },
       {
+        "examSlug": "primary-h27-b",
+        "examTitle": "平成27年度 第1次検定 問題B",
+        "section": "問題-34",
+        "score": 0.9
+      },
+      {
         "examSlug": "primary-r05-b",
         "examTitle": "令和5年度 第1次検定 問題B",
         "section": "問題-19",
@@ -28020,12 +27989,6 @@
         "examSlug": "primary-h25-b",
         "examTitle": "平成25年度 第1次検定 問題B",
         "section": "問題-35",
-        "score": 0.75
-      },
-      {
-        "examSlug": "primary-h27-b",
-        "examTitle": "平成27年度 第1次検定 問題B",
-        "section": "問題-34",
         "score": 0.75
       },
       {
@@ -28077,6 +28040,12 @@
         "score": 0.6
       },
       {
+        "examSlug": "primary-h30-b",
+        "examTitle": "平成30年度 第1次検定 問題B",
+        "section": "問題-34",
+        "score": 0.6
+      },
+      {
         "examSlug": "primary-r01-b",
         "examTitle": "令和元年度 第1次検定 問題B",
         "section": "問題-35",
@@ -28104,12 +28073,6 @@
         "examSlug": "secondary-r03",
         "examTitle": "令和3年度 第2次検定",
         "section": "問題-1",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r03",
-        "examTitle": "令和3年度 第2次検定",
-        "section": "問題-3",
         "score": 0.6
       }
     ],
@@ -28657,12 +28620,12 @@
       {
         "examSlug": "primary-h27-b",
         "examTitle": "平成27年度 第1次検定 問題B",
-        "section": "問題-35",
+        "section": "問題-34",
         "score": 0.75
       },
       {
-        "examSlug": "primary-r01-b",
-        "examTitle": "令和元年度 第1次検定 問題B",
+        "examSlug": "primary-h27-b",
+        "examTitle": "平成27年度 第1次検定 問題B",
         "section": "問題-35",
         "score": 0.75
       },
@@ -29601,6 +29564,12 @@
         "score": 0.6
       },
       {
+        "examSlug": "primary-h28-a",
+        "examTitle": "平成28年度 第1次検定 問題A",
+        "section": "問題-41",
+        "score": 0.6
+      },
+      {
         "examSlug": "primary-h30-a",
         "examTitle": "平成30年度 第1次検定 問題A",
         "section": "問題-41",
@@ -29737,61 +29706,17 @@
         "score": 0.6
       }
     ],
-    "guide-allowance": [
-      {
-        "examSlug": "primary-h28-a",
-        "examTitle": "平成28年度 第1次検定 問題A",
-        "section": "問題-41",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r03",
-        "examTitle": "令和3年度 第2次検定",
-        "section": "問題-8",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r04",
-        "examTitle": "令和4年度 第2次検定",
-        "section": "問題-4",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r04",
-        "examTitle": "令和4年度 第2次検定",
-        "section": "問題-8",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r05",
-        "examTitle": "令和5年度 第2次検定",
-        "section": "問題-4",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r06",
-        "examTitle": "令和6年度 2次試験（第二次検定）解答例",
-        "section": "問題-4",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r08",
-        "examTitle": "令和8年度 第2次検定",
-        "section": "問題-4",
-        "score": 0.6
-      }
-    ],
     "textbook-histogram": [
-      {
-        "examSlug": "primary-h30-b",
-        "examTitle": "平成30年度 第1次検定 問題B",
-        "section": "問題-25",
-        "score": 1.6
-      },
       {
         "examSlug": "primary-h29-b",
         "examTitle": "平成29年度 第1次検定 問題B",
         "section": "問題-27",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-h30-b",
+        "examTitle": "平成30年度 第1次検定 問題B",
+        "section": "問題-25",
         "score": 1.45
       }
     ],
@@ -29944,13 +29869,51 @@
         "section": "問題-35",
         "score": 0.6
       }
+    ],
+    "guide-allowance": [
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-8",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-8",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 2次試験（第二次検定）解答例",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      }
     ]
   },
   "meta": {
     "textbookCount": 130,
     "examCount": 53,
     "questionsWithMatches": 1420,
-    "totalMatches": 3666,
+    "totalMatches": 3661,
     "threshold": 0.45
   }
 }
