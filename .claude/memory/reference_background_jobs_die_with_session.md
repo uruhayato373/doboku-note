@@ -26,3 +26,9 @@ metadata:
 - **`automation.toml` の `rrule` を直接書き換えてもアプリは読まない**（09-20 に 19:35→09:20 へ書き換え、Mac 稼働・アプリ起動中でも 09:37 まで発火せず）。時刻を変えるときは ChatGPT アプリの Automations 画面で変え、同時に台帳（`article-drafts.json`/`status.json` の `scheduled_at`）を合わせる。片方だけ変えると `x-article:publish` の時刻窓で必ず止まる
 - Claude Code の auto mode は X への公開（`x-article:publish --publish`）を Real-World Transactions として拒否する。手動復旧は人が起動する（DN-0257）
 - 関連: [[reference_background_jobs_die_with_session]]（Claude 側の nohup も同様にセッション依存）
+
+## launchd のジョブがすぐ失敗すると数秒おきに再起動し続ける（2026-11-28）
+
+note の部分更新の繰り返しを launchctl submit で動かしていたところ、KDP の差し替えで別の Chrome が動いている間、Playwright の起動ガード（BROWSER_ALREADY_RUNNING）で毎回すぐ失敗し、launchd が 10 秒おきに再起動し続けた（記録が数十行・何も進まない）。
+
+**How to apply:** ラッパーは (1) 先頭で終わり・止めの印（DONE・FAILED・STOP のファイル）を見て、あれば長く眠ってから抜ける、(2) 起動ガード・メモリ不足は失敗にせず待って続ける、(3) 止めるときは STOP を置いてから `launchctl remove`。別の自動化（KDP・ココナラ）を同時に流すなら `DOBOKU_PW_ALLOW_PARALLEL=1`（空きメモリを確かめてから）。

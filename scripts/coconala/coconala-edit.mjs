@@ -25,7 +25,7 @@ import { join } from 'node:path';
 import {
   ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings, writeBackCatalog, resolveImagePath,
 } from '../lib/coconala-session.mjs';
-import { fillServiceForm, submitForm, uploadImage, replaceImage, readImageSlots, listSubmitButtons } from '../lib/coconala-form.mjs';
+import { fillServiceForm, submitForm, uploadImage, replaceImage, readImageSlots, listSubmitButtons, readServiceForm, diffServiceFields } from '../lib/coconala-form.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -138,8 +138,23 @@ try {
     if (writeBackCatalog(SERVICE, publicUrl)) console.log(`[edit] カタログ書き戻し: ${SERVICE} → listed / ${publicUrl}`);
     console.log('    ★ account.json は既設定。/links には listed で表示されます');
   }
+  // 保存後に編集画面を開き直し、入れた文字が残っているかを確かめる（送信の成功だけでは更新できたと言えない・DN-1315）
+  let readBack = null;
+  if (COMMIT && r.ok && !IMAGE_ONLY) {
+    await sleep(3000);
+    await page.goto(`https://coconala.com/mypage/services/${numericId}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    try { await page.waitForLoadState('networkidle', { timeout: 15000 }); } catch {}
+    await sleep(3000);
+    const diffs = diffServiceFields(fields, await readServiceForm(page));
+    readBack = diffs.length ? 'mismatch' : 'ok';
+    if (diffs.length) {
+      console.error(`[edit] ★保存後に読み直すと、${diffs.length} 欄が正本と違う（送信は成功と出たが反映されていない）:`);
+      for (const d of diffs) console.error(`    - ${d.field}: 正本「${d.want}」／画面「${d.got}」`);
+      r.ok = false;
+    } else console.log('[edit] 保存後に読み直し: 入れた文字の欄はすべて正本どおり');
+  }
   if (!r.ok) process.exitCode = 2;
-  console.log('RESULT:', JSON.stringify({ service: SERVICE, id: numericId, mode: COMMIT ? 'commit' : r.dryRun ? 'dry-run' : 'draft', ok: r.ok }));
+  console.log('RESULT:', JSON.stringify({ service: SERVICE, id: numericId, mode: COMMIT ? 'commit' : r.dryRun ? 'dry-run' : 'draft', ok: r.ok, readBack }));
 } finally {
   await ctx.close();
 }

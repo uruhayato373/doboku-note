@@ -394,6 +394,7 @@
     "coconala-discover": "node scripts/coconala/coconala-discover.mjs",
     "coconala-edit": "node scripts/coconala/coconala-edit.mjs",
     "coconala-orders": "node scripts/coconala/coconala-orders.mjs",
+    "coconala-send": "node scripts/coconala/coconala-send.mjs",
     "coconala-talkroom": "node scripts/coconala/coconala-talkroom.mjs",
     "coconala-dm": "node scripts/coconala/coconala-dm.mjs",
     "check-admin-pages": "node scripts/checks/check-admin-pages.mjs",
