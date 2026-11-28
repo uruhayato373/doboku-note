@@ -13,6 +13,7 @@
  * 罠: from が太字などで複数のテキストノードにまたがると置き換えられない（applyOps が見つけられず false を返す＝保存しない）。
  */
 import { sleep } from './sleep.mjs';
+import { stripTags } from './strip-markup.mjs';
 
 const BLOCK_SELECTOR = 'p, li, h2, h3, h4, blockquote';
 const HEADING_TAGS = new Set(['H2', 'H3', 'H4']);
@@ -96,7 +97,7 @@ export function htmlCounts(html) {
 
 /** 公開本文（HTML）で、置き換えが当たっているか。問題の一覧を返す。 */
 export function liveHtmlProblems(ops, html) {
-  const text = html.replace(/<[^>]+>/g, '');
+  const text = stripTags(html);
   const problems = [];
   for (const o of ops) {
     if (o.op === 'replace') {
