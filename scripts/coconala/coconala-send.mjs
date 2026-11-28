@@ -58,6 +58,10 @@ try {
   if (!acc.ok) { console.error('ABORT:', acc.reason); code = 2; throw new Error('account'); }
   await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(6000);
+  // 案内の吹き出し（「正式な納品はこちらから行えます」など）が入力欄や送信ボタンに重なるので、最初に消す
+  const dismissTips = () => page.evaluate(() => { for (const el of document.querySelectorAll('[class*="tooltip"], [class*="Tooltip"], [class*="balloon"], [class*="Balloon"], [class*="popover"]')) el.remove(); });
+  await page.keyboard.press('Escape').catch(() => {});
+  await dismissTips();
 
   const before = countFingerprint(await page.evaluate(() => document.body.innerText), FP);
   if (before > 0) { console.error(`${TAG} 同じ本文がすでにトークルームにある（${before} 件）→ 送信済みとみなして送らない`); code = 1; throw new Error('already'); }
@@ -75,7 +79,8 @@ try {
     await page.locator('input[type=file]').nth(idx).setInputFiles(FILES);
     await sleep(5000);
   }
-  await ta.click(); await ta.fill(TEXT); await sleep(800);
+  await dismissTips();
+  await ta.fill(TEXT); await sleep(800); // click は吹き出しに遮られることがあるので使わない（fill が入力欄にフォーカスする）
   const leaf = await composerLeafTexts(page);
   const checks = {
     本文一致: (await ta.inputValue()).trim() === TEXT,
@@ -88,7 +93,7 @@ try {
 
   // 案内の吹き出し（「正式な納品はこちらから行えます」など）が送信ボタンに重なるので消してから押す
   await page.keyboard.press('Escape').catch(() => {});
-  await page.evaluate(() => { for (const el of document.querySelectorAll('[class*="tooltip"], [class*="Tooltip"], [class*="balloon"], [class*="Balloon"], [class*="popover"]')) el.remove(); });
+  await dismissTips();
   const btn = page.locator('button').filter({ hasText: /^\s*送信\s*$/ });
   if (await btn.count() !== 1) { console.error(`${TAG} 送信ボタンが ${await btn.count()} 個`); code = 1; throw new Error('button'); }
   await btn.click({ timeout: 15000 });
