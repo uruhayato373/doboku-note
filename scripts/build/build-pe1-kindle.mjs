@@ -108,6 +108,8 @@ async function preprocess(body, articleDir, images, imageSrc) {
   // RelatedKeywords（関連キーワードリンク）は items={[...]} を含む自己完結タグで、
   // 未処理だと解説末尾に生の JSX/JSON が露出する（全 D/B 本で漏出を QA が検出）。
   out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
+  // 関連記事の導線（サイトの別ページへのリンク集）。Kindle では行き先が無いので除く（2026-11-28 に g-01 の元記事へ入り、ビルドが止まった）
+  out = out.replace(/<SeeAlso[\s\S]*?\/>/g, '')
   // CareerAffiliate（転職アフィリの広告枠）はサイト専用。未処理だと生 JSX が本文に露出し、
   // かつ Kindle 本にアフィリ広告を載せることになる（1級土木 primary-* で 48 箇所・2026-08-03 発覚）。
   out = out.replace(/<CareerAffiliate[\s\S]*?\/>/g, '')
