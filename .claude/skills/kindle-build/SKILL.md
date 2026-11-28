@@ -22,7 +22,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 
 | 引数 | 必須 | 説明 |
 |---|---|---|
-| `書籍ID` | ✓ | `A-01`〜`A-06`（1級土木択一・論点別）/ `D-01`〜`D-03`（技術士一次・科目別合本）。合本 `A-00`/`D-00` は構成要素完成後 |
+| `書籍ID` | ✓ | 台帳（`config/products.json` の Kindle の catalog）にある書籍 id。巻の構成は [strategy.md](../../../content/kindle/strategy.md) §2（年度ごとの巻は `<元の id>-r03` の形。合本は廃止） |
 | `--skip-qa` | | kindle-book-qa 監査を省略（機械検証のみ。再ビルド時の途中確認用） |
 
 ## 書籍ID → ビルド定義の解決表
@@ -54,7 +54,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 
 ### ケース 1: 構成定義済み（A-01 等）
 
-1. 解決表のコマンドを実行し、統計行（抽出→除外→圧縮→収録）を `strategy.md` の期待値（例: A-01 = 抽出153→図版4除外→同趣旨22圧縮→収録127問・9論点）と突合
+1. 解決表のコマンドを実行し、統計行（抽出→除外→圧縮→収録）を台帳の期待値（catalog の questionCount・rontenCount。例: A-01 = 抽出153→図版4除外→同趣旨22圧縮→収録127問・9論点）と突合
 2. 機械検証: `epubcheck {out}.epub`（エラー0/警告0 が合格）。epubcheck 不在時の代替: `unzip -lv` で mimetype が先頭・Stored、展開して全 `.xhtml/.opf/.ncx` に `xmllint --noout`
 3. `--skip-qa` でなければ `kindle-book-qa` を起動し 5 軸監査（原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性）
 4. FAIL 指摘 → THEMES 微修正 or 元データ解説補完（Generator/親が適用）→ 再ビルド → 機械検証再通過。**最大2周**、収束しなければユーザーへ escalate
@@ -63,23 +63,23 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 
 `kindle-book-composer` サブエージェント（Generator）に構成設計を委譲してからケース 1 へ。委譲時に必ず伝えること:
 
-- A系: 対象テーマの include regex + subtopics（論点）設計。件数実測を `strategy.md` の問題数と突合し、乖離は理由つき報告
+- A系: 対象テーマの include regex + subtopics（論点）設計。件数実測を台帳の問題数と突合し、乖離は理由つき報告
 - B〜F系: spec JSON（sources・タイトル・価格）+ 書き下ろし前付け（`content/kindle/books/{id}/front-matter.md`: はじめに・出題傾向分析・学習ガイド）。**書き下ろしは KDP 差別化（無料 web 転載でないこと）の中核**なので省略不可
 - 出典クレジット: A系=全国建設研修センター / D系=日本技術士会（文面は各ビルドスクリプト内が真実源）
 
 ### 完了報告（KDP アップ用メタを必ず併記）
 
 ```
-書籍ID / タイトル案 / サブタイトル案 / 価格（`strategy.md` の価格ポリシー準拠）/ 収録数・章構成
+書籍ID / タイトル案 / サブタイトル案 / 価格（strategy.md §1・§2 の方針: 1 冊 ¥1,650 以下）/ 収録数・章構成
 検索キーワード 7 個案 / カテゴリ案 / EPUB パス / epubcheck 結果 / qa 5軸判定
-残ユーザー作業: 表紙 JPEG 1600×2560・KDP アップロード・Select 加入判断・Kindle Previewer 目視
+残ユーザー作業: 表紙 JPEG 1600×2560・KDP アップロード・Select 加入（全巻加入・台帳の plans に沿う）・Kindle Previewer 目視
 ```
 
 ## 検証
 
 - epubcheck エラー0/警告0（EPUB 3.3 ルール）
 - **`npm run check-kindle-format <epub>`**（書式インバリアント検査 R1-R4: 可読性/章改ページ/択一の解答改ページ/選択肢連番。記述式の章単位模範答案は R3 の対象外。epubcheck が見ない書式ハウスルールを検査）
-- 収録問題数 = `strategy.md` 期待値との突合（統計行）
+- 収録問題数 = 台帳の期待値との突合（統計行）
 - essay系の漏れ検査: 展開 xhtml に `note.com`・`](` 生リンク・`をご覧ください`誘導・`R8予想`/`令和8`予想問題文脈 の残存 = 0
 - `U+FFFD` grep = 0（展開した xhtml に対して）
 - Kindle Previewer 3 の目視（目次遷移・改ページ・数式）は GUI のためユーザー作業として報告に明記
@@ -109,7 +109,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 - アクセシビリティ「画像にアクセスできますか?」: **すべてに代替テキスト/説明が含まれています**（本文に情報伝達図版なし＝図依存問題は除外済み）
 - **AI 生成コンテンツ申告**: 「含む」→ 対象は**画像（表紙）のみ**（表紙は文字まで Codex 生成）。**本文テキストは AI ではない**（過去問データ＋条文ベース・人が編集）と正確に申告
 - 著者: **doboku-note**（ブランド統一・表紙署名/EPUB dc:creator も同じ）。フリガナ=ドボクノート
-- 価格: `strategy.md` の価格ポリシー（150問↑¥490 / 80-150¥390 / 80未満¥350）。日本の実効ロイヤリティは書籍別の KDP セレクト設定で確認する（セレクト登録かつ ¥250〜1,650 は 70%、非登録は 35%）。入稿メモは `gen-kdp-memo` が書籍別設定から生成する
+- 価格: strategy.md §1・§2（1 冊 ¥1,650 以下・論点別 A は ¥980）と台帳の `plans`。日本の実効ロイヤリティは書籍別の KDP セレクト設定で確認する（セレクト登録かつ ¥250〜1,650 は 70%、非登録は 35%）。入稿メモは `gen-kdp-memo` が書籍別設定から生成する
 
 **ユーザー本人しかできない工程（自動化・代行不可）**: KDP アカウント登録、**税務情報（マイナンバー＝米国以外の TIN・住所は英語ローマ字入力）・W-8BEN**、銀行口座、最終「出版」クリック。
 
@@ -120,7 +120,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 - **KDP 新規/実績浅アカウントは本の作成数制限あり**（2026-07-11、d-03 提出時に到達）。数日〜で枠回復・売上/審査通過で緩和。**分割提出運用**が前提
 - **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローは `config/kdp-memo.json` の defaults＝真実源、読取りは `scripts/lib/kdp-common.mjs`、固有値は books[id]、title/price/issuer は spec 自動取得）→ `.tmp/kdp-memo/KDP入力メモ_<id>.txt`（Git に残さない。入稿の直前に作って見る。2026-11-20 に追跡をやめ、A 系の旧書式 6 件は Drive の `アーカイブ/repo/` へ退避）。**KDP への実入稿・出版は後工程の `/kdp-publish`（`kdp-operator`）が自動化**
 - **配布物（R2 が正本）**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`（`adoptedImage` のある本の表紙は作り直さず採用済み JPEG を使う）
-- **提出後**: `npm run product -- set kindle-<書籍id> catalog.asin '"B0…"'` と `catalog.status '"live"'` で正本（config/products.json）を更新し（catalog.json は自動で作り直す）、`strategy.md` の該当シリーズ表に ASIN/出版日を追記
+- **提出後**: `npm run product -- set kindle-<書籍id> catalog.asin '"B0…"'` と `catalog.status '"live"'` で正本（config/products.json）を更新する。一覧は台帳だけが持つので、文書には写さない
 
 ## 参照
 

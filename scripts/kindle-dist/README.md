@@ -12,7 +12,7 @@ KDP のアカウント作成数制限で提出は数日〜に分けて進める�
 `status` = `ready`（制作完了・提出待ち）/ `in_review`（KDP審査中）/ `live`（公開済）。
 提出して ASIN が出たら catalog の `asin` と `status=live` を更新する（Claude に ASIN を渡せば処理）。
 
-A シリーズも 2026-11-20 からここ（`a-0x.epub`・`a-0x.jpg`）に置く（DN-1204。それまでは `scripts/kindle-published/` で Git 追跡していた）。人が読む ASIN の表は [`content/kindle/published.md`](../../content/kindle/published.md)。
+A シリーズも 2026-11-20 からここ（`a-0x.epub`・`a-0x.jpg`）に置く（DN-1204。それまでは `scripts/kindle-published/` で Git 追跡していた）。人が読む ASIN の表は 台帳（`config/products.json` の Kindle の catalog）。
 
 ## 再生成（spec / theme から決定的に再現できる）
 

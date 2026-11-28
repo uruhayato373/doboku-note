@@ -116,6 +116,7 @@
 - [二次学科記述](project_civil_niji_gakka_line.md) — 5SKU公開・エディタ罠
 - [ココナラ](project_coconala_full_channel.md) — 20出品・はしご・不在休止
 - [Kindle出版](project_kindle_publishing_launch.md) — 42冊・提出ペース
+- [Kindleの再編](project_kindle_price_cap_split.md) — 併売・全巻セレクト・¥1,650以下で年度分冊・合本廃止
 - [コンクリ主任技士](project_concrete_chief_engineer.md) — 過去問257問・令和形式小論文
 - [コンクリ診断士](project_concrete_diagnostician.md) — 18記事・権利確認済
 - [総監マガジン構成](project_kettei2026_r8_evergreen.md) — 14ペルソナ7記事標準

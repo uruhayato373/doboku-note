@@ -34,13 +34,13 @@ Kindle 出版ラインナップ（[strategy.md](../../content/kindle/strategy.md
 
 - 書籍ID（A-01 等）と EPUB パス（例: `.tmp/takuitsu-anzen/anzen.epub`）・同ディレクトリの `article.md`
 - B〜F系は `content/kindle/books/{id}/front-matter.md`
-- 期待値: `content/kindle/strategy.md` 記載の問題数・論点数・価格
+- 期待値: 台帳（`config/products.json` の Kindle の catalog）の問題数・論点数・価格と、spec の `sources`
 
 ## 5軸ルーブリック
 
 ### ① 原稿完全性
 
-- ビルド統計（抽出→除外→圧縮→収録）と `strategy.md` 期待値の突合。乖離は FAIL
+- ビルド統計（抽出→除外→圧縮→収録）と台帳の期待値の突合。乖離は FAIL
 - 全問に「正答」と解説が付いているか（`正答` 出現数 = 収録問題数）
 - 元データ由来の **「…」省略解説** を grep で検出（`……$` や `。…` 等）。あれば件数と該当問題 ID を列挙（WARN、多数なら FAIL）
 
@@ -65,7 +65,7 @@ Kindle 出版ラインナップ（[strategy.md](../../content/kindle/strategy.md
 ### ⑤ 商品性
 
 - タイトル・サブタイトルが「資格名+科目+問題数+年度範囲」を含み検索に耐えるか
-- 価格が `strategy.md` の価格ポリシー（70%帯 ¥250-1,250 を含む）と整合するか
+- 価格が `strategy.md` §1 の方針（1 冊 ¥1,650 以下・全巻セレクト＝日本 70% は税込 ¥250〜¥1,650）と整合するか
 - EPUB 内の書誌メタ（opf の title/creator/language）と完了報告メタの一致
 
 ## 報告形式

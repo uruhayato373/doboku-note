@@ -202,7 +202,7 @@
 
 - **内容**: `src/config/civil-1-exam-questions.json`（H26-R7・1,162問）を年度別に全問全選択肢解説した PDF。§9.3 の `civil-2-takuitsu-pdf`（630問 ¥1,480・SKU登録済）の 1級版
 - **価格**: **¥1,980**（2級 630問=¥1,480 との規模整合）
-- **ブロック解除が前提**: Kindle A系（A-00〜A-06）が KDP Select 加入 LIVE（2026-07-08 公開→90日独占＝**2026-10-06 頃明け**）。[Kindle 管理SSOT](../../../content/kindle/strategy.md) §KDP Select の通り、**Select 自動更新前にユーザーが KDP 管理画面でオフ**にしてから note 公開（同一デジタルコンテンツの独占規約に抵触させない）
+- **ブロック解除が前提**: Kindle A系（A-00〜A-06）が KDP Select 加入 LIVE（2026-07-08 公開→90日独占＝**2026-10-06 頃明け**）。（2026-11-28 に Kindle は全巻セレクトのまま note と併売すると運営者が決めた。[strategy.md](../../../content/kindle/strategy.md) §1。以下の旧条件は無効）旧: **Select 自動更新前にユーザーが KDP 管理画面でオフ**にしてから note 公開（同一デジタルコンテンツの独占規約に抵触させない）
 - **時期**: 10月上旬（R9 一次サイクル向け evergreen。R8 一次は 7/5 終了済で急がない）
 - **工数**: 極小 — `npm run build-takuitsu-pdf` パイプライン（E/B/D 系で実証済）に civil-1 spec を追加するだけ
 

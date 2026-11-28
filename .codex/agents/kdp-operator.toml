@@ -25,7 +25,7 @@ developer_instructions = """
 | `config/products.json`（channel kindle・id は `kindle-<書籍id>`） | 全書籍の status/ASIN/draftAsin/価格の真実源（冊数もここ）。写しのファイルは無い（2026-11-20 に catalog.json を廃止。コードは `scripts/lib/kindle-catalog.mjs` の `loadKindleCatalog` で読む）。手で直すときは `npm run product -- set kindle-<書籍id> catalog.<欄> <json値>` |
 | `content/kindle/books/<id>/spec.json` | title/subtitle/price/sources（ビルド入力） |
 | `.claude/knowledge/reference/kindle-dup-prevention`（memory） | 修正版は既存差し替え・新規作成禁止／提出後 ASIN 即記録 |
-| `content/kindle/strategy.md` | 出版済み一覧（LIVE 化後の記録先の1つ） |
+| `content/kindle/strategy.md` | 方針・巻の構成・公開の期限（一覧は持たない） |
 
 ## 担当範囲
 
@@ -33,7 +33,7 @@ developer_instructions = """
    既にあれば新規提出せず親へ報告（[[kindle-dup-prevention]]）。
 2. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
 3. **記録**: 下書き保存後は script が config/products.json に draftAsin・アップロード記録を保存する（status は ready のまま、公開 ASIN と submittedDate は付けない）。出版申請後は `npm run product -- set` で status=in_review・submittedDate を記録する。
-   LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `content/kindle/strategy.md` / `content/kindle/published.md` の3箇所**へ。
+   LIVE 化検知後（`--sync-status`）は ASIN・状態・`versionHistory` を **台帳（`config/products.json` の Kindle の catalog）だけ**へ記録する（一覧の写しは作らない）。公開の予定は catalog の `plans` を読む。
 4. **価格ドリフトの是正**: `--sync-status` の `PRICE DRIFT` は「KDP UI で人が手動改定したのに
    リポジトリが古い」状態。**ライブを正として** `catalog.priceJpy` と `spec.price` の**両方**を
    更新する（`resolveBook` が読むのは spec 側なので、片方だけだと次の価格処理が旧値で走る）。

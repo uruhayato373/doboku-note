@@ -22,12 +22,12 @@ Kindle 書籍（[strategy.md](../../content/kindle/strategy.md) のラインナ�
 - `scripts/build/build-takuitsu-reconstruct.mjs` 先頭の `THEMES` に新テーマを追加する:
   - `include`: 対象科目の問題を抽出する regex（本文・設問キーワードベース）
   - `subtopics[]`: 論点（章）ごとの `{key, label, re}`。**先勝ちマッチ**なので特異なパターンを先に、最終要素は受け皿 `re: /.*/`
-- 実装後は `--format md` でドライ実行し、**ビルド統計を `strategy.md` の確定値（例: A-02=抽出153→収録126問）と突合**。乖離があれば regex の拾い過ぎ/漏らしを特定して理由つきで報告
+- 実装後は `--format md` でドライ実行し、**ビルド統計を台帳の確定値（catalog の questionCount など。例: A-02=抽出153→収録126問）と突合**。乖離があれば regex の拾い過ぎ/漏らしを特定して理由つきで報告
 - 既知の罠: 複合設問（複数論点にまたがる問題）は主論点側に寄せる。「同趣旨圧縮」はスクリプト側の仕事なので設計しない
 
 ### 2. B〜F系: spec JSON + 書き下ろし前付け
 
-- spec 作成: `content/kindle/books/{id}/spec.json` — `{bookId, title, subtitle, price, sources, frontMatter, outDir}`。価格は `strategy.md` のシリーズ別ポリシーに準拠
+- spec 作成: `content/kindle/books/{id}/spec.json` — `{bookId, title, subtitle, price, sources, frontMatter, outDir}`。価格は `strategy.md` §1・§2（1 冊 ¥1,650 以下・巻の構成）に準拠
 - 書き下ろし前付け: `content/kindle/books/{id}/front-matter.md` を**spec の原稿ソースを実読して**執筆する
   - はじめに（本書の使い方・対象読者）
   - 7 年分の出題傾向分析（頻出分野・出題形式の変化を実データで。憶測の統計は書かない）
@@ -64,13 +64,13 @@ THEMES を新規設計するとき、以下はビルダー（`build-takuitsu-rec
 - **判定は設問見出し文（lead＝body の最初の行）ベース**。body 全体マッチは「安全率」「品質・工程・安全」等の写り込みでスコープ外を大量に拾う（A-01 で48問混入→是正）。`include`/`exclude`/`subtopics` すべて lead 判定
 - **`exclude` regex 必須**: include に引っかかるがテーマ外（土質試験・機械の構造/経済性・工程/原価管理・施工計画等）を見出し文で除外
 - subtopics は**先勝ちマッチ**。特異なパターンを先に、最終要素は受け皿 `re:/.*/`。各章5問以上を目安に細切れにしない
-- 出力は**1問=1ファイル+解答=1ファイル**構成・**解答は全選択肢○×**・**巻末に学習導線+著者プロフィール+レビューのお願い**（ビルダーが自動付与）。件数が 150 を割ったら価格帯（¥490→¥390）を `strategy.md` と突合して報告
-- 収録件数は「見出し文 lead 判定後」の実数で `strategy.md` と突合（旧 body 全体マッチの過大カウントを引き継がない）
+- 出力は**1問=1ファイル+解答=1ファイル**構成・**解答は全選択肢○×**・**巻末に学習導線+著者プロフィール+レビューのお願い**（ビルダーが自動付与）。価格は strategy.md §1・§2（1 冊 ¥1,650 以下）と台帳に従う
+- 収録件数は「見出し文 lead 判定後」の実数で台帳と突合（旧 body 全体マッチの過大カウントを引き継がない）
 
 ## 完了報告の形式
 
 - 作成/変更したファイルと file:line
-- A系: テーマ key・抽出件数 vs `strategy.md` 期待値・論点（subtopics）一覧と各件数
+- A系: テーマ key・抽出件数 vs 台帳の期待値・論点（subtopics）一覧と各件数
 - B〜F系: spec の要点（収録ソース・問題数/記事数）・書き下ろしの章立てと文字数・catalog status
 - 突合で見つかった乖離・未確認事項（断定しない）
 """

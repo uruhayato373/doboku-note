@@ -17,7 +17,7 @@
 | [06_多資格展開戦略.md](./06_多資格展開戦略.md) | 展開する資格の判断の軸（自分で答案を組み立てる区分・受験者数・買われる時期・競合の空き・実売・信頼性）と判断の記録。値は `npm run qualification-market` | 横断 | — |
 | `config/competitor-positions.json` | 資格ごとの競合の立ち位置の正本。取る所・勝負しない所・調査の限界。年間の枠の `stance` が指す。読むのは `npm run competitor-position` | 横断 | — |
 | [競合調査（資格別）](../reviews/competitors/README.md) | 資格別の市場規模・競合サイト・SEO の状況（調査日つきの記録・docs/reviews/competitors へ移した） | チャネル別 | — |
-| [Kindle 管理SSOT](../../content/kindle/strategy.md) | KDP を第 3 の収益柱に（設定手順・価格） | `content/kindle` | — |
+| [Kindle 管理SSOT](../../content/kindle/strategy.md) | Kindle の方針・巻の構成・公開の期限・制作手順（一覧は台帳） | `content/kindle` | — |
 | [09_販売チャネル競合分析.md](./09_販売チャネル競合分析.md) | note 競合 18 社・価格妥当性の判断根拠 | チャネル別 | `src/lib/note-magazines.ts` |
 | [10_リスト化・自社オーディエンス戦略.md](./10_リスト化・自社オーディエンス戦略.md) | 自社オーディエンス（リスト）資産化方針・SEO ハードゲート不採用・リードマグネット/LINE/PWA | 横断・収益化 | — |
 | [STP 分析（2026-07）](../reviews/2026-07-stp-analysis.md) | 実売・流入データによる S/T/P 再定義（セグメント／優先順位／ポジション検証） | 横断・分析 | — |

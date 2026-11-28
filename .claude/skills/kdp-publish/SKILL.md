@@ -37,7 +37,7 @@ CI からの提出（`ops-write.yml`）は廃止した。提出は運営者の�
 >
 > **回復までの見積りは「数日」ではない**（実測）。2026-07-27 に 10 冊目で到達し、**3 日後の 07-30 に
 > 1 冊だけ試しても同じモーダルで弾かれた**。日次リセット型ではない。提出日の実績と推定は
-> 戦略ドキュメント [strategy.md](../../../content/kindle/strategy.md)「提出ペースと作成数制限」を参照。
+> 提出の上限（週 10 冊）と公開の期限は [strategy.md](../../../content/kindle/strategy.md) §4。各巻の公開の予定は台帳の `plans`。
 
 - **ローカル限定・ログイン済みプロファイル**: 初回のみ人が手動ログイン（CAPTCHA/2FA も人）。以降 `<auth root>/profiles/playwright-kdp-profile` にセッション保持で無人。未ログインなら script が最大2分待つ。
 - **EPUB/表紙が Downloads にある**: `npm run sync-kindle-dist -- --downloads <id>` で配置。
@@ -111,7 +111,7 @@ npm run kdp-batch -- --draft-only f-10       # 下書きまで
 回復後に残りの id を `kdp-batch` へ渡して再開する。**「数日で回復」は誤り**——2026-07-27 の到達後、
 3 日経った 07-30 に 1 冊だけ試しても弾かれた（実測）。回復判定は推測せず、1 冊だけ提出を試して
 確かめる（制限に当たっても**本は作成されない**ので状態は汚れない）。まとめて出さず分割する。
-提出日の実績と上限の推定 → [strategy.md](../../../content/kindle/strategy.md)「提出ペースと作成数制限」。
+提出のペースと公開の期限 → [strategy.md](../../../content/kindle/strategy.md) §4。
 
 ### 状態同期（LIVE 化の記録・重複突合）
 ```
@@ -207,4 +207,4 @@ node scripts/kindle/kdp-publish.mjs --id <id> --update-cover [--commit [--commit
 - `config/kdp-memo.json` — KDP 入稿 SSOT
 - `config/products.json`（channel kindle）— 全書籍レジストリ
 - [/kindle-build](../kindle-build/SKILL.md) — 前工程（EPUB 生成）
-- [strategy.md](../../../content/kindle/strategy.md) — 出版戦略・出版済み一覧
+- [strategy.md](../../../content/kindle/strategy.md) — 方針・巻の構成・公開の期限（一覧は台帳 `config/products.json` の Kindle の catalog）

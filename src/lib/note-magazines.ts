@@ -884,7 +884,7 @@ const MAGAZINES_RAW = {
   },
   // 択一過去問 PDF 販売（従チャネル・Kindle 択一シリーズの note 展開）。
   // 実体は A4 印刷用 PDF を有料エリアに添付した単発記事。公開時: noteUrl 埋め + published: true。
-  // 対象本は KDP Select 非加入で提出し、Kindle と note を同時併売する（content/kindle/strategy.md）。
+  // 2026-11-28 の運営者決定で、Kindle は全巻 KDP セレクトに入れたまま note と併売する（content/kindle/strategy.md）。
   'civil-2-takuitsu-pdf': {
     id: 'civil-2-takuitsu-pdf',
     published: true,
@@ -1216,8 +1216,7 @@ const MAGAZINES_RAW = {
     ctaPose: 'pointing',
   },
   // 1級版。PDF は生成済み（content/kindle/books/e-02/spec.json → build-takuitsu-pdf）。
-  // Kindle A系（A-01〜A-06）が KDP Select 加入 LIVE のため、独占明け（~2026-10-06）に
-  // Select を外してから note 公開する（content/kindle/strategy.md）。それまで published: false。
+  // 2026-11-28 の運営者決定で、Kindle は全巻 KDP セレクトに入れたまま note と併売する（content/kindle/strategy.md）。Select を外してから公開する旧条件は無くなった。
   'civil-1-takuitsu-pdf': {
     id: 'civil-1-takuitsu-pdf',
     published: true,
