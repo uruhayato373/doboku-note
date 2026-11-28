@@ -1247,6 +1247,53 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "post",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-28T01:27:58.341Z",
+      "finishedAt": "2026-11-28T01:54:47.999Z",
+      "stages": [
+        {
+          "id": "note-live",
+          "title": "note の添付のライブ照合",
+          "status": "failed",
+          "reason": "[playwright-launch] 起動を見送り: doboku-note のプロファイルを使う Chrome が既に稼働中（pid 8385: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-profile / pid 8424: /Users/minamidaisuke/Library/Application Support/doboku-note/playwright-auth/profiles/playwright-note-p",
+          "exits": [],
+          "verify": [],
+          "durationSec": 240
+        },
+        {
+          "id": "note-sync",
+          "title": "note の記事の同期（本文・カバー・タグ）",
+          "status": "failed",
+          "reason": "[note-sync] ✗ content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/08-擁壁-初期欠陥中性化/article.md: 結果なし（連続失敗で中断された可能性）",
+          "exits": [
+            1
+          ],
+          "verify": [
+            {
+              "id": "note-sync-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 813
+        },
+        {
+          "id": "note-sync-check",
+          "title": "note の反映の照合（公開 API）",
+          "status": "warn",
+          "reason": "[check-note-sync] ✗ 未反映 記事 977（止まっている 25）・マガジン 0。土曜の Mac の収集（weekly-collect の note-sync 段）が反映し、止まっている分は管理画面 /content/note-sync",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 553
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
