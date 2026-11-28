@@ -408,7 +408,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-toshiyomi-1",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -460,13 +460,14 @@
       "platform": {
         "id": "KLruwGv6vx4",
         "url": "https://www.youtube.com/watch?v=KLruwGv6vx4",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-28T04:57:29.517Z"
         },
         "relatedVideoId": "AH31FCYkLKk",
-        "desiredRelatedVideoId": "AH31FCYkLKk"
+        "desiredRelatedVideoId": "AH31FCYkLKk",
+        "publishedAt": "2026-11-27T08:30:00.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -479,7 +480,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-youso-2",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2",
       "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -531,13 +532,14 @@
       "platform": {
         "id": "f-UHf-lgfJE",
         "url": "https://www.youtube.com/watch?v=f-UHf-lgfJE",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-28T04:57:29.517Z"
         },
         "relatedVideoId": "AH31FCYkLKk",
-        "desiredRelatedVideoId": "AH31FCYkLKk"
+        "desiredRelatedVideoId": "AH31FCYkLKk",
+        "publishedAt": "2026-11-27T22:30:09.000Z"
       },
       "thumbnail": {
         "status": "set",

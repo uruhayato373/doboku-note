@@ -681,7 +681,7 @@
       "work": "civil-license-ladder-order",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "civil-construction-1/civil-license-ladder-order/youtube.longform/cover",
         "scene-001": "civil-construction-1/civil-license-ladder-order/youtube.longform/scene-001",
@@ -743,11 +743,12 @@
       "platform": {
         "id": "DrYUW7Rg5SA",
         "url": "https://www.youtube.com/watch?v=DrYUW7Rg5SA",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-28T04:57:29.517Z"
+        },
+        "publishedAt": "2026-11-28T03:15:15.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -841,7 +842,7 @@
       "work": "owner-career-shigoto",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "civil-construction-1/owner-career-shigoto/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-career-shigoto/youtube.longform/scene-001",
@@ -912,11 +913,12 @@
       "platform": {
         "id": "JTJlEahRFwg",
         "url": "https://www.youtube.com/watch?v=JTJlEahRFwg",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-28T04:57:29.517Z"
+        },
+        "publishedAt": "2026-11-27T11:30:07.000Z"
       },
       "thumbnail": {
         "status": "set",

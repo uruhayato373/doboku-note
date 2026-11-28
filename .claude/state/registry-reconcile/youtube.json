@@ -1,13 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-27T05:21:25.601Z",
+  "checkedAt": "2026-11-28T04:57:29.517Z",
   "channel": "youtube",
   "targets": 103,
   "checked": 103,
   "observed": 103,
   "advanced": [
-    "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
-    "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2"
+    "civil-construction-1/civil-license-ladder-order/youtube.longform",
+    "civil-construction-1/owner-career-shigoto/youtube.longform",
+    "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1",
+    "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2"
   ],
   "findings": []
 }
