@@ -1578,7 +1578,14 @@
             "at": "2026-11-10T11:38:57+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "unpublish",
+            "date": "2027-04-01",
+            "note": "合本の廃止（A-01〜A-06 と中身が重なる）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -1737,7 +1744,15 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980,
+            "note": "販売停止中の論点別を販売再開する（A-00 の廃止のため）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -1788,7 +1803,15 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980,
+            "note": "販売停止中の論点別を販売再開する（A-00 の廃止のため）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -1839,7 +1862,15 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980,
+            "note": "販売停止中の論点別を販売再開する（A-00 の廃止のため）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -1891,11 +1922,361 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980,
+            "note": "販売停止中の論点別を販売再開する（A-00 の廃止のため）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-b-h21",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 144,
+      "catalog": {
+        "id": "b-h21",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成21年度】",
+        "subtitle": "平成21年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h21/spec.json",
+        "epub": "kindle-dist/b-h21.epub",
+        "cover": "kindle-dist/b-h21.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h22",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 145,
+      "catalog": {
+        "id": "b-h22",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成22年度】",
+        "subtitle": "平成22年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h22/spec.json",
+        "epub": "kindle-dist/b-h22.epub",
+        "cover": "kindle-dist/b-h22.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h23",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 146,
+      "catalog": {
+        "id": "b-h23",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成23年度】",
+        "subtitle": "平成23年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h23/spec.json",
+        "epub": "kindle-dist/b-h23.epub",
+        "cover": "kindle-dist/b-h23.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h24",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 147,
+      "catalog": {
+        "id": "b-h24",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成24年度】",
+        "subtitle": "平成24年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h24/spec.json",
+        "epub": "kindle-dist/b-h24.epub",
+        "cover": "kindle-dist/b-h24.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h25",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 148,
+      "catalog": {
+        "id": "b-h25",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成25年度】",
+        "subtitle": "平成25年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h25/spec.json",
+        "epub": "kindle-dist/b-h25.epub",
+        "cover": "kindle-dist/b-h25.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h26",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 149,
+      "catalog": {
+        "id": "b-h26",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成26年度】",
+        "subtitle": "平成26年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 6,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h26/spec.json",
+        "epub": "kindle-dist/b-h26.epub",
+        "cover": "kindle-dist/b-h26.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h27",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 150,
+      "catalog": {
+        "id": "b-h27",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成27年度】",
+        "subtitle": "平成27年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 7,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h27/spec.json",
+        "epub": "kindle-dist/b-h27.epub",
+        "cover": "kindle-dist/b-h27.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h28",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 151,
+      "catalog": {
+        "id": "b-h28",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成28年度】",
+        "subtitle": "平成28年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 8,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h28/spec.json",
+        "epub": "kindle-dist/b-h28.epub",
+        "cover": "kindle-dist/b-h28.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-h29",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 152,
+      "catalog": {
+        "id": "b-h29",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【平成29年度】",
+        "subtitle": "平成29年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 9,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-h29/spec.json",
+        "epub": "kindle-dist/b-h29.epub",
+        "cover": "kindle-dist/b-h29.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-b-heisei",
@@ -1911,7 +2292,7 @@
         "asin": "B0H9KZQZQZ",
         "title": "技術士総合技術監理部門 択一過去問 平成21〜平成30年度完全解説【合本】",
         "subtitle": "平成21〜平成30年度 400問",
-        "series": "B 技術士総監 択一",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
         "priceJpy": 1250,
         "royalty": 0.7,
         "status": "unpublished",
@@ -1947,11 +2328,253 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "seriesVolume": 10,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-15",
+            "note": "書名を「技術士 総合技術監理部門 択一過去問完全解説【平成30年度】」に変え、原稿を平成30年度の巻へ差し替える（ASIN を残す）。副題は「平成30年度 択一式 全40問」"
+          },
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980,
+            "note": "販売停止中の本を巻として出版し直す"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-b-r01",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 153,
+      "catalog": {
+        "id": "b-r01",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【令和元年度】",
+        "subtitle": "令和元年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 11,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-r01/spec.json",
+        "epub": "kindle-dist/b-r01.epub",
+        "cover": "kindle-dist/b-r01.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-r02",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 154,
+      "catalog": {
+        "id": "b-r02",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【令和2年度】",
+        "subtitle": "令和2年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 12,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-r02/spec.json",
+        "epub": "kindle-dist/b-r02.epub",
+        "cover": "kindle-dist/b-r02.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-r03",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 155,
+      "catalog": {
+        "id": "b-r03",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【令和3年度】",
+        "subtitle": "令和3年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 13,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-r03/spec.json",
+        "epub": "kindle-dist/b-r03.epub",
+        "cover": "kindle-dist/b-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-r04",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 156,
+      "catalog": {
+        "id": "b-r04",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【令和4年度】",
+        "subtitle": "令和4年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 14,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-r04/spec.json",
+        "epub": "kindle-dist/b-r04.epub",
+        "cover": "kindle-dist/b-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-r05",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 157,
+      "catalog": {
+        "id": "b-r05",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【令和5年度】",
+        "subtitle": "令和5年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 15,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-r05/spec.json",
+        "epub": "kindle-dist/b-r05.epub",
+        "cover": "kindle-dist/b-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-b-r06",
+      "channel": "kindle",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 158,
+      "catalog": {
+        "id": "b-r06",
+        "title": "技術士 総合技術監理部門 択一過去問完全解説【令和6年度】",
+        "subtitle": "令和6年度 択一式 全40問",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
+        "seriesVolume": 16,
+        "priceJpy": 980,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/b-r06/spec.json",
+        "epub": "kindle-dist/b-r06.epub",
+        "cover": "kindle-dist/b-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 980
+          }
+        ],
+        "questionCount": 40
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で b-heisei・b-reiwa を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-b-reiwa",
@@ -1967,7 +2590,7 @@
         "asin": "B0H94Y52ZL",
         "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】",
         "subtitle": "令和元〜令和7年度 280問",
-        "series": "B 技術士総監 択一",
+        "series": "B 技術士 総合技術監理部門 択一 年度別",
         "priceJpy": 1250,
         "royalty": 0.7,
         "status": "live",
@@ -2003,7 +2626,21 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "seriesVolume": 17,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-15",
+            "note": "書名を「技術士 総合技術監理部門 択一過去問完全解説【令和7年度】」に変え、原稿を令和7年度の巻へ差し替える（ASIN を残す）。副題は「令和7年度 択一式 全40問」"
+          },
+          {
+            "action": "reprice",
+            "date": "2027-03-15",
+            "price": 980,
+            "note": "¥1250 → ¥980（年度の巻の価格）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -2023,7 +2660,7 @@
         "asin": "B0HB3374VL",
         "title": "技術士 建設部門 道路 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 道路 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2065,11 +2702,204 @@
             "at": "2026-11-10T15:16:26+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 道路 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-01-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 77,
+      "catalog": {
+        "id": "c-01-r03",
+        "title": "技術士 建設部門 道路 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 道路 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-01-r03/spec.json",
+        "epub": "kindle-dist/c-01-r03.epub",
+        "cover": "kindle-dist/c-01-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-01-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 78,
+      "catalog": {
+        "id": "c-01-r04",
+        "title": "技術士 建設部門 道路 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 道路 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-01-r04/spec.json",
+        "epub": "kindle-dist/c-01-r04.epub",
+        "cover": "kindle-dist/c-01-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-01-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 79,
+      "catalog": {
+        "id": "c-01-r05",
+        "title": "技術士 建設部門 道路 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 道路 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-01-r05/spec.json",
+        "epub": "kindle-dist/c-01-r05.epub",
+        "cover": "kindle-dist/c-01-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-01-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 80,
+      "catalog": {
+        "id": "c-01-r06",
+        "title": "技術士 建設部門 道路 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 道路 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-01-r06/spec.json",
+        "epub": "kindle-dist/c-01-r06.epub",
+        "cover": "kindle-dist/c-01-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-01-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 81,
+      "catalog": {
+        "id": "c-01-r07",
+        "title": "技術士 建設部門 道路 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 道路 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-01-r07/spec.json",
+        "epub": "kindle-dist/c-01-r07.epub",
+        "cover": "kindle-dist/c-01-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-02",
@@ -2085,7 +2915,7 @@
         "asin": "B0HB3JF9QZ",
         "title": "技術士 建設部門 河川砂防 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 河川砂防 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2127,11 +2957,204 @@
             "at": "2026-11-10T15:17:00+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 河川砂防 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-02-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 82,
+      "catalog": {
+        "id": "c-02-r03",
+        "title": "技術士 建設部門 河川砂防 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 河川砂防 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-02-r03/spec.json",
+        "epub": "kindle-dist/c-02-r03.epub",
+        "cover": "kindle-dist/c-02-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-02-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 83,
+      "catalog": {
+        "id": "c-02-r04",
+        "title": "技術士 建設部門 河川砂防 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 河川砂防 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-02-r04/spec.json",
+        "epub": "kindle-dist/c-02-r04.epub",
+        "cover": "kindle-dist/c-02-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-02-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 84,
+      "catalog": {
+        "id": "c-02-r05",
+        "title": "技術士 建設部門 河川砂防 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 河川砂防 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-02-r05/spec.json",
+        "epub": "kindle-dist/c-02-r05.epub",
+        "cover": "kindle-dist/c-02-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-02-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 85,
+      "catalog": {
+        "id": "c-02-r06",
+        "title": "技術士 建設部門 河川砂防 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 河川砂防 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-02-r06/spec.json",
+        "epub": "kindle-dist/c-02-r06.epub",
+        "cover": "kindle-dist/c-02-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-02-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 86,
+      "catalog": {
+        "id": "c-02-r07",
+        "title": "技術士 建設部門 河川砂防 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 河川砂防 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-02-r07/spec.json",
+        "epub": "kindle-dist/c-02-r07.epub",
+        "cover": "kindle-dist/c-02-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-03",
@@ -2147,7 +3170,7 @@
         "asin": "B0HB3BLV94",
         "title": "技術士 建設部門 都市計画 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 都市計画 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2189,11 +3212,204 @@
             "at": "2026-11-10T15:17:34+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 都市計画 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-03-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 87,
+      "catalog": {
+        "id": "c-03-r03",
+        "title": "技術士 建設部門 都市計画 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 都市計画 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-03-r03/spec.json",
+        "epub": "kindle-dist/c-03-r03.epub",
+        "cover": "kindle-dist/c-03-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-03-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 88,
+      "catalog": {
+        "id": "c-03-r04",
+        "title": "技術士 建設部門 都市計画 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 都市計画 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-03-r04/spec.json",
+        "epub": "kindle-dist/c-03-r04.epub",
+        "cover": "kindle-dist/c-03-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-03-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 89,
+      "catalog": {
+        "id": "c-03-r05",
+        "title": "技術士 建設部門 都市計画 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 都市計画 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-03-r05/spec.json",
+        "epub": "kindle-dist/c-03-r05.epub",
+        "cover": "kindle-dist/c-03-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-03-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 90,
+      "catalog": {
+        "id": "c-03-r06",
+        "title": "技術士 建設部門 都市計画 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 都市計画 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-03-r06/spec.json",
+        "epub": "kindle-dist/c-03-r06.epub",
+        "cover": "kindle-dist/c-03-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-03-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 91,
+      "catalog": {
+        "id": "c-03-r07",
+        "title": "技術士 建設部門 都市計画 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 都市計画 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-03-r07/spec.json",
+        "epub": "kindle-dist/c-03-r07.epub",
+        "cover": "kindle-dist/c-03-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-04",
@@ -2209,7 +3425,7 @@
         "asin": "B0HB3KWZBD",
         "title": "技術士 建設部門 土質及び基礎 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 土質及び基礎 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2251,11 +3467,204 @@
             "at": "2026-11-10T15:18:08+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 土質及び基礎 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-04-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 92,
+      "catalog": {
+        "id": "c-04-r03",
+        "title": "技術士 建設部門 土質及び基礎 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 土質及び基礎 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-04-r03/spec.json",
+        "epub": "kindle-dist/c-04-r03.epub",
+        "cover": "kindle-dist/c-04-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-04 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-04-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 93,
+      "catalog": {
+        "id": "c-04-r04",
+        "title": "技術士 建設部門 土質及び基礎 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 土質及び基礎 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-04-r04/spec.json",
+        "epub": "kindle-dist/c-04-r04.epub",
+        "cover": "kindle-dist/c-04-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-04 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-04-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 94,
+      "catalog": {
+        "id": "c-04-r05",
+        "title": "技術士 建設部門 土質及び基礎 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 土質及び基礎 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-04-r05/spec.json",
+        "epub": "kindle-dist/c-04-r05.epub",
+        "cover": "kindle-dist/c-04-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-04 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-04-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 95,
+      "catalog": {
+        "id": "c-04-r06",
+        "title": "技術士 建設部門 土質及び基礎 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 土質及び基礎 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-04-r06/spec.json",
+        "epub": "kindle-dist/c-04-r06.epub",
+        "cover": "kindle-dist/c-04-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-04 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-04-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 96,
+      "catalog": {
+        "id": "c-04-r07",
+        "title": "技術士 建設部門 土質及び基礎 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 土質及び基礎 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-04-r07/spec.json",
+        "epub": "kindle-dist/c-04-r07.epub",
+        "cover": "kindle-dist/c-04-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-04 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-05",
@@ -2271,7 +3680,7 @@
         "asin": "B0HB3CL6C7",
         "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 鋼構造及びコンクリート 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2313,11 +3722,204 @@
             "at": "2026-11-10T15:15:49+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 鋼構造及びコンクリート 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-05-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 97,
+      "catalog": {
+        "id": "c-05-r03",
+        "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鋼構造及びコンクリート 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-05-r03/spec.json",
+        "epub": "kindle-dist/c-05-r03.epub",
+        "cover": "kindle-dist/c-05-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-05 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-05-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 98,
+      "catalog": {
+        "id": "c-05-r04",
+        "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鋼構造及びコンクリート 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-05-r04/spec.json",
+        "epub": "kindle-dist/c-05-r04.epub",
+        "cover": "kindle-dist/c-05-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-05 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-05-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 99,
+      "catalog": {
+        "id": "c-05-r05",
+        "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鋼構造及びコンクリート 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-05-r05/spec.json",
+        "epub": "kindle-dist/c-05-r05.epub",
+        "cover": "kindle-dist/c-05-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-05 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-05-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 100,
+      "catalog": {
+        "id": "c-05-r06",
+        "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鋼構造及びコンクリート 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-05-r06/spec.json",
+        "epub": "kindle-dist/c-05-r06.epub",
+        "cover": "kindle-dist/c-05-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-05 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-05-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 101,
+      "catalog": {
+        "id": "c-05-r07",
+        "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鋼構造及びコンクリート 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-05-r07/spec.json",
+        "epub": "kindle-dist/c-05-r07.epub",
+        "cover": "kindle-dist/c-05-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-05 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-06",
@@ -2333,7 +3935,7 @@
         "asin": "B0HB37CTYN",
         "title": "技術士 建設部門 施工計画 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 施工計画 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2375,11 +3977,204 @@
             "at": "2026-11-10T15:18:38+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 施工計画 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-06-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 102,
+      "catalog": {
+        "id": "c-06-r03",
+        "title": "技術士 建設部門 施工計画 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 施工計画 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-06-r03/spec.json",
+        "epub": "kindle-dist/c-06-r03.epub",
+        "cover": "kindle-dist/c-06-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-06 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-06-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 103,
+      "catalog": {
+        "id": "c-06-r04",
+        "title": "技術士 建設部門 施工計画 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 施工計画 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-06-r04/spec.json",
+        "epub": "kindle-dist/c-06-r04.epub",
+        "cover": "kindle-dist/c-06-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-06 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-06-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 104,
+      "catalog": {
+        "id": "c-06-r05",
+        "title": "技術士 建設部門 施工計画 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 施工計画 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-06-r05/spec.json",
+        "epub": "kindle-dist/c-06-r05.epub",
+        "cover": "kindle-dist/c-06-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-06 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-06-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 105,
+      "catalog": {
+        "id": "c-06-r06",
+        "title": "技術士 建設部門 施工計画 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 施工計画 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-06-r06/spec.json",
+        "epub": "kindle-dist/c-06-r06.epub",
+        "cover": "kindle-dist/c-06-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-06 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-06-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 106,
+      "catalog": {
+        "id": "c-06-r07",
+        "title": "技術士 建設部門 施工計画 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 施工計画 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-06-r07/spec.json",
+        "epub": "kindle-dist/c-06-r07.epub",
+        "cover": "kindle-dist/c-06-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-06 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-07",
@@ -2395,7 +4190,7 @@
         "asin": "B0HB3585PD",
         "title": "技術士 建設部門 建設環境 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 建設環境 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2437,11 +4232,204 @@
             "at": "2026-11-10T15:19:11+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 建設環境 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-07-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 107,
+      "catalog": {
+        "id": "c-07-r03",
+        "title": "技術士 建設部門 建設環境 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 建設環境 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-07-r03/spec.json",
+        "epub": "kindle-dist/c-07-r03.epub",
+        "cover": "kindle-dist/c-07-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-07 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-07-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 108,
+      "catalog": {
+        "id": "c-07-r04",
+        "title": "技術士 建設部門 建設環境 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 建設環境 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-07-r04/spec.json",
+        "epub": "kindle-dist/c-07-r04.epub",
+        "cover": "kindle-dist/c-07-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-07 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-07-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 109,
+      "catalog": {
+        "id": "c-07-r05",
+        "title": "技術士 建設部門 建設環境 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 建設環境 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-07-r05/spec.json",
+        "epub": "kindle-dist/c-07-r05.epub",
+        "cover": "kindle-dist/c-07-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-07 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-07-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 110,
+      "catalog": {
+        "id": "c-07-r06",
+        "title": "技術士 建設部門 建設環境 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 建設環境 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-07-r06/spec.json",
+        "epub": "kindle-dist/c-07-r06.epub",
+        "cover": "kindle-dist/c-07-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-07 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-07-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 111,
+      "catalog": {
+        "id": "c-07-r07",
+        "title": "技術士 建設部門 建設環境 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 建設環境 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-07-r07/spec.json",
+        "epub": "kindle-dist/c-07-r07.epub",
+        "cover": "kindle-dist/c-07-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-07 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-08",
@@ -2457,7 +4445,7 @@
         "asin": "B0HB3H3N7Y",
         "title": "技術士 建設部門 港湾及び空港 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 港湾及び空港 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2499,11 +4487,204 @@
             "at": "2026-11-10T15:19:45+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 港湾及び空港 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-08-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 112,
+      "catalog": {
+        "id": "c-08-r03",
+        "title": "技術士 建設部門 港湾及び空港 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 港湾及び空港 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-08-r03/spec.json",
+        "epub": "kindle-dist/c-08-r03.epub",
+        "cover": "kindle-dist/c-08-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-08 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-08-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 113,
+      "catalog": {
+        "id": "c-08-r04",
+        "title": "技術士 建設部門 港湾及び空港 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 港湾及び空港 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-08-r04/spec.json",
+        "epub": "kindle-dist/c-08-r04.epub",
+        "cover": "kindle-dist/c-08-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-08 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-08-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 114,
+      "catalog": {
+        "id": "c-08-r05",
+        "title": "技術士 建設部門 港湾及び空港 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 港湾及び空港 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-08-r05/spec.json",
+        "epub": "kindle-dist/c-08-r05.epub",
+        "cover": "kindle-dist/c-08-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-08 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-08-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 115,
+      "catalog": {
+        "id": "c-08-r06",
+        "title": "技術士 建設部門 港湾及び空港 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 港湾及び空港 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-08-r06/spec.json",
+        "epub": "kindle-dist/c-08-r06.epub",
+        "cover": "kindle-dist/c-08-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-08 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-08-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 116,
+      "catalog": {
+        "id": "c-08-r07",
+        "title": "技術士 建設部門 港湾及び空港 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 港湾及び空港 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-08-r07/spec.json",
+        "epub": "kindle-dist/c-08-r07.epub",
+        "cover": "kindle-dist/c-08-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-08 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-09",
@@ -2519,7 +4700,7 @@
         "asin": "B0HB34VG8C",
         "title": "技術士 建設部門 電力土木 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 電力土木 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2561,11 +4742,204 @@
             "at": "2026-11-10T15:20:18+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 電力土木 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-09-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 117,
+      "catalog": {
+        "id": "c-09-r03",
+        "title": "技術士 建設部門 電力土木 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 電力土木 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-09-r03/spec.json",
+        "epub": "kindle-dist/c-09-r03.epub",
+        "cover": "kindle-dist/c-09-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-09 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-09-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 118,
+      "catalog": {
+        "id": "c-09-r04",
+        "title": "技術士 建設部門 電力土木 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 電力土木 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-09-r04/spec.json",
+        "epub": "kindle-dist/c-09-r04.epub",
+        "cover": "kindle-dist/c-09-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-09 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-09-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 119,
+      "catalog": {
+        "id": "c-09-r05",
+        "title": "技術士 建設部門 電力土木 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 電力土木 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-09-r05/spec.json",
+        "epub": "kindle-dist/c-09-r05.epub",
+        "cover": "kindle-dist/c-09-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-09 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-09-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 120,
+      "catalog": {
+        "id": "c-09-r06",
+        "title": "技術士 建設部門 電力土木 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 電力土木 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-09-r06/spec.json",
+        "epub": "kindle-dist/c-09-r06.epub",
+        "cover": "kindle-dist/c-09-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-09 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-09-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 121,
+      "catalog": {
+        "id": "c-09-r07",
+        "title": "技術士 建設部門 電力土木 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 電力土木 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-09-r07/spec.json",
+        "epub": "kindle-dist/c-09-r07.epub",
+        "cover": "kindle-dist/c-09-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-09 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-10",
@@ -2581,7 +4955,7 @@
         "asin": "B0HBQSYKZ6",
         "title": "技術士 建設部門 鉄道 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 鉄道 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2623,11 +4997,204 @@
             "at": "2026-11-10T15:20:49+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 鉄道 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-10-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 122,
+      "catalog": {
+        "id": "c-10-r03",
+        "title": "技術士 建設部門 鉄道 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鉄道 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-10-r03/spec.json",
+        "epub": "kindle-dist/c-10-r03.epub",
+        "cover": "kindle-dist/c-10-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-10 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-10-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 123,
+      "catalog": {
+        "id": "c-10-r04",
+        "title": "技術士 建設部門 鉄道 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鉄道 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-10-r04/spec.json",
+        "epub": "kindle-dist/c-10-r04.epub",
+        "cover": "kindle-dist/c-10-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-10 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-10-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 124,
+      "catalog": {
+        "id": "c-10-r05",
+        "title": "技術士 建設部門 鉄道 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鉄道 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-10-r05/spec.json",
+        "epub": "kindle-dist/c-10-r05.epub",
+        "cover": "kindle-dist/c-10-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-10 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-10-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 125,
+      "catalog": {
+        "id": "c-10-r06",
+        "title": "技術士 建設部門 鉄道 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鉄道 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-10-r06/spec.json",
+        "epub": "kindle-dist/c-10-r06.epub",
+        "cover": "kindle-dist/c-10-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-10 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-10-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 126,
+      "catalog": {
+        "id": "c-10-r07",
+        "title": "技術士 建設部門 鉄道 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 鉄道 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-10-r07/spec.json",
+        "epub": "kindle-dist/c-10-r07.epub",
+        "cover": "kindle-dist/c-10-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-10 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-11",
@@ -2643,7 +5210,7 @@
         "asin": "B0HBR397N3",
         "title": "技術士 建設部門 トンネル 二次 模範解答集",
         "subtitle": "過去問 R03-R08 全18記事",
-        "series": "C 技術士建設部門 二次 模範解答",
+        "series": "C 技術士 建設部門 二次 トンネル 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -2685,11 +5252,204 @@
             "at": "2026-11-10T15:21:23+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-01",
+            "note": "書名を「技術士 建設部門 トンネル 二次 模範解答【令和8年度】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 必須科目I・選択科目II-1・II-2・III」"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-c-11-r03",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 127,
+      "catalog": {
+        "id": "c-11-r03",
+        "title": "技術士 建設部門 トンネル 二次 模範解答【令和3年度】",
+        "subtitle": "令和3年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 トンネル 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-11-r03/spec.json",
+        "epub": "kindle-dist/c-11-r03.epub",
+        "cover": "kindle-dist/c-11-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-11 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-11-r04",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 128,
+      "catalog": {
+        "id": "c-11-r04",
+        "title": "技術士 建設部門 トンネル 二次 模範解答【令和4年度】",
+        "subtitle": "令和4年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 トンネル 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-11-r04/spec.json",
+        "epub": "kindle-dist/c-11-r04.epub",
+        "cover": "kindle-dist/c-11-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-11 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-11-r05",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 129,
+      "catalog": {
+        "id": "c-11-r05",
+        "title": "技術士 建設部門 トンネル 二次 模範解答【令和5年度】",
+        "subtitle": "令和5年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 トンネル 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-11-r05/spec.json",
+        "epub": "kindle-dist/c-11-r05.epub",
+        "cover": "kindle-dist/c-11-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-11 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-11-r06",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 130,
+      "catalog": {
+        "id": "c-11-r06",
+        "title": "技術士 建設部門 トンネル 二次 模範解答【令和6年度】",
+        "subtitle": "令和6年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 トンネル 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-11-r06/spec.json",
+        "epub": "kindle-dist/c-11-r06.epub",
+        "cover": "kindle-dist/c-11-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-11 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-c-11-r07",
+      "channel": "kindle",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 131,
+      "catalog": {
+        "id": "c-11-r07",
+        "title": "技術士 建設部門 トンネル 二次 模範解答【令和7年度】",
+        "subtitle": "令和7年度 必須科目I・選択科目II-1・II-2・III",
+        "series": "C 技術士 建設部門 二次 トンネル 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/c-11-r07/spec.json",
+        "epub": "kindle-dist/c-11-r07.epub",
+        "cover": "kindle-dist/c-11-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で c-I・c-11 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-c-i",
@@ -2747,7 +5507,14 @@
             "at": "2026-11-27T16:27:19+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "unpublish",
+            "date": "2027-04-01",
+            "note": "年度ごとの巻に必須科目I を入れたので販売を止める（年度の巻が出そろってから）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -2820,6 +5587,13 @@
             "from": 1250,
             "to": 1480
           }
+        ],
+        "plans": [
+          {
+            "action": "unpublish",
+            "date": "2027-07-01",
+            "note": "合本の廃止（年度ごとの 7 巻に置き換える）"
+          }
         ]
       },
       "members": [],
@@ -2840,7 +5614,7 @@
         "asin": "B0H8JHYGH9",
         "title": "技術士第一次試験 基礎科目 過去問7年分完全解説",
         "subtitle": "令和元〜7年度 210問",
-        "series": "D 技術士一次 科目別",
+        "series": "D 技術士第一次試験 年度別",
         "priceJpy": 980,
         "royalty": 0.7,
         "status": "live",
@@ -2876,7 +5650,21 @@
             "at": "2026-11-10T17:05:49+09:00",
             "via": "update-cover"
           }
-        }
+        },
+        "seriesVolume": 7,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-07-01",
+            "note": "書名を「技術士第一次試験 過去問完全解説【令和7年度 基礎・適性・専門（建設部門）】」に変え、原稿を令和7年度の巻へ差し替える（ASIN を残す）。副題は「令和7年度 基礎・適性・専門 全80問」"
+          },
+          {
+            "action": "reprice",
+            "date": "2027-07-01",
+            "price": 1650,
+            "note": "¥980 → ¥1650（年度の巻の価格）"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -2896,7 +5684,7 @@
         "asin": "B0H8L2WXBY",
         "title": "技術士第一次試験 適性科目 過去問7年分完全解説",
         "subtitle": "令和元〜7年度 105問",
-        "series": "D 技術士一次 科目別",
+        "series": "D 技術士第一次試験 年度別",
         "priceJpy": 980,
         "royalty": 0.7,
         "status": "live",
@@ -2939,6 +5727,20 @@
             "from": 590,
             "to": 980
           }
+        ],
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-07-01",
+            "note": "書名を「技術士第一次試験 過去問完全解説【令和6年度 基礎・適性・専門（建設部門）】」に変え、原稿を令和6年度の巻へ差し替える（ASIN を残す）。副題は「令和6年度 基礎・適性・専門 全80問」"
+          },
+          {
+            "action": "reprice",
+            "date": "2027-07-01",
+            "price": 1650,
+            "note": "¥980 → ¥1650（年度の巻の価格）"
+          }
         ]
       },
       "members": [],
@@ -2959,7 +5761,7 @@
         "asin": "B0H955Y4FJ",
         "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説",
         "subtitle": "令和元〜7年度 245問",
-        "series": "D 技術士一次 科目別",
+        "series": "D 技術士第一次試験 年度別",
         "priceJpy": 980,
         "royalty": 0.35,
         "status": "live",
@@ -3007,11 +5809,181 @@
             "from": 490,
             "to": 980
           }
+        ],
+        "seriesVolume": 5,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-07-01",
+            "note": "書名を「技術士第一次試験 過去問完全解説【令和5年度 基礎・適性・専門（建設部門）】」に変え、原稿を令和5年度の巻へ差し替える（ASIN を残す）。副題は「令和5年度 基礎・適性・専門 全80問」"
+          },
+          {
+            "action": "reprice",
+            "date": "2027-07-01",
+            "price": 1650,
+            "note": "¥980 → ¥1650（年度の巻の価格）"
+          },
+          {
+            "action": "select-enroll",
+            "date": "2027-07-01"
+          }
         ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-d-r01",
+      "channel": "kindle",
+      "qualification": "pe-first-stage",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 159,
+      "catalog": {
+        "id": "d-r01",
+        "title": "技術士第一次試験 過去問完全解説【令和元年度 基礎・適性・専門（建設部門）】",
+        "subtitle": "令和元年度 基礎・適性・専門 全80問",
+        "series": "D 技術士第一次試験 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-r01/spec.json",
+        "epub": "kindle-dist/d-r01.epub",
+        "cover": "kindle-dist/d-r01.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-07-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 80
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で d-01・d-02・d-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-d-r02",
+      "channel": "kindle",
+      "qualification": "pe-first-stage",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 160,
+      "catalog": {
+        "id": "d-r02",
+        "title": "技術士第一次試験 過去問完全解説【令和2年度 基礎・適性・専門（建設部門）】",
+        "subtitle": "令和2年度 基礎・適性・専門 全80問",
+        "series": "D 技術士第一次試験 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-r02/spec.json",
+        "epub": "kindle-dist/d-r02.epub",
+        "cover": "kindle-dist/d-r02.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-07-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 80
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で d-01・d-02・d-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-d-r03",
+      "channel": "kindle",
+      "qualification": "pe-first-stage",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 161,
+      "catalog": {
+        "id": "d-r03",
+        "title": "技術士第一次試験 過去問完全解説【令和3年度 基礎・適性・専門（建設部門）】",
+        "subtitle": "令和3年度 基礎・適性・専門 全80問",
+        "series": "D 技術士第一次試験 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-r03/spec.json",
+        "epub": "kindle-dist/d-r03.epub",
+        "cover": "kindle-dist/d-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-07-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 80
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で d-01・d-02・d-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-d-r04",
+      "channel": "kindle",
+      "qualification": "pe-first-stage",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 162,
+      "catalog": {
+        "id": "d-r04",
+        "title": "技術士第一次試験 過去問完全解説【令和4年度 基礎・適性・専門（建設部門）】",
+        "subtitle": "令和4年度 基礎・適性・専門 全80問",
+        "series": "D 技術士第一次試験 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/d-r04/spec.json",
+        "epub": "kindle-dist/d-r04.epub",
+        "cover": "kindle-dist/d-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-07-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 80
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で d-01・d-02・d-03 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-e-01",
@@ -3294,7 +6266,7 @@
         "asin": "B0H3GX3HNW",
         "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和8年度 全年度】",
         "subtitle": "平成26〜令和8年度 全1263問",
-        "series": "E 土木施工管理 過去問合本",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -3345,11 +6317,475 @@
             "from": 1250,
             "to": 1650
           }
+        ],
+        "seriesVolume": 13,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-03-15",
+            "note": "書名を「1級土木施工管理技士 第1次検定 過去問完全解説【令和8年度 問題A・B】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 問題A・B 全101問」"
+          }
         ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-e-02-h26",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 132,
+      "catalog": {
+        "id": "e-02-h26",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26年度 問題A・B】",
+        "subtitle": "平成26年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-h26/spec.json",
+        "epub": "kindle-dist/e-02-h26.epub",
+        "cover": "kindle-dist/e-02-h26.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-h27",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 133,
+      "catalog": {
+        "id": "e-02-h27",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成27年度 問題A・B】",
+        "subtitle": "平成27年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-h27/spec.json",
+        "epub": "kindle-dist/e-02-h27.epub",
+        "cover": "kindle-dist/e-02-h27.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-h28",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 134,
+      "catalog": {
+        "id": "e-02-h28",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成28年度 問題A・B】",
+        "subtitle": "平成28年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-h28/spec.json",
+        "epub": "kindle-dist/e-02-h28.epub",
+        "cover": "kindle-dist/e-02-h28.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-h29",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 135,
+      "catalog": {
+        "id": "e-02-h29",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成29年度 問題A・B】",
+        "subtitle": "平成29年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-h29/spec.json",
+        "epub": "kindle-dist/e-02-h29.epub",
+        "cover": "kindle-dist/e-02-h29.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-h30",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 136,
+      "catalog": {
+        "id": "e-02-h30",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成30年度 問題A・B】",
+        "subtitle": "平成30年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-h30/spec.json",
+        "epub": "kindle-dist/e-02-h30.epub",
+        "cover": "kindle-dist/e-02-h30.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r01",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 137,
+      "catalog": {
+        "id": "e-02-r01",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和元年度 問題A・B】",
+        "subtitle": "令和元年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 6,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r01/spec.json",
+        "epub": "kindle-dist/e-02-r01.epub",
+        "cover": "kindle-dist/e-02-r01.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r02",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 138,
+      "catalog": {
+        "id": "e-02-r02",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和2年度 問題A・B】",
+        "subtitle": "令和2年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 7,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r02/spec.json",
+        "epub": "kindle-dist/e-02-r02.epub",
+        "cover": "kindle-dist/e-02-r02.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r03",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 139,
+      "catalog": {
+        "id": "e-02-r03",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和3年度 問題A・B】",
+        "subtitle": "令和3年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 8,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r03/spec.json",
+        "epub": "kindle-dist/e-02-r03.epub",
+        "cover": "kindle-dist/e-02-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r04",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 140,
+      "catalog": {
+        "id": "e-02-r04",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和4年度 問題A・B】",
+        "subtitle": "令和4年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 9,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r04/spec.json",
+        "epub": "kindle-dist/e-02-r04.epub",
+        "cover": "kindle-dist/e-02-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r05",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 141,
+      "catalog": {
+        "id": "e-02-r05",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和5年度 問題A・B】",
+        "subtitle": "令和5年度 問題A・B 全96問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 10,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r05/spec.json",
+        "epub": "kindle-dist/e-02-r05.epub",
+        "cover": "kindle-dist/e-02-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 96
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r06",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 142,
+      "catalog": {
+        "id": "e-02-r06",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和6年度 問題A・B】",
+        "subtitle": "令和6年度 問題A・B 全101問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 11,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r06/spec.json",
+        "epub": "kindle-dist/e-02-r06.epub",
+        "cover": "kindle-dist/e-02-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 101
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-02-r07",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 143,
+      "catalog": {
+        "id": "e-02-r07",
+        "title": "1級土木施工管理技士 第1次検定 過去問完全解説【令和7年度 問題A・B】",
+        "subtitle": "令和7年度 問題A・B 全101問",
+        "series": "E 1級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 12,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-02-r07/spec.json",
+        "epub": "kindle-dist/e-02-r07.epub",
+        "cover": "kindle-dist/e-02-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-03-15",
+            "price": 1650
+          }
+        ],
+        "questionCount": 101
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-02 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-f-01",
@@ -4305,7 +7741,15 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "reprice",
+            "date": "2027-08-01",
+            "price": 1650,
+            "note": "¥990 → ¥1,650"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4364,7 +7808,15 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "reprice",
+            "date": "2027-08-01",
+            "price": 1650,
+            "note": "¥1,250 → ¥1,650"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4436,7 +7888,19 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "reprice",
+            "date": "2027-08-01",
+            "price": 1650,
+            "note": "¥2,980（35%）→ ¥1,650（70%）"
+          },
+          {
+            "action": "select-enroll",
+            "date": "2027-08-01"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4488,7 +7952,27 @@
             "via": "new-draft"
           }
         },
-        "submittedDate": "2026-11-01"
+        "submittedDate": "2026-11-01",
+        "supersedes": [
+          "i-02"
+        ],
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-06-01",
+            "note": "書名を「1級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案＋完成答案集」に変え、i-02（完成答案集）を足した原稿へ差し替える（ASIN を残す）"
+          },
+          {
+            "action": "reprice",
+            "date": "2027-06-01",
+            "price": 1650,
+            "note": "¥1,980（35%）→ ¥1,650（70%）"
+          },
+          {
+            "action": "select-enroll",
+            "date": "2027-06-01"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4513,7 +7997,7 @@
         "priceJpy": 1980,
         "royalty": 0.35,
         "chapterCount": 5,
-        "status": "ready",
+        "status": "unpublished",
         "builder": "scripts/build/build-essay-kindle.mjs",
         "buildSpec": "content/kindle/books/i-02/spec.json",
         "epub": "kindle-dist/i-02.epub",
@@ -4527,11 +8011,16 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "supersededBy": [
+          "i-01"
+        ]
       },
       "members": [],
       "includes": [],
-      "memo": []
+      "memo": [
+        "2026-11-28 の Kindle 再編で i-01 に統合した。この本は出品しない（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-i-03",
@@ -4549,8 +8038,8 @@
         "subtitle": "5管理 全10組合せ（令和6年度からの2テーマ必答に対応）",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 3,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 10,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4566,7 +8055,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4588,8 +8084,8 @@
         "subtitle": "令和3〜7年度の頻出論点と解答の型・穴埋め頻出語句",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 4,
-        "priceJpy": 2480,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 6,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4605,7 +8101,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4627,8 +8130,8 @@
         "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 5,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 14,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4644,7 +8147,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4666,8 +8176,8 @@
         "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 6,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 13,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4683,7 +8193,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4705,8 +8222,8 @@
         "subtitle": "10工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 7,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 11,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4722,7 +8239,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4744,8 +8268,8 @@
         "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 8,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 14,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4761,7 +8285,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4783,8 +8314,8 @@
         "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 9,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 12,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4800,7 +8331,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4822,8 +8360,8 @@
         "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 10,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 12,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4839,7 +8377,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4861,8 +8406,8 @@
         "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 11,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 12,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4878,7 +8423,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4896,14 +8448,14 @@
       "catalog": {
         "id": "i-18",
         "asin": null,
-        "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 トンネル・専門工事編",
+        "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 トンネル・専門工事編（上）",
         "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 12,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 16,
-        "status": "ready",
+        "status": "draft",
         "builder": "scripts/build/build-essay-kindle.mjs",
         "buildSpec": "content/kindle/books/i-18/spec.json",
         "epub": "kindle-dist/i-18.epub",
@@ -4917,11 +8469,56 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-i-18b",
+      "channel": "kindle",
+      "qualification": "civil-construction-1",
+      "stage": "second",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 163,
+      "catalog": {
+        "id": "i-18b",
+        "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 トンネル・専門工事編（下）",
+        "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
+        "series": "I 1級土木 第2次検定 記述",
+        "seriesVolume": 12,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "chapterCount": 16,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/i-18b/spec.json",
+        "epub": "kindle-dist/i-18b.epub",
+        "cover": "kindle-dist/i-18b.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で i-18 を前半と後半に分けた後半（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-i-19",
@@ -4939,8 +8536,8 @@
         "subtitle": "8工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 13,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 8,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4956,7 +8553,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -4978,8 +8582,8 @@
         "subtitle": "7工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 14,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 7,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -4995,7 +8599,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5017,8 +8628,8 @@
         "subtitle": "10工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 15,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 10,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5034,7 +8645,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5056,8 +8674,8 @@
         "subtitle": "7工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 16,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 7,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5073,7 +8691,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5095,8 +8720,8 @@
         "subtitle": "9工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 17,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 9,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5112,7 +8737,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5134,8 +8766,8 @@
         "subtitle": "9工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
         "series": "I 1級土木 第2次検定 記述",
         "seriesVolume": 18,
-        "priceJpy": 2980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 9,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5151,7 +8783,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5207,7 +8846,27 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "supersedes": [
+          "j-02"
+        ],
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-06-01",
+            "note": "書名を「2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案＋完成答案集」に変え、j-02（完成答案集）を足した原稿へ差し替える（ASIN を残す）"
+          },
+          {
+            "action": "reprice",
+            "date": "2027-06-01",
+            "price": 1650,
+            "note": "¥1,980（35%）→ ¥1,650（70%）"
+          },
+          {
+            "action": "select-enroll",
+            "date": "2027-06-01"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5232,7 +8891,7 @@
         "priceJpy": 1980,
         "royalty": 0.35,
         "chapterCount": 4,
-        "status": "ready",
+        "status": "unpublished",
         "builder": "scripts/build/build-essay-kindle.mjs",
         "buildSpec": "content/kindle/books/j-02/spec.json",
         "epub": "kindle-dist/j-02.epub",
@@ -5246,11 +8905,16 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "supersededBy": [
+          "j-01"
+        ]
       },
       "members": [],
       "includes": [],
-      "memo": []
+      "memo": [
+        "2026-11-28 の Kindle 再編で j-01 に統合した。この本は出品しない（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-j-03",
@@ -5302,7 +8966,19 @@
             "at": "2026-09-29",
             "via": "baseline"
           }
-        }
+        },
+        "plans": [
+          {
+            "action": "reprice",
+            "date": "2027-06-01",
+            "price": 1650,
+            "note": "¥1,980（35%）→ ¥1,650（70%）"
+          },
+          {
+            "action": "select-enroll",
+            "date": "2027-06-01"
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5320,14 +8996,14 @@
       "catalog": {
         "id": "j-11",
         "asin": null,
-        "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 土工・コンクリート・基礎編",
+        "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 土工・コンクリート・基礎編（上）",
         "subtitle": "16工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
         "series": "J 2級土木 第2次検定 記述",
         "seriesVolume": 4,
-        "priceJpy": 1980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 16,
-        "status": "ready",
+        "status": "draft",
         "builder": "scripts/build/build-essay-kindle.mjs",
         "buildSpec": "content/kindle/books/j-11/spec.json",
         "epub": "kindle-dist/j-11.epub",
@@ -5341,11 +9017,56 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-j-11b",
+      "channel": "kindle",
+      "qualification": "civil-construction-2",
+      "stage": "second",
+      "series": "other",
+      "tier": "book",
+      "persona": null,
+      "order": 164,
+      "catalog": {
+        "id": "j-11b",
+        "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 土工・コンクリート・基礎編（下）",
+        "subtitle": "16工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
+        "series": "J 2級土木 第2次検定 記述",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "chapterCount": 16,
+        "status": "draft",
+        "builder": "scripts/build/build-essay-kindle.mjs",
+        "buildSpec": "content/kindle/books/j-11b/spec.json",
+        "epub": "kindle-dist/j-11b.epub",
+        "cover": "kindle-dist/j-11b.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で j-11 を前半と後半に分けた後半（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-j-12",
@@ -5363,8 +9084,8 @@
         "subtitle": "13工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
         "series": "J 2級土木 第2次検定 記述",
         "seriesVolume": 5,
-        "priceJpy": 1980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 13,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5380,7 +9101,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5402,8 +9130,8 @@
         "subtitle": "13工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
         "series": "J 2級土木 第2次検定 記述",
         "seriesVolume": 6,
-        "priceJpy": 1980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 13,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5419,7 +9147,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5441,8 +9176,8 @@
         "subtitle": "8工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
         "series": "J 2級土木 第2次検定 記述",
         "seriesVolume": 7,
-        "priceJpy": 1980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 8,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5458,7 +9193,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],
@@ -5480,8 +9222,8 @@
         "subtitle": "10工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
         "series": "J 2級土木 第2次検定 記述",
         "seriesVolume": 8,
-        "priceJpy": 1980,
-        "royalty": 0.35,
+        "priceJpy": 1650,
+        "royalty": 0.7,
         "chapterCount": 10,
         "status": "ready",
         "builder": "scripts/build/build-essay-kindle.mjs",
@@ -5497,7 +9239,14 @@
           }
         ],
         "draftAsin": null,
-        "publishedDate": null
+        "publishedDate": null,
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-06-01",
+            "price": 1650
+          }
+        ]
       },
       "members": [],
       "includes": [],

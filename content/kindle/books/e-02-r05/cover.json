@@ -1,0 +1,36 @@
+{
+  "bookId": "e-02-r05",
+  "background": "content/kindle/cover-backgrounds/a-01.png",
+  "accent": "#1E73C8",
+  "kicker": "1級土木施工管理技士 第1次検定",
+  "titleLines": [
+    {
+      "text": "過去問完全解説",
+      "size": 190
+    },
+    {
+      "text": "平成26〜令和8年度",
+      "size": 126
+    }
+  ],
+  "subLines": [
+    "13年分 全26回・1263問",
+    "図版114点収録"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-1",
+    "kicker": "1級土木施工管理技士 第1次検定",
+    "title": "過去問",
+    "titleSub": "完全解説",
+    "badge": [
+      "令和5",
+      "問題A・B"
+    ],
+    "redBand": "令和5年度 本試験の全問を収録",
+    "navyBand": "問題A・B 全96問",
+    "scene": "橋脚の工事とクレーン、コンクリート打設が進む大規模な現場",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "本を持って読者に指さすポーズ"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "d-r01",
+  "background": "content/kindle/cover-backgrounds/a-03.png",
+  "accent": "#16365C",
+  "kicker": "技術士第一次試験",
+  "titleLines": [
+    {
+      "text": "基礎科目",
+      "size": 300
+    },
+    {
+      "text": "過去問7年分完全解説",
+      "size": 135
+    }
+  ],
+  "subLines": [
+    "令和元〜7年度 210問"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "pe-first-stage",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "基礎科目",
+    "badge": [
+      "令和元",
+      "3科目"
+    ],
+    "redBand": "令和元年度 本試験の全問を収録",
+    "navyBand": "基礎・適性・専門 全80問",
+    "scene": "黒板いっぱいの数式・グラフと設計計算のノートが並ぶ研究室",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "黒板の数式を指し示すポーズ"
+  }
+}
