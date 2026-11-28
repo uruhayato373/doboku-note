@@ -1,0 +1,35 @@
+{
+  "bookId": "e-01-r03",
+  "background": "content/kindle/cover-backgrounds/a-06.png",
+  "accent": "#2A7050",
+  "kicker": "2級土木施工管理技士 第1次検定",
+  "titleLines": [
+    {
+      "text": "過去問完全解説",
+      "size": 192
+    },
+    {
+      "text": "令和3〜8年度 全期",
+      "size": 135
+    }
+  ],
+  "subLines": [
+    "前期・後期 全762問"
+  ],
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-2",
+    "kicker": "2級土木施工管理技士 第1次検定",
+    "title": "過去問",
+    "titleSub": "完全解説",
+    "badge": [
+      "令和3",
+      "前期・後期"
+    ],
+    "redBand": "令和3年度 本試験の全問を収録",
+    "navyBand": "前期・後期 全122問",
+    "scene": "バックホウとローラーが動く舗装・土工の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "本を持って読者に指さすポーズ"
+  }
+}

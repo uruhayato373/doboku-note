@@ -3027,7 +3027,7 @@
         "asin": "B0H8ZZMM7R",
         "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜8年度 全期】",
         "subtitle": "令和3〜8年度 前期・後期 全762問",
-        "series": "E 2級土木施工管理技士 択一",
+        "series": "E 2級土木施工管理技士 第1次検定 年度別",
         "priceJpy": 1650,
         "royalty": 0.7,
         "status": "live",
@@ -3076,11 +3076,209 @@
             "from": 990,
             "to": 1650
           }
+        ],
+        "seriesVolume": 6,
+        "plans": [
+          {
+            "action": "replace-manuscript",
+            "date": "2027-02-01",
+            "note": "書名を「2級土木施工管理技士 第1次検定 過去問完全解説【令和8年度 前期・後期】」に変え、原稿を令和8年度の巻へ差し替える（ASIN を残す）。副題は「令和8年度 前期・後期 全132問」"
+          }
         ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "kindle-e-01-r03",
+      "channel": "kindle",
+      "qualification": "civil-construction-2",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 72,
+      "catalog": {
+        "id": "e-01-r03",
+        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3年度 前期・後期】",
+        "subtitle": "令和3年度 前期・後期 全122問",
+        "series": "E 2級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 1,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-01-r03/spec.json",
+        "epub": "kindle-dist/e-01-r03.epub",
+        "cover": "kindle-dist/e-01-r03.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-02-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 122
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-01-r04",
+      "channel": "kindle",
+      "qualification": "civil-construction-2",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 73,
+      "catalog": {
+        "id": "e-01-r04",
+        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和4年度 前期・後期】",
+        "subtitle": "令和4年度 前期・後期 全122問",
+        "series": "E 2級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 2,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-01-r04/spec.json",
+        "epub": "kindle-dist/e-01-r04.epub",
+        "cover": "kindle-dist/e-01-r04.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-02-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 122
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-01-r05",
+      "channel": "kindle",
+      "qualification": "civil-construction-2",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 74,
+      "catalog": {
+        "id": "e-01-r05",
+        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和5年度 前期・後期】",
+        "subtitle": "令和5年度 前期・後期 全122問",
+        "series": "E 2級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 3,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-01-r05/spec.json",
+        "epub": "kindle-dist/e-01-r05.epub",
+        "cover": "kindle-dist/e-01-r05.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-02-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 122
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-01-r06",
+      "channel": "kindle",
+      "qualification": "civil-construction-2",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 75,
+      "catalog": {
+        "id": "e-01-r06",
+        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和6年度 前期・後期】",
+        "subtitle": "令和6年度 前期・後期 全132問",
+        "series": "E 2級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 4,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-01-r06/spec.json",
+        "epub": "kindle-dist/e-01-r06.epub",
+        "cover": "kindle-dist/e-01-r06.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-02-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 132
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
+    },
+    {
+      "id": "kindle-e-01-r07",
+      "channel": "kindle",
+      "qualification": "civil-construction-2",
+      "stage": "first",
+      "series": "first",
+      "tier": "book",
+      "persona": null,
+      "order": 76,
+      "catalog": {
+        "id": "e-01-r07",
+        "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和7年度 前期・後期】",
+        "subtitle": "令和7年度 前期・後期 全132問",
+        "series": "E 2級土木施工管理技士 第1次検定 年度別",
+        "seriesVolume": 5,
+        "priceJpy": 1650,
+        "royalty": 0.7,
+        "status": "draft",
+        "builder": "scripts/build/build-pe1-kindle.mjs",
+        "buildSpec": "content/kindle/books/e-01-r07/spec.json",
+        "epub": "kindle-dist/e-01-r07.epub",
+        "cover": "kindle-dist/e-01-r07.jpg",
+        "version": "1.0",
+        "plans": [
+          {
+            "action": "publish",
+            "date": "2027-02-01",
+            "price": 1650
+          }
+        ],
+        "questionCount": 132
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-28 の Kindle 再編で e-01 を年度ごとに分けた巻（content/kindle/strategy.md §2）"
+      ]
     },
     {
       "id": "kindle-e-02",
