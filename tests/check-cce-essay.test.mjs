@@ -12,7 +12,7 @@ const personas = history.answerModel.personas;
 
 function article({ situation = 300, work = 350, action = 300, drop = null, extraH2 = '' } = {}) {
   const blocks = personas.filter((p) => p !== drop).map((p) => `#### ${p}\n\n${jp(work)}`).join('\n\n');
-  return `# 見出し\n\n導入。\n\n## このテーマの出題実績\n\n解説。\n\n## 令和形式の答え方\n\n解説。\n${extraH2}\n## 模範答案\n\n### (1) 表題\n\n${jp(30)}\n\n### (2) 現状と課題\n\n${jp(situation)}\n\n### (3) 業務との関係・技術的取り組み\n\n${blocks}\n\n### (4) 今後の技術的対策・展望\n\n${jp(action)}\n\n## 立場別の書き分けポイント\n\n本文。\n\n## 採点者が見るポイント\n\n末尾。`;
+  return `# 見出し\n\n導入。\n\n## このテーマの出題実績\n\n解説。\n\n## 令和形式の答え方\n\n解説。\n${extraH2}\n## 模範答案\n\n### (1) 表題\n\n${jp(30)}\n\n### (2) 現状と課題\n\n${jp(situation)}\n\n### (3) 業務との関係・技術的取り組み\n\n${blocks}\n\n### (4) 今後の技術的対策・展望\n\n${jp(action)}\n\n## 立場別の書き分けポイント\n\n本文。\n\n## 答案の自己点検ポイント\n\n末尾。`;
 }
 const fm = (over = {}) => ({ cceEssayTheme: 'environment', cceSourceYears: yearsForTheme(history, 'environment'), paidBoundary: '模範答案', ...over });
 
@@ -82,7 +82,7 @@ test('fail: SSOT を超える出題予測の断定（規則 3-3）', () => {
 // 立場別記事（1立場×1テーマ・cceEssayPersona）— 2026-10-03 DN-0523
 function personaArticle({ title = jp(30), work = 350, action = 300, subhead = false, h2 = 'この立場の書き分けポイント' } = {}) {
   const w = subhead ? `#### ${personas[0]}\n\n${jp(work)}` : jp(work);
-  return `# 見出し\n\n導入。\n\n## このテーマの出題実績\n\n解説。\n\n## 令和形式の答え方\n\n解説。\n\n## 模範答案\n\n### (1) 表題\n\n${title}\n\n### (2) 現状と課題\n\n${jp(300)}\n\n### (3) 業務との関係・技術的取り組み\n\n${w}\n\n### (4) 今後の技術的対策・展望\n\n${action}\n\n## ${h2}\n\n本文。\n\n## 採点者が見るポイント\n\n末尾。`;
+  return `# 見出し\n\n導入。\n\n## このテーマの出題実績\n\n解説。\n\n## 令和形式の答え方\n\n解説。\n\n## 模範答案\n\n### (1) 表題\n\n${title}\n\n### (2) 現状と課題\n\n${jp(300)}\n\n### (3) 業務との関係・技術的取り組み\n\n${w}\n\n### (4) 今後の技術的対策・展望\n\n${action}\n\n## ${h2}\n\n本文。\n\n## 答案の自己点検ポイント\n\n末尾。`;
 }
 const pfm = (over = {}) => fm({ cceEssayPersona: personas[0], ...over });
 
