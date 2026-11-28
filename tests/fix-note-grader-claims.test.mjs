@@ -41,3 +41,9 @@ test('すでに前置きがある記事には入れない', () => {
   const r = fixArticle(doc('採点基準は公表されていません。\n\n## 採点者が見るポイント'));
   assert.equal(r.ops.some((o) => o.op === 'insert-after'), false);
 });
+
+test('本文の「採点者は〜を見ています」型の文を置き換え、文ごとに操作を作る', () => {
+  const r = fixArticle(doc('III-1・III-2のいずれを選んでも、採点者は「課題の本質把握」「解決策の論理性」を共通して見ています。\n\n採点者は次を見ている。\n\n- **採点者は次を見ている。**'));
+  assert.match(r.raw, /いずれを選んでも、「課題の本質把握」「解決策の論理性」を共通して押さえておくと/);
+  assert.deepEqual(r.ops.find((o) => o.from === '採点者は次を見ている。'), { op: 'replace', from: '採点者は次を見ている。', to: '自己点検では、次を確かめる。', count: 2 });
+});

@@ -18,7 +18,8 @@
  * 台帳: 直す前の原稿が公開ページと同じだった記事（台帳のハッシュ＝baseHash）で、原稿が afterHash のままのときだけ
  *   再公開ハッシュを記録する。それ以外は「未反映」のまま残し、週次の同期に任せる。
  * 結果: .tmp/note-patch-results-<日時>.json（成功・飛ばし・失敗と理由）。
- * exit: 0 = 失敗なし（飛ばしはあってよい）/ 1 = 失敗あり・連続失敗で中断 / 2 = ログインのアカウント違い
+ * exit: 0 = 失敗なし（飛ばしはあってよい）/ 1 = 失敗あり・連続失敗で中断・API に止められた（403・429）/ 2 = ログインのアカウント違い
+ * 罠: note の API は短い間に読みすぎると 403 を返す。記事の間を 20 秒空け、403・429 は 1 分おきに 4 回まで読み直す。
  * 罠: 保存したあとに確認で外れた記事は、公開ページが書き換わっている。結果ファイルの failedAfterSave を人が見る。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -42,6 +43,7 @@ const args = parseCliArgs({
 if (!args.patches) { console.error('--patches <file> が要る'); process.exit(2); }
 const MAX = Number(args.max || 50);
 const MAX_CONSEC = Number(args.maxConsecutiveFail || 3);
+const PACE_MS = 20000;
 
 const input = JSON.parse(readFileSync(join(ROOT, args.patches), 'utf8'));
 const items = (input.items || []).filter((it) => !args.only || it.article.startsWith(args.only)).slice(0, MAX);
@@ -54,14 +56,31 @@ function frontmatter(raw) {
   return { noteId: f('noteId') || (f('noteUrl').match(/\/n\/([0-9a-z]+)/) || [])[1] || '', pricing: f('notePricing') };
 }
 
-/** 著者として API を読む（会員限定・有料の部分も入った本文と、公開されていない下書きの有無）。 */
-async function readAsAuthor(noteId) {
-  try {
-    const r = await ctx.request.get(`https://note.com/api/v3/notes/${noteId}`, { timeout: 30000 });
-    if (!r.ok()) return null;
-    const d = (await r.json())?.data;
-    return d ? { body: d.body || '', hasDraft: !!d.has_draft } : null;
-  } catch { return null; }
+/**
+ * 著者として API を読む（会員限定・有料の部分も入った本文と、公開されていない下書きの有無）。
+ * note は短い間に読みすぎると 403・429 を返す（2026-11-28 に 13 本目で公開 API ごと 403 になった）。
+ * そのときは待ってから読み直し、それでも読めなければ { blocked: true } を返す。
+ */
+async function readAsAuthor(noteId, { tries = 4, waitMs = 60000 } = {}) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const r = await ctx.request.get(`https://note.com/api/v3/notes/${noteId}`, { timeout: 30000 });
+      if (r.ok()) {
+        const d = (await r.json())?.data;
+        if (d) return { body: d.body || '', hasDraft: !!d.has_draft };
+      } else if (![403, 429].includes(r.status())) return null;
+      console.log(`  [api] ${r.status()} → ${waitMs / 1000} 秒待って読み直す（${i + 1}/${tries}）`);
+    } catch { /* 通信の一時的な失敗は待って読み直す */ }
+    await sleep(waitMs);
+  }
+  return { blocked: true };
+}
+
+/** 直す前の原稿が公開ページと同じで（台帳＝baseHash）、原稿が直した版のまま（afterHash）なら、再公開ハッシュを記録する。 */
+function recordIfSynced(it) {
+  const st = loadState();
+  return st.hashes?.[it.article] === it.baseHash && bodyHash(readFileSync(join(ROOT, it.article), 'utf8')) === it.afterHash
+    && recordPublishedHash(it.article);
 }
 
 async function openEditor(page, noteId) {
@@ -90,9 +109,14 @@ try {
       // 押すと、下書きの中身（全文置換が途中で止まった本文など）が公開される。2026-11-28 に 2 本で、画像やリンク
       // カードが欠けた下書きが残っていた。下書きのある記事は触らない。
       const pre = await readAsAuthor(noteId);
-      if (!pre) throw new Error('著者として記事を読めない（ログイン切れ・通信）');
+      if (!pre) throw new Error('著者として記事を読めない（ログイン切れ・記事が無い）');
+      if (pre.blocked) { console.error(`${tag} note の API に読ませてもらえない（403・429 が続く）→ 残りを流さない`); results.blocked = true; break; }
       if (pre.hasDraft) { console.log(`${tag} 公開されていない下書きがある → 触らずに飛ばす`); results.skipped.push({ article: it.article, reason: 'has_draft（公開されていない下書きがある）' }); consec = 0; continue; }
-      if (!liveHtmlProblems(it.ops, pre.body).length) { console.log(`${tag} 公開本文はすでに直っている → 飛ばす`); results.already.push({ article: it.article }); consec = 0; continue; }
+      if (!liveHtmlProblems(it.ops, pre.body).length) {
+        const rec = recordIfSynced(it);
+        console.log(`${tag} 公開本文はすでに直っている → 飛ばす${rec ? '（再公開ハッシュを記録）' : ''}`);
+        results.already.push({ article: it.article, recorded: rec }); consec = 0; continue;
+      }
       await openEditor(page, noteId);
       const blocks = await readBlocks(page);
       if (!blocks.length) throw new Error('エディタの本文を読めない');
@@ -119,7 +143,11 @@ try {
       const postBad = [...verifyProblems(it.ops, liveBlocks), ...invariantProblems(before, liveSnap)];
       const post = await readAsAuthor(noteId);
       if (!post) postBad.push('更新後に著者として記事を読めない');
-      else {
+      else if (post.blocked) {
+        console.error(`${tag} 保存した。エディタでは確かめたが、API が 403・429 のため公開本文は確かめていない → 残りを流さない`);
+        results.unverified = [...(results.unverified || []), { article: it.article, noteId }];
+        break;
+      } else {
         postBad.push(...liveHtmlProblems(it.ops, post.body));
         if (post.hasDraft) postBad.push('更新後も下書きが残っている');
         const a = htmlCounts(pre.body); const b = htmlCounts(post.body);
@@ -132,12 +160,11 @@ try {
         results.failedAfterSave.push({ article: it.article, noteId, reason: postBad.join(' / ') });
         break; // 保存後の外れは系統的な原因を疑い、残りを流さない
       }
-      const st = loadState();
-      const recorded = st.hashes?.[it.article] === it.baseHash && bodyHash(readFileSync(join(ROOT, it.article), 'utf8')) === it.afterHash
-        && recordPublishedHash(it.article);
+      const recorded = recordIfSynced(it);
       console.log(`${tag} OK（添付 ${liveSnap.attachments.length}・画像 ${liveSnap.images}・埋め込み ${liveSnap.embeds} は変わらず）${recorded ? '・再公開ハッシュを記録' : '・台帳は未反映のまま（直す前から未反映の変更がある）'}`);
       results.ok.push({ article: it.article, noteId, recorded: !!recorded });
       consec = 0;
+      await sleep(PACE_MS); // API を読みすぎないよう、記事の間を空ける
     } catch (e) {
       console.error(`${tag} FAIL: ${e.message.split('\n')[0]}`);
       results.failed.push({ article: it.article, noteId, reason: e.message.split('\n')[0] });
@@ -149,6 +176,6 @@ try {
   mkdirSync(join(ROOT, '.tmp'), { recursive: true });
   const out = join(ROOT, `.tmp/note-patch-results-${results.startedAt.replace(/[:.]/g, '-')}.json`);
   writeFileSync(out, JSON.stringify(results, null, 2) + '\n');
-  console.log(`\n[patch] 成功 ${results.ok.length}・反映済み ${results.already.length}・飛ばし ${results.skipped.length}・失敗 ${results.failed.length}・保存後の失敗 ${results.failedAfterSave.length}（${out.replace(ROOT + '/', '')}）`);
+  console.log(`\n[patch] 成功 ${results.ok.length}・反映済み ${results.already.length}・飛ばし ${results.skipped.length}・失敗 ${results.failed.length}・保存後の失敗 ${results.failedAfterSave.length}・保存後に API で未確認 ${(results.unverified || []).length}${results.blocked ? '・API に止められて中断' : ''}（${out.replace(ROOT + '/', '')}）`);
 }
-process.exit(results.failed.length || results.failedAfterSave.length ? 1 : 0);
+process.exit(results.failed.length || results.failedAfterSave.length || results.blocked || results.unverified?.length ? 1 : 0);

@@ -11,6 +11,7 @@
  *   node scripts/maint/fix-note-grader-claims.mjs                 # 確認だけ（件数を出す・書かない）
  *   node scripts/maint/fix-note-grader-claims.mjs --write         # 原稿を直し .tmp/note-patches/grader-claims.json を書く
  *   node scripts/maint/fix-note-grader-claims.mjs --only <パスの先頭> [--write]
+ *   node scripts/maint/fix-note-grader-claims.mjs --write --out <名前>.json   # 2 回目以降は別の patches に書く（前の未反映分を上書きしない）
  * 決まり: 置き換えは本文（frontmatter・H1・画像の行・HTML コメントを除く）の全部に当てる。公開ページの
  *   エディタも同じ範囲を数えるので、数が合わない記事は note-patch-body が触らずに飛ばす。改行コード（CRLF）は保つ。
  *   前置きは、直した見出しのうち最初の 1 つの直後に 1 回だけ。すでに「採点基準は公表されていません」がある記事には入れない。
@@ -39,6 +40,32 @@ export const REPLACEMENTS = [
   ['採点で見られる点', '自己点検で見る点'],
   ['採点者視点', '読み手の視点'],
 ];
+/**
+ * 本文の「採点者は〜を見ています」型の文（正規表現 → 置き換え）。見出しの表の後に当てる。一致した部分に
+ * Markdown の記号（** や [ ]）が入っているものは、公開ページで同じ文字列にならないので置き換えない。
+ */
+export const PROSE = [
+  [/いずれを選んでも、採点者は(「[^。]+」)を共通して(?:見ています|評価します)。/g, 'いずれを選んでも、$1を共通して押さえておくと、答案の筋が通りやすくなります。'],
+  [/いずれを選んでも、採点者は次の(\d+)軸を共通して見ています。/g, 'いずれを選んでも、次の$1軸を共通して押さえておきたいところです。'],
+  [/採点者はいずれも(「[^。]+」)を共通して見ています。/g, '$1を共通して押さえておきたいところです。'],
+  [/(\d+)設問に共通して、採点者は(「[^。]+」)を見ています。/g, '$1設問に共通して、$2を押さえておきたいところです。'],
+  [/(\d+)設問とも採点者は(「[^。]+」)を共通して評価します。/g, '$1設問とも、$2を共通して押さえておきたいところです。'],
+  [/採点者は次を見ている。/g, '自己点検では、次を確かめる。'],
+  [/採点者がチェックするのは次の/g, '自己点検で確かめたいのは次の'],
+  [/採点者がチェックする (\d+) 点：/g, '自己点検で確かめたい $1 点：'],
+  [/採点者が見る点は次のとおりです。/g, '自己点検で確かめたい点は次のとおりです。'],
+  [/が採点者へ伝わりません/g, 'が読み手へ伝わりません'],
+  [/を採点者に伝わる順序/g, 'を読み手に伝わる順序'],
+  [/採点者に意図が伝わりません/g, '読み手に意図が伝わりません'],
+  [/採点者に伝わらなかった/g, '読み手に伝わらなかった'],
+  [/採点者が重視するプロセス設計力/g, '答案で求められやすいプロセス設計力'],
+  [/（採点者はここを見る）/g, '（自己点検の観点）'],
+  [/採点者がどこで減点する(?:の)?かを知り/g, '読み手の立場で、どこが伝わりにくいかを知り'],
+  [/（採点者は接続の論理性を見ています）/g, '（接続の論理性が問われるところです）'],
+  [/採点者の視点(?:で見る|の)チェックポイント/g, '読み手の視点での自己点検'],
+  [/採点者が答案のどこを見るかを整理しました/g, '答案のどこが読み手に伝わりやすいかを整理しました'],
+];
+
 export const LEAD = '採点基準は公表されていません。以下は、筆者が読み手の立場で見た自己点検の観点です。';
 const LEAD_MARK = '採点基準は公表されていません';
 
@@ -89,6 +116,21 @@ export function fixArticle(rawIn) {
     }
     if (n) ops.push({ op: 'replace', from, to, count: n });
   }
+  // 本文の文: 一致した文字列ごとに置き換えの操作を作る（公開ページの文と同じになるものだけ）
+  for (const [re, rep] of PROSE) {
+    const found = new Map();
+    for (let i = 0; i < out.length; i++) {
+      if (!vis[i]) continue;
+      out[i] = out[i].replace(re, (...m) => {
+        const from = m[0];
+        if (/\*\*|[[\]_`]/.test(from)) return from;
+        const to = from.replace(new RegExp(re.source), rep);
+        found.set(from, { to, n: (found.get(from)?.n || 0) + 1 });
+        return to;
+      });
+    }
+    for (const [from, { to, n }] of found) ops.push({ op: 'replace', from, to, count: n });
+  }
   if (!ops.length) return { changed: false };
 
   // 前置き: 直した見出しのうち最初の 1 つの直後
@@ -109,7 +151,7 @@ export function fixArticle(rawIn) {
 }
 
 function main() {
-  const args = parseCliArgs({ write: { type: 'boolean' }, only: { type: 'string' } });
+  const args = parseCliArgs({ write: { type: 'boolean' }, only: { type: 'string' }, out: { type: 'string', default: 'grader-claims.json' } });
   const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', 'content/note'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
     .split('\n').filter((f) => /\/article(-[^/]+)?\.md$/.test(f) && (!args.only || f.startsWith(args.only)));
   const items = []; const held = []; let changed = 0; let unpublished = 0;
@@ -130,11 +172,11 @@ function main() {
   if (args.write) {
     const dir = join(REPO_ROOT, '.tmp/note-patches');
     mkdirSync(dir, { recursive: true });
-    const out = join(dir, 'grader-claims.json');
+    const out = join(dir, args.out);
     const prev = existsSync(out) ? JSON.parse(readFileSync(out, 'utf8')).items || [] : [];
     const merged = [...prev.filter((p) => !items.some((i) => i.article === p.article)), ...items];
     writeFileSync(out, JSON.stringify({ createdAt: new Date().toISOString(), items: merged }, null, 2) + '\n');
-    console.log(`[fix-note-grader-claims] patches: .tmp/note-patches/grader-claims.json（${merged.length} 記事）`);
+    console.log(`[fix-note-grader-claims] patches: .tmp/note-patches/${args.out}（${merged.length} 記事）`);
   }
   if (!files.length) { console.error('[fix-note-grader-claims] 検査対象 0 件（検査不成立）'); process.exit(1); }
 }
