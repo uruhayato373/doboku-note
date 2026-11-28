@@ -35,7 +35,7 @@ const PUBLISHER = 'doboku-note'
 const DEFAULT_EXAM = '技術士第一次試験'
 const DEFAULT_ISSUER = '公益社団法人 日本技術士会'
 const creditBody = (examName, issuer = DEFAULT_ISSUER) =>
-  `${issuer}が実施する${examName}の過去問題を出典としています。問題文の著作権は出典元に帰属します。解答・解説および科目別・複数年度の編集・再構成は著者によるものです。`
+  `${issuer}が実施する${examName}の過去問題を出典としています。問題文の著作権は出典元に帰属します。解答・解説および編集・再構成は著者によるものです。`
 const DISCLAIMER =
   '本書は正確を期して作成していますが、内容を保証するものではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
@@ -405,7 +405,7 @@ async function main() {
         author: AUTHOR,
         publisher: PUBLISHER,
         description: spec.description ||
-          `${spec.examName || DEFAULT_EXAM}「${spec.subtitle}」の過去問を複数年度収録し全問解説した演習書。`,
+          `${spec.examName || DEFAULT_EXAM}「${spec.subtitle}」の過去問を全問解説した演習書。`,
         rights: creditBody(spec.examName || DEFAULT_EXAM, spec.creditIssuer),
       },
       css: EPUB_CSS,
