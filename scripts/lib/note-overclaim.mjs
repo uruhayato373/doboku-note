@@ -28,6 +28,13 @@ export const OVERCLAIM_RULES = [
   { id: '最も評価され', kind: 'scoring', re: /最も評価され/g },
   { id: '高く評価されます', kind: 'scoring', re: /高く評価されます/g },
   { id: '採点者は〜評価/減点します', kind: 'scoring', re: /採点者は.{0,30}(?:評価|減点)し?ます/g },
+  // 2026-11-28 に 865 記事の見出しと 1,000 か所近い本文を直した型（採点者を名乗る見出し・採点の扱いの断定）
+  { id: '採点者が見るポイント', kind: 'scoring', re: /採点者が見(?:る|ている)(?:ポイント|チェックポイント|点)/g },
+  { id: '採点者視点', kind: 'scoring', re: /採点者視点/g },
+  { id: '採点者は〜を見ています', kind: 'scoring', re: /採点者(?:は|が).{0,30}(?:見てい(?:ます|る)|重視し|確認し(?:ます|てい)|チェックする)/g },
+  { id: '評価される書き方', kind: 'scoring', re: /評価される(?:書き方|答案)/g },
+  { id: '加点・減点される', kind: 'scoring', re: new RegExp(`(?:加点|減点)され(?:る|ます|やすい)${NOT_NEGATED}`, 'g') },
+  { id: '高評価', kind: 'scoring', re: /(?<!最)高評価/g },
   { id: '鉄則', kind: 'rule', re: /鉄則/g },
   { id: '作法が決まって', kind: 'rule', re: /作法が決まって/g },
   { id: '必ず合格', kind: 'rule', re: new RegExp(`必ず合格${NOT_NEGATED}`, 'g') },
