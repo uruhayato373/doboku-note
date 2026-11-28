@@ -387,7 +387,7 @@ async function main() {
     const articleDir = resolve(srcPath, '..')
 
     const pre = await preprocess(body, articleDir, images, imageSrc)
-    const qCount = (body.match(/^## /gm) || []).length
+    const qCount = (pre.text.match(/^## /gm) || []).length // 前処理で除いた節（論点の出題傾向など）を数えない
     qTotal += qCount
     if (pre.hasMath) mathPages++
 
