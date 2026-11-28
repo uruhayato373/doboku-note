@@ -12,3 +12,5 @@ metadata:
 
 **Why:** 既存の検査は書式と内部データの突合だけで、制度の一次情報と断定の強さを見ていなかった。読者は不合格の原因を記事に結びつける。
 **How to apply:** 採点の中身を断定しない（理由を述べる言い方にする）。試験制度の事実は実施機関の公表ページで確かめる（note-fact-checker スコープ F）。指摘を受けたら `.claude/knowledge/reference/note-correction-procedure.md` の6手順。関連: [[feedback_factcheck_guide_facts]]、[[feedback_tensaku_expert_reader]]。
+
+2026-11-28 追記: 公開ページへの反映で全文置換（note-update-body）を使うと PDF 添付が消える事故が続いていた（運営者の指摘）。本文の一部を直すときは `npm run note-patch-body`（本文を消さずに変えた箇所だけ当てる。添付・画像・埋め込みの数を前後で確かめ、公開されていない下書きがある記事は飛ばす）を使う。note の API は短時間に読みすぎると 403 になるので、記事の間を空ける。
