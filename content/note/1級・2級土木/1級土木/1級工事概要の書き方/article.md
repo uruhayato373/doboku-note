@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: c1-essay-outline
 noteUrl: "https://note.com/dobokunote/n/na1f84193571a"
 noteId: "na1f84193571a"
-title: "【1級土木施工管理技士】施工経験記述「工事概要」の書き方 — なぜ概要欄で減点されるのか"
+title: "【1級土木施工管理技士】施工経験記述「工事概要」の書き方 — 概要欄で答案の説得力が決まる理由"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 施工経験記述
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "で減点"
   benefit: "減点されない書き方がわかる"
 ---
-# 【1級土木施工管理技士】施工経験記述「工事概要」の書き方 — なぜ概要欄で減点されるのか
+# 【1級土木施工管理技士】施工経験記述「工事概要」の書き方 — 概要欄で答案の説得力が決まる理由
 
 ![](img/figure-author-authority-pop.png)
 
