@@ -111,7 +111,7 @@ https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-g
 
 https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples
 
-**1級土木 施工経験記述 完成答案集**（置換ガイド・採点者視点つきフル答案）
+**1級土木 施工経験記述 完成答案集**（置換ガイド・読み手の視点つきフル答案）
 
 https://note.com/dobokunote/m/m150c9db08902
 

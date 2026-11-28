@@ -117,7 +117,7 @@ https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-g
 
 https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples
 
-**2級土木 施工経験記述 完成答案集**（置換ガイド・採点者視点つきフル答案）
+**2級土木 施工経験記述 完成答案集**（置換ガイド・読み手の視点つきフル答案）
 
 https://note.com/dobokunote/m/m1881a9578027
 
