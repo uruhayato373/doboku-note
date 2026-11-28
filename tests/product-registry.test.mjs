@@ -113,3 +113,26 @@ test('記事の単品価格: frontmatter の price を読み（CRLF でも）、
   assert.deepEqual(Object.keys(out.articlePrices), ['content/note/a/article.md', 'content/note/b/article.md']);
   assert.ok(!('articlePrices' in JSON.parse(canonicalFile([Product.parse(base)]))), '空の articlePrices を書いた');
 });
+
+test('Kindle の catalog: status・plans・supersedes の形を型で止める', () => {
+  const ok = {
+    id: 'kindle-c-04-r03', channel: 'kindle', qualification: 'pe-construction', stage: 'written', series: 'other', tier: 'book', order: 9999,
+    catalog: { id: 'c-04-r03', title: 't', priceJpy: 1650, status: 'draft', plans: [{ action: 'publish', date: '2027-03-01', price: 1650 }], supersedes: ['c-04'] },
+  };
+  assert.equal(Product.safeParse(ok).success, true);
+  const bad = (catalog) => Product.safeParse({ ...ok, catalog: { ...ok.catalog, ...catalog } }).success;
+  assert.equal(bad({ status: 'planned' }), false);
+  assert.equal(bad({ plans: [{ action: 'sell', date: '2027-03-01' }] }), false);
+  assert.equal(bad({ plans: [{ action: 'publish', date: '2027/03/01' }] }), false);
+  assert.equal(bad({ plans: [{ action: 'reprice', date: '2027-03-01', price: 0 }] }), false);
+  assert.equal(bad({ supersedes: 'c-04' }), false);
+});
+
+test('addProducts は既にある id と、同じチャネルで重なる order を書く前に止める', async () => {
+  const { addProducts, loadProducts } = await import('../scripts/lib/product-registry.mjs');
+  const { products } = loadProducts();
+  const existing = products.find((p) => p.channel === 'kindle');
+  assert.throws(() => addProducts([existing]), /既にある商品/);
+  const clash = { ...existing, id: 'kindle-zz-test-only', catalog: { ...existing.catalog, id: 'zz-test-only' } };
+  assert.throws(() => addProducts([clash]), /order が重なる/);
+});

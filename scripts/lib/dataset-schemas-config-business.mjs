@@ -8,6 +8,7 @@
  */
 import { z } from 'zod';
 import { jstDate, month, yen, flag, uniqueBy, BUSINESS_CHANNELS, METRIC_SUPPLIES } from './dataset-schema-parts.mjs';
+import { KINDLE_STATUSES, KINDLE_PLAN_ACTIONS } from './kindle-catalog.mjs';
 
 /** 資格・ファミリー・テーマなどの id（英小文字・数字・ハイフン） */
 const QID = z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ');
@@ -1302,6 +1303,18 @@ const kindleBook = z
   .catchall(z.unknown())
   .superRefine((b, ctx) => {
     if (b.priceJpy !== undefined && !(Number.isInteger(b.priceJpy) && b.priceJpy > 0)) flag(ctx, ['priceJpy'], 'priceJpy は正の整数（円）');
+    if (b.status !== undefined && !KINDLE_STATUSES.includes(b.status)) flag(ctx, ['status'], `status は ${KINDLE_STATUSES.join(' / ')} のどれか`);
+    if (b.plans !== undefined) {
+      if (!Array.isArray(b.plans)) flag(ctx, ['plans'], 'plans は配列');
+      else b.plans.forEach((p, i) => {
+        if (!KINDLE_PLAN_ACTIONS.includes(p?.action)) flag(ctx, ['plans', i, 'action'], `action は ${KINDLE_PLAN_ACTIONS.join(' / ')} のどれか`);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(String(p?.date ?? ''))) flag(ctx, ['plans', i, 'date'], 'date は JST の日付（YYYY-MM-DD）');
+        if (p?.price !== undefined && !(Number.isInteger(p.price) && p.price > 0)) flag(ctx, ['plans', i, 'price'], 'price は正の整数（円）');
+      });
+    }
+    for (const k of ['supersedes', 'supersededBy']) {
+      if (b[k] !== undefined && !(Array.isArray(b[k]) && b[k].every((x) => typeof x === 'string' && x))) flag(ctx, [k], `${k} は書籍 id の配列`);
+    }
   });
 
 /** Kindle の 1 冊（id は kindle-<書籍 id の小文字>） */

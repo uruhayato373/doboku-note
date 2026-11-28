@@ -14,6 +14,7 @@ import { datasetPath } from './datasets.mjs';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { Product } from './dataset-schemas-config-business.mjs';
 import { listFiles } from './fs-walk.mjs';
+import { supersedeErrors } from './kindle-catalog.mjs';
 
 export { Product };
 export const ROOT = REPO_ROOT;
@@ -93,6 +94,7 @@ export function loadProducts() {
     const orders = products.filter((p) => p.channel === ch).map((p) => p.order);
     if (new Set(orders).size !== orders.length) errors.push(`${PRODUCTS_REL}: ${ch} の order が重複`);
   }
+  for (const e of supersedeErrors(products.filter((p) => p.channel === 'kindle').map((p) => p.catalog))) errors.push(`${PRODUCTS_REL}: Kindle の置き換え ${e}`);
   if (!errors.length && raw !== canonicalFile(products, channels, articlePrices)) errors.push(`${PRODUCTS_REL}: 正規化されていない（npm run product -- fmt）`);
   return { products, channels, articlePrices, errors };
 }
@@ -113,6 +115,27 @@ export function saveProducts(list, { channels: nextChannels, articlePrices: next
 
 export function saveProduct(product) {
   return saveProducts([product]);
+}
+
+/**
+ * 新しい商品を足す（npm run product -- add）。既にある id は足さない（書き換えは set）。
+ * Kindle とココナラは order が同じチャネルの中で重ならないこと。問題があれば throw して書かない
+ */
+export function addProducts(list) {
+  const next = list.map((p) => Product.parse(p));
+  const { products } = loadProducts();
+  const ids = new Set(products.map((p) => p.id));
+  const seen = new Set();
+  for (const p of next) {
+    if (ids.has(p.id)) throw new Error(`既にある商品: ${p.id}（書き換えは npm run product -- set）`);
+    if (seen.has(p.id)) throw new Error(`同じ id を 2 回足そうとした: ${p.id}`);
+    seen.add(p.id);
+  }
+  for (const ch of ['kindle', 'coconala']) {
+    const orders = [...products, ...next].filter((p) => p.channel === ch).map((p) => p.order);
+    if (new Set(orders).size !== orders.length) throw new Error(`${ch} の order が重なる（足す商品の order を変える）`);
+  }
+  return saveProducts(next);
 }
 
 /** 正本を正規化して書き直す（型エラーの商品は落とさないよう、問題があれば書かない） */

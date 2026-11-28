@@ -8,6 +8,7 @@ import {
   mapIgStatus,
   mapYoutubeSchedule,
   mapBacklogDue,
+  mapKindleCatalog,
   reconcileXPlan,
   buildMonthMatrix,
   groupByDay,
@@ -316,4 +317,23 @@ test('mapExperiments: 打ち切った実験（abandoned）は次の確認日が�
     { id: 'EXP-B', status: 'running', next_check_date: '2026-10-10', title: '進行中' },
   ], 'data/business/experiments.json', '2026-10-03');
   assert.deepEqual(ex.map((e) => e.id), ['experiments:EXP-B']);
+});
+
+// --- mapKindleCatalog（Kindle の実績と予定） -----------------------------------
+
+test('mapKindleCatalog: 提出日・公開日は実績、plans は予定（過ぎたら overdue）で、価格と操作の名前を出す', () => {
+  const ev = mapKindleCatalog([
+    { id: 'c-04', title: '土質', publishedDate: '2026-07-27', plans: [
+      { action: 'replace-manuscript', date: '2027-02-01' },
+      { action: 'reprice', date: '2026-11-01', price: 1650, note: '値下げ' },
+    ] },
+  ], 'config/products.json', '2026-11-28');
+  assert.equal(ev.length, 3);
+  const posted = ev.find((e) => e.status === 'posted');
+  assert.equal(posted.date, '2026-07-27');
+  const plans = ev.filter((e) => e.ref.includes('/plans/'));
+  assert.deepEqual(plans.map((e) => [e.date, e.status]), [['2026-11-01', 'overdue'], ['2027-02-01', 'planned']]);
+  assert.match(plans[0].label, /価格変更 ¥1,650: 土質/);
+  assert.equal(plans[0].detail, '値下げ');
+  assert.equal(new Set(ev.map((e) => e.id)).size, 3);
 });

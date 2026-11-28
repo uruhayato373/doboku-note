@@ -13,7 +13,15 @@ import {
   coverMediaUrl,
   artifactRelPaths,
   ROYALTIES_PATH,
+  KINDLE_STATUS_LABELS,
+  KINDLE_PLAN_LABELS,
+  plansOf,
+  nextPlanOf,
+  specContents,
+  royaltyHistoryOf,
+  kindleSpecPath,
 } from '../../../../scripts/lib/kindle-catalog.mjs';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 
 /**
  * kindle.ts — `/product/status?ch=kindle`（read-only）の表示モデル。
@@ -55,6 +63,33 @@ export interface KindleBookView {
   coverUrl: string | null;
   rebuildable: boolean;
   freshness: 'fresh' | 'stale' | 'unknown';
+  /** 状態の日本語（制作中・出品できる・販売中・販売停止 など） */
+  statusLabel: string;
+  /** 正本の series（シリーズの名前）と巻の番号。一覧はこの順でまとめる */
+  seriesName: string;
+  seriesVolume: number | null;
+  /** 日本の受取率（0.7 / 0.35）。無ければ null */
+  royaltyRate: number | null;
+  plans: KindlePlanView[];
+  /** まだ来ていない最初の予定（無ければ過ぎた最後の予定）。overdue=予定日を過ぎた */
+  nextPlan: (KindlePlanView & { overdue: boolean }) | null;
+  supersedes: string[];
+  supersededBy: string[];
+  versionHistory: Array<{ version: string; date: string; change: string }>;
+  priceHistory: Array<Record<string, unknown>>;
+  /** spec.json の sources（収録記事）。spec の無い本（A 系）は null */
+  contents: Array<{ path: string; heading: string; chars: number; missing: boolean }> | null;
+  /** 月ごとの受取（royalties.json の全月）と累計 */
+  royaltyMonths: Array<{ month: string; ebook: number; kenp: number; royalty: number; estimated: boolean }>;
+  royaltyTotal: number;
+}
+
+export interface KindlePlanView {
+  action: string;
+  actionLabel: string;
+  date: string;
+  price: number | null;
+  note: string | null;
 }
 
 export interface KindleRoyaltyView {
@@ -83,6 +118,9 @@ export interface KindleView {
     staleCount: number;
     unknownCount: number;
     notRebuildableCount: number;
+    /** 予定を持つ冊数と、予定日を過ぎた冊数 */
+    plannedCount: number;
+    overdueCount: number;
   };
   /** git log 取得の成否。false なら freshness は全冊 unknown ＝ stale=0 を健全と読まない。 */
   freshnessOk: boolean;
@@ -141,6 +179,27 @@ function readSpecFile(relPath: string): object | null {
   }
 }
 
+function readRepoText(relPath: string): string | null {
+  try {
+    return readFileSync(repoPath(...relPath.split('/')), 'utf8');
+  } catch {
+    return null;
+  }
+}
+
+function planView(p: Record<string, unknown>): KindlePlanView {
+  const action = String(p.action ?? '');
+  return {
+    action,
+    actionLabel: (KINDLE_PLAN_LABELS as Record<string, string>)[action] ?? action,
+    date: String(p.date ?? ''),
+    price: typeof p.price === 'number' ? p.price : null,
+    note: typeof p.note === 'string' ? p.note : null,
+  };
+}
+
+const strings = (v: unknown): string[] => (Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : []);
+
 function loadRoyaltiesJson(): unknown | null {
   if (!existsSync(ROYALTIES_PATH)) return null;
   try {
@@ -161,6 +220,9 @@ export async function loadKindleView(): Promise<KindleView> {
   const freshness = freshnessOk
     ? estimateFreshness(books, pathDateMap, readSpecFile)
     : { staleIds: [] as string[], unknownIds: books.map((b: { id: string }) => b.id), perBook: {} as Record<string, { freshness: string }> };
+
+  const royaltiesJson = loadRoyaltiesJson();
+  const todayKey = todayJst();
 
   const bookViews: KindleBookView[] = books.map((b: Record<string, unknown>) => {
     const inv = invById.get(b.id as string) as
@@ -186,13 +248,21 @@ export async function loadKindleView(): Promise<KindleView> {
       coverUrl: coverMediaUrl(b),
       rebuildable: inv?.rebuildable ?? false,
       freshness: f?.freshness ?? 'unknown',
+      ...ledgerFields(b, royaltiesJson, todayKey),
     };
   });
+  // シリーズの名前 → 巻の番号の順にまとめる（同じシリーズの中で巻の番号が無い本は正本の order の順のまま後ろ）
+  const seriesFirst = new Map<string, number>();
+  bookViews.forEach((b, i) => { if (!seriesFirst.has(b.seriesName)) seriesFirst.set(b.seriesName, i); });
+  const indexOf = new Map(bookViews.map((b, i) => [b.id, i]));
+  bookViews.sort((a, b) =>
+    (seriesFirst.get(a.seriesName)! - seriesFirst.get(b.seriesName)!)
+    || ((a.seriesVolume ?? Number.MAX_SAFE_INTEGER) - (b.seriesVolume ?? Number.MAX_SAFE_INTEGER))
+    || (indexOf.get(a.id)! - indexOf.get(b.id)!));
 
   const byStatus: Record<string, number> = {};
   for (const b of bookViews) byStatus[b.status] = (byStatus[b.status] ?? 0) + 1;
 
-  const royaltiesJson = loadRoyaltiesJson();
   const royalties = joinRoyalties(books, royaltiesJson) as KindleRoyaltyView;
 
   const relatedDocs: KindleRelatedDoc[] = loadProjectEntries()
@@ -207,10 +277,36 @@ export async function loadKindleView(): Promise<KindleView> {
       staleCount: freshness.staleIds.length,
       unknownCount: freshness.unknownIds.length,
       notRebuildableCount: bookViews.filter((b) => !b.rebuildable).length,
+      plannedCount: bookViews.filter((b) => b.plans.length > 0).length,
+      overdueCount: bookViews.filter((b) => b.nextPlan?.overdue).length,
     },
     freshnessOk,
     royalties,
     relatedDocs,
+  };
+}
+
+/** 台帳の欄（状態の日本語・シリーズ・予定・置き換え・履歴・収録記事・受取の推移）を表示用に整える */
+function ledgerFields(b: Record<string, unknown>, royaltiesJson: unknown, todayKey: string) {
+  const plans = (plansOf(b) as Record<string, unknown>[]).map(planView);
+  const next = nextPlanOf(b, todayKey) as Record<string, unknown> | null;
+  const spec = readSpecFile(kindleSpecPath(b.id as string));
+  const history = royaltyHistoryOf(b.id as string, royaltiesJson) as { months: KindleBookView['royaltyMonths']; total: number };
+  const status = (b.status as string) ?? 'unknown';
+  return {
+    statusLabel: (KINDLE_STATUS_LABELS as Record<string, string>)[status] ?? status,
+    seriesName: (b.series as string) ?? '',
+    seriesVolume: typeof b.seriesVolume === 'number' ? b.seriesVolume : null,
+    royaltyRate: typeof b.royalty === 'number' ? b.royalty : null,
+    plans,
+    nextPlan: next ? { ...planView(next), overdue: String(next.date) < todayKey } : null,
+    supersedes: strings(b.supersedes),
+    supersededBy: strings(b.supersededBy),
+    versionHistory: Array.isArray(b.versionHistory) ? (b.versionHistory as KindleBookView['versionHistory']) : [],
+    priceHistory: Array.isArray(b.priceHistory) ? (b.priceHistory as KindleBookView['priceHistory']) : [],
+    contents: spec ? (specContents(spec, readRepoText) as KindleBookView['contents']) : null,
+    royaltyMonths: history.months,
+    royaltyTotal: history.total,
   };
 }
 

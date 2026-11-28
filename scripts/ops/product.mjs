@@ -6,6 +6,8 @@
  *   npm run product -- list [--qualification <id>] [--tier pack|magazine|single]   # 一覧（id・層・系列・価格・収録数）
  *   npm run product -- show <id>                                                   # 1 商品の正本を表示
  *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'（Kindle は kindle-<書籍id>）
+ *   npm run product -- add <JSONファイル>                                            # 新しい商品を足す（1 件のオブジェクトか配列）。既にある id は止まる（書き換えは set）
+ *                                                                                  #   Kindle の新しい巻は catalog.status "draft" と catalog.plans（action・date）を持たせて足す
  *   npm run product -- add-member <id> <article.md> [...]  / remove-member <id> <article.md> [...]
  *   npm run product -- fmt                                                          # 正本ファイルを正規化して書き直す
  *   npm run product -- gen [--check]                                                # 生成物を書く: note-magazines.ts の生成ブロック・Kindle の catalog.json・ココナラの coconala-services.ts・
@@ -21,7 +23,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
-  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, formatProducts, canonicalJson,
+  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, addProducts, formatProducts, canonicalJson,
   renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeCoconalaBlock, COCONALA_TS, syncArticlePrices, syncMagazineTexts, setArticlePrices,
 } from '../lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from '../lib/product-lineup.mjs';
@@ -269,6 +271,23 @@ switch (cmd) {
     console.log(`[product] ${relative(ROOT, saveProduct(p))}`);
     // ココナラの coconala-services.ts は正本からの生成物なので、書き換えたらその場で作り直す
     if (p.channel === 'coconala' && writeCoconalaBlock()) console.log(`[product] ${relative(ROOT, COCONALA_TS)}`);
+    break;
+  }
+  case 'add': {
+    const file = argv[1] ?? die('使い方: add <JSONファイル>（1 件のオブジェクトか配列）');
+    let list;
+    try {
+      const json = JSON.parse(readFileSync(file, 'utf8'));
+      list = Array.isArray(json) ? json : [json];
+    } catch (e) {
+      die(`JSON を読めない: ${file}（${e.message}）`);
+    }
+    if (!list.length) die('足す商品が 0 件', 1);
+    try {
+      console.log(`[product] ${relative(ROOT, addProducts(list))}  ${list.length} 件を足した: ${list.map((p) => p.id).join(', ')}`);
+    } catch (e) {
+      die(e.message, 1);
+    }
     break;
   }
   case 'add-member':
