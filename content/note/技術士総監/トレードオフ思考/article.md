@@ -231,7 +231,7 @@ cover:
 
 - **適用条件**: 経済性管理と安全管理・情報管理・社会環境管理の対立すべて。資源制約下での優先順位付けが必要な場合
 - **答案フレーズ例**: 「[リスクマトリクス](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk-map-matrix?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking&utm_term=n1b325d339f59)（発生頻度 × 影響度）で重大リスクを 3 件抽出し、対策投資額を 7:2:1 の比率で配分する」
-- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・[FMEA](https://doboku-note.com/exam/pe-comprehensive-management/keywords/fmea?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking&utm_term=n1b325d339f59)）**と配分根拠** を示さないと採点者には届きません
+- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・[FMEA](https://doboku-note.com/exam/pe-comprehensive-management/keywords/fmea?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking&utm_term=n1b325d339f59)）**と配分根拠** を示さないと読み手には届きません
 
 下図は、この 5 つのフレームが 10 の管理ペアに対してどう適用できるかをまとめたもの。
 

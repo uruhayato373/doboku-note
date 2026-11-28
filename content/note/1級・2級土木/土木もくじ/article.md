@@ -155,7 +155,7 @@ https://note.com/dobokunote/m/md29a34906314
 
 ### まず読む（1級・2級共通）
 
-- [落ちる施工経験記述 診断｜模範解答サンプル](https://note.com/dobokunote/n/nd1c0e564ef10) — 落ちる答案の型を採点者視点で診断＋1級・2級の模範解答サンプル
+- [落ちる施工経験記述 診断｜模範解答サンプル](https://note.com/dobokunote/n/nd1c0e564ef10) — 落ちる答案の型を読み手の視点で診断＋1級・2級の模範解答サンプル
 - [経験記述は予想問題で書く練習をする](https://note.com/dobokunote/n/n1a0cef1de78b) — 読むだけで終わらせず、手を動かして書けるようにする進め方
 - [独学の経験記述添削、その限界](https://note.com/dobokunote/n/nb9b9a20106f0) — 自己採点で直せる所と、第三者の添削でしか直らない所の切り分け
 

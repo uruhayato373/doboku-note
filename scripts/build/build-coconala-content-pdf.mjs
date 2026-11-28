@@ -77,8 +77,8 @@ const PRODUCTS = {
     articles: ['品質管理', '安全管理', '工程管理', '施工計画', '環境対策'].map((t, i) => ({
       src: `1級土木-施工経験記述-完成答案集/${t}/article.md`,
       out: `coconala-C2-完成答案-${String(i + 1).padStart(2, '0')}-${t}`,
-      // H1・note-intro をスキップし「採点者が見るポイント」から
-      includeFrom: '^## .+の答案で採点者が見るポイント',
+      // H1・note-intro をスキップし「答案の自己点検ポイント」から
+      includeFrom: '^## .+の答案の自己点検ポイント',
     })),
   },
   // C3: 2級 完成答案集（3テーマ）
@@ -87,7 +87,7 @@ const PRODUCTS = {
     articles: ['品質管理', '安全管理', '工程管理'].map((t, i) => ({
       src: `2級土木-施工経験記述-完成答案集/${t}/article.md`,
       out: `coconala-C3-2級完成答案-${String(i + 1).padStart(2, '0')}-${t}`,
-      includeFrom: '^## .+の答案で採点者が見るポイント',
+      includeFrom: '^## .+の答案の自己点検ポイント',
     })),
   },
   // C4: 1級 過去問模範答案集（R03-R07・年度別）

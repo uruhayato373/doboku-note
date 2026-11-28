@@ -103,7 +103,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 この置き換え作業には、骨格のしっかりした完成答案が手元に必要です。安全・品質・工程の3管理それぞれに、複数工種のフル完成答案をまとめた有料マガジンを用意しています。
 
-各答案には「自分の現場への置換ガイド」と「採点者が減点する箇所」を付けており、まさにこの記事の置き換え作業をそのまま進められる構成です（丸写しは失格につながるため、必ず自分の経験に置き換える前提の教材です）。
+各答案には「自分の現場への置換ガイド」と「答案で避けたい箇所」を付けており、まさにこの記事の置き換え作業をそのまま進められる構成です（丸写しは失格につながるため、必ず自分の経験に置き換える前提の教材です）。
 
 https://note.com/dobokunote/m/m1881a9578027
 
@@ -117,7 +117,7 @@ https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-g
 
 https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples
 
-**2級土木 施工経験記述 完成答案集**（置換ガイド・採点者視点つきフル答案）
+**2級土木 施工経験記述 完成答案集**（置換ガイド・読み手の視点つきフル答案）
 
 https://note.com/dobokunote/m/m1881a9578027
 
